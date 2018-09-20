@@ -1,0 +1,27 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32a.llc", line 3
+  bigs = f 0Xcafebabe9
+           ^
+Numeric constant 54491065321 is out of Word range (too large)
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32a.llc", line 4
+         (f 0xcafebabe9
+            ^
+Numeric constant 54491065321 is out of Word range (too large)
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32a.llc", line 5
+         (f 0xAaBbCcDdEeFf00
+            ^
+Numeric constant 48057234611961600 is out of Word range (too large)
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32a.llc", line 6
+            0XAaBbCcDdEeFf00))
+            ^
+Numeric constant 48057234611961600 is out of Word range (too large)
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32a.llc", line 6
+            0XAaBbCcDdEeFf00))
+                            ^
+Trailing token(s) (close parenthesis, ")") at end of input
+
+ERROR: Aborting after 5 previously reported errors
+

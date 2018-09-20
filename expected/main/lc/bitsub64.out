@@ -1,0 +1,9 @@
+-----------------------------------------
+-- not recursive
+entrypoint sub :: [Word, Word] >>= [Word]
+sub[t0, t1] =
+  t2 <- sub((t0, t1))
+  and((t2, 4294967295))
+
+-----------------------------------------
+-- Entrypoints: sub

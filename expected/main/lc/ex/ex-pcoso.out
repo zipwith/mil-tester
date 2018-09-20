@@ -1,0 +1,67 @@
+data Dup2
+  = Dup2 (Bit 3) (Bit 3)
+
+data Dup0
+  = Dup0 (Bit 7) (Bit 7)
+
+data Dup1
+  = Dup1 (Bit 8) (Bit 8)
+
+-----------------------------------------
+-- not recursive
+b68 :: [Dup0] >>= [Dup0]
+b68[t0] =
+  t1 <- Dup0 0 t0
+  t2 <- Dup0 1 t0
+  Dup0(t2, t1)
+
+-----------------------------------------
+-- not recursive
+k45 :: {} [Dup0] ->> [Dup0]
+k45{} t0 = b68[t0]
+
+-----------------------------------------
+-- not recursive
+swap :: [Dup0] ->> [Dup0]
+swap <-
+  k45{}
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Dup0] ->> [Dup0]
+swap7 <-
+  return swap
+
+-----------------------------------------
+-- not recursive
+b681 :: [Dup1] >>= [Dup1]
+b681[t0] =
+  t1 <- Dup1 0 t0
+  t2 <- Dup1 1 t0
+  Dup1(t2, t1)
+
+-----------------------------------------
+-- not recursive
+k451 :: {} [Dup1] ->> [Dup1]
+k451{} t0 = b681[t0]
+
+-----------------------------------------
+-- not recursive
+s1 :: [Dup1] ->> [Dup1]
+s1 <-
+  k451{}
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Dup1] ->> [Dup1]
+swap8 <-
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Dup2
+d1 <-
+  Dup2(B001, B110)
+
+-----------------------------------------
+-- Entrypoints: swap7 swap8 d1

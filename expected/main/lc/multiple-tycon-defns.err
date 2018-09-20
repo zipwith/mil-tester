@@ -1,0 +1,7 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/multiple-tycon-defns.llc", line 3
+  data T = A | B
+  ^
+Multiple definitions for "T"
+
+ERROR: Aborting after previously reported error
+

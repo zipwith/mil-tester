@@ -1,0 +1,234 @@
+bitdata B /1
+  = F [ B0 ]
+    -- predF(x :: Bit 1) = x == 0b0
+  | T [ B1 ]
+    -- predT(x :: Bit 1) = x == 0b1
+
+bitdata Dup4 /14
+  = Dup6 [ Dup60 :: Bit 7 | Dup61 :: Bit 7 ]
+    -- predDup6(x :: Bit 14) = true
+
+bitdata Either2 /7
+  = Left3 [ B000 | Left30 :: Bit 3 | B0 ]
+    -- predLeft3(x :: Bit 7) = (x & 0b1) == 0b0
+  | Right4 [ Right40 :: Bit 6 | B1 ]
+    -- predRight4(x :: Bit 7) = (x & 0b1) == 0b1
+
+bitdata Maybe1 /2
+  = Nothing1 [ B11 ]
+    -- predNothing1(x :: Bit 2) = x == 0b11
+  | Just2 [ Just20 :: Ix 3 ]
+    -- predJust2(x :: Bit 2) = x != 0b11
+
+bitdata Pair0 /7
+  = Pair0 [ Pair00 :: Bit 3 | Pair01 :: Bit 4 ]
+    -- predPair0(x :: Bit 7) = true
+
+bitdata Dup3 /14
+  = Dup5 [ Dup50 :: Either2 | Dup51 :: Either2 ]
+    -- predDup5(x :: Bit 14) = true
+
+bitdata Rainbow /3
+  = Red [ B000 ]
+    -- predRed(x :: Bit 3) = x == 0b0
+  | Orange [ B001 ]
+    -- predOrange(x :: Bit 3) = x == 0b1
+  | Green [ B010 ]
+    -- predGreen(x :: Bit 3) = x == 0b10
+  | Blue [ B011 ]
+    -- predBlue(x :: Bit 3) = x == 0b11
+  | Indigo [ B100 ]
+    -- predIndigo(x :: Bit 3) = x == 0b100
+  | Violet [ B101 ]
+    -- predViolet(x :: Bit 3) = x == 0b101
+
+-----------------------------------------
+-- not recursive
+s3 :: Pair0.Pair0
+s3 <-
+  Pair0.Pair0(B001, X8)
+
+-----------------------------------------
+-- not recursive
+entrypoint origin :: Pair0
+origin <-
+  Pair0(s3)
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe1
+Nothing <-
+  Nothing1()
+
+-----------------------------------------
+-- not recursive
+entrypoint no :: Maybe1
+no <-
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+s4 :: Either2.Right4
+s4 <-
+  Either2.Right4(B01_1111)
+
+-----------------------------------------
+-- not recursive
+s1 :: Either2
+s1 <-
+  Right4(s4)
+
+-----------------------------------------
+-- not recursive
+s5 :: Either2.Left3
+s5 <-
+  Either2.Left3(B101)
+
+-----------------------------------------
+-- not recursive
+s2 :: Either2
+s2 <-
+  Left3(s5)
+
+-----------------------------------------
+-- not recursive
+s6 :: Dup3.Dup5
+s6 <-
+  Dup3.Dup5(s2, s1)
+
+-----------------------------------------
+-- not recursive
+entrypoint elf :: Dup3
+elf <-
+  Dup5(s6)
+
+-----------------------------------------
+-- not recursive
+b81 :: [Dup4] >>= [Dup4]
+b81[t0] =
+  t1 <- Dup6 0 t0
+  t2 <- Dup4.Dup6 0 t1
+  t3 <- Dup4.Dup6 1 t1
+  t4 <- Dup4.Dup6(t3, t2)
+  Dup6(t4)
+
+-----------------------------------------
+-- not recursive
+k53 :: {} [Dup4] ->> [Dup4]
+k53{} t0 = b81[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint swap :: [Dup4] ->> [Dup4]
+swap <-
+  k53{}
+
+-----------------------------------------
+-- not recursive
+Green :: Rainbow
+Green <-
+  Green()
+
+-----------------------------------------
+-- not recursive
+entrypoint color :: Rainbow
+color <-
+  return Green
+
+-----------------------------------------
+-- not recursive
+T :: B
+T <-
+  T()
+
+-----------------------------------------
+-- not recursive
+entrypoint flag :: B
+flag <-
+  return T
+
+-----------------------------------------
+-- not recursive
+entrypoint wide :: Bit 64
+wide <-
+  return X0123_4567_89ab_cdef
+
+-----------------------------------------
+-- not recursive
+b76 :: [Word, Word, Word] >>= [Word]
+b76[t0, t1, t2] =
+  t3 <- add((t1, t2))
+  add((t0, t3))
+
+-----------------------------------------
+-- not recursive
+k50 :: {Word, Word} [Word] ->> [Word]
+k50{t0, t1} t2 = b76[t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+k51 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k51{t0} t1 = k50{t1, t0}
+
+-----------------------------------------
+-- not recursive
+k52 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k52{} t0 = k51{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint add3 :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+add3 <-
+  k52{}
+
+-----------------------------------------
+-- not recursive
+k48 :: {Word} [Word] ->> [Word]
+k48{t0} t1 = return t0
+
+-----------------------------------------
+-- not recursive
+k49 :: {} [Word] ->> [[Word] ->> [Word]]
+k49{} t0 = k48{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint const :: [Word] ->> [[Word] ->> [Word]]
+const <-
+  k49{}
+
+-----------------------------------------
+-- not recursive
+b69 :: [Word] >>= [Word]
+b69[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b70 :: [Word] >>= [Word]
+b70[t0] =
+  t1 <- add((t0, -1))
+  t2 <- b97[t1]
+  t3 <- add((t0, -2))
+  t4 <- b97[t3]
+  add((t2, t4))
+b97 :: [Word] >>= [Word]
+b97[t0] =
+  t1 <- primSlt((t0, 2))
+  if t1
+    then b69[t0]
+    else b70[t0]
+
+-----------------------------------------
+-- not recursive
+k47 :: {} [Word] ->> [Word]
+k47{} t0 = b97[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint fib :: [Word] ->> [Word]
+fib <-
+  k47{}
+
+-----------------------------------------
+-- Entrypoints: origin no elf swap color flag wide add3 const fib

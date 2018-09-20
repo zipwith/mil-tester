@@ -1,0 +1,30 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0b0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0b1
+
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+-----------------------------------------
+-- not recursive
+Nothing :: forall (a :: *). Maybe a
+Nothing <-
+  Nothing()
+
+-----------------------------------------
+-- not recursive
+entrypoint bar :: Maybe Bool
+bar <-
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: Maybe Word
+foo <-
+  Just(3)
+
+-----------------------------------------
+-- Entrypoints: bar foo

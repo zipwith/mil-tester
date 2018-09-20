@@ -1,0 +1,29 @@
+-------
+.lc: identity-plain    ./milc -m -p
+entrypoint id
+id = \x -> x
+
+-------
+.lc: identity-pc       ./milc -m -pc
+entrypoint id
+id = \x -> x
+
+-------
+.lc: identity-po       ./milc -m -po
+entrypoint id
+id = \x -> x
+
+-------
+.lc: identity-pco      ./milc -m -pco
+entrypoint id
+id = \x -> x
+
+-------
+.lc: identity-spec     ./milc -m -pcoso
+require "prelude.lc"
+id = \x -> x
+entrypoint idWord :: Word -> Word
+idWord = id
+entrypoint idBool :: Bool -> Bool
+idBool = id
+-------

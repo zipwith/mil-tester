@@ -1,0 +1,7 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-lhs3.llc", line 3
+  data T a a = A | B
+         ^
+Type parameter "a" is used multiple times
+
+ERROR: Aborting after previously reported error
+

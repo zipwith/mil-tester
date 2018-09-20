@@ -1,0 +1,7 @@
+define i32 @b() {
+  br label %b
+
+b:
+  ret i32 2
+}
+

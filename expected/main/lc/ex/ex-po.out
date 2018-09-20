@@ -1,0 +1,66 @@
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
+
+data Dup (a :: *)
+  = Dup a a
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Dup (Bit 3)
+d1 <-
+  Dup(B001, B110)
+
+-----------------------------------------
+-- not recursive
+b71 :: forall (a :: *). [Dup a] >>= [Dup a]
+b71[t0] =
+  assert t0 Dup
+  t1 <- Dup 0 t0
+  t2 <- Dup 1 t0
+  Dup(t2, t1)
+
+-----------------------------------------
+-- not recursive
+b0 :: forall (a :: tuple). [] >>= a
+b0[] =
+  halt(())
+
+-----------------------------------------
+-- not recursive
+b69 :: forall (a :: *). [Dup a] >>= [Dup a]
+b69[t0] =
+  case t0 of
+    Dup -> b71[t0]
+    _ -> b0[]
+
+-----------------------------------------
+-- not recursive
+k45 :: forall (a :: *). {} [Dup a] ->> [Dup a]
+k45{} t0 = b69[t0]
+
+-----------------------------------------
+-- not recursive
+s2 :: forall (a :: *). [Dup a] ->> [Dup a]
+s2 <-
+  k45{}
+
+-----------------------------------------
+-- not recursive
+swap :: forall (arg :: *). Dup arg -> Dup arg
+swap <-
+  Func(s2)
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: Dup (Bit 8) -> Dup (Bit 8)
+swap8 <-
+  return swap
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: Dup (Bit 7) -> Dup (Bit 7)
+swap7 <-
+  return swap
+
+-----------------------------------------
+-- Entrypoints: d1 swap8 swap7

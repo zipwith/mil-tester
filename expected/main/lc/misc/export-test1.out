@@ -1,0 +1,87 @@
+data List1
+  = Nil2
+  | Cons3 Word List1
+
+data Unit
+  = Unit
+
+data ListWord0
+  = LNil0
+  | LCons1 Word ListWord0
+
+-----------------------------------------
+-- not recursive
+entrypoint LNil :: ListWord0
+LNil <-
+  LNil0()
+
+-----------------------------------------
+-- not recursive
+entrypoint LCons :: [Word, ListWord0] >>= [ListWord0]
+LCons[t0, t1] =
+  LCons1(t0, t1)
+
+-----------------------------------------
+-- not recursive
+b67 :: [] >>= [Word]
+b67[] =
+  return 0
+
+-----------------------------------------
+-- recursive
+b74 :: [List1] >>= [Word]
+b74[t0] =
+  assert t0 Cons3
+  t1 <- Cons3 0 t0
+  t2 <- Cons3 1 t0
+  t3 <- sum[t2]
+  add((t1, t3))
+entrypoint sum :: [List1] >>= [Word]
+sum[t0] =
+  case t0 of
+    Nil2 -> b67[]
+    Cons3 -> b74[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint count :: Word
+count <- area 8 (Stored Word)
+
+-----------------------------------------
+-- not recursive
+export external val :: Word
+
+-----------------------------------------
+-- not recursive
+Nil :: List1
+Nil <-
+  Nil2()
+
+-----------------------------------------
+-- not recursive
+entrypoint nil :: List1
+nil <-
+  return Nil
+
+-----------------------------------------
+-- not recursive
+entrypoint cons :: [Word, List1] >>= [List1]
+cons[t0, t1] =
+  Cons3(t0, t1)
+
+-----------------------------------------
+-- not recursive
+export external readRef {primReadRefStored 8 Word} :: [Word] ->> [[] ->> [Word]]
+
+-----------------------------------------
+-- not recursive
+export external writeRef {primWriteRefStored 8 Word} :: [Word] ->> [[Word] ->> [[] ->> [Unit]]]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  store32((count, 7))
+
+-----------------------------------------
+-- Entrypoints: LNil LCons sum count val nil cons readRef writeRef

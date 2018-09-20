@@ -1,0 +1,46 @@
+exec: export-test1   ./milc -m -pcosboro export-test.lc
+
+.lc: do-parsing      ./milc
+-- An earlier version of the parser rejected one of the following
+-- but should have accepted both; we memorialize the example here
+-- to prevent us from reintroducing that parser bug.
+entrypoint foo
+foo c d e
+   = do x <- do y <- c;
+                d;         -- remove this semicolon
+        e
+
+entrypoint bar
+bar c d e
+   = do x <- do y <- c;
+                d          -- semicolon removed!
+        e
+
+.lc: opt-example   ./milc -pcosboro -m
+-- A simple example to demonstrate the optimizer's ability to
+-- generate efficient implementations for code that is expressed
+-- using higher order functions.
+require "prelude.lc"
+  
+compose f g x = f (g x)
+succ x        = add x 1
+double x      = add x x
+
+entrypoint toOdd
+toOdd = compose succ double
+
+.lc: newtype-examples  ./milc -pcosboro -m
+-- Some examples using newtypes
+data T = MkT Word
+data S = MkS (T -> T)
+data U = MkU (S -> T)
+
+entrypoint t
+t z = MkT z
+
+entrypoint s
+s x = MkS x
+
+entrypoint u
+u y = MkU y
+

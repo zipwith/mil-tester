@@ -1,0 +1,80 @@
+bitdata Dup1 /16
+  = Dup1 [ Dup10 :: Bit 8 | Dup11 :: Bit 8 ]
+    -- predDup1(x :: Bit 16) = true
+
+bitdata Dup2 /6
+  = Dup2 [ Dup20 :: Bit 3 | Dup21 :: Bit 3 ]
+    -- predDup2(x :: Bit 6) = true
+
+bitdata Dup0 /14
+  = Dup0 [ Dup00 :: Bit 7 | Dup01 :: Bit 7 ]
+    -- predDup0(x :: Bit 14) = true
+
+-----------------------------------------
+-- not recursive
+b68 :: [Dup0] >>= [Dup0]
+b68[t0] =
+  t1 <- Dup0 0 t0
+  t2 <- Dup0.Dup0 0 t1
+  t3 <- Dup0.Dup0 1 t1
+  t4 <- Dup0.Dup0(t3, t2)
+  Dup0(t4)
+
+-----------------------------------------
+-- not recursive
+k45 :: {} [Dup0] ->> [Dup0]
+k45{} t0 = b68[t0]
+
+-----------------------------------------
+-- not recursive
+swap :: [Dup0] ->> [Dup0]
+swap <-
+  k45{}
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Dup0] ->> [Dup0]
+swap7 <-
+  return swap
+
+-----------------------------------------
+-- not recursive
+b681 :: [Dup1] >>= [Dup1]
+b681[t0] =
+  t1 <- Dup1 0 t0
+  t2 <- Dup1.Dup1 0 t1
+  t3 <- Dup1.Dup1 1 t1
+  t4 <- Dup1.Dup1(t3, t2)
+  Dup1(t4)
+
+-----------------------------------------
+-- not recursive
+k451 :: {} [Dup1] ->> [Dup1]
+k451{} t0 = b681[t0]
+
+-----------------------------------------
+-- not recursive
+s1 :: [Dup1] ->> [Dup1]
+s1 <-
+  k451{}
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Dup1] ->> [Dup1]
+swap8 <-
+  return s1
+
+-----------------------------------------
+-- not recursive
+s2 :: Dup2.Dup2
+s2 <-
+  Dup2.Dup2(B001, B110)
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Dup2
+d1 <-
+  Dup2(s2)
+
+-----------------------------------------
+-- Entrypoints: swap7 swap8 d1

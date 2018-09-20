@@ -1,0 +1,42 @@
+data Dup (a :: *)
+  = Dup a a
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Dup (Bit 3)
+d1 <-
+  Dup(B001, B110)
+
+-----------------------------------------
+-- not recursive
+b68 :: forall (a :: *). [Dup a] >>= [Dup a]
+b68[t0] =
+  t1 <- Dup 0 t0
+  t2 <- Dup 1 t0
+  Dup(t2, t1)
+
+-----------------------------------------
+-- not recursive
+k45 :: forall (a :: *). {} [Dup a] ->> [Dup a]
+k45{} t0 = b68[t0]
+
+-----------------------------------------
+-- not recursive
+swap :: forall (a :: *). [Dup a] ->> [Dup a]
+swap <-
+  k45{}
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Dup (Bit 8)] ->> [Dup (Bit 8)]
+swap8 <-
+  return swap
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Dup (Bit 7)] ->> [Dup (Bit 7)]
+swap7 <-
+  return swap
+
+-----------------------------------------
+-- Entrypoints: d1 swap8 swap7

@@ -1,0 +1,31 @@
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: Maybe0
+foo <-
+  Just1(3)
+
+-----------------------------------------
+-- not recursive
+construct_Nothing2 :: [] >>= [Word]
+construct_Nothing2[] =
+  t0 <- return 0
+  return t0
+
+-----------------------------------------
+-- not recursive
+Nothing :: Word
+Nothing <-
+  construct_Nothing2[]
+
+-----------------------------------------
+-- not recursive
+entrypoint bar :: Word
+bar <-
+  return Nothing
+
+-----------------------------------------
+-- Entrypoints: foo bar

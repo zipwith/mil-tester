@@ -1,0 +1,42 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0b0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0b1
+
+-----------------------------------------
+-- not recursive
+k43 :: {} [Word] ->> [Word]
+k43{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+id :: [Word] ->> [Word]
+id <-
+  k43{}
+
+-----------------------------------------
+-- not recursive
+entrypoint idWord :: [Word] ->> [Word]
+idWord <-
+  return id
+
+-----------------------------------------
+-- not recursive
+k431 :: {} [Bool] ->> [Bool]
+k431{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+s1 :: [Bool] ->> [Bool]
+s1 <-
+  k431{}
+
+-----------------------------------------
+-- not recursive
+entrypoint idBool :: [Bool] ->> [Bool]
+idBool <-
+  return s1
+
+-----------------------------------------
+-- Entrypoints: idWord idBool

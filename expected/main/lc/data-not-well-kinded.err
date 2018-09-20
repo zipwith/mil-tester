@@ -1,0 +1,32 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 3
+  data R   = MkR (R R)
+                  ^
+Cannot unify kinds "* -> _" and "*"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 4
+  data S a = B (a a)
+                ^
+Cannot unify kinds "_ -> _" and "_"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 5
+  data T (a :: * -> *) = A a
+                           ^
+Cannot unify kinds "*" and "* -> *"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 6
+  data U f x = U (f x) (x f)
+                        ^
+Cannot unify kinds "(_ -> *) -> _" and "_"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 7
+  data V f a = V ((f :: nat -> *) (a :: *))
+                     ^
+Cannot unify kinds "* -> _" and "nat -> *"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-not-well-kinded.llc", line 8
+  data W a   = One W
+                   ^
+Cannot unify kinds "*" and "_ -> *"
+
+ERROR: Aborting after 6 previously reported errors
+

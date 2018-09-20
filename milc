@@ -1,0 +1,3 @@
+#!/bin/bash
+java -jar ../mil-tools/mil-tools.jar -i../mil-tools/lib:code $*
+exit $?

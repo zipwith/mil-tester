@@ -1,0 +1,33 @@
+-------
+.mil: no-entrypoint       ./milc -m
+-- This program should give an error because there
+-- are no defined entrypoints:
+v <- return 42
+
+-------
+.mil: top-level-atom    ./milc -m
+-- A minimal top level definition.
+entrypoint v
+v <- return 42
+
+-------
+.mil: top-level-prim    ./milc -m -p
+require "basic.mil"
+entrypoint v
+v <- mul((6, 7))
+
+-------
+.mil: top-level-prim-opt  ./milc -m -po
+require "basic.mil"
+entrypoint v
+v <- mul((6, 7))
+
+-------
+.mil: unoptimized-to-llvm ./milc -l -pcsr
+-- An example to check that the LLVM code generator can handle
+-- unoptimized MIL code
+entrypoint b
+b[] = y <- return 2
+      return y
+
+-------

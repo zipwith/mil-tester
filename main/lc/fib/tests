@@ -1,0 +1,7 @@
+-------
+exec: fib-exec ./milc --standalone -x fib.lc
+exec: fib1     ./milc --mil-main=main -m fib.lc -p
+exec: fib2     ./milc --mil-main=main -m fib.lc -pco
+exec: fib3     ./milc --mil-main=main -m fib.lc -pcosbo
+exec: fib4     ./milc --mil-main=main -m fib.lc -pcosboro
+-------

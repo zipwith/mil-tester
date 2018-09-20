@@ -1,0 +1,17 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/unbound-type-constructor.llc", line 3
+  data T   = Pair X X
+                  ^
+The type constructor "X" is not in scope
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/unbound-type-constructor.llc", line 3
+  data T   = Pair X X
+                    ^
+The type constructor "X" is not in scope
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/unbound-type-constructor.llc", line 4
+  data S a = A | B | C (S A)
+                          ^
+The type constructor "A" is not in scope
+
+ERROR: Aborting after 3 previously reported errors
+

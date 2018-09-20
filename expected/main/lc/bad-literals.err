@@ -1,0 +1,77 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 1
+  bad    = f 0o8
+             ^
+Invalid digit, '8', in octal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 2
+           (f 0o10009
+              ^
+Invalid digit, '9', in octal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 3
+           (f 0O100080
+              ^
+Invalid digit, '8', in octal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 4
+           (f 0xg
+              ^
+Missing digits for hexadecimal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 5
+           (f 0Xg
+              ^
+Missing digits for hexadecimal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 7
+           (f 0b32
+              ^
+Invalid digit, '3', in binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 8
+           (f 0b45
+              ^
+Invalid digit, '4', in binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 9
+           (f 0b00000100002
+              ^
+Invalid digit, '2', in binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 10
+           (f 0b_
+              ^
+Missing digits for binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 11
+           (f 0x
+              ^
+Missing digits for hexadecimal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 13
+           (f 0X
+              ^
+Missing digits for hexadecimal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 14
+           (f 0b
+              ^
+Missing digits for binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 15
+           (f 0B
+              ^
+Missing digits for binary literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 16
+           (f 0o
+              ^
+Missing digits for octal literal
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/bad-literals.llc", line 17
+              0O)))))))))))))
+              ^
+Missing digits for octal literal
+
+ERROR: Aborting after 15 previously reported errors
+

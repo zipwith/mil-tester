@@ -1,0 +1,26 @@
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Word] >>= [Word]
+swap7[t0] =
+  t1 <- lshr((t0, 7))
+  t2 <- shl((t0, 7))
+  t3 <- and((t2, 16256))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Word] >>= [Word]
+swap8[t0] =
+  t1 <- lshr((t0, 8))
+  t2 <- shl((t0, 8))
+  t3 <- and((t2, 65280))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Word
+d1 <-
+  return 14
+
+-----------------------------------------
+-- Entrypoints: swap7 swap8 d1

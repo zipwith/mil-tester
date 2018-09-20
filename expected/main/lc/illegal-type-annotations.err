@@ -1,0 +1,22 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-type-annotations.llc", line 3
+  q  :: f a -> f      -- multiple kinds for f
+            ^
+Cannot unify kinds "(_ -> *) -> _" and "* -> *"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-type-annotations.llc", line 6
+  r  :: f a -> a f    -- ill-kinded
+        ^
+Cannot unify kinds "(_ -> _) -> _" and "_"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-type-annotations.llc", line 9
+  s, s :: a -> a     -- multiple defns for same var
+       ^
+Multiple type signature declarations for "s"
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-type-annotations.llc", line 15
+  t    :: b -> b
+       ^
+Multiple type signature declarations for "t"
+
+ERROR: Aborting after 4 previously reported errors
+

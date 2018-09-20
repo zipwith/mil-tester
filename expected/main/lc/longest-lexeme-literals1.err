@@ -1,0 +1,7 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/longest-lexeme-literals1.llc", line 1
+  notso = 0xfffz   -- lexer sees "0xfff z"
+               ^
+"z" is not in scope
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,20 @@
+-----------------------------------------
+-- not recursive
+entrypoint t :: [Word] >>= [Word]
+t[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint s :: [[Word] ->> [Word], Word] >>= [Word]
+s[t0, t1] =
+  t0 @ t1
+
+-----------------------------------------
+-- not recursive
+entrypoint u :: [[[Word] ->> [Word]] ->> [Word], [Word] ->> [Word]] >>= [Word]
+u[t0, t1] =
+  t0 @ t1
+
+-----------------------------------------
+-- Entrypoints: t s u

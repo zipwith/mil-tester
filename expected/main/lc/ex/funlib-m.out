@@ -1,0 +1,108 @@
+-----------------------------------------
+-- not recursive
+b66 :: [] >>= [Word]
+b66[] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+b72 :: [] >>= [Word]
+b72[] =
+  return 0
+
+-----------------------------------------
+-- recursive
+b118 :: [Word] >>= [Word]
+b118[t0] =
+  t1 <- primEq((t0, 1))
+  if t1
+    then b66[]
+    else b75[t0]
+b75 :: [Word] >>= [Word]
+b75[t0] =
+  t1 <- add((t0, -1))
+  t2 <- fib[t1]
+  t3 <- add((t0, -2))
+  t4 <- fib[t3]
+  add((t2, t4))
+entrypoint fib :: [Word] >>= [Word]
+fib[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b72[]
+    else b118[t0]
+
+-----------------------------------------
+-- not recursive
+b80 :: [Word] >>= [Word]
+b80[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b87 :: [Word, Word, Word] >>= [Word]
+b87[t0, t1, t2] =
+  t3 <- add((t0, t1))
+  t4 <- add((t2, -1))
+  t5 <- primEq((t4, 0))
+  if t5
+    then b80[t1]
+    else b87[t1, t3, t4]
+
+-----------------------------------------
+-- not recursive
+b124 :: [] >>= [Word]
+b124[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint itfib :: [Word] >>= [Word]
+itfib[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b124[]
+    else b87[0, 1, t0]
+
+-----------------------------------------
+-- recursive
+b67 :: [Word] >>= [Word]
+b67[t0] =
+  t1 <- add((t0, -1))
+  t2 <- recfac[t1]
+  mul((t0, t2))
+entrypoint recfac :: [Word] >>= [Word]
+recfac[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b66[]
+    else b67[t0]
+
+-----------------------------------------
+-- recursive
+b81 :: [Word, Word] >>= [Word]
+b81[t0, t1] =
+  t2 <- mul((t0, t1))
+  t3 <- add((t1, -1))
+  t4 <- primEq((t3, 0))
+  if t4
+    then b80[t2]
+    else b81[t2, t3]
+
+-----------------------------------------
+-- not recursive
+b126 :: [] >>= [Word]
+b126[] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint itfac :: [Word] >>= [Word]
+itfac[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b126[]
+    else b81[1, t0]
+
+-----------------------------------------
+-- Entrypoints: fib itfib recfac itfac

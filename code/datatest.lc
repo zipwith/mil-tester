@@ -1,0 +1,7 @@
+require "prelude.lc"
+
+entrypoint foo
+foo = Just 3
+
+entrypoint bar :: Maybe Bool
+bar = Nothing

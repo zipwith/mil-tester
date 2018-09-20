@@ -1,0 +1,415 @@
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
+
+data Unit
+  = Unit
+
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0b0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0b1
+
+data Proc (a :: *)
+  = Proc ([] ->> [a])
+
+-----------------------------------------
+-- not recursive
+b63 :: [Word] >>= [Unit]
+b63[t0] =
+  [] <- printWord((t0))
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint printWord1 :: {Word} [] ->> [Unit]
+printWord1{t0} [] = b63[t0]
+
+-----------------------------------------
+-- not recursive
+b61 :: [Word] >>= [Proc Unit]
+b61[t0] =
+  t1 <- printWord1{t0}
+  Proc(t1)
+
+-----------------------------------------
+-- not recursive
+k39 :: {} [Word] ->> [Proc Unit]
+k39{} t0 = b61[t0]
+
+-----------------------------------------
+-- not recursive
+b62 :: [] >>= [Word -> Proc Unit]
+b62[] =
+  t0 <- k39{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint printWord :: Word -> Proc Unit
+printWord <-
+  b62[]
+
+-----------------------------------------
+-- not recursive
+entrypoint false :: Bool
+false <-
+  False()
+
+-----------------------------------------
+-- not recursive
+entrypoint bfalse :: [] >>= [Bool]
+bfalse[] =
+  return false
+
+-----------------------------------------
+-- not recursive
+entrypoint true :: Bool
+true <-
+  True()
+
+-----------------------------------------
+-- not recursive
+entrypoint btrue :: [] >>= [Bool]
+btrue[] =
+  return true
+
+-----------------------------------------
+-- not recursive
+entrypoint bconv :: [Flag] >>= [Bool]
+bconv[t0] =
+  if t0
+    then btrue[]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+b41 :: [Word, Word] >>= [Bool]
+b41[t0, t1] =
+  t2 <- primEq((t0, t1))
+  bconv[t2]
+
+-----------------------------------------
+-- not recursive
+k26 :: {Word} [Word] ->> [Bool]
+k26{t0} t1 = b41[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b42 :: [Word] >>= [Word -> Bool]
+b42[t0] =
+  t1 <- k26{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k27 :: {} [Word] ->> [Word -> Bool]
+k27{} t0 = b42[t0]
+
+-----------------------------------------
+-- not recursive
+b43 :: [] >>= [Word -> Word -> Bool]
+b43[] =
+  t0 <- k27{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint eq :: Word -> Word -> Bool
+eq <-
+  b43[]
+
+-----------------------------------------
+-- not recursive
+b5 :: [Word, Word] >>= [Word]
+b5[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+k3 :: {Word} [Word] ->> [Word]
+k3{t0} t1 = b5[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b6 :: [Word] >>= [Word -> Word]
+b6[t0] =
+  t1 <- k3{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Word] ->> [Word -> Word]
+k4{} t0 = b6[t0]
+
+-----------------------------------------
+-- not recursive
+b7 :: [] >>= [Word -> Word -> Word]
+b7[] =
+  t0 <- k4{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint add :: Word -> Word -> Word
+add <-
+  b7[]
+
+-----------------------------------------
+-- not recursive
+b8 :: [Word, Word] >>= [Word]
+b8[t0, t1] =
+  sub((t0, t1))
+
+-----------------------------------------
+-- not recursive
+k5 :: {Word} [Word] ->> [Word]
+k5{t0} t1 = b8[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b9 :: [Word] >>= [Word -> Word]
+b9[t0] =
+  t1 <- k5{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k6 :: {} [Word] ->> [Word -> Word]
+k6{} t0 = b9[t0]
+
+-----------------------------------------
+-- not recursive
+b10 :: [] >>= [Word -> Word -> Word]
+b10[] =
+  t0 <- k6{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint sub :: Word -> Word -> Word
+sub <-
+  b10[]
+
+-----------------------------------------
+-- not recursive
+b71 :: forall (a :: *). [a] >>= [a]
+b71[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b73 :: forall (a :: *). [a] >>= [a]
+b73[t0] =
+  t1 <- return t0
+  b71[t1]
+
+-----------------------------------------
+-- not recursive
+b74 :: [] >>= [Word]
+b74[] =
+  t0 <- return 1
+  b73[t0]
+
+-----------------------------------------
+-- not recursive
+b0 :: forall (a :: tuple). [] >>= a
+b0[] =
+  halt(())
+
+-----------------------------------------
+-- not recursive
+b72 :: [] >>= [Word]
+b72[] =
+  t0 <- return 0
+  b71[t0]
+
+-----------------------------------------
+-- recursive
+b78 :: [] >>= [Word -> Word]
+b78[] =
+  t0 <- k46{}
+  Func(t0)
+k46 :: {} [Word] ->> [Word]
+k46{} t0 = b77[t0]
+b77 :: [Word] >>= [Word]
+b77[t0] =
+  t1 <- Func 0 eq
+  t2 <- t1 @ t0
+  t3 <- Func 0 t2
+  t4 <- t3 @ 0
+  case t4 of
+    True -> b72[]
+    False -> b76[t0]
+    _ -> b0[]
+b76 :: [Word] >>= [Word]
+b76[t0] =
+  t1 <- Func 0 eq
+  t2 <- t1 @ t0
+  t3 <- Func 0 t2
+  t4 <- t3 @ 1
+  case t4 of
+    True -> b74[]
+    False -> b75[t0]
+    _ -> b0[]
+b75 :: [Word] >>= [Word]
+b75[t0] =
+  t1 <- Func 0 add
+  t2 <- Func 0 fib
+  t3 <- Func 0 sub
+  t4 <- t3 @ t0
+  t5 <- Func 0 t4
+  t6 <- t5 @ 1
+  t7 <- t2 @ t6
+  t8 <- t1 @ t7
+  t9 <- Func 0 t8
+  t10 <- Func 0 fib
+  t11 <- Func 0 sub
+  t12 <- t11 @ t0
+  t13 <- Func 0 t12
+  t14 <- t13 @ 2
+  t15 <- t10 @ t14
+  t16 <- t9 @ t15
+  b73[t16]
+fib :: Word -> Word
+fib <-
+  b78[]
+
+-----------------------------------------
+-- not recursive
+b79 :: forall (a :: *). [a] >>= [a]
+b79[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b81 :: forall (a :: *). [a] >>= [a]
+b81[t0] =
+  t1 <- return t0
+  b79[t1]
+
+-----------------------------------------
+-- not recursive
+b83 :: [Word] >>= [Word]
+b83[t0] =
+  t1 <- Func 0 add
+  t2 <- Func 0 fib
+  t3 <- Func 0 sub
+  t4 <- t3 @ t0
+  t5 <- Func 0 t4
+  t6 <- t5 @ 1
+  t7 <- t2 @ t6
+  t8 <- t1 @ t7
+  t9 <- Func 0 t8
+  t10 <- Func 0 fib
+  t11 <- Func 0 sub
+  t12 <- t11 @ t0
+  t13 <- Func 0 t12
+  t14 <- t13 @ 2
+  t15 <- t10 @ t14
+  t16 <- t9 @ t15
+  b81[t16]
+
+-----------------------------------------
+-- not recursive
+b82 :: [] >>= [Word]
+b82[] =
+  t0 <- return 1
+  b81[t0]
+
+-----------------------------------------
+-- not recursive
+b84 :: [Word] >>= [Word]
+b84[t0] =
+  t1 <- Func 0 eq
+  t2 <- t1 @ t0
+  t3 <- Func 0 t2
+  t4 <- t3 @ 1
+  case t4 of
+    True -> b82[]
+    False -> b83[t0]
+    _ -> b0[]
+
+-----------------------------------------
+-- not recursive
+b80 :: [] >>= [Word]
+b80[] =
+  t0 <- return 0
+  b79[t0]
+
+-----------------------------------------
+-- not recursive
+b85 :: [Word] >>= [Word]
+b85[t0] =
+  t1 <- Func 0 eq
+  t2 <- t1 @ t0
+  t3 <- Func 0 t2
+  t4 <- t3 @ 0
+  case t4 of
+    True -> b80[]
+    False -> b84[t0]
+    _ -> b0[]
+
+-----------------------------------------
+-- not recursive
+k47 :: {} [Word] ->> [Word]
+k47{} t0 = b85[t0]
+
+-----------------------------------------
+-- not recursive
+b86 :: [] >>= [Word -> Word]
+b86[] =
+  t0 <- k47{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+fib1 :: Word -> Word
+fib1 <-
+  b86[]
+
+-----------------------------------------
+-- not recursive
+b69 :: [] >>= [Unit]
+b69[] =
+  t0 <- Func 0 printWord
+  t1 <- t0 @ 91
+  t2 <- Proc 0 t1
+  t3 <- t2 @ []
+  t4 <- Func 0 printWord
+  t5 <- Func 0 fib
+  t6 <- t5 @ 12
+  t7 <- t4 @ t6
+  t8 <- Proc 0 t7
+  t9 <- t8 @ []
+  t10 <- Func 0 printWord
+  t11 <- Func 0 fib1
+  t12 <- t11 @ 12
+  t13 <- t10 @ t12
+  t14 <- Proc 0 t13
+  t15 <- t14 @ []
+  t16 <- Func 0 printWord
+  t17 <- t16 @ 17
+  t18 <- Proc 0 t17
+  t18 @ []
+
+-----------------------------------------
+-- not recursive
+k45 :: {} [] ->> [Unit]
+k45{} [] = b69[]
+
+-----------------------------------------
+-- not recursive
+b70 :: [] >>= [Proc Unit]
+b70[] =
+  t0 <- k45{}
+  Proc(t0)
+
+-----------------------------------------
+-- not recursive
+main :: Proc Unit
+main <-
+  b70[]
+
+-----------------------------------------
+-- Entrypoints:

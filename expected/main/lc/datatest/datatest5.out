@@ -1,0 +1,30 @@
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+bitdata Maybe1 /2
+  = Nothing2 [ B00 ]
+    -- predNothing2(x :: Bit 2) = x == 0b0
+  | Just3 [ Just30 :: Bool | B0 ]
+    -- predJust3(x :: Bit 2) = x == 0b0
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: Maybe0
+foo <-
+  Just1(3)
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe1
+Nothing <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+entrypoint bar :: Maybe1
+bar <-
+  return Nothing
+
+-----------------------------------------
+-- Entrypoints: foo bar

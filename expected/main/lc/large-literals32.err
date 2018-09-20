@@ -1,0 +1,12 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32.llc", line 3
+  const16G = 16G  :: Word   
+             ^
+Numeric constant 17179869184 is out of Word range (too large)
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/large-literals32.llc", line 3
+  const16G = 16G  :: Word   
+                  ^
+Trailing token(s) ("::") at end of input
+
+ERROR: Aborting after 2 previously reported errors
+

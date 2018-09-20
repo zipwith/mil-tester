@@ -1,0 +1,12 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/if-exprs-illegal3.llc", line 5
+              else
+              ^
+Syntax error in expression
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/if-exprs-illegal3.llc", line 5
+              else
+              ^
+Trailing token(s) ("else" keyword) at end of input
+
+ERROR: Aborting after 2 previously reported errors
+

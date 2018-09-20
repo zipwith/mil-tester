@@ -1,0 +1,22 @@
+require "prelude.lc"
+
+entrypoint LNil, LCons, sum, count, val, nil, cons, readRef, writeRef
+
+data ListWord = LNil | LCons Word ListWord
+
+nil :: List Word
+nil  = Nil
+
+cons :: Word -> List Word -> List Word
+cons  = Cons
+
+sum xs = case xs of Nil       -> 0
+                    Cons y ys -> add y (sum ys)
+
+external val :: Word
+
+external initStored {primInitStored Word}       :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored 8 Word}  :: ARef 8 (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored 8 Word} :: ARef 8 (Stored Word) -> Word -> Proc Unit
+
+area count <- initStored 7 :: ARef 8 (Stored Word)

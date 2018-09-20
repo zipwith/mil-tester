@@ -1,0 +1,88 @@
+define i32 @fib(i32 %r0) {
+  br label %fib
+
+fib:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b72, label %b118
+
+b72:
+  ret i32 0
+
+b118:
+  %r2 = icmp eq i32 %r0, 1
+  br i1 %r2, label %b66, label %b75
+
+b66:
+  ret i32 1
+
+b75:
+  %r7 = add i32 %r0, -1
+  %r4 = call i32 @fib(i32 %r7)
+  %r6 = add i32 %r0, -2
+  %r5 = call i32 @fib(i32 %r6)
+  %r3 = add i32 %r4, %r5
+  ret i32 %r3
+}
+
+define i32 @itfib(i32 %r0) {
+  br label %itfib
+
+itfib:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b124, label %b87
+
+b124:
+  ret i32 0
+
+b87:
+  %r6 = phi i32 [0, %itfib], [%r7, %b87]
+  %r7 = phi i32 [1, %itfib], [%r5, %b87]
+  %r4 = phi i32 [%r0, %itfib], [%r3, %b87]
+  %r5 = add i32 %r6, %r7
+  %r3 = add i32 %r4, -1
+  %r2 = icmp eq i32 %r3, 0
+  br i1 %r2, label %b80, label %b87
+
+b80:
+  ret i32 %r7
+}
+
+define i32 @recfac(i32 %r0) {
+  br label %recfac
+
+recfac:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b66, label %b67
+
+b66:
+  ret i32 1
+
+b67:
+  %r4 = add i32 %r0, -1
+  %r3 = call i32 @recfac(i32 %r4)
+  %r2 = mul i32 %r0, %r3
+  ret i32 %r2
+}
+
+define i32 @itfac(i32 %r0) {
+  br label %itfac
+
+itfac:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b126, label %b81
+
+b126:
+  ret i32 1
+
+b81:
+  %r6 = phi i32 [1, %itfac], [%r5, %b81]
+  %r4 = phi i32 [%r0, %itfac], [%r3, %b81]
+  %r5 = mul i32 %r6, %r4
+  %r3 = add i32 %r4, -1
+  %r2 = icmp eq i32 %r3, 0
+  br i1 %r2, label %b80, label %b81
+
+b80:
+  ret i32 %r5
+}
+

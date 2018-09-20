@@ -1,0 +1,8 @@
+-----------------------------------------
+-- not recursive
+entrypoint sub :: [Word, Word] >>= [Word]
+sub[t0, t1] =
+  sub((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: sub

@@ -1,0 +1,38 @@
+require "prelude.lc"
+
+data B          = F | T
+data Either a b = Left a | Right b
+data Dup a      = Dup a a
+data Rainbow    = Red | Orange | Green | Blue | Indigo | Violet
+
+entrypoint origin
+origin = Pair B001 B1000
+
+entrypoint no
+no :: Maybe (Ix 3)
+no  = Nothing
+
+entrypoint elf
+elf = Dup (Left B101) (Right B011111)
+
+entrypoint swap :: Dup (Bit 7) -> Dup (Bit 7)
+swap d = case d of Dup x y -> Dup y x
+
+entrypoint color
+color = Green
+
+entrypoint flag :: B
+flag = T
+
+entrypoint wide :: Bit 64
+wide = X0123_4567_89ab_cdef
+
+entrypoint add3 :: Word -> Word -> Word -> Word
+add3 x y z = add x (add y z)
+
+entrypoint const :: Word -> Word -> Word
+const x y = x
+
+entrypoint fib :: Word -> Word
+fib n = if lt n 2 then n else add (fib (sub n 1)) (fib (sub n 2))
+

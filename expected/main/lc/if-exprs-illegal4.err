@@ -1,0 +1,12 @@
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/if-exprs-illegal4.llc", line 4
+  cand4 x y = if x else 2
+                   ^
+missing "then" branch
+
+ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/if-exprs-illegal4.llc", line 4
+  cand4 x y = if x else 2
+                   ^
+Trailing token(s) ("else" keyword) at end of input
+
+ERROR: Aborting after 2 previously reported errors
+

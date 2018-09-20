@@ -1,0 +1,18 @@
+declare void @printWord(i32)
+
+define internal void @func_main() {
+  br label %main
+
+main:
+  br label %b90
+
+b90:
+  call void @printWord(i32 144)
+  ret void
+}
+
+define void @main() {
+  tail call void @func_main()
+  ret void
+}
+

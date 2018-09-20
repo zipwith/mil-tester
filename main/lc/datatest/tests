@@ -1,0 +1,8 @@
+-------
+exec: datatest1     ./milc -m datatest.lc -p
+exec: datatest2     ./milc -m datatest.lc -pc
+exec: datatest3     ./milc -m datatest.lc -pco
+exec: datatest4     ./milc -m datatest.lc -pcos
+exec: datatest5     ./milc -m datatest.lc -pcosb
+exec: datatest6     ./milc -m datatest.lc -pcosbr
+-------
