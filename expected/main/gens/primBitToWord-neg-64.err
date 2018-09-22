@@ -1,0 +1,17 @@
+ERROR: "actual/main/gens/primBitToWord-neg-64.lc", line 3
+external toWord0  {primBitToWord 0 } :: Bit 0  -> Word
+         ^
+No generated implementation: parameter 0 not accepted; value must be in the range 2 to 64
+
+ERROR: "actual/main/gens/primBitToWord-neg-64.lc", line 4
+external toWord1  {primBitToWord 1 } :: Bit 1  -> Word
+         ^
+No generated implementation: parameter 1 not accepted; value must be in the range 2 to 64
+
+ERROR: "actual/main/gens/primBitToWord-neg-64.lc", line 7
+external toWord65 {primBitToWord 65} :: Bit 65 -> Word
+         ^
+No generated implementation: parameter 65 not accepted; value must be in the range 2 to 64
+
+ERROR: Aborting after 3 previously reported errors
+

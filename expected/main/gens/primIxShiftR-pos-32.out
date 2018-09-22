@@ -1,0 +1,44 @@
+-----------------------------------------
+-- not recursive
+entrypoint shrix2_1 :: [Word, Word] >>= [Word]
+shrix2_1[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint shrix4_2 :: [Word, Word] >>= [Word]
+shrix4_2[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint shrix8_3 :: [Word, Word] >>= [Word]
+shrix8_3[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint shrix1K_10 :: [Word, Word] >>= [Word]
+shrix1K_10[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint shrix1G_30 :: [Word, Word] >>= [Word]
+shrix1G_30[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint primIxShiftR16 :: [Word, Word] >>= [Word]
+primIxShiftR16[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint primIxShiftR4K :: [Word, Word] >>= [Word]
+primIxShiftR4K[t0, t1] =
+  lshr((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: shrix2_1 shrix4_2 shrix8_3 shrix1K_10 shrix1G_30 primIxShiftR16 primIxShiftR4K

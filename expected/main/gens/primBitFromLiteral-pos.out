@@ -1,0 +1,23 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint blit42 :: [Unit] >>= [Word]
+blit42[t0] =
+  return 42
+
+-----------------------------------------
+-- not recursive
+entrypoint blit10 :: [Unit] >>= [Word]
+blit10[t0] =
+  return 10
+
+-----------------------------------------
+-- not recursive
+entrypoint blit48 :: [Unit] >>= [Word]
+blit48[t0] =
+  return 48
+
+-----------------------------------------
+-- Entrypoints: blit42 blit10 blit48

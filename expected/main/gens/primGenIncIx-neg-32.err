@@ -1,0 +1,27 @@
+ERROR: "actual/main/gens/primGenIncIx-neg-32.lc", line 5
+external genIncF2G {primGenIncIx Flag     2G} :: Flag   -> (Ix 2G -> Flag)   -> Ix 2G -> Flag
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenIncIx-neg-32.lc", line 6
+external genIncW2G {primGenIncIx Word     2G} :: Word   -> (Ix 2G -> Word)   -> Ix 2G -> Word
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenIncIx-neg-32.lc", line 7
+external genIncI2G {primGenIncIx (Ix 2G)   2G} :: Ix 2G   -> (Ix 2G -> Ix 2G)   -> Ix 2G -> Ix 2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenIncIx-neg-32.lc", line 8
+external genIncB2G {primGenIncIx (Bit 64) 2G} :: Bit 64 -> (Ix 2G -> Bit 64) -> Ix 2G -> Bit 64
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenIncIx-neg-32.lc", line 9
+external genIncM2G {primGenIncIx M2G       2G} :: M2G     -> (Ix 2G -> M2G)     -> Ix 2G -> M2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: Aborting after 5 previously reported errors
+

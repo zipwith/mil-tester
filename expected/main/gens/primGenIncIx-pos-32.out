@@ -1,0 +1,206 @@
+-----------------------------------------
+-- not recursive
+b18 :: forall (a :: *). [a] >>= [a]
+b18[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b17 :: forall (a :: tuple). [[Word] ->> a, Word] >>= a
+b17[t0, t1] =
+  t2 <- add((t1, 1))
+  t0 @ t2
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncF1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genIncF1[t0, t1, t2] =
+  t3 <- primUlt((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncW1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncW1[t0, t1, t2] =
+  t3 <- primUlt((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncI1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncI1[t0, t1, t2] =
+  t3 <- primUlt((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+b27 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
+b27[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncB1 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genIncB1[t0, t1, t2, t3] =
+  t4 <- primUlt((t3, 0))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncM1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genIncM1[t0, t1, t2] =
+  t3 <- primUlt((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncF7 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genIncF7[t0, t1, t2] =
+  t3 <- primUlt((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncW7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncW7[t0, t1, t2] =
+  t3 <- primUlt((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncI7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncI7[t0, t1, t2] =
+  t3 <- primUlt((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncB7 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genIncB7[t0, t1, t2, t3] =
+  t4 <- primUlt((t3, 6))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncM7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncM7[t0, t1, t2] =
+  t3 <- primUlt((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncF64 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genIncF64[t0, t1, t2] =
+  t3 <- primUlt((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncW64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncW64[t0, t1, t2] =
+  t3 <- primUlt((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncI64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncI64[t0, t1, t2] =
+  t3 <- primUlt((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncB64 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genIncB64[t0, t1, t2, t3] =
+  t4 <- primUlt((t3, 63))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genIncM64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genIncM64[t0, t1, t2] =
+  t3 <- primUlt((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx1 :: [Word] >>= [Flag]
+incIx1[t0] =
+  primUlt((t0, 0))
+
+-----------------------------------------
+-- not recursive
+b77 :: [] >>= [Word]
+b77[] =
+  return 7
+
+-----------------------------------------
+-- not recursive
+b76 :: [Word] >>= [Word]
+b76[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx7 :: [Word] >>= [Word]
+incIx7[t0] =
+  t1 <- primUlt((t0, 6))
+  if t1
+    then b76[t0]
+    else b77[]
+
+-----------------------------------------
+-- not recursive
+b79 :: [] >>= [Word]
+b79[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+b78 :: [Word] >>= [Word]
+b78[t0] =
+  t1 <- shl((t0, 1))
+  t2 <- add((t1, 2))
+  or((t2, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx64 :: [Word] >>= [Word]
+incIx64[t0] =
+  t1 <- primUlt((t0, 63))
+  if t1
+    then b78[t0]
+    else b79[]
+
+-----------------------------------------
+-- Entrypoints: genIncF1 genIncW1 genIncI1 genIncB1 genIncM1 genIncF7 genIncW7 genIncI7 genIncB7 genIncM7 genIncF64 genIncW64 genIncI64 genIncB64 genIncM64 incIx1 incIx7 incIx64

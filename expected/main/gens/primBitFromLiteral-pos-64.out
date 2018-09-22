@@ -1,0 +1,41 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint four12 :: [Unit] >>= [Word]
+four12[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four31 :: [Unit] >>= [Word]
+four31[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four32 :: [Unit] >>= [Word]
+four32[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four33 :: [Unit] >>= [Word]
+four33[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four64 :: [Unit] >>= [Word]
+four64[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four72 :: [Unit] >>= [Word, Word]
+four72[t0] =
+  return [4, 0]
+
+-----------------------------------------
+-- Entrypoints: four12 four31 four32 four33 four64 four72

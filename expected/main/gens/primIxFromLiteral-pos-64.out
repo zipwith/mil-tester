@@ -1,0 +1,59 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1 :: [Unit] >>= [Word]
+ix1[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix2 :: [Unit] >>= [Word]
+ix2[t0] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint ix12 :: [Unit] >>= [Word]
+ix12[t0] =
+  return 8
+
+-----------------------------------------
+-- not recursive
+entrypoint ix32 :: [Unit] >>= [Word]
+ix32[t0] =
+  return 17
+
+-----------------------------------------
+-- not recursive
+entrypoint ix256 :: [Unit] >>= [Word]
+ix256[t0] =
+  return 8
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1G :: [Unit] >>= [Word]
+ix1G[t0] =
+  return 68
+
+-----------------------------------------
+-- not recursive
+entrypoint ix2G :: [Unit] >>= [Word]
+ix2G[t0] =
+  return 1073741824
+
+-----------------------------------------
+-- not recursive
+entrypoint ix3G :: [Unit] >>= [Word]
+ix3G[t0] =
+  return 2147483648
+
+-----------------------------------------
+-- not recursive
+entrypoint ix4G :: [Unit] >>= [Word]
+ix4G[t0] =
+  return 3221225472
+
+-----------------------------------------
+-- Entrypoints: ix1 ix2 ix12 ix32 ix256 ix1G ix2G ix3G ix4G

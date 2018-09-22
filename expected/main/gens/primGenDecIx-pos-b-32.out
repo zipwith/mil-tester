@@ -1,0 +1,138 @@
+data Maybe1
+  = Nothing2
+  | Just3 Word
+
+data Maybe2
+  = Nothing4
+  | Just5 Word
+
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+-----------------------------------------
+-- not recursive
+b8 :: forall (a :: *). [a] >>= [a]
+b8[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b7 :: forall (a :: tuple). [[Word] ->> a, Word] >>= a
+b7[t0, t1] =
+  t2 <- add((t1, -1))
+  t0 @ t2
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecM1 :: [Maybe0, [Word] ->> [Maybe0], Word] >>= [Maybe0]
+genDecM1[t0, t1, t2] =
+  t3 <- primUgt((t2, 0))
+  if t3
+    then b7[t1, t2]
+    else b8[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecM7 :: [Maybe1, [Word] ->> [Maybe1], Word] >>= [Maybe1]
+genDecM7[t0, t1, t2] =
+  t3 <- primUgt((t2, 0))
+  if t3
+    then b7[t1, t2]
+    else b8[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecM64 :: [Maybe2, [Word] ->> [Maybe2], Word] >>= [Maybe2]
+genDecM64[t0, t1, t2] =
+  t3 <- primUgt((t2, 0))
+  if t3
+    then b7[t1, t2]
+    else b8[t0]
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b29 :: [] >>= [Maybe0]
+b29[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+b28 :: [Word] >>= [Maybe0]
+b28[t0] =
+  t1 <- add((t0, -1))
+  Just1(t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx1 :: [Word] >>= [Maybe0]
+decIx1[t0] =
+  t1 <- primUgt((t0, 0))
+  if t1
+    then b28[t0]
+    else b29[]
+
+-----------------------------------------
+-- not recursive
+s1 :: Maybe1
+s1 <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+b31 :: [] >>= [Maybe1]
+b31[] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+b30 :: [Word] >>= [Maybe1]
+b30[t0] =
+  t1 <- add((t0, -1))
+  Just3(t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx7 :: [Word] >>= [Maybe1]
+decIx7[t0] =
+  t1 <- primUgt((t0, 0))
+  if t1
+    then b30[t0]
+    else b31[]
+
+-----------------------------------------
+-- not recursive
+s3 :: Maybe2
+s3 <-
+  Nothing4()
+
+-----------------------------------------
+-- not recursive
+b33 :: [] >>= [Maybe2]
+b33[] =
+  return s3
+
+-----------------------------------------
+-- not recursive
+b32 :: [Word] >>= [Maybe2]
+b32[t0] =
+  t1 <- add((t0, -1))
+  Just5(t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx64 :: [Word] >>= [Maybe2]
+decIx64[t0] =
+  t1 <- primUgt((t0, 0))
+  if t1
+    then b32[t0]
+    else b33[]
+
+-----------------------------------------
+-- Entrypoints: genDecM1 genDecM7 genDecM64 decIx1 decIx7 decIx64

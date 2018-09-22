@@ -1,0 +1,92 @@
+-----------------------------------------
+-- not recursive
+entrypoint ix4ToBit2 :: [Word] >>= [Word]
+ix4ToBit2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix4ToBit10 :: [Word] >>= [Word]
+ix4ToBit10[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix257ToBit9 :: [Word] >>= [Word]
+ix257ToBit9[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix257ToBit11 :: [Word] >>= [Word]
+ix257ToBit11[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1000ToBit10 :: [Word] >>= [Word]
+ix1000ToBit10[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1000ToBit12 :: [Word] >>= [Word]
+ix1000ToBit12[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1MToBit20 :: [Word] >>= [Word]
+ix1MToBit20[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1MToBit32 :: [Word] >>= [Word]
+ix1MToBit32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix511ToBit9 :: [Word] >>= [Word]
+ix511ToBit9[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix512ToBit9 :: [Word] >>= [Word]
+ix512ToBit9[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint ix4ToBit33 :: [Word] >>= [Word, Word]
+ix4ToBit33[t0] =
+  return [t0, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint ix4ToBit64 :: [Word] >>= [Word, Word]
+ix4ToBit64[t0] =
+  return [t0, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint ix257ToBit72 :: [Word] >>= [Word, Word, Word]
+ix257ToBit72[t0] =
+  return [t0, 0, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint ix257ToBit96 :: [Word] >>= [Word, Word, Word]
+ix257ToBit96[t0] =
+  return [t0, 0, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint ix1MToBit208 :: [Word] >>= [Word, Word, Word, Word, Word, Word, Word]
+ix1MToBit208[t0] =
+  return [t0, 0, 0, 0, 0, 0, 0]
+
+-----------------------------------------
+-- Entrypoints: ix4ToBit2 ix4ToBit10 ix257ToBit9 ix257ToBit11 ix1000ToBit10 ix1000ToBit12 ix1MToBit20 ix1MToBit32 ix511ToBit9 ix512ToBit9 ix4ToBit33 ix4ToBit64 ix257ToBit72 ix257ToBit96 ix1MToBit208

@@ -1,0 +1,51 @@
+-----------------------------------------
+-- not recursive
+entrypoint shlix2_1 :: [Word, Word] >>= [Word]
+shlix2_1[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint shlix4_2 :: [Word, Word] >>= [Word]
+shlix4_2[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint shlix8_3 :: [Word, Word] >>= [Word]
+shlix8_3[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint shlix1K_10 :: [Word, Word] >>= [Word]
+shlix1K_10[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 1023))
+
+-----------------------------------------
+-- not recursive
+entrypoint shlix1G_30 :: [Word, Word] >>= [Word]
+shlix1G_30[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 1073741823))
+
+-----------------------------------------
+-- not recursive
+entrypoint primIxShiftL16 :: [Word, Word] >>= [Word]
+primIxShiftL16[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint primIxShiftL4K :: [Word, Word] >>= [Word]
+primIxShiftL4K[t0, t1] =
+  t2 <- shl((t0, t1))
+  and((t2, 4095))
+
+-----------------------------------------
+-- Entrypoints: shlix2_1 shlix4_2 shlix8_3 shlix1K_10 shlix1G_30 primIxShiftL16 primIxShiftL4K

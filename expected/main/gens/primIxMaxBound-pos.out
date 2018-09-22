@@ -1,0 +1,44 @@
+-----------------------------------------
+-- not recursive
+entrypoint max1 :: Word
+max1 <-
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint max2 :: Word
+max2 <-
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint max12 :: Word
+max12 <-
+  return 11
+
+-----------------------------------------
+-- not recursive
+entrypoint max32 :: Word
+max32 <-
+  return 31
+
+-----------------------------------------
+-- not recursive
+entrypoint max256 :: Word
+max256 <-
+  return 255
+
+-----------------------------------------
+-- not recursive
+entrypoint max257 :: Word
+max257 <-
+  return 256
+
+-----------------------------------------
+-- not recursive
+entrypoint max1G :: Word
+max1G <-
+  return 1073741823
+
+-----------------------------------------
+-- Entrypoints: max1 max2 max12 max32 max256 max257 max1G

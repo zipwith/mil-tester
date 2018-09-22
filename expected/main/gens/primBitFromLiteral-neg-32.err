@@ -1,0 +1,27 @@
+ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 3
+external fourBit0 {primBitFromLiteral 4 0} :: Unit -> Bit 0
+         ^
+No generated implementation: parameter 4 is too large; must be less than 1
+
+ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 4
+external fourBit1 {primBitFromLiteral 4 1} :: Unit -> Bit 1
+         ^
+No generated implementation: parameter 4 is too large; must be less than 2
+
+ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 5
+external fourBit2 {primBitFromLiteral 4 2} :: Unit -> Bit 2
+         ^
+No generated implementation: parameter 4 is too large; must be less than 4
+
+ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 10
+external badByteMax   {primBitFromLiteral 256 8} :: Unit -> Bit 8
+         ^
+No generated implementation: parameter 256 is too large; must be less than 256
+
+ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 11
+external worseByteMax {primBitFromLiteral 257 8} :: Unit -> Bit 8
+         ^
+No generated implementation: parameter 257 is too large; must be less than 256
+
+ERROR: Aborting after 5 previously reported errors
+

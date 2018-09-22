@@ -1,0 +1,80 @@
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_1 :: [Word] >>= [Word]
+modIx2_1[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_4 :: [Word] >>= [Word]
+modIx2_4[t0] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx10_16 :: [Word] >>= [Word]
+modIx10_16[t0] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx10_32 :: [Word] >>= [Word]
+modIx10_32[t0] =
+  and((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx32_16 :: [Word] >>= [Word]
+modIx32_16[t0] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx32_32 :: [Word] >>= [Word]
+modIx32_32[t0] =
+  and((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx32_1G :: [Word] >>= [Word]
+modIx32_1G[t0] =
+  and((t0, 1073741823))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx13_5 :: [Word] >>= [Word]
+modIx13_5[t0] =
+  rem((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx24_17 :: [Word] >>= [Word]
+modIx24_17[t0] =
+  rem((t0, 17))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx33_8 :: [Word, Word] >>= [Word]
+modIx33_8[t0, t1] =
+  and((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx64_256 :: [Word, Word] >>= [Word]
+modIx64_256[t0, t1] =
+  and((t0, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx72_4K :: [Word, Word, Word] >>= [Word]
+modIx72_4K[t0, t1, t2] =
+  and((t0, 4095))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx96_256 :: [Word, Word, Word] >>= [Word]
+modIx96_256[t0, t1, t2] =
+  and((t0, 255))
+
+-----------------------------------------
+-- Entrypoints: modIx2_1 modIx2_4 modIx10_16 modIx10_32 modIx32_16 modIx32_32 modIx32_1G modIx13_5 modIx24_17 modIx33_8 modIx64_256 modIx72_4K modIx96_256

@@ -1,0 +1,32 @@
+-----------------------------------------
+-- not recursive
+entrypoint relax1_1 :: [Word] >>= [Word]
+relax1_1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax1_2 :: [Word] >>= [Word]
+relax1_2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax3_7 :: [Word] >>= [Word]
+relax3_7[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax1K_1K :: [Word] >>= [Word]
+relax1K_1K[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax1K_1G :: [Word] >>= [Word]
+relax1K_1G[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: relax1_1 relax1_2 relax3_7 relax1K_1K relax1K_1G

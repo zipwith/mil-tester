@@ -1,0 +1,42 @@
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 3
+external modIx1_1    {primModIx  1  1} :: Bit  1 -> Ix 1   -- Ix 1
+         ^
+No generated implementation: parameter 1 is too low; must be at least 2
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 4
+external modIx1_4    {primModIx  1  4} :: Bit  1 -> Ix 4
+         ^
+No generated implementation: parameter 1 is too low; must be at least 2
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 7
+external modIx33_5   {primModIx 33  5} :: Bit 33 -> Ix 5   -- bigger than a word, not power of two
+         ^
+No generated implementation: modulus must be a power of two, or bit vector must fit in one word.
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 8
+external modIx64_17  {primModIx 64 17} :: Bit 64 -> Ix 17
+         ^
+No generated implementation: modulus must be a power of two, or bit vector must fit in one word.
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 11
+external modIx64_8G  {primModIx 64 8G} :: Bit 64 -> Ix 8G  -- invalid index size
+         ^
+No generated implementation: 8589934592 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 12
+external modIx12_0   {primModIx 12  0} :: Bit 12 -> Ix 0
+         ^
+No generated implementation: 0 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 13
+external modIx32_2G  {primModIx 32 2G} :: Bit 32 -> Ix 2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primModIx-neg-32.lc", line 14
+external modIx32_4G  {primModIx 32 4G} :: Bit 32 -> Ix 4G
+         ^
+No generated implementation: 4294967296 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: Aborting after 8 previously reported errors
+

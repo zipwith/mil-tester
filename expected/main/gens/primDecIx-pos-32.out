@@ -1,0 +1,29 @@
+-----------------------------------------
+-- not recursive
+entrypoint decIx1 :: [Word] >>= [Flag]
+decIx1[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx7 :: [Word] >>= [Word]
+decIx7[t0] =
+  t1 <- add((t0, -1))
+  and((t1, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx31 :: [Word] >>= [Word]
+decIx31[t0] =
+  t1 <- add((t0, -1))
+  and((t1, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx65535 :: [Word] >>= [Word]
+decIx65535[t0] =
+  t1 <- add((t0, -1))
+  and((t1, 65535))
+
+-----------------------------------------
+-- Entrypoints: decIx1 decIx7 decIx31 decIx65535

@@ -1,0 +1,52 @@
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 4
+external ix1   {primIxFromLiteral 10 1}    :: Unit -> Ix 1
+         ^
+No generated implementation: parameter 10 is too large; must be less than 1
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 5
+external ix2   {primIxFromLiteral 11 2}    :: Unit -> Ix 2
+         ^
+No generated implementation: parameter 11 is too large; must be less than 2
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 6
+external ix12  {primIxFromLiteral 18 12}   :: Unit -> Ix 12
+         ^
+No generated implementation: parameter 18 is too large; must be less than 12
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 7
+external ix32  {primIxFromLiteral 317 32}  :: Unit -> Ix 32
+         ^
+No generated implementation: parameter 317 is too large; must be less than 32
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 8
+external ix256 {primIxFromLiteral 256 256} :: Unit -> Ix 256
+         ^
+No generated implementation: parameter 256 is too large; must be less than 256
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 9
+external ix1G  {primIxFromLiteral 2G 1G}   :: Unit -> Ix 1G
+         ^
+No generated implementation: parameter 2147483648 is too large; must be less than 1073741824
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 13
+external ix0   {primIxFromLiteral 0 0}   :: Unit -> Ix 0
+         ^
+No generated implementation: 0 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 14
+external ix2G  {primIxFromLiteral 1G 2G} :: Unit -> Ix 2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 15
+external ix3G  {primIxFromLiteral 2G 3G} :: Unit -> Ix 3G
+         ^
+No generated implementation: 3221225472 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 16
+external ix4G  {primIxFromLiteral 3G 4G} :: Unit -> Ix 4G
+         ^
+No generated implementation: 4294967296 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: Aborting after 10 previously reported errors
+

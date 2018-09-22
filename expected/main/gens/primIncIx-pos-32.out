@@ -1,0 +1,38 @@
+-----------------------------------------
+-- not recursive
+entrypoint incIx1 :: [Word] >>= [Flag]
+incIx1[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx2 :: [Word] >>= [Word]
+incIx2[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx7 :: [Word] >>= [Word]
+incIx7[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx32 :: [Word] >>= [Word]
+incIx32[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx100 :: [Word] >>= [Word]
+incIx100[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint incIx1G :: [Word] >>= [Word]
+incIx1G[t0] =
+  add((t0, 1))
+
+-----------------------------------------
+-- Entrypoints: incIx1 incIx2 incIx7 incIx32 incIx100 incIx1G

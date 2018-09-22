@@ -1,0 +1,38 @@
+-----------------------------------------
+-- not recursive
+entrypoint toWord2 :: [Word] >>= [Word]
+toWord2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord12 :: [Word] >>= [Word]
+toWord12[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord31 :: [Word] >>= [Word]
+toWord31[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord32 :: [Word] >>= [Word]
+toWord32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord33 :: [Word] >>= [Word]
+toWord33[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord64 :: [Word] >>= [Word]
+toWord64[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: toWord2 toWord12 toWord31 toWord32 toWord33 toWord64

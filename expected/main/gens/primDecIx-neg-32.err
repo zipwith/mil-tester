@@ -1,0 +1,52 @@
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 5
+external decIx2   {primDecIx 2}   :: Ix 2   -> Maybe (Ix 2)   -- powers of two
+         ^
+No generated implementation: 2 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 6
+external decIx8   {primDecIx 8}   :: Ix 8   -> Maybe (Ix 8)
+         ^
+No generated implementation: 8 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 7
+external decIx32  {primDecIx 32}  :: Ix 32  -> Maybe (Ix 32)
+         ^
+No generated implementation: 32 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 8
+external decIx4K  {primDecIx 4K}  :: Ix 4K  -> Maybe (Ix 4K)
+         ^
+No generated implementation: 4096 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 9
+external decIx1G  {primDecIx 1G}  :: Ix 1G  -> Maybe (Ix 1G)
+         ^
+No generated implementation: 1073741824 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 12
+external decIx0   {primDecIx 0}   :: Ix 0   -> Maybe (Ix 0)   -- invalid index types
+         ^
+No generated implementation: 0 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 13
+external decIx2G  {primDecIx 2G}  :: Ix 2G  -> Maybe (Ix 2G)
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 16
+external decIx6   {primDecIx 6}   :: Ix 6   -> Maybe (Ix 6)
+         ^
+No generated implementation: 6 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 18
+external decIx3M  {primDecIx 3M}  :: Ix 3M  -> Maybe (Ix 3M)
+         ^
+No generated implementation: 3145728 is not a power of two minus 1
+
+ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 17
+external decIx100 {primDecIx 100} :: Ix 100 -> Maybe (Ix 100)
+         ^
+No generated implementation: 100 is not a power of two minus 1
+
+ERROR: Aborting after 10 previously reported errors
+

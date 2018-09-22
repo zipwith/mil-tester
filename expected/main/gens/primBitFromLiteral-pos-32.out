@@ -1,0 +1,83 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s0 :: Unit
+s0 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint zero :: [Unit] >>= [Unit]
+zero[t0] =
+  return s0
+
+-----------------------------------------
+-- not recursive
+entrypoint zero1 :: [Unit] >>= [Flag]
+zero1[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint one1 :: [Unit] >>= [Flag]
+one1[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint blit42 :: [Unit] >>= [Word]
+blit42[t0] =
+  return 42
+
+-----------------------------------------
+-- not recursive
+entrypoint blit10 :: [Unit] >>= [Word]
+blit10[t0] =
+  return 10
+
+-----------------------------------------
+-- not recursive
+entrypoint blit48 :: [Unit] >>= [Word]
+blit48[t0] =
+  return 48
+
+-----------------------------------------
+-- not recursive
+entrypoint four12 :: [Unit] >>= [Word]
+four12[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four31 :: [Unit] >>= [Word]
+four31[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four32 :: [Unit] >>= [Word]
+four32[t0] =
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint four33 :: [Unit] >>= [Word, Word]
+four33[t0] =
+  return [4, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint four64 :: [Unit] >>= [Word, Word]
+four64[t0] =
+  return [4, 0]
+
+-----------------------------------------
+-- not recursive
+entrypoint four72 :: [Unit] >>= [Word, Word, Word]
+four72[t0] =
+  return [4, 0, 0]
+
+-----------------------------------------
+-- Entrypoints: zero zero1 one1 blit42 blit10 blit48 four12 four31 four32 four33 four64 four72
