@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/longest-lexeme-literals2.llc", line 1
+ERROR: "actual/main/lc/longest-lexeme-literals2.llc", line 1
   very  = 12345f   -- lexer sees "12345 f"
           ^
 Invalid digit, 'f', in numeric literal

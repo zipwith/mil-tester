@@ -1,14 +1,14 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-rhs.llc", line 3
+ERROR: "actual/main/lc/illegal-data-rhs.llc", line 3
   data T = a -> b
            ^
 Missing constructor function name (unexpected identifier "a")
 
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-rhs.llc", line 3
+ERROR: "actual/main/lc/illegal-data-rhs.llc", line 3
   data T = a -> b
              ^
 Missing :: (unexpected "->" symbol)
 
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-rhs.llc", line 3
+ERROR: "actual/main/lc/illegal-data-rhs.llc", line 3
   data T = a -> b
              ^
 Trailing token(s) ("->" symbol) at end of input

@@ -1,8 +1,8 @@
-data -> (a :: *) (b :: *)
-  = Func ([a] ->> [b])
-
 data Dup (a :: *)
   = Dup a a
+
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
 
 -----------------------------------------
 -- not recursive

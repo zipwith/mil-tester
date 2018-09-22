@@ -1,9 +1,9 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-illegal-kind-annotations3.llc", line 3
+ERROR: "actual/main/lc/data-illegal-kind-annotations3.llc", line 3
   data W (a::nat)   = R (W (a::type))
                             ^
 Cannot unify kinds "*" and "nat"
 
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-illegal-kind-annotations3.llc", line 4
+ERROR: "actual/main/lc/data-illegal-kind-annotations3.llc", line 4
   data Z (a::nat) (b::type) = W (Z (a::nat) (b::nat)) | F
                                              ^
 Cannot unify kinds "nat" and "*"

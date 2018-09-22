@@ -1,11 +1,11 @@
+data Dup2
+  = Dup2 Word Word
+
 data Dup0
   = Dup0 Word Word
 
 data Dup1
   = Dup1 Word Word
-
-data Dup2
-  = Dup2 Word Word
 
 -----------------------------------------
 -- not recursive

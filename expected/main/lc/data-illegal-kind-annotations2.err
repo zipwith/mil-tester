@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-illegal-kind-annotations2.llc", line 3
+ERROR: "actual/main/lc/data-illegal-kind-annotations2.llc", line 3
   data V f a = C ((f :: boo -> *) a) | D (V f a) a | E ((a :: *) :: nat)
                         ^
 Unknown kind "boo"

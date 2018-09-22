@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/invalid-literate.llc", line 2
+ERROR: "actual/main/lc/invalid-literate.llc", line 2
 Program line follows comment line
 
 ERROR: Aborting after previously reported error

@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/unbound-data-type-var.llc", line 3
+ERROR: "actual/main/lc/unbound-data-type-var.llc", line 3
   data T = Just a | Nothing
                 ^
 The type variable "a" is not in scope

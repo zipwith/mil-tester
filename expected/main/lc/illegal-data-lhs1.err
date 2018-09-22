@@ -1,9 +1,9 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-lhs1.llc", line 3
+ERROR: "actual/main/lc/illegal-data-lhs1.llc", line 3
   data a     = A | B
        ^
 Missing data type name (unexpected identifier "a")
 
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/illegal-data-lhs1.llc", line 4
+ERROR: "actual/main/lc/illegal-data-lhs1.llc", line 4
   data a b   = A | B
        ^
 Missing data type name (unexpected identifier "a")

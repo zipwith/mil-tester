@@ -1,13 +1,13 @@
-data List1
-  = Nil2
-  | Cons3 Word List1
-
 data Unit
   = Unit
 
 data ListWord0
   = LNil0
   | LCons1 Word ListWord0
+
+data List1
+  = Nil2
+  | Cons3 Word List1
 
 -----------------------------------------
 -- not recursive
@@ -71,11 +71,15 @@ cons[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-export external readRef {primReadRefStored 8 Word} :: [Word] ->> [[] ->> [Word]]
+entrypoint readRef :: [Word] >>= [Word]
+readRef[t0] =
+  load32((t0))
 
 -----------------------------------------
 -- not recursive
-export external writeRef {primWriteRefStored 8 Word} :: [Word] ->> [[Word] ->> [[] ->> [Unit]]]
+entrypoint writeRef :: [Word, Word] >>= [Unit]
+writeRef[t0, t1] =
+  store32((t0, t1))
 
 -----------------------------------------
 -- not recursive

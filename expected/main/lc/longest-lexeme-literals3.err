@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/longest-lexeme-literals3.llc", line 1
+ERROR: "actual/main/lc/longest-lexeme-literals3.llc", line 1
   much  = a67b43   -- lexer sees single identifier
           ^
 "a67b43" is not in scope

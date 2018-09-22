@@ -1,6 +1,13 @@
+data Dup (a :: *)
+  = Dup a a
+
 data Maybe (a :: *)
   = Nothing
   | Just a
+
+data Either (a :: *) (b :: *)
+  = Left a
+  | Right b
 
 data Rainbow
   = Red
@@ -16,13 +23,6 @@ data B
 
 data Pair (a :: *) (b :: *)
   = Pair a b
-
-data Either (a :: *) (b :: *)
-  = Left a
-  | Right b
-
-data Dup (a :: *)
-  = Dup a a
 
 -----------------------------------------
 -- not recursive

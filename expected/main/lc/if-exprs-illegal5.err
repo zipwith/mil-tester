@@ -1,4 +1,4 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/if-exprs-illegal5.llc", line 6
+ERROR: "actual/main/lc/if-exprs-illegal5.llc", line 6
 missing "then" branch
 
 ERROR: Aborting after previously reported error

@@ -1,9 +1,9 @@
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-illegal-kind-annotations1.llc", line 3
+ERROR: "actual/main/lc/data-illegal-kind-annotations1.llc", line 3
   data T (a :: foo) = X | Y | Z
                ^
 Unknown kind "foo"
 
-ERROR: "/Users/user/Desktop/working/mil-test/actual/main/lc/data-illegal-kind-annotations1.llc", line 4
+ERROR: "actual/main/lc/data-illegal-kind-annotations1.llc", line 4
   data U ((a :: *) :: nat) = Nonsense
              ^
 Multiple kinds (* and nat) have been specified for this type parameter

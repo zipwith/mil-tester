@@ -1,11 +1,11 @@
-data Dup2
-  = Dup2 (Bit 3) (Bit 3)
+data Dup1
+  = Dup1 (Bit 8) (Bit 8)
 
 data Dup0
   = Dup0 (Bit 7) (Bit 7)
 
-data Dup1
-  = Dup1 (Bit 8) (Bit 8)
+data Dup2
+  = Dup2 (Bit 3) (Bit 3)
 
 -----------------------------------------
 -- not recursive
