@@ -1,0 +1,22 @@
+ERROR: "actual/main/gens/primBitwise-neg-32.lc", line 3
+external and1K   {primBitAnd   1K} :: Bit 1K   -> Bit 1K
+         ^
+No generated implementation: parameter 1024 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitwise-neg-32.lc", line 4
+external and1G   {primBitAnd   1G} :: Bit 1G   -> Bit 1G
+         ^
+No generated implementation: parameter 1073741824 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitwise-neg-32.lc", line 5
+external or2K    {primBitOr    2K} :: Bit 2K   -> Bit 2K
+         ^
+No generated implementation: parameter 2048 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitwise-neg-32.lc", line 6
+external xor1000 {primBitXor 1000} :: Bit 1000 -> Bit 1000
+         ^
+No generated implementation: parameter 1000 is too large; must be less than 1000
+
+ERROR: Aborting after 4 previously reported errors
+

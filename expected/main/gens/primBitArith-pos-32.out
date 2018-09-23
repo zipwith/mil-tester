@@ -1,0 +1,139 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint neg0 :: [Unit] >>= [Unit]
+neg0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint neg1 :: [Flag] >>= [Flag]
+neg1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint neg2 :: [Word] >>= [Word]
+neg2[t0] =
+  t1 <- neg((t0))
+  and((t1, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint neg7 :: [Word] >>= [Word]
+neg7[t0] =
+  t1 <- neg((t0))
+  and((t1, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint neg32 :: [Word] >>= [Word]
+neg32[t0] =
+  neg((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint plus0 :: [Unit, Unit] >>= [Unit]
+plus0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint plus1 :: [Flag, Flag] >>= [Flag]
+plus1[t0, t1] =
+  bxor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint plus2 :: [Word, Word] >>= [Word]
+plus2[t0, t1] =
+  t2 <- add((t0, t1))
+  and((t2, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint plus7 :: [Word, Word] >>= [Word]
+plus7[t0, t1] =
+  t2 <- add((t0, t1))
+  and((t2, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint plus32 :: [Word, Word] >>= [Word]
+plus32[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint minus0 :: [Unit, Unit] >>= [Unit]
+minus0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint minus1 :: [Flag, Flag] >>= [Flag]
+minus1[t0, t1] =
+  bxor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint minus2 :: [Word, Word] >>= [Word]
+minus2[t0, t1] =
+  t2 <- sub((t0, t1))
+  and((t2, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint minus7 :: [Word, Word] >>= [Word]
+minus7[t0, t1] =
+  t2 <- sub((t0, t1))
+  and((t2, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint minus32 :: [Word, Word] >>= [Word]
+minus32[t0, t1] =
+  sub((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint times0 :: [Unit, Unit] >>= [Unit]
+times0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint times1 :: [Flag, Flag] >>= [Flag]
+times1[t0, t1] =
+  band((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint times2 :: [Word, Word] >>= [Word]
+times2[t0, t1] =
+  t2 <- mul((t0, t1))
+  and((t2, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint times7 :: [Word, Word] >>= [Word]
+times7[t0, t1] =
+  t2 <- mul((t0, t1))
+  and((t2, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint times32 :: [Word, Word] >>= [Word]
+times32[t0, t1] =
+  mul((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: neg0 neg1 neg2 neg7 neg32 plus0 plus1 plus2 plus7 plus32 minus0 minus1 minus2 minus7 minus32 times0 times1 times2 times7 times32

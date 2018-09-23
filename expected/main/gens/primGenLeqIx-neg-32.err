@@ -1,0 +1,27 @@
+ERROR: "actual/main/gens/primGenLeqIx-neg-32.lc", line 5
+external genLeqIxF2G {primGenLeqIx Flag     2G} :: Flag   -> (Ix 2G -> Flag)   -> Word -> Ix 2G -> Flag
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenLeqIx-neg-32.lc", line 6
+external genLeqIxW2G {primGenLeqIx Word     2G} :: Word   -> (Ix 2G -> Word)   -> Word -> Ix 2G -> Word
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenLeqIx-neg-32.lc", line 7
+external genLeqIxI2G {primGenLeqIx (Ix 2G)  2G} :: Ix 2G  -> (Ix 2G -> Ix 2G)  -> Word -> Ix 2G -> Ix 2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenLeqIx-neg-32.lc", line 8
+external genLeqIxB2G {primGenLeqIx (Bit 64) 2G} :: Bit 64 -> (Ix 2G -> Bit 64) -> Word -> Ix 2G -> Bit 64
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: "actual/main/gens/primGenLeqIx-neg-32.lc", line 9
+external genLeqIxM2G {primGenLeqIx M2G      2G} :: M2G    -> (Ix 2G -> M2G)    -> Word -> Ix 2G -> M2G
+         ^
+No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+
+ERROR: Aborting after 5 previously reported errors
+

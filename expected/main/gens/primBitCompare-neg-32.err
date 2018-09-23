@@ -1,0 +1,32 @@
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 3
+external a {primBitEq 1000} :: Bit 1000 -> Bit 1000 -> Flag  -- large width values
+         ^
+No generated implementation: parameter 1000 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 4
+external b {primBitNe 1G}   :: Bit 1G   -> Bit 1G   -> Flag
+         ^
+No generated implementation: parameter 1073741824 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 5
+external c {primBitGt 2K}   :: Bit 2K   -> Bit 2K   -> Flag
+         ^
+No generated implementation: parameter 2048 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 6
+external d {primBitGe 1001} :: Bit 1001 -> Bit 1001 -> Flag
+         ^
+No generated implementation: parameter 1001 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 7
+external e {primBitLt Word} :: Bit 31   -> Bit 31   -> Flag  -- not a number
+         ^
+No generated implementation: Word is not a natural number
+
+ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 8
+external f {primBitLe}      :: Bit 32   -> Bit 32   -> Flag  -- missing param
+         ^
+Generator for primBitLe needs at least 1 arguments
+
+ERROR: Aborting after 6 previously reported errors
+

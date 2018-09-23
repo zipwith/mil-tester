@@ -610,3 +610,699 @@ external decIx100 {primDecIx 100} :: Ix 100 -> Maybe (Ix 100)
 external decIx3M  {primDecIx 3M}  :: Ix 3M  -> Maybe (Ix 3M)
 
 -----------------------
+.lc: primGenMaybeIx-pos-32   ./milc -pcosoboro -m --32
+
+data Maybe a = Nothing | Just a
+
+entrypoint genMaybeIxF1, genMaybeIxW1, genMaybeIxI1, genMaybeIxB1, genMaybeIxM1
+external genMaybeIxF1 {primGenMaybeIx Flag     1} :: Flag   -> (Ix 1 -> Flag)   -> Word -> Flag
+external genMaybeIxW1 {primGenMaybeIx Word     1} :: Word   -> (Ix 1 -> Word)   -> Word -> Word
+external genMaybeIxI1 {primGenMaybeIx (Ix 1)   1} :: Ix 1   -> (Ix 1 -> Ix 1)   -> Word -> Ix 1
+external genMaybeIxB1 {primGenMaybeIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> Word -> Bit 64
+external genMaybeIxM1 {primGenMaybeIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Word -> M1
+type M1 = Maybe (Ix 1)
+
+entrypoint genMaybeIxF7, genMaybeIxW7, genMaybeIxI7, genMaybeIxB7, genMaybeIxM7
+external genMaybeIxF7 {primGenMaybeIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Word -> Flag
+external genMaybeIxW7 {primGenMaybeIx Word     7} :: Word   -> (Ix 7 -> Word)   -> Word -> Word
+external genMaybeIxI7 {primGenMaybeIx (Ix 7)   7} :: Ix 7   -> (Ix 7 -> Ix 7)   -> Word -> Ix 7
+external genMaybeIxB7 {primGenMaybeIx (Bit 64) 7} :: Bit 64 -> (Ix 7 -> Bit 64) -> Word -> Bit 64
+external genMaybeIxM7 {primGenMaybeIx M7       7} :: M7     -> (Ix 7 -> M7)     -> Word -> M7
+type M7 = Maybe (Ix 7)
+
+entrypoint genMaybeIxF64, genMaybeIxW64, genMaybeIxI64, genMaybeIxB64, genMaybeIxM64
+external genMaybeIxF64 {primGenMaybeIx Flag     64} :: Flag   -> (Ix 64 -> Flag)   -> Word -> Flag
+external genMaybeIxW64 {primGenMaybeIx Word     64} :: Word   -> (Ix 64 -> Word)   -> Word -> Word
+external genMaybeIxI64 {primGenMaybeIx (Ix 64)  64} :: Ix 64  -> (Ix 64 -> Ix 64)  -> Word -> Ix 64
+external genMaybeIxB64 {primGenMaybeIx (Bit 64) 64} :: Bit 64 -> (Ix 64 -> Bit 64) -> Word -> Bit 64
+external genMaybeIxM64 {primGenMaybeIx M64      64} :: M64    -> (Ix 64 -> M64)    -> Word -> M64
+type M64 = Maybe (Ix 64)
+
+entrypoint maybeIx1, maybeIx7, maybeIx64
+maybeIx1  = genMaybeIxM1  Nothing Just
+maybeIx7  = genMaybeIxM7  Nothing Just
+maybeIx64 = genMaybeIxM64 Nothing Just
+
+-----------------------
+.lc: primGenMaybeIx-pos-b-32   ./milc -pcosoro -m --32
+-- A subset of the previous test; the key difference here is that we've removed the "b" pass.
+
+data Maybe a = Nothing | Just a
+type M1  = Maybe (Ix 1)
+type M7  = Maybe (Ix 7)
+type M64 = Maybe (Ix 64)
+
+entrypoint genMaybeIxM1, genMaybeIxM7, genMaybeIxM64
+external genMaybeIxM1  {primGenMaybeIx  M1  1} :: M1  -> (Ix 1  -> M1)  -> Word -> M1
+external genMaybeIxM7  {primGenMaybeIx  M7  7} :: M7  -> (Ix 7  -> M7)  -> Word -> M7
+external genMaybeIxM64 {primGenMaybeIx M64 64} :: M64 -> (Ix 64 -> M64) -> Word -> M64
+
+entrypoint maybeIx1, maybeIx7, maybeIx64
+maybeIx1  = genMaybeIxM1  Nothing Just
+maybeIx7  = genMaybeIxM7  Nothing Just
+maybeIx64 = genMaybeIxM64 Nothing Just
+
+-----------------------
+.lc: primGenMaybeIx-neg-32   ./milc -pcosoboro -m --32
+
+data Maybe a = Nothing | Just a
+
+entrypoint genMaybeIxF2G, genMaybeIxW2G, genMaybeIxI2G, genMaybeIxB2G, genMaybeIxM2G
+external genMaybeIxF2G {primGenMaybeIx Flag     2G} :: Flag   -> (Ix 2G -> Flag)   -> Word -> Flag
+external genMaybeIxW2G {primGenMaybeIx Word     2G} :: Word   -> (Ix 2G -> Word)   -> Word -> Word
+external genMaybeIxI2G {primGenMaybeIx (Ix 2G)  2G} :: Ix 2G  -> (Ix 2G -> Ix 2G)  -> Word -> Ix 2G
+external genMaybeIxB2G {primGenMaybeIx (Bit 64) 2G} :: Bit 64 -> (Ix 2G -> Bit 64) -> Word -> Bit 64
+external genMaybeIxM2G {primGenMaybeIx M2G      2G} :: M2G    -> (Ix 2G -> M2G)    -> Word -> M2G
+type M2G = Maybe (Ix 2G)
+
+-----------------------
+.lc: primGenLeqIx-pos-32   ./milc -pcosoboro -m --32
+
+data Maybe a = Nothing | Just a
+
+entrypoint genLeqIxF1, genLeqIxW1, genLeqIxI1, genLeqIxB1, genLeqIxM1
+external genLeqIxF1 {primGenLeqIx Flag     1} :: Flag   -> (Ix 1 -> Flag)   -> Word -> Ix 1 -> Flag
+external genLeqIxW1 {primGenLeqIx Word     1} :: Word   -> (Ix 1 -> Word)   -> Word -> Ix 1 -> Word
+external genLeqIxI1 {primGenLeqIx (Ix 1)   1} :: Ix 1   -> (Ix 1 -> Ix 1)   -> Word -> Ix 1 -> Ix 1
+external genLeqIxB1 {primGenLeqIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> Word -> Ix 1 -> Bit 64
+external genLeqIxM1 {primGenLeqIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Word -> Ix 1 -> M1
+type M1 = Maybe (Ix 1)
+
+entrypoint genLeqIxF7, genLeqIxW7, genLeqIxI7, genLeqIxB7, genLeqIxM7
+external genLeqIxF7 {primGenLeqIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Word -> Ix 7 -> Flag
+external genLeqIxW7 {primGenLeqIx Word     7} :: Word   -> (Ix 7 -> Word)   -> Word -> Ix 7 -> Word
+external genLeqIxI7 {primGenLeqIx (Ix 7)   7} :: Ix 7   -> (Ix 7 -> Ix 7)   -> Word -> Ix 7 -> Ix 7
+external genLeqIxB7 {primGenLeqIx (Bit 64) 7} :: Bit 64 -> (Ix 7 -> Bit 64) -> Word -> Ix 7 -> Bit 64
+external genLeqIxM7 {primGenLeqIx M7       7} :: M7     -> (Ix 7 -> M7)     -> Word -> Ix 7 -> M7
+type M7 = Maybe (Ix 7)
+
+entrypoint genLeqIxF64, genLeqIxW64, genLeqIxI64, genLeqIxB64, genLeqIxM64
+external genLeqIxF64 {primGenLeqIx Flag     64} :: Flag   -> (Ix 64 -> Flag)   -> Word -> Ix 64 -> Flag
+external genLeqIxW64 {primGenLeqIx Word     64} :: Word   -> (Ix 64 -> Word)   -> Word -> Ix 64 -> Word
+external genLeqIxI64 {primGenLeqIx (Ix 64)  64} :: Ix 64  -> (Ix 64 -> Ix 64)  -> Word -> Ix 64 -> Ix 64
+external genLeqIxB64 {primGenLeqIx (Bit 64) 64} :: Bit 64 -> (Ix 64 -> Bit 64) -> Word -> Ix 64 -> Bit 64
+external genLeqIxM64 {primGenLeqIx M64      64} :: M64    -> (Ix 64 -> M64)    -> Word -> Ix 64 -> M64
+type M64 = Maybe (Ix 64)
+
+entrypoint leqIx1, leqIx7, leqIx64
+leqIx1  = genLeqIxM1  Nothing Just
+leqIx7  = genLeqIxM7  Nothing Just
+leqIx64 = genLeqIxM64 Nothing Just
+
+-----------------------
+.lc: primGenLeqIx-pos-b-32   ./milc -pcosoro -m --32
+-- A subset of the previous test; the key difference here is that we've removed the "b" pass.
+
+data Maybe a = Nothing | Just a
+type M1  = Maybe (Ix 1)
+type M7  = Maybe (Ix 7)
+type M64 = Maybe (Ix 64)
+
+entrypoint genLeqIxM1, genLeqIxM7, genLeqIxM64
+external genLeqIxM1  {primGenLeqIx  M1  1} :: M1  -> (Ix 1  -> M1)  -> Word -> Ix 1  -> M1
+external genLeqIxM7  {primGenLeqIx  M7  7} :: M7  -> (Ix 7  -> M7)  -> Word -> Ix 7  -> M7
+external genLeqIxM64 {primGenLeqIx M64 64} :: M64 -> (Ix 64 -> M64) -> Word -> Ix 64 -> M64
+
+entrypoint leqIx1, leqIx7, leqIx64
+leqIx1  = genLeqIxM1  Nothing Just
+leqIx7  = genLeqIxM7  Nothing Just
+leqIx64 = genLeqIxM64 Nothing Just
+
+-----------------------
+.lc: primGenLeqIx-neg-32   ./milc -pcosoboro -m --32
+
+data Maybe a = Nothing | Just a
+
+entrypoint genLeqIxF2G, genLeqIxW2G, genLeqIxI2G, genLeqIxB2G, genLeqIxM2G
+external genLeqIxF2G {primGenLeqIx Flag     2G} :: Flag   -> (Ix 2G -> Flag)   -> Word -> Ix 2G -> Flag
+external genLeqIxW2G {primGenLeqIx Word     2G} :: Word   -> (Ix 2G -> Word)   -> Word -> Ix 2G -> Word
+external genLeqIxI2G {primGenLeqIx (Ix 2G)  2G} :: Ix 2G  -> (Ix 2G -> Ix 2G)  -> Word -> Ix 2G -> Ix 2G
+external genLeqIxB2G {primGenLeqIx (Bit 64) 2G} :: Bit 64 -> (Ix 2G -> Bit 64) -> Word -> Ix 2G -> Bit 64
+external genLeqIxM2G {primGenLeqIx M2G      2G} :: M2G    -> (Ix 2G -> M2G)    -> Word -> Ix 2G -> M2G
+type M2G = Maybe (Ix 2G)
+
+-----------------------
+.lc: primIxCompare-pos-32   ./milc -pcosoboro -m --32
+require "prelude.lc"  -- for "Bool"
+
+entrypoint ixEq1, ixEq7, ixEq65, ixEq1K
+entrypoint ixEq123, ixEq2047M, ixEq1G
+external ixEq1     {primIxEq   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixEq7     {primIxEq   7}    :: Ix 7     -> Ix 7     -> Bool
+external ixEq65    {primIxEq  65}    :: Ix 65    -> Ix 65    -> Bool
+external ixEq1K    {primIxEq  1K}    :: Ix 1K    -> Ix 1K    -> Bool
+external ixEq123   {primIxEq 123}    :: Ix 123   -> Ix 123   -> Bool
+external ixEq2047M {primIxEq  2047M} :: Ix 2047M -> Ix 2047M -> Bool
+external ixEq1G    {primIxEq  1G}    :: Ix 1G    -> Ix 1G    -> Bool
+
+entrypoint ixNe15, ixLt15, ixLe15, ixGt15, ixGe15 
+external ixNe15    {primIxNe  15}    :: Ix 15    -> Ix 15    -> Bool
+external ixLt15    {primIxLt  15}    :: Ix 15    -> Ix 15    -> Bool
+external ixLe15    {primIxLe  15}    :: Ix 15    -> Ix 15    -> Bool
+external ixGt15    {primIxGt  15}    :: Ix 15    -> Ix 15    -> Bool
+external ixGe15    {primIxGe  15}    :: Ix 15    -> Ix 15    -> Bool
+
+-----------------------
+.lc: primIxCompare-neg-32   ./milc -pcosoboro -m --32
+require "prelude.lc"  -- for "Bool"
+
+entrypoint ixEq0, ixEq2049M, ixEq2G
+external ixEq0     {primIxEq      0} :: Ix 0     -> Ix 0     -> Bool
+external ixEq2049M {primIxEq  2049M} :: Ix 2049M -> Ix 2049M -> Bool
+external ixEq2G    {primIxEq     2G} :: Ix 2G    -> Ix 2G    -> Bool
+
+-----------------------
+.lc: primBitNot-pos-32   ./milc -pcosoboro -m --32
+
+entrypoint not0, not1, not2, not7, not64, not497
+external not0   {primBitNot   0} :: Bit 0   -> Bit 0
+external not1   {primBitNot   1} :: Bit 1   -> Bit 1
+external not2   {primBitNot   2} :: Bit 2   -> Bit 2
+external not7   {primBitNot   7} :: Bit 7   -> Bit 7
+external not64  {primBitNot  64} :: Bit 64  -> Bit 64
+external not497 {primBitNot 497} :: Bit 497 -> Bit 497
+
+-----------------------
+.lc: primBitNot-pos-64   ./milc -pcosoboro -m --64
+
+entrypoint not0, not1, not2, not7, not64, not497
+external not0   {primBitNot   0} :: Bit 0   -> Bit 0
+external not1   {primBitNot   1} :: Bit 1   -> Bit 1
+external not2   {primBitNot   2} :: Bit 2   -> Bit 2
+external not7   {primBitNot   7} :: Bit 7   -> Bit 7
+external not64  {primBitNot  64} :: Bit 64  -> Bit 64
+external not497 {primBitNot 497} :: Bit 497 -> Bit 497
+
+-----------------------
+.lc: primBitNot-neg-32   ./milc -pcosoboro -m --32
+
+entrypoint not1K, not1G
+external not1K  {primBitNot  1K} :: Bit 1K  -> Bit 1K
+external not1G  {primBitNot  1G} :: Bit 1G  -> Bit 1G
+
+-----------------------
+.lc: primBitwise-pos-32   ./milc -pcosoboro -m --32
+
+entrypoint and0, and1, and2, and7, and48, and64, and72, and497, and999
+external and0   {primBitAnd   0} :: Bit 0   -> Bit 0   -> Bit 0
+external and1   {primBitAnd   1} :: Bit 1   -> Bit 1   -> Bit 1
+external and2   {primBitAnd   2} :: Bit 2   -> Bit 2   -> Bit 2
+external and7   {primBitAnd   7} :: Bit 7   -> Bit 7   -> Bit 7
+external and48  {primBitAnd  48} :: Bit 48  -> Bit 48  -> Bit 48
+external and64  {primBitAnd  64} :: Bit 64  -> Bit 64  -> Bit 64
+external and72  {primBitAnd  72} :: Bit 72  -> Bit 72  -> Bit 72
+external and497 {primBitAnd 497} :: Bit 497 -> Bit 497 -> Bit 497
+external and999 {primBitAnd 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint or0, or1, or2, or7, or48, or64, or72, or497, or999
+external or0   {primBitOr   0} :: Bit 0   -> Bit 0   -> Bit 0
+external or1   {primBitOr   1} :: Bit 1   -> Bit 1   -> Bit 1
+external or2   {primBitOr   2} :: Bit 2   -> Bit 2   -> Bit 2
+external or7   {primBitOr   7} :: Bit 7   -> Bit 7   -> Bit 7
+external or48  {primBitOr  48} :: Bit 48  -> Bit 48  -> Bit 48
+external or64  {primBitOr  64} :: Bit 64  -> Bit 64  -> Bit 64
+external or72  {primBitOr  72} :: Bit 72  -> Bit 72  -> Bit 72
+external or497 {primBitOr 497} :: Bit 497 -> Bit 497 -> Bit 497
+external or999 {primBitOr 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint xor0, xor1, xor2, xor7, xor48, xor64, xor72, xor497, xor999
+external xor0   {primBitXor   0} :: Bit 0   -> Bit 0   -> Bit 0
+external xor1   {primBitXor   1} :: Bit 1   -> Bit 1   -> Bit 1
+external xor2   {primBitXor   2} :: Bit 2   -> Bit 2   -> Bit 2
+external xor7   {primBitXor   7} :: Bit 7   -> Bit 7   -> Bit 7
+external xor48  {primBitXor  48} :: Bit 48  -> Bit 48  -> Bit 48
+external xor64  {primBitXor  64} :: Bit 64  -> Bit 64  -> Bit 64
+external xor72  {primBitXor  72} :: Bit 72  -> Bit 72  -> Bit 72
+external xor497 {primBitXor 497} :: Bit 497 -> Bit 497 -> Bit 497
+external xor999 {primBitXor 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+-----------------------
+.lc: primBitwise-pos-64   ./milc -pcosoboro -m --64
+
+entrypoint and0, and1, and2, and7, and48, and64, and72, and497, and999
+external and0   {primBitAnd   0} :: Bit 0   -> Bit 0   -> Bit 0
+external and1   {primBitAnd   1} :: Bit 1   -> Bit 1   -> Bit 1
+external and2   {primBitAnd   2} :: Bit 2   -> Bit 2   -> Bit 2
+external and7   {primBitAnd   7} :: Bit 7   -> Bit 7   -> Bit 7
+external and48  {primBitAnd  48} :: Bit 48  -> Bit 48  -> Bit 48
+external and64  {primBitAnd  64} :: Bit 64  -> Bit 64  -> Bit 64
+external and72  {primBitAnd  72} :: Bit 72  -> Bit 72  -> Bit 72
+external and497 {primBitAnd 497} :: Bit 497 -> Bit 497 -> Bit 497
+external and999 {primBitAnd 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint or0, or1, or2, or7, or48, or64, or72, or497, or999
+external or0   {primBitOr   0} :: Bit 0   -> Bit 0   -> Bit 0
+external or1   {primBitOr   1} :: Bit 1   -> Bit 1   -> Bit 1
+external or2   {primBitOr   2} :: Bit 2   -> Bit 2   -> Bit 2
+external or7   {primBitOr   7} :: Bit 7   -> Bit 7   -> Bit 7
+external or48  {primBitOr  48} :: Bit 48  -> Bit 48  -> Bit 48
+external or64  {primBitOr  64} :: Bit 64  -> Bit 64  -> Bit 64
+external or72  {primBitOr  72} :: Bit 72  -> Bit 72  -> Bit 72
+external or497 {primBitOr 497} :: Bit 497 -> Bit 497 -> Bit 497
+external or999 {primBitOr 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint xor0, xor1, xor2, xor7, xor48, xor64, xor72, xor497, xor999
+external xor0   {primBitXor   0} :: Bit 0   -> Bit 0   -> Bit 0
+external xor1   {primBitXor   1} :: Bit 1   -> Bit 1   -> Bit 1
+external xor2   {primBitXor   2} :: Bit 2   -> Bit 2   -> Bit 2
+external xor7   {primBitXor   7} :: Bit 7   -> Bit 7   -> Bit 7
+external xor48  {primBitXor  48} :: Bit 48  -> Bit 48  -> Bit 48
+external xor64  {primBitXor  64} :: Bit 64  -> Bit 64  -> Bit 64
+external xor72  {primBitXor  72} :: Bit 72  -> Bit 72  -> Bit 72
+external xor497 {primBitXor 497} :: Bit 497 -> Bit 497 -> Bit 497
+external xor999 {primBitXor 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+-----------------------
+.lc: primBitwise-neg-32   ./milc -pcosoboro -m --32
+
+entrypoint and1K, and1G, or2K, xor1000
+external and1K   {primBitAnd   1K} :: Bit 1K   -> Bit 1K
+external and1G   {primBitAnd   1G} :: Bit 1G   -> Bit 1G
+external or2K    {primBitOr    2K} :: Bit 2K   -> Bit 2K
+external xor1000 {primBitXor 1000} :: Bit 1000 -> Bit 1000
+
+-----------------------
+.lc: primBitArith-pos-32   ./milc -pcosoboro -m --32
+
+entrypoint neg0, neg1, neg2, neg7, neg32
+external neg0   {primBitNegate   0} :: Bit 0   -> Bit 0
+external neg1   {primBitNegate   1} :: Bit 1   -> Bit 1
+external neg2   {primBitNegate   2} :: Bit 2   -> Bit 2
+external neg7   {primBitNegate   7} :: Bit 7   -> Bit 7
+external neg32  {primBitNegate  32} :: Bit 32  -> Bit 32
+
+entrypoint plus0, plus1, plus2, plus7, plus32
+external plus0   {primBitPlus   0} :: Bit 0   -> Bit 0   -> Bit 0
+external plus1   {primBitPlus   1} :: Bit 1   -> Bit 1   -> Bit 1
+external plus2   {primBitPlus   2} :: Bit 2   -> Bit 2   -> Bit 2
+external plus7   {primBitPlus   7} :: Bit 7   -> Bit 7   -> Bit 7
+external plus32  {primBitPlus  32} :: Bit 32  -> Bit 32  -> Bit 32
+
+entrypoint minus0, minus1, minus2, minus7, minus32
+external minus0   {primBitMinus   0} :: Bit 0   -> Bit 0   -> Bit 0
+external minus1   {primBitMinus   1} :: Bit 1   -> Bit 1   -> Bit 1
+external minus2   {primBitMinus   2} :: Bit 2   -> Bit 2   -> Bit 2
+external minus7   {primBitMinus   7} :: Bit 7   -> Bit 7   -> Bit 7
+external minus32  {primBitMinus  32} :: Bit 32  -> Bit 32  -> Bit 32
+
+entrypoint times0, times1, times2, times7, times32
+external times0   {primBitTimes   0} :: Bit 0   -> Bit 0   -> Bit 0
+external times1   {primBitTimes   1} :: Bit 1   -> Bit 1   -> Bit 1
+external times2   {primBitTimes   2} :: Bit 2   -> Bit 2   -> Bit 2
+external times7   {primBitTimes   7} :: Bit 7   -> Bit 7   -> Bit 7
+external times32  {primBitTimes  32} :: Bit 32  -> Bit 32  -> Bit 32
+
+-----------------------
+.lc: primBitArith-neg-32   ./milc -pcosoboro -m --32
+
+entrypoint neg48, neg64, neg72, neg497, neg999
+external neg48  {primBitNegate  48} :: Bit 48  -> Bit 48
+external neg64  {primBitNegate  64} :: Bit 64  -> Bit 64
+external neg72  {primBitNegate  72} :: Bit 72  -> Bit 72
+external neg497 {primBitNegate 497} :: Bit 497 -> Bit 497
+external neg999 {primBitNegate 999} :: Bit 999 -> Bit 999
+
+entrypoint plus48, plus64, plus72, plus497, plus999
+external plus48  {primBitPlus  48} :: Bit 48  -> Bit 48  -> Bit 48
+external plus64  {primBitPlus  64} :: Bit 64  -> Bit 64  -> Bit 64
+external plus72  {primBitPlus  72} :: Bit 72  -> Bit 72  -> Bit 72
+external plus497 {primBitPlus 497} :: Bit 497 -> Bit 497 -> Bit 497
+external plus999 {primBitPlus 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint minus48, minus64, minus72, minus497, minus999
+external minus48  {primBitMinus  48} :: Bit 48  -> Bit 48  -> Bit 48
+external minus64  {primBitMinus  64} :: Bit 64  -> Bit 64  -> Bit 64
+external minus72  {primBitMinus  72} :: Bit 72  -> Bit 72  -> Bit 72
+external minus497 {primBitMinus 497} :: Bit 497 -> Bit 497 -> Bit 497
+external minus999 {primBitMinus 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint times48, times64, times72, times497, times999
+external times48  {primBitTimes  48} :: Bit 48  -> Bit 48  -> Bit 48
+external times64  {primBitTimes  64} :: Bit 64  -> Bit 64  -> Bit 64
+external times72  {primBitTimes  72} :: Bit 72  -> Bit 72  -> Bit 72
+external times497 {primBitTimes 497} :: Bit 497 -> Bit 497 -> Bit 497
+external times999 {primBitTimes 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+-----------------------
+.lc: primBitArith-pos-64   ./milc -pcosoboro -m --64
+
+entrypoint neg0, neg1, neg2, neg7, neg32, neg48, neg64
+external neg0   {primBitNegate   0} :: Bit 0   -> Bit 0
+external neg1   {primBitNegate   1} :: Bit 1   -> Bit 1
+external neg2   {primBitNegate   2} :: Bit 2   -> Bit 2
+external neg7   {primBitNegate   7} :: Bit 7   -> Bit 7
+external neg32  {primBitNegate  32} :: Bit 32  -> Bit 32
+external neg48  {primBitNegate  48} :: Bit 48  -> Bit 48
+external neg64  {primBitNegate  64} :: Bit 64  -> Bit 64
+
+entrypoint plus0, plus1, plus2, plus7, plus32, plus48, plus64
+external plus0   {primBitPlus   0} :: Bit 0   -> Bit 0   -> Bit 0
+external plus1   {primBitPlus   1} :: Bit 1   -> Bit 1   -> Bit 1
+external plus2   {primBitPlus   2} :: Bit 2   -> Bit 2   -> Bit 2
+external plus7   {primBitPlus   7} :: Bit 7   -> Bit 7   -> Bit 7
+external plus32  {primBitPlus  32} :: Bit 32  -> Bit 32  -> Bit 32
+external plus48  {primBitPlus  48} :: Bit 48  -> Bit 48  -> Bit 48
+external plus64  {primBitPlus  64} :: Bit 64  -> Bit 64  -> Bit 64
+
+entrypoint minus0, minus1, minus2, minus7, minus32, minus48, minus64
+external minus0   {primBitMinus   0} :: Bit 0   -> Bit 0   -> Bit 0
+external minus1   {primBitMinus   1} :: Bit 1   -> Bit 1   -> Bit 1
+external minus2   {primBitMinus   2} :: Bit 2   -> Bit 2   -> Bit 2
+external minus7   {primBitMinus   7} :: Bit 7   -> Bit 7   -> Bit 7
+external minus32  {primBitMinus  32} :: Bit 32  -> Bit 32  -> Bit 32
+external minus48  {primBitMinus  48} :: Bit 48  -> Bit 48  -> Bit 48
+external minus64  {primBitMinus  64} :: Bit 64  -> Bit 64  -> Bit 64
+
+entrypoint times0, times1, times2, times7, times32, times48, times64
+external times0   {primBitTimes   0} :: Bit 0   -> Bit 0   -> Bit 0
+external times1   {primBitTimes   1} :: Bit 1   -> Bit 1   -> Bit 1
+external times2   {primBitTimes   2} :: Bit 2   -> Bit 2   -> Bit 2
+external times7   {primBitTimes   7} :: Bit 7   -> Bit 7   -> Bit 7
+external times32  {primBitTimes  32} :: Bit 32  -> Bit 32  -> Bit 32
+external times48  {primBitTimes  48} :: Bit 48  -> Bit 48  -> Bit 48
+external times64  {primBitTimes  64} :: Bit 64  -> Bit 64  -> Bit 64
+
+-----------------------
+.lc: primBitArith-neg-64   ./milc -pcosoboro -m --64
+
+entrypoint neg72, neg497, neg999
+external neg72  {primBitNegate  72} :: Bit 72  -> Bit 72
+external neg497 {primBitNegate 497} :: Bit 497 -> Bit 497
+external neg999 {primBitNegate 999} :: Bit 999 -> Bit 999
+
+entrypoint plus72, plus497, plus999
+external plus72  {primBitPlus  72} :: Bit 72  -> Bit 72  -> Bit 72
+external plus497 {primBitPlus 497} :: Bit 497 -> Bit 497 -> Bit 497
+external plus999 {primBitPlus 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint minus72, minus497, minus999
+external minus72  {primBitMinus  72} :: Bit 72  -> Bit 72  -> Bit 72
+external minus497 {primBitMinus 497} :: Bit 497 -> Bit 497 -> Bit 497
+external minus999 {primBitMinus 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+entrypoint times72, times497, times999
+external times72  {primBitTimes  72} :: Bit 72  -> Bit 72  -> Bit 72
+external times497 {primBitTimes 497} :: Bit 497 -> Bit 497 -> Bit 497
+external times999 {primBitTimes 999} :: Bit 999 -> Bit 999 -> Bit 999
+
+-----------------------
+.lc: primBitCompare-pos-32    ./milc -pcosoboro -m --32
+
+entrypoint eq0, eq1, eq2, eq15, eq31, eq32, eq33, eq48, eq64, eq72, eq98 
+external eq0  {primBitEq 0}  :: Bit 0  -> Bit 0  -> Flag
+external eq1  {primBitEq 1}  :: Bit 1  -> Bit 1  -> Flag
+external eq2  {primBitEq 2}  :: Bit 2  -> Bit 2  -> Flag
+external eq15 {primBitEq 15} :: Bit 15 -> Bit 15 -> Flag
+external eq31 {primBitEq 31} :: Bit 31 -> Bit 31 -> Flag
+external eq32 {primBitEq 32} :: Bit 32 -> Bit 32 -> Flag
+external eq33 {primBitEq 33} :: Bit 33 -> Bit 33 -> Flag
+external eq48 {primBitEq 48} :: Bit 48 -> Bit 48 -> Flag
+external eq64 {primBitEq 64} :: Bit 64 -> Bit 64 -> Flag
+external eq72 {primBitEq 72} :: Bit 72 -> Bit 72 -> Flag
+external eq98 {primBitEq 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint ne0, ne1, ne2, ne15, ne31, ne32, ne33, ne48, ne64, ne72, ne98 
+external ne0  {primBitNe 0}  :: Bit 0  -> Bit 0  -> Flag
+external ne1  {primBitNe 1}  :: Bit 1  -> Bit 1  -> Flag
+external ne2  {primBitNe 2}  :: Bit 2  -> Bit 2  -> Flag
+external ne15 {primBitNe 15} :: Bit 15 -> Bit 15 -> Flag
+external ne31 {primBitNe 31} :: Bit 31 -> Bit 31 -> Flag
+external ne32 {primBitNe 32} :: Bit 32 -> Bit 32 -> Flag
+external ne33 {primBitNe 33} :: Bit 33 -> Bit 33 -> Flag
+external ne48 {primBitNe 48} :: Bit 48 -> Bit 48 -> Flag
+external ne64 {primBitNe 64} :: Bit 64 -> Bit 64 -> Flag
+external ne72 {primBitNe 72} :: Bit 72 -> Bit 72 -> Flag
+external ne98 {primBitNe 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint gt0, gt1, gt2, gt15, gt31, gt32, gt33, gt48, gt64, gt72, gt98 
+external gt0  {primBitGt 0}  :: Bit 0  -> Bit 0  -> Flag
+external gt1  {primBitGt 1}  :: Bit 1  -> Bit 1  -> Flag
+external gt2  {primBitGt 2}  :: Bit 2  -> Bit 2  -> Flag
+external gt15 {primBitGt 15} :: Bit 15 -> Bit 15 -> Flag
+external gt31 {primBitGt 31} :: Bit 31 -> Bit 31 -> Flag
+external gt32 {primBitGt 32} :: Bit 32 -> Bit 32 -> Flag
+external gt33 {primBitGt 33} :: Bit 33 -> Bit 33 -> Flag
+external gt48 {primBitGt 48} :: Bit 48 -> Bit 48 -> Flag
+external gt64 {primBitGt 64} :: Bit 64 -> Bit 64 -> Flag
+external gt72 {primBitGt 72} :: Bit 72 -> Bit 72 -> Flag
+external gt98 {primBitGt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint ge0, ge1, ge2, ge15, ge31, ge32, ge33, ge48, ge64, ge72, ge98 
+external ge0  {primBitGe 0}  :: Bit 0  -> Bit 0  -> Flag
+external ge1  {primBitGe 1}  :: Bit 1  -> Bit 1  -> Flag
+external ge2  {primBitGe 2}  :: Bit 2  -> Bit 2  -> Flag
+external ge15 {primBitGe 15} :: Bit 15 -> Bit 15 -> Flag
+external ge31 {primBitGe 31} :: Bit 31 -> Bit 31 -> Flag
+external ge32 {primBitGe 32} :: Bit 32 -> Bit 32 -> Flag
+external ge33 {primBitGe 33} :: Bit 33 -> Bit 33 -> Flag
+external ge48 {primBitGe 48} :: Bit 48 -> Bit 48 -> Flag
+external ge64 {primBitGe 64} :: Bit 64 -> Bit 64 -> Flag
+external ge72 {primBitGe 72} :: Bit 72 -> Bit 72 -> Flag
+external ge98 {primBitGe 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint lt0, lt1, lt2, lt15, lt31, lt32, lt33, lt48, lt64, lt72, lt98 
+external lt0  {primBitLt 0}  :: Bit 0  -> Bit 0  -> Flag
+external lt1  {primBitLt 1}  :: Bit 1  -> Bit 1  -> Flag
+external lt2  {primBitLt 2}  :: Bit 2  -> Bit 2  -> Flag
+external lt15 {primBitLt 15} :: Bit 15 -> Bit 15 -> Flag
+external lt31 {primBitLt 31} :: Bit 31 -> Bit 31 -> Flag
+external lt32 {primBitLt 32} :: Bit 32 -> Bit 32 -> Flag
+external lt33 {primBitLt 33} :: Bit 33 -> Bit 33 -> Flag
+external lt48 {primBitLt 48} :: Bit 48 -> Bit 48 -> Flag
+external lt64 {primBitLt 64} :: Bit 64 -> Bit 64 -> Flag
+external lt72 {primBitLt 72} :: Bit 72 -> Bit 72 -> Flag
+external lt98 {primBitLt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint le0, le1, le2, le15, le31, le32, le33, le48, le64, le72, le98 
+external le0  {primBitLe 0}  :: Bit 0  -> Bit 0  -> Flag
+external le1  {primBitLe 1}  :: Bit 1  -> Bit 1  -> Flag
+external le2  {primBitLe 2}  :: Bit 2  -> Bit 2  -> Flag
+external le15 {primBitLe 15} :: Bit 15 -> Bit 15 -> Flag
+external le31 {primBitLe 31} :: Bit 31 -> Bit 31 -> Flag
+external le32 {primBitLe 32} :: Bit 32 -> Bit 32 -> Flag
+external le33 {primBitLe 33} :: Bit 33 -> Bit 33 -> Flag
+external le48 {primBitLe 48} :: Bit 48 -> Bit 48 -> Flag
+external le64 {primBitLe 64} :: Bit 64 -> Bit 64 -> Flag
+external le72 {primBitLe 72} :: Bit 72 -> Bit 72 -> Flag
+external le98 {primBitLe 98} :: Bit 98 -> Bit 98 -> Flag
+
+-----------------------
+.lc: primBitCompare-pos-64    ./milc -pcosoboro -m --64
+
+entrypoint eq32, eq48, eq64, eq98 
+external eq32 {primBitEq 32} :: Bit 32 -> Bit 32 -> Flag
+external eq48 {primBitEq 48} :: Bit 48 -> Bit 48 -> Flag
+external eq64 {primBitEq 64} :: Bit 64 -> Bit 64 -> Flag
+external eq98 {primBitEq 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint ne32, ne48, ne64, ne98 
+external ne32 {primBitNe 32} :: Bit 32 -> Bit 32 -> Flag
+external ne48 {primBitNe 48} :: Bit 48 -> Bit 48 -> Flag
+external ne64 {primBitNe 64} :: Bit 64 -> Bit 64 -> Flag
+external ne98 {primBitNe 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint gt32, gt48, gt64, gt98 
+external gt32 {primBitGt 32} :: Bit 32 -> Bit 32 -> Flag
+external gt48 {primBitGt 48} :: Bit 48 -> Bit 48 -> Flag
+external gt64 {primBitGt 64} :: Bit 64 -> Bit 64 -> Flag
+external gt98 {primBitGt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint ge32, ge48, ge64, ge98 
+external ge32 {primBitGe 32} :: Bit 32 -> Bit 32 -> Flag
+external ge48 {primBitGe 48} :: Bit 48 -> Bit 48 -> Flag
+external ge64 {primBitGe 64} :: Bit 64 -> Bit 64 -> Flag
+external ge98 {primBitGe 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint lt32, lt48, lt64, lt98 
+external lt32 {primBitLt 32} :: Bit 32 -> Bit 32 -> Flag
+external lt48 {primBitLt 48} :: Bit 48 -> Bit 48 -> Flag
+external lt64 {primBitLt 64} :: Bit 64 -> Bit 64 -> Flag
+external lt98 {primBitLt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint le32, le48, le64, le98 
+external le32 {primBitLe 32} :: Bit 32 -> Bit 32 -> Flag
+external le48 {primBitLe 48} :: Bit 48 -> Bit 48 -> Flag
+external le64 {primBitLe 64} :: Bit 64 -> Bit 64 -> Flag
+external le98 {primBitLe 98} :: Bit 98 -> Bit 98 -> Flag
+
+-----------------------
+.lc: primBitCompare-neg-32    ./milc -pcosoboro -m --32
+
+entrypoint a, b, c, d, e, f
+external a {primBitEq 1000} :: Bit 1000 -> Bit 1000 -> Flag  -- large width values
+external b {primBitNe 1G}   :: Bit 1G   -> Bit 1G   -> Flag
+external c {primBitGt 2K}   :: Bit 2K   -> Bit 2K   -> Flag
+external d {primBitGe 1001} :: Bit 1001 -> Bit 1001 -> Flag
+external e {primBitLt Word} :: Bit 31   -> Bit 31   -> Flag  -- not a number
+external f {primBitLe}      :: Bit 32   -> Bit 32   -> Flag  -- missing param
+
+-----------------------
+.lc: primBitManip-pos-32    ./milc -pcosoboro -m --32
+
+entrypoint bitBit2, bitBit12
+entrypoint bitBit48, bitBit64, bitBit128
+external bitBit2      {primBitBit 2}       :: Ix 2  -> Bit 2
+external bitBit12     {primBitBit 12}      :: Ix 12 -> Bit 12
+external bitBit48     {primBitBit 48}      :: Ix 48 -> Bit 48
+external bitBit64     {primBitBit 64}      :: Ix 64 -> Bit 64
+external bitBit128    {primBitBit 128 }    :: Ix 128 -> Bit 128
+
+entrypoint bitSetBit2, bitSetBit12
+entrypoint bitSetBit48, bitSetBit64, bitSetBit128
+external bitSetBit2   {primBitSetBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitSetBit12  {primBitSetBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitSetBit48  {primBitSetBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitSetBit64  {primBitSetBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitSetBit128 {primBitSetBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitClearBit2, bitClearBit12
+entrypoint bitClearBit48, bitClearBit64, bitClearBit128
+external bitClearBit2   {primBitClearBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitClearBit12  {primBitClearBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitClearBit48  {primBitClearBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitClearBit64  {primBitClearBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitClearBit128 {primBitClearBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitFlipBit2, bitFlipBit12
+entrypoint bitFlipBit48, bitFlipBit64, bitFlipBit128
+external bitFlipBit2   {primBitFlipBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitFlipBit12  {primBitFlipBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitFlipBit48  {primBitFlipBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitFlipBit64  {primBitFlipBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitFlipBit128 {primBitFlipBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitTestBit2, bitTestBit12
+entrypoint bitTestBit48, bitTestBit64, bitTestBit128
+external bitTestBit2   {primBitTestBit 2}    :: Bit 2   -> Ix 2   -> Flag
+external bitTestBit12  {primBitTestBit 12}   :: Bit 12  -> Ix 12  -> Flag
+external bitTestBit48  {primBitTestBit 48}   :: Bit 48  -> Ix 48  -> Flag
+external bitTestBit64  {primBitTestBit 64}   :: Bit 64  -> Ix 64  -> Flag
+external bitTestBit128 {primBitTestBit 128}  :: Bit 128 -> Ix 128 -> Flag
+
+entrypoint bitBitSize1, bitBitSize2, bitBitSize12
+entrypoint bitBitSize48, bitBitSize64, bitBitSize128
+external bitBitSize1   {primBitBitSize 1}    :: Bit 1   -> Ix 1
+external bitBitSize2   {primBitBitSize 2}    :: Bit 2   -> Ix 2
+external bitBitSize12  {primBitBitSize 12}   :: Bit 12  -> Ix 12
+external bitBitSize48  {primBitBitSize 48}   :: Bit 48  -> Ix 48
+external bitBitSize64  {primBitBitSize 64}   :: Bit 64  -> Ix 64
+external bitBitSize128 {primBitBitSize 128}  :: Bit 128 -> Ix 128
+
+-----------------------
+.lc: primBitManip-pos-64    ./milc -pcosoboro -m --64
+
+entrypoint bitBit2, bitBit12
+entrypoint bitBit48, bitBit64, bitBit128
+external bitBit2      {primBitBit 2}       :: Ix 2  -> Bit 2
+external bitBit12     {primBitBit 12}      :: Ix 12 -> Bit 12
+external bitBit48     {primBitBit 48}      :: Ix 48 -> Bit 48
+external bitBit64     {primBitBit 64}      :: Ix 64 -> Bit 64
+external bitBit128    {primBitBit 128 }    :: Ix 128 -> Bit 128
+
+entrypoint bitSetBit2, bitSetBit12
+entrypoint bitSetBit48, bitSetBit64, bitSetBit128
+external bitSetBit2   {primBitSetBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitSetBit12  {primBitSetBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitSetBit48  {primBitSetBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitSetBit64  {primBitSetBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitSetBit128 {primBitSetBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitClearBit2, bitClearBit12
+entrypoint bitClearBit48, bitClearBit64, bitClearBit128
+external bitClearBit2   {primBitClearBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitClearBit12  {primBitClearBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitClearBit48  {primBitClearBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitClearBit64  {primBitClearBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitClearBit128 {primBitClearBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitFlipBit2, bitFlipBit12
+entrypoint bitFlipBit48, bitFlipBit64, bitFlipBit128
+external bitFlipBit2   {primBitFlipBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
+external bitFlipBit12  {primBitFlipBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
+external bitFlipBit48  {primBitFlipBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
+external bitFlipBit64  {primBitFlipBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
+external bitFlipBit128 {primBitFlipBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitTestBit2, bitTestBit12
+entrypoint bitTestBit48, bitTestBit64, bitTestBit128
+external bitTestBit2   {primBitTestBit 2}    :: Bit 2   -> Ix 2   -> Flag
+external bitTestBit12  {primBitTestBit 12}   :: Bit 12  -> Ix 12  -> Flag
+external bitTestBit48  {primBitTestBit 48}   :: Bit 48  -> Ix 48  -> Flag
+external bitTestBit64  {primBitTestBit 64}   :: Bit 64  -> Ix 64  -> Flag
+external bitTestBit128 {primBitTestBit 128}  :: Bit 128 -> Ix 128 -> Flag
+
+entrypoint bitBitSize1, bitBitSize2, bitBitSize12
+entrypoint bitBitSize48, bitBitSize64, bitBitSize128
+external bitBitSize1   {primBitBitSize 1}    :: Bit 1   -> Ix 1
+external bitBitSize2   {primBitBitSize 2}    :: Bit 2   -> Ix 2
+external bitBitSize12  {primBitBitSize 12}   :: Bit 12  -> Ix 12
+external bitBitSize48  {primBitBitSize 48}   :: Bit 48  -> Ix 48
+external bitBitSize64  {primBitBitSize 64}   :: Bit 64  -> Ix 64
+external bitBitSize128 {primBitBitSize 128}  :: Bit 128 -> Ix 128
+
+-----------------------
+.lc: primBitManip-neg-32    ./milc -pcosoboro -m --32
+
+entrypoint bitBit0, bitSetBit0, bitClearBit0, bitFlipBit0, bitTestBit0, bitBitSize0
+external bitBit0       {primBitBit 0}       :: Ix 0  -> Bit 0
+external bitSetBit0    {primBitSetBit 0}    :: Bit 0 -> Ix 0  -> Bit 0
+external bitClearBit0  {primBitClearBit 0}  :: Bit 0 -> Ix 0  -> Bit 0
+external bitFlipBit0   {primBitFlipBit 0}   :: Bit 0 -> Ix 0  -> Bit 0
+external bitTestBit0   {primBitTestBit 0}   :: Bit 0 -> Ix 0  -> Flag
+external bitBitSize0   {primBitBitSize 0}   :: Bit 0 -> Ix 0
+
+entrypoint bitBit1, bitSetBit1, bitClearBit1, bitFlipBit1, bitTestBit1
+external bitBit1       {primBitBit 1}       :: Ix 1  -> Bit 1
+external bitSetBit1    {primBitSetBit 1}    :: Bit 1 -> Ix 1  -> Bit 1
+external bitClearBit1  {primBitClearBit 1}  :: Bit 1 -> Ix 1  -> Bit 1
+external bitFlipBit1   {primBitFlipBit 1}   :: Bit 1 -> Ix 1  -> Bit 1
+external bitTestBit1   {primBitTestBit 1}   :: Bit 1 -> Ix 1  -> Flag
+-- NOTE: bitBitSize is defined for Bit 1; perhaps other BitManip operators should be too ...
+
+entrypoint bitBit1K, bitSetBit1K, bitClearBit1K, bitFlipBit1K, bitTestBit1K, bitBitSize1K
+external bitBit1K       {primBitBit 1K}       :: Ix 1K  -> Bit 1K
+external bitSetBit1K    {primBitSetBit 1K}    :: Bit 1K -> Ix 1K  -> Bit 1K
+external bitClearBit1K  {primBitClearBit 1K}  :: Bit 1K -> Ix 1K  -> Bit 1K
+external bitFlipBit1K   {primBitFlipBit 1K}   :: Bit 1K -> Ix 1K  -> Bit 1K
+external bitTestBit1K   {primBitTestBit 1K}   :: Bit 1K -> Ix 1K  -> Flag
+external bitBitSize1K   {primBitBitSize 1K}   :: Bit 1K -> Ix 1K
+
+-----------------------
+.lc: primBitShift-pos-32    ./milc -pcosoboro -m --32
+
+-- It would be useful to add executable tests for all of these ...
+
+entrypoint bitShiftL2, bitShiftL12, bitShiftL32, bitShiftL38
+entrypoint bitShiftL64, bitShiftL98, bitShiftL128
+external bitShiftL2   {primBitShiftL 2}   :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftL12  {primBitShiftL 12}  :: Bit 12  -> Ix 12  -> Bit 12
+external bitShiftL32  {primBitShiftL 32}  :: Bit 32  -> Ix 32  -> Bit 32
+external bitShiftL38  {primBitShiftL 38}  :: Bit 38  -> Ix 38  -> Bit 38
+external bitShiftL64  {primBitShiftL 64}  :: Bit 64  -> Ix 64  -> Bit 64
+external bitShiftL98  {primBitShiftL 98}  :: Bit 98  -> Ix 98  -> Bit 98
+external bitShiftL128 {primBitShiftL 128} :: Bit 128 -> Ix 128 -> Bit 128
+
+entrypoint bitShiftRu2, bitShiftRu12, bitShiftRu32, bitShiftRu38
+entrypoint bitShiftRu64, bitShiftRu98, bitShiftRu128
+external bitShiftRu2   {primBitShiftRu 2}   :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftRu12  {primBitShiftRu 12}  :: Bit 12  -> Ix 12  -> Bit 12
+external bitShiftRu32  {primBitShiftRu 32}  :: Bit 32  -> Ix 32  -> Bit 32
+external bitShiftRu38  {primBitShiftRu 38}  :: Bit 38  -> Ix 38  -> Bit 38
+external bitShiftRu64  {primBitShiftRu 64}  :: Bit 64  -> Ix 64  -> Bit 64
+external bitShiftRu98  {primBitShiftRu 98}  :: Bit 98  -> Ix 98  -> Bit 98
+external bitShiftRu128 {primBitShiftRu 128} :: Bit 128 -> Ix 128 -> Bit 128
+
+-----------------------
+.lc: primBitShift-neg-32    ./milc -pcosoboro -m --32
+
+entrypoint bitShiftL0, bitShiftL1, bitShiftL1K
+external bitShiftL0   {primBitShiftL 0}   :: Bit 0   -> Ix 0   -> Bit 0
+external bitShiftL1   {primBitShiftL 1}   :: Bit 1   -> Ix 1   -> Bit 1
+external bitShiftL1K  {primBitShiftL 1K}  :: Bit 1K  -> Ix 1K  -> Bit 1K
+
+entrypoint bitShiftRu0, bitShiftRu1, bitShiftRu1K
+external bitShiftRu0  {primBitShiftRu 0}  :: Bit 0   -> Ix 0   -> Bit 0
+external bitShiftRu1  {primBitShiftRu 1}  :: Bit 1   -> Ix 1   -> Bit 1
+external bitShiftRu1K {primBitShiftRu 1K} :: Bit 1K  -> Ix 1K  -> Bit 1K
+
+-----------------------

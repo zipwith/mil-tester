@@ -1,0 +1,74 @@
+-----------------------------------------
+-- not recursive
+entrypoint ixEq1 :: [Word, Word] >>= [Flag]
+ixEq1[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq7 :: [Word, Word] >>= [Flag]
+ixEq7[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq65 :: [Word, Word] >>= [Flag]
+ixEq65[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq1K :: [Word, Word] >>= [Flag]
+ixEq1K[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq123 :: [Word, Word] >>= [Flag]
+ixEq123[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq2047M :: [Word, Word] >>= [Flag]
+ixEq2047M[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq1G :: [Word, Word] >>= [Flag]
+ixEq1G[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixNe15 :: [Word, Word] >>= [Flag]
+ixNe15[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLt15 :: [Word, Word] >>= [Flag]
+ixLt15[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLe15 :: [Word, Word] >>= [Flag]
+ixLe15[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGt15 :: [Word, Word] >>= [Flag]
+ixGt15[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGe15 :: [Word, Word] >>= [Flag]
+ixGe15[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: ixEq1 ixEq7 ixEq65 ixEq1K ixEq123 ixEq2047M ixEq1G ixNe15 ixLt15 ixLe15 ixGt15 ixGe15

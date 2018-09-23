@@ -1,0 +1,204 @@
+-----------------------------------------
+-- not recursive
+b18 :: forall (a :: *). [a] >>= [a]
+b18[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b17 :: forall (a :: *) (b :: tuple). [[a] ->> b, a] >>= b
+b17[t0, t1] =
+  t0 @ t1
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxF1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genMaybeIxF1[t0, t1, t2] =
+  t3 <- primUle((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxW1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxW1[t0, t1, t2] =
+  t3 <- primUle((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxI1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxI1[t0, t1, t2] =
+  t3 <- primUle((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+b27 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
+b27[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxB1 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genMaybeIxB1[t0, t1, t2, t3] =
+  t4 <- primUle((t3, 0))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxM1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genMaybeIxM1[t0, t1, t2] =
+  t3 <- primUle((t2, 0))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxF7 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genMaybeIxF7[t0, t1, t2] =
+  t3 <- primUle((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxW7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxW7[t0, t1, t2] =
+  t3 <- primUle((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxI7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxI7[t0, t1, t2] =
+  t3 <- primUle((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxB7 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genMaybeIxB7[t0, t1, t2, t3] =
+  t4 <- primUle((t3, 6))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxM7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxM7[t0, t1, t2] =
+  t3 <- primUle((t2, 6))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxF64 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+genMaybeIxF64[t0, t1, t2] =
+  t3 <- primUle((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxW64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxW64[t0, t1, t2] =
+  t3 <- primUle((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxI64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxI64[t0, t1, t2] =
+  t3 <- primUle((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxB64 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
+genMaybeIxB64[t0, t1, t2, t3] =
+  t4 <- primUle((t3, 63))
+  if t4
+    then b17[t2, t3]
+    else b27[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genMaybeIxM64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+genMaybeIxM64[t0, t1, t2] =
+  t3 <- primUle((t2, 63))
+  if t3
+    then b17[t1, t2]
+    else b18[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint maybeIx1 :: [Word] >>= [Flag]
+maybeIx1[t0] =
+  primUle((t0, 0))
+
+-----------------------------------------
+-- not recursive
+b77 :: [] >>= [Word]
+b77[] =
+  return 7
+
+-----------------------------------------
+-- not recursive
+b76 :: forall (a :: *). [a] >>= [a]
+b76[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint maybeIx7 :: [Word] >>= [Word]
+maybeIx7[t0] =
+  t1 <- primUle((t0, 6))
+  if t1
+    then b76[t0]
+    else b77[]
+
+-----------------------------------------
+-- not recursive
+b79 :: [] >>= [Word]
+b79[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+construct_Just5 :: [Word] >>= [Word]
+construct_Just5[t0] =
+  t1 <- shl((t0, 1))
+  or((t1, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint maybeIx64 :: [Word] >>= [Word]
+maybeIx64[t0] =
+  t1 <- primUle((t0, 63))
+  if t1
+    then construct_Just5[t0]
+    else b79[]
+
+-----------------------------------------
+-- Entrypoints: genMaybeIxF1 genMaybeIxW1 genMaybeIxI1 genMaybeIxB1 genMaybeIxM1 genMaybeIxF7 genMaybeIxW7 genMaybeIxI7 genMaybeIxB7 genMaybeIxM7 genMaybeIxF64 genMaybeIxW64 genMaybeIxI64 genMaybeIxB64 genMaybeIxM64 maybeIx1 maybeIx7 maybeIx64

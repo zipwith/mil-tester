@@ -1,0 +1,611 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint eq0 :: [Unit, Unit] >>= [Flag]
+eq0[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint eq1 :: [Flag, Flag] >>= [Flag]
+eq1[t0, t1] =
+  beq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint eq2 :: [Word, Word] >>= [Flag]
+eq2[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint eq15 :: [Word, Word] >>= [Flag]
+eq15[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint eq31 :: [Word, Word] >>= [Flag]
+eq31[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint eq32 :: [Word, Word] >>= [Flag]
+eq32[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+returnFalse :: [] >>= [Flag]
+returnFalse[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint eq33 :: [Word, Word, Word, Word] >>= [Flag]
+eq33[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then eq2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint eq48 :: [Word, Word, Word, Word] >>= [Flag]
+eq48[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then eq2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint eq64 :: [Word, Word, Word, Word] >>= [Flag]
+eq64[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then eq2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint eq72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+eq72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then eq33[t0, t1, t3, t4]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint eq98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+eq98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then eq72[t0, t1, t2, t4, t5, t6]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ne0 :: [Unit, Unit] >>= [Flag]
+ne0[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint ne1 :: [Flag, Flag] >>= [Flag]
+ne1[t0, t1] =
+  bxor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ne2 :: [Word, Word] >>= [Flag]
+ne2[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ne15 :: [Word, Word] >>= [Flag]
+ne15[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ne31 :: [Word, Word] >>= [Flag]
+ne31[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ne32 :: [Word, Word] >>= [Flag]
+ne32[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+returnTrue :: [] >>= [Flag]
+returnTrue[] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ne33 :: [Word, Word, Word, Word] >>= [Flag]
+ne33[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then ne2[t0, t2]
+    else returnTrue[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ne48 :: [Word, Word, Word, Word] >>= [Flag]
+ne48[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then ne2[t0, t2]
+    else returnTrue[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ne64 :: [Word, Word, Word, Word] >>= [Flag]
+ne64[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then ne2[t0, t2]
+    else returnTrue[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ne72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+ne72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then ne33[t0, t1, t3, t4]
+    else returnTrue[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ne98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+ne98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then ne72[t0, t1, t2, t4, t5, t6]
+    else returnTrue[]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt0 :: [Unit, Unit] >>= [Flag]
+gt0[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint gt1 :: [Flag, Flag] >>= [Flag]
+gt1[t0, t1] =
+  bgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint gt2 :: [Word, Word] >>= [Flag]
+gt2[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint gt15 :: [Word, Word] >>= [Flag]
+gt15[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint gt31 :: [Word, Word] >>= [Flag]
+gt31[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint gt32 :: [Word, Word] >>= [Flag]
+gt32[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b42 :: [Word, Word, Word, Word] >>= [Flag]
+b42[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then gt2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt33 :: [Word, Word, Word, Word] >>= [Flag]
+gt33[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b42[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt48 :: [Word, Word, Word, Word] >>= [Flag]
+gt48[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b42[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt64 :: [Word, Word, Word, Word] >>= [Flag]
+gt64[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b42[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+b53 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b53[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then gt33[t0, t1, t3, t4]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+gt72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primUgt((t2, t5))
+  if t6
+    then returnTrue[]
+    else b53[t0, t1, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b60 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b60[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then gt72[t0, t1, t2, t4, t5, t6]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint gt98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+gt98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primUgt((t3, t7))
+  if t8
+    then returnTrue[]
+    else b60[t0, t1, t2, t3, t4, t5, t6, t7]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge0 :: [Unit, Unit] >>= [Flag]
+ge0[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ge1 :: [Flag, Flag] >>= [Flag]
+ge1[t0, t1] =
+  bge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ge2 :: [Word, Word] >>= [Flag]
+ge2[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ge15 :: [Word, Word] >>= [Flag]
+ge15[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ge31 :: [Word, Word] >>= [Flag]
+ge31[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ge32 :: [Word, Word] >>= [Flag]
+ge32[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b67 :: [Word, Word, Word, Word] >>= [Flag]
+b67[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then ge2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge33 :: [Word, Word, Word, Word] >>= [Flag]
+ge33[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b67[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge48 :: [Word, Word, Word, Word] >>= [Flag]
+ge48[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b67[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge64 :: [Word, Word, Word, Word] >>= [Flag]
+ge64[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b67[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+b78 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b78[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then ge33[t0, t1, t3, t4]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+ge72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primUgt((t2, t5))
+  if t6
+    then returnTrue[]
+    else b78[t0, t1, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b85 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b85[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then ge72[t0, t1, t2, t4, t5, t6]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ge98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+ge98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primUgt((t3, t7))
+  if t8
+    then returnTrue[]
+    else b85[t0, t1, t2, t3, t4, t5, t6, t7]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt0 :: [Unit, Unit] >>= [Flag]
+lt0[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint lt1 :: [Flag, Flag] >>= [Flag]
+lt1[t0, t1] =
+  blt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint lt2 :: [Word, Word] >>= [Flag]
+lt2[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint lt15 :: [Word, Word] >>= [Flag]
+lt15[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint lt31 :: [Word, Word] >>= [Flag]
+lt31[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint lt32 :: [Word, Word] >>= [Flag]
+lt32[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b92 :: [Word, Word, Word, Word] >>= [Flag]
+b92[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then lt2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt33 :: [Word, Word, Word, Word] >>= [Flag]
+lt33[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b92[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt48 :: [Word, Word, Word, Word] >>= [Flag]
+lt48[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b92[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt64 :: [Word, Word, Word, Word] >>= [Flag]
+lt64[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b92[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+b103 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b103[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then lt33[t0, t1, t3, t4]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+lt72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primUlt((t2, t5))
+  if t6
+    then returnTrue[]
+    else b103[t0, t1, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b110 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b110[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then lt72[t0, t1, t2, t4, t5, t6]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint lt98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+lt98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primUlt((t3, t7))
+  if t8
+    then returnTrue[]
+    else b110[t0, t1, t2, t3, t4, t5, t6, t7]
+
+-----------------------------------------
+-- not recursive
+entrypoint le0 :: [Unit, Unit] >>= [Flag]
+le0[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint le1 :: [Flag, Flag] >>= [Flag]
+le1[t0, t1] =
+  ble((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint le2 :: [Word, Word] >>= [Flag]
+le2[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint le15 :: [Word, Word] >>= [Flag]
+le15[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint le31 :: [Word, Word] >>= [Flag]
+le31[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint le32 :: [Word, Word] >>= [Flag]
+le32[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b117 :: [Word, Word, Word, Word] >>= [Flag]
+b117[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then le2[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint le33 :: [Word, Word, Word, Word] >>= [Flag]
+le33[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b117[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint le48 :: [Word, Word, Word, Word] >>= [Flag]
+le48[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b117[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint le64 :: [Word, Word, Word, Word] >>= [Flag]
+le64[t0, t1, t2, t3] =
+  t4 <- primUlt((t1, t3))
+  if t4
+    then returnTrue[]
+    else b117[t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+b128 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b128[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t2, t5))
+  if t6
+    then le33[t0, t1, t3, t4]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint le72 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+le72[t0, t1, t2, t3, t4, t5] =
+  t6 <- primUlt((t2, t5))
+  if t6
+    then returnTrue[]
+    else b128[t0, t1, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b135 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b135[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primEq((t3, t7))
+  if t8
+    then le72[t0, t1, t2, t4, t5, t6]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+entrypoint le98 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+le98[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- primUlt((t3, t7))
+  if t8
+    then returnTrue[]
+    else b135[t0, t1, t2, t3, t4, t5, t6, t7]
+
+-----------------------------------------
+-- Entrypoints: eq0 eq1 eq2 eq15 eq31 eq32 eq33 eq48 eq64 eq72 eq98 ne0 ne1 ne2 ne15 ne31 ne32 ne33 ne48 ne64 ne72 ne98 gt0 gt1 gt2 gt15 gt31 gt32 gt33 gt48 gt64 gt72 gt98 ge0 ge1 ge2 ge15 ge31 ge32 ge33 ge48 ge64 ge72 ge98 lt0 lt1 lt2 lt15 lt31 lt32 lt33 lt48 lt64 lt72 lt98 le0 le1 le2 le15 le31 le32 le33 le48 le64 le72 le98

@@ -1,0 +1,65 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint not0 :: [Unit] >>= [Unit]
+not0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint not1 :: [Flag] >>= [Flag]
+not1[t0] =
+  bnot((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint not2 :: [Word] >>= [Word]
+not2[t0] =
+  xor((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint not7 :: [Word] >>= [Word]
+not7[t0] =
+  xor((t0, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint not64 :: [Word, Word] >>= [Word, Word]
+not64[t0, t1] =
+  t2 <- not((t0))
+  t3 <- not((t1))
+  return [t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint not497 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word]
+not497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
+  t16 <- not((t0))
+  t17 <- not((t1))
+  t18 <- not((t2))
+  t19 <- not((t3))
+  t20 <- not((t4))
+  t21 <- not((t5))
+  t22 <- not((t6))
+  t23 <- not((t7))
+  t24 <- not((t8))
+  t25 <- not((t9))
+  t26 <- not((t10))
+  t27 <- not((t11))
+  t28 <- not((t12))
+  t29 <- not((t13))
+  t30 <- not((t14))
+  t31 <- xor((t15, 131071))
+  return [t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31]
+
+-----------------------------------------
+-- Entrypoints: not0 not1 not2 not7 not64 not497
