@@ -1,0 +1,13 @@
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Word]
+main[] =
+  [] <- print((12))
+  [] <- print((16))
+  [] <- print((256))
+  [] <- print((2))
+  [] <- print((4))
+  return 0
+
+-----------------------------------------
+-- Entrypoints: main

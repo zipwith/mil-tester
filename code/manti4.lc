@@ -1,0 +1,18 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+require "prelude.lc"
+entrypoint main
+
+wrapper = \x ->
+   let g   = \i -> add i x
+       map = \f l -> case l of
+                       Cons h t -> Cons (f h) (map f t)
+                       Nil      -> Nil
+   in map g (Cons 1 (Cons 2 (Cons 3 Nil)))
+
+res1 = wrapper 1
+res2 = wrapper 2
+
+main = Pair res1 res2
+

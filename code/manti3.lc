@@ -1,0 +1,23 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+require "prelude.lc"
+entrypoint main
+
+fst = \p -> case p of Pair x y -> x
+snd = \p -> case p of Pair x y -> y
+
+mk = \i -> let g = \j -> add j 1
+               f = \p -> (fst p (mul (snd p) i) :: Word) -- needs type to avoid ambiguity
+           in Pair f g
+
+r1 = mk 1
+f1 = fst r1
+g1 = snd r1
+
+r2 = mk 2
+f2 = fst r2
+g2 = snd r2
+
+main = f1 (Pair g2 3)
+

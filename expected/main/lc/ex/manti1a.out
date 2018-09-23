@@ -1,0 +1,39 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b99 :: [Word] >>= [Unit]
+b99[t0] =
+  t1 <- intToStr((t0))
+  [] <- print((t1))
+  return Unit
+
+-----------------------------------------
+-- recursive
+b100 :: [Word, Word] >>= [Unit]
+b100[t0, t1] =
+  t2 <- add((t1, -1))
+  t3 <- mul((t0, t1))
+  t4 <- primEq((t2, 0))
+  if t4
+    then b99[t3]
+    else b100[t3, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Word, Word] >>= [Unit]
+main[t0, t1] =
+  t2 <- primEq((t0, 0))
+  if t2
+    then b99[t1]
+    else b100[t1, t0]
+
+-----------------------------------------
+-- Entrypoints: main

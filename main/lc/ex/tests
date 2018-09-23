@@ -1,4 +1,4 @@
-A collection of examples from the README.md file:
+A collection of ad hoc examples from the README.md file and other sources:
 
 exec: ex-po       ./milc -m ex.lc -po
 exec: ex-pco      ./milc -m ex.lc -pco
@@ -17,3 +17,521 @@ exec: needinit-m  ./milc -m needinit.lc
 exec: program-l   ./milc --standalone -l program.lc
 exec: program-m   ./milc --standalone -m program.lc
 
+exec: manti1      ./milc -m -pcosoboro manti1.lc
+exec: manti1a     ./milc -m -pcosoboro manti1a.lc
+exec: manti1b     ./milc -m -pcosoboro manti1b.lc
+exec: manti2      ./milc -m -pcosoboro manti2.lc
+exec: manti3      ./milc -m -pcosoboro manti3.lc
+exec: manti4      ./milc -m -pcosoboro manti4.lc
+
+.lc: rec         ./milc -m -pcosoboro
+require "prelude.lc"
+
+entrypoint main
+f = \x -> let g = \y -> if eq y 0 then x else add x (h y)
+              h = \z -> if eq z 0 then z else add x (g z)
+          in Pair g h
+
+main = f
+
+------------
+.lc: oddeven     ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main, main0, main1, main2, main3
+
+odd  = \n -> if eq n 0 then false else even (sub n 1)
+even = \n -> if eq n 0 then true  else odd  (sub n 1)
+even1 = \n -> odd (add n 1)
+
+main0 = even 34
+main1 = even
+main2 = Pair odd even
+main3 = even1
+
+main = main1
+------------
+.lc: mon         ./milc -m -pcosoboro
+require "prelude.lc"
+require "/print.mil"
+
+entrypoint main
+main = do test; foo true; foo false; return 0
+
+bind = \c f -> do x <- c; f x
+
+test = bind (print 12) (\x ->
+       bind (print 16) (\y ->
+       print 256))
+
+foo  = \x -> if boolNot x then print 4 else print 2
+
+boolNot = \b -> if b then false else true
+
+------------
+.lc: tlc         ./milc -m -pcosoboro
+-- Some examples using top-level constants
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+one = 1
+two = add one one
+three = 3
+four = add one three
+
+square = \x -> mul x x
+
+x = add one (mul two 3)
+y = add x x
+z = square (add x y)
+
+main = do print y
+          print x
+          print (square three)
+          print (square four)
+          print z
+
+------------
+.lc: repeated    ./milc -m -pcosoboro
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+try :: Maybe Word -> Proc Unit
+try = \x -> 
+        do case x of
+             Just y ->  print 1
+           case x of
+             Just y ->  print 2
+           print 3
+
+main = try
+------------
+.lc: repeated1   ./milc -m -pcosoboro
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+try :: Maybe Word -> Proc Unit
+try = \x -> 
+        do case x of
+             Just y  -> print 1
+             Nothing -> return Unit
+           case x of
+             Just y  -> print 2
+             Nothing -> return Unit
+           print 3
+
+main = try
+------------
+.lc: rewrites   ./milc -pcosoboro -m
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+main = \z u -> do print 1
+                  print (add z (mul 3 z))
+                  print 2
+                  print (add (mul 4 z) z)
+                  print 3
+                  print (add (mul 3 z) (mul 7 z))
+                  print 4
+                  print (add (neg z) 1)
+                  print 5
+                  print (add 2 (neg z))
+                  print (sub u (neg z))
+                  print 6
+                  print (add (sub z 2) 3) 
+
+                  print 7 -- sub ... 2
+                  print (sub (add z 11) 2)   -- z + 9
+                  print (sub (sub z 11) 2)   -- z - 13
+                  print (sub (neg z)    2)   -- -(z + 2)
+
+                  print 8 -- sub 100 ...
+                  print (sub 100 (add u 1))  -- 99 - u
+                  print (sub 100 (sub u 2))  -- 102 - u
+                  print (sub 100 (neg u))    -- u + 100
+
+                  print 9
+                  print (add (neg z) u)
+                  print (add z (neg u))
+
+------------
+.lc: tree       ./milc -pcosoboro -m
+require "prelude.lc"
+entrypoint main
+
+data Tree a = Leaf | Node (Tree a) a (Tree a)
+
+mapTree = \f t -> case t of
+                    Leaf       -> Leaf
+                    Node l n r -> Node (mapTree f l) (f n) (mapTree f r)
+
+data ST s a = ST (s -> Pair a s)
+
+unST :: ST s a -> s -> Pair a s
+unST = \c -> case c of ST x -> x
+
+retn :: a -> ST s a
+retn = \x -> ST (\s -> Pair x s)
+
+bind :: ST s a -> (a -> ST s b) -> ST s b
+bind = \c f -> ST (\s -> let p = unST c s
+                         in case p of
+                             Pair x s1 -> unST (f x) s1)
+
+incr :: ST Word Word
+incr = ST (\s -> Pair s (add s 1))
+
+label :: Tree a -> ST Word (Tree Word)
+label = \t -> case t of
+                Leaf -> retn Leaf
+                Node l n r ->
+                  bind (label l) (\l1 ->
+                  bind incr      (\n1 ->
+                  bind (label r) (\r1 ->
+                  retn (Node l1 n1 r1))))
+
+mylab :: Tree a -> Pair (Tree Word) Word
+mylab  = \t -> unST (label t) 0
+
+main :: Tree Bool -> Pair (Tree Word) Word
+main = mylab
+
+------------
+.lc: sumto      ./milc -pcosoboro -m
+require "prelude.lc"
+entrypoint main
+
+data BInt = Box Word
+
+beq n m = case n of
+            Box u -> case m of
+                       Box v -> eq u v
+
+badd n m = case n of
+             Box u -> case m of
+                        Box v -> Box (add u v)
+
+bsub n m = case n of
+             Box u -> case m of
+                        Box v -> Box (sub u v)
+
+
+sumTo = \acc n -> if beq n (Box 0) then acc
+                                   else sumTo (badd acc n) (bsub n (Box 1))
+
+main = \n -> sumTo (Box 0) n
+
+------------
+.lc: padding    ./milc -pcosoboro -m
+---------------------------------------------------------------------------
+
+bitdata P1 = P1 [ bits0 :: Bit 1 | bits1 :: Bit 31 | bits2 :: Bit 31 ]
+bitdata P2 = P2 [ bits0 :: Bit 1 | bits1 :: Bit 31 | B0 | bits2 :: Bit 31 ]
+
+sel1 v = case v of P1 v -> v.bits1
+sel2 v = case v of P2 v -> v.bits1
+
+up1    :: P1 -> Bit 31 -> P1
+up1 p v = case p of P1 r -> P1 r[bits1=v]
+
+up2    :: P2 -> Bit 31 -> P2
+up2 p v = case p of P2 r -> P2 r[bits1=v]
+
+entrypoint sel1, sel2, up1, up2
+
+---------------------------------------------------------------------------
+-- fields of different width at msb, middle, lsb of a single word
+
+bitdata A = A [ x :: Bit 3 | y :: Bit 4 | z :: Bit 5 ]
+
+aupdX a v = case a of A r -> A r[x=v]
+aupdY a v = case a of A r -> A r[y=v]
+aupdZ a v = case a of A r -> A r[z=v]
+
+entrypoint aupdX, aupdY, aupdZ
+
+---------------------------------------------------------------------------
+-- fields of different width at msb, middle, lsb of a second word
+
+bitdata B = B [ x :: Bit 3 | y :: Bit 4 | z :: Bit 5 | h :: Bit 40]
+
+bupdX b v = case b of B r -> B r[x=v]
+bupdY b v = case b of B r -> B r[y=v]
+bupdZ b v = case b of B r -> B r[z=v]
+
+entrypoint bupdX, bupdY, bupdZ
+
+---------------------------------------------------------------------------
+.lc: join       ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+external f1, f2, f3, f4, f5 :: Word -> Bool
+
+main = \x -> if (if f1 x then f2 x else f3 x) then f4 x else f5 x
+
+------------
+.lc: pairs      ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+external f1, f2 :: Word -> Word
+
+fst = \p -> case p of Pair x y -> x
+snd = \p -> case p of Pair x y -> y
+
+pair = \g h ->
+        \p -> case p of Pair x y -> Pair (g x) (h y)
+
+main = pair f1 f2 (Pair 1 2)
+
+------------
+.lc: mappy      ./milc -m -pco
+require "prelude.lc"
+
+entrypoint map, length  -- polymorphic entrypoints; can't specialize
+map f xs = case xs of
+             Nil       -> Nil
+             Cons y ys -> Cons (f y) (map f ys)
+
+length = let loop n xs = case xs of Nil       -> n
+                                    Cons y ys -> loop (add n 1) ys
+         in loop 0
+
+entrypoint main
+xs   = Cons 1 (Cons 2 (Cons 3 (Cons 4 Nil)))
+main = map (\(x::Word) -> mul x x) xs
+
+entrypoint size
+size = length main
+
+------------
+.lc: mappy1     ./milc -m -pcosoboro
+require "prelude.lc"
+
+map f xs = case xs of
+             Nil       -> Nil
+             Cons y ys -> Cons (f y) (map f ys)
+
+length = let loop n xs = case xs of Nil       -> n
+                                    Cons y ys -> loop (add n 1) ys
+         in loop 0
+
+entrypoint main
+xs   = Cons 1 (Cons 2 (Cons 3 (Cons 4 Nil)))
+main = map (\(x::Word) -> mul x x) xs
+
+entrypoint size
+size = length main
+
+------------
+.lc: arith      ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+data Two   a b             = Two   a b
+data Three a b c           = Three a b c
+data Four  a b c d         = Four  a b c d
+data Five  a b c d e       = Five  a b c d e 
+data Six   a b c d e f     = Six   a b c d e f
+data Seven a b c d e f g   = Seven a b c d e f g
+data Eight a b c d e f g h = Eight a b c d e f g h
+
+bitfields = Eight setField setXfield setYfield setZfield setTfield example1 example2 example3
+setField = \mask val e -> or (and e (not mask)) val
+setXfield = \v -> setField 0xfff00000 (shl v 20)
+setYfield = \v -> setField 0x000ff000 (shl v 12)
+setZfield = \v -> setField 0x00000ff0 (shl v 4)
+setTfield = \v -> setField 0x0000000f v
+example1 = \v -> setTfield 2 (setTfield 3 v)   -- should override
+example2 = \v -> setZfield 3 (setXfield 2 v)   -- should combine
+example3 = \v -> setXfield 1 (setYfield 2 (setZfield 3 (setTfield 4 v)))   -- should combine
+
+invs    = Four not1 not2 neg1 neg2
+not1    = not 0
+not2    = not 1
+neg1    = neg 7
+neg2    = neg 2
+
+squares = Three square square1 square2
+square  = \n -> mul n n
+square1 = \n -> mul (add n 1) (add n 1)
+square2 = \n -> mul (add n 1) (add 1 n)
+
+plusses = Six plus3 plus3a plus3b plus3c plus3d plus3e
+plus3   = \n -> add n 3
+plus3a  = \n -> add 3 n
+plus3b  = \n -> add n (add 1 2)
+plus3c  = \n -> add (add n 1) 2
+plus3d  = \n -> add (add 1 n) 2
+plus3e  = \n -> add 2 (add 1 n)
+
+foos    = Eight foo fooa foob fooc food fooe foof foog
+foo     = \n -> add n 0
+fooa    = \n -> add 0 n
+foob    = \n -> or 0 n
+fooc    = \n -> or 4294967295 n
+food    = \n -> and 0 n
+fooe    = \n -> and 4294967295 n
+foof    = \n -> xor 0 n
+foog    = \n -> xor 4294967295 n
+
+bars    = Eight bar bara barb barc bard bare barf barg
+bar     = \n -> or 0xff (or 0xff00 (or 0xff0000 (or 0xff000000 n)))
+bara    = \n -> and 0xff (and 0xff00 (and 0xff0000 (and 0xff000000 n)))
+barb    = \n -> not (not (not n))
+barc    = \n -> neg (neg (neg n))
+bard    = \n -> or n (not 0)
+bare    = \n -> and n (not 0)
+barf    = \n -> and (or 0 n) (and n 15)
+barg    = \n -> or (and 0 n) (or n 15)
+
+main = Six squares plusses foos bars invs bitfields
+
+------------
+.lc: church   ./milc -pcosoboro -m
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+succ = \n f x -> n f (f x)
+
+plus = \n m -> \f x -> n f (m f x)
+
+mult = \n m -> \f x -> n (m f) x
+
+expn = \n m -> m n
+
+zero = \f x -> x
+
+one  = \f x -> f x
+
+two  = \f x -> f (f x)
+
+three = succ two
+
+toInt = \n -> n (add 1) 0
+
+main = do print (toInt (plus one (mult two three)))
+          print (toInt (mult one two))
+          print (toInt (expn two three))
+          print (toInt (expn three two))
+
+------------
+.lc: combs    ./milc -pco -m
+entrypoint id, const, subst
+  
+const      :: a -> b -> a
+const x y   = x           --  = \x y -> x
+
+subst      :: (a -> b -> c) -> (a -> b) -> (a -> c)
+subst x y z = x z (y z)   --  = \x y z -> x z (y z)
+
+id         :: a -> a
+id    z     = z           --  = \z -> z
+
+export num
+num   = 623
+
+data Fix f = In (f (Fix f))
+
+entrypoint un
+un p = case p of In x -> x
+
+data NF a = Z | S a
+data Nat = MkNat (Fix NF)
+
+zero :: Nat
+zero = MkNat (In Z)
+
+entrypoint two :: Nat
+two   = MkNat (In (S (In (S (In Z)))))
+
+------------
+.lc: boxing    ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+data Number = MkInt Word | Dummy     -- Stop this being treated as a newtype
+
+plus = \x y -> case x of
+                 MkInt u -> case y of
+                              MkInt v -> MkInt (add u v)
+
+two   = MkInt 2
+three = MkInt 3
+four  = MkInt 4
+
+nine = plus (MkInt 2) (plus (MkInt 3) (MkInt 4))
+
+main = nine
+
+------------
+.lc: double    ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+foo = \x -> case x of
+               Nil       -> 1
+               Cons y ys -> case x of
+                              Nil -> 2
+                              Cons z zs -> y
+
+main = foo
+
+------------
+.lc:  cond     ./milc -m -pcosoboro
+require "prelude.lc"
+require "print.mil"
+entrypoint main
+
+main = \x y -> let z = eq x y in if z then print x else print y
+
+------------
+.lc: copyProp  ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+ex0 = \z u -> Cons (add z (mul 3 z))
+             (Cons (add (mul 4 z) z)
+             (Cons (add (mul 3 z) (mul 7 z))
+             (Cons (add (neg z) u)
+             (Cons (add z (neg u))
+             (Cons (add (neg z) 1)
+             (Cons (add 2 (neg z))
+             (Cons (add (sub z 2) 3)
+             (Cons (add (sub z 2) 3)
+             (Cons (sub (add z 11) 2)
+             (Cons (sub (sub z 11) 2)
+             (Cons (sub 100 (add u 1))
+             (Cons (sub 100 (sub u 2))
+             (Cons (sub 100 (neg u))
+             (Cons (sub (neg z) u)
+             (Cons (sub u (neg z))
+              Nil)))))))))))))))
+
+ex1  = \y -> let x = y in add (mul x 2) y -- copy propagation
+ex1a = \y -> let x = y in add y (mul x 2) -- copy propagation
+ex2  = \z -> let f = \x -> mul 2 x in f z -- inlining
+ex2a =       let f = \x -> mul 2 x in f 3 -- original, with known z
+
+ex3  = \x -> add (mul 3 x) (mul x 2)
+ex4  = \x y -> add (add 3 x) (add 4 y)
+ex5  = \x y -> add (add x 4) y
+
+
+data Main a b c d e f g h = Main a b c d e f g h
+main = Main ex0 ex1 ex1a ex2 ex2a ex3 ex4 ex5
+
+------------
+.lc: sample    ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main, main1
+
+main1 = \n -> let foo = \ x -> if eq x 0 then 0 else foo (sub x 1)
+              in foo n
+main = \x -> mul (add 1 (add 2 x))  (add x (add 1 2))
+
+------------

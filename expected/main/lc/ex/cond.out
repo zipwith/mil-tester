@@ -1,0 +1,27 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b3 :: [Word] >>= [Unit]
+b3[t0] =
+  [] <- print((t0))
+  return Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Word, Word] >>= [Unit]
+main[t0, t1] =
+  t2 <- primEq((t0, t1))
+  if t2
+    then b3[t0]
+    else b3[t1]
+
+-----------------------------------------
+-- Entrypoints: main

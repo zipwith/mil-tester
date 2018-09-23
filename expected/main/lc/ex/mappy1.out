@@ -1,0 +1,42 @@
+data List0
+  = Nil0
+  | Cons1 Word List0
+
+-----------------------------------------
+-- not recursive
+Nil :: List0
+Nil <-
+  Nil0()
+
+-----------------------------------------
+-- not recursive
+s8 :: List0
+s8 <-
+  Cons1(16, Nil)
+
+-----------------------------------------
+-- not recursive
+s9 :: List0
+s9 <-
+  Cons1(9, s8)
+
+-----------------------------------------
+-- not recursive
+s10 :: List0
+s10 <-
+  Cons1(4, s9)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: List0
+main <-
+  Cons1(1, s10)
+
+-----------------------------------------
+-- not recursive
+entrypoint size :: Word
+size <-
+  return 4
+
+-----------------------------------------
+-- Entrypoints: main size

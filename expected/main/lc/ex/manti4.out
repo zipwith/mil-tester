@@ -1,0 +1,57 @@
+data Pair1
+  = Pair2 List0 List0
+
+data List0
+  = Nil0
+  | Cons1 Word List0
+
+-----------------------------------------
+-- not recursive
+Nil :: List0
+Nil <-
+  Nil0()
+
+-----------------------------------------
+-- not recursive
+s9 :: List0
+s9 <-
+  Cons1(5, Nil)
+
+-----------------------------------------
+-- not recursive
+s11 :: List0
+s11 <-
+  Cons1(4, s9)
+
+-----------------------------------------
+-- not recursive
+res2 :: List0
+res2 <-
+  Cons1(3, s11)
+
+-----------------------------------------
+-- not recursive
+s10 :: List0
+s10 <-
+  Cons1(4, Nil)
+
+-----------------------------------------
+-- not recursive
+s12 :: List0
+s12 <-
+  Cons1(3, s10)
+
+-----------------------------------------
+-- not recursive
+res1 :: List0
+res1 <-
+  Cons1(2, s12)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: Pair1
+main <-
+  Pair2(res1, res2)
+
+-----------------------------------------
+-- Entrypoints: main

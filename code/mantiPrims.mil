@@ -1,0 +1,8 @@
+type String 0 :: *
+
+export intToStr :: Word -> String
+primitive intToStr pure {} :: [Word] >>= [String]
+
+export print :: String -> Proc Unit
+primitive print impure {}[] :: [String] >>= []
+

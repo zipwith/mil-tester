@@ -1,0 +1,18 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+-- This example illustrates aggressive optimization of one
+-- of the examples from the above paper, made possible by
+-- the fact that the parameters are known at compile-time.
+
+require "prelude.lc"
+require "mantiPrims.mil"
+entrypoint main
+
+emit = \x -> print (intToStr x)
+
+fact = \i m k -> if eq i 0 then k m
+                           else fact (sub i 1) (mul m i) k
+
+main = fact 10 1 emit
+

@@ -1,0 +1,19 @@
+data Pair0
+  = Pair0 Word Word
+
+-----------------------------------------
+-- not recursive
+b64 :: [] >>= [Pair0]
+b64[] =
+  t0 <- f1((1))
+  t1 <- f2((2))
+  Pair0(t0, t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: Pair0
+main <-
+  b64[]
+
+-----------------------------------------
+-- Entrypoints: main

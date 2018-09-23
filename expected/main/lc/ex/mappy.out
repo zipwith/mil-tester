@@ -1,0 +1,116 @@
+data List (a :: *)
+  = Nil
+  | Cons a (List a)
+
+-----------------------------------------
+-- not recursive
+entrypoint size :: Word
+size <-
+  return 4
+
+-----------------------------------------
+-- not recursive
+Nil :: forall (a :: *). List a
+Nil <-
+  Nil()
+
+-----------------------------------------
+-- not recursive
+s8 :: List Word
+s8 <-
+  Cons(16, Nil)
+
+-----------------------------------------
+-- not recursive
+s9 :: List Word
+s9 <-
+  Cons(9, s8)
+
+-----------------------------------------
+-- not recursive
+s10 :: List Word
+s10 <-
+  Cons(4, s9)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: List Word
+main <-
+  Cons(1, s10)
+
+-----------------------------------------
+-- not recursive
+b77 :: forall (a :: *). [a] >>= [a]
+b77[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b82 :: forall (a :: *). [List a, Word] >>= [Word]
+b82[t0, t1] =
+  assert t0 Cons
+  t2 <- Cons 1 t0
+  t3 <- add((t1, 1))
+  case t2 of
+    Nil -> b77[t3]
+    Cons -> b82[t2, t3]
+
+-----------------------------------------
+-- not recursive
+b79 :: forall (a :: *). [List a, Word] >>= [Word]
+b79[t0, t1] =
+  case t0 of
+    Nil -> b77[t1]
+    Cons -> b82[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k46 :: forall (a :: *). {Word} [List a] ->> [Word]
+k46{t0} t1 = b79[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint length :: forall (a :: *). [List a] ->> [Word]
+length <-
+  k46{0}
+
+-----------------------------------------
+-- not recursive
+b71 :: forall (a :: *). [] >>= [List a]
+b71[] =
+  return Nil
+
+-----------------------------------------
+-- recursive
+b83 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b83[t0, t1] =
+  assert t0 Cons
+  t2 <- Cons 0 t0
+  t3 <- Cons 1 t0
+  t4 <- t1 @ t2
+  t5 <- b73[t3, t1]
+  Cons(t4, t5)
+b73 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b73[t0, t1] =
+  case t0 of
+    Nil -> b71[]
+    Cons -> b83[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k44 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
+k44{t0} t1 = b73[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k45 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+k45{} t0 = k44{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint map :: forall (a :: *) (a0 :: *). [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+map <-
+  k45{}
+
+-----------------------------------------
+-- Entrypoints: size main length map

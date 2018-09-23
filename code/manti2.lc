@@ -1,0 +1,17 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+require "prelude.lc"
+require "mantiPrims.mil"
+entrypoint main
+
+two = 2
+
+fact = \i m k -> if eq i 0 then k m
+                           else fact (sub i 1) (add m i) k
+
+
+pr = \x -> print (intToStr (mul x two))
+
+main = fact 6 1 pr
+

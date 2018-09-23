@@ -1,0 +1,18 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+-- This particular example illustrates the ability of the
+-- loop detector to find an infinite loop that results from
+-- an originaly unintentional typo in the code.
+
+require "prelude.lc"
+require "mantiPrims.mil"
+entrypoint main
+
+emit = \x -> print (intToStr x)
+
+fact = \i m k -> if eq 1 0 then k m    -- Note: typo (eq 1 0) instead of (eq i 0)
+                           else fact (sub i 1) (mul m i) k
+
+main = fact 17 1 emit
+

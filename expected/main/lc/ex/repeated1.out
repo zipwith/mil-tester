@@ -1,0 +1,39 @@
+data Unit
+  = Unit
+
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b85 :: [] >>= [Unit]
+b85[] =
+  [] <- print((3))
+  return Unit
+
+-----------------------------------------
+-- not recursive
+b84 :: [] >>= [Unit]
+b84[] =
+  [] <- print((1))
+  [] <- print((2))
+  [] <- print((3))
+  return Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Maybe0] >>= [Unit]
+main[t0] =
+  case t0 of
+    Just1 -> b84[]
+    Nothing0 -> b85[]
+
+-----------------------------------------
+-- Entrypoints: main

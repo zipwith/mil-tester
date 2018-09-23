@@ -1,0 +1,18 @@
+data Number0
+  = MkInt0 Word
+  | Dummy1
+
+-----------------------------------------
+-- not recursive
+nine :: Number0
+nine <-
+  MkInt0(9)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: Number0
+main <-
+  return nine
+
+-----------------------------------------
+-- Entrypoints: main

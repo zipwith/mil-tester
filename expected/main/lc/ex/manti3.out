@@ -1,0 +1,8 @@
+-----------------------------------------
+-- not recursive
+entrypoint main :: Word
+main <-
+  return 4
+
+-----------------------------------------
+-- Entrypoints: main

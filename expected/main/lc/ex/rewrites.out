@@ -1,0 +1,57 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Word, Word] >>= [Unit]
+main[t0, t1] =
+  [] <- print((1))
+  t2 <- shl((t0, 2))
+  [] <- print((t2))
+  [] <- print((2))
+  t3 <- add((t2, t0))
+  [] <- print((t3))
+  [] <- print((3))
+  t4 <- mul((t0, 10))
+  [] <- print((t4))
+  [] <- print((4))
+  t5 <- sub((1, t0))
+  [] <- print((t5))
+  [] <- print((5))
+  t6 <- sub((2, t0))
+  [] <- print((t6))
+  t7 <- add((t1, t0))
+  [] <- print((t7))
+  [] <- print((6))
+  t8 <- add((t0, 1))
+  [] <- print((t8))
+  [] <- print((7))
+  t9 <- add((t0, 9))
+  [] <- print((t9))
+  t10 <- add((t0, -13))
+  [] <- print((t10))
+  t11 <- add((t0, 2))
+  t12 <- neg((t11))
+  [] <- print((t12))
+  [] <- print((8))
+  t13 <- sub((99, t1))
+  [] <- print((t13))
+  t14 <- sub((102, t1))
+  [] <- print((t14))
+  t15 <- add((t1, 100))
+  [] <- print((t15))
+  [] <- print((9))
+  t16 <- sub((t1, t0))
+  [] <- print((t16))
+  t17 <- sub((t0, t1))
+  [] <- print((t17))
+  return Unit
+
+-----------------------------------------
+-- Entrypoints: main

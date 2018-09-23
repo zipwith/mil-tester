@@ -1,0 +1,19 @@
+-- Based on examples in "Practical and Effective Higher-Order
+-- Optimization" by Bergstrom et al, ICFP 2014.
+
+-- In this version, we use unknown parameter values, m and n,
+-- to prevent the optimizer from collapsing the code in to a
+-- simple print statement, but still to test/demonstrate the
+-- results of inlining, etc.
+
+require "prelude.lc"
+require "mantiPrims.mil"
+entrypoint main
+
+emit = \x -> print (intToStr x)
+
+fact = \i m k -> if eq i 0 then k m
+                           else fact (sub i 1) (mul m i) k
+
+main = \m n -> fact m n emit
+

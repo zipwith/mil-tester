@@ -1,0 +1,21 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  [] <- print((7))
+  [] <- print((2))
+  [] <- print((8))
+  [] <- print((9))
+  return Unit
+
+-----------------------------------------
+-- Entrypoints: main

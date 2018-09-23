@@ -1,0 +1,105 @@
+data Pair0
+  = Pair0 ([Word] ->> [Flag]) ([Word] ->> [Flag])
+
+-----------------------------------------
+-- not recursive
+b69 :: [] >>= [Flag]
+b69[] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+b74 :: [] >>= [Flag]
+b74[] =
+  return flag0
+
+-----------------------------------------
+-- recursive
+b75 :: [Word] >>= [Flag]
+b75[t0] =
+  t1 <- add((t0, -1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b69[]
+    else b70[t1]
+b70 :: [Word] >>= [Flag]
+b70[t0] =
+  t1 <- add((t0, -1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b74[]
+    else b75[t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Word] >>= [Flag]
+main[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b69[]
+    else b70[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint main0 :: Flag
+main0 <-
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint main1 :: [Word] >>= [Flag]
+main1[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b69[]
+    else b70[t0]
+
+-----------------------------------------
+-- not recursive
+k44 :: {} [Word] ->> [Flag]
+k44{} t0 = main[t0]
+
+-----------------------------------------
+-- not recursive
+even :: [Word] ->> [Flag]
+even <-
+  k44{}
+
+-----------------------------------------
+-- not recursive
+b103 :: [Word] >>= [Flag]
+b103[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b74[]
+    else b75[t0]
+
+-----------------------------------------
+-- not recursive
+k45 :: {} [Word] ->> [Flag]
+k45{} t0 = b103[t0]
+
+-----------------------------------------
+-- not recursive
+odd :: [Word] ->> [Flag]
+odd <-
+  k45{}
+
+-----------------------------------------
+-- not recursive
+entrypoint main2 :: Pair0
+main2 <-
+  Pair0(odd, even)
+
+-----------------------------------------
+-- not recursive
+entrypoint main3 :: [Word] >>= [Flag]
+main3[t0] =
+  t1 <- add((t0, 1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b74[]
+    else b75[t1]
+
+-----------------------------------------
+-- Entrypoints: main main0 main1 main2 main3

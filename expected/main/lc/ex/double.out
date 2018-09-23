@@ -1,0 +1,27 @@
+data List0
+  = Nil0
+  | Cons1 Word List0
+
+-----------------------------------------
+-- not recursive
+b76 :: [List0] >>= [Word]
+b76[t0] =
+  assert t0 Cons1
+  Cons1 0 t0
+
+-----------------------------------------
+-- not recursive
+b65 :: [] >>= [Word]
+b65[] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [List0] >>= [Word]
+main[t0] =
+  case t0 of
+    Nil0 -> b65[]
+    Cons1 -> b76[t0]
+
+-----------------------------------------
+-- Entrypoints: main

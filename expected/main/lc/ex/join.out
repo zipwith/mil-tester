@@ -1,0 +1,41 @@
+-----------------------------------------
+-- not recursive
+b66 :: [Word] >>= [Flag]
+b66[t0] =
+  f5((t0))
+
+-----------------------------------------
+-- not recursive
+b65 :: [Word] >>= [Flag]
+b65[t0] =
+  f4((t0))
+
+-----------------------------------------
+-- not recursive
+b69 :: [Word] >>= [Flag]
+b69[t0] =
+  t1 <- f3((t0))
+  if t1
+    then b65[t0]
+    else b66[t0]
+
+-----------------------------------------
+-- not recursive
+b68 :: [Word] >>= [Flag]
+b68[t0] =
+  t1 <- f2((t0))
+  if t1
+    then b65[t0]
+    else b66[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Word] >>= [Flag]
+main[t0] =
+  t1 <- f1((t0))
+  if t1
+    then b68[t0]
+    else b69[t0]
+
+-----------------------------------------
+-- Entrypoints: main
