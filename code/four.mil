@@ -1,0 +1,4 @@
+export four
+four <- add((three,1))
+require "three.mil"
+

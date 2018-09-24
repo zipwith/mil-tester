@@ -1,0 +1,65 @@
+Loading source files ...
+Running type checker ...
+Running constructor function rewrite ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+*** MIL output file:
+-----------------------------------------
+-- not recursive
+entrypoint b :: forall (a :: *) (b :: tuple) (c :: *). [[a] ->> b, [c] ->> [a], c] >>= b
+b[t0, t1, t2] =
+  t3 <- t1 @ t2
+  t0 @ t3
+
+-----------------------------------------
+-- not recursive
+entrypoint k3 :: forall (a :: *) (b :: tuple) (c :: *). {[a] ->> b, [c] ->> [a]} [c] ->> b
+k3{t0, t1} t2 = b[t0, t1, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint k2 :: forall (a :: *) (b :: tuple) (c :: *). {[a] ->> b} [[c] ->> [a]] ->> [[c] ->> b]
+k2{t0} t1 = k3{t0, t1}
+
+-----------------------------------------
+-- not recursive
+entrypoint k1 :: forall (a :: *) (b :: tuple) (c :: *). {} [[a] ->> b] ->> [[[c] ->> [a]] ->> [[c] ->> b]]
+k1{} t0 = k2{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint comp :: forall (a :: *) (b :: tuple) (c :: *). [[a] ->> b] ->> [[[c] ->> [a]] ->> [[c] ->> b]]
+comp <-
+  k1{}
+
+-----------------------------------------
+-- not recursive
+entrypoint k :: forall (a :: *). {} [a] ->> [a]
+k{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint id :: forall (a :: *). [a] ->> [a]
+id <-
+  k{}
+
+-----------------------------------------
+-- not recursive
+entrypoint k1 :: forall (a :: *) (b :: *). {a} [b] ->> [a]
+k1{t0} t1 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint k :: forall (a :: *) (b :: *). {} [a] ->> [[b] ->> [a]]
+k{} t0 = k1{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint const :: forall (a :: *) (b :: *). [a] ->> [[b] ->> [a]]
+const <-
+  k{}
+
+-----------------------------------------
+-- Entrypoints: comp id const
+Success!

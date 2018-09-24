@@ -1,0 +1,266 @@
+-----------------------------------------
+-- not recursive
+b31 :: [] >>= [Word]
+b31[] =
+  return 2
+
+-----------------------------------------
+-- not recursive
+b30 :: [] >>= [Word]
+b30[] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+b89 :: [Word] >>= [Word]
+b89[t0] =
+  t1 <- and((t0, 1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b30[]
+    else b31[]
+
+-----------------------------------------
+-- not recursive
+fooD :: [Word, Word] >>= [Word]
+fooD[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primEq((t2, 1))
+  if t3
+    then b89[t1]
+    else b31[]
+
+-----------------------------------------
+-- not recursive
+b32 :: [] >>= [Word]
+b32[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+b101 :: [Word, Word] >>= [Word]
+b101[t0, t1] =
+  t2 <- and((t0, 1))
+  t3 <- primEq((t2, 1))
+  if t3
+    then b32[]
+    else fooD[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: [Word, Word] >>= [Word]
+foo[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primEq((t2, 2))
+  if t3
+    then b101[t1, t0]
+    else fooD[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b28 :: [] >>= [Word]
+b28[] =
+  return 12
+
+-----------------------------------------
+-- not recursive
+b27 :: [] >>= [Word]
+b27[] =
+  return 11
+
+-----------------------------------------
+-- not recursive
+b82 :: [Word] >>= [Word]
+b82[t0] =
+  t1 <- and((t0, 1))
+  t2 <- primNeq((t1, 0))
+  if t2
+    then b27[]
+    else b28[]
+
+-----------------------------------------
+-- not recursive
+barF :: [Word, Word] >>= [Word]
+barF[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primNeq((t2, 1))
+  if t3
+    then b27[]
+    else b82[t1]
+
+-----------------------------------------
+-- not recursive
+b29 :: [] >>= [Word]
+b29[] =
+  return 10
+
+-----------------------------------------
+-- not recursive
+b100 :: [Word, Word] >>= [Word]
+b100[t0, t1] =
+  t2 <- and((t0, 1))
+  t3 <- primNeq((t2, 1))
+  if t3
+    then b29[]
+    else barF[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint bar :: [Word, Word] >>= [Word]
+bar[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primNeq((t2, 2))
+  if t3
+    then b29[]
+    else b100[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b17 :: [] >>= [Word]
+b17[] =
+  return 24
+
+-----------------------------------------
+-- not recursive
+b16 :: [] >>= [Word]
+b16[] =
+  return 23
+
+-----------------------------------------
+-- not recursive
+b63 :: [Word] >>= [Word]
+b63[t0] =
+  t1 <- and((t0, 1))
+  t2 <- primNeq((t1, 0))
+  if t2
+    then b16[]
+    else b17[]
+
+-----------------------------------------
+-- not recursive
+bazF :: [Word, Word] >>= [Word]
+bazF[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primNeq((t2, 1))
+  if t3
+    then b16[]
+    else b63[t1]
+
+-----------------------------------------
+-- not recursive
+b20 :: [] >>= [Word]
+b20[] =
+  return 22
+
+-----------------------------------------
+-- not recursive
+b97 :: [Word, Word] >>= [Word]
+b97[t0, t1] =
+  t2 <- and((t0, 1))
+  t3 <- primEq((t2, 0))
+  if t3
+    then b20[]
+    else bazF[t1, t0]
+
+-----------------------------------------
+-- not recursive
+bazD :: [Word, Word] >>= [Word]
+bazD[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primEq((t2, 1))
+  if t3
+    then b97[t1, t0]
+    else bazF[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b23 :: [] >>= [Word]
+b23[] =
+  return 21
+
+-----------------------------------------
+-- not recursive
+b98 :: [Word, Word] >>= [Word]
+b98[t0, t1] =
+  t2 <- and((t0, 1))
+  t3 <- primNeq((t2, 1))
+  if t3
+    then b23[]
+    else bazD[t1, t0]
+
+-----------------------------------------
+-- not recursive
+bazE :: [Word, Word] >>= [Word]
+bazE[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primNeq((t2, 2))
+  if t3
+    then b23[]
+    else b98[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b26 :: [] >>= [Word]
+b26[] =
+  return 20
+
+-----------------------------------------
+-- not recursive
+b99 :: [Word, Word] >>= [Word]
+b99[t0, t1] =
+  t2 <- and((t0, 1))
+  t3 <- primEq((t2, 1))
+  if t3
+    then b26[]
+    else bazE[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint baz :: [Word, Word] >>= [Word]
+baz[t0, t1] =
+  t2 <- and((t0, 3))
+  t3 <- primEq((t2, 2))
+  if t3
+    then b99[t1, t0]
+    else bazE[t0, t1]
+
+-----------------------------------------
+-- not recursive
+quuxI :: [] >>= [Word]
+quuxI[] =
+  return 32
+
+-----------------------------------------
+-- not recursive
+b10 :: [] >>= [Word]
+b10[] =
+  return 31
+
+-----------------------------------------
+-- not recursive
+quuxH :: [Word] >>= [Word]
+quuxH[t0] =
+  t1 <- and((t0, 7))
+  t2 <- primEq((t1, 3))
+  if t2
+    then b10[]
+    else quuxI[]
+
+-----------------------------------------
+-- not recursive
+b12 :: [] >>= [Word]
+b12[] =
+  return 30
+
+-----------------------------------------
+-- not recursive
+entrypoint quux :: [Word, Word] >>= [Word]
+quux[t0, t1] =
+  t2 <- and((t0, 7))
+  t3 <- primEq((t2, 3))
+  if t3
+    then b12[]
+    else quuxH[t1]
+
+-----------------------------------------
+-- Entrypoints: foo bar baz quux

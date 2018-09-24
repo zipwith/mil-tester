@@ -1,0 +1,3 @@
+export globalcount
+primitive globalcount impure {}[]:: [Word] >>= [Word]
+

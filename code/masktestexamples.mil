@@ -1,0 +1,121 @@
+bret[x] = return x
+
+-- mask test predicate using == for single word values
+mteq1{m,p} u = bmteq1[m,p,u]
+bmteq1[m,p,u]
+   = t1 <- and((u,m))
+     primEq((t1,p))
+
+-- mask test predicate using /= for single word values
+mtneq1{m,p} u = bmtneq1[m,p,u]
+bmtneq1[m,p,u]
+   = t1 <- and((u,m))
+     primNeq((t1,p))
+
+-- mask test predicate using == for double word values
+mteq2{m,n,p,q} [u,v] = bmteq2[m,n,p,q,u,v]
+bmteq2[m,n,p,q,u,v]
+   = t1 <- bmteq1[m,p,u]
+     if t1 then bmteq1[n,q,v] else bret[t1]
+
+-- mask test predicate using /= for double word values
+mtneq2{m,n,p,q} [u,v] = bmtneq2[m,n,p,q,u,v]
+bmtneq2[m,n,p,q,u,v]
+   = t1 <- bmtneq1[m,p,u]
+     if t1 then bret[t1] else bmtneq1[n,q,v]
+
+export mteq1, mtneq1
+export mteq2, mtneq2
+
+-- Suppose that C and D are constructors for a bitdata type whose values
+-- are represented using two word values, and that we have the following
+-- mask test predicates for these two constructors:
+mtC <- mteq2{3,1,2,1}
+mtD <- mteq2{3,1,1,0}
+
+-- Now consider a case statement:
+--   foo x = case x of
+--             C p -> 0
+--             D p -> 1
+--             _   -> 2
+--
+-- This translates (we hope) to something like the following (where
+-- [u,v] is the two word representation of x)
+
+entrypoint foo
+foo[u,v] = fooC [u,v]
+
+fooC[u,v] = t1 <- mtC @ [u,v]   -- apply mask test for C
+            if t1
+              then bret[0]
+              else fooD[u,v]
+
+fooD[u,v] = t2 <- mtD @ [u,v]   -- apply mask test for D
+            if t2
+              then bret[1]
+              else bret[2]
+
+-- Another example using constructors E and F with mask test
+-- predicates using /=
+mtE <- mtneq2{3,1,2,1}
+mtF <- mtneq2{3,1,1,0}
+
+entrypoint bar
+bar[u,v] = barE [u,v]
+
+barE[u,v] = t1 <- mtE @ [u,v]   -- apply mask test for E
+            if t1
+              then bret[10]
+              else barF[u,v]
+
+barF[u,v] = t2 <- mtF @ [u,v]   -- apply mask test for F
+            if t2
+              then bret[11]
+              else bret[12]
+
+-- And a variant that uses all four constructors to experiment with
+-- mixing eq and neq mask test predicates:
+
+entrypoint baz
+baz[u,v] = bazC [u,v]
+
+bazC[u,v] = t1 <- mtC @ [u,v]   -- apply mask test for C
+            if t1
+              then bret[20]
+              else bazE[u,v]
+
+bazE[u,v] = t2 <- mtE @ [u,v]   -- apply mask test for E
+            if t2
+              then bret[21]
+              else bazD[u,v]
+
+bazD[u,v] = t3 <- mtD @ [u,v]   -- apply mask test for D
+            if t3
+              then bret[22]
+              else bazF[u,v]
+
+bazF[u,v] = t4 <- mtF @ [u,v]   -- apply mask test for F
+            if t4
+              then bret[23]
+              else bret[24]
+
+-- What if the mask test predicates include trivial parts,
+-- such as a test on a two word value in which the test on
+-- one word will always succeed  (e.g.  p(x) = (x&0) == 0)
+
+mtG <- mteq2{7,0,3,0}   -- mask only least sig word
+mtH <- mteq2{0,7,0,3}   -- mask only most sig word
+mtI <- mteq2{0,0,0,0}   -- trivially true
+
+entrypoint quux
+quux[u,v] = quuxG[u,v]
+quuxG[u,v] = t <- mtG @ [u,v]
+             if t then bret[30]
+                  else quuxH[u,v]
+quuxH[u,v] = t <- mtH @ [u,v]
+             if t then bret[31]
+                  else quuxI[u,v]
+quuxI[u,v] = t <- mtI @ [u,v]
+             if t then bret[32]
+                  else bret[33]
+

@@ -24,6 +24,8 @@ exec: manti2      ./milc -m -pcosoboro manti2.lc
 exec: manti3      ./milc -m -pcosoboro manti3.lc
 exec: manti4      ./milc -m -pcosoboro manti4.lc
 
+exec: cfgtests    ./milc -l cfgtest.lc
+
 .lc: rec         ./milc -m -pcosoboro
 require "prelude.lc"
 
@@ -533,5 +535,139 @@ entrypoint main, main1
 main1 = \n -> let foo = \ x -> if eq x 0 then 0 else foo (sub x 1)
               in foo n
 main = \x -> mul (add 1 (add 2 x))  (add x (add 1 2))
+
+------------
+.lc: localpoly    ./milc -pc -m
+entrypoint f
+
+f = \x -> let id = \y -> y
+          in id id id x
+------------
+.lc: localpoly-o    ./milc -pco -m
+entrypoint f
+
+f = \x -> let id = \y -> y
+          in id id id x
+------------
+.lc: bitdataexpts   ./milc -pcosoboro -m
+bitdata Bool = False [B0] | True [B1]
+
+external fromWord :: Word -> a
+external toWord   :: a -> Word
+
+-------------
+
+bitdata Byte/8 = Byte [ val :: Bit 8 ]
+
+entrypoint zeroByte, fullByte, fromByte, seventeen
+zeroByte = Byte [val=fromWord 0]
+fullByte = Byte [val=fromWord 255]
+fromByte = \b -> case b of Byte r -> r.val
+
+seventeen = Byte [ val = fromWord 17 ]
+
+-------------
+
+bitdata OneBit/1 = OneBit [ bit :: Bit 1 ]
+bitdata TwoBit/2 = TwoBit [ t, f :: OneBit ]
+
+entrypoint no, yes
+no  = OneBit [bit=fromWord 0]
+yes = OneBit [bit=fromWord 1]
+
+entrypoint makeTwo, getT, getF
+
+makeTwo    :: OneBit -> OneBit -> TwoBit
+makeTwo     = \x y -> TwoBit [ f = x | t = y ]
+
+getT, getF :: TwoBit -> OneBit
+getT        = \two -> case two of TwoBit r -> r.t
+getF        = \two -> case two of TwoBit r -> r.f
+
+entrypoint bool2one, boolflip
+bool2one    = \b -> if b then yes else no
+boolflip    = \b -> if b then no else yes
+
+-------------
+
+bitdata TwoNibs = TwoNibs [ hi :: Bit 4 | lo :: Bit 4 ]
+
+entrypoint nibs1, nibs2 --, nibs3, nibs4
+nibs1 = TwoNibs [ hi = fromWord 6 | lo = fromWord 2 ]
+nibs2 = TwoNibs [ lo = fromWord 2 | hi = fromWord 6 ]
+--nibs3 = TwoNibs [ lo = fromWord B0010 | hi = fromWord B0110 ]
+--nibs4 = B0001
+
+-------------
+
+bitdata Foo = A [ val :: Bit 7 | B0 ]
+            | B [ val :: Bit 7 | B1 ]
+
+entrypoint getVal
+getVal = \x -> case x of
+                 A r -> r.val
+                 B s -> s.val
+
+-------------
+
+bitdata PCI    = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
+
+entrypoint example, pcicont
+pcicont :: (Bit 8 -> Bit 5 -> Bit 3 -> Word) -> PCI -> Word
+pcicont = \f pci -> f pci.bus pci.dev pci.fun
+
+example = pcicont (\b d f -> toWord (PCI [bus=b | fun=f | dev=d ]))
+
+entrypoint setfun
+
+setfun           :: PCI -> Bit 3 -> PCI
+setfun pci newfun = pci[fun=newfun]
+
+-------------
+
+bitdata Perms = Perms [ r, w, x :: OneBit ]
+
+entrypoint noperms, roperms, rwperms, allperms
+noperms  = Perms [ r=no | w=no | x=no ]
+roperms  = noperms [ r = yes ]
+rwperms  = roperms [ w = yes ]
+allperms = rwperms [ x = yes ]
+
+entrypoint addWrite, addExec, setWrite, oddCreate
+addWrite :: Perms -> Perms
+addWrite  = \q -> case q of Perms p -> Perms p[w=yes]
+
+addExec  :: Perms -> Perms
+addExec   = \q -> case q of Perms p -> Perms p[x=yes]
+
+setWrite :: OneBit -> Perms -> Perms
+setWrite  = \b p -> p[w=b]
+
+oddCreate :: OneBit -> Perms
+oddCreate  = \x -> Perms [ r = yes | w = yes | x = x ]
+
+------------
+.lc: fatbarfib   ./milc -m -pcosoboro
+require "prelude.lc"
+entrypoint main
+
+fib = \n -> case eq n 0 of True -> 0
+          | case eq n 1 of True -> 1
+          | add (fib (sub n 1)) (fib (sub n 2))
+
+main = fib 12
+
+------------
+.lc: canontest   ./milc -m -pcosoboro
+data Foo = MkFoo (Word -> Word) | MkBar
+
+entrypoint newtypeComponent
+newtypeComponent = MkFoo (\x -> x)
+
+data Bah a = MkBah Word  -- Phantom type
+data Baz a = MkBaz (Bah a)
+
+entrypoint phantom
+phantom = MkBaz (MkBah 23) :: Baz Word
 
 ------------

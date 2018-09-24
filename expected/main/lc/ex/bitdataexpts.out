@@ -1,0 +1,253 @@
+-----------------------------------------
+-- not recursive
+entrypoint zeroByte :: Word
+zeroByte <-
+  fromWord((0))
+
+-----------------------------------------
+-- not recursive
+entrypoint fullByte :: Word
+fullByte <-
+  fromWord((255))
+
+-----------------------------------------
+-- not recursive
+entrypoint fromByte :: [Word] >>= [Word]
+fromByte[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint seventeen :: Word
+seventeen <-
+  fromWord((17))
+
+-----------------------------------------
+-- not recursive
+entrypoint no :: Flag
+no <-
+  fromWord1((0))
+
+-----------------------------------------
+-- not recursive
+entrypoint yes :: Flag
+yes <-
+  fromWord1((1))
+
+-----------------------------------------
+-- not recursive
+entrypoint makeTwo :: [Flag, Flag] >>= [Word]
+makeTwo[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  t4 <- shl((t3, 1))
+  or((t2, t4))
+
+-----------------------------------------
+-- not recursive
+entrypoint getT :: [Word] >>= [Flag]
+getT[t0] =
+  t1 <- and((t0, 2))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint getF :: [Word] >>= [Flag]
+getF[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+b68 :: [] >>= [Flag]
+b68[] =
+  return no
+
+-----------------------------------------
+-- not recursive
+b69 :: [] >>= [Flag]
+b69[] =
+  return yes
+
+-----------------------------------------
+-- not recursive
+entrypoint bool2one :: [Flag] >>= [Flag]
+bool2one[t0] =
+  if t0
+    then b69[]
+    else b68[]
+
+-----------------------------------------
+-- not recursive
+entrypoint boolflip :: [Flag] >>= [Flag]
+boolflip[t0] =
+  if t0
+    then b68[]
+    else b69[]
+
+-----------------------------------------
+-- not recursive
+b66 :: [] >>= [Word]
+b66[] =
+  t0 <- fromWord2((6))
+  t1 <- fromWord2((2))
+  t2 <- shl((t0, 4))
+  or((t1, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibs1 :: Word
+nibs1 <-
+  b66[]
+
+-----------------------------------------
+-- not recursive
+b65 :: [] >>= [Word]
+b65[] =
+  t0 <- fromWord2((2))
+  t1 <- fromWord2((6))
+  t2 <- shl((t1, 4))
+  or((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibs2 :: Word
+nibs2 <-
+  b65[]
+
+-----------------------------------------
+-- not recursive
+entrypoint getVal :: [Word] >>= [Word]
+getVal[t0] =
+  lshr((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint example :: [Word] >>= [Word]
+example[t0] =
+  toWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint pcicont :: [[Word] ->> [[Word] ->> [[Word] ->> [Word]]], Word] >>= [Word]
+pcicont[t0, t1] =
+  t2 <- lshr((t1, 8))
+  t3 <- t0 @ t2
+  t4 <- lshr((t1, 3))
+  t5 <- and((t4, 31))
+  t6 <- t3 @ t5
+  t7 <- and((t1, 7))
+  t6 @ t7
+
+-----------------------------------------
+-- not recursive
+entrypoint setfun :: [Word, Word] >>= [Word]
+setfun[t0, t1] =
+  t2 <- and((t0, 65528))
+  or((t2, t1))
+
+-----------------------------------------
+-- not recursive
+b103 :: [] >>= [Word]
+b103[] =
+  t0 <- flagToWord((no))
+  t1 <- shl((t0, 1))
+  t2 <- or((t0, t1))
+  t3 <- shl((t0, 2))
+  or((t2, t3))
+
+-----------------------------------------
+-- not recursive
+s1 :: Word
+s1 <-
+  b103[]
+
+-----------------------------------------
+-- not recursive
+entrypoint noperms :: Word
+noperms <-
+  return s1
+
+-----------------------------------------
+-- not recursive
+b47 :: [] >>= [Word]
+b47[] =
+  t0 <- and((s1, 3))
+  t1 <- flagToWord((yes))
+  t2 <- shl((t1, 2))
+  or((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint roperms :: Word
+roperms <-
+  b47[]
+
+-----------------------------------------
+-- not recursive
+b46 :: [] >>= [Word]
+b46[] =
+  t0 <- and((roperms, 5))
+  t1 <- flagToWord((yes))
+  t2 <- shl((t1, 1))
+  or((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint rwperms :: Word
+rwperms <-
+  b46[]
+
+-----------------------------------------
+-- not recursive
+b45 :: [] >>= [Word]
+b45[] =
+  t0 <- and((rwperms, 6))
+  t1 <- flagToWord((yes))
+  or((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint allperms :: Word
+allperms <-
+  b45[]
+
+-----------------------------------------
+-- not recursive
+entrypoint addWrite :: [Word] >>= [Word]
+addWrite[t0] =
+  t1 <- and((t0, 5))
+  t2 <- flagToWord((yes))
+  t3 <- shl((t2, 1))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint addExec :: [Word] >>= [Word]
+addExec[t0] =
+  t1 <- and((t0, 6))
+  t2 <- flagToWord((yes))
+  or((t1, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint setWrite :: [Flag, Word] >>= [Word]
+setWrite[t0, t1] =
+  t2 <- and((t1, 5))
+  t3 <- flagToWord((t0))
+  t4 <- shl((t3, 1))
+  or((t2, t4))
+
+-----------------------------------------
+-- not recursive
+entrypoint oddCreate :: [Flag] >>= [Word]
+oddCreate[t0] =
+  t1 <- flagToWord((t0))
+  t2 <- flagToWord((yes))
+  t3 <- shl((t2, 1))
+  t4 <- or((t1, t3))
+  t5 <- shl((t2, 2))
+  or((t4, t5))
+
+-----------------------------------------
+-- Entrypoints: zeroByte fullByte fromByte seventeen no yes makeTwo getT getF bool2one boolflip nibs1 nibs2 getVal example pcicont setfun noperms roperms rwperms allperms addWrite addExec setWrite oddCreate

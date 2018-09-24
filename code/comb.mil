@@ -1,0 +1,13 @@
+require "const.mil"
+
+entrypoint id, comp
+id <- k{}
+k{} x = return x
+
+comp <- k1{}
+k1{}    f = k2{f}
+k2{f}   g = k3{f,g}
+k3{f,g} x = b[f,g,x]
+b[f,g,x]  = y <- g @ x
+            f @ y
+

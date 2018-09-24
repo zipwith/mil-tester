@@ -1,3 +1,7 @@
+exec: masktestexamples   ./milc -m -pcosoboro masktestexamples.mil
+
+exec: importchasing      ./milc -m -pco -v comb.mil
+
 -------
 .mil: no-entrypoint       ./milc -m
 -- This program should give an error because there

@@ -1,0 +1,29 @@
+data Foo0
+  = MkFoo0 ([Word] ->> [Word])
+  | MkBar1
+
+-----------------------------------------
+-- not recursive
+k5 :: {} [Word] ->> [Word]
+k5{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+s1 :: [Word] ->> [Word]
+s1 <-
+  k5{}
+
+-----------------------------------------
+-- not recursive
+entrypoint newtypeComponent :: Foo0
+newtypeComponent <-
+  MkFoo0(s1)
+
+-----------------------------------------
+-- not recursive
+entrypoint phantom :: Word
+phantom <-
+  return 23
+
+-----------------------------------------
+-- Entrypoints: newtypeComponent phantom

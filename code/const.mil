@@ -1,0 +1,17 @@
+require "four.mil"
+
+entrypoint const
+
+const :: [a] ->> [[b] ->> [a]]
+const <- k{}
+
+k    :: {} [a] ->> [[b] ->> [a]]
+k{} x = k1 {x}
+
+k1     :: {a} [b] ->> [a]
+k1{x} y = b[x,y]
+
+b      :: [a,b] >>= [a]
+b[x,y]  = return x
+
+
