@@ -45,7 +45,7 @@ sum[t0] =
 -----------------------------------------
 -- not recursive
 entrypoint count :: Word
-count <- area 8 (Stored Word)
+count <- area (Stored Word) aligned 8
 
 -----------------------------------------
 -- not recursive

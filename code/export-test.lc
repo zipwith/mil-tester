@@ -15,8 +15,8 @@ sum xs = case xs of Nil       -> 0
 
 external val :: Word
 
-external initStored {primInitStored Word}       :: Word -> Init (Stored Word)
-external readRef    {primReadRefStored 8 Word}  :: ARef 8 (Stored Word) -> Proc Word
-external writeRef   {primWriteRefStored 8 Word} :: ARef 8 (Stored Word) -> Word -> Proc Unit
+external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored Word} :: Ref (Stored Word) -> Word -> Proc Unit
 
-area count <- initStored 7 :: ARef 8 (Stored Word)
+area count <- initStored 7 :: Ref (Stored Word) aligned 8
