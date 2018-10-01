@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs17.lc", line 2
+struct Bad5 [ x :: Word ] -- invalid: not an area
+                   ^
+Cannot unify kinds "area" and "*"
+
+ERROR: Aborting after previously reported error
+

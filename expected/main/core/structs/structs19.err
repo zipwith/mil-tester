@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs19.lc", line 2
+struct Bad7/Word [ x :: Stored Word ] -- invalid: kind size is not nat
+            ^
+Cannot unify kinds "nat" and "*"
+
+ERROR: Aborting after previously reported error
+

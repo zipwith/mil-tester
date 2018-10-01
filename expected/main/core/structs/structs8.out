@@ -1,0 +1,6 @@
+struct V / 8
+  [ b :: SByte  {- offset=0 -}
+  | ... 3 bytes padding ...
+  | w :: SWord  {- offset=4 -} ]
+  aligned 4
+

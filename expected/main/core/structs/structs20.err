@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs20.lc", line 2
+struct Bad8/s [ x :: Stored Word ]    -- invalid: size type variable not in scope
+            ^
+The type variable "s" is not in scope
+
+ERROR: Aborting after previously reported error
+

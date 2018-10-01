@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs16.lc", line 2
+struct Bad4 [ x :: Bad4 | y :: Stored Word ]
+^
+Sum of component widths is 4 more than expected total
+
+ERROR: Aborting after previously reported error
+

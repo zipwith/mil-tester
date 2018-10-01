@@ -1,0 +1,10 @@
+struct AEight / 96
+  [ eights :: Array 12 Eight  {- offset=0 -} ]
+  aligned 4
+
+struct Eight / 8
+  [ w :: Stored (Bit 32)  {- offset=0 -}
+  | s :: Stored (Bit 16)  {- offset=4 -}
+  | ... 2 bytes padding ... ]
+  aligned 4
+

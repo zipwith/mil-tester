@@ -1,0 +1,4 @@
+struct Okay / 4
+  [ x :: Stored (Ref Okay)  {- offset=0 -} ]
+  aligned 4
+

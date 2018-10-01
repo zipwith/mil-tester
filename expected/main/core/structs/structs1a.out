@@ -1,0 +1,7 @@
+struct S / 32
+  [ x :: Stored Word  {- offset=0 -}
+  | y :: Stored Word  {- offset=8 -}
+  | ... 8 bytes padding ...
+  | z :: Stored Word  {- offset=24 -} ]
+  aligned 8
+

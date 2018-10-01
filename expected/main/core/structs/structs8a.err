@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs8a.lc", line 5
+struct V [ b :: SByte | Pad 3 SByte | w :: SWord ]
+                                      ^
+Cannot access field w (offset 4 is not divisible by alignment 8)
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,6 @@
+struct PrioSet / 514
+  [ arr1 :: Array 256 (Stored (Ix 256))  {- offset=0 -}
+  | arr2 :: Array 256 (Stored (Ix 256))  {- offset=256 -}
+  | size :: Stored (Ix 257)  {- offset=512 -} ]
+  aligned 2
+

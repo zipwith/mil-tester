@@ -1,0 +1,31 @@
+struct U / 15
+  [ q :: Stored (Bit 64)  {- offset=0 -}
+  | d :: Stored (Bit 32)  {- offset=8 -}
+  | s :: Stored (Bit 16)  {- offset=12 -}
+  | b :: Stored (Bit 8)  {- offset=14 -} ]
+  aligned 8
+
+struct U2 / 16
+  [ ... 1 byte padding ...
+  | b :: SByte  {- offset=1 -}
+  | s :: Stored (Bit 16)  {- offset=2 -}
+  | d :: Stored (Bit 32)  {- offset=4 -}
+  | q :: Stored (Bit 64)  {- offset=8 -} ]
+  aligned 8
+
+struct U1 / 16
+  [ b :: SByte  {- offset=0 -}
+  | ... 1 byte padding ...
+  | s :: Stored (Bit 16)  {- offset=2 -}
+  | d :: Stored (Bit 32)  {- offset=4 -}
+  | q :: Stored (Bit 64)  {- offset=8 -} ]
+  aligned 8
+
+struct U3 / 16
+  [ q :: Stored (Bit 64)  {- offset=0 -}
+  | d :: Stored (Bit 32)  {- offset=8 -}
+  | s :: Stored (Bit 16)  {- offset=12 -}
+  | b :: Stored (Bit 8)  {- offset=14 -}
+  | ... 1 byte padding ... ]
+  aligned 8
+

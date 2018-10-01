@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs12.lc", line 5
+struct ASix [ sixes :: Array 12 Six ]
+                       ^
+There is no byte level representation for values of type Array 12 Six
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs14.lc", line 2
+struct Bad1 [ x :: Bad1 ]    -- invalid: direct recursion
+^
+Unable to determine a unique ByteSize value for Bad1
+
+ERROR: Aborting after previously reported error
+
