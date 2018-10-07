@@ -1,5 +1,5 @@
 -------------
-.lc: structs1   ./milc -coso -t --32
+.lc: structs1   ./milc -pcoso -t --32
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -7,7 +7,7 @@ struct S [ x, y :: Stored Word
 entrypoint idS :: Ref S -> Ref S; idS r = r
 
 -------------
-.lc: structs1a   ./milc -coso -t --64
+.lc: structs1a   ./milc -pcoso -t --64
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -15,7 +15,7 @@ struct S [ x, y :: Stored Word
 entrypoint idS :: Ref S -> Ref S; idS r = r
 
 -------------
-.lc: structs2   ./milc -coso -t --32
+.lc: structs2   ./milc -pcoso -t --32
 
 struct S1/16
          [ x, y :: Stored Word
@@ -24,7 +24,7 @@ struct S1/16
 entrypoint idS1 :: Ref S1 -> Ref S1; idS1 r = r
 
 -------------
-.lc: structs2a   ./milc -coso -t --64
+.lc: structs2a   ./milc -pcoso -t --64
 
 struct S1/16
          [ x, y :: Stored Word
@@ -33,7 +33,7 @@ struct S1/16
 entrypoint idS1 :: Ref S1 -> Ref S1; idS1 r = r
 
 -------------
-.lc: structs3   ./milc -coso -t --32
+.lc: structs3   ./milc -pcoso -t --32
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -48,7 +48,7 @@ struct T [ s :: S | s1 :: S1 ]
 entrypoint idT :: Ref T -> Ref T; idT r = r
 
 -------------
-.lc: structs3a   ./milc -coso -t --64
+.lc: structs3a   ./milc -pcoso -t --64
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -63,7 +63,7 @@ struct T [ s :: S | s1 :: S1 ]
 entrypoint idT :: Ref T -> Ref T; idT r = r
 
 -------------
-.lc: structs4   ./milc -coso -t --32
+.lc: structs4   ./milc -pcoso -t --32
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -79,7 +79,7 @@ struct T1/Size [ s :: S | s1 :: S1 ]    -- symbolic size
 entrypoint idT1 :: Ref T1 -> Ref T1; idT1 r = r
 
 -------------
-.lc: structs4a   ./milc -coso -t --64
+.lc: structs4a   ./milc -pcoso -t --64
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -95,7 +95,7 @@ struct T1/Size [ s :: S | s1 :: S1 ]    -- symbolic size
 entrypoint idT1 :: Ref T1 -> Ref T1; idT1 r = r
 
 -------------
-.lc: structs5   ./milc -coso -t --32
+.lc: structs5   ./milc -pcoso -t --32
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -111,7 +111,7 @@ struct T2 [ s :: S | s1 :: S1 ]
 entrypoint idT2 :: Ref T2 -> Ref T2; idT2 r = r
 
 -------------
-.lc: structs5a   ./milc -coso -t --64
+.lc: structs5a   ./milc -pcoso -t --64
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -127,7 +127,7 @@ struct T2 [ s :: S | s1 :: S1 ]
 entrypoint idT2 :: Ref T2 -> Ref T2; idT2 r = r
 
 -------------
-.lc: structs6   ./milc -coso -t --32
+.lc: structs6   ./milc -pcoso -t --32
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -143,7 +143,7 @@ struct T3 [ s :: S | s1 :: S1 ]
 entrypoint idT3 :: Ref T3 -> Ref T3; idT3 r = r
 
 -------------
-.lc: structs6a   ./milc -coso -t --64
+.lc: structs6a   ./milc -pcoso -t --64
 
 struct S [ x, y :: Stored Word
          |         Stored Word     -- unlabelled field
@@ -159,7 +159,7 @@ struct T3 [ s :: S | s1 :: S1 ]
 entrypoint idT3 :: Ref T3 -> Ref T3; idT3 r = r
 
 -------------
-.lc: structs7   ./milc -coso -t --32
+.lc: structs7   ./milc -pcoso -t --32
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -177,7 +177,7 @@ struct U3 [ q :: Stored (Bit 64) | d :: Stored (Bit 32) | s :: Stored (Bit 16) |
 entrypoint idU3 :: Ref U3 -> Ref U3; idU3 r = r
 
 -------------
-.lc: structs7a   ./milc -coso -t --64
+.lc: structs7a   ./milc -pcoso -t --64
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -195,7 +195,7 @@ struct U3 [ q :: Stored (Bit 64) | d :: Stored (Bit 32) | s :: Stored (Bit 16) |
 entrypoint idU3 :: Ref U3 -> Ref U3; idU3 r = r
 
 -------------
-.lc: structs8   ./milc -coso -t --32
+.lc: structs8   ./milc -pcoso -t --32
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -204,7 +204,7 @@ struct V [ b :: SByte | Pad 3 SByte | w :: SWord ]
 entrypoint idV :: Ref V -> Ref V; idV r = r
 
 -------------
-.lc: structs8a   ./milc -coso -t --64
+.lc: structs8a   ./milc -pcoso -t --64
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -213,19 +213,19 @@ struct V [ b :: SByte | Pad 3 SByte | w :: SWord ]
 entrypoint idV :: Ref V -> Ref V; idV r = r
 
 -------------
-.lc: structs9   ./milc -coso -t --32
+.lc: structs9   ./milc -pcoso -t --32
 
 struct Okay [ x :: Stored (Ref Okay) ]
 entrypoint idOkay :: Ref Okay -> Ref Okay; idOkay r = r
 
 -------------
-.lc: structs9a   ./milc -coso -t --64
+.lc: structs9a   ./milc -pcoso -t --64
 
 struct Okay [ x :: Stored (Ref Okay) ]
 entrypoint idOkay :: Ref Okay -> Ref Okay; idOkay r = r
 
 -------------
-.lc: structs10   ./milc -coso -t --32
+.lc: structs10   ./milc -pcoso -t --32
 
 struct PageTable/4K [ ptes :: Array 1K (Stored PTE) ]
 type PTE = Word
@@ -241,7 +241,7 @@ struct PageTable4K/4K [ ptes :: Array 1K (Stored PTE) ] aligned 4K
 entrypoint idPageTable4K :: Ref PageTable4K -> Ref PageTable4K; idPageTable4K r = r
 
 -------------
-.lc: structs10a   ./milc -coso -t --64
+.lc: structs10a   ./milc -pcoso -t --64
 
 struct PageTable/4K [ ptes :: Array 1K (Stored PTE) ]
 type PTE = Word
@@ -257,21 +257,21 @@ struct PageTable4K/4K [ ptes :: Array 1K (Stored PTE) ] aligned 4K
 entrypoint idPageTable4K :: Ref PageTable4K -> Ref PageTable4K; idPageTable4K r = r
 
 -------------
-.lc: structs11   ./milc -coso -t --32
+.lc: structs11   ./milc -pcoso -t --32
 
 struct PrioSet [ arr1, arr2 :: Array 256 (Stored (Ix 256))
                | size       :: Stored (Ix 257) ]
 entrypoint idPrioSet :: Ref PrioSet -> Ref PrioSet; idPrioSet r = r
 
 -------------
-.lc: structs11a   ./milc -coso -t --64
+.lc: structs11a   ./milc -pcoso -t --64
 
 struct PrioSet [ arr1, arr2 :: Array 256 (Stored (Ix 256))
                | size       :: Stored (Ix 257) ]
 entrypoint idPrioSet :: Ref PrioSet -> Ref PrioSet; idPrioSet r = r
 
 -------------
-.lc: structs12   ./milc -coso -t --32
+.lc: structs12   ./milc -pcoso -t --32
 
 struct Six [ w :: Stored (Bit 32) | s :: Stored (Bit 16) ]
 entrypoint idSix :: Ref Six -> Ref Six; idSix r = r
@@ -280,7 +280,7 @@ struct ASix [ sixes :: Array 12 Six ]
 entrypoint idASix :: Ref ASix -> Ref ASix; idASix r = r
 
 -------------
-.lc: structs12a   ./milc -coso -t --64
+.lc: structs12a   ./milc -pcoso -t --64
 
 struct Six [ w :: Stored (Bit 32) | s :: Stored (Bit 16) ]
 entrypoint idSix :: Ref Six -> Ref Six; idSix r = r
@@ -289,7 +289,7 @@ struct ASix [ sixes :: Array 12 Six ]
 entrypoint idASix :: Ref ASix -> Ref ASix; idASix r = r
 
 -------------
-.lc: structs13   ./milc -coso -t --32
+.lc: structs13   ./milc -pcoso -t --32
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -301,7 +301,7 @@ struct AEight [ eights :: Array 12 Eight ]
 entrypoint idAEight :: Ref AEight -> Ref AEight; idAEight r = r
 
 -------------
-.lc: structs13a   ./milc -coso -t --64
+.lc: structs13a   ./milc -pcoso -t --64
 
 type SByte = Stored Byte
 type Byte  = Bit 8
@@ -313,38 +313,38 @@ struct AEight [ eights :: Array 12 Eight ]
 entrypoint idAEight :: Ref AEight -> Ref AEight; idAEight r = r
 
 -------------
-.lc: structs14   ./milc -coso -t --32
+.lc: structs14   ./milc -pcoso -t --32
 
 struct Bad1 [ x :: Bad1 ]    -- invalid: direct recursion
 
 -------------
-.lc: structs15   ./milc -coso -t --32
+.lc: structs15   ./milc -pcoso -t --32
 
 struct Bad2 [ x :: Bad3 ]    -- invalid: mutual recursion
 struct Bad3 [ x :: Bad2 ]
 
 -------------
-.lc: structs16   ./milc -coso -t --32
+.lc: structs16   ./milc -pcoso -t --32
 
 struct Bad4 [ x :: Bad4 | y :: Stored Word ]
 
 -------------
-.lc: structs17   ./milc -coso -t --32
+.lc: structs17   ./milc -pcoso -t --32
 
 struct Bad5 [ x :: Word ] -- invalid: not an area
 
 -------------
-.lc: structs18   ./milc -coso -t --32
+.lc: structs18   ./milc -pcoso -t --32
 
 struct Bad6/12 [ x :: Stored Word ] -- invalid: size is incorrect
 
 -------------
-.lc: structs19   ./milc -coso -t --32
+.lc: structs19   ./milc -pcoso -t --32
 
 struct Bad7/Word [ x :: Stored Word ] -- invalid: kind size is not nat
 
 -------------
-.lc: structs20   ./milc -coso -t --32
+.lc: structs20   ./milc -pcoso -t --32
 
 struct Bad8/s [ x :: Stored Word ]    -- invalid: size type variable not in scope
 
