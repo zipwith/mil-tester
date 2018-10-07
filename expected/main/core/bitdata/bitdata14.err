@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata14.lc", line 1
+bitdata J    = J [ a, b, c, d :: J | B00 ] -- invalid
+               ^
+Cannot satisfy constraint 3 Size(J) + 2 = 0
+
+ERROR: Aborting after previously reported error
+

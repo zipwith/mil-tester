@@ -1,0 +1,77 @@
+-----------------------------------------
+-- not recursive
+entrypoint all0 :: Word
+all0 <-
+  return 7
+
+-----------------------------------------
+-- not recursive
+entrypoint all1 :: Word
+all1 <-
+  return 7
+
+-----------------------------------------
+-- not recursive
+entrypoint all2 :: Word
+all2 <-
+  return 7
+
+-----------------------------------------
+-- not recursive
+entrypoint r :: Word
+r <-
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint w :: Word
+w <-
+  return 2
+
+-----------------------------------------
+-- not recursive
+entrypoint x :: Word
+x <-
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint getR :: [Word] >>= [Flag]
+getR[t0] =
+  t1 <- and((t0, 4))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint getW :: [Word] >>= [Flag]
+getW[t0] =
+  t1 <- and((t0, 2))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint getX :: [Word] >>= [Flag]
+getX[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint rotate :: [Word] >>= [Word]
+rotate[t0] =
+  t1 <- and((t0, 2))
+  t2 <- primNeq((t1, 0))
+  t3 <- and((t0, 1))
+  t4 <- primNeq((t3, 0))
+  t5 <- and((t0, 4))
+  t6 <- primNeq((t5, 0))
+  t7 <- flagToWord((t6))
+  t8 <- flagToWord((t4))
+  t9 <- shl((t8, 1))
+  t10 <- or((t7, t9))
+  t11 <- flagToWord((t2))
+  t12 <- shl((t11, 2))
+  or((t10, t12))
+
+-----------------------------------------
+-- Entrypoints: all0 all1 all2 r w x getR getW getX rotate

@@ -1,0 +1,266 @@
+----------
+.lc:  bitdata1    ./milc -pcoso -m --32
+
+bitdata Bool    = False [B0] | True [B1] -- the "real" Bool definition
+
+entrypoint false, true
+false = False; true = True
+
+----------
+.lc:  bitdata1a    ./milc -pcoso -m --64
+
+bitdata Bool    = False [B0] | True [B1] -- the "real" Bool definition
+
+entrypoint false, true
+false = False; true = True
+
+----------
+.lc:  bitdata1b    ./milc -pcosoro -m --32
+
+bitdata Bool    = False [B0] | True [B1] -- the "real" Bool definition
+
+entrypoint false, true
+false = False; true = True
+
+----------
+.lc:  bitdata2    ./milc -pcoso -m --32
+
+bitdata BOOL    = Tt [B1] | Ff [B0]   -- infer size from bit patterns on rhs
+bitdata ABOOL/1 = At [1]  | Sf [0]    -- infer size from annotation on lhs
+bitdata BBOOL   = Bt [1]  | Bf [B0]   -- infer size from one bit pattern only
+
+entrypoint tt, ff, at, sf, bt, bf
+tt = Tt; ff = Ff; at = At; sf = Sf; bt = Bt; bf = Bf
+
+entrypoint decide
+decide x = case x of Tt -> 1
+                     Ff -> 2
+
+----------
+.lc:  bitdata2a    ./milc -pcoso -m --64
+
+bitdata BOOL    = Tt [B1] | Ff [B0]   -- infer size from bit patterns on rhs
+bitdata ABOOL/1 = At [1]  | Sf [0]    -- infer size from annotation on lhs
+bitdata BBOOL   = Bt [1]  | Bf [B0]   -- infer size from one bit pattern only
+
+entrypoint tt, ff, at, sf, bt, bf
+tt = Tt; ff = Ff; at = At; sf = Sf; bt = Bt; bf = Bf
+
+entrypoint decide
+decide x = case x of Tt -> 1
+                     Ff -> 2
+
+----------
+.lc:  bitdata2b    ./milc -pcosoro -m --32
+
+bitdata BOOL    = Tt [B1] | Ff [B0]   -- infer size from bit patterns on rhs
+bitdata ABOOL/1 = At [1]  | Sf [0]    -- infer size from annotation on lhs
+bitdata BBOOL   = Bt [1]  | Bf [B0]   -- infer size from one bit pattern only
+
+entrypoint tt, ff, at, sf, bt, bf
+tt = Tt; ff = Ff; at = At; sf = Sf; bt = Bt; bf = Bf
+
+entrypoint decide
+decide x = case x of Tt -> 1
+                     Ff -> 2
+
+----------
+.lc:  bitdata3    ./milc -pcoso -m --32
+
+bitdata CBOOL   = Ct [1]  | Cf [0]    -- invalid, not enough information
+
+entrypoint ct, cf
+ct = Ct; cf = Cf
+
+entrypoint decide
+decide x = case x of Tt -> 1
+                     Ff -> 2
+
+----------
+.lc:  bitdata3a    ./milc -pcoso -m --64
+
+bitdata CBOOL   = Ct [1]  | Cf [0]    -- invalid, not enough information
+
+entrypoint ct, cf
+ct = Ct; cf = Cf
+
+entrypoint decide
+decide x = case x of Tt -> 1
+                     Ff -> 2
+
+----------
+.lc:  bitdata4     ./milc -pcoso -m --32
+
+bitdata Perms  = Perms [ r, w, x :: Bit 1 ]
+
+entrypoint all0;  all0   = Perms [ r = B1 | w = B1 | x = B1 ]
+entrypoint all1;  all1   = Perms [ w = B1 | x = B1 | r = B1 ]
+entrypoint all2;  all2   = Perms [ x = B1 | r = B1 | w = B1 ]
+
+entrypoint r;     r      = Perms [ r = B1 | x = B0 | w = B0 ]
+entrypoint w;     w      = Perms [ r = B0 | w = B1 | x = B0 ]
+entrypoint x;     x      = Perms [ r = B0 | w = B0 | x = B1 ]
+
+entrypoint getR :: Perms -> Bit 1;  getR v = v.r
+entrypoint getW :: Perms -> Bit 1;  getW v = v.w
+entrypoint getX :: Perms -> Bit 1;  getX v = v.x
+
+entrypoint rotate
+rotate v = case v of Perms u -> Perms [ r = u.w | w = u.x | x = u.r ]
+
+----------
+.lc:  bitdata4a     ./milc -pcoso -m --64
+
+bitdata Perms  = Perms [ r, w, x :: Bit 1 ]
+
+entrypoint all0;  all0   = Perms [ r = B1 | w = B1 | x = B1 ]
+entrypoint all1;  all1   = Perms [ w = B1 | x = B1 | r = B1 ]
+entrypoint all2;  all2   = Perms [ x = B1 | r = B1 | w = B1 ]
+
+entrypoint r;     r      = Perms [ r = B1 | x = B0 | w = B0 ]
+entrypoint w;     w      = Perms [ r = B0 | w = B1 | x = B0 ]
+entrypoint x;     x      = Perms [ r = B0 | w = B0 | x = B1 ]
+
+entrypoint getR :: Perms -> Bit 1;  getR v = v.r
+entrypoint getW :: Perms -> Bit 1;  getW v = v.w
+entrypoint getX :: Perms -> Bit 1;  getX v = v.x
+
+entrypoint rotate
+rotate v = case v of Perms u -> Perms [ r = u.w | w = u.x | x = u.r ]
+
+----------
+.lc:  bitdata4b     ./milc -pcosoro -m --32
+
+bitdata Perms  = Perms [ r, w, x :: Bit 1 ]
+
+entrypoint all0;  all0   = Perms [ r = B1 | w = B1 | x = B1 ]
+entrypoint all1;  all1   = Perms [ w = B1 | x = B1 | r = B1 ]
+entrypoint all2;  all2   = Perms [ x = B1 | r = B1 | w = B1 ]
+
+entrypoint r;     r      = Perms [ r = B1 | x = B0 | w = B0 ]
+entrypoint w;     w      = Perms [ r = B0 | w = B1 | x = B0 ]
+entrypoint x;     x      = Perms [ r = B0 | w = B0 | x = B1 ]
+
+entrypoint getR :: Perms -> Bit 1;  getR v = v.r
+entrypoint getW :: Perms -> Bit 1;  getW v = v.w
+entrypoint getX :: Perms -> Bit 1;  getX v = v.x
+
+entrypoint rotate
+rotate v = case v of Perms u -> Perms [ r = u.w | w = u.x | x = u.r ]
+
+----------
+.lc:  bitdata5     ./milc -pcoso -m --32
+bitdata U    = X   [ x :: U ]      -- invalid, self reference
+
+----------
+.lc:  bitdata6     ./milc -pcoso -m --32
+bitdata U1/8 = XX1 [ x :: U1 ]     -- invalid, self ref (but known size)
+
+----------
+.lc:  bitdata7     ./milc -pcoso -m --32
+bitdata V = Y [ y :: W | B1 ]  -- invalid, indirect self reference
+bitdata W = W [ z :: V ]
+
+----------
+.lc:  bitdata8     ./milc -pcoso -m --32
+bitdata V1 = Y1 [ y :: W1 ]    -- invalid, indirect self reference, no size mismatch
+bitdata W1 = W1 [ z :: V1 ]
+
+----------
+.lc:  bitdata9     ./milc -pcoso -m --32
+bitdata V2 = Y2 [ y :: W2 | B0 ]    -- invalid, indirect self reference, size mismatches
+bitdata W2 = W2 [ z :: V2 | B1 ]
+
+----------
+.lc:  bitdata10    ./milc -pcoso -m --32
+bitdata Z    = Z  [ 0 | B1 | 0 ]     -- invalid, undetermined sizes
+
+----------
+.lc:  bitdata11    ./milc -pcoso -m --32
+bitdata Z1/6 = Z1 [ 0 | B1 | 0 ]     -- invalid, undetermined sizes
+
+----------
+.lc:  bitdata12    ./milc -pcoso -m --32
+bitdata Q1/2  = Ein[1] | Zwei[2] | Drei[3] | Vier[4]   -- out of range
+
+----------
+.lc:  bitdata13    ./milc -pcoso -m --32
+bitdata G/6  = SixtyFour  [ 64 ]     -- invalid, nat out of range
+             | Smaller   [ other :: Bit 6 ]
+
+----------
+.lc:  bitdata14    ./milc -pcoso -m --32
+bitdata J    = J [ a, b, c, d :: J | B00 ] -- invalid
+
+----------
+.lc:  bitdata15    ./milc -pcoso -m --32
+bitdata T   = D [ 0 ] | E [ 1 ]      -- invalid, BitSize T = ?
+
+----------
+.lc:  bitdata16    ./milc -pcoso -m --32
+data Bool = False | True
+bitdata Foo = Foo [ x :: Bool | B0 ] -- invalid, no bit rep for Bool
+
+----------
+.lc:  bitdata17    ./milc -pcoso -m --32
+bitdata F    = F [ a, b, c, d, e, f, g, h, i, j :: Bit 120 ] -- invalid, exceeds MAXWIDTH
+
+----------
+.lc:  bitdata18    ./milc -pcoso -m --32
+bitdata Bar/8 = Bar [ B101 ]            -- invalid, size mismatch
+
+----------
+.lc:  bitdata19    ./milc -pcoso -m --32
+bitdata Zab/8 = Zab [ Xbad ]            -- invalid, size mismatch
+
+----------
+.lc:  bitdata20    ./milc -pcoso -m --32
+bitdata Baz/8 = Baz [ u :: Bit 7 ]      -- invalid, size mismatch
+
+----------
+.lc:  bitdata21    ./milc -pcoso -m --32
+bitdata U2/8 = XX2 [ X12 ]         -- hex constant
+entrypoint idU2 :: U2 -> U2; idU2 x = x
+
+bitdata Z2/6 = Z2 [ 0 | B1 | X0 ]    -- valid, using hex constant
+entrypoint idZ2 :: Z2 -> Z2; idZ2 x = x
+
+bitdata Q/2   = Zero [0] | One[1]  | Two[2]  | Three[3] -- valid
+entrypoint idQ :: Q -> Q; idQ x = x
+
+bitdata H/6  = SixtyThree [ 63 ]     -- this should be ok
+entrypoint idH :: H -> H; idH x = x
+
+----------
+.lc:  bitdata22    ./milc -pcoso -m --32
+bitdata Div/5 = Div [ p, q :: Dov ]
+bitdata Dov   = Dov [ x :: Dov ]        -- invalid, for prev
+
+----------
+.lc:  bitdata23    ./milc -pcoso -m --32
+bitdata Wide   = Wide [ bits :: Bit 2560 ] -- invalid width
+
+----------
+.lc:  bitdata24    ./milc -pcoso -t --32
+-- Examples from mask test proposal:
+bitdata ExR = ExR1 [ B001 ] | ExR2 [ B010 ] | ExR4 [ B100 ]  -- just one 1
+bitdata ExS = ExS6 [ B110 ] | ExS5 [ B101 ] | ExS3 [ B011 ]  -- just one 0
+
+bitdata ExU/4 = ExUR [ x :: ExR | B1 ]  -- valid, has mask test predicates
+              | ExUS [ y :: ExS | B0 ]
+entrypoint idExU :: ExU -> ExU; idExU x = x
+
+bitdata ExV/5 = ExVR [ x :: ExR | B11 ]  -- valid, has marktest predicates
+              | ExVS [ y :: ExS | B00 ]  -- that can be blurred
+entrypoint idExV :: ExV -> ExV; idExV x = x
+
+----------
+.lc:  bitdata25    ./milc -pcoso -t --32
+bitdata ExR = ExR1 [ B001 ] | ExR2 [ B010 ] | ExR4 [ B100 ]  -- just one 1
+bitdata ExS = ExS6 [ B110 ] | ExS5 [ B101 ] | ExS3 [ B011 ]  -- just one 0
+
+bitdata ExT/3 = ExR [ x :: ExR ]    -- invalid, no mask test predicates
+              | ExS [ y :: ExS ]
+entrypoint idExT :: ExT -> ExT; idExT x = x
+
+----------

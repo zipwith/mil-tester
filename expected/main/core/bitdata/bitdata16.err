@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata16.lc", line 2
+bitdata Foo = Foo [ x :: Bool | B0 ] -- invalid, no bit rep for Bool
+                         ^
+There is no bit level representation for values of type Bool
+
+ERROR: Aborting after previously reported error
+

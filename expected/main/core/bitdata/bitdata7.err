@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata7.lc", line 2
+bitdata W = W [ z :: V ]
+            ^
+Sum of component widths is 1 more than expected total
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,14 @@
+-----------------------------------------
+-- not recursive
+entrypoint false :: Flag
+false <-
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint true :: Flag
+true <-
+  return flag1
+
+-----------------------------------------
+-- Entrypoints: false true

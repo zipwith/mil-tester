@@ -1,0 +1,58 @@
+-----------------------------------------
+-- not recursive
+entrypoint tt :: Flag
+tt <-
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ff :: Flag
+ff <-
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint at :: Flag
+at <-
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint sf :: Flag
+sf <-
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bt :: Flag
+bt <-
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint bf :: Flag
+bf <-
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b5 :: [] >>= [Word]
+b5[] =
+  return 2
+
+-----------------------------------------
+-- not recursive
+b4 :: [] >>= [Word]
+b4[] =
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint decide :: [Flag] >>= [Word]
+decide[t0] =
+  if t0
+    then b4[]
+    else b5[]
+
+-----------------------------------------
+-- Entrypoints: tt ff at sf bt bf decide

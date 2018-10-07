@@ -1,0 +1,12 @@
+bitdata ExU /4
+  = ExUR [ x :: ExR | B1 ]
+    -- predExUR(x :: Bit 4) = (x & 0b1) == 0b1
+  | ExUS [ y :: ExS | B0 ]
+    -- predExUS(x :: Bit 4) = (x & 0b1) == 0b0
+
+bitdata ExV /5
+  = ExVR [ x :: ExR | B11 ]
+    -- predExVR(x :: Bit 5) = (x & 0b1) == 0b1
+  | ExVS [ y :: ExS | B00 ]
+    -- predExVS(x :: Bit 5) = (x & 0b1) == 0b0
+

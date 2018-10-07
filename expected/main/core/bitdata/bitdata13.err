@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata13.lc", line 1
+bitdata G/6  = SixtyFour  [ 64 ]     -- invalid, nat out of range
+                            ^
+Literal 64 cannot be represented as a value of type Bit 6
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata17.lc", line 1
+bitdata F    = F [ a, b, c, d, e, f, g, h, i, j :: Bit 120 ] -- invalid, exceeds MAXWIDTH
+^
+BitSize(F) = 1200 is outside valid range 0 to 1000
+
+ERROR: Aborting after previously reported error
+

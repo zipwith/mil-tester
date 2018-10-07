@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata5.lc", line 1
+bitdata U    = X   [ x :: U ]      -- invalid, self reference
+^
+Unable to determine a unique BitSize value for U
+
+ERROR: Aborting after previously reported error
+

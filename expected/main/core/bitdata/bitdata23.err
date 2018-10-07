@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata23.lc", line 1
+bitdata Wide   = Wide [ bits :: Bit 2560 ] -- invalid width
+^
+BitSize(Wide) = 2560 is outside valid range 0 to 1000
+
+ERROR: Aborting after previously reported error
+

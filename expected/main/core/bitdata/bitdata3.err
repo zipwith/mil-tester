@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata3.lc", line 2
+bitdata CBOOL   = Ct [1]  | Cf [0]    -- invalid, not enough information
+                  ^
+Constraint Size(1) = Size(CBOOL) does not have a unique solution
+
+ERROR: Aborting after previously reported error
+

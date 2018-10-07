@@ -1,0 +1,142 @@
+bitdata Perms /3
+  = Perms [ r :: Bit 1 | w :: Bit 1 | x :: Bit 1 ]
+    -- predPerms(x :: Bit 3) = true
+
+-----------------------------------------
+-- not recursive
+s4 :: Perms.Perms
+s4 <-
+  Perms.Perms(B1, B1, B1)
+
+-----------------------------------------
+-- not recursive
+entrypoint all0 :: Perms
+all0 <-
+  Perms(s4)
+
+-----------------------------------------
+-- not recursive
+entrypoint all1 :: Perms
+all1 <-
+  Perms(s4)
+
+-----------------------------------------
+-- not recursive
+entrypoint all2 :: Perms
+all2 <-
+  Perms(s4)
+
+-----------------------------------------
+-- not recursive
+s3 :: Perms.Perms
+s3 <-
+  Perms.Perms(B1, B0, B0)
+
+-----------------------------------------
+-- not recursive
+entrypoint r :: Perms
+r <-
+  Perms(s3)
+
+-----------------------------------------
+-- not recursive
+s2 :: Perms.Perms
+s2 <-
+  Perms.Perms(B0, B1, B0)
+
+-----------------------------------------
+-- not recursive
+entrypoint w :: Perms
+w <-
+  Perms(s2)
+
+-----------------------------------------
+-- not recursive
+s1 :: Perms.Perms
+s1 <-
+  Perms.Perms(B0, B0, B1)
+
+-----------------------------------------
+-- not recursive
+entrypoint x :: Perms
+x <-
+  Perms(s1)
+
+-----------------------------------------
+-- not recursive
+b16 :: [Perms] >>= [Bit 1]
+b16[t0] =
+  t1 <- Perms 0 t0
+  Perms.Perms 0 t1
+
+-----------------------------------------
+-- not recursive
+k6 :: {} [Perms] ->> [Bit 1]
+k6{} t0 = b16[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getR :: [Perms] ->> [Bit 1]
+getR <-
+  k6{}
+
+-----------------------------------------
+-- not recursive
+b14 :: [Perms] >>= [Bit 1]
+b14[t0] =
+  t1 <- Perms 0 t0
+  Perms.Perms 1 t1
+
+-----------------------------------------
+-- not recursive
+k5 :: {} [Perms] ->> [Bit 1]
+k5{} t0 = b14[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getW :: [Perms] ->> [Bit 1]
+getW <-
+  k5{}
+
+-----------------------------------------
+-- not recursive
+b12 :: [Perms] >>= [Bit 1]
+b12[t0] =
+  t1 <- Perms 0 t0
+  Perms.Perms 2 t1
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Perms] ->> [Bit 1]
+k4{} t0 = b12[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getX :: [Perms] ->> [Bit 1]
+getX <-
+  k4{}
+
+-----------------------------------------
+-- not recursive
+b9 :: [Perms] >>= [Perms]
+b9[t0] =
+  t1 <- Perms 0 t0
+  t2 <- Perms.Perms 1 t1
+  t3 <- Perms.Perms 2 t1
+  t4 <- Perms.Perms 0 t1
+  t5 <- Perms.Perms(t2, t3, t4)
+  Perms(t5)
+
+-----------------------------------------
+-- not recursive
+k3 :: {} [Perms] ->> [Perms]
+k3{} t0 = b9[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint rotate :: [Perms] ->> [Perms]
+rotate <-
+  k3{}
+
+-----------------------------------------
+-- Entrypoints: all0 all1 all2 r w x getR getW getX rotate

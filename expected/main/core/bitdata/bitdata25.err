@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata25.lc", line 4
+bitdata ExT/3 = ExR [ x :: ExR ]    -- invalid, no mask test predicates
+                ^
+Unable to find a mask test for ExR (the test using == conflicts with ExS, and the test using /= conflicts with ExS)
+
+ERROR: Aborting after previously reported error
+

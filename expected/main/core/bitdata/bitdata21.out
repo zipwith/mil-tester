@@ -1,0 +1,68 @@
+bitdata Z2 /6
+  = Z2 [ B01_0000 ]
+    -- predZ2(x :: Bit 6) = true
+
+bitdata H /6
+  = SixtyThree [ B11_1111 ]
+    -- predSixtyThree(x :: Bit 6) = true
+
+bitdata Q /2
+  = Zero [ B00 ]
+    -- predZero(x :: Bit 2) = x == 0b0
+  | One [ B01 ]
+    -- predOne(x :: Bit 2) = x == 0b1
+  | Two [ B10 ]
+    -- predTwo(x :: Bit 2) = x == 0b10
+  | Three [ B11 ]
+    -- predThree(x :: Bit 2) = x == 0b11
+
+bitdata U2 /8
+  = XX2 [ X12 ]
+    -- predXX2(x :: Bit 8) = true
+
+-----------------------------------------
+-- not recursive
+k2 :: {} [U2] ->> [U2]
+k2{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint idU2 :: [U2] ->> [U2]
+idU2 <-
+  k2{}
+
+-----------------------------------------
+-- not recursive
+k21 :: {} [Z2] ->> [Z2]
+k21{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint idZ2 :: [Z2] ->> [Z2]
+idZ2 <-
+  k21{}
+
+-----------------------------------------
+-- not recursive
+k22 :: {} [Q] ->> [Q]
+k22{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint idQ :: [Q] ->> [Q]
+idQ <-
+  k22{}
+
+-----------------------------------------
+-- not recursive
+k23 :: {} [H] ->> [H]
+k23{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint idH :: [H] ->> [H]
+idH <-
+  k23{}
+
+-----------------------------------------
+-- Entrypoints: idU2 idZ2 idQ idH

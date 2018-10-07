@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata8.lc", line 1
+bitdata V1 = Y1 [ y :: W1 ]    -- invalid, indirect self reference, no size mismatch
+             ^
+Constraint Size(W1) = Size(V1) does not have a unique solution
+
+ERROR: Aborting after previously reported error
+
