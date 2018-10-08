@@ -1,0 +1,8 @@
+@verily = global i1 true
+
+@nay = global i1 false
+
+define void @main() {
+  ret void
+}
+

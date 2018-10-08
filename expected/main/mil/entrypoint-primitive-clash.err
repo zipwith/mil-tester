@@ -1,0 +1,7 @@
+ERROR: "actual/main/mil/entrypoint-primitive-clash.mil", line 2
+external foo :: Word -> Word
+         ^
+External foo is implemented by a primitive of the same name so cannot be declared as an entrypoint.
+
+ERROR: Aborting after previously reported error
+

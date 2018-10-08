@@ -35,3 +35,41 @@ b[] = y <- return 2
       return y
 
 -------
+.mil: area-as-entrypoint  ./milc -l --llvm-main=main
+entrypoint vram
+
+vram <- area (Stored (Bit 32)) init
+        aligned 2048
+
+external init :: Init (Stored (Bit 32))
+
+-------
+.mil: area-as-entrypoint-init-clash  ./milc -l --llvm-main=main
+entrypoint vram
+
+vram <- area (Stored (Bit 32)) init
+        aligned 2048
+
+entrypoint init -- cannot have init as both an external and an entrypoint
+external init :: Init (Stored (Bit 32))
+
+-------
+.mil: entrypoint-primitive-clash  ./milc -l --llvm-main=main
+entrypoint foo
+external foo :: Word -> Word
+
+-------
+.mil: entrypoint-primitive-safe  ./milc -l --llvm-main=main
+external foo :: Word -> Word
+
+entrypoint bar
+bar <- return foo
+
+-------
+.mil: toplevel-as-entrypoint  ./milc -l --llvm-main=main
+entrypoint verily, nay
+
+verily <- primEq((0,0))
+nay    <- primEq((0,1))
+
+-------
