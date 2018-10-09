@@ -1,0 +1,36 @@
+primitive rdtscPrim volatile :: [] >>= [Word, Word]
+primitive subc      impure   :: [Word, Word, Flag] >>= [Word, Flag]
+primitive subc0     impure   :: [Word, Word]       >>= [Word, Flag]
+
+entrypoint rdtsc, sub64, subx, fromNat, ext
+
+rdtsc <- k <- rdtscClosure{}; Proc(k)
+rdtscClosure{}[] = [x,y] <- rdtscPrim(()); return x
+
+sub64 <- k{}
+k{}     [x,y] = k1{x,y}
+k1{x,y} [u,v] = b[x,y,u,v]
+b[x,y,u,v]    = [p, c] <- subc0((y,v))
+                [q, d] <- subc((x,u,c))
+                return [p,q]
+
+subx <- ka{}
+ka{} [a,b]    = kb{a,b}
+kb{a,b} [c,d] = bx[a,b,c,d]
+bx[a,b,c,d]   = f <- sub64 @ [a,b]
+                [u, v] <- f @ [c, d]
+                return [u, v]
+
+fromNat <- fromNat0{}
+fromNat0{}  n  = fromNat1{n}
+fromNat1{n} [] = return n
+
+ext <- p0{}
+p0{} x  = p1{x}
+p1{x} y = pl[x,y]
+pl[x,y] = u <- fromNat @ x
+          v <- fromNat @ y
+          p <- u @ []
+          q <- v @ []
+          add((p, q))
+

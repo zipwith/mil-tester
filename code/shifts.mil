@@ -1,0 +1,97 @@
+entrypoint b0, b1, b2, b3, b4, b5, b6
+
+b0[x] =  shl((x, 0))
+
+b1[x] =  c <- shl((x, 2))
+         d <- shl((c, 3))
+         return d
+
+b2[x] = e <- shl((x, 16))
+        f <- shl((e, 16))
+        return f
+
+b3[x] = g <- shl((x, 48))
+        h <- shl((g, 0xfe))
+        return h
+
+b4[x] = y <- and((x, 0xf))
+        shl((y, 2))
+
+b5[x] = shl((0,x))
+
+b6[x] = p <- sub((0,1))
+        shl((p,x))
+
+entrypoint c0, c1, c2, c3, c4, c5, c6
+
+c0[x] =  lshr((x, 0))
+
+c1[x] =  c <- lshr((x, 2))
+         d <- lshr((c, 3))
+         return d
+
+c2[x] = e <- lshr((x, 16))
+        f <- lshr((e, 16))
+        return f
+
+c3[x] = g <- lshr((x, 48))
+        h <- lshr((g, 0xfe))
+        return h
+
+c4[x] = y <- and((x, 0xf))
+        lshr((y, 2))
+
+c5[x] =  lshr((0,x))
+
+c6[x] =  p <- sub((0,1))
+         lshr((p,x))
+
+entrypoint d0, d1, d2, d3, d4, d5, d6
+
+d0[x] =  ashr((x, 0))
+
+d1[x] =  c <- ashr((x, 2))
+         d <- ashr((c, 3))
+         return d
+
+d2[x] = e <- ashr((x, 16))
+        f <- ashr((e, 16))
+        return f
+
+d3[x] = g <- ashr((x, 48))
+        h <- ashr((g, 0xfe))
+        return h
+
+d4[x] = y <- and((x, 0xf))
+        ashr((y, 2))
+
+d5[x] =  ashr((0,x))
+
+d6[x] =  p <- sub((0,1))
+         ashr((p,x))
+
+entrypoint e0, e0a, e1, e1a, e2, e3, e4, e5, e6
+
+e0[x]  = add((x, x))
+
+e0a[x] = sub((x, x))
+
+e1[x]  = y <- add((x, x))
+         z <- add((y, x))
+         add((z,x))
+
+e1a[x] = y <- add((x,x))
+         add((y,y))
+
+e2[x]  = mul((x, 2))
+
+e3[x]  = mul((x, 4))
+
+e4[x]  = mul((x, 8))
+
+e5[x]  = mul((x, 16))
+
+e6[x]  = y <- mul((x,5))
+         z <- mul((x,3))
+         add((y, z))
+

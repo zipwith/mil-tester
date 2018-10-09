@@ -1,0 +1,20 @@
+-----------------------------------------
+-- not recursive
+entrypoint k :: forall (a :: *). {} [a] ->> [a]
+k{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint id :: forall (a :: *). [a] ->> [a]
+id <-
+  k{}
+
+-----------------------------------------
+-- not recursive
+entrypoint x :: forall (a :: *). [a] ->> [a]
+entrypoint y :: forall (a :: *). [a] ->> [a]
+[x,y] <-
+  return [id, id]
+
+-----------------------------------------
+-- Entrypoints: [x,y]

@@ -1,0 +1,52 @@
+entrypoint lmore, lenough, lnotenough
+entrypoint rmore, renough, rnotenough
+
+-- Left shifts followed by masks in which the effective mask from the
+-- shift does more, enough, or not enough to replicate the supplied mask:
+
+lmore[x]
+     = a <- shl((x, 12))
+       b <- shl((0xffffff,8))
+       and((a,b))
+
+lenough[x]
+     = a <- shl((x, 12))
+       b <- shl((0xfffff,12))
+       and((a,b))
+
+lnotenough[x]
+     = a <- shl((x, 12))
+       b <- shl((0xffff,16))
+       and((a,b))
+
+rmore[x]
+     = a <- lshr((x, 20))
+       and((a,0xffff))
+
+renough[x]
+     = a <- lshr((x, 20))
+       and((a,0xfff))
+
+rnotenough[x]
+     = a <- lshr((x, 20))
+       and((a,0xff))
+
+entrypoint b0, b1, b2
+b0[t0] =
+  t2 <- shl((t0, 12))
+  n  <- neg((4096))
+  t1 <- and((t2, n))     -- should be able to eliminate this and ...
+  return t1
+
+b1[t0, t1] =
+  t3 <- shl((t1, 2))
+  n  <- neg((1024))      -- this masks more than just the bottom two bits
+  t2 <- and((t3, n))
+  return t2
+
+b2[t0, t1] =
+  t3 <- shl((t1, 2))
+  n  <- neg((4))         -- this only masks the bottom two bits
+  t2 <- and((t3, n))
+  return t2
+

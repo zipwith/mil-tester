@@ -2,6 +2,12 @@ exec: masktestexamples   ./milc -m -pcosoboro masktestexamples.mil
 
 exec: importchasing      ./milc -m -pco -v comb.mil
 
+exec: masking            ./milc -m -pco masking.mil
+
+exec: shifts             ./milc -m -pco shifts.mil
+
+exec: multi              ./milc -m -pco multi.mil
+
 -------
 .mil: no-entrypoint       ./milc -m
 -- This program should give an error because there
@@ -92,5 +98,37 @@ b68[t0, t1, t2] =
 
 entrypoint k54
 k54{t0, t1} t2 = b68[t0, t1, t2]
+
+-------
+.mil: derived-block-examples  ./milc -m -pcoso
+
+primitive pred :: [Word] >>= [Flag]
+primitive op   :: [Word] >>= [Word]
+
+data Maybe a = Nothing | Just a
+
+b[x] = t <- pred((x))
+       if t then b1[]
+            else b2[x]
+b1[]  = Nothing()
+b2[x] = Just(x)
+
+c[x] = s <- b[x]
+       case s of Nothing -> c1[x]
+                 Just    -> c2[s]
+c1[x] = return x
+c2[t] = v <- Just 0 t
+        op((v))
+
+entrypoint c
+
+-------
+.mil: pair-of-ids  ./milc -m -pco
+
+id <- k{}
+k{} x = return x
+
+[x,y] <- return [id, id]
+entrypoint x
 
 -------

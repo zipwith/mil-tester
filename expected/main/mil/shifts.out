@@ -1,0 +1,185 @@
+-----------------------------------------
+-- not recursive
+entrypoint e6 :: [Word] >>= [Word]
+e6[t0] =
+  shl((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint e5 :: [Word] >>= [Word]
+e5[t0] =
+  shl((t0, 4))
+
+-----------------------------------------
+-- not recursive
+entrypoint e4 :: [Word] >>= [Word]
+e4[t0] =
+  shl((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint e3 :: [Word] >>= [Word]
+e3[t0] =
+  shl((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint e2 :: [Word] >>= [Word]
+e2[t0] =
+  mul((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint e1a :: [Word] >>= [Word]
+e1a[t0] =
+  shl((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint e1 :: [Word] >>= [Word]
+e1[t0] =
+  shl((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint e0a :: [Word] >>= [Word]
+e0a[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint e0 :: [Word] >>= [Word]
+e0[t0] =
+  mul((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint d6 :: [Word] >>= [Word]
+d6[t0] =
+  return -1
+
+-----------------------------------------
+-- not recursive
+entrypoint d5 :: [Word] >>= [Word]
+d5[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint d4 :: [Word] >>= [Word]
+d4[t0] =
+  t1 <- ashr((t0, 2))
+  and((t1, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint d3 :: [Word] >>= [Word]
+d3[t0] =
+  ashr((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint d2 :: [Word] >>= [Word]
+d2[t0] =
+  ashr((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: [Word] >>= [Word]
+d1[t0] =
+  ashr((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint d0 :: [Word] >>= [Word]
+d0[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint c6 :: [Word] >>= [Word]
+c6[t0] =
+  lshr((-1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint c5 :: [Word] >>= [Word]
+c5[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint c4 :: [Word] >>= [Word]
+c4[t0] =
+  t1 <- lshr((t0, 2))
+  and((t1, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint c3 :: [Word] >>= [Word]
+c3[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint c2 :: [Word] >>= [Word]
+c2[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint c1 :: [Word] >>= [Word]
+c1[t0] =
+  lshr((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint c0 :: [Word] >>= [Word]
+c0[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint b6 :: [Word] >>= [Word]
+b6[t0] =
+  shl((-1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint b5 :: [Word] >>= [Word]
+b5[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint b4 :: [Word] >>= [Word]
+b4[t0] =
+  t1 <- shl((t0, 2))
+  and((t1, 60))
+
+-----------------------------------------
+-- not recursive
+entrypoint b3 :: [Word] >>= [Word]
+b3[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint b2 :: [Word] >>= [Word]
+b2[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint b1 :: [Word] >>= [Word]
+b1[t0] =
+  shl((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint b0 :: [Word] >>= [Word]
+b0[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: e6 e5 e4 e3 e2 e1a e1 e0a e0 d6 d5 d4 d3 d2 d1 d0 c6 c5 c4 c3 c2 c1 c0 b6 b5 b4 b3 b2 b1 b0

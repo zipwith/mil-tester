@@ -1,0 +1,23 @@
+-----------------------------------------
+-- not recursive
+b12 :: [Word] >>= [Word]
+b12[t0] =
+  op((t0))
+
+-----------------------------------------
+-- not recursive
+c1 :: [Word] >>= [Word]
+c1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint c :: [Word] >>= [Word]
+c[t0] =
+  t1 <- pred((t0))
+  if t1
+    then c1[t0]
+    else b12[t0]
+
+-----------------------------------------
+-- Entrypoints: c
