@@ -73,3 +73,24 @@ verily <- primEq((0,0))
 nay    <- primEq((0,1))
 
 -------
+.mil: pathological-looping-example  ./milc -m -pcosoro
+
+b78[t0, t1] =
+  t2 <- t1 @ t0
+  b73[t2, t1, t0]
+
+b73 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+b73[t0, t1, t2] =
+  t3 <- b78[t2, t1]
+  loop(())
+
+b68 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+b68[t0, t1, t2] =
+  t3 <- t1 @ t2
+  t4 <- b78[t0, t1]
+  add((t3, t4))
+
+entrypoint k54
+k54{t0, t1} t2 = b68[t0, t1, t2]
+
+-------

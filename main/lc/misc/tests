@@ -44,3 +44,47 @@ s x = MkS x
 entrypoint u
 u y = MkU y
 
+------------
+.lc: lift           ./milc -pco -m
+require "prelude.lc"
+
+entrypoint f
+f = \x -> let g = \y -> add x y
+          in g x
+
+entrypoint h
+h = \x -> let p = \y -> add y (q x)
+              q = \z -> p z
+          in Pair p q
+
+entrypoint j
+j = \x -> let p = \y -> add y (q x)
+              q = \z -> p (r z)
+              r = \w -> add w w
+          in Pair p q
+
+entrypoint k
+k = \x y z -> let u = \x y s -> v x s y
+                  v = \a b c -> u x c y
+                  w = \a -> u (t a) a a
+                  t = \a -> w (add a a)
+              in t
+
+entrypoint l
+l = \x y z -> let u = \x y s -> v x s y
+                  v = \a b c -> u x c y
+              in let
+                  w = \a -> u (t a) a a
+                  t = \a -> w (add a a)
+              in t
+
+entrypoint m
+m = \x y -> let g = \z -> add x (h z)
+                h = \z -> sub y (g z)
+            in h
+
+data EntryPoints a b c d e f = EntryPoints a b c d e f
+main = EntryPoints f h j k l m
+entrypoint main
+
+------------
