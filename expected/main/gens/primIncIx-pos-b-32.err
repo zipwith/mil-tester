@@ -1,12 +1,12 @@
 ERROR: "actual/main/gens/primIncIx-pos-b-32.lc", line 5
 external incIx7   {primIncIx 7}   :: Ix 7   -> Maybe (Ix 7)
          ^
-No generated implementation: bitdata representations ("b" pass) are required
+No generated implementation: bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primIncIx-pos-b-32.lc", line 6
 external incIx32  {primIncIx 32}  :: Ix 32  -> Maybe (Ix 32)
          ^
-No generated implementation: bitdata representations ("b" pass) are required
+No generated implementation: bitdata representations ("b" pass) required
 
 ERROR: Aborting after 2 previously reported errors
 
