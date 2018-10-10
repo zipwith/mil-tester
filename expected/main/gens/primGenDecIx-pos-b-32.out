@@ -1,7 +1,3 @@
-data Maybe1
-  = Nothing2
-  | Just3 Word
-
 data Maybe2
   = Nothing4
   | Just5 Word
@@ -9,6 +5,10 @@ data Maybe2
 data Maybe0
   = Nothing0
   | Just1 Word
+
+data Maybe1
+  = Nothing2
+  | Just3 Word
 
 -----------------------------------------
 -- not recursive

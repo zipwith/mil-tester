@@ -1,0 +1,53 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint div2 :: [Word, Word] >>= [Word]
+div2[t0, t1] =
+  div((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint div12 :: [Word, Word] >>= [Word]
+div12[t0, t1] =
+  div((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint div32 :: [Word, Word] >>= [Word]
+div32[t0, t1] =
+  div((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint div33 :: [Word, Word] >>= [Word]
+div33[t0, t1] =
+  div((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint div48 :: [Word, Word] >>= [Word]
+div48[t0, t1] =
+  div((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint bit49 :: [Unit] >>= [Word]
+bit49[t0] =
+  return 49
+
+-----------------------------------------
+-- not recursive
+entrypoint nz3 :: [Unit] >>= [Word]
+nz3[t0] =
+  return 3
+
+-----------------------------------------
+-- not recursive
+entrypoint val :: Word
+val <-
+  return 16
+
+-----------------------------------------
+-- Entrypoints: div2 div12 div32 div33 div48 bit49 nz3 val

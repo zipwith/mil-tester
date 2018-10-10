@@ -1,20 +1,20 @@
-data Four1
-  = Four1 Word Word Word Word
-
-data Three4
-  = Three4 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
-
-data Six5
-  = Six5 Three4 Six3 Eight2 Eight2 Four1 Eight0
-
 data Six3
   = Six3 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
 
 data Eight0
   = Eight0 ([Word] ->> [[Word] ->> [[Word] ->> [Word]]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
 
+data Four1
+  = Four1 Word Word Word Word
+
+data Six5
+  = Six5 Three4 Six3 Eight2 Eight2 Four1 Eight0
+
 data Eight2
   = Eight2 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
+
+data Three4
+  = Three4 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
 
 -----------------------------------------
 -- not recursive

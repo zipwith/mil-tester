@@ -1,0 +1,38 @@
+-----------------------------------------
+-- not recursive
+entrypoint nonZero2 :: [Word] >>= [Word]
+nonZero2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint nonZero4 :: [Word] >>= [Word]
+nonZero4[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint nonZero15 :: [Word] >>= [Word]
+nonZero15[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint nonZero32 :: [Word] >>= [Word]
+nonZero32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint nothing4 :: Word
+nothing4 <-
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint just12 :: [Word] >>= [Word]
+just12[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: nonZero2 nonZero4 nonZero15 nonZero32 nothing4 just12

@@ -1,9 +1,9 @@
-data Unit
-  = Unit
-
 data Maybe0
   = Nothing0
   | Just1 Word
+
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive

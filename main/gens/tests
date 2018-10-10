@@ -1306,3 +1306,151 @@ external bitShiftRu1  {primBitShiftRu 1}  :: Bit 1   -> Ix 1   -> Bit 1
 external bitShiftRu1K {primBitShiftRu 1K} :: Bit 1K  -> Ix 1K  -> Bit 1K
 
 -----------------------
+.lc: primNZBitFromLiteral-pos-32  ./milc -pcosoboro -m --32
+
+entrypoint nz1_2, nz1_12, nz12_12, nz24_12, nz1K_12
+external nz1_2   {primNZBitFromLiteral  1  2} :: Unit -> NZBit  2
+external nz1_12  {primNZBitFromLiteral  1 12} :: Unit -> NZBit 12
+external nz12_12 {primNZBitFromLiteral 12 12} :: Unit -> NZBit 12
+external nz24_12 {primNZBitFromLiteral 24 12} :: Unit -> NZBit 12
+external nz1K_12 {primNZBitFromLiteral 1K 12} :: Unit -> NZBit 12
+
+entrypoint nz7_3, nz16_5, nz17_5
+external nz7_3   {primNZBitFromLiteral  7  3} :: Unit -> NZBit 3
+external nz16_5  {primNZBitFromLiteral 16  5} :: Unit -> NZBit 5
+external nz17_5  {primNZBitFromLiteral 17  5} :: Unit -> NZBit 5
+
+-----------------------
+.lc: primNZBitFromLiteral-neg-32  ./milc -pcosoboro -m --32
+
+entrypoint nz0_0, nz0_1, nz0_2, nz0_4, nzW_2, nz1_2K
+external nz0_0  {primNZBitFromLiteral     0  0} :: Unit -> NZBit 0
+external nz0_1  {primNZBitFromLiteral     0  1} :: Unit -> NZBit 1
+external nz0_2  {primNZBitFromLiteral     0  2} :: Unit -> NZBit 2
+external nz0_4  {primNZBitFromLiteral     0  4} :: Unit -> NZBit 4
+external nzW_2  {primNZBitFromLiteral  Word  2} :: Unit -> NZBit 2
+external nz1_2K {primNZBitFromLiteral     1 2K} :: Unit -> NZBit 2K
+
+entrypoint nz7_2, nz17_3, nz16_4, nz17_4
+external nz7_2  {primNZBitFromLiteral     7  2} :: Unit -> NZBit 2
+external nz17_3 {primNZBitFromLiteral    17  3} :: Unit -> NZBit 3
+external nz16_4 {primNZBitFromLiteral    16  4} :: Unit -> NZBit 4
+external nz17_4 {primNZBitFromLiteral    17  4} :: Unit -> NZBit 4
+
+-----------------------
+.lc: primNZBitNonZero-pos-32   ./milc -pcosoboro -m --32
+data Maybe a = Nothing | Just a
+entrypoint nonZero2, nonZero4, nonZero15, nonZero32
+external nonZero2  {primNZBitNonZero  2} :: Bit  2 -> Maybe (NZBit  2)
+external nonZero4  {primNZBitNonZero  4} :: Bit  4 -> Maybe (NZBit  4)
+external nonZero15 {primNZBitNonZero 15} :: Bit 15 -> Maybe (NZBit 15)
+external nonZero32 {primNZBitNonZero 32} :: Bit 32 -> Maybe (NZBit 32)
+
+entrypoint nothing4 :: Maybe (NZBit 4)
+nothing4             = Nothing
+
+entrypoint just12   :: NZBit 12 -> Maybe (NZBit 12)
+just12               = Just
+
+-----------------------
+.lc: primNZBitNonZero-neg-nobitrep   ./milc -pcosoro -m --32
+data Maybe a = Nothing | Just a
+entrypoint nonZero2, nonZero4, nonZero15, nonZero32
+external nonZero2  {primNZBitNonZero  2} :: Bit  2 -> Maybe (NZBit  2)
+external nonZero4  {primNZBitNonZero  4} :: Bit  4 -> Maybe (NZBit  4)
+external nonZero15 {primNZBitNonZero 15} :: Bit 15 -> Maybe (NZBit 15)
+external nonZero32 {primNZBitNonZero 32} :: Bit 32 -> Maybe (NZBit 32)
+
+entrypoint nothing4 :: Maybe (NZBit 4)
+nothing4             = Nothing
+
+------------
+.lc: primNZBitNonZero-neg-32   ./milc -pcosoboro -m --32
+data Maybe a = Nothing | Just a
+entrypoint nonZero0, nonZero1, nonZero33, nonZero48, nonZero65, nonZero1K
+external nonZero0  {primNZBitNonZero  0} :: Bit  0 -> Maybe (NZBit  0)
+external nonZero1  {primNZBitNonZero  1} :: Bit  1 -> Maybe (NZBit  1)
+external nonZero33 {primNZBitNonZero 33} :: Bit 33 -> Maybe (NZBit 33)
+external nonZero48 {primNZBitNonZero 48} :: Bit 48 -> Maybe (NZBit 48)
+external nonZero65 {primNZBitNonZero 65} :: Bit 65 -> Maybe (NZBit 65)
+external nonZero1K {primNZBitNonZero 1K} :: Bit 1K -> Maybe (NZBit 1K)
+
+------------
+.lc: primNZBitNonZero-pos-64   ./milc -pcosoboro -m --64
+data Maybe a = Nothing | Just a
+entrypoint nonZero2, nonZero4, nonZero15, nonZero32, nonZero33, nonZero48
+external nonZero2  {primNZBitNonZero  2} :: Bit  2 -> Maybe (NZBit  2)
+external nonZero4  {primNZBitNonZero  4} :: Bit  4 -> Maybe (NZBit  4)
+external nonZero15 {primNZBitNonZero 15} :: Bit 15 -> Maybe (NZBit 15)
+external nonZero32 {primNZBitNonZero 32} :: Bit 32 -> Maybe (NZBit 32)
+external nonZero33 {primNZBitNonZero 33} :: Bit 33 -> Maybe (NZBit 33)
+external nonZero48 {primNZBitNonZero 48} :: Bit 48 -> Maybe (NZBit 48)
+
+entrypoint nothing4 :: Maybe (NZBit 4)
+nothing4             = Nothing
+
+entrypoint just12   :: NZBit 12 -> Maybe (NZBit 12)
+just12               = Just
+
+------------
+.lc: primNZBitNonZero-neg-64   ./milc -pcosoboro -m --64
+data Maybe a = Nothing | Just a
+entrypoint nonZero0, nonZero1, nonZero65, nonZero1K
+external nonZero0  {primNZBitNonZero  0} :: Bit  0 -> Maybe (NZBit  0)
+external nonZero1  {primNZBitNonZero  1} :: Bit  1 -> Maybe (NZBit  1)
+external nonZero65 {primNZBitNonZero 65} :: Bit 65 -> Maybe (NZBit 65)
+external nonZero1K {primNZBitNonZero 1K} :: Bit 1K -> Maybe (NZBit 1K)
+
+------------
+.lc: primNZBitDiv-pos-32     ./milc -pcosoboro -m --32
+
+entrypoint div2, div12, div32
+external div2  {primNZBitDiv  2} :: Bit  2 -> NZBit  2 -> Bit  2
+external div12 {primNZBitDiv 12} :: Bit 12 -> NZBit 12 -> Bit 12
+external div32 {primNZBitDiv 32} :: Bit 32 -> NZBit 32 -> Bit 32
+
+entrypoint bit49, nz3
+external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+
+entrypoint val
+val = div12 (bit49 Unit) (nz3 Unit)
+
+------------
+.lc: primNZBitDiv-neg-32     ./milc -pcosoboro -m --32
+
+entrypoint div0, div1, div33, div48, div65, div1K
+external div0  {primNZBitDiv  0} :: Bit  0 -> NZBit  0 -> Bit  0
+external div1  {primNZBitDiv  1} :: Bit  1 -> NZBit  1 -> Bit  1
+external div33 {primNZBitDiv 33} :: Bit 33 -> NZBit 33 -> Bit 33
+external div48 {primNZBitDiv 48} :: Bit 48 -> NZBit 48 -> Bit 48
+external div65 {primNZBitDiv 65} :: Bit 65 -> NZBit 65 -> Bit 65
+external div1K {primNZBitDiv 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
+
+------------
+.lc: primNZBitDiv-pos-64     ./milc -pcosoboro -m --64
+
+entrypoint div2, div12, div32, div33, div48
+external div2  {primNZBitDiv  2} :: Bit  2 -> NZBit  2 -> Bit  2
+external div12 {primNZBitDiv 12} :: Bit 12 -> NZBit 12 -> Bit 12
+external div32 {primNZBitDiv 32} :: Bit 32 -> NZBit 32 -> Bit 32
+external div33 {primNZBitDiv 33} :: Bit 33 -> NZBit 33 -> Bit 33
+external div48 {primNZBitDiv 48} :: Bit 48 -> NZBit 48 -> Bit 48
+
+entrypoint bit49, nz3
+external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+
+entrypoint val
+val = div12 (bit49 Unit) (nz3 Unit)
+
+------------
+.lc: primNZBitDiv-neg-64     ./milc -pcosoboro -m --64
+
+entrypoint div0, div1, div65, div1K
+external div0  {primNZBitDiv  0} :: Bit  0 -> NZBit  0 -> Bit  0
+external div1  {primNZBitDiv  1} :: Bit  1 -> NZBit  1 -> Bit  1
+external div65 {primNZBitDiv 65} :: Bit 65 -> NZBit 65 -> Bit 65
+external div1K {primNZBitDiv 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
+
+------------

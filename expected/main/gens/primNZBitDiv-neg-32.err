@@ -1,0 +1,32 @@
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 3
+external div0  {primNZBitDiv  0} :: Bit  0 -> NZBit  0 -> Bit  0
+         ^
+No generated implementation: parameter 0 is too low; must be at least 2
+
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 4
+external div1  {primNZBitDiv  1} :: Bit  1 -> NZBit  1 -> Bit  1
+         ^
+No generated implementation: parameter 1 is too low; must be at least 2
+
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 5
+external div33 {primNZBitDiv 33} :: Bit 33 -> NZBit 33 -> Bit 33
+         ^
+No generated implementation: bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 6
+external div48 {primNZBitDiv 48} :: Bit 48 -> NZBit 48 -> Bit 48
+         ^
+No generated implementation: bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 7
+external div65 {primNZBitDiv 65} :: Bit 65 -> NZBit 65 -> Bit 65
+         ^
+No generated implementation: bit vector of width 65 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitDiv-neg-32.lc", line 8
+external div1K {primNZBitDiv 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
+         ^
+No generated implementation: parameter 1024 is too large; must be less than 1000
+
+ERROR: Aborting after 6 previously reported errors
+
