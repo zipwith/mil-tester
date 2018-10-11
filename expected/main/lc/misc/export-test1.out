@@ -2,12 +2,12 @@ data List1
   = Nil2
   | Cons3 Word List1
 
-data Unit
-  = Unit
-
 data ListWord0
   = LNil0
   | LCons1 Word ListWord0
+
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive

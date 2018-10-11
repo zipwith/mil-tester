@@ -1,10 +1,10 @@
-data Maybe1
-  = Nothing2
-  | Just3 Word
-
 data Maybe0
   = Nothing0
   | Just1 Word
+
+data Maybe1
+  = Nothing2
+  | Just3 Word
 
 data Maybe2
   = Nothing4

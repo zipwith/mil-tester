@@ -1,7 +1,3 @@
-bitdata Z2 /6
-  = Z2 [ B01_0000 ]
-    -- predZ2(x :: Bit 6) = true
-
 bitdata H /6
   = SixtyThree [ B11_1111 ]
     -- predSixtyThree(x :: Bit 6) = true
@@ -19,6 +15,10 @@ bitdata Q /2
 bitdata U2 /8
   = XX2 [ X12 ]
     -- predXX2(x :: Bit 8) = true
+
+bitdata Z2 /6
+  = Z2 [ B01_0000 ]
+    -- predZ2(x :: Bit 6) = true
 
 -----------------------------------------
 -- not recursive

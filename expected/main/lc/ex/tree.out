@@ -1,13 +1,13 @@
 data Pair2
   = Pair4 Tree1 Word
 
-data Tree1
-  = Leaf2
-  | Node3 Tree1 Word Tree1
-
 data Tree0
   = Leaf0
   | Node1 Tree0 Flag Tree0
+
+data Tree1
+  = Leaf2
+  | Node3 Tree1 Word Tree1
 
 -----------------------------------------
 -- not recursive

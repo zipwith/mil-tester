@@ -1,8 +1,5 @@
-data Proc (a :: *)
-  = Proc ([] ->> [a])
-
-data Unit
-  = Unit
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
 
 bitdata Bool /1
   = False [ B0 ]
@@ -10,8 +7,11 @@ bitdata Bool /1
   | True [ B1 ]
     -- predTrue(x :: Bit 1) = x == 0b1
 
-data -> (a :: *) (b :: *)
-  = Func ([a] ->> [b])
+data Proc (a :: *)
+  = Proc ([] ->> [a])
+
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive

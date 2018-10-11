@@ -1,9 +1,9 @@
+data Fix (a :: * -> *)
+  = In (a (Fix a))
+
 data NF (a :: *)
   = Z
   | S a
-
-data Fix (a :: * -> *)
-  = In (a (Fix a))
 
 -----------------------------------------
 -- not recursive

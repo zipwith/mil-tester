@@ -1,8 +1,8 @@
-data Pair (a :: *) (b :: *)
-  = Pair a b
-
 data EntryPoints (a :: *) (b :: *) (c :: *) (d :: *) (e :: *) (f :: *)
   = EntryPoints a b c d e f
+
+data Pair (a :: *) (b :: *)
+  = Pair a b
 
 -----------------------------------------
 -- not recursive

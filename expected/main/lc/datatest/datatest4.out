@@ -1,7 +1,3 @@
-data Maybe1
-  = Nothing2
-  | Just3 Bool
-
 bitdata Bool /1
   = False [ B0 ]
     -- predFalse(x :: Bit 1) = x == 0b0
@@ -11,6 +7,10 @@ bitdata Bool /1
 data Maybe0
   = Nothing0
   | Just1 Word
+
+data Maybe1
+  = Nothing2
+  | Just3 Bool
 
 -----------------------------------------
 -- not recursive

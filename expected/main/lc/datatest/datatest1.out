@@ -1,3 +1,6 @@
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
+
 bitdata Bool /1
   = False [ B0 ]
     -- predFalse(x :: Bit 1) = x == 0b0
@@ -7,9 +10,6 @@ bitdata Bool /1
 data Maybe (a :: *)
   = Nothing
   | Just a
-
-data -> (a :: *) (b :: *)
-  = Func ([a] ->> [b])
 
 -----------------------------------------
 -- not recursive

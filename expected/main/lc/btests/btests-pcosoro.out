@@ -1,6 +1,6 @@
-data Either2
-  = Left3 Word
-  | Right4 Word
+data B
+  = F
+  | T
 
 data Dup3
   = Dup5 Either2 Either2
@@ -8,13 +8,9 @@ data Dup3
 data Dup4
   = Dup6 Word Word
 
-data Rainbow
-  = Red
-  | Orange
-  | Green
-  | Blue
-  | Indigo
-  | Violet
+data Either2
+  = Left3 Word
+  | Right4 Word
 
 data Maybe1
   = Nothing1
@@ -23,9 +19,13 @@ data Maybe1
 data Pair0
   = Pair0 Word Word
 
-data B
-  = F
-  | T
+data Rainbow
+  = Red
+  | Orange
+  | Green
+  | Blue
+  | Indigo
+  | Violet
 
 -----------------------------------------
 -- not recursive
