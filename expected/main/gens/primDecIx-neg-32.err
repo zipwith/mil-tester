@@ -26,12 +26,12 @@ No generated implementation: 1073741824 is not a power of two minus 1
 ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 12
 external decIx0   {primDecIx 0}   :: Ix 0   -> Maybe (Ix 0)   -- invalid index types
          ^
-No generated implementation: 0 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 13
 external decIx2G  {primDecIx 2G}  :: Ix 2G  -> Maybe (Ix 2G)
          ^
-No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 16
 external decIx6   {primDecIx 6}   :: Ix 6   -> Maybe (Ix 6)

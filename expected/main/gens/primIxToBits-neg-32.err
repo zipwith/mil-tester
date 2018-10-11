@@ -26,7 +26,7 @@ No generated implementation: width 19 is not large enough for index value 104857
 ERROR: "actual/main/gens/primIxToBits-neg-32.lc", line 11
 external ix2GToBit32   {primIxToBits 2G   32} :: Ix 2G -> Bit 32
          ^
-No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primIxToBits-neg-32.lc", line 12
 external ix257ToBit2M  {primIxToBits 257  2M} :: Ix 257 -> Bit 2M

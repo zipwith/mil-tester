@@ -31,22 +31,22 @@ No generated implementation: parameter 2147483648 is too large; must be less tha
 ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 13
 external ix0   {primIxFromLiteral 0 0}   :: Unit -> Ix 0
          ^
-No generated implementation: 0 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 14
 external ix2G  {primIxFromLiteral 1G 2G} :: Unit -> Ix 2G
          ^
-No generated implementation: 2147483648 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 15
 external ix3G  {primIxFromLiteral 2G 3G} :: Unit -> Ix 3G
          ^
-No generated implementation: 3221225472 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 3221225472 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primIxFromLiteral-neg-32.lc", line 16
 external ix4G  {primIxFromLiteral 3G 4G} :: Unit -> Ix 4G
          ^
-No generated implementation: 4294967296 is not a valid index limit; should be between 1 and 2147483647
+No generated implementation: parameter value 4294967296 is too large; must be at most 2147483647
 
 ERROR: Aborting after 10 previously reported errors
 
