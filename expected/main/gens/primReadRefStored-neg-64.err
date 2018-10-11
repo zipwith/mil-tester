@@ -1,0 +1,12 @@
+ERROR: "readRef-neg.lc", line 3
+external readRefStoredBit65 {primReadRefStored (Bit 65)} :: Ref (Stored (Bit 65)) -> Proc (Bit 65)
+         ^
+No generated implementation: No memory access to stored values of width 65
+
+ERROR: "readRef-neg.lc", line 6
+external readRefStoredBit1K {primReadRefStored (Bit 1K)} :: Ref (Stored (Bit 1K)) -> Proc (Bit 1K)
+         ^
+No generated implementation: No memory access to stored values of width 1024
+
+ERROR: Aborting after 2 previously reported errors
+

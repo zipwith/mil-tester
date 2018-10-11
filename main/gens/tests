@@ -1454,3 +1454,27 @@ external div65 {primNZBitDiv 65} :: Bit 65 -> NZBit 65 -> Bit 65
 external div1K {primNZBitDiv 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
 
 ------------
+exec: primReadRefStored-pos-32  ./milc -pcosoboro -m --32 readRef-pos.lc
+exec: primReadRefStored-pos-64  ./milc -pcosoboro -m --64 readRef-pos.lc
+
+------------
+exec: primReadRefStored-neg-32  ./milc -pcosoboro -m --32 readRef-neg.lc
+exec: primReadRefStored-neg-64  ./milc -pcosoboro -m --64 readRef-neg.lc
+
+------------
+exec: primWriteRefStored-pos-32 ./milc -pcosoboro -m --32 writeRef-pos.lc
+exec: primWriteRefStored-pos-64 ./milc -pcosoboro -m --64 writeRef-pos.lc
+
+------------
+exec: primWriteRefStored-neg-32 ./milc -pcosoboro -m --32 writeRef-neg.lc
+exec: primWriteRefStored-neg-64 ./milc -pcosoboro -m --64 writeRef-neg.lc
+
+------------
+exec: primInitStored-pos-32     ./milc -pcosoboro -m --32 initStored-pos.lc
+exec: primInitStored-pos-64     ./milc -pcosoboro -m --64 initStored-pos.lc
+
+------------
+exec: primInitStored-neg-32     ./milc -pcosoboro -m --32 initStored-neg.lc
+exec: primInitStored-neg-64     ./milc -pcosoboro -m --64 initStored-neg.lc
+
+------------

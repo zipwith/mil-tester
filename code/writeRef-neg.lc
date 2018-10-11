@@ -1,0 +1,7 @@
+
+entrypoint writeRefStoredBit65
+external writeRefStoredBit65 {primWriteRefStored (Bit 65)} :: Ref (Stored (Bit 65)) -> Bit 65 -> Proc Unit
+
+entrypoint writeRefStoredBit1K
+external writeRefStoredBit1K {primWriteRefStored (Bit 1K)} :: Ref (Stored (Bit 1K)) -> Bit 1K -> Proc Unit
+

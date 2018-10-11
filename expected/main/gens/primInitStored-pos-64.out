@@ -1,0 +1,89 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit8 :: [Word, Word] >>= [Unit]
+initStoredBit8[t0, t1] =
+  store8((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredIx8 :: [Word, Word] >>= [Unit]
+initStoredIx8[t0, t1] =
+  store8((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit16 :: [Word, Word] >>= [Unit]
+initStoredBit16[t0, t1] =
+  store16((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredIx384 :: [Word, Word] >>= [Unit]
+initStoredIx384[t0, t1] =
+  store16((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit32 :: [Word, Word] >>= [Unit]
+initStoredBit32[t0, t1] =
+  store32((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit64 :: [Word, Word] >>= [Unit]
+initStoredBit64[t0, t1] =
+  store64((t1, t0))
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit0 :: [Unit, Word] >>= [Unit]
+initStoredBit0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit1 :: [Flag, Word] >>= [Unit]
+initStoredBit1[t0, t1] =
+  store1((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredFlag :: [Flag, Word] >>= [Unit]
+initStoredFlag[t0, t1] =
+  store1((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit2 :: [Word, Word] >>= [Unit]
+initStoredBit2[t0, t1] =
+  store8((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit5 :: [Word, Word] >>= [Unit]
+initStoredBit5[t0, t1] =
+  store8((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit9 :: [Word, Word] >>= [Unit]
+initStoredBit9[t0, t1] =
+  store16((t1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint initStoredBit33 :: [Word, Word] >>= [Unit]
+initStoredBit33[t0, t1] =
+  store64((t1, t0))
+
+-----------------------------------------
+-- Entrypoints: initStoredBit8 initStoredIx8 initStoredBit16 initStoredIx384 initStoredBit32 initStoredBit64 initStoredBit0 initStoredBit1 initStoredFlag initStoredBit2 initStoredBit5 initStoredBit9 initStoredBit33

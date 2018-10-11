@@ -1,0 +1,7 @@
+
+entrypoint initStoredBit65
+external initStoredBit65 {primInitStored (Bit 65)} :: Bit 65 -> Init (Stored (Bit 65))
+
+entrypoint initStoredBit1K
+external initStoredBit1K {primInitStored (Bit 1K)} :: Bit 1K -> Init (Stored (Bit 1K))
+

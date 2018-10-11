@@ -1,0 +1,12 @@
+ERROR: "initStored-neg.lc", line 3
+external initStoredBit65 {primInitStored (Bit 65)} :: Bit 65 -> Init (Stored (Bit 65))
+         ^
+No generated implementation: No memory access to stored values of width 65
+
+ERROR: "initStored-neg.lc", line 6
+external initStoredBit1K {primInitStored (Bit 1K)} :: Bit 1K -> Init (Stored (Bit 1K))
+         ^
+No generated implementation: No memory access to stored values of width 1024
+
+ERROR: Aborting after 2 previously reported errors
+

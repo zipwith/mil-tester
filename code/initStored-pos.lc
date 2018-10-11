@@ -1,0 +1,40 @@
+
+entrypoint initStoredBit8
+external initStoredBit8 {primInitStored (Bit 8)}   :: Bit 8  -> Init (Stored (Bit 8))
+
+entrypoint initStoredIx8
+external initStoredIx8 {primInitStored (Ix 8)}     :: Ix 8   -> Init (Stored (Ix 8))
+
+entrypoint initStoredBit16
+external initStoredBit16 {primInitStored (Bit 16)} :: Bit 16 -> Init (Stored (Bit 16))
+
+entrypoint initStoredIx384
+external initStoredIx384 {primInitStored (Ix 384)} :: Ix 384 -> Init (Stored (Ix 384))
+
+entrypoint initStoredBit32
+external initStoredBit32 {primInitStored (Bit 32)} :: Bit 32 -> Init (Stored (Bit 32))
+
+entrypoint initStoredBit64
+external initStoredBit64 {primInitStored (Bit 64)} :: Bit 64 -> Init (Stored (Bit 64))
+
+entrypoint initStoredBit0
+external initStoredBit0  {primInitStored (Bit 0)}  :: Bit  0 -> Init (Stored (Bit 0))
+
+entrypoint initStoredBit1
+external initStoredBit1  {primInitStored (Bit 1)}  :: Bit  1 -> Init (Stored (Bit 1))
+
+entrypoint initStoredFlag
+external initStoredFlag  {primInitStored Flag}     :: Flag   -> Init (Stored Flag)
+
+entrypoint initStoredBit2
+external initStoredBit2  {primInitStored (Bit 2)}  :: Bit  2 -> Init (Stored (Bit 2))
+
+entrypoint initStoredBit5
+external initStoredBit5  {primInitStored (Bit 5)}  :: Bit  5 -> Init (Stored (Bit 5))
+
+entrypoint initStoredBit9
+external initStoredBit9  {primInitStored (Bit 9)}  :: Bit  9 -> Init (Stored (Bit 9))
+
+entrypoint initStoredBit33
+external initStoredBit33 {primInitStored (Bit 33)} :: Bit 33 -> Init (Stored (Bit 33))
+

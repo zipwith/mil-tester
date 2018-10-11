@@ -1,0 +1,7 @@
+
+entrypoint readRefStoredBit65
+external readRefStoredBit65 {primReadRefStored (Bit 65)} :: Ref (Stored (Bit 65)) -> Proc (Bit 65)
+
+entrypoint readRefStoredBit1K
+external readRefStoredBit1K {primReadRefStored (Bit 1K)} :: Ref (Stored (Bit 1K)) -> Proc (Bit 1K)
+

@@ -1,0 +1,89 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit8 :: [Word] >>= [Word]
+readRefStoredBit8[t0] =
+  load8((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredIx8 :: [Word] >>= [Word]
+readRefStoredIx8[t0] =
+  load8((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit16 :: [Word] >>= [Word]
+readRefStoredBit16[t0] =
+  load16((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredIx384 :: [Word] >>= [Word]
+readRefStoredIx384[t0] =
+  load16((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit32 :: [Word] >>= [Word]
+readRefStoredBit32[t0] =
+  load32((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit64 :: [Word] >>= [Word]
+readRefStoredBit64[t0] =
+  load64((t0))
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit0 :: [Word] >>= [Unit]
+readRefStoredBit0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit1 :: [Word] >>= [Flag]
+readRefStoredBit1[t0] =
+  load1((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredFlag :: [Word] >>= [Flag]
+readRefStoredFlag[t0] =
+  load1((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit2 :: [Word] >>= [Word]
+readRefStoredBit2[t0] =
+  load8((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit5 :: [Word] >>= [Word]
+readRefStoredBit5[t0] =
+  load8((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit9 :: [Word] >>= [Word]
+readRefStoredBit9[t0] =
+  load16((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit33 :: [Word] >>= [Word]
+readRefStoredBit33[t0] =
+  load64((t0))
+
+-----------------------------------------
+-- Entrypoints: readRefStoredBit8 readRefStoredIx8 readRefStoredBit16 readRefStoredIx384 readRefStoredBit32 readRefStoredBit64 readRefStoredBit0 readRefStoredBit1 readRefStoredFlag readRefStoredBit2 readRefStoredBit5 readRefStoredBit9 readRefStoredBit33

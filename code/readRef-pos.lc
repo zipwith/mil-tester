@@ -1,0 +1,40 @@
+
+entrypoint readRefStoredBit8
+external readRefStoredBit8  {primReadRefStored (Bit 8)}  :: Ref (Stored (Bit 8))  -> Proc (Bit 8)
+
+entrypoint readRefStoredIx8
+external readRefStoredIx8   {primReadRefStored (Ix 8)}   :: Ref (Stored (Ix 8))   -> Proc (Ix 8)
+
+entrypoint readRefStoredBit16
+external readRefStoredBit16 {primReadRefStored (Bit 16)} :: Ref (Stored (Bit 16)) -> Proc (Bit 16)
+
+entrypoint readRefStoredIx384
+external readRefStoredIx384 {primReadRefStored (Ix 384)} :: Ref (Stored (Ix 384)) -> Proc (Ix 384)
+
+entrypoint readRefStoredBit32
+external readRefStoredBit32 {primReadRefStored (Bit 32)} :: Ref (Stored (Bit 32)) -> Proc (Bit 32)
+
+entrypoint readRefStoredBit64
+external readRefStoredBit64 {primReadRefStored (Bit 64)} :: Ref (Stored (Bit 64)) -> Proc (Bit 64)
+
+entrypoint readRefStoredBit0
+external readRefStoredBit0  {primReadRefStored (Bit 0)}  :: Ref (Stored (Bit 0))  -> Proc (Bit 0)
+
+entrypoint readRefStoredBit1
+external readRefStoredBit1  {primReadRefStored (Bit 1)}  :: Ref (Stored (Bit 1))  -> Proc (Bit 1)
+
+entrypoint readRefStoredFlag
+external readRefStoredFlag  {primReadRefStored Flag}     :: Ref (Stored Flag)     -> Proc Flag
+
+entrypoint readRefStoredBit2
+external readRefStoredBit2  {primReadRefStored (Bit 2)}  :: Ref (Stored (Bit 2))  -> Proc (Bit 2)
+
+entrypoint readRefStoredBit5
+external readRefStoredBit5  {primReadRefStored (Bit 5)}  :: Ref (Stored (Bit 5))  -> Proc (Bit 5)
+
+entrypoint readRefStoredBit9
+external readRefStoredBit9  {primReadRefStored (Bit 9)}  :: Ref (Stored (Bit 9))  -> Proc (Bit 9)
+
+entrypoint readRefStoredBit33
+external readRefStoredBit33 {primReadRefStored (Bit 33)} :: Ref (Stored (Bit 33)) -> Proc (Bit 33)
+
