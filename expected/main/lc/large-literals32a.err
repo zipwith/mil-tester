@@ -1,22 +1,22 @@
 ERROR: "actual/main/lc/large-literals32a.llc", line 3
   bigs = f 0Xcafebabe9
            ^
-Numeric constant 54491065321 is out of Word range (too large)
+Literal is too large (limit is 4294967295)
 
 ERROR: "actual/main/lc/large-literals32a.llc", line 4
          (f 0xcafebabe9
             ^
-Numeric constant 54491065321 is out of Word range (too large)
+Literal is too large (limit is 4294967295)
 
 ERROR: "actual/main/lc/large-literals32a.llc", line 5
          (f 0xAaBbCcDdEeFf00
             ^
-Numeric constant 48057234611961600 is out of Word range (too large)
+Literal is too large (limit is 4294967295)
 
 ERROR: "actual/main/lc/large-literals32a.llc", line 6
             0XAaBbCcDdEeFf00))
             ^
-Numeric constant 48057234611961600 is out of Word range (too large)
+Literal is too large (limit is 4294967295)
 
 ERROR: "actual/main/lc/large-literals32a.llc", line 6
             0XAaBbCcDdEeFf00))

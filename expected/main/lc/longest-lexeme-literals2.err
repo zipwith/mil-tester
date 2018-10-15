@@ -1,7 +1,7 @@
 ERROR: "actual/main/lc/longest-lexeme-literals2.llc", line 1
   very  = 12345f   -- lexer sees "12345 f"
-          ^
-Invalid digit, 'f', in numeric literal
+               ^
+"f" is not in scope
 
 ERROR: Aborting after previously reported error
 

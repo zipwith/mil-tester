@@ -1,7 +1,7 @@
 ERROR: "actual/main/lc/large-literals32.llc", line 3
   const16G = 16G  :: Word   
              ^
-Numeric constant 17179869184 is out of Word range (too large)
+Literal is too large (limit is 4294967295)
 
 ERROR: "actual/main/lc/large-literals32.llc", line 3
   const16G = 16G  :: Word   
