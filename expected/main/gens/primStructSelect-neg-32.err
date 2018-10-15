@@ -1,0 +1,17 @@
+ERROR: "actual/main/gens/primStructSelect-neg-32.lc", line 9
+external selectP1 {primStructSelect S    "p" SW} :: Ref S -> Unit -> Ref SW
+         ^
+No generated implementation: There is no "p" field in S
+
+ERROR: "actual/main/gens/primStructSelect-neg-32.lc", line 10
+external selectP2 {primStructSelect Word "p" SW} :: Ref S -> Unit -> Ref SW
+         ^
+No generated implementation: Word is not a structure type
+
+ERROR: "actual/main/gens/primStructSelect-neg-32.lc", line 11
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> Unit -> Ref SW
+         ^
+No generated implementation: 4 is not a field label
+
+ERROR: Aborting after 3 previously reported errors
+

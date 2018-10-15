@@ -1478,3 +1478,224 @@ exec: primInitStored-neg-32     ./milc -pcosoboro -m --32 initStored-neg.lc
 exec: primInitStored-neg-64     ./milc -pcosoboro -m --64 initStored-neg.lc
 
 ------------
+.lc: primAt-pos-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+
+entrypoint at0SW, at1SW, at2SW, at10SW, at160SW, at256SW, at1KSW, at4KSW
+external at0SW   {@   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+external at1SW   {@   1 SW} :: Ref (Array   1 SW) -> Ix   1 -> Ref SW
+external at2SW   {@   2 SW} :: Ref (Array   2 SW) -> Ix   2 -> Ref SW
+external at10SW  {@  10 SW} :: Ref (Array  10 SW) -> Ix  10 -> Ref SW
+external at160SW {@ 160 SW} :: Ref (Array 160 SW) -> Ix 160 -> Ref SW
+external at256SW {@ 256 SW} :: Ref (Array 256 SW) -> Ix 256 -> Ref SW
+external at1KSW  {@  1K SW} :: Ref (Array  1K SW) -> Ix  1K -> Ref SW
+external at4KSW  {@  4K SW} :: Ref (Array  4K SW) -> Ix  4K -> Ref SW
+
+type SI = Stored (Ix 256)
+
+entrypoint at0SI, at1SI, at2SI, at10SI, at160SI, at256SI, at1KSI, at4KSI
+external at0SI   {@   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+external at1SI   {@   1 SI} :: Ref (Array   1 SI) -> Ix   1 -> Ref SI
+external at2SI   {@   2 SI} :: Ref (Array   2 SI) -> Ix   2 -> Ref SI
+external at10SI  {@  10 SI} :: Ref (Array  10 SI) -> Ix  10 -> Ref SI
+external at160SI {@ 160 SI} :: Ref (Array 160 SI) -> Ix 160 -> Ref SI
+external at256SI {@ 256 SI} :: Ref (Array 256 SI) -> Ix 256 -> Ref SI
+external at1KSI  {@  1K SI} :: Ref (Array  1K SI) -> Ix  1K -> Ref SI
+external at4KSI  {@  4K SI} :: Ref (Array  4K SI) -> Ix  4K -> Ref SI
+
+type SS = Stored (Bit 16)
+
+entrypoint at0SS, at1SS, at2SS, at10SS, at160SS, at256SS, at1KSS, at4KSS
+external at0SS   {@   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+external at1SS   {@   1 SS} :: Ref (Array   1 SS) -> Ix   1 -> Ref SS
+external at2SS   {@   2 SS} :: Ref (Array   2 SS) -> Ix   2 -> Ref SS
+external at10SS  {@  10 SS} :: Ref (Array  10 SS) -> Ix  10 -> Ref SS
+external at160SS {@ 160 SS} :: Ref (Array 160 SS) -> Ix 160 -> Ref SS
+external at256SS {@ 256 SS} :: Ref (Array 256 SS) -> Ix 256 -> Ref SS
+external at1KSS  {@  1K SS} :: Ref (Array  1K SS) -> Ix  1K -> Ref SS
+external at4KSS  {@  4K SS} :: Ref (Array  4K SS) -> Ix  4K -> Ref SS
+
+type SA = Array 23 (Stored (Bit 16))
+
+entrypoint at0SA, at1SA, at2SA, at10SA, at160SA, at256SA, at1KSA, at4KSA
+external at0SA   {@   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
+external at1SA   {@   1 SA} :: Ref (Array   1 SA) -> Ix   1 -> Ref SA
+external at2SA   {@   2 SA} :: Ref (Array   2 SA) -> Ix   2 -> Ref SA
+external at10SA  {@  10 SA} :: Ref (Array  10 SA) -> Ix  10 -> Ref SA
+external at160SA {@ 160 SA} :: Ref (Array 160 SA) -> Ix 160 -> Ref SA
+external at256SA {@ 256 SA} :: Ref (Array 256 SA) -> Ix 256 -> Ref SA
+external at1KSA  {@  1K SA} :: Ref (Array  1K SA) -> Ix  1K -> Ref SA
+external at4KSA  {@  4K SA} :: Ref (Array  4K SA) -> Ix  4K -> Ref SA
+
+------------
+.lc: primAt-neg-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB ]
+
+entrypoint bad0, bad1, bad2, bad3, bad4, bad5
+external bad0 {@ 0}       :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+external bad1 {@ Word}    :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+external bad2 {@ 8 SW}    :: Ref (Array 5 SW) -> Ix 8 -> Ref SW -- won't catch :-(
+external bad3 {@ 4 S}     :: Ref (Array 4  S) -> Ix 4 -> Ref S
+external bad4 {@ 4 Word}  :: Ref (Array 4 SW) -> Ix 4 -> Ref SW
+external bad5 {@ 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
+
+------------
+.lc: primStructSelect-pos-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectX, selectY, selectZ, selectU, selectV, selectW, selectA, selectB
+external selectX {primStructSelect S "x" SW} :: Ref S -> Unit -> Ref SW
+external selectY {primStructSelect S "y" SB} :: Ref S -> Unit -> Ref SB
+external selectZ {primStructSelect S "z" SB} :: Ref S -> Unit -> Ref SB
+external selectU {primStructSelect T "u" SW} :: Ref T -> Unit -> Ref SW
+external selectV {primStructSelect T "v" SW} :: Ref T -> Unit -> Ref SW
+external selectW {primStructSelect T "w" SW} :: Ref T -> Unit -> Ref SW
+external selectA {primStructSelect U "a" T}  :: Ref U -> Unit -> Ref T
+external selectB {primStructSelect U "b" S}  :: Ref U -> Unit -> Ref S
+
+------------
+.lc: primStructSelect-pos-64  ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectX, selectY, selectZ, selectU, selectV, selectW, selectA, selectB
+external selectX {primStructSelect S "x" SW} :: Ref S -> Unit -> Ref SW
+external selectY {primStructSelect S "y" SB} :: Ref S -> Unit -> Ref SB
+external selectZ {primStructSelect S "z" SB} :: Ref S -> Unit -> Ref SB
+external selectU {primStructSelect T "u" SW} :: Ref T -> Unit -> Ref SW
+external selectV {primStructSelect T "v" SW} :: Ref T -> Unit -> Ref SW
+external selectW {primStructSelect T "w" SW} :: Ref T -> Unit -> Ref SW
+external selectA {primStructSelect U "a" T}  :: Ref U -> Unit -> Ref T
+external selectB {primStructSelect U "b" S}  :: Ref U -> Unit -> Ref S
+
+------------
+.lc: primStructSelect-neg-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP1, selectP2, selectP3
+external selectP1 {primStructSelect S    "p" SW} :: Ref S -> Unit -> Ref SW
+external selectP2 {primStructSelect Word "p" SW} :: Ref S -> Unit -> Ref SW
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> Unit -> Ref SW
+
+------------
+.lc: primStructSelect-neg-64  ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP1, selectP2, selectP3
+external selectP1 {primStructSelect S    "p" SW} :: Ref S -> Unit -> Ref SW
+external selectP2 {primStructSelect Word "p" SW} :: Ref S -> Unit -> Ref SW
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> Unit -> Ref SW
+
+------------
+.lc: primInitArray-pos-32 ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+-- examples with abstract (closure) initializer
+entrypoint ia0SW, ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
+external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
+external ia1SW  {primInitArray  1  SW} :: (Ix  1 -> Init SW) -> Init (Array  1 SW)
+external ia2SW  {primInitArray  2  SW} :: (Ix  2 -> Init SW) -> Init (Array  2 SW)
+external ia4SW  {primInitArray  4  SW} :: (Ix  4 -> Init SW) -> Init (Array  4 SW)
+external ia6SW  {primInitArray  6  SW} :: (Ix  6 -> Init SW) -> Init (Array  6 SW)
+external ia16SW {primInitArray 16  SW} :: (Ix 16 -> Init SW) -> Init (Array 16 SW)
+
+-- examples with concrete (known) initializer
+external initSW {primInitStored Word} :: Word -> Init (Stored Word)
+
+entrypoint cia0SW, cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
+cia0SW  = ia0SW  (\i -> initSW 100)
+cia1SW  = ia1SW  (\i -> initSW 101)
+cia2SW  = ia2SW  (\i -> initSW 102)
+cia4SW  = ia4SW  (\i -> initSW 104)
+cia6SW  = ia6SW  (\i -> initSW 106)
+cia16SW = ia16SW (\i -> initSW 116)
+
+-- Variety ...
+entrypoint ia3T, ia7T
+external ia3T {primInitArray  3 T} :: (Ix 3 -> Init T) -> Init (Array 3 T)
+external ia7T {primInitArray  7 T} :: (Ix 7 -> Init T) -> Init (Array 7 T)
+
+------------
+.lc: primInitArray-pos-64 ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+-- examples with abstract (closure) initializer
+entrypoint ia0SW, ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
+external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
+external ia1SW  {primInitArray  1  SW} :: (Ix  1 -> Init SW) -> Init (Array  1 SW)
+external ia2SW  {primInitArray  2  SW} :: (Ix  2 -> Init SW) -> Init (Array  2 SW)
+external ia4SW  {primInitArray  4  SW} :: (Ix  4 -> Init SW) -> Init (Array  4 SW)
+external ia6SW  {primInitArray  6  SW} :: (Ix  6 -> Init SW) -> Init (Array  6 SW)
+external ia16SW {primInitArray 16  SW} :: (Ix 16 -> Init SW) -> Init (Array 16 SW)
+
+-- examples with concrete (known) initializer
+external initSW {primInitStored Word} :: Word -> Init (Stored Word)
+
+entrypoint cia0SW, cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
+cia0SW  = ia0SW  (\i -> initSW 100)
+cia1SW  = ia1SW  (\i -> initSW 101)
+cia2SW  = ia2SW  (\i -> initSW 102)
+cia4SW  = ia4SW  (\i -> initSW 104)
+cia6SW  = ia6SW  (\i -> initSW 106)
+cia16SW = ia16SW (\i -> initSW 116)
+
+-- Variety ...
+entrypoint ia3T, ia7T
+external ia3T {primInitArray  3 T} :: (Ix 3 -> Init T) -> Init (Array 3 T)
+external ia7T {primInitArray  7 T} :: (Ix 7 -> Init T) -> Init (Array 7 T)
+
+------------
+.lc: primInitArray-neg-32 ./milc -pcosoboro -m --32
+
+type W  = Word
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint ia3, ia3W, iaWW
+external ia3  {primInitArray 3}   :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
+external ia3W {primInitArray 3 W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
+external iaWW {primInitArray W W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
+
+entrypoint ia3S, ia7S, ia3U, ia7U
+external ia3S {primInitArray 3 S} :: (Ix 3 -> Init S) -> Init (Array 3 S)
+external ia7S {primInitArray 7 S} :: (Ix 7 -> Init S) -> Init (Array 7 S)
+external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
+external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
+
+------------

@@ -1,0 +1,53 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint selectX :: [Word, Unit] >>= [Word]
+selectX[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint selectY :: [Word, Unit] >>= [Word]
+selectY[t0, t1] =
+  add((t0, 4))
+
+-----------------------------------------
+-- not recursive
+entrypoint selectZ :: [Word, Unit] >>= [Word]
+selectZ[t0, t1] =
+  add((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint selectU :: [Word, Unit] >>= [Word]
+selectU[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint selectV :: [Word, Unit] >>= [Word]
+selectV[t0, t1] =
+  add((t0, 4))
+
+-----------------------------------------
+-- not recursive
+entrypoint selectW :: [Word, Unit] >>= [Word]
+selectW[t0, t1] =
+  add((t0, 8))
+
+-----------------------------------------
+-- not recursive
+entrypoint selectA :: [Word, Unit] >>= [Word]
+selectA[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint selectB :: [Word, Unit] >>= [Word]
+selectB[t0, t1] =
+  add((t0, 12))
+
+-----------------------------------------
+-- Entrypoints: selectX selectY selectZ selectU selectV selectW selectA selectB

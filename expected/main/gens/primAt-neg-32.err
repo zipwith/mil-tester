@@ -1,0 +1,27 @@
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 7
+external bad0 {@ 0}       :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+         ^
+Generator for @ needs at least 2 arguments
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 8
+external bad1 {@ Word}    :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+         ^
+Generator for @ needs at least 2 arguments
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 10
+external bad3 {@ 4 S}     :: Ref (Array 4  S) -> Ix 4 -> Ref S
+         ^
+No generated implementation: Element size 5 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 11
+external bad4 {@ 4 Word}  :: Ref (Array 4 SW) -> Ix 4 -> Ref SW
+         ^
+No generated implementation: Cannot determine ByteSize for Word
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 12
+external bad5 {@ 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
+         ^
+No generated implementation: parameter value 4294967296 is too large; must be at most 2147483647
+
+ERROR: Aborting after 5 previously reported errors
+

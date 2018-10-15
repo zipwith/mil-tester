@@ -1,0 +1,218 @@
+-----------------------------------------
+-- not recursive
+entrypoint at0SW :: [Word, Word] >>= [Word]
+at0SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1SW :: [Word, Word] >>= [Word]
+at1SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at2SW :: [Word, Word] >>= [Word]
+at2SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at10SW :: [Word, Word] >>= [Word]
+at10SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at160SW :: [Word, Word] >>= [Word]
+at160SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at256SW :: [Word, Word] >>= [Word]
+at256SW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1KSW :: [Word, Word] >>= [Word]
+at1KSW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at4KSW :: [Word, Word] >>= [Word]
+at4KSW[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at0SI :: [Word, Word] >>= [Word]
+at0SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1SI :: [Word, Word] >>= [Word]
+at1SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at2SI :: [Word, Word] >>= [Word]
+at2SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at10SI :: [Word, Word] >>= [Word]
+at10SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at160SI :: [Word, Word] >>= [Word]
+at160SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at256SI :: [Word, Word] >>= [Word]
+at256SI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1KSI :: [Word, Word] >>= [Word]
+at1KSI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at4KSI :: [Word, Word] >>= [Word]
+at4KSI[t0, t1] =
+  add((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint at0SS :: [Word, Word] >>= [Word]
+at0SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1SS :: [Word, Word] >>= [Word]
+at1SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at2SS :: [Word, Word] >>= [Word]
+at2SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at10SS :: [Word, Word] >>= [Word]
+at10SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at160SS :: [Word, Word] >>= [Word]
+at160SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at256SS :: [Word, Word] >>= [Word]
+at256SS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1KSS :: [Word, Word] >>= [Word]
+at1KSS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at4KSS :: [Word, Word] >>= [Word]
+at4KSS[t0, t1] =
+  t2 <- mul((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at0SA :: [Word, Word] >>= [Word]
+at0SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1SA :: [Word, Word] >>= [Word]
+at1SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at2SA :: [Word, Word] >>= [Word]
+at2SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at10SA :: [Word, Word] >>= [Word]
+at10SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at160SA :: [Word, Word] >>= [Word]
+at160SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at256SA :: [Word, Word] >>= [Word]
+at256SA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at1KSA :: [Word, Word] >>= [Word]
+at1KSA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint at4KSA :: [Word, Word] >>= [Word]
+at4KSA[t0, t1] =
+  t2 <- mul((t1, 46))
+  add((t0, t2))
+
+-----------------------------------------
+-- Entrypoints: at0SW at1SW at2SW at10SW at160SW at256SW at1KSW at4KSW at0SI at1SI at2SI at10SI at160SI at256SI at1KSI at4KSI at0SS at1SS at2SS at10SS at160SS at256SS at1KSS at4KSS at0SA at1SA at2SA at10SA at160SA at256SA at1KSA at4KSA

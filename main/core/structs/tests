@@ -349,3 +349,25 @@ struct Bad7/Word [ x :: Stored Word ] -- invalid: kind size is not nat
 struct Bad8/s [ x :: Stored Word ]    -- invalid: size type variable not in scope
 
 -------------
+.lc: nested-struct-align-32 ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: S | b :: T ]
+struct V1 [ p :: Array 12 S ]
+struct V2 [ r :: Array 12 U ]
+
+------------
+.lc: nested-struct-align-64 ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: S | b :: T ]
+struct V1 [ p :: Array 12 S ]
+struct V2 [ r :: Array 12 U ]
+
+------------
