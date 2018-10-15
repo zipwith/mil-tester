@@ -1,8 +1,6 @@
-type String 0 :: *
+export intToStr :: Word -> Ref String
+primitive intToStr pure {} :: [Word] >>= [Ref String]
 
-export intToStr :: Word -> String
-primitive intToStr pure {} :: [Word] >>= [String]
-
-export print :: String -> Proc Unit
-primitive print impure {}[] :: [String] >>= []
+export print :: Ref String -> Proc Unit
+primitive print impure {}[] :: [Ref String] >>= []
 
