@@ -1,4 +1,69 @@
 This file contains tests for external generators
+-----------------------
+.lc:  gen-no-ref    ./milc -pcosoboro -m
+external putchar :: Word -> Proc Unit
+
+entrypoint main
+main = putchar 1
+
+-----------------------
+.lc:  gen-same-ref   ./milc -pcosoboro -m
+external putchar {putchar} :: Word -> Proc Unit
+
+entrypoint main
+main = putchar 1
+
+-----------------------
+.lc:  gen-diff-ref    ./milc -pcosoboro -m
+external putchar {putChar} :: Word -> Proc Unit
+
+entrypoint main
+main = putchar 1
+
+-----------------------
+.lc:  gen-no-ref1    ./milc -pcosoboro -m
+
+entrypoint putchar
+external putchar :: Word -> Proc Unit
+
+entrypoint getchar
+external getchar :: Proc Word
+
+-----------------------
+.lc:  gen-same-ref1    ./milc -pcosoboro -m
+
+entrypoint putchar
+external putchar {putchar} :: Word -> Proc Unit
+
+entrypoint getchar
+external getchar {getchar} :: Proc Word
+
+-----------------------
+.lc:  gen-diff-ref1    ./milc -pcosoboro -m
+
+entrypoint putchar
+external putchar {putChar} :: Word -> Proc Unit
+
+entrypoint getchar
+external getchar {getChar} :: Proc Word
+
+-----------------------
+.lc:  gen-no-ref2    ./milc -pcosoboro -m
+
+entrypoint vram
+external vram :: Word
+
+-----------------------
+.lc:  gen-same-ref2    ./milc -pcosoboro -m
+
+entrypoint vram
+external vram {vram} :: Word
+
+-----------------------
+.lc:  gen-diff-ref2    ./milc -pcosoboro -m
+
+entrypoint vram
+external vram {videoRam} :: Word
 
 -----------------------
 .lc: primBitFromLiteral-basic   ./milc -pcosoboro -m

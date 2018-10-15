@@ -1,0 +1,13 @@
+-----------------------------------------
+-- not recursive
+str0 :: Ref String
+str0 <- "hello"
+
+-----------------------------------------
+-- not recursive
+entrypoint msg :: Ref String
+msg <-
+  return str0
+
+-----------------------------------------
+-- Entrypoints: msg

@@ -1,0 +1,11 @@
+@str.0 = private unnamed_addr constant [1 x i8] c"\00"
+
+@str0 = internal alias i8, i8* getelementptr inbounds ([1 x i8], [1 x i8]* @str.0, i32 0, i32 0)
+
+@msg = global i32 0
+
+define void @begin() {
+  store i32 ptrtoint(i8* @str0 to i32), i32* @msg
+  ret void
+}
+

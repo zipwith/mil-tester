@@ -1,0 +1,168 @@
+Tests of basic syntax in input and output:
+------------
+.mil: stringLit0    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "" -- null string
+
+------------
+.mil: stringLit0l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "" -- null string
+
+------------
+.mil: stringLit1    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- "hello"  -- string area
+
+------------
+.mil: stringLit1l   ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- "hello"  -- string area
+
+------------
+.mil: stringLit2    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "hello"   -- string literal
+
+------------
+.mil: stringLit2l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "hello"   -- string literal
+
+------------
+.mil: stringLit3    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "hello\n"   -- newline escape
+
+------------
+.mil: stringLit3l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "hello\n"   -- newline escape
+
+------------
+.mil: stringLit4    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "he\   \llo\n"  -- gap
+
+------------
+.mil: stringLit4l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "he\   \llo\n"  -- gap
+
+------------
+.mil: stringLit5    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "he\
+       \llo\n"  -- gap with newline
+
+------------
+.mil: stringLit5l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "he\
+       \llo\n"  -- gap with newline
+
+------------
+.mil: stringLit6    ./milc -pcoso -m --32
+
+entrypoint msg
+msg <- return "he\
+
+
+       \llo\n"  -- gap with newline
+
+------------
+.mil: stringLit6l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg
+msg <- return "he\
+
+
+       \llo\n"  -- gap with newline
+
+------------
+.mil: stringLit7    ./milc -pcoso -m --32
+
+entrypoint msg  -- Haskell escape sequences
+msg <- return "\a\b\f\n\r\t\v\
+              \012\o14\xc\65\o100\x41\
+              \NUL\SOH\STX\ETX\EOT\ENQ\ACK\BEL\
+              \BS\HT\LF\VT\FF\CR\SO\SI\
+              \DLE\DC1\DC2\DC3\DC4\NAK\SYN\ETB\
+              \CAN\EM\SUB\ESC\FS\GS\RS\US\
+              \SP\DEL\
+              \&\"\'\\\
+              \^@\^A\^B\^C\^D\^E\^F\^G\
+              \^H\^I\^J\^K\^L\^M\^N\^O\
+              \^P\^Q\^R\^S\^T\^U\^V\^W\
+              \^X\^Y\^Z\^[\^\\^]\^^\^_\
+              \\012\NUL\BS\DLE\CAN\SP\&\^@\^H\^P\^X\012\&3"
+-- items in last line repeat entries from first line after each gap
+-- that should not be recognized in those initial positions (because
+-- the backslash is part of the gap).
+
+------------
+.mil: stringLit7l    ./milc -l --32 --llvm-main=begin
+
+entrypoint msg  -- Haskell escape sequences
+msg <- return "\a\b\f\n\r\t\v\
+              \012\o14\xc\65\o100\x41\
+              \NUL\SOH\STX\ETX\EOT\ENQ\ACK\BEL\
+              \BS\HT\LF\VT\FF\CR\SO\SI\
+              \DLE\DC1\DC2\DC3\DC4\NAK\SYN\ETB\
+              \CAN\EM\SUB\ESC\FS\GS\RS\US\
+              \SP\DEL\
+              \&\"\'\\\
+              \^@\^A\^B\^C\^D\^E\^F\^G\
+              \^H\^I\^J\^K\^L\^M\^N\^O\
+              \^P\^Q\^R\^S\^T\^U\^V\^W\
+              \^X\^Y\^Z\^[\^\\^]\^^\^_\
+              \\012\NUL\BS\DLE\CAN\SP\&\^@\^H\^P\^X\012\&3"
+-- items in last line repeat entries from first line after each gap
+-- that should not be recognized in those initial positions (because
+-- the backslash is part of the gap).
+
+------------
+.mil: charLit0    ./milc -pcoso -m --32
+entrypoint a, b, c, d, e, f, newline, esc, ctld, sp, del1, del2
+a <- return 'a'
+b <- return 'B'
+c <- return '\xc'
+d <- return '\x00d'
+e <- return '\xE'
+f <- return '\f'
+newline <- return '\n'
+esc <- return '\^['
+ctld <- return '\^D'
+sp <- return '\SP'
+del1 <- return '\DEL'
+del2 <- return '\127'
+
+------------
+.mil: charLit0l    ./milc -l --32 --llvm-main=begin
+entrypoint a, b, c, d, e, f, newline, esc, ctld, sp, del1, del2
+a <- return 'a'
+b <- return 'B'
+c <- return '\xc'
+d <- return '\x00d'
+e <- return '\xE'
+f <- return '\f'
+newline <- return '\n'
+esc <- return '\^['
+ctld <- return '\^D'
+sp <- return '\SP'
+del1 <- return '\DEL'
+del2 <- return '\127'
+
+------------

@@ -1,0 +1,7 @@
+-----------------------------------------
+-- not recursive
+entrypoint msg :: Ref String
+msg <- "hello"
+
+-----------------------------------------
+-- Entrypoints: msg

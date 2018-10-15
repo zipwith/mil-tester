@@ -1,0 +1,74 @@
+-----------------------------------------
+-- not recursive
+entrypoint a :: Word
+a <-
+  return 97
+
+-----------------------------------------
+-- not recursive
+entrypoint b :: Word
+b <-
+  return 66
+
+-----------------------------------------
+-- not recursive
+entrypoint c :: Word
+c <-
+  return 12
+
+-----------------------------------------
+-- not recursive
+entrypoint d :: Word
+d <-
+  return 13
+
+-----------------------------------------
+-- not recursive
+entrypoint e :: Word
+e <-
+  return 14
+
+-----------------------------------------
+-- not recursive
+entrypoint f :: Word
+f <-
+  return 12
+
+-----------------------------------------
+-- not recursive
+entrypoint newline :: Word
+newline <-
+  return 10
+
+-----------------------------------------
+-- not recursive
+entrypoint esc :: Word
+esc <-
+  return 27
+
+-----------------------------------------
+-- not recursive
+entrypoint ctld :: Word
+ctld <-
+  return 4
+
+-----------------------------------------
+-- not recursive
+entrypoint sp :: Word
+sp <-
+  return 32
+
+-----------------------------------------
+-- not recursive
+entrypoint del1 :: Word
+del1 <-
+  return 127
+
+-----------------------------------------
+-- not recursive
+entrypoint del2 :: Word
+del2 <-
+  return 127
+
+-----------------------------------------
+-- Entrypoints: a b c d e f newline esc ctld sp del1 del2

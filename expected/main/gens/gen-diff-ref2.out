@@ -1,0 +1,12 @@
+-----------------------------------------
+-- not recursive
+external videoRam :: Word
+
+-----------------------------------------
+-- not recursive
+entrypoint vram :: Word
+vram <-
+  return videoRam
+
+-----------------------------------------
+-- Entrypoints: vram

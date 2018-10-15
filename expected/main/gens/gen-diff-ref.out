@@ -1,0 +1,11 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  putChar((1))
+
+-----------------------------------------
+-- Entrypoints: main

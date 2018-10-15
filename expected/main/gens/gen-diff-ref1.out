@@ -1,0 +1,17 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+putchar :: [Word] >>= [Unit]
+putchar[t0] =
+  putChar((t0))
+
+-----------------------------------------
+-- not recursive
+getchar :: [] >>= [Word]
+getchar[] =
+  getChar(())
+
+-----------------------------------------
+-- Entrypoints: putchar getchar

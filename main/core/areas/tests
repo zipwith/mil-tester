@@ -1,0 +1,48 @@
+Tests for memory area declarations:
+------------
+.mil: stringArea1   ./milc -pco -m --32
+
+entrypoint b
+b[t, f, s] = if t then b1[f, s]
+                  else b1[f, "hello"]
+b1[f, x] = f @ x
+
+------------
+.mil: stringArea1a   ./milc -pcoso -m --32
+
+entrypoint b
+b :: [Flag, [Ref String] ->> [Word], Ref String] >>= [Word]
+b[t, f, s] = if t then b1[f, s]
+                  else b1[f, "hello"]
+b1[f, x] = f @ x
+
+------------
+.mil: stringArea1b   ./milc -pcosoboro -m --32
+
+entrypoint b
+b :: [Flag, [Ref String] ->> [Word], Ref String] >>= [Word]
+b[t, f, s] = if t then b1[f, s]
+                  else b1[f, "hello"]
+b1[f, x] = f @ x
+
+------------
+.lc: stringArea2    ./milc -pcosoboro -m --32
+require "prelude.lc"
+
+entrypoint greet :: Bool -> Ref String
+greet x = if x then "hello" else "goodbye"
+
+entrypoint prompt :: Ref String
+prompt = "Please enter your name: "
+
+------------
+.lc: stringArea2l    ./milc -l --32 --llvm-main=main
+require "prelude.lc"
+
+entrypoint greet :: Bool -> Ref String
+greet x = if x then "hello" else "goodbye"
+
+entrypoint prompt :: Ref String
+prompt = "Please enter your name: "
+
+------------
