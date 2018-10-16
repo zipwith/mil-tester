@@ -1,0 +1,27 @@
+-- A simple LC program that demonstrates accesses to a value stored in a memory area.
+
+require "prelude.lc"
+require "io.mil"
+  
+external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored Word} :: Ref (Stored Word) -> Word -> Proc Unit
+
+area count <- initStored 7 :: Ref (Stored Word) aligned 8
+
+entrypoint inc
+inc = do x <- readRef count
+         writeRef count (add x 1)
+
+entrypoint display
+display = do x <- readRef count
+             printWord x
+
+export main
+main = do display
+          inc
+          display
+          inc
+          inc
+          display
+

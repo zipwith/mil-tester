@@ -1,0 +1,72 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+nums :: Word
+nums <- area (Array 64 (Stored Word)) aligned 4
+
+-----------------------------------------
+-- not recursive
+entrypoint ns :: Word
+ns <-
+  return nums
+
+-----------------------------------------
+-- not recursive
+nums1 :: Word
+nums1 <- area (Array 64 (Stored Word)) aligned 4
+
+-----------------------------------------
+-- not recursive
+entrypoint ns1 :: Word
+ns1 <-
+  return nums1
+
+-----------------------------------------
+-- not recursive
+s5 :: Unit
+s5 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b82 :: [] >>= [Unit]
+b82[] =
+  return s5
+
+-----------------------------------------
+-- recursive
+b87 :: [Word, Word] >>= [Unit]
+b87[t0, t1] =
+  [] <- noinline(())
+  t2 <- store32((t0, 0))
+  t3 <- add((t1, 1))
+  t4 <- add((t0, 4))
+  t5 <- primUlt((t3, 64))
+  if t5
+    then b87[t4, t3]
+    else b82[]
+
+-----------------------------------------
+-- recursive
+b89 :: [Word, Word] >>= [Unit]
+b89[t0, t1] =
+  [] <- noinline(())
+  t2 <- store32((t0, t1))
+  t3 <- add((t1, 1))
+  t4 <- add((t0, 4))
+  t5 <- primUlt((t3, 64))
+  if t5
+    then b89[t4, t3]
+    else b82[]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  t0 <- b87[nums, 0]
+  b89[nums1, 0]
+
+-----------------------------------------
+-- Entrypoints: ns ns1

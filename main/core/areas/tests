@@ -46,3 +46,12 @@ entrypoint prompt :: Ref String
 prompt = "Please enter your name: "
 
 ------------
+exec: mem0      ./milc -m --32 mem0.lc -pcosoboro
+exec: mem0l     ./milc -l --32 mem0.lc --llvm-main=main
+------------
+exec: mem1      ./milc -m --32 mem1.lc -pcosoboro
+exec: mem1l     ./milc -l --32 mem1.lc --llvm-main=main
+------------
+exec: mem2      ./milc -m --32 mem2.lc -pcosoboro
+exec: mem2l     ./milc -l --32 mem2.lc --llvm-main=main
+------------

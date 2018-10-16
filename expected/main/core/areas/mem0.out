@@ -1,0 +1,38 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+count :: Word
+count <- area (Stored Word) aligned 8
+
+-----------------------------------------
+-- not recursive
+entrypoint inc :: [] >>= [Unit]
+inc[] =
+  t0 <- load32((count))
+  t1 <- add((t0, 1))
+  store32((count, t1))
+
+-----------------------------------------
+-- not recursive
+s2 :: Unit
+s2 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint display :: [] >>= [Unit]
+display[] =
+  t0 <- load32((count))
+  [] <- printWord((t0))
+  return s2
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  store32((count, 7))
+
+-----------------------------------------
+-- Entrypoints: inc display

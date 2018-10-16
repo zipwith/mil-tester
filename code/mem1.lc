@@ -1,0 +1,62 @@
+-- An LC program that uses a structure stored in memory.
+
+require "prelude.lc"
+require "io.mil"
+  
+data Lab (f :: lab) = Lab
+
+external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored Word} :: Ref (Stored Word) -> Word -> Proc Unit
+
+struct S/16 [ x, y, z, t :: Stored Word ]
+
+entrypoint init :: Init S
+init  = S[ x<-initStored 10 | y<-initStored 9 | z<-initStored 19 | t<-initStored 94 ]
+
+external fieldX {primStructSelect S "x" (Stored Word)} :: Ref S -> Lab "x" -> Ref (Stored Word)
+external fieldY {primStructSelect S "y" (Stored Word)} :: Ref S -> Lab "y" -> Ref (Stored Word)
+external fieldZ {primStructSelect S "z" (Stored Word)} :: Ref S -> Lab "z" -> Ref (Stored Word)
+external fieldT {primStructSelect S "t" (Stored Word)} :: Ref S -> Lab "t" -> Ref (Stored Word)
+
+read        :: (Ref s -> Lab f -> Ref (Stored Word)) -> Ref s -> Proc Word
+read field r = readRef (field r Lab)
+
+entrypoint readX, readY, readZ, readT :: Ref S -> Proc Word
+readX = read fieldX
+readY = read fieldY
+readZ = read fieldZ
+readT = read fieldT
+
+write        :: (Ref s -> Lab f -> Ref (Stored Word)) -> Ref s -> Word -> Proc Unit
+write field r = writeRef (field r Lab)
+
+entrypoint writeX, writeY, writeZ, writeT :: Ref S -> Word -> Proc Unit
+writeX = write fieldX
+writeY = write fieldY
+writeZ = write fieldZ
+writeT = write fieldT
+
+area s1 <- init, s2 <- init :: Ref S aligned 16
+
+entrypoint main
+main = do display s1
+          display s2
+          x <- readX s1
+          y <- readY s1
+          writeT s2 (add x y)
+          display s2
+
+entrypoint display :: Ref S -> Proc Unit
+display s = let print r = bind (r s) printWord
+            in mapM_ print (Cons readX (Cons readY (Cons readZ (Cons readT Nil))))
+
+bind :: Proc a -> (a -> Proc b) -> Proc b
+bind  = \c f -> do x <- c; f x
+
+mapM_     :: (a -> Proc b) -> List a -> Proc Unit
+mapM_ f xs = case xs of
+               Nil       -> return Unit
+               Cons y ys -> do f y
+                               mapM_ f ys
+

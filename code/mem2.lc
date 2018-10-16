@@ -1,0 +1,32 @@
+-- An LC program that uses an array stored in a memory area:
+
+require "prelude.lc"
+require "io.mil"
+
+external initStored {primInitStored Word}       :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored 4 Word}  :: Ref (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored 4 Word} :: Ref (Stored Word) -> Word -> Proc Unit
+
+type N = 64 -- size of array
+type W = 32 -- bit width big enough for N distinct values
+
+external at {@ N (Stored Word)} :: Ref (Array N (Stored Word)) -> Ix N -> Ref (Stored Word)
+external initArray {primInitArray N (Stored Word)}
+     :: (Ix N -> Init (Stored Word)) -> Init (Array N (Stored Word))
+
+area nums  <- initArray (\ix -> initStored 0) :: Ref (Array N (Stored Word))
+
+external ixToBits   {primIxToBits N W}  :: Ix N -> Bit W
+external bitToWord  {primBitToWord W}   :: Bit W -> Word
+
+compose f g x = f (g x)
+ixToWord      = compose bitToWord ixToBits
+
+area nums1 <- initArray (compose initStored ixToWord) :: Ref (Array N (Stored Word))
+
+entrypoint ns
+ns = nums
+
+entrypoint ns1
+ns1 = nums1
+
