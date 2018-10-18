@@ -264,3 +264,137 @@ bitdata ExT/3 = ExR [ x :: ExR ]    -- invalid, no mask test predicates
 entrypoint idExT :: ExT -> ExT; idExT x = x
 
 ----------
+.lc:  bitdata26    ./milc -pcosoro -m --32
+-- A single field, no tagbits
+bitdata Byte/8 = Byte [ val :: Bit 8 ]
+
+external seventeen {primBitFromLiteral 17 8} :: Unit -> Bit 8
+
+entrypoint aByte
+aByte = Byte [val=seventeen Unit]
+
+entrypoint getVal, setVal
+getVal b = case b of Byte v -> v.val
+setVal v = Byte [ val=v ]
+
+----------
+.lc:  bitdata26-no-rep    ./milc -pcoso -m --32
+-- A single field, no tagbits
+bitdata Byte/8 = Byte [ val :: Bit 8 ]
+
+external seventeen {primBitFromLiteral 17 8} :: Unit -> Bit 8
+
+entrypoint aByte
+aByte = Byte [val=seventeen Unit]
+
+entrypoint getVal, setVal
+getVal b = case b of Byte v -> v.val
+setVal v = Byte [ val=v ]
+
+----------
+.lc:  bitdata27    ./milc -pcosoro -m --32
+-- a simple product, multiple fields
+bitdata PCI = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
+
+entrypoint mkPCI0, mkPCI1, mkPCI2
+mkPCI0 a b c = PCI [ bus=a | dev=b | fun=c ]
+mkPCI1 a b c = PCI [ fun=c | bus=a | dev=b ]
+mkPCI2 a b c = PCI [ dev=b | fun=c | bus=a ]
+
+entrypoint getBus, getDev, getFun
+getBus pci = case pci of PCI r -> r.bus
+getDev pci = case pci of PCI r -> r.dev
+getFun pci = case pci of PCI r -> r.fun
+
+entrypoint updBus, updDev, updFun
+updBus v pci = case pci of PCI r -> PCI r[bus=v]
+updDev v pci = case pci of PCI r -> PCI r[dev=v]
+updFun v pci = case pci of PCI r -> PCI r[fun=v]
+
+----------
+.lc:  bitdata27-no-rep    ./milc -pcoso -m --32
+-- a simple product, multiple fields
+bitdata PCI = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
+
+entrypoint mkPCI0, mkPCI1, mkPCI2
+mkPCI0 a b c = PCI [ bus=a | dev=b | fun=c ]
+mkPCI1 a b c = PCI [ fun=c | bus=a | dev=b ]
+mkPCI2 a b c = PCI [ dev=b | fun=c | bus=a ]
+
+entrypoint getBus, getDev, getFun
+getBus pci = case pci of PCI r -> r.bus
+getDev pci = case pci of PCI r -> r.dev
+getFun pci = case pci of PCI r -> r.fun
+
+entrypoint updBus, updDev, updFun
+updBus v pci = case pci of PCI r -> PCI r[bus=v]
+updDev v pci = case pci of PCI r -> PCI r[dev=v]
+updFun v pci = case pci of PCI r -> PCI r[fun=v]
+
+----------
+.lc:   bitdata28    ./milc -pcosoro -m --32
+-- Single field, with lo zero tagbits
+
+bitdata Bay/11 = Bay [ u :: Bit 7 | 0 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata28a   ./milc -pcosoro -m --32
+-- Single field, with lo nonzero tagbits
+
+bitdata Bay = Bay [ u :: Bit 7 | B1010 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata28b   ./milc -pcosoro -m --32
+-- Single field, with hi zero tagbits
+
+bitdata Bay/11 = Bay [ 0 | u :: Bit 7 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata28c    ./milc -pcosoro -m --32
+-- Single field, with hi nonzero tagbits
+
+bitdata Bay = Bay [ B1101 | u :: Bit 7 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata28d    ./milc -pcosoro -m --32
+-- Single field, with zero tagbits above and below:
+
+bitdata Bay = Bay [ B000 | u :: Bit 7 | B0 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata28e    ./milc -pcosoro -m --32
+-- Single field, with nozero tagbits above and below:
+
+bitdata Bay = Bay [ B100 | u :: Bit 7 | B1 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------

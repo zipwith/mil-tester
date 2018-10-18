@@ -1,0 +1,189 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong0 :: [Word] >>= [Unit]
+nullFromLong0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong1 :: [Word] >>= [Unit]
+nullFromLong1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong2 :: [Word] >>= [Unit]
+nullFromLong2[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong29 :: [Word] >>= [Unit]
+nullFromLong29[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong31 :: [Word] >>= [Unit]
+nullFromLong31[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong32 :: [Word] >>= [Unit]
+nullFromLong32[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong33 :: [Word] >>= [Unit]
+nullFromLong33[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong48 :: [Word] >>= [Unit]
+nullFromLong48[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong63 :: [Word] >>= [Unit]
+nullFromLong63[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromLong64 :: [Word] >>= [Unit]
+nullFromLong64[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong0 :: [Word] >>= [Flag]
+bitFromLong0[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong1 :: [Word] >>= [Flag]
+bitFromLong1[t0] =
+  t1 <- and((t0, 2))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong2 :: [Word] >>= [Flag]
+bitFromLong2[t0] =
+  t1 <- and((t0, 4))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong29 :: [Word] >>= [Flag]
+bitFromLong29[t0] =
+  t1 <- and((t0, 536870912))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong31 :: [Word] >>= [Flag]
+bitFromLong31[t0] =
+  t1 <- and((t0, 2147483648))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong32 :: [Word] >>= [Flag]
+bitFromLong32[t0] =
+  t1 <- and((t0, 4294967296))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong33 :: [Word] >>= [Flag]
+bitFromLong33[t0] =
+  t1 <- and((t0, 8589934592))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong48 :: [Word] >>= [Flag]
+bitFromLong48[t0] =
+  t1 <- and((t0, 281474976710656))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromLong63 :: [Word] >>= [Flag]
+bitFromLong63[t0] =
+  t1 <- and((t0, -9223372036854775808))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong0 :: [Word] >>= [Word]
+byteFromLong0[t0] =
+  and((t0, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong1 :: [Word] >>= [Word]
+byteFromLong1[t0] =
+  t1 <- lshr((t0, 1))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong2 :: [Word] >>= [Word]
+byteFromLong2[t0] =
+  t1 <- lshr((t0, 2))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong29 :: [Word] >>= [Word]
+byteFromLong29[t0] =
+  t1 <- lshr((t0, 29))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong31 :: [Word] >>= [Word]
+byteFromLong31[t0] =
+  t1 <- lshr((t0, 31))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong32 :: [Word] >>= [Word]
+byteFromLong32[t0] =
+  t1 <- lshr((t0, 32))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong33 :: [Word] >>= [Word]
+byteFromLong33[t0] =
+  t1 <- lshr((t0, 33))
+  and((t1, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteFromLong48 :: [Word] >>= [Word]
+byteFromLong48[t0] =
+  t1 <- lshr((t0, 48))
+  and((t1, 255))
+
+-----------------------------------------
+-- Entrypoints: nullFromLong0 nullFromLong1 nullFromLong2 nullFromLong29 nullFromLong31 nullFromLong32 nullFromLong33 nullFromLong48 nullFromLong63 nullFromLong64 bitFromLong0 bitFromLong1 bitFromLong2 bitFromLong29 bitFromLong31 bitFromLong32 bitFromLong33 bitFromLong48 bitFromLong63 byteFromLong0 byteFromLong1 byteFromLong2 byteFromLong29 byteFromLong31 byteFromLong32 byteFromLong33 byteFromLong48

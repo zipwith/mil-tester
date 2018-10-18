@@ -1,0 +1,71 @@
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI0 :: [Word, Word, Word] >>= [Word]
+mkPCI0[t0, t1, t2] =
+  t3 <- shl((t1, 3))
+  t4 <- or((t2, t3))
+  t5 <- shl((t0, 8))
+  or((t4, t5))
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI1 :: [Word, Word, Word] >>= [Word]
+mkPCI1[t0, t1, t2] =
+  t3 <- shl((t1, 3))
+  t4 <- or((t2, t3))
+  t5 <- shl((t0, 8))
+  or((t4, t5))
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI2 :: [Word, Word, Word] >>= [Word]
+mkPCI2[t0, t1, t2] =
+  t3 <- shl((t1, 3))
+  t4 <- or((t2, t3))
+  t5 <- shl((t0, 8))
+  or((t4, t5))
+
+-----------------------------------------
+-- not recursive
+entrypoint getBus :: [Word] >>= [Word]
+getBus[t0] =
+  lshr((t0, 8))
+
+-----------------------------------------
+-- not recursive
+entrypoint getDev :: [Word] >>= [Word]
+getDev[t0] =
+  t1 <- lshr((t0, 3))
+  and((t1, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint getFun :: [Word] >>= [Word]
+getFun[t0] =
+  and((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint updBus :: [Word, Word] >>= [Word]
+updBus[t0, t1] =
+  t2 <- and((t1, 255))
+  t3 <- shl((t0, 8))
+  or((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint updDev :: [Word, Word] >>= [Word]
+updDev[t0, t1] =
+  t2 <- and((t1, 65287))
+  t3 <- shl((t0, 3))
+  or((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint updFun :: [Word, Word] >>= [Word]
+updFun[t0, t1] =
+  t2 <- and((t1, 65528))
+  or((t2, t0))
+
+-----------------------------------------
+-- Entrypoints: mkPCI0 mkPCI1 mkPCI2 getBus getDev getFun updBus updDev updFun

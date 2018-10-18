@@ -1,0 +1,121 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte0 :: [Word] >>= [Unit]
+nullFromByte0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte1 :: [Word] >>= [Unit]
+nullFromByte1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte2 :: [Word] >>= [Unit]
+nullFromByte2[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte4 :: [Word] >>= [Unit]
+nullFromByte4[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte5 :: [Word] >>= [Unit]
+nullFromByte5[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte7 :: [Word] >>= [Unit]
+nullFromByte7[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromByte8 :: [Word] >>= [Unit]
+nullFromByte8[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte0 :: [Word] >>= [Flag]
+bitFromByte0[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte1 :: [Word] >>= [Flag]
+bitFromByte1[t0] =
+  t1 <- and((t0, 2))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte2 :: [Word] >>= [Flag]
+bitFromByte2[t0] =
+  t1 <- and((t0, 4))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte4 :: [Word] >>= [Flag]
+bitFromByte4[t0] =
+  t1 <- and((t0, 16))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte5 :: [Word] >>= [Flag]
+bitFromByte5[t0] =
+  t1 <- and((t0, 32))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromByte7 :: [Word] >>= [Flag]
+bitFromByte7[t0] =
+  t1 <- and((t0, 128))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibbleFromByte0 :: [Word] >>= [Word]
+nibbleFromByte0[t0] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibbleFromByte1 :: [Word] >>= [Word]
+nibbleFromByte1[t0] =
+  t1 <- lshr((t0, 1))
+  and((t1, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibbleFromByte2 :: [Word] >>= [Word]
+nibbleFromByte2[t0] =
+  t1 <- lshr((t0, 2))
+  and((t1, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint nibbleFromByte4 :: [Word] >>= [Word]
+nibbleFromByte4[t0] =
+  lshr((t0, 4))
+
+-----------------------------------------
+-- Entrypoints: nullFromByte0 nullFromByte1 nullFromByte2 nullFromByte4 nullFromByte5 nullFromByte7 nullFromByte8 bitFromByte0 bitFromByte1 bitFromByte2 bitFromByte4 bitFromByte5 bitFromByte7 nibbleFromByte0 nibbleFromByte1 nibbleFromByte2 nibbleFromByte4

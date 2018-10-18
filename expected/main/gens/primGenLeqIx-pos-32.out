@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-b18 :: forall (a :: *). [a] >>= [a]
-b18[t0] =
+b21 :: forall (a :: *). [a] >>= [a]
+b21[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b17 :: forall (a :: *) (b :: tuple). [[a] ->> b, a] >>= b
-b17[t0, t1] =
+b20 :: forall (a :: *) (b :: tuple). [[a] ->> b, a] >>= b
+b20[t0, t1] =
   t0 @ t1
 
 -----------------------------------------
@@ -16,8 +16,8 @@ entrypoint genLeqIxF1 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
 genLeqIxF1[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -25,8 +25,8 @@ entrypoint genLeqIxW1 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxW1[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -34,13 +34,13 @@ entrypoint genLeqIxI1 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxI1[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
-b27 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
-b27[t0, t1] =
+b30 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
+b30[t0, t1] =
   return [t0, t1]
 
 -----------------------------------------
@@ -49,8 +49,8 @@ entrypoint genLeqIxB1 :: [Word, Word, [Word] ->> [Word, Word], Word, Word] >>= [
 genLeqIxB1[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, t4))
   if t5
-    then b17[t2, t3]
-    else b27[t0, t1]
+    then b20[t2, t3]
+    else b30[t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -58,8 +58,8 @@ entrypoint genLeqIxM1 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
 genLeqIxM1[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -67,8 +67,8 @@ entrypoint genLeqIxF7 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
 genLeqIxF7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -76,8 +76,8 @@ entrypoint genLeqIxW7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxW7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -85,8 +85,8 @@ entrypoint genLeqIxI7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxI7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -94,8 +94,8 @@ entrypoint genLeqIxB7 :: [Word, Word, [Word] ->> [Word, Word], Word, Word] >>= [
 genLeqIxB7[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, t4))
   if t5
-    then b17[t2, t3]
-    else b27[t0, t1]
+    then b20[t2, t3]
+    else b30[t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -103,8 +103,8 @@ entrypoint genLeqIxM7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxM7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -112,8 +112,8 @@ entrypoint genLeqIxF64 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
 genLeqIxF64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -121,8 +121,8 @@ entrypoint genLeqIxW64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxW64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -130,8 +130,8 @@ entrypoint genLeqIxI64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxI64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -139,8 +139,8 @@ entrypoint genLeqIxB64 :: [Word, Word, [Word] ->> [Word, Word], Word, Word] >>= 
 genLeqIxB64[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, t4))
   if t5
-    then b17[t2, t3]
-    else b27[t0, t1]
+    then b20[t2, t3]
+    else b30[t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -148,8 +148,8 @@ entrypoint genLeqIxM64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
 genLeqIxM64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b17[t1, t2]
-    else b18[t0]
+    then b20[t1, t2]
+    else b21[t0]
 
 -----------------------------------------
 -- not recursive
@@ -159,14 +159,14 @@ leqIx1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b80 :: [] >>= [Word]
-b80[] =
+b83 :: [] >>= [Word]
+b83[] =
   return 7
 
 -----------------------------------------
 -- not recursive
-b79 :: forall (a :: *). [a] >>= [a]
-b79[t0] =
+b82 :: forall (a :: *). [a] >>= [a]
+b82[t0] =
   return t0
 
 -----------------------------------------
@@ -175,13 +175,13 @@ entrypoint leqIx7 :: [Word, Word] >>= [Word]
 leqIx7[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
-    then b79[t0]
-    else b80[]
+    then b82[t0]
+    else b83[]
 
 -----------------------------------------
 -- not recursive
-b82 :: [] >>= [Word]
-b82[] =
+b85 :: [] >>= [Word]
+b85[] =
   return 0
 
 -----------------------------------------
@@ -198,7 +198,7 @@ leqIx64[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
     then construct_Just5[t0]
-    else b82[]
+    else b85[]
 
 -----------------------------------------
 -- Entrypoints: genLeqIxF1 genLeqIxW1 genLeqIxI1 genLeqIxB1 genLeqIxM1 genLeqIxF7 genLeqIxW7 genLeqIxI7 genLeqIxB7 genLeqIxM7 genLeqIxF64 genLeqIxW64 genLeqIxI64 genLeqIxB64 genLeqIxM64 leqIx1 leqIx7 leqIx64

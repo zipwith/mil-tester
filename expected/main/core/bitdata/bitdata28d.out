@@ -1,0 +1,23 @@
+-----------------------------------------
+-- not recursive
+entrypoint mkU :: [Word] >>= [Word]
+mkU[t0] =
+  shl((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint getU :: [Word] >>= [Word]
+getU[t0] =
+  t1 <- lshr((t0, 1))
+  and((t1, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint updU :: [Word, Word] >>= [Word]
+updU[t0, t1] =
+  t2 <- and((t0, 1793))
+  t3 <- shl((t1, 1))
+  or((t2, t3))
+
+-----------------------------------------
+-- Entrypoints: mkU getU updU

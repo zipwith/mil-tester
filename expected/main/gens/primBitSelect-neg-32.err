@@ -1,0 +1,47 @@
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 3
+external nullFromByte9  {primBitSelect 8 0  9} :: Bit 8 -> Bit 0
+         ^
+No generated implementation: A field of width 0 at offset 9 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 4
+external nullFromByte15 {primBitSelect 8 0 15} :: Bit 8 -> Bit 0
+         ^
+No generated implementation: A field of width 0 at offset 15 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 7
+external bitFromByte8  {primBitSelect 8 1  8} :: Bit 8 -> Bit 1
+         ^
+No generated implementation: A field of width 1 at offset 8 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 8
+external bitFromByte9  {primBitSelect 8 1  9} :: Bit 8 -> Bit 1
+         ^
+No generated implementation: A field of width 1 at offset 9 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 9
+external bitFromByte15 {primBitSelect 8 1 15} :: Bit 8 -> Bit 1
+         ^
+No generated implementation: A field of width 1 at offset 15 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 12
+external nibbleFromByte5  {primBitSelect 8 4  5} :: Bit 8 -> Bit 4
+         ^
+No generated implementation: A field of width 4 at offset 5 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 13
+external nibbleFromByte8  {primBitSelect 8 4  8} :: Bit 8 -> Bit 4
+         ^
+No generated implementation: A field of width 4 at offset 8 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 14
+external nibbleFromByte9  {primBitSelect 8 4  9} :: Bit 8 -> Bit 4
+         ^
+No generated implementation: A field of width 4 at offset 9 will not fit in a bit vector of width 8
+
+ERROR: "actual/main/gens/primBitSelect-neg-32.lc", line 15
+external nibbleFromByte15 {primBitSelect 8 4 15} :: Bit 8 -> Bit 4
+         ^
+No generated implementation: A field of width 4 at offset 15 will not fit in a bit vector of width 8
+
+ERROR: Aborting after 9 previously reported errors
+

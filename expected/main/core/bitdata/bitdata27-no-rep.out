@@ -1,0 +1,172 @@
+bitdata PCI /16
+  = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
+    -- predPCI(x :: Bit 16) = true
+
+-----------------------------------------
+-- not recursive
+b38 :: [Bit 3, Bit 5, Bit 8] >>= [PCI]
+b38[t0, t1, t2] =
+  t3 <- PCI.PCI(t2, t1, t0)
+  PCI(t3)
+
+-----------------------------------------
+-- not recursive
+k12 :: {Bit 8, Bit 5} [Bit 3] ->> [PCI]
+k12{t0, t1} t2 = b38[t2, t1, t0]
+
+-----------------------------------------
+-- not recursive
+k13 :: {Bit 8} [Bit 5] ->> [[Bit 3] ->> [PCI]]
+k13{t0} t1 = k12{t0, t1}
+
+-----------------------------------------
+-- not recursive
+k14 :: {} [Bit 8] ->> [[Bit 5] ->> [[Bit 3] ->> [PCI]]]
+k14{} t0 = k13{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI0 :: [Bit 8] ->> [[Bit 5] ->> [[Bit 3] ->> [PCI]]]
+mkPCI0 <-
+  k14{}
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI1 :: [Bit 8] ->> [[Bit 5] ->> [[Bit 3] ->> [PCI]]]
+mkPCI1 <-
+  k14{}
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI2 :: [Bit 8] ->> [[Bit 5] ->> [[Bit 3] ->> [PCI]]]
+mkPCI2 <-
+  k14{}
+
+-----------------------------------------
+-- not recursive
+b35 :: [PCI] >>= [Bit 8]
+b35[t0] =
+  t1 <- PCI 0 t0
+  PCI.PCI 0 t1
+
+-----------------------------------------
+-- not recursive
+k11 :: {} [PCI] ->> [Bit 8]
+k11{} t0 = b35[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getBus :: [PCI] ->> [Bit 8]
+getBus <-
+  k11{}
+
+-----------------------------------------
+-- not recursive
+b31 :: [PCI] >>= [Bit 5]
+b31[t0] =
+  t1 <- PCI 0 t0
+  PCI.PCI 1 t1
+
+-----------------------------------------
+-- not recursive
+k10 :: {} [PCI] ->> [Bit 5]
+k10{} t0 = b31[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getDev :: [PCI] ->> [Bit 5]
+getDev <-
+  k10{}
+
+-----------------------------------------
+-- not recursive
+b27 :: [PCI] >>= [Bit 3]
+b27[t0] =
+  t1 <- PCI 0 t0
+  PCI.PCI 2 t1
+
+-----------------------------------------
+-- not recursive
+k9 :: {} [PCI] ->> [Bit 3]
+k9{} t0 = b27[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint getFun :: [PCI] ->> [Bit 3]
+getFun <-
+  k9{}
+
+-----------------------------------------
+-- not recursive
+b22 :: [PCI, Bit 8] >>= [PCI]
+b22[t0, t1] =
+  t2 <- PCI 0 t0
+  t3 <- update_bus((t2, t1))
+  PCI(t3)
+
+-----------------------------------------
+-- not recursive
+k7 :: {Bit 8} [PCI] ->> [PCI]
+k7{t0} t1 = b22[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k8 :: {} [Bit 8] ->> [[PCI] ->> [PCI]]
+k8{} t0 = k7{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint updBus :: [Bit 8] ->> [[PCI] ->> [PCI]]
+updBus <-
+  k8{}
+
+-----------------------------------------
+-- not recursive
+b17 :: [PCI, Bit 5] >>= [PCI]
+b17[t0, t1] =
+  t2 <- PCI 0 t0
+  t3 <- update_dev((t2, t1))
+  PCI(t3)
+
+-----------------------------------------
+-- not recursive
+k5 :: {Bit 5} [PCI] ->> [PCI]
+k5{t0} t1 = b17[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k6 :: {} [Bit 5] ->> [[PCI] ->> [PCI]]
+k6{} t0 = k5{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint updDev :: [Bit 5] ->> [[PCI] ->> [PCI]]
+updDev <-
+  k6{}
+
+-----------------------------------------
+-- not recursive
+b12 :: [PCI, Bit 3] >>= [PCI]
+b12[t0, t1] =
+  t2 <- PCI 0 t0
+  t3 <- update_fun((t2, t1))
+  PCI(t3)
+
+-----------------------------------------
+-- not recursive
+k3 :: {Bit 3} [PCI] ->> [PCI]
+k3{t0} t1 = b12[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Bit 3] ->> [[PCI] ->> [PCI]]
+k4{} t0 = k3{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint updFun :: [Bit 3] ->> [[PCI] ->> [PCI]]
+updFun <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: mkPCI0 mkPCI1 mkPCI2 getBus getDev getFun updBus updDev updFun

@@ -64,15 +64,15 @@ x <-
 
 -----------------------------------------
 -- not recursive
-b16 :: [Perms] >>= [Bit 1]
-b16[t0] =
+b19 :: [Perms] >>= [Bit 1]
+b19[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 0 t1
 
 -----------------------------------------
 -- not recursive
 k6 :: {} [Perms] ->> [Bit 1]
-k6{} t0 = b16[t0]
+k6{} t0 = b19[t0]
 
 -----------------------------------------
 -- not recursive
@@ -82,15 +82,15 @@ getR <-
 
 -----------------------------------------
 -- not recursive
-b14 :: [Perms] >>= [Bit 1]
-b14[t0] =
+b17 :: [Perms] >>= [Bit 1]
+b17[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 1 t1
 
 -----------------------------------------
 -- not recursive
 k5 :: {} [Perms] ->> [Bit 1]
-k5{} t0 = b14[t0]
+k5{} t0 = b17[t0]
 
 -----------------------------------------
 -- not recursive
@@ -100,15 +100,15 @@ getW <-
 
 -----------------------------------------
 -- not recursive
-b12 :: [Perms] >>= [Bit 1]
-b12[t0] =
+b15 :: [Perms] >>= [Bit 1]
+b15[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 2 t1
 
 -----------------------------------------
 -- not recursive
 k4 :: {} [Perms] ->> [Bit 1]
-k4{} t0 = b12[t0]
+k4{} t0 = b15[t0]
 
 -----------------------------------------
 -- not recursive
@@ -118,8 +118,8 @@ getX <-
 
 -----------------------------------------
 -- not recursive
-b9 :: [Perms] >>= [Perms]
-b9[t0] =
+b12 :: [Perms] >>= [Perms]
+b12[t0] =
   t1 <- Perms 0 t0
   t2 <- Perms.Perms 1 t1
   t3 <- Perms.Perms 2 t1
@@ -130,7 +130,7 @@ b9[t0] =
 -----------------------------------------
 -- not recursive
 k3 :: {} [Perms] ->> [Perms]
-k3{} t0 = b9[t0]
+k3{} t0 = b12[t0]
 
 -----------------------------------------
 -- not recursive

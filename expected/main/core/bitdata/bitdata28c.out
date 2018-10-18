@@ -1,0 +1,21 @@
+-----------------------------------------
+-- not recursive
+entrypoint mkU :: [Word] >>= [Word]
+mkU[t0] =
+  or((t0, 1664))
+
+-----------------------------------------
+-- not recursive
+entrypoint getU :: [Word] >>= [Word]
+getU[t0] =
+  and((t0, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint updU :: [Word, Word] >>= [Word]
+updU[t0, t1] =
+  t2 <- and((t0, 1920))
+  or((t2, t1))
+
+-----------------------------------------
+-- Entrypoints: mkU getU updU

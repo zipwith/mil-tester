@@ -1,0 +1,20 @@
+-----------------------------------------
+-- not recursive
+entrypoint aByte :: Word
+aByte <-
+  return 17
+
+-----------------------------------------
+-- not recursive
+entrypoint getVal :: [Word] >>= [Word]
+getVal[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint setVal :: [Word] >>= [Word]
+setVal[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: aByte getVal setVal
