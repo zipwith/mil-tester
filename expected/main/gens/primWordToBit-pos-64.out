@@ -1,0 +1,59 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit0 :: [Word] >>= [Unit]
+toBit0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit1 :: [Word] >>= [Flag]
+toBit1[t0] =
+  primNeq((t0, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit2 :: [Word] >>= [Word]
+toBit2[t0] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit12 :: [Word] >>= [Word]
+toBit12[t0] =
+  and((t0, 4095))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit31 :: [Word] >>= [Word]
+toBit31[t0] =
+  and((t0, 2147483647))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit32 :: [Word] >>= [Word]
+toBit32[t0] =
+  and((t0, 4294967295))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit33 :: [Word] >>= [Word]
+toBit33[t0] =
+  and((t0, 8589934591))
+
+-----------------------------------------
+-- not recursive
+entrypoint toBit64 :: [Word] >>= [Word]
+toBit64[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: toBit0 toBit1 toBit2 toBit12 toBit31 toBit32 toBit33 toBit64

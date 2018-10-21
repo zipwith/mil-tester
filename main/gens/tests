@@ -128,6 +128,10 @@ external worseByteMax {primBitFromLiteral 257 8} :: Unit -> Bit 8
 -----------------------
 .lc: primBitToWord-pos-32   ./milc -pcosoboro -m --32
 
+entrypoint toWord0, toWord1 -- Unit and Flag special cases
+external toWord0  {primBitToWord 0 } :: Bit 0  -> Word
+external toWord1  {primBitToWord 1 } :: Bit 1  -> Word
+
 entrypoint toWord2, toWord12, toWord31, toWord32
 external toWord2  {primBitToWord 2 } :: Bit 2  -> Word
 external toWord12 {primBitToWord 12} :: Bit 12 -> Word
@@ -137,10 +141,6 @@ external toWord32 {primBitToWord 32} :: Bit 32 -> Word
 -----------------------
 .lc: primBitToWord-neg-32   ./milc -pcosoboro -m --32
 
-entrypoint toWord0, toWord1 -- need Unit and Flag special cases
-external toWord0  {primBitToWord 0 } :: Bit 0  -> Word
-external toWord1  {primBitToWord 1 } :: Bit 1  -> Word
-
 entrypoint toWord33, toWord64, toWord65   -- too big for a Word
 external toWord33 {primBitToWord 33} :: Bit 33 -> Word
 external toWord64 {primBitToWord 64} :: Bit 64 -> Word
@@ -148,6 +148,10 @@ external toWord65 {primBitToWord 65} :: Bit 65 -> Word
 
 -----------------------
 .lc: primBitToWord-pos-64   ./milc -pcosoboro -m --64
+
+entrypoint toWord0, toWord1 -- Unit and Flag special cases
+external toWord0  {primBitToWord 0 } :: Bit 0  -> Word
+external toWord1  {primBitToWord 1 } :: Bit 1  -> Word
 
 entrypoint toWord2, toWord12, toWord31, toWord32, toWord33, toWord64
 external toWord2  {primBitToWord 2 } :: Bit 2  -> Word
@@ -160,12 +164,51 @@ external toWord64 {primBitToWord 64} :: Bit 64 -> Word
 -----------------------
 .lc: primBitToWord-neg-64   ./milc -pcosoboro -m --64
 
-entrypoint toWord0, toWord1 -- need Unit and Flag special cases
-external toWord0  {primBitToWord 0 } :: Bit 0  -> Word
-external toWord1  {primBitToWord 1 } :: Bit 1  -> Word
-
 entrypoint toWord65   -- too big for a Word
 external toWord65 {primBitToWord 65} :: Bit 65 -> Word
+
+-----------------------
+.lc: primWordToBit-pos-32   ./milc -pcosoboro -m --32
+
+entrypoint toBit0, toBit1 -- Unit and Flag special cases
+external toBit0  {primWordToBit 0 } :: Word -> Bit 0
+external toBit1  {primWordToBit 1 } :: Word -> Bit 1
+
+entrypoint toBit2, toBit12, toBit31, toBit32
+external toBit2  {primWordToBit 2 } :: Word -> Bit 2
+external toBit12 {primWordToBit 12} :: Word -> Bit 12
+external toBit31 {primWordToBit 31} :: Word -> Bit 31
+external toBit32 {primWordToBit 32} :: Word -> Bit 32
+
+-----------------------
+.lc: primWordToBit-neg-32   ./milc -pcosoboro -m --32
+
+entrypoint toBit33, toBit64, toBit65   -- too big for a Word
+external toBit33 {primWordToBit 33} :: Word -> Bit 33
+external toBit64 {primWordToBit 64} :: Word -> Bit 64
+external toBit65 {primWordToBit 65} :: Word -> Bit 65
+
+-----------------------
+.lc: primWordToBit-pos-64   ./milc -pcosoboro -m --64
+
+entrypoint toBit0, toBit1 -- Unit and Flag special cases
+external toBit0  {primWordToBit 0 } :: Word -> Bit 0
+external toBit1  {primWordToBit 1 } :: Word -> Bit 1
+
+entrypoint toBit2, toBit12, toBit31, toBit32, toBit33, toBit64
+external toBit2  {primWordToBit 2 } :: Word -> Bit 2
+external toBit12 {primWordToBit 12} :: Word -> Bit 12
+external toBit31 {primWordToBit 31} :: Word -> Bit 31
+external toBit32 {primWordToBit 32} :: Word -> Bit 32
+external toBit33 {primWordToBit 33} :: Word -> Bit 33
+external toBit64 {primWordToBit 64} :: Word -> Bit 64
+
+-----------------------
+.lc: primWordToBit-neg-64   ./milc -pcosoboro -m --64
+
+entrypoint toBit65, toBit192   -- too big for a Word
+external toBit65  {primWordToBit 65}  :: Word -> Bit 65
+external toBit192 {primWordToBit 192} :: Word -> Bit 192
 
 -----------------------
 .lc: primBitConcat-pos-32   ./milc -pcosoboro -m --32

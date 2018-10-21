@@ -1,3 +1,18 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord0 :: [Unit] >>= [Word]
+toWord0[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint toWord1 :: [Flag] >>= [Word]
+toWord1[t0] =
+  flagToWord((t0))
+
 -----------------------------------------
 -- not recursive
 entrypoint toWord2 :: [Word] >>= [Word]
@@ -23,4 +38,4 @@ toWord32[t0] =
   return t0
 
 -----------------------------------------
--- Entrypoints: toWord2 toWord12 toWord31 toWord32
+-- Entrypoints: toWord0 toWord1 toWord2 toWord12 toWord31 toWord32
