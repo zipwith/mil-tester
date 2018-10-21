@@ -15,9 +15,8 @@ getU[t0] =
 -- not recursive
 entrypoint updU :: [Word, Word] >>= [Word]
 updU[t0, t1] =
-  t2 <- and((t0, 15))
-  t3 <- shl((t1, 4))
-  or((t2, t3))
+  t2 <- shl((t1, 4))
+  or((t2, 10))
 
 -----------------------------------------
 -- Entrypoints: mkU getU updU

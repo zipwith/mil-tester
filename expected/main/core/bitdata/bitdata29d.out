@@ -2,19 +2,21 @@
 -- not recursive
 entrypoint mkU :: [Word] >>= [Word]
 mkU[t0] =
-  or((t0, 1664))
+  t1 <- lshr((t0, 2))
+  or((t1, -2147483648))
 
 -----------------------------------------
 -- not recursive
 entrypoint getU :: [Word] >>= [Word]
 getU[t0] =
-  and((t0, 127))
+  shl((t0, 2))
 
 -----------------------------------------
 -- not recursive
 entrypoint updU :: [Word, Word] >>= [Word]
 updU[t0, t1] =
-  or((t1, 1664))
+  t2 <- lshr((t1, 2))
+  or((t2, -2147483648))
 
 -----------------------------------------
 -- Entrypoints: mkU getU updU

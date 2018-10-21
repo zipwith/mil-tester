@@ -2,19 +2,19 @@
 -- not recursive
 entrypoint mkU :: [Word] >>= [Word]
 mkU[t0] =
-  or((t0, 1664))
+  or((t0, 3))
 
 -----------------------------------------
 -- not recursive
 entrypoint getU :: [Word] >>= [Word]
 getU[t0] =
-  and((t0, 127))
+  and((t0, -4))
 
 -----------------------------------------
 -- not recursive
 entrypoint updU :: [Word, Word] >>= [Word]
 updU[t0, t1] =
-  or((t1, 1664))
+  or((t1, 3))
 
 -----------------------------------------
 -- Entrypoints: mkU getU updU

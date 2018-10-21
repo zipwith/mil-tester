@@ -398,3 +398,69 @@ getU bay   = case bay of Bay r -> r.u
 updU bay v = case bay of Bay r -> Bay r[u=v]
 
 ----------
+.lc:   bitdata28f    ./milc -pcosoro -m --32
+-- Single field, no tagbits:
+
+bitdata Bay = Bay [ u :: Bit 7 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata29    ./milc -pcosoro -m --32
+-- single field with hi bits representation, no padding:
+
+bitdata Bay = Bay [ u :: Ref (Stored Word) ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata29a    ./milc -pcosoro -m --32
+-- single field with hi bits representation, lo zero padding:
+
+bitdata Bay/32 = Bay [ u :: Ref (Stored Word) | 0 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata29b   ./milc -pcosoro -m --32
+-- single field with hi bits representation, hi zero padding:
+
+bitdata Bay/32 = Bay [ 0 | u :: Ref (Stored Word) ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata29c   ./milc -pcosoro -m --32
+-- single field with hi bits representation, lo nonzero padding:
+
+bitdata Bay = Bay [ u :: Ref (Stored Word) | B11 ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------
+.lc:   bitdata29d   ./milc -pcosoro -m --32
+-- single field with hi bits representation, hi nonzero padding:
+
+bitdata Bay = Bay [ B10 | u :: Ref (Stored Word) ]
+
+entrypoint mkU, getU, updU
+mkU v      = Bay [u=v]
+getU bay   = case bay of Bay r -> r.u
+updU bay v = case bay of Bay r -> Bay r[u=v]
+
+----------

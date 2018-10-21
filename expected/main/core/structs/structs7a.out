@@ -6,7 +6,7 @@ struct U / 15
   aligned 8
 
 struct U1 / 16
-  [ b :: SByte  {- offset=0 -}
+  [ b :: Stored (Bit 8)  {- offset=0 -}
   | ... 1 byte padding ...
   | s :: Stored (Bit 16)  {- offset=2 -}
   | d :: Stored (Bit 32)  {- offset=4 -}
@@ -15,7 +15,7 @@ struct U1 / 16
 
 struct U2 / 16
   [ ... 1 byte padding ...
-  | b :: SByte  {- offset=1 -}
+  | b :: Stored (Bit 8)  {- offset=1 -}
   | s :: Stored (Bit 16)  {- offset=2 -}
   | d :: Stored (Bit 32)  {- offset=4 -}
   | q :: Stored (Bit 64)  {- offset=8 -} ]

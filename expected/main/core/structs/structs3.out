@@ -1,3 +1,17 @@
+struct S / 16
+  [ x :: Stored Word  {- offset=0 -}
+  | y :: Stored Word  {- offset=4 -}
+  | ... 4 bytes padding ...
+  | z :: Stored Word  {- offset=12 -} ]
+  aligned 4
+
+struct S1 / 16
+  [ x :: Stored Word  {- offset=0 -}
+  | y :: Stored Word  {- offset=4 -}
+  | ... 4 bytes padding ...
+  | z :: Stored Word  {- offset=12 -} ]
+  aligned 4
+
 struct T / 32
   [ s :: S  {- offset=0 -}
   | s1 :: S1  {- offset=16 -} ]
