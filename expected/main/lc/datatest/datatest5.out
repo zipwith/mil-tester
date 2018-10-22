@@ -12,7 +12,7 @@ bitdata Maybe1 /2
   = Nothing2 [ B00 ]
     -- predNothing2(x :: Bit 2) = x == 0b0
   | Just3 [ Just30 :: Bool | B1 ]
-    -- predJust3(x :: Bit 2) = x == 0b1
+    -- predJust3(x :: Bit 2) = (x & 0b1) == 0b1
 
 -----------------------------------------
 -- not recursive

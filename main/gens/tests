@@ -54,6 +54,36 @@ entrypoint vram
 external vram :: Word
 
 -----------------------
+.lc:  gen-no-ref3    ./milc -pcosoboro -m --32
+
+entrypoint wide
+external wide :: Bit 64
+
+-----------------------
+.lc:  gen-no-ref3-used    ./milc -pcosoboro -m --32
+
+entrypoint wide
+external wide :: Bit 64
+
+entrypoint mywide
+mywide = wide
+
+-----------------------
+.lc:  gen-no-ref4    ./milc -pcosoboro -m --64
+
+entrypoint wide
+external wide :: Bit 64
+
+-----------------------
+.lc:  gen-no-ref4-used    ./milc -pcosoboro -m --64
+
+entrypoint wide
+external wide :: Bit 64
+
+entrypoint mywide
+mywide = wide
+
+-----------------------
 .lc:  gen-same-ref2    ./milc -pcosoboro -m
 
 entrypoint vram
@@ -64,6 +94,23 @@ external vram {vram} :: Word
 
 entrypoint vram
 external vram {videoRam} :: Word
+
+-----------------------
+.mil: gen-external-notused   ./milc -m -pcosoro
+-- external entrypoint, requiring representation change, not used in code
+entrypoint large
+
+external large :: Bit 128
+
+-----------------------
+.mil: gen-external-used   ./milc -m -pcosoro
+-- external entrypoint, requiring representation change, not used in code
+entrypoint large
+
+external large :: Bit 128
+
+entrypoint mylarge
+mylarge <- return large
 
 -----------------------
 .lc: primBitFromLiteral-basic   ./milc -pcosoboro -m
@@ -518,50 +565,50 @@ external max0  {primIxMaxBound 0}  :: Ix 0
 external max2G {primIxMaxBound 2G} :: Ix 2G
 
 -----------------------
-.lc: primIxToBits-pos-32   ./milc -pcosoboro -m --32
+.lc: primIxToBit-pos-32   ./milc -pcosoboro -m --32
 
 -- examples that fit in a single word:
 entrypoint ix4ToBit2,     ix4ToBit10,    ix257ToBit9, ix257ToBit11
 entrypoint ix1000ToBit10, ix1000ToBit12, ix1MToBit20, ix1MToBit32
 entrypoint ix511ToBit9,   ix512ToBit9
 
-external ix4ToBit2     {primIxToBits 4     2} :: Ix 4 -> Bit 2
-external ix4ToBit10    {primIxToBits 4    10} :: Ix 4 -> Bit 10
-external ix257ToBit9   {primIxToBits 257   9} :: Ix 257 -> Bit 9
-external ix257ToBit11  {primIxToBits 257  11} :: Ix 257 -> Bit 11
-external ix1000ToBit10 {primIxToBits 1000 10} :: Ix 1000 -> Bit 10
-external ix1000ToBit12 {primIxToBits 1000 12} :: Ix 1000 -> Bit 12
-external ix1MToBit20   {primIxToBits 1M   20} :: Ix 1M -> Bit 20
-external ix1MToBit32   {primIxToBits 1M   32} :: Ix 1M -> Bit 32
-external ix511ToBit9   {primIxToBits 511   9} :: Ix 512  -> Bit 9
-external ix512ToBit9   {primIxToBits 512   9} :: Ix 512  -> Bit 9
+external ix4ToBit2     {primIxToBit 4     2} :: Ix 4 -> Bit 2
+external ix4ToBit10    {primIxToBit 4    10} :: Ix 4 -> Bit 10
+external ix257ToBit9   {primIxToBit 257   9} :: Ix 257 -> Bit 9
+external ix257ToBit11  {primIxToBit 257  11} :: Ix 257 -> Bit 11
+external ix1000ToBit10 {primIxToBit 1000 10} :: Ix 1000 -> Bit 10
+external ix1000ToBit12 {primIxToBit 1000 12} :: Ix 1000 -> Bit 12
+external ix1MToBit20   {primIxToBit 1M   20} :: Ix 1M -> Bit 20
+external ix1MToBit32   {primIxToBit 1M   32} :: Ix 1M -> Bit 32
+external ix511ToBit9   {primIxToBit 511   9} :: Ix 512  -> Bit 9
+external ix512ToBit9   {primIxToBit 512   9} :: Ix 512  -> Bit 9
 
 -- examples that span multiple words:
 entrypoint ix4ToBit33,   ix4ToBit64,  ix257ToBit72
 entrypoint ix257ToBit96, ix1MToBit208
 
-external ix4ToBit33    {primIxToBits 4    33} :: Ix 4 -> Bit 33
-external ix4ToBit64    {primIxToBits 4    64} :: Ix 4 -> Bit 64
-external ix257ToBit72  {primIxToBits 257  72} :: Ix 257 -> Bit 72
-external ix257ToBit96  {primIxToBits 257  96} :: Ix 257 -> Bit 96
-external ix1MToBit208  {primIxToBits 1M  208} :: Ix 1M -> Bit 208
+external ix4ToBit33    {primIxToBit 4    33} :: Ix 4 -> Bit 33
+external ix4ToBit64    {primIxToBit 4    64} :: Ix 4 -> Bit 64
+external ix257ToBit72  {primIxToBit 257  72} :: Ix 257 -> Bit 72
+external ix257ToBit96  {primIxToBit 257  96} :: Ix 257 -> Bit 96
+external ix1MToBit208  {primIxToBit 1M  208} :: Ix 1M -> Bit 208
 
 -----------------------
-.lc: primIxToBits-neg-32   ./milc -pcosoboro -m --32
+.lc: primIxToBit-neg-32   ./milc -pcosoboro -m --32
 
 entrypoint ix4ToBit1,   ix257ToBit8, ix1000ToBit9, ix1MToBit12
 entrypoint ix1MToBit19, ix2GToBit32, ix257ToBit2M, ix1000ToBit8K
 entrypoint ix513ToBit9
 
-external ix4ToBit1     {primIxToBits 4     1} :: Ix 4 -> Bit 1
-external ix257ToBit8   {primIxToBits 257   8} :: Ix 257 -> Bit 8
-external ix1000ToBit9  {primIxToBits 1000  9} :: Ix 1000 -> Bit 9
-external ix1MToBit12   {primIxToBits 1M   12} :: Ix 1M -> Bit 12
-external ix1MToBit19   {primIxToBits 1M   19} :: Ix 1M -> Bit 19
-external ix2GToBit32   {primIxToBits 2G   32} :: Ix 2G -> Bit 32
-external ix257ToBit2M  {primIxToBits 257  2M} :: Ix 257 -> Bit 2M
-external ix1000ToBit8K {primIxToBits 1000 8K} :: Ix 1000 -> Bit 8K
-external ix513ToBit9   {primIxToBits 513   9} :: Ix 513  -> Bit 9
+external ix4ToBit1     {primIxToBit 4     1} :: Ix 4 -> Bit 1
+external ix257ToBit8   {primIxToBit 257   8} :: Ix 257 -> Bit 8
+external ix1000ToBit9  {primIxToBit 1000  9} :: Ix 1000 -> Bit 9
+external ix1MToBit12   {primIxToBit 1M   12} :: Ix 1M -> Bit 12
+external ix1MToBit19   {primIxToBit 1M   19} :: Ix 1M -> Bit 19
+external ix2GToBit32   {primIxToBit 2G   32} :: Ix 2G -> Bit 32
+external ix257ToBit2M  {primIxToBit 257  2M} :: Ix 257 -> Bit 2M
+external ix1000ToBit8K {primIxToBit 1000 8K} :: Ix 1000 -> Bit 8K
+external ix513ToBit9   {primIxToBit 513   9} :: Ix 513  -> Bit 9
 
 -----------------------
 .lc: primIxShiftL-pos-32   ./milc -pcosoboro -m --32

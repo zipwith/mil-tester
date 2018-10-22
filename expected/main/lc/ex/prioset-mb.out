@@ -1,0 +1,334 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+priosetSize :: Word
+priosetSize <- area (Stored Word) aligned 4
+
+-----------------------------------------
+-- not recursive
+entrypoint clearPrioset :: [] >>= [Unit]
+clearPrioset[] =
+  store32((priosetSize, 0))
+
+-----------------------------------------
+-- not recursive
+b227 :: [] >>= [Word]
+b227[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+b226 :: [Word] >>= [Word]
+b226[t0] =
+  t1 <- shl((t0, 1))
+  t2 <- add((t1, -2))
+  or((t2, 1))
+
+-----------------------------------------
+-- not recursive
+b212 :: [Word] >>= [Word]
+b212[t0] =
+  t1 <- primUgt((t0, 0))
+  if t1
+    then b226[t0]
+    else b227[]
+
+-----------------------------------------
+-- not recursive
+b0 :: forall (a :: tuple). [] >>= a
+b0[] =
+  halt(())
+
+-----------------------------------------
+-- not recursive
+prioset :: Word
+prioset <- area (Array 256 (Stored (Ix 256))) aligned 256
+
+-----------------------------------------
+-- not recursive
+prioidx :: Word
+prioidx <- area (Array 256 (Stored (Ix 256))) aligned 256
+
+-----------------------------------------
+-- not recursive
+b128 :: [Word, Word] >>= [Unit]
+b128[t0, t1] =
+  t2 <- add((prioset, t1))
+  t3 <- store8((t2, t0))
+  t4 <- add((prioidx, t0))
+  store8((t4, t1))
+
+-----------------------------------------
+-- not recursive
+b176 :: [Word] >>= [Unit]
+b176[t0] =
+  t1 <- store8((prioset, t0))
+  t2 <- add((prioidx, t0))
+  store8((t2, 0))
+
+-----------------------------------------
+-- recursive
+b186 :: [Word, Word, Word] >>= [Unit]
+b186[t0, t1, t2] =
+  t3 <- lshr((t0, 2))
+  t4 <- add((prioset, t3))
+  t5 <- load8((t4))
+  t6 <- primUlt((t5, t2))
+  if t6
+    then b118[t1, t5, t3, t2]
+    else b128[t2, t1]
+b118 :: [Word, Word, Word, Word] >>= [Unit]
+b118[t0, t1, t2, t3] =
+  t4 <- add((prioset, t0))
+  t5 <- store8((t4, t1))
+  t6 <- add((prioidx, t1))
+  t7 <- store8((t6, t0))
+  t8 <- b212[t2]
+  t9 <- and((t8, 511))
+  t10 <- primEq((t9, 0))
+  if t10
+    then b176[t3]
+    else b196[t3, t2, t8]
+b196 :: [Word, Word, Word] >>= [Unit]
+b196[t0, t1, t2] =
+  t3 <- and((t2, 1))
+  t4 <- primEq((t3, 1))
+  if t4
+    then b186[t2, t1, t0]
+    else b0[]
+
+-----------------------------------------
+-- not recursive
+entrypoint insertPriority :: [Word] >>= [Unit]
+insertPriority[t0] =
+  t1 <- load32((priosetSize))
+  t2 <- add((t1, 1))
+  t3 <- store32((priosetSize, t2))
+  t4 <- and((t1, 255))
+  t5 <- b212[t4]
+  t6 <- and((t5, 511))
+  t7 <- primEq((t6, 0))
+  if t7
+    then b176[t0]
+    else b196[t0, t4, t5]
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b88 :: [] >>= [Unit]
+b88[] =
+  return Unit
+
+-----------------------------------------
+-- not recursive
+construct_Just1 :: [Word] >>= [Word]
+construct_Just1[t0] =
+  t1 <- shl((t0, 1))
+  or((t1, 1))
+
+-----------------------------------------
+-- not recursive
+b229 :: [Word, Word] >>= [Word]
+b229[t0, t1] =
+  t2 <- primUle((t0, t1))
+  if t2
+    then construct_Just1[t0]
+    else b227[]
+
+-----------------------------------------
+-- not recursive
+b96 :: [Word, Word, Word, Word] >>= [Unit]
+b96[t0, t1, t2, t3] =
+  t4 <- add((prioset, t0))
+  t5 <- store8((t4, t1))
+  t6 <- add((prioidx, t1))
+  t7 <- store8((t6, t0))
+  t8 <- add((prioset, t2))
+  t9 <- store8((t8, t3))
+  t10 <- add((prioidx, t3))
+  store8((t10, t2))
+
+-----------------------------------------
+-- not recursive
+b98 :: [Word, Word, Word, Word] >>= [Unit]
+b98[t0, t1, t2, t3] =
+  t4 <- primUgt((t1, t3))
+  if t4
+    then b96[t0, t1, t2, t3]
+    else b128[t3, t0]
+
+-----------------------------------------
+-- recursive
+b106 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b106[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primUgt((t0, t6))
+  if t7
+    then b128[t0, t1]
+    else b104[t6, t5, t1, t4, t3, t0, t2]
+b230 :: [Word, Word, Word, Word] >>= [Unit]
+b230[t0, t1, t2, t3] =
+  t4 <- lshr((t0, 1))
+  t5 <- add((prioset, t4))
+  t6 <- load8((t5))
+  t7 <- mul((t1, 2))
+  t8 <- add((t7, 2))
+  t9 <- b229[t8, t2]
+  t10 <- and((t9, 511))
+  t11 <- primEq((t10, 0))
+  if t11
+    then b98[t1, t6, t4, t3]
+    else b202[t6, t4, t2, t1, t3, t9]
+b202 :: [Word, Word, Word, Word, Word, Word] >>= [Unit]
+b202[t0, t1, t2, t3, t4, t5] =
+  t6 <- and((t5, 1))
+  t7 <- primEq((t6, 1))
+  if t7
+    then b188[t5, t4, t3, t2, t1, t0]
+    else b0[]
+b188 :: [Word, Word, Word, Word, Word, Word] >>= [Unit]
+b188[t0, t1, t2, t3, t4, t5] =
+  t6 <- lshr((t0, 1))
+  t7 <- add((prioset, t6))
+  t8 <- load8((t7))
+  t9 <- primUgt((t1, t5))
+  if t9
+    then b106[t1, t2, t3, t4, t5, t6, t8]
+    else b104[t8, t6, t2, t5, t4, t1, t3]
+b104 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b104[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primUgt((t3, t0))
+  if t7
+    then b103[t2, t3, t4, t5, t6]
+    else b103[t2, t0, t1, t5, t6]
+b103 :: [Word, Word, Word, Word, Word] >>= [Unit]
+b103[t0, t1, t2, t3, t4] =
+  t5 <- add((prioset, t0))
+  t6 <- store8((t5, t1))
+  t7 <- add((prioidx, t1))
+  t8 <- store8((t7, t0))
+  t9 <- mul((t2, 2))
+  t10 <- add((t9, 1))
+  t11 <- b229[t10, t4]
+  t12 <- and((t11, 511))
+  t13 <- primEq((t12, 0))
+  if t13
+    then b128[t3, t2]
+    else b217[t3, t2, t4, t11]
+b217 :: [Word, Word, Word, Word] >>= [Unit]
+b217[t0, t1, t2, t3] =
+  t4 <- and((t3, 1))
+  t5 <- primEq((t4, 1))
+  if t5
+    then b230[t3, t1, t2, t0]
+    else b0[]
+
+-----------------------------------------
+-- not recursive
+b155 :: [Word, Word, Word] >>= [Unit]
+b155[t0, t1, t2] =
+  t3 <- mul((t1, 2))
+  t4 <- add((t3, 1))
+  t5 <- b229[t4, t0]
+  t6 <- and((t5, 511))
+  t7 <- primEq((t6, 0))
+  if t7
+    then b128[t2, t1]
+    else b217[t2, t1, t0, t5]
+
+-----------------------------------------
+-- not recursive
+b87 :: [Word, Word, Word] >>= [Unit]
+b87[t0, t1, t2] =
+  t3 <- add((prioidx, t0))
+  t4 <- load8((t3))
+  t5 <- add((t2, -2))
+  t6 <- and((t5, 255))
+  t7 <- b155[t6, t4, t1]
+  t8 <- add((prioset, t4))
+  t9 <- load8((t8))
+  t10 <- b212[t4]
+  t11 <- and((t10, 511))
+  t12 <- primEq((t11, 0))
+  if t12
+    then b176[t9]
+    else b196[t9, t4, t10]
+
+-----------------------------------------
+-- not recursive
+entrypoint removePriority :: [Word] >>= [Unit]
+removePriority[t0] =
+  t1 <- load32((priosetSize))
+  t2 <- add((t1, -1))
+  t3 <- store32((priosetSize, t2))
+  t4 <- and((t2, 255))
+  t5 <- add((prioset, t4))
+  t6 <- load8((t5))
+  t7 <- primNeq((t0, t6))
+  if t7
+    then b87[t0, t6, t1]
+    else b88[]
+
+-----------------------------------------
+-- not recursive
+b174 :: [] >>= [Word]
+b174[] =
+  load8((prioset))
+
+-----------------------------------------
+-- not recursive
+b161 :: [] >>= [Word]
+b161[] =
+  return -1
+
+-----------------------------------------
+-- not recursive
+entrypoint highestPriority1 :: [] >>= [Word]
+highestPriority1[] =
+  t0 <- load32((priosetSize))
+  t1 <- primEq((t0, 0))
+  if t1
+    then b161[]
+    else b174[]
+
+-----------------------------------------
+-- not recursive
+s9 :: Unit
+s9 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b193 :: [] >>= [Unit]
+b193[] =
+  return s9
+
+-----------------------------------------
+-- recursive
+b231 :: [Word, Word] >>= [Unit]
+b231[t0, t1] =
+  [] <- noinline(())
+  t2 <- store8((t0, 0))
+  t3 <- add((t1, 1))
+  t4 <- add((t0, 1))
+  t5 <- primUlt((t3, 256))
+  if t5
+    then b231[t4, t3]
+    else b193[]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  t0 <- store32((priosetSize, 0))
+  t1 <- b231[prioset, 0]
+  b231[prioidx, 0]
+
+-----------------------------------------
+-- Entrypoints: clearPrioset insertPriority removePriority highestPriority1

@@ -17,6 +17,11 @@ exec: needinit-m  ./milc -m needinit.lc
 exec: program-l   ./milc --standalone -l program.lc
 exec: program-m   ./milc --standalone -m program.lc
 
+exec: prioset-mb  ./milc prioset.lc -m -pcosoboro
+[For prioset, use of "b" seems to result in worse code: does not inline decIx  ...]
+exec: prioset-m   ./milc prioset.lc -m -pcosoro
+exec: prioset-l   ./milc prioset.lc -l -pcosoro --llvm-main=main
+
 exec: manti1      ./milc -m -pcosoboro manti1.lc
 exec: manti1a     ./milc -m -pcosoboro manti1a.lc
 exec: manti1b     ./milc -m -pcosoboro manti1b.lc
@@ -669,5 +674,16 @@ data Baz a = MkBaz (Bah a)
 
 entrypoint phantom
 phantom = MkBaz (MkBah 23) :: Baz Word
+
+-------
+.lc: multi-lc    ./milc -m -pco
+require "prelude.lc"
+require "print.mil"
+require "multi.mil"
+entrypoint main
+
+main = do x <- rdtsc
+          y <- rdtsc
+          print (sub y x)
 
 ------------

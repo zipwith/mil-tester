@@ -1,0 +1,15 @@
+-----------------------------------------
+-- not recursive
+entrypoint three :: Word
+three <-
+  return 3
+
+-----------------------------------------
+-- not recursive
+entrypoint one :: Word
+entrypoint two :: Word
+[one,two] <-
+  return [1, 2]
+
+-----------------------------------------
+-- Entrypoints: three [one,two]

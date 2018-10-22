@@ -1,0 +1,6 @@
+-----------------------------------------
+-- not recursive
+export external wide :: Word
+
+-----------------------------------------
+-- Entrypoints: wide

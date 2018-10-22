@@ -16,11 +16,11 @@ external initArray {primInitArray N (Stored Word)}
 
 area nums  <- initArray (\ix -> initStored 0) :: Ref (Array N (Stored Word))
 
-external ixToBits   {primIxToBits N W}  :: Ix N -> Bit W
-external bitToWord  {primBitToWord W}   :: Bit W -> Word
+external ixToBit    {primIxToBit N W} :: Ix N -> Bit W
+external bitToWord  {primBitToWord W} :: Bit W -> Word
 
 compose f g x = f (g x)
-ixToWord      = compose bitToWord ixToBits
+ixToWord      = compose bitToWord ixToBit
 
 area nums1 <- initArray (compose initStored ixToWord) :: Ref (Array N (Stored Word))
 

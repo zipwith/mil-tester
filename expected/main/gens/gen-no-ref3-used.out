@@ -1,0 +1,17 @@
+-----------------------------------------
+-- not recursive
+export external wide1 :: Word
+
+-----------------------------------------
+-- not recursive
+export external wide :: Word
+
+-----------------------------------------
+-- not recursive
+entrypoint mywide :: Word
+entrypoint mywide1 :: Word
+[mywide,mywide1] <-
+  return [wide, wide1]
+
+-----------------------------------------
+-- Entrypoints: [mywide,mywide1]

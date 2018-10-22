@@ -132,3 +132,12 @@ k{} x = return x
 entrypoint x
 
 -------
+.mil: multiLhs   ./milc -m -pco
+export one
+entrypoint two
+[one, two] <- return [1, 2]
+
+entrypoint three
+three <- add((one, two))
+
+-------

@@ -1,0 +1,27 @@
+-----------------------------------------
+-- not recursive
+export external large3 :: Word
+
+-----------------------------------------
+-- not recursive
+export external large2 :: Word
+
+-----------------------------------------
+-- not recursive
+export external large1 :: Word
+
+-----------------------------------------
+-- not recursive
+export external large :: Word
+
+-----------------------------------------
+-- not recursive
+entrypoint mylarge :: Word
+entrypoint mylarge1 :: Word
+entrypoint mylarge2 :: Word
+entrypoint mylarge3 :: Word
+[mylarge,mylarge1,mylarge2,mylarge3] <-
+  return [large, large1, large2, large3]
+
+-----------------------------------------
+-- Entrypoints: [mylarge,mylarge1,mylarge2,mylarge3]
