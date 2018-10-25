@@ -1,3 +1,6 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
 entrypoint eq32 :: [Word, Word] >>= [Flag]
@@ -209,4 +212,268 @@ le98[t0, t1, t2, t3] =
     else b35[t0, t1, t2, t3]
 
 -----------------------------------------
--- Entrypoints: eq32 eq48 eq64 eq98 ne32 ne48 ne64 ne98 gt32 gt48 gt64 gt98 ge32 ge48 ge64 ge98 lt32 lt48 lt64 lt98 le32 le48 le64 le98
+-- not recursive
+entrypoint sgt0 :: [Unit, Unit] >>= [Flag]
+sgt0[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt1 :: [Flag, Flag] >>= [Flag]
+sgt1[t0, t1] =
+  bgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt2 :: [Word, Word] >>= [Flag]
+sgt2[t0, t1] =
+  t2 <- shl((t0, 62))
+  t3 <- shl((t1, 62))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt15 :: [Word, Word] >>= [Flag]
+sgt15[t0, t1] =
+  t2 <- shl((t0, 49))
+  t3 <- shl((t1, 49))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt31 :: [Word, Word] >>= [Flag]
+sgt31[t0, t1] =
+  t2 <- shl((t0, 33))
+  t3 <- shl((t1, 33))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt32 :: [Word, Word] >>= [Flag]
+sgt32[t0, t1] =
+  t2 <- shl((t0, 32))
+  t3 <- shl((t1, 32))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt33 :: [Word, Word] >>= [Flag]
+sgt33[t0, t1] =
+  t2 <- shl((t0, 31))
+  t3 <- shl((t1, 31))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt48 :: [Word, Word] >>= [Flag]
+sgt48[t0, t1] =
+  t2 <- shl((t0, 16))
+  t3 <- shl((t1, 16))
+  primSgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sgt64 :: [Word, Word] >>= [Flag]
+sgt64[t0, t1] =
+  primSgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge0 :: [Unit, Unit] >>= [Flag]
+sge0[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint sge1 :: [Flag, Flag] >>= [Flag]
+sge1[t0, t1] =
+  bge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge2 :: [Word, Word] >>= [Flag]
+sge2[t0, t1] =
+  t2 <- shl((t0, 62))
+  t3 <- shl((t1, 62))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge15 :: [Word, Word] >>= [Flag]
+sge15[t0, t1] =
+  t2 <- shl((t0, 49))
+  t3 <- shl((t1, 49))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge31 :: [Word, Word] >>= [Flag]
+sge31[t0, t1] =
+  t2 <- shl((t0, 33))
+  t3 <- shl((t1, 33))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge32 :: [Word, Word] >>= [Flag]
+sge32[t0, t1] =
+  t2 <- shl((t0, 32))
+  t3 <- shl((t1, 32))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge33 :: [Word, Word] >>= [Flag]
+sge33[t0, t1] =
+  t2 <- shl((t0, 31))
+  t3 <- shl((t1, 31))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge48 :: [Word, Word] >>= [Flag]
+sge48[t0, t1] =
+  t2 <- shl((t0, 16))
+  t3 <- shl((t1, 16))
+  primSge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sge64 :: [Word, Word] >>= [Flag]
+sge64[t0, t1] =
+  primSge((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt0 :: [Unit, Unit] >>= [Flag]
+slt0[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint slt1 :: [Flag, Flag] >>= [Flag]
+slt1[t0, t1] =
+  blt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt2 :: [Word, Word] >>= [Flag]
+slt2[t0, t1] =
+  t2 <- shl((t0, 62))
+  t3 <- shl((t1, 62))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt15 :: [Word, Word] >>= [Flag]
+slt15[t0, t1] =
+  t2 <- shl((t0, 49))
+  t3 <- shl((t1, 49))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt31 :: [Word, Word] >>= [Flag]
+slt31[t0, t1] =
+  t2 <- shl((t0, 33))
+  t3 <- shl((t1, 33))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt32 :: [Word, Word] >>= [Flag]
+slt32[t0, t1] =
+  t2 <- shl((t0, 32))
+  t3 <- shl((t1, 32))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt33 :: [Word, Word] >>= [Flag]
+slt33[t0, t1] =
+  t2 <- shl((t0, 31))
+  t3 <- shl((t1, 31))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt48 :: [Word, Word] >>= [Flag]
+slt48[t0, t1] =
+  t2 <- shl((t0, 16))
+  t3 <- shl((t1, 16))
+  primSlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint slt64 :: [Word, Word] >>= [Flag]
+slt64[t0, t1] =
+  primSlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle0 :: [Unit, Unit] >>= [Flag]
+sle0[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint sle1 :: [Flag, Flag] >>= [Flag]
+sle1[t0, t1] =
+  ble((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle2 :: [Word, Word] >>= [Flag]
+sle2[t0, t1] =
+  t2 <- shl((t0, 62))
+  t3 <- shl((t1, 62))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle15 :: [Word, Word] >>= [Flag]
+sle15[t0, t1] =
+  t2 <- shl((t0, 49))
+  t3 <- shl((t1, 49))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle31 :: [Word, Word] >>= [Flag]
+sle31[t0, t1] =
+  t2 <- shl((t0, 33))
+  t3 <- shl((t1, 33))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle32 :: [Word, Word] >>= [Flag]
+sle32[t0, t1] =
+  t2 <- shl((t0, 32))
+  t3 <- shl((t1, 32))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle33 :: [Word, Word] >>= [Flag]
+sle33[t0, t1] =
+  t2 <- shl((t0, 31))
+  t3 <- shl((t1, 31))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle48 :: [Word, Word] >>= [Flag]
+sle48[t0, t1] =
+  t2 <- shl((t0, 16))
+  t3 <- shl((t1, 16))
+  primSle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint sle64 :: [Word, Word] >>= [Flag]
+sle64[t0, t1] =
+  primSle((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: eq32 eq48 eq64 eq98 ne32 ne48 ne64 ne98 gt32 gt48 gt64 gt98 ge32 ge48 ge64 ge98 lt32 lt48 lt64 lt98 le32 le48 le64 le98 sgt0 sgt1 sgt2 sgt15 sgt31 sgt32 sgt33 sgt48 sgt64 sge0 sge1 sge2 sge15 sge31 sge32 sge33 sge48 sge64 slt0 slt1 slt2 slt15 slt31 slt32 slt33 slt48 slt64 sle0 sle1 sle2 sle15 sle31 sle32 sle33 sle48 sle64

@@ -1421,6 +1421,38 @@ external le64 {primBitLe 64} :: Bit 64 -> Bit 64 -> Flag
 external le72 {primBitLe 72} :: Bit 72 -> Bit 72 -> Flag
 external le98 {primBitLe 98} :: Bit 98 -> Bit 98 -> Flag
 
+entrypoint sgt0, sgt1, sgt2, sgt15, sgt31, sgt32
+external sgt0  {primBitSGt 0}  :: Bit 0  -> Bit 0  -> Flag
+external sgt1  {primBitSGt 1}  :: Bit 1  -> Bit 1  -> Flag
+external sgt2  {primBitSGt 2}  :: Bit 2  -> Bit 2  -> Flag
+external sgt15 {primBitSGt 15} :: Bit 15 -> Bit 15 -> Flag
+external sgt31 {primBitSGt 31} :: Bit 31 -> Bit 31 -> Flag
+external sgt32 {primBitSGt 32} :: Bit 32 -> Bit 32 -> Flag
+
+entrypoint sge0, sge1, sge2, sge15, sge31, sge32
+external sge0  {primBitSGe 0}  :: Bit 0  -> Bit 0  -> Flag
+external sge1  {primBitSGe 1}  :: Bit 1  -> Bit 1  -> Flag
+external sge2  {primBitSGe 2}  :: Bit 2  -> Bit 2  -> Flag
+external sge15 {primBitSGe 15} :: Bit 15 -> Bit 15 -> Flag
+external sge31 {primBitSGe 31} :: Bit 31 -> Bit 31 -> Flag
+external sge32 {primBitSGe 32} :: Bit 32 -> Bit 32 -> Flag
+
+entrypoint slt0, slt1, slt2, slt15, slt31, slt32
+external slt0  {primBitSLt 0}  :: Bit 0  -> Bit 0  -> Flag
+external slt1  {primBitSLt 1}  :: Bit 1  -> Bit 1  -> Flag
+external slt2  {primBitSLt 2}  :: Bit 2  -> Bit 2  -> Flag
+external slt15 {primBitSLt 15} :: Bit 15 -> Bit 15 -> Flag
+external slt31 {primBitSLt 31} :: Bit 31 -> Bit 31 -> Flag
+external slt32 {primBitSLt 32} :: Bit 32 -> Bit 32 -> Flag
+
+entrypoint sle0, sle1, sle2, sle15, sle31, sle32
+external sle0  {primBitSLe 0}  :: Bit 0  -> Bit 0  -> Flag
+external sle1  {primBitSLe 1}  :: Bit 1  -> Bit 1  -> Flag
+external sle2  {primBitSLe 2}  :: Bit 2  -> Bit 2  -> Flag
+external sle15 {primBitSLe 15} :: Bit 15 -> Bit 15 -> Flag
+external sle31 {primBitSLe 31} :: Bit 31 -> Bit 31 -> Flag
+external sle32 {primBitSLe 32} :: Bit 32 -> Bit 32 -> Flag
+
 -----------------------
 .lc: primBitCompare-pos-64    ./milc -pcosoboro -m --64
 
@@ -1460,6 +1492,50 @@ external le48 {primBitLe 48} :: Bit 48 -> Bit 48 -> Flag
 external le64 {primBitLe 64} :: Bit 64 -> Bit 64 -> Flag
 external le98 {primBitLe 98} :: Bit 98 -> Bit 98 -> Flag
 
+entrypoint sgt0, sgt1, sgt2, sgt15, sgt31, sgt32, sgt33, sgt48, sgt64
+external sgt0  {primBitSGt 0}  :: Bit 0  -> Bit 0  -> Flag
+external sgt1  {primBitSGt 1}  :: Bit 1  -> Bit 1  -> Flag
+external sgt2  {primBitSGt 2}  :: Bit 2  -> Bit 2  -> Flag
+external sgt15 {primBitSGt 15} :: Bit 15 -> Bit 15 -> Flag
+external sgt31 {primBitSGt 31} :: Bit 31 -> Bit 31 -> Flag
+external sgt32 {primBitSGt 32} :: Bit 32 -> Bit 32 -> Flag
+external sgt33 {primBitSGt 33} :: Bit 33 -> Bit 33 -> Flag
+external sgt48 {primBitSGt 48} :: Bit 48 -> Bit 48 -> Flag
+external sgt64 {primBitSGt 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint sge0, sge1, sge2, sge15, sge31, sge32, sge33, sge48, sge64
+external sge0  {primBitSGe 0}  :: Bit 0  -> Bit 0  -> Flag
+external sge1  {primBitSGe 1}  :: Bit 1  -> Bit 1  -> Flag
+external sge2  {primBitSGe 2}  :: Bit 2  -> Bit 2  -> Flag
+external sge15 {primBitSGe 15} :: Bit 15 -> Bit 15 -> Flag
+external sge31 {primBitSGe 31} :: Bit 31 -> Bit 31 -> Flag
+external sge32 {primBitSGe 32} :: Bit 32 -> Bit 32 -> Flag
+external sge33 {primBitSGe 33} :: Bit 33 -> Bit 33 -> Flag
+external sge48 {primBitSGe 48} :: Bit 48 -> Bit 48 -> Flag
+external sge64 {primBitSGe 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint slt0, slt1, slt2, slt15, slt31, slt32, slt33, slt48, slt64
+external slt0  {primBitSLt 0}  :: Bit 0  -> Bit 0  -> Flag
+external slt1  {primBitSLt 1}  :: Bit 1  -> Bit 1  -> Flag
+external slt2  {primBitSLt 2}  :: Bit 2  -> Bit 2  -> Flag
+external slt15 {primBitSLt 15} :: Bit 15 -> Bit 15 -> Flag
+external slt31 {primBitSLt 31} :: Bit 31 -> Bit 31 -> Flag
+external slt32 {primBitSLt 32} :: Bit 32 -> Bit 32 -> Flag
+external slt33 {primBitSLt 33} :: Bit 33 -> Bit 33 -> Flag
+external slt48 {primBitSLt 48} :: Bit 48 -> Bit 48 -> Flag
+external slt64 {primBitSLt 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint sle0, sle1, sle2, sle15, sle31, sle32, sle33, sle48, sle64
+external sle0  {primBitSLe 0}  :: Bit 0  -> Bit 0  -> Flag
+external sle1  {primBitSLe 1}  :: Bit 1  -> Bit 1  -> Flag
+external sle2  {primBitSLe 2}  :: Bit 2  -> Bit 2  -> Flag
+external sle15 {primBitSLe 15} :: Bit 15 -> Bit 15 -> Flag
+external sle31 {primBitSLe 31} :: Bit 31 -> Bit 31 -> Flag
+external sle32 {primBitSLe 32} :: Bit 32 -> Bit 32 -> Flag
+external sle33 {primBitSLe 33} :: Bit 33 -> Bit 33 -> Flag
+external sle48 {primBitSLe 48} :: Bit 48 -> Bit 48 -> Flag
+external sle64 {primBitSLe 64} :: Bit 64 -> Bit 64 -> Flag
+
 -----------------------
 .lc: primBitCompare-neg-32    ./milc -pcosoboro -m --32
 
@@ -1470,6 +1546,45 @@ external c {primBitGt 2K}   :: Bit 2K   -> Bit 2K   -> Flag
 external d {primBitGe 1001} :: Bit 1001 -> Bit 1001 -> Flag
 external e {primBitLt Word} :: Bit 31   -> Bit 31   -> Flag  -- not a number
 external f {primBitLe}      :: Bit 32   -> Bit 32   -> Flag  -- missing param
+
+entrypoint sgt33, sgt48, sgt64
+external sgt33 {primBitSGt 33} :: Bit 33 -> Bit 33 -> Flag
+external sgt48 {primBitSGt 48} :: Bit 48 -> Bit 48 -> Flag
+external sgt64 {primBitSGt 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint sge33, sge48, sge64
+external sge33 {primBitSGe 33} :: Bit 33 -> Bit 33 -> Flag
+external sge48 {primBitSGe 48} :: Bit 48 -> Bit 48 -> Flag
+external sge64 {primBitSGe 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint slt33, slt48, slt64
+external slt33 {primBitSLt 33} :: Bit 33 -> Bit 33 -> Flag
+external slt48 {primBitSLt 48} :: Bit 48 -> Bit 48 -> Flag
+external slt64 {primBitSLt 64} :: Bit 64 -> Bit 64 -> Flag
+
+entrypoint sle33, sle48, sle64
+external sle33 {primBitSLe 33} :: Bit 33 -> Bit 33 -> Flag
+external sle48 {primBitSLe 48} :: Bit 48 -> Bit 48 -> Flag
+external sle64 {primBitSLe 64} :: Bit 64 -> Bit 64 -> Flag
+
+-----------------------
+.lc: primBitCompare-neg-64    ./milc -pcosoboro -m --64
+
+entrypoint sgt72, sgt98
+external sgt72 {primBitSGt 72} :: Bit 72 -> Bit 72 -> Flag
+external sgt98 {primBitSGt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint sge72, sge98
+external sge72 {primBitSGe 72} :: Bit 72 -> Bit 72 -> Flag
+external sge98 {primBitSGe 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint slt72, slt98
+external slt72 {primBitSLt 72} :: Bit 72 -> Bit 72 -> Flag
+external slt98 {primBitSLt 98} :: Bit 98 -> Bit 98 -> Flag
+
+entrypoint sle72, sle98
+external sle72 {primBitSLe 72} :: Bit 72 -> Bit 72 -> Flag
+external sle98 {primBitSLe 98} :: Bit 98 -> Bit 98 -> Flag
 
 -----------------------
 .lc: primBitManip-pos-32    ./milc -pcosoboro -m --32
