@@ -2,18 +2,6 @@
 
 @count = internal alias i8, i8* bitcast([4 x i8]* @raw.0 to i8*)
 
-define void @inc() {
-  br label %inc
-
-inc:
-  %r3 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
-  %r2 = load i32, i32* %r3
-  %r1 = add i32 %r2, 1
-  %r0 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
-  store i32 %r1, i32* %r0
-  ret void
-}
-
 declare void @printWord(i32)
 
 define void @display() {
@@ -23,6 +11,18 @@ display:
   %r1 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
   %r0 = load i32, i32* %r1
   call void @printWord(i32 %r0)
+  ret void
+}
+
+define void @inc() {
+  br label %inc
+
+inc:
+  %r3 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
+  %r2 = load i32, i32* %r3
+  %r1 = add i32 %r2, 1
+  %r0 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
+  store i32 %r1, i32* %r0
   ret void
 }
 

@@ -1,43 +1,16 @@
-@origin = global i32 24
-
-@no = global i32 3
-
-@elf = global i32 1343
-
-@color = global i32 2
-
-@flag = global i1 true
-
 @wide = global i32 -1985229329
 
 @wide1 = global i32 19088743
 
-define i32 @swap(i32 %r0) {
-  br label %swap
+@flag = global i1 true
 
-swap:
-  %r2 = lshr i32 %r0, 7
-  %r4 = shl i32 %r0, 7
-  %r3 = and i32 %r4, 16256
-  %r1 = or i32 %r2, %r3
-  ret i32 %r1
-}
+@color = global i32 2
 
-define i32 @add3(i32 %r0, i32 %r1, i32 %r2) {
-  br label %add3
+@elf = global i32 1343
 
-add3:
-  %r4 = add i32 %r1, %r2
-  %r3 = add i32 %r0, %r4
-  ret i32 %r3
-}
+@no = global i32 3
 
-define i32 @const(i32 %r0, i32 %r1) {
-  br label %const
-
-const:
-  ret i32 %r0
-}
+@origin = global i32 24
 
 define i32 @fib(i32 %r0) {
   br label %fib
@@ -56,5 +29,32 @@ b70:
   %r4 = call i32 @fib(i32 %r5)
   %r2 = add i32 %r3, %r4
   ret i32 %r2
+}
+
+define i32 @const(i32 %r0, i32 %r1) {
+  br label %const
+
+const:
+  ret i32 %r0
+}
+
+define i32 @add3(i32 %r0, i32 %r1, i32 %r2) {
+  br label %add3
+
+add3:
+  %r4 = add i32 %r1, %r2
+  %r3 = add i32 %r0, %r4
+  ret i32 %r3
+}
+
+define i32 @swap(i32 %r0) {
+  br label %swap
+
+swap:
+  %r2 = lshr i32 %r0, 7
+  %r4 = shl i32 %r0, 7
+  %r3 = and i32 %r4, 16256
+  %r1 = or i32 %r2, %r3
+  ret i32 %r1
 }
 

@@ -1,21 +1,21 @@
 @raw.0 = internal global [256 x i8] zeroinitializer, align 4
 
-@nums = internal alias i8, i8* bitcast([256 x i8]* @raw.0 to i8*)
+@nums1 = internal alias i8, i8* bitcast([256 x i8]* @raw.0 to i8*)
 
-@ns = global i32 0
+@ns1 = global i32 0
 
 @raw.1 = internal global [256 x i8] zeroinitializer, align 4
 
-@nums1 = internal alias i8, i8* bitcast([256 x i8]* @raw.1 to i8*)
+@nums = internal alias i8, i8* bitcast([256 x i8]* @raw.1 to i8*)
 
-@ns1 = global i32 0
+@ns = global i32 0
 
 define internal void @func_b87(i32 %r0, i32 %r1) {
   br label %b87
 
 b87:
-  %r5 = phi i32 [%r0, %func_b87], [%r4, %b87]
-  %r6 = phi i32 [%r1, %func_b87], [%r3, %b87]
+  %r5 = phi i32 [%r0, %0], [%r4, %b87]
+  %r6 = phi i32 [%r1, %0], [%r3, %b87]
   %r7 = inttoptr i32 %r5 to i32*
   store i32 0, i32* %r7
   %r3 = add i32 %r6, 1
@@ -31,8 +31,8 @@ define internal void @func_b89(i32 %r0, i32 %r1) {
   br label %b89
 
 b89:
-  %r5 = phi i32 [%r0, %func_b89], [%r4, %b89]
-  %r6 = phi i32 [%r1, %func_b89], [%r3, %b89]
+  %r5 = phi i32 [%r0, %0], [%r4, %b89]
+  %r6 = phi i32 [%r1, %0], [%r3, %b89]
   %r7 = inttoptr i32 %r5 to i32*
   store i32 %r6, i32* %r7
   %r3 = add i32 %r6, 1
@@ -45,8 +45,8 @@ b82:
 }
 
 define void @main() {
-  store i32 ptrtoint(i8* @nums to i32), i32* @ns
   store i32 ptrtoint(i8* @nums1 to i32), i32* @ns1
+  store i32 ptrtoint(i8* @nums to i32), i32* @ns
   call void @func_b87(i32 ptrtoint(i8* @nums to i32), i32 0)
   tail call void @func_b89(i32 ptrtoint(i8* @nums1 to i32), i32 0)
   ret void

@@ -1,26 +1,26 @@
-@a = global i32 97
-
-@b = global i32 66
-
-@c = global i32 12
-
-@d = global i32 13
-
-@e = global i32 14
-
-@f = global i32 12
-
-@newline = global i32 10
-
-@esc = global i32 27
-
-@ctld = global i32 4
-
-@sp = global i32 32
+@del2 = global i32 127
 
 @del1 = global i32 127
 
-@del2 = global i32 127
+@sp = global i32 32
+
+@ctld = global i32 4
+
+@esc = global i32 27
+
+@newline = global i32 10
+
+@f = global i32 12
+
+@e = global i32 14
+
+@d = global i32 13
+
+@c = global i32 12
+
+@b = global i32 66
+
+@a = global i32 97
 
 define void @begin() {
   ret void

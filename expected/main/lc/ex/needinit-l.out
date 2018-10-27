@@ -1,6 +1,6 @@
-@fib12 = global i32 0
-
 @fib15 = global i32 0
+
+@fib12 = global i32 0
 
 define i32 @fib(i32 %r0) {
   br label %fib
@@ -28,16 +28,6 @@ b70:
   ret i32 %r3
 }
 
-define internal i32 @func_b65() {
-  br label %b65
-
-b65:
-  %r1 = call i32 @fib(i32 11)
-  %r2 = call i32 @fib(i32 10)
-  %r0 = add i32 %r1, %r2
-  ret i32 %r0
-}
-
 define internal i32 @func_b64() {
   br label %b64
 
@@ -48,11 +38,21 @@ b64:
   ret i32 %r0
 }
 
+define internal i32 @func_b65() {
+  br label %b65
+
+b65:
+  %r1 = call i32 @fib(i32 11)
+  %r2 = call i32 @fib(i32 10)
+  %r0 = add i32 %r1, %r2
+  ret i32 %r0
+}
+
 define void @initialize() {
-  %r0 = call i32 @func_b65()
-  store i32 %r0, i32* @fib12
-  %r1 = call i32 @func_b64()
-  store i32 %r1, i32* @fib15
+  %r0 = call i32 @func_b64()
+  store i32 %r0, i32* @fib15
+  %r1 = call i32 @func_b65()
+  store i32 %r1, i32* @fib12
   ret void
 }
 

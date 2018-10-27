@@ -1,6 +1,6 @@
-@verily = global i1 true
-
 @nay = global i1 false
+
+@verily = global i1 true
 
 define void @main() {
   ret void
