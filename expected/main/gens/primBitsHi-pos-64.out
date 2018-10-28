@@ -1,0 +1,345 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint nullHi0 :: [Unit] >>= [Unit]
+nullHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint flagHi0 :: [Flag] >>= [Unit]
+flagHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint flagHi1 :: [Flag] >>= [Flag]
+flagHi1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi0 :: [Word] >>= [Unit]
+byteHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi1 :: [Word] >>= [Flag]
+byteHi1[t0] =
+  t1 <- and((t0, 128))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi2 :: [Word] >>= [Word]
+byteHi2[t0] =
+  lshr((t0, 6))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi3 :: [Word] >>= [Word]
+byteHi3[t0] =
+  lshr((t0, 5))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi4 :: [Word] >>= [Word]
+byteHi4[t0] =
+  lshr((t0, 4))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi5 :: [Word] >>= [Word]
+byteHi5[t0] =
+  lshr((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi6 :: [Word] >>= [Word]
+byteHi6[t0] =
+  lshr((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi7 :: [Word] >>= [Word]
+byteHi7[t0] =
+  lshr((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteHi8 :: [Word] >>= [Word]
+byteHi8[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi0 :: [Word] >>= [Unit]
+intHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi1 :: [Word] >>= [Flag]
+intHi1[t0] =
+  t1 <- and((t0, 2147483648))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi2 :: [Word] >>= [Word]
+intHi2[t0] =
+  lshr((t0, 30))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi3 :: [Word] >>= [Word]
+intHi3[t0] =
+  lshr((t0, 29))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi4 :: [Word] >>= [Word]
+intHi4[t0] =
+  lshr((t0, 28))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi5 :: [Word] >>= [Word]
+intHi5[t0] =
+  lshr((t0, 27))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi6 :: [Word] >>= [Word]
+intHi6[t0] =
+  lshr((t0, 26))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi7 :: [Word] >>= [Word]
+intHi7[t0] =
+  lshr((t0, 25))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi8 :: [Word] >>= [Word]
+intHi8[t0] =
+  lshr((t0, 24))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi30 :: [Word] >>= [Word]
+intHi30[t0] =
+  lshr((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi31 :: [Word] >>= [Word]
+intHi31[t0] =
+  lshr((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint intHi32 :: [Word] >>= [Word]
+intHi32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi0 :: [Word] >>= [Unit]
+midHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi1 :: [Word] >>= [Flag]
+midHi1[t0] =
+  t1 <- and((t0, 140737488355328))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi2 :: [Word] >>= [Word]
+midHi2[t0] =
+  lshr((t0, 46))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi4 :: [Word] >>= [Word]
+midHi4[t0] =
+  lshr((t0, 44))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi9 :: [Word] >>= [Word]
+midHi9[t0] =
+  lshr((t0, 39))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi16 :: [Word] >>= [Word]
+midHi16[t0] =
+  lshr((t0, 32))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi17 :: [Word] >>= [Word]
+midHi17[t0] =
+  lshr((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi18 :: [Word] >>= [Word]
+midHi18[t0] =
+  lshr((t0, 30))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi24 :: [Word] >>= [Word]
+midHi24[t0] =
+  lshr((t0, 24))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi32 :: [Word] >>= [Word]
+midHi32[t0] =
+  lshr((t0, 16))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi40 :: [Word] >>= [Word]
+midHi40[t0] =
+  lshr((t0, 8))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi47 :: [Word] >>= [Word]
+midHi47[t0] =
+  lshr((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint midHi48 :: [Word] >>= [Word]
+midHi48[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi0 :: [Word] >>= [Unit]
+longHi0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi1 :: [Word] >>= [Flag]
+longHi1[t0] =
+  t1 <- and((t0, -9223372036854775808))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi2 :: [Word] >>= [Word]
+longHi2[t0] =
+  lshr((t0, 62))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi4 :: [Word] >>= [Word]
+longHi4[t0] =
+  lshr((t0, 60))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi9 :: [Word] >>= [Word]
+longHi9[t0] =
+  lshr((t0, 55))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi16 :: [Word] >>= [Word]
+longHi16[t0] =
+  lshr((t0, 48))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi17 :: [Word] >>= [Word]
+longHi17[t0] =
+  lshr((t0, 47))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi18 :: [Word] >>= [Word]
+longHi18[t0] =
+  lshr((t0, 46))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi24 :: [Word] >>= [Word]
+longHi24[t0] =
+  lshr((t0, 40))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi32 :: [Word] >>= [Word]
+longHi32[t0] =
+  lshr((t0, 32))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi40 :: [Word] >>= [Word]
+longHi40[t0] =
+  lshr((t0, 24))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi47 :: [Word] >>= [Word]
+longHi47[t0] =
+  lshr((t0, 17))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi48 :: [Word] >>= [Word]
+longHi48[t0] =
+  lshr((t0, 16))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi54 :: [Word] >>= [Word]
+longHi54[t0] =
+  lshr((t0, 10))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi60 :: [Word] >>= [Word]
+longHi60[t0] =
+  lshr((t0, 4))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi62 :: [Word] >>= [Word]
+longHi62[t0] =
+  lshr((t0, 2))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi63 :: [Word] >>= [Word]
+longHi63[t0] =
+  lshr((t0, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint longHi64 :: [Word] >>= [Word]
+longHi64[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: nullHi0 flagHi0 flagHi1 byteHi0 byteHi1 byteHi2 byteHi3 byteHi4 byteHi5 byteHi6 byteHi7 byteHi8 intHi0 intHi1 intHi2 intHi3 intHi4 intHi5 intHi6 intHi7 intHi8 intHi30 intHi31 intHi32 midHi0 midHi1 midHi2 midHi4 midHi9 midHi16 midHi17 midHi18 midHi24 midHi32 midHi40 midHi47 midHi48 longHi0 longHi1 longHi2 longHi4 longHi9 longHi16 longHi17 longHi18 longHi24 longHi32 longHi40 longHi47 longHi48 longHi54 longHi60 longHi62 longHi63 longHi64

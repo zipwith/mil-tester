@@ -1,0 +1,39 @@
+-- Do we get better code using primBitSelect than by using combinations of
+-- primBitsHi and primBitsLo?  To further push the envelope, we'll write the
+-- latter using a higher order composition operator.
+
+external select32_8_16 {primBitSelect 32 8 16} :: Bit 32 -> Bit 8
+external hi32_16       {primBitsHi    32 16}   :: Bit 32 -> Bit 16
+external lo16_8        {primBitsLo    16 8}    :: Bit 16 -> Bit 8
+external lo32_24       {primBitsLo    32 24}   :: Bit 32 -> Bit 24
+external hi24_8        {primBitsHi    24 8}    :: Bit 24 -> Bit 8
+external hi32_24       {primBitsHi    32 24}   :: Bit 32 -> Bit 24
+external lo24_20       {primBitsLo    24 20}   :: Bit 24 -> Bit 20
+external hi20_12       {primBitsHi    20 12}   :: Bit 20 -> Bit 12
+external lo12_8        {primBitsLo    12 8}    :: Bit 12 -> Bit 8
+
+comp f g x = f (g x)
+
+-- These functions produce the same code ...
+entrypoint direct, indirect, indirect1, indirect2
+direct    = select32_8_16
+indirect  = comp lo16_8 hi32_16
+indirect1 = comp hi24_8 lo32_24
+indirect2 = comp (comp lo12_8 hi20_12) (comp lo24_20 hi32_24)
+
+-- What if the field straddles the boundary between two words (in a
+-- bit vector that requires multiple words)?
+
+external select64_8_30 {primBitSelect 64 8 30} :: Bit 64 -> Bit 8
+external hi64_34       {primBitsHi    64 34}   :: Bit 64 -> Bit 34
+external lo34_8        {primBitsLo    34 8}    :: Bit 34 -> Bit 8
+external lo64_38       {primBitsLo    64 38}   :: Bit 64 -> Bit 38
+external hi38_8        {primBitsHi    38 8}    :: Bit 38 -> Bit 8
+
+-- The first two functions produce the same code; the third is
+-- different, but has the same semantics and complexity:
+entrypoint mdirect, mindirect, mindirect1
+mdirect    = select64_8_30
+mindirect  = comp lo34_8 hi64_34
+mindirect1 = comp hi38_8 lo64_38
+

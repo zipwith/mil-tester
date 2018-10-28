@@ -1,0 +1,36 @@
+-----------------------------------------
+-- not recursive
+entrypoint isUnmapped :: [Word] >>= [Flag]
+isUnmapped[t0] =
+  t1 <- and((t0, 1))
+  primEq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint isMapped :: [Word] >>= [Flag]
+isMapped[t0] =
+  t1 <- and((t0, 1))
+  primEq((t1, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint isMapped1 :: [Word] >>= [Flag]
+isMapped1[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint mapped :: [Word] >>= [Word]
+mapped[t0] =
+  t1 <- shl((t0, 1))
+  or((t1, 1))
+
+-----------------------------------------
+-- not recursive
+entrypoint unmapped :: Word
+unmapped <-
+  return 0
+
+-----------------------------------------
+-- Entrypoints: isUnmapped isMapped isMapped1 mapped unmapped

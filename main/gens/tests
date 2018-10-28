@@ -324,6 +324,16 @@ external cat_32_32 {:# 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
 -----------------------
 .lc: primBitSelect-pos-32  ./milc -pcosoboro -m --32
 
+entrypoint nullFromNull0
+external nullFromNull0 {primBitSelect 0 0 0} :: Bit 0 -> Bit 0
+
+entrypoint nullFromFlag0, nullFromFlag1
+external nullFromFlag0 {primBitSelect 1 0 0} :: Bit 1 -> Bit 0
+external nullFromFlag1 {primBitSelect 1 0 1} :: Bit 1 -> Bit 0
+
+entrypoint bitFromFlag0
+external bitFromFlag0  {primBitSelect 1 1 0} :: Bit 1 -> Bit 1
+
 entrypoint nullFromByte0, nullFromByte1, nullFromByte2, nullFromByte4
 entrypoint nullFromByte5, nullFromByte7, nullFromByte8
 external nullFromByte0 {primBitSelect 8 0 0} :: Bit 8 -> Bit 0
@@ -351,6 +361,14 @@ external nibbleFromByte4 {primBitSelect 8 4 4} :: Bit 8 -> Bit 4
 
 -----------------------
 .lc: primBitSelect-neg-32  ./milc -pcosoboro -m --32
+
+entrypoint bitFromNull0, bitFromNull1, nibbleFromNull
+external bitFromNull0   {primBitSelect 0 1 0} :: Bit 0 -> Bit 1
+external bitFromNull1   {primBitSelect 0 1 1} :: Bit 0 -> Bit 1
+external nibbleFromNull {primBitSelect 0 4 0} :: Bit 0 -> Bit 4
+
+entrypoint nibbleFromFlag0
+external nibbleFromFlag0 {primBitSelect 1 4 0} :: Bit 1 -> Bit 4
 
 entrypoint nullFromByte9, nullFromByte15
 external nullFromByte9  {primBitSelect 8 0  9} :: Bit 8 -> Bit 0
@@ -415,6 +433,16 @@ external byteFromLong48 {primBitSelect 64 8 48} :: Bit 64 -> Bit 8
 
 -----------------------
 .lc: primBitSelect1-pos-64  ./milc -pcosoboro -m --64
+
+entrypoint nullFromNull0
+external nullFromNull0 {primBitSelect 0 0 0} :: Bit 0 -> Bit 0
+
+entrypoint nullFromFlag0, nullFromFlag1
+external nullFromFlag0 {primBitSelect 1 0 0} :: Bit 1 -> Bit 0
+external nullFromFlag1 {primBitSelect 1 0 1} :: Bit 1 -> Bit 0
+
+entrypoint bitFromFlag0
+external bitFromFlag0  {primBitSelect 1 1 0} :: Bit 1 -> Bit 1
 
 entrypoint nullFromLong0,  nullFromLong1,  nullFromLong2,  nullFromLong29
 external nullFromLong0  {primBitSelect 64 0  0} :: Bit 64 -> Bit 0
@@ -501,6 +529,438 @@ external byteFromLong64 {primBitSelect 64 8 64} :: Bit 64 -> Bit 8
 entrypoint byteFromLong80
 external byteFromLong80 {primBitSelect 64 8 80} :: Bit 64 -> Bit 8
 
+-----------------------
+.lc: primBitsHi-pos-32  ./milc -pcosoboro -m --32
+
+entrypoint nullHi0
+external nullHi0 {primBitsHi 0 0} :: Bit 0 -> Bit 0
+
+entrypoint flagHi0, flagHi1
+external flagHi0 {primBitsHi 1 0} :: Bit 1 -> Bit 0
+external flagHi1 {primBitsHi 1 1} :: Bit 1 -> Bit 1
+
+entrypoint byteHi0, byteHi1, byteHi2, byteHi3, byteHi4
+entrypoint byteHi5, byteHi6, byteHi7, byteHi8
+external byteHi0 {primBitsHi 8 0} :: Bit 8 -> Bit 0
+external byteHi1 {primBitsHi 8 1} :: Bit 8 -> Bit 1
+external byteHi2 {primBitsHi 8 2} :: Bit 8 -> Bit 2
+external byteHi3 {primBitsHi 8 3} :: Bit 8 -> Bit 3
+external byteHi4 {primBitsHi 8 4} :: Bit 8 -> Bit 4
+external byteHi5 {primBitsHi 8 5} :: Bit 8 -> Bit 5
+external byteHi6 {primBitsHi 8 6} :: Bit 8 -> Bit 6
+external byteHi7 {primBitsHi 8 7} :: Bit 8 -> Bit 7
+external byteHi8 {primBitsHi 8 8} :: Bit 8 -> Bit 8
+
+entrypoint intHi0, intHi1, intHi2, intHi3, intHi4
+entrypoint intHi5, intHi6, intHi7, intHi8
+entrypoint intHi30,intHi31,intHi32
+external intHi0  {primBitsHi 32 0}  :: Bit 32 -> Bit 0
+external intHi1  {primBitsHi 32 1}  :: Bit 32 -> Bit 1
+external intHi2  {primBitsHi 32 2}  :: Bit 32 -> Bit 2
+external intHi3  {primBitsHi 32 3}  :: Bit 32 -> Bit 3
+external intHi4  {primBitsHi 32 4}  :: Bit 32 -> Bit 4
+external intHi5  {primBitsHi 32 5}  :: Bit 32 -> Bit 5
+external intHi6  {primBitsHi 32 6}  :: Bit 32 -> Bit 6
+external intHi7  {primBitsHi 32 7}  :: Bit 32 -> Bit 7
+external intHi8  {primBitsHi 32 8}  :: Bit 32 -> Bit 8
+external intHi30 {primBitsHi 32 30} :: Bit 32 -> Bit 30
+external intHi31 {primBitsHi 32 31} :: Bit 32 -> Bit 31
+external intHi32 {primBitsHi 32 32} :: Bit 32 -> Bit 32
+
+entrypoint midHi0,  midHi1,  midHi2,  midHi4,  midHi9,  midHi16
+entrypoint midHi17, midHi18, midHi24, midHi32, midHi40, midHi47
+entrypoint midHi48
+external midHi0  {primBitsHi 48 0}  :: Bit 48 -> Bit 0
+external midHi1  {primBitsHi 48 1}  :: Bit 48 -> Bit 1
+external midHi2  {primBitsHi 48 2}  :: Bit 48 -> Bit 2
+external midHi4  {primBitsHi 48 4}  :: Bit 48 -> Bit 4
+external midHi9  {primBitsHi 48 9}  :: Bit 48 -> Bit 9
+external midHi16 {primBitsHi 48 16} :: Bit 48 -> Bit 16
+external midHi17 {primBitsHi 48 17} :: Bit 48 -> Bit 17
+external midHi18 {primBitsHi 48 18} :: Bit 48 -> Bit 18
+external midHi24 {primBitsHi 48 24} :: Bit 48 -> Bit 24
+external midHi32 {primBitsHi 48 32} :: Bit 48 -> Bit 32
+external midHi40 {primBitsHi 48 40} :: Bit 48 -> Bit 40
+external midHi47 {primBitsHi 48 47} :: Bit 48 -> Bit 47
+external midHi48 {primBitsHi 48 48} :: Bit 48 -> Bit 48
+
+entrypoint longHi0,  longHi1,  longHi2,  longHi4,  longHi9,  longHi16
+entrypoint longHi17, longHi18, longHi24, longHi32, longHi40, longHi47
+entrypoint longHi48, longHi54, longHi60, longHi62, longHi63, longHi64
+external longHi0  {primBitsHi 64 0}  :: Bit 64 -> Bit 0
+external longHi1  {primBitsHi 64 1}  :: Bit 64 -> Bit 1
+external longHi2  {primBitsHi 64 2}  :: Bit 64 -> Bit 2
+external longHi4  {primBitsHi 64 4}  :: Bit 64 -> Bit 4
+external longHi9  {primBitsHi 64 9}  :: Bit 64 -> Bit 9
+external longHi16 {primBitsHi 64 16} :: Bit 64 -> Bit 16
+external longHi17 {primBitsHi 64 17} :: Bit 64 -> Bit 17
+external longHi18 {primBitsHi 64 18} :: Bit 64 -> Bit 18
+external longHi24 {primBitsHi 64 24} :: Bit 64 -> Bit 24
+external longHi32 {primBitsHi 64 32} :: Bit 64 -> Bit 32
+external longHi40 {primBitsHi 64 40} :: Bit 64 -> Bit 40
+external longHi47 {primBitsHi 64 47} :: Bit 64 -> Bit 47
+external longHi48 {primBitsHi 64 48} :: Bit 64 -> Bit 48
+external longHi54 {primBitsHi 64 54} :: Bit 64 -> Bit 54
+external longHi60 {primBitsHi 64 60} :: Bit 64 -> Bit 60
+external longHi62 {primBitsHi 64 62} :: Bit 64 -> Bit 62
+external longHi63 {primBitsHi 64 63} :: Bit 64 -> Bit 63
+external longHi64 {primBitsHi 64 64} :: Bit 64 -> Bit 64
+
+-----------------------
+.lc: primBitsHi-neg-32  ./milc -pcosoboro -m --32
+
+entrypoint nullHi1, nullHi4
+external nullHi1 {primBitsHi 0 1} :: Bit 0 -> Bit 1
+external nullHi4 {primBitsHi 0 4} :: Bit 0 -> Bit 4
+
+entrypoint flagHi2, flagHi4
+external flagHi2 {primBitsHi 1 2} :: Bit 1 -> Bit 2
+external flagHi4 {primBitsHi 1 4} :: Bit 1 -> Bit 4
+
+entrypoint byteHi9, byteHi12
+external byteHi9  {primBitsHi 8 9}  :: Bit 8 -> Bit 9
+external byteHi12 {primBitsHi 8 12} :: Bit 8 -> Bit 12
+
+entrypoint intHi33, intHi48, intHi64
+external intHi33 {primBitsHi 32 33} :: Bit 32 -> Bit 33
+external intHi48 {primBitsHi 32 48} :: Bit 32 -> Bit 48
+external intHi64 {primBitsHi 32 64} :: Bit 32 -> Bit 64
+
+entrypoint midHi49,  midHi64,  midHi96
+external midHi49 {primBitsHi 48 49} :: Bit 48 -> Bit 49
+external midHi64 {primBitsHi 48 64} :: Bit 48 -> Bit 64
+external midHi96 {primBitsHi 48 96} :: Bit 48 -> Bit 96
+
+entrypoint longHi65, longHi72, longHi96
+external longHi65 {primBitsHi 64 65} :: Bit 64 -> Bit 65
+external longHi72 {primBitsHi 64 72} :: Bit 64 -> Bit 72
+external longHi96 {primBitsHi 64 96} :: Bit 64 -> Bit 96
+
+-----------------------
+.lc: primBitsHi-pos-64  ./milc -pcosoboro -m --64
+
+entrypoint nullHi0
+external nullHi0 {primBitsHi 0 0} :: Bit 0 -> Bit 0
+
+entrypoint flagHi0, flagHi1
+external flagHi0 {primBitsHi 1 0} :: Bit 1 -> Bit 0
+external flagHi1 {primBitsHi 1 1} :: Bit 1 -> Bit 1
+
+entrypoint byteHi0, byteHi1, byteHi2, byteHi3, byteHi4
+entrypoint byteHi5, byteHi6, byteHi7, byteHi8
+external byteHi0 {primBitsHi 8 0} :: Bit 8 -> Bit 0
+external byteHi1 {primBitsHi 8 1} :: Bit 8 -> Bit 1
+external byteHi2 {primBitsHi 8 2} :: Bit 8 -> Bit 2
+external byteHi3 {primBitsHi 8 3} :: Bit 8 -> Bit 3
+external byteHi4 {primBitsHi 8 4} :: Bit 8 -> Bit 4
+external byteHi5 {primBitsHi 8 5} :: Bit 8 -> Bit 5
+external byteHi6 {primBitsHi 8 6} :: Bit 8 -> Bit 6
+external byteHi7 {primBitsHi 8 7} :: Bit 8 -> Bit 7
+external byteHi8 {primBitsHi 8 8} :: Bit 8 -> Bit 8
+
+entrypoint intHi0, intHi1, intHi2, intHi3, intHi4
+entrypoint intHi5, intHi6, intHi7, intHi8
+entrypoint intHi30,intHi31,intHi32
+external intHi0  {primBitsHi 32 0}  :: Bit 32 -> Bit 0
+external intHi1  {primBitsHi 32 1}  :: Bit 32 -> Bit 1
+external intHi2  {primBitsHi 32 2}  :: Bit 32 -> Bit 2
+external intHi3  {primBitsHi 32 3}  :: Bit 32 -> Bit 3
+external intHi4  {primBitsHi 32 4}  :: Bit 32 -> Bit 4
+external intHi5  {primBitsHi 32 5}  :: Bit 32 -> Bit 5
+external intHi6  {primBitsHi 32 6}  :: Bit 32 -> Bit 6
+external intHi7  {primBitsHi 32 7}  :: Bit 32 -> Bit 7
+external intHi8  {primBitsHi 32 8}  :: Bit 32 -> Bit 8
+external intHi30 {primBitsHi 32 30} :: Bit 32 -> Bit 30
+external intHi31 {primBitsHi 32 31} :: Bit 32 -> Bit 31
+external intHi32 {primBitsHi 32 32} :: Bit 32 -> Bit 32
+
+entrypoint midHi0,  midHi1,  midHi2,  midHi4,  midHi9,  midHi16
+entrypoint midHi17, midHi18, midHi24, midHi32, midHi40, midHi47
+entrypoint midHi48
+external midHi0  {primBitsHi 48 0}  :: Bit 48 -> Bit 0
+external midHi1  {primBitsHi 48 1}  :: Bit 48 -> Bit 1
+external midHi2  {primBitsHi 48 2}  :: Bit 48 -> Bit 2
+external midHi4  {primBitsHi 48 4}  :: Bit 48 -> Bit 4
+external midHi9  {primBitsHi 48 9}  :: Bit 48 -> Bit 9
+external midHi16 {primBitsHi 48 16} :: Bit 48 -> Bit 16
+external midHi17 {primBitsHi 48 17} :: Bit 48 -> Bit 17
+external midHi18 {primBitsHi 48 18} :: Bit 48 -> Bit 18
+external midHi24 {primBitsHi 48 24} :: Bit 48 -> Bit 24
+external midHi32 {primBitsHi 48 32} :: Bit 48 -> Bit 32
+external midHi40 {primBitsHi 48 40} :: Bit 48 -> Bit 40
+external midHi47 {primBitsHi 48 47} :: Bit 48 -> Bit 47
+external midHi48 {primBitsHi 48 48} :: Bit 48 -> Bit 48
+
+entrypoint longHi0,  longHi1,  longHi2,  longHi4,  longHi9,  longHi16
+entrypoint longHi17, longHi18, longHi24, longHi32, longHi40, longHi47
+entrypoint longHi48, longHi54, longHi60, longHi62, longHi63, longHi64
+external longHi0  {primBitsHi 64 0}  :: Bit 64 -> Bit 0
+external longHi1  {primBitsHi 64 1}  :: Bit 64 -> Bit 1
+external longHi2  {primBitsHi 64 2}  :: Bit 64 -> Bit 2
+external longHi4  {primBitsHi 64 4}  :: Bit 64 -> Bit 4
+external longHi9  {primBitsHi 64 9}  :: Bit 64 -> Bit 9
+external longHi16 {primBitsHi 64 16} :: Bit 64 -> Bit 16
+external longHi17 {primBitsHi 64 17} :: Bit 64 -> Bit 17
+external longHi18 {primBitsHi 64 18} :: Bit 64 -> Bit 18
+external longHi24 {primBitsHi 64 24} :: Bit 64 -> Bit 24
+external longHi32 {primBitsHi 64 32} :: Bit 64 -> Bit 32
+external longHi40 {primBitsHi 64 40} :: Bit 64 -> Bit 40
+external longHi47 {primBitsHi 64 47} :: Bit 64 -> Bit 47
+external longHi48 {primBitsHi 64 48} :: Bit 64 -> Bit 48
+external longHi54 {primBitsHi 64 54} :: Bit 64 -> Bit 54
+external longHi60 {primBitsHi 64 60} :: Bit 64 -> Bit 60
+external longHi62 {primBitsHi 64 62} :: Bit 64 -> Bit 62
+external longHi63 {primBitsHi 64 63} :: Bit 64 -> Bit 63
+external longHi64 {primBitsHi 64 64} :: Bit 64 -> Bit 64
+
+-----------------------
+.lc: primBitsHi-neg-64  ./milc -pcosoboro -m --64
+
+entrypoint nullHi1, nullHi4
+external nullHi1 {primBitsHi 0 1} :: Bit 0 -> Bit 1
+external nullHi4 {primBitsHi 0 4} :: Bit 0 -> Bit 4
+
+entrypoint flagHi2, flagHi4
+external flagHi2 {primBitsHi 1 2} :: Bit 1 -> Bit 2
+external flagHi4 {primBitsHi 1 4} :: Bit 1 -> Bit 4
+
+entrypoint byteHi9, byteHi12
+external byteHi9  {primBitsHi 8 9}  :: Bit 8 -> Bit 9
+external byteHi12 {primBitsHi 8 12} :: Bit 8 -> Bit 12
+
+entrypoint intHi33, intHi48, intHi64
+external intHi33 {primBitsHi 32 33} :: Bit 32 -> Bit 33
+external intHi48 {primBitsHi 32 48} :: Bit 32 -> Bit 48
+external intHi64 {primBitsHi 32 64} :: Bit 32 -> Bit 64
+
+entrypoint midHi49,  midHi64,  midHi96
+external midHi49 {primBitsHi 48 49} :: Bit 48 -> Bit 49
+external midHi64 {primBitsHi 48 64} :: Bit 48 -> Bit 64
+external midHi96 {primBitsHi 48 96} :: Bit 48 -> Bit 96
+
+entrypoint longHi65, longHi72, longHi96
+external longHi65 {primBitsHi 64 65} :: Bit 64 -> Bit 65
+external longHi72 {primBitsHi 64 72} :: Bit 64 -> Bit 72
+external longHi96 {primBitsHi 64 96} :: Bit 64 -> Bit 96
+
+-----------------------
+.lc: primBitsLo-pos-32  ./milc -pcosoboro -m --32
+
+entrypoint nullLo0
+external nullLo0 {primBitsLo 0 0} :: Bit 0 -> Bit 0
+
+entrypoint flagLo0, flagLo1
+external flagLo0 {primBitsLo 1 0} :: Bit 1 -> Bit 0
+external flagLo1 {primBitsLo 1 1} :: Bit 1 -> Bit 1
+
+entrypoint byteLo0, byteLo1, byteLo2, byteLo3, byteLo4
+entrypoint byteLo5, byteLo6, byteLo7, byteLo8
+external byteLo0 {primBitsLo 8 0} :: Bit 8 -> Bit 0
+external byteLo1 {primBitsLo 8 1} :: Bit 8 -> Bit 1
+external byteLo2 {primBitsLo 8 2} :: Bit 8 -> Bit 2
+external byteLo3 {primBitsLo 8 3} :: Bit 8 -> Bit 3
+external byteLo4 {primBitsLo 8 4} :: Bit 8 -> Bit 4
+external byteLo5 {primBitsLo 8 5} :: Bit 8 -> Bit 5
+external byteLo6 {primBitsLo 8 6} :: Bit 8 -> Bit 6
+external byteLo7 {primBitsLo 8 7} :: Bit 8 -> Bit 7
+external byteLo8 {primBitsLo 8 8} :: Bit 8 -> Bit 8
+
+entrypoint intLo0, intLo1, intLo2, intLo3, intLo4
+entrypoint intLo5, intLo6, intLo7, intLo8
+entrypoint intLo30,intLo31,intLo32
+external intLo0  {primBitsLo 32 0}  :: Bit 32 -> Bit 0
+external intLo1  {primBitsLo 32 1}  :: Bit 32 -> Bit 1
+external intLo2  {primBitsLo 32 2}  :: Bit 32 -> Bit 2
+external intLo3  {primBitsLo 32 3}  :: Bit 32 -> Bit 3
+external intLo4  {primBitsLo 32 4}  :: Bit 32 -> Bit 4
+external intLo5  {primBitsLo 32 5}  :: Bit 32 -> Bit 5
+external intLo6  {primBitsLo 32 6}  :: Bit 32 -> Bit 6
+external intLo7  {primBitsLo 32 7}  :: Bit 32 -> Bit 7
+external intLo8  {primBitsLo 32 8}  :: Bit 32 -> Bit 8
+external intLo30 {primBitsLo 32 30} :: Bit 32 -> Bit 30
+external intLo31 {primBitsLo 32 31} :: Bit 32 -> Bit 31
+external intLo32 {primBitsLo 32 32} :: Bit 32 -> Bit 32
+
+entrypoint midLo0,  midLo1,  midLo2,  midLo4,  midLo9,  midLo16
+entrypoint midLo17, midLo18, midLo24, midLo32, midLo40, midLo47
+entrypoint midLo48
+external midLo0  {primBitsLo 48 0}  :: Bit 48 -> Bit 0
+external midLo1  {primBitsLo 48 1}  :: Bit 48 -> Bit 1
+external midLo2  {primBitsLo 48 2}  :: Bit 48 -> Bit 2
+external midLo4  {primBitsLo 48 4}  :: Bit 48 -> Bit 4
+external midLo9  {primBitsLo 48 9}  :: Bit 48 -> Bit 9
+external midLo16 {primBitsLo 48 16} :: Bit 48 -> Bit 16
+external midLo17 {primBitsLo 48 17} :: Bit 48 -> Bit 17
+external midLo18 {primBitsLo 48 18} :: Bit 48 -> Bit 18
+external midLo24 {primBitsLo 48 24} :: Bit 48 -> Bit 24
+external midLo32 {primBitsLo 48 32} :: Bit 48 -> Bit 32
+external midLo40 {primBitsLo 48 40} :: Bit 48 -> Bit 40
+external midLo47 {primBitsLo 48 47} :: Bit 48 -> Bit 47
+external midLo48 {primBitsLo 48 48} :: Bit 48 -> Bit 48
+
+entrypoint longLo0,  longLo1,  longLo2,  longLo4,  longLo9,  longLo16
+entrypoint longLo17, longLo18, longLo24, longLo32, longLo40, longLo47
+entrypoint longLo48, longLo54, longLo60, longLo62, longLo63, longLo64
+external longLo0  {primBitsLo 64 0}  :: Bit 64 -> Bit 0
+external longLo1  {primBitsLo 64 1}  :: Bit 64 -> Bit 1
+external longLo2  {primBitsLo 64 2}  :: Bit 64 -> Bit 2
+external longLo4  {primBitsLo 64 4}  :: Bit 64 -> Bit 4
+external longLo9  {primBitsLo 64 9}  :: Bit 64 -> Bit 9
+external longLo16 {primBitsLo 64 16} :: Bit 64 -> Bit 16
+external longLo17 {primBitsLo 64 17} :: Bit 64 -> Bit 17
+external longLo18 {primBitsLo 64 18} :: Bit 64 -> Bit 18
+external longLo24 {primBitsLo 64 24} :: Bit 64 -> Bit 24
+external longLo32 {primBitsLo 64 32} :: Bit 64 -> Bit 32
+external longLo40 {primBitsLo 64 40} :: Bit 64 -> Bit 40
+external longLo47 {primBitsLo 64 47} :: Bit 64 -> Bit 47
+external longLo48 {primBitsLo 64 48} :: Bit 64 -> Bit 48
+external longLo54 {primBitsLo 64 54} :: Bit 64 -> Bit 54
+external longLo60 {primBitsLo 64 60} :: Bit 64 -> Bit 60
+external longLo62 {primBitsLo 64 62} :: Bit 64 -> Bit 62
+external longLo63 {primBitsLo 64 63} :: Bit 64 -> Bit 63
+external longLo64 {primBitsLo 64 64} :: Bit 64 -> Bit 64
+
+-----------------------
+.lc: primBitsLo-neg-32  ./milc -pcosoboro -m --32
+
+entrypoint nullLo1, nullLo4
+external nullLo1 {primBitsLo 0 1} :: Bit 0 -> Bit 1
+external nullLo4 {primBitsLo 0 4} :: Bit 0 -> Bit 4
+
+entrypoint flagLo2, flagLo4
+external flagLo2 {primBitsLo 1 2} :: Bit 1 -> Bit 2
+external flagLo4 {primBitsLo 1 4} :: Bit 1 -> Bit 4
+
+entrypoint byteLo9, byteLo12
+external byteLo9  {primBitsLo 8 9}  :: Bit 8 -> Bit 9
+external byteLo12 {primBitsLo 8 12} :: Bit 8 -> Bit 12
+
+entrypoint intLo33, intLo48, intLo64
+external intLo33 {primBitsLo 32 33} :: Bit 32 -> Bit 33
+external intLo48 {primBitsLo 32 48} :: Bit 32 -> Bit 48
+external intLo64 {primBitsLo 32 64} :: Bit 32 -> Bit 64
+
+entrypoint midLo49,  midLo64,  midLo96
+external midLo49 {primBitsLo 48 49} :: Bit 48 -> Bit 49
+external midLo64 {primBitsLo 48 64} :: Bit 48 -> Bit 64
+external midLo96 {primBitsLo 48 96} :: Bit 48 -> Bit 96
+
+entrypoint longLo65, longLo72, longLo96
+external longLo65 {primBitsLo 64 65} :: Bit 64 -> Bit 65
+external longLo72 {primBitsLo 64 72} :: Bit 64 -> Bit 72
+external longLo96 {primBitsLo 64 96} :: Bit 64 -> Bit 96
+
+-----------------------
+.lc: primBitsLo-pos-64  ./milc -pcosoboro -m --64
+
+entrypoint nullLo0
+external nullLo0 {primBitsLo 0 0} :: Bit 0 -> Bit 0
+
+entrypoint flagLo0, flagLo1
+external flagLo0 {primBitsLo 1 0} :: Bit 1 -> Bit 0
+external flagLo1 {primBitsLo 1 1} :: Bit 1 -> Bit 1
+
+entrypoint byteLo0, byteLo1, byteLo2, byteLo3, byteLo4
+entrypoint byteLo5, byteLo6, byteLo7, byteLo8
+external byteLo0 {primBitsLo 8 0} :: Bit 8 -> Bit 0
+external byteLo1 {primBitsLo 8 1} :: Bit 8 -> Bit 1
+external byteLo2 {primBitsLo 8 2} :: Bit 8 -> Bit 2
+external byteLo3 {primBitsLo 8 3} :: Bit 8 -> Bit 3
+external byteLo4 {primBitsLo 8 4} :: Bit 8 -> Bit 4
+external byteLo5 {primBitsLo 8 5} :: Bit 8 -> Bit 5
+external byteLo6 {primBitsLo 8 6} :: Bit 8 -> Bit 6
+external byteLo7 {primBitsLo 8 7} :: Bit 8 -> Bit 7
+external byteLo8 {primBitsLo 8 8} :: Bit 8 -> Bit 8
+
+entrypoint intLo0, intLo1, intLo2, intLo3, intLo4
+entrypoint intLo5, intLo6, intLo7, intLo8
+entrypoint intLo30,intLo31,intLo32
+external intLo0  {primBitsLo 32 0}  :: Bit 32 -> Bit 0
+external intLo1  {primBitsLo 32 1}  :: Bit 32 -> Bit 1
+external intLo2  {primBitsLo 32 2}  :: Bit 32 -> Bit 2
+external intLo3  {primBitsLo 32 3}  :: Bit 32 -> Bit 3
+external intLo4  {primBitsLo 32 4}  :: Bit 32 -> Bit 4
+external intLo5  {primBitsLo 32 5}  :: Bit 32 -> Bit 5
+external intLo6  {primBitsLo 32 6}  :: Bit 32 -> Bit 6
+external intLo7  {primBitsLo 32 7}  :: Bit 32 -> Bit 7
+external intLo8  {primBitsLo 32 8}  :: Bit 32 -> Bit 8
+external intLo30 {primBitsLo 32 30} :: Bit 32 -> Bit 30
+external intLo31 {primBitsLo 32 31} :: Bit 32 -> Bit 31
+external intLo32 {primBitsLo 32 32} :: Bit 32 -> Bit 32
+
+entrypoint midLo0,  midLo1,  midLo2,  midLo4,  midLo9,  midLo16
+entrypoint midLo17, midLo18, midLo24, midLo32, midLo40, midLo47
+entrypoint midLo48
+external midLo0  {primBitsLo 48 0}  :: Bit 48 -> Bit 0
+external midLo1  {primBitsLo 48 1}  :: Bit 48 -> Bit 1
+external midLo2  {primBitsLo 48 2}  :: Bit 48 -> Bit 2
+external midLo4  {primBitsLo 48 4}  :: Bit 48 -> Bit 4
+external midLo9  {primBitsLo 48 9}  :: Bit 48 -> Bit 9
+external midLo16 {primBitsLo 48 16} :: Bit 48 -> Bit 16
+external midLo17 {primBitsLo 48 17} :: Bit 48 -> Bit 17
+external midLo18 {primBitsLo 48 18} :: Bit 48 -> Bit 18
+external midLo24 {primBitsLo 48 24} :: Bit 48 -> Bit 24
+external midLo32 {primBitsLo 48 32} :: Bit 48 -> Bit 32
+external midLo40 {primBitsLo 48 40} :: Bit 48 -> Bit 40
+external midLo47 {primBitsLo 48 47} :: Bit 48 -> Bit 47
+external midLo48 {primBitsLo 48 48} :: Bit 48 -> Bit 48
+
+entrypoint longLo0,  longLo1,  longLo2,  longLo4,  longLo9,  longLo16
+entrypoint longLo17, longLo18, longLo24, longLo32, longLo40, longLo47
+entrypoint longLo48, longLo54, longLo60, longLo62, longLo63, longLo64
+external longLo0  {primBitsLo 64 0}  :: Bit 64 -> Bit 0
+external longLo1  {primBitsLo 64 1}  :: Bit 64 -> Bit 1
+external longLo2  {primBitsLo 64 2}  :: Bit 64 -> Bit 2
+external longLo4  {primBitsLo 64 4}  :: Bit 64 -> Bit 4
+external longLo9  {primBitsLo 64 9}  :: Bit 64 -> Bit 9
+external longLo16 {primBitsLo 64 16} :: Bit 64 -> Bit 16
+external longLo17 {primBitsLo 64 17} :: Bit 64 -> Bit 17
+external longLo18 {primBitsLo 64 18} :: Bit 64 -> Bit 18
+external longLo24 {primBitsLo 64 24} :: Bit 64 -> Bit 24
+external longLo32 {primBitsLo 64 32} :: Bit 64 -> Bit 32
+external longLo40 {primBitsLo 64 40} :: Bit 64 -> Bit 40
+external longLo47 {primBitsLo 64 47} :: Bit 64 -> Bit 47
+external longLo48 {primBitsLo 64 48} :: Bit 64 -> Bit 48
+external longLo54 {primBitsLo 64 54} :: Bit 64 -> Bit 54
+external longLo60 {primBitsLo 64 60} :: Bit 64 -> Bit 60
+external longLo62 {primBitsLo 64 62} :: Bit 64 -> Bit 62
+external longLo63 {primBitsLo 64 63} :: Bit 64 -> Bit 63
+external longLo64 {primBitsLo 64 64} :: Bit 64 -> Bit 64
+
+-----------------------
+.lc: primBitsLo-neg-64  ./milc -pcosoboro -m --64
+
+entrypoint nullLo1, nullLo4
+external nullLo1 {primBitsLo 0 1} :: Bit 0 -> Bit 1
+external nullLo4 {primBitsLo 0 4} :: Bit 0 -> Bit 4
+
+entrypoint flagLo2, flagLo4
+external flagLo2 {primBitsLo 1 2} :: Bit 1 -> Bit 2
+external flagLo4 {primBitsLo 1 4} :: Bit 1 -> Bit 4
+
+entrypoint byteLo9, byteLo12
+external byteLo9  {primBitsLo 8 9}  :: Bit 8 -> Bit 9
+external byteLo12 {primBitsLo 8 12} :: Bit 8 -> Bit 12
+
+entrypoint intLo33, intLo48, intLo64
+external intLo33 {primBitsLo 32 33} :: Bit 32 -> Bit 33
+external intLo48 {primBitsLo 32 48} :: Bit 32 -> Bit 48
+external intLo64 {primBitsLo 32 64} :: Bit 32 -> Bit 64
+
+entrypoint midLo49,  midLo64,  midLo96
+external midLo49 {primBitsLo 48 49} :: Bit 48 -> Bit 49
+external midLo64 {primBitsLo 48 64} :: Bit 48 -> Bit 64
+external midLo96 {primBitsLo 48 96} :: Bit 48 -> Bit 96
+
+entrypoint longLo65, longLo72, longLo96
+external longLo65 {primBitsLo 64 65} :: Bit 64 -> Bit 65
+external longLo72 {primBitsLo 64 72} :: Bit 64 -> Bit 72
+external longLo96 {primBitsLo 64 96} :: Bit 64 -> Bit 96
+
+-----------------------
+exec: primBitsHiLo-pos-32  ./milc -pcosoboro -m --32 bitsHiLo.lc
+-----------------------
+exec: primBitsHiLo-noopt-pos-32  ./milc -pcosobor -m --32 bitsHiLo.lc
 -----------------------
 .lc: primIxFromLiteral-pos-32   ./milc -pcosoboro -m --32
 

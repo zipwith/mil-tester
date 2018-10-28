@@ -1,0 +1,77 @@
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 3
+external nullHi1 {primBitsHi 0 1} :: Bit 0 -> Bit 1
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 4
+external nullHi4 {primBitsHi 0 4} :: Bit 0 -> Bit 4
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 7
+external flagHi2 {primBitsHi 1 2} :: Bit 1 -> Bit 2
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 8
+external flagHi4 {primBitsHi 1 4} :: Bit 1 -> Bit 4
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 11
+external byteHi9  {primBitsHi 8 9}  :: Bit 8 -> Bit 9
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 12
+external byteHi12 {primBitsHi 8 12} :: Bit 8 -> Bit 12
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 15
+external intHi33 {primBitsHi 32 33} :: Bit 32 -> Bit 33
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 16
+external intHi48 {primBitsHi 32 48} :: Bit 32 -> Bit 48
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 17
+external intHi64 {primBitsHi 32 64} :: Bit 32 -> Bit 64
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 20
+external midHi49 {primBitsHi 48 49} :: Bit 48 -> Bit 49
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 21
+external midHi64 {primBitsHi 48 64} :: Bit 48 -> Bit 64
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 22
+external midHi96 {primBitsHi 48 96} :: Bit 48 -> Bit 96
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 25
+external longHi65 {primBitsHi 64 65} :: Bit 64 -> Bit 65
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 26
+external longHi72 {primBitsHi 64 72} :: Bit 64 -> Bit 72
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsHi-neg-64.lc", line 27
+external longHi96 {primBitsHi 64 96} :: Bit 64 -> Bit 96
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: Aborting after 15 previously reported errors
+

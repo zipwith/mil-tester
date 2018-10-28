@@ -1,0 +1,77 @@
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 3
+external nullLo1 {primBitsLo 0 1} :: Bit 0 -> Bit 1
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 4
+external nullLo4 {primBitsLo 0 4} :: Bit 0 -> Bit 4
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 7
+external flagLo2 {primBitsLo 1 2} :: Bit 1 -> Bit 2
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 8
+external flagLo4 {primBitsLo 1 4} :: Bit 1 -> Bit 4
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 11
+external byteLo9  {primBitsLo 8 9}  :: Bit 8 -> Bit 9
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 12
+external byteLo12 {primBitsLo 8 12} :: Bit 8 -> Bit 12
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 15
+external intLo33 {primBitsLo 32 33} :: Bit 32 -> Bit 33
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 16
+external intLo48 {primBitsLo 32 48} :: Bit 32 -> Bit 48
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 17
+external intLo64 {primBitsLo 32 64} :: Bit 32 -> Bit 64
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 20
+external midLo49 {primBitsLo 48 49} :: Bit 48 -> Bit 49
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 21
+external midLo64 {primBitsLo 48 64} :: Bit 48 -> Bit 64
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 22
+external midLo96 {primBitsLo 48 96} :: Bit 48 -> Bit 96
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 25
+external longLo65 {primBitsLo 64 65} :: Bit 64 -> Bit 65
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 26
+external longLo72 {primBitsLo 64 72} :: Bit 64 -> Bit 72
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: "actual/main/gens/primBitsLo-neg-64.lc", line 27
+external longLo96 {primBitsLo 64 96} :: Bit 64 -> Bit 96
+         ^
+No generated implementation: Width of output exceeds width of input
+
+ERROR: Aborting after 15 previously reported errors
+

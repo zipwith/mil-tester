@@ -1,0 +1,57 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint aPDE :: Word
+aPDE <-
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint isMapped :: [Word] >>= [Flag]
+isMapped[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint isMapped1 :: [Word] >>= [Flag]
+isMapped1[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+b90 :: [] >>= [Unit]
+b90[] =
+  a(())
+
+-----------------------------------------
+-- not recursive
+b89 :: [] >>= [Unit]
+b89[] =
+  b(())
+
+-----------------------------------------
+-- not recursive
+entrypoint usecase :: [Word] >>= [Unit]
+usecase[t0] =
+  t1 <- and((t0, 1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b89[]
+    else b90[]
+
+-----------------------------------------
+-- not recursive
+entrypoint usecase1 :: [Word] >>= [Unit]
+usecase1[t0] =
+  t1 <- and((t0, 1))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b89[]
+    else b90[]
+
+-----------------------------------------
+-- Entrypoints: aPDE isMapped isMapped1 usecase usecase1

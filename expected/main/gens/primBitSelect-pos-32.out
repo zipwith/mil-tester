@@ -9,6 +9,30 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
+entrypoint nullFromNull0 :: [Unit] >>= [Unit]
+nullFromNull0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromFlag0 :: [Flag] >>= [Unit]
+nullFromFlag0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromFlag1 :: [Flag] >>= [Unit]
+nullFromFlag1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromFlag0 :: [Flag] >>= [Flag]
+bitFromFlag0[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
 entrypoint nullFromByte0 :: [Word] >>= [Unit]
 nullFromByte0[t0] =
   return s1
@@ -118,4 +142,4 @@ nibbleFromByte4[t0] =
   lshr((t0, 4))
 
 -----------------------------------------
--- Entrypoints: nullFromByte0 nullFromByte1 nullFromByte2 nullFromByte4 nullFromByte5 nullFromByte7 nullFromByte8 bitFromByte0 bitFromByte1 bitFromByte2 bitFromByte4 bitFromByte5 bitFromByte7 nibbleFromByte0 nibbleFromByte1 nibbleFromByte2 nibbleFromByte4
+-- Entrypoints: nullFromNull0 nullFromFlag0 nullFromFlag1 bitFromFlag0 nullFromByte0 nullFromByte1 nullFromByte2 nullFromByte4 nullFromByte5 nullFromByte7 nullFromByte8 bitFromByte0 bitFromByte1 bitFromByte2 bitFromByte4 bitFromByte5 bitFromByte7 nibbleFromByte0 nibbleFromByte1 nibbleFromByte2 nibbleFromByte4

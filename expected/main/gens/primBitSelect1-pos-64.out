@@ -9,6 +9,30 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
+entrypoint nullFromNull0 :: [Unit] >>= [Unit]
+nullFromNull0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromFlag0 :: [Flag] >>= [Unit]
+nullFromFlag0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint nullFromFlag1 :: [Flag] >>= [Unit]
+nullFromFlag1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint bitFromFlag0 :: [Flag] >>= [Flag]
+bitFromFlag0[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
 entrypoint nullFromLong0 :: [Word] >>= [Unit]
 nullFromLong0[t0] =
   return s1
@@ -186,4 +210,4 @@ byteFromLong48[t0] =
   and((t1, 255))
 
 -----------------------------------------
--- Entrypoints: nullFromLong0 nullFromLong1 nullFromLong2 nullFromLong29 nullFromLong31 nullFromLong32 nullFromLong33 nullFromLong48 nullFromLong63 nullFromLong64 bitFromLong0 bitFromLong1 bitFromLong2 bitFromLong29 bitFromLong31 bitFromLong32 bitFromLong33 bitFromLong48 bitFromLong63 byteFromLong0 byteFromLong1 byteFromLong2 byteFromLong29 byteFromLong31 byteFromLong32 byteFromLong33 byteFromLong48
+-- Entrypoints: nullFromNull0 nullFromFlag0 nullFromFlag1 bitFromFlag0 nullFromLong0 nullFromLong1 nullFromLong2 nullFromLong29 nullFromLong31 nullFromLong32 nullFromLong33 nullFromLong48 nullFromLong63 nullFromLong64 bitFromLong0 bitFromLong1 bitFromLong2 bitFromLong29 bitFromLong31 bitFromLong32 bitFromLong33 bitFromLong48 bitFromLong63 byteFromLong0 byteFromLong1 byteFromLong2 byteFromLong29 byteFromLong31 byteFromLong32 byteFromLong33 byteFromLong48

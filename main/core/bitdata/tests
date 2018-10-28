@@ -463,4 +463,81 @@ mkU v      = Bay [u=v]
 getU bay   = case bay of Bay r -> r.u
 updU bay v = case bay of Bay r -> Bay r[u=v]
 
-----------
+-----------------------
+.lc:   bitdata30    ./milc -pcosoro -m --32
+require "prelude.lc"
+
+bitdata PTE    = Unmapped [ 0 ]
+               | Mapped [ val :: Bit 31 | B1 ]
+
+entrypoint isUnmapped, isMapped, isMapped1, mapped, unmapped
+isUnmapped pte = case pte of
+                   Unmapped -> True
+                   Mapped s -> False
+
+isMapped pte = case pte of
+                 Mapped s -> True
+                 Unmapped -> False
+
+isMapped1 pte = case pte of  -- switch order of branches
+                  Unmapped -> False
+                  Mapped s -> True
+
+mapped v = Mapped [val=v]
+unmapped = Unmapped
+
+-----------------------
+.lc:   bitdata31    ./milc -pcosoro -m --32
+
+type WordSize = 32
+
+bitdata Bool = False [B0] | True [B1]
+
+struct PageTable [ ptes  :: Array 1K (Stored (Bit 32)) ] aligned 4K
+struct SuperPage [ bytes :: Array 4M (Stored (Bit 8))  ] aligned 4M
+
+bitdata PDE /WordSize                           -- Defines format for Page Directory Entries
+ = UnmappedPDE  [ unused   :: Bit 31 | B0 ]     -- Unused entry
+ | PageTablePDE [ ptab     :: Ref PageTable     -- physical address of page directory
+                | unused   :: Bit 4
+                | B0                            -- signals PageTablePDE
+                | attrs    :: PagingAttrs ]     -- paging attributes
+ | SuperPagePDE [ super    :: Ref SuperPage     -- physical address of superpage
+                | unused   :: Bit 13
+                | global   :: Bool              -- True => global translation (if cr4.pge=1)
+                | B1                            -- signals SuperPagePDE
+                | attrs    :: PagingAttrs ]     -- paging attributes
+
+bitdata PagingAttrs /7
+ = PagingAttrs [ dirty    :: Bool     -- Dirty; True => data written to page
+               | accessed :: Bool     -- Accessed; True => page accessed
+               | caching  :: Caching
+               | us       :: Bool     -- User/supervisor; True => user access allowed
+               | rw       :: Bool     -- Read/write; True => write access allowed
+               | B1 ]                 -- Indicates that a mapping is present
+
+bitdata Caching /2                            -- pwt => page-level write thru
+ = Caching [ pcd, pwt :: Bool ]               -- pcd => page-level cache disable
+
+entrypoint aPDE
+aPDE = UnmappedPDE [ unused=mkZero Unit ]
+
+external mkZero {primBitFromLiteral 0 31} :: Unit -> Bit 31
+
+entrypoint isMapped, isMapped1
+isMapped pde = case pde of
+                 UnmappedPDE r  -> False
+                 PageTablePDE r -> True
+                 SuperPagePDE r -> True
+
+isMapped1 pde = case pde of
+                  UnmappedPDE r -> False
+              | True
+
+entrypoint usecase, usecase1
+usecase pde = if isMapped pde then a else b
+usecase1 pde = if isMapped1 pde then a else b
+
+external a, b :: Proc Unit
+
+-----------------------

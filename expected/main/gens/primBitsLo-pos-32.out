@@ -1,0 +1,354 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint nullLo0 :: [Unit] >>= [Unit]
+nullLo0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint flagLo0 :: [Flag] >>= [Unit]
+flagLo0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint flagLo1 :: [Flag] >>= [Flag]
+flagLo1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo0 :: [Word] >>= [Unit]
+byteLo0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo1 :: [Word] >>= [Flag]
+byteLo1[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo2 :: [Word] >>= [Word]
+byteLo2[t0] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo3 :: [Word] >>= [Word]
+byteLo3[t0] =
+  and((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo4 :: [Word] >>= [Word]
+byteLo4[t0] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo5 :: [Word] >>= [Word]
+byteLo5[t0] =
+  and((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo6 :: [Word] >>= [Word]
+byteLo6[t0] =
+  and((t0, 63))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo7 :: [Word] >>= [Word]
+byteLo7[t0] =
+  and((t0, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint byteLo8 :: [Word] >>= [Word]
+byteLo8[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo0 :: [Word] >>= [Unit]
+intLo0[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo1 :: [Word] >>= [Flag]
+intLo1[t0] =
+  t1 <- and((t0, 1))
+  primNeq((t1, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo2 :: [Word] >>= [Word]
+intLo2[t0] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo3 :: [Word] >>= [Word]
+intLo3[t0] =
+  and((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo4 :: [Word] >>= [Word]
+intLo4[t0] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo5 :: [Word] >>= [Word]
+intLo5[t0] =
+  and((t0, 31))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo6 :: [Word] >>= [Word]
+intLo6[t0] =
+  and((t0, 63))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo7 :: [Word] >>= [Word]
+intLo7[t0] =
+  and((t0, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo8 :: [Word] >>= [Word]
+intLo8[t0] =
+  and((t0, 255))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo30 :: [Word] >>= [Word]
+intLo30[t0] =
+  and((t0, 1073741823))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo31 :: [Word] >>= [Word]
+intLo31[t0] =
+  and((t0, 2147483647))
+
+-----------------------------------------
+-- not recursive
+entrypoint intLo32 :: [Word] >>= [Word]
+intLo32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo0 :: [Word, Word] >>= [Unit]
+midLo0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo1 :: [Word, Word] >>= [Flag]
+midLo1[t0, t1] =
+  t2 <- and((t0, 1))
+  primNeq((t2, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo2 :: [Word, Word] >>= [Word]
+midLo2[t0, t1] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo4 :: [Word, Word] >>= [Word]
+midLo4[t0, t1] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo9 :: [Word, Word] >>= [Word]
+midLo9[t0, t1] =
+  and((t0, 511))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo16 :: [Word, Word] >>= [Word]
+midLo16[t0, t1] =
+  and((t0, 65535))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo17 :: [Word, Word] >>= [Word]
+midLo17[t0, t1] =
+  and((t0, 131071))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo18 :: [Word, Word] >>= [Word]
+midLo18[t0, t1] =
+  and((t0, 262143))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo24 :: [Word, Word] >>= [Word]
+midLo24[t0, t1] =
+  and((t0, 16777215))
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo32 :: [Word, Word] >>= [Word]
+midLo32[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo40 :: [Word, Word] >>= [Word, Word]
+midLo40[t0, t1] =
+  t2 <- and((t1, 255))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo47 :: [Word, Word] >>= [Word, Word]
+midLo47[t0, t1] =
+  t2 <- and((t1, 32767))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint midLo48 :: [Word, Word] >>= [Word, Word]
+midLo48[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo0 :: [Word, Word] >>= [Unit]
+longLo0[t0, t1] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo1 :: [Word, Word] >>= [Flag]
+longLo1[t0, t1] =
+  t2 <- and((t0, 1))
+  primNeq((t2, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo2 :: [Word, Word] >>= [Word]
+longLo2[t0, t1] =
+  and((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo4 :: [Word, Word] >>= [Word]
+longLo4[t0, t1] =
+  and((t0, 15))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo9 :: [Word, Word] >>= [Word]
+longLo9[t0, t1] =
+  and((t0, 511))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo16 :: [Word, Word] >>= [Word]
+longLo16[t0, t1] =
+  and((t0, 65535))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo17 :: [Word, Word] >>= [Word]
+longLo17[t0, t1] =
+  and((t0, 131071))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo18 :: [Word, Word] >>= [Word]
+longLo18[t0, t1] =
+  and((t0, 262143))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo24 :: [Word, Word] >>= [Word]
+longLo24[t0, t1] =
+  and((t0, 16777215))
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo32 :: [Word, Word] >>= [Word]
+longLo32[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo40 :: [Word, Word] >>= [Word, Word]
+longLo40[t0, t1] =
+  t2 <- and((t1, 255))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo47 :: [Word, Word] >>= [Word, Word]
+longLo47[t0, t1] =
+  t2 <- and((t1, 32767))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo48 :: [Word, Word] >>= [Word, Word]
+longLo48[t0, t1] =
+  t2 <- and((t1, 65535))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo54 :: [Word, Word] >>= [Word, Word]
+longLo54[t0, t1] =
+  t2 <- and((t1, 4194303))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo60 :: [Word, Word] >>= [Word, Word]
+longLo60[t0, t1] =
+  t2 <- and((t1, 268435455))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo62 :: [Word, Word] >>= [Word, Word]
+longLo62[t0, t1] =
+  t2 <- and((t1, 1073741823))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo63 :: [Word, Word] >>= [Word, Word]
+longLo63[t0, t1] =
+  t2 <- and((t1, 2147483647))
+  return [t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint longLo64 :: [Word, Word] >>= [Word, Word]
+longLo64[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- Entrypoints: nullLo0 flagLo0 flagLo1 byteLo0 byteLo1 byteLo2 byteLo3 byteLo4 byteLo5 byteLo6 byteLo7 byteLo8 intLo0 intLo1 intLo2 intLo3 intLo4 intLo5 intLo6 intLo7 intLo8 intLo30 intLo31 intLo32 midLo0 midLo1 midLo2 midLo4 midLo9 midLo16 midLo17 midLo18 midLo24 midLo32 midLo40 midLo47 midLo48 longLo0 longLo1 longLo2 longLo4 longLo9 longLo16 longLo17 longLo18 longLo24 longLo32 longLo40 longLo47 longLo48 longLo54 longLo60 longLo62 longLo63 longLo64
