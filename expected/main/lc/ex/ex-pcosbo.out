@@ -2,13 +2,22 @@ bitdata Dup0 /14
   = Dup0 [ Dup00 :: Bit 7 | Dup01 :: Bit 7 ]
     -- predDup0(x :: Bit 14) = true
 
+-- bit pattern:
+--  ______________
+
 bitdata Dup1 /16
   = Dup1 [ Dup10 :: Bit 8 | Dup11 :: Bit 8 ]
     -- predDup1(x :: Bit 16) = true
 
+-- bit pattern:
+--  ________________
+
 bitdata Dup2 /6
   = Dup2 [ Dup20 :: Bit 3 | Dup21 :: Bit 3 ]
     -- predDup2(x :: Bit 6) = true
+
+-- bit pattern:
+--  ______
 
 -----------------------------------------
 -- not recursive

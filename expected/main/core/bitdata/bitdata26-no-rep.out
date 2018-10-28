@@ -2,6 +2,9 @@ bitdata Byte /8
   = Byte [ val :: Bit 8 ]
     -- predByte(x :: Bit 8) = true
 
+-- bit pattern:
+--  ________
+
 data Unit
   = Unit
 

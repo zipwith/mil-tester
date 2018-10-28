@@ -2,6 +2,9 @@ bitdata Perms /3
   = Perms [ r :: Bit 1 | w :: Bit 1 | x :: Bit 1 ]
     -- predPerms(x :: Bit 3) = true
 
+-- bit pattern:
+--  ___
+
 -----------------------------------------
 -- not recursive
 s4 :: Perms.Perms

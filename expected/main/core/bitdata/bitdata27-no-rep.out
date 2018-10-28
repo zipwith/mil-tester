@@ -2,6 +2,9 @@ bitdata PCI /16
   = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
     -- predPCI(x :: Bit 16) = true
 
+-- bit pattern:
+--  ________________
+
 -----------------------------------------
 -- not recursive
 b38 :: [Bit 3, Bit 5, Bit 8] >>= [PCI]

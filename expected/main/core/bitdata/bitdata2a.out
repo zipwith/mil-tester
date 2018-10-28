@@ -4,17 +4,26 @@ bitdata ABOOL /1
   | Sf [ B0 ]
     -- predSf(x :: Bit 1) = x == 0b0
 
+-- bit pattern:
+--  _
+
 bitdata BBOOL /1
   = Bt [ B1 ]
     -- predBt(x :: Bit 1) = x == 0b1
   | Bf [ B0 ]
     -- predBf(x :: Bit 1) = x == 0b0
 
+-- bit pattern:
+--  _
+
 bitdata BOOL /1
   = Tt [ B1 ]
     -- predTt(x :: Bit 1) = x == 0b1
   | Ff [ B0 ]
     -- predFf(x :: Bit 1) = x == 0b0
+
+-- bit pattern:
+--  _
 
 -----------------------------------------
 -- not recursive

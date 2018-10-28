@@ -7,6 +7,9 @@ bitdata Bool /1
   | True [ B1 ]
     -- predTrue(x :: Bit 1) = x == 0b1
 
+-- bit pattern:
+--  _
+
 data Maybe (a :: *)
   = Nothing
   | Just a

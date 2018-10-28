@@ -1,6 +1,5 @@
-bitdata Unit /0
-  = Unit [  ]
-    -- predUnit(x :: Bit 0) = true
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive

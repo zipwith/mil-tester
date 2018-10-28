@@ -2,6 +2,9 @@ bitdata H /6
   = SixtyThree [ B11_1111 ]
     -- predSixtyThree(x :: Bit 6) = true
 
+-- bit pattern:
+--  111111
+
 bitdata Q /2
   = Zero [ B00 ]
     -- predZero(x :: Bit 2) = x == 0b0
@@ -12,13 +15,22 @@ bitdata Q /2
   | Three [ B11 ]
     -- predThree(x :: Bit 2) = x == 0b11
 
+-- bit pattern:
+--  __
+
 bitdata U2 /8
   = XX2 [ X12 ]
     -- predXX2(x :: Bit 8) = true
 
+-- bit pattern:
+--  00010010
+
 bitdata Z2 /6
   = Z2 [ B01_0000 ]
     -- predZ2(x :: Bit 6) = true
+
+-- bit pattern:
+--  010000
 
 -----------------------------------------
 -- not recursive

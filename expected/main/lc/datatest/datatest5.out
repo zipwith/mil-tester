@@ -4,6 +4,9 @@ bitdata Bool /1
   | True [ B1 ]
     -- predTrue(x :: Bit 1) = x == 0b1
 
+-- bit pattern:
+--  _
+
 data Maybe0
   = Nothing0
   | Just1 Word
@@ -13,6 +16,10 @@ bitdata Maybe1 /2
     -- predNothing2(x :: Bit 2) = x == 0b0
   | Just3 [ Just30 :: Bool | B1 ]
     -- predJust3(x :: Bit 2) = (x & 0b1) == 0b1
+
+-- bit pattern:
+--  0_
+--  11
 
 -----------------------------------------
 -- not recursive

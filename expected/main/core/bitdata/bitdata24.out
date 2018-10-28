@@ -6,6 +6,11 @@ bitdata ExR /3
   | ExR4 [ B100 ]
     -- predExR4(x :: Bit 3) = (x & 0b11) == 0b0
 
+-- bit pattern:
+--  001
+--  010
+--  100
+
 bitdata ExS /3
   = ExS6 [ B110 ]
     -- predExS6(x :: Bit 3) = (x & 0b1) == 0b0
@@ -14,15 +19,36 @@ bitdata ExS /3
   | ExS3 [ B011 ]
     -- predExS3(x :: Bit 3) = (x & 0b11) == 0b11
 
+-- bit pattern:
+--  011
+--  101
+--  110
+
 bitdata ExU /4
   = ExUR [ x :: ExR | B1 ]
     -- predExUR(x :: Bit 4) = (x & 0b1) == 0b1
   | ExUS [ y :: ExS | B0 ]
     -- predExUS(x :: Bit 4) = (x & 0b1) == 0b0
 
+-- bit pattern:
+--  0011
+--  0101
+--  0110
+--  1001
+--  1010
+--  1100
+
 bitdata ExV /5
   = ExVR [ x :: ExR | B11 ]
     -- predExVR(x :: Bit 5) = (x & 0b1) == 0b1
   | ExVS [ y :: ExS | B00 ]
     -- predExVS(x :: Bit 5) = (x & 0b1) == 0b0
+
+-- bit pattern:
+--  00111
+--  01011
+--  01100
+--  10011
+--  10100
+--  11000
 
