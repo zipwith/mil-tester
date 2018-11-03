@@ -1,0 +1,35 @@
+data DecodeResult0
+  = Failed0 Word
+  | Success1 Word Word Word
+
+-----------------------------------------
+-- not recursive
+decodeFailed :: [Word] >>= [DecodeResult0]
+decodeFailed[t0] =
+  Failed0(t0)
+
+-----------------------------------------
+-- not recursive
+decodeSuccess :: [Word, Word, Word, Word] >>= [DecodeResult0]
+decodeSuccess[t0, t1, t2, t3] =
+  t4 <- shl((t2, t1))
+  t5 <- sub((32, t1))
+  t6 <- lshr((t2, t5))
+  t7 <- shl((t6, 4))
+  t8 <- and((t0, -32))
+  t9 <- add((t8, t7))
+  Success1(t9, t4, t3)
+
+-----------------------------------------
+-- not recursive
+entrypoint decodeCNode :: [Word, Word, Word] >>= [DecodeResult0]
+decodeCNode[t0, t1, t2] =
+  t3 <- and((t0, 31))
+  t4 <- sub((t2, t3))
+  t5 <- primSge((t4, 0))
+  if t5
+    then decodeSuccess[t0, t3, t1, t4]
+    else decodeFailed[t2]
+
+-----------------------------------------
+-- Entrypoints: decodeCNode

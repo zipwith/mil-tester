@@ -141,3 +141,56 @@ entrypoint three
 three <- add((one, two))
 
 -------
+.mil: typesizes-in-mil   ./milc -m -pco
+-- Some examples using bitdata and struct types with sizes in MIL
+bitdata CNode/32 = CNode [ ptr  :: Bit 27 | radix :: Bit 5 ]
+bitdata Guard    = Guard [ bits :: Bit 18 | size  :: Bit 5 ]
+
+bitdata Cap/64
+  = NullCap  [ 0                                   ]
+  | CNodeCap [ cnode :: CNode | guard :: Guard | 0 | B01 ]
+  | OtherCap [ various :: Bit 62                   | B10 ]
+
+struct CapSlot /16 [ cap :: Stored Cap | other :: Stored (Bit 64) ]
+
+entrypoint a
+external a {b} :: Ref CapSlot
+
+-------
+.mil: t-dot-c-example   ./milc -m -pcosoro
+require "basic.mil"
+  
+bitdata CNode/32 = CNode [ ptr  :: Bit 27 | radix :: Bit 5 ]
+
+data DecodeResult
+  = Failed  Word             -- depth
+  | Success Word Word Word   -- slot, index, depth
+
+entrypoint decodeCNode
+decodeCNode [cn, index, depth]
+ = cnode    <- CNode 0 cn
+   radix    <- CNode.CNode 1 cnode
+   radixw   <- bit5ToWord @ radix
+   newDepth <- sub((depth, radixw))
+   pos      <- primSge((newDepth,0))
+   if pos then decodeSuccess[cnode, radixw, index, newDepth]
+          else decodeFailed[depth]
+
+decodeSuccess[cnode, radixw, index, newDepth]
+ = newIndex <- shl((index, radixw))
+   shift    <- sub((32, radixw))      -- how many bits to shift for index
+   i        <- lshr((index, shift))   -- index into cnode
+   offset   <- shl((i, 4))            -- multiply by 16
+   ptrraw   <- CNode.CNode 0 cnode
+   ptr      <- bit27ToWord @ ptrraw
+   base     <- shl((ptr, 5))
+   addr     <- add((base, offset))
+   Success(addr, newIndex, newDepth)
+
+decodeFailed[depth]
+ = Failed(depth)
+
+external bit5ToWord  {primBitToWord 5}  :: [Bit 5]  ->> [Word]
+external bit27ToWord {primBitToWord 27} :: [Bit 27] ->> [Word]
+
+-------
