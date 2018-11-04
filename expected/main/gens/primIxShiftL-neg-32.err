@@ -1,12 +1,12 @@
 ERROR: "actual/main/gens/primIxShiftL-neg-32.lc", line 3
 external shlix0_1   {primIxShiftL   0  1} :: Ix 0   -> Ix 1  -> Ix 0
          ^
-No generated implementation: parameter value 0 is too small; must be at least 1
+No generated implementation: Argument value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primIxShiftL-neg-32.lc", line 4
 external shlix1_0   {primIxShiftL   1  0} :: Ix 1   -> Ix 0  -> Ix 1
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primIxShiftL-neg-32.lc", line 5
 external shlix4_3   {primIxShiftL   4  3} :: Ix 4   -> Ix 3  -> Ix 4
@@ -21,7 +21,7 @@ No generated implementation: 100 is not 2^9 (i.e., 512)
 ERROR: "actual/main/gens/primIxShiftL-neg-32.lc", line 7
 external shlix3G_31 {primIxShiftL  3G 31} :: Ix 3G  -> Ix 31 -> Ix 3G
          ^
-No generated implementation: parameter value 3221225472 is too large; must be at most 2147483647
+No generated implementation: Argument value 3221225472 is too large; must be at most 2147483647
 
 ERROR: Aborting after 5 previously reported errors
 

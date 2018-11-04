@@ -21,32 +21,32 @@ No generated implementation: A nonzero value is required
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 7
 external nzW_2  {primNZBitFromLiteral  Word  2} :: Unit -> NZBit 2
          ^
-No generated implementation: Word is not a natural number
+No generated implementation: Argument 1 (Word) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 8
 external nz1_2K {primNZBitFromLiteral     1 2K} :: Unit -> NZBit 2K
          ^
-No generated implementation: parameter 2048 is too large; must be less than 1000
+No generated implementation: Argument value 2048 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 11
 external nz7_2  {primNZBitFromLiteral     7  2} :: Unit -> NZBit 2
          ^
-No generated implementation: parameter 7 is too large; must be less than 4
+No generated implementation: Argument value 7 is too large; must be less than 4
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 12
 external nz17_3 {primNZBitFromLiteral    17  3} :: Unit -> NZBit 3
          ^
-No generated implementation: parameter 17 is too large; must be less than 8
+No generated implementation: Argument value 17 is too large; must be less than 8
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 13
 external nz16_4 {primNZBitFromLiteral    16  4} :: Unit -> NZBit 4
          ^
-No generated implementation: parameter 16 is too large; must be less than 16
+No generated implementation: Argument value 16 is too large; must be less than 16
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 14
 external nz17_4 {primNZBitFromLiteral    17  4} :: Unit -> NZBit 4
          ^
-No generated implementation: parameter 17 is too large; must be less than 16
+No generated implementation: Argument value 17 is too large; must be less than 16
 
 ERROR: Aborting after 10 previously reported errors
 

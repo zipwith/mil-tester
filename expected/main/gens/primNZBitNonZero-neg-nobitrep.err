@@ -1,22 +1,22 @@
 ERROR: "actual/main/gens/primNZBitNonZero-neg-nobitrep.lc", line 3
 external nonZero2  {primNZBitNonZero  2} :: Bit  2 -> Maybe (NZBit  2)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-nobitrep.lc", line 4
 external nonZero4  {primNZBitNonZero  4} :: Bit  4 -> Maybe (NZBit  4)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-nobitrep.lc", line 5
 external nonZero15 {primNZBitNonZero 15} :: Bit 15 -> Maybe (NZBit 15)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-nobitrep.lc", line 6
 external nonZero32 {primNZBitNonZero 32} :: Bit 32 -> Maybe (NZBit 32)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: Aborting after 4 previously reported errors
 

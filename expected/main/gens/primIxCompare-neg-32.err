@@ -1,17 +1,17 @@
 ERROR: "actual/main/gens/primIxCompare-neg-32.lc", line 4
 external ixEq0     {primIxEq      0} :: Ix 0     -> Ix 0     -> Bool
          ^
-No generated implementation: parameter value 0 is too small; must be at least 1
+No generated implementation: Argument value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primIxCompare-neg-32.lc", line 5
 external ixEq2049M {primIxEq  2049M} :: Ix 2049M -> Ix 2049M -> Bool
          ^
-No generated implementation: parameter value 2148532224 is too large; must be at most 2147483647
+No generated implementation: Argument value 2148532224 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primIxCompare-neg-32.lc", line 6
 external ixEq2G    {primIxEq     2G} :: Ix 2G    -> Ix 2G    -> Bool
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: Aborting after 3 previously reported errors
 

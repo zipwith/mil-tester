@@ -1,22 +1,22 @@
 ERROR: "actual/main/gens/primDecIx-pos-b-32.lc", line 6
 external decIx1     {primDecIx 1}     :: Ix 1     -> Maybe (Ix 1)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primDecIx-pos-b-32.lc", line 7
 external decIx7     {primDecIx 7}     :: Ix 7     -> Maybe (Ix 7)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primDecIx-pos-b-32.lc", line 8
 external decIx31    {primDecIx 31}    :: Ix 31    -> Maybe (Ix 31)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: "actual/main/gens/primDecIx-pos-b-32.lc", line 9
 external decIx65535 {primDecIx 65535} :: Ix 65535 -> Maybe (Ix 65535)
          ^
-No generated implementation: bitdata representations ("b" pass) required
+No generated implementation: Bitdata representations ("b" pass) required
 
 ERROR: Aborting after 4 previously reported errors
 

@@ -1,27 +1,27 @@
 ERROR: "actual/main/gens/primGenMaybeIx-neg-32.lc", line 5
 external genMaybeIxF2G {primGenMaybeIx Flag     2G} :: Flag   -> (Ix 2G -> Flag)   -> Word -> Flag
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primGenMaybeIx-neg-32.lc", line 6
 external genMaybeIxW2G {primGenMaybeIx Word     2G} :: Word   -> (Ix 2G -> Word)   -> Word -> Word
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primGenMaybeIx-neg-32.lc", line 7
 external genMaybeIxI2G {primGenMaybeIx (Ix 2G)  2G} :: Ix 2G  -> (Ix 2G -> Ix 2G)  -> Word -> Ix 2G
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primGenMaybeIx-neg-32.lc", line 8
 external genMaybeIxB2G {primGenMaybeIx (Bit 64) 2G} :: Bit 64 -> (Ix 2G -> Bit 64) -> Word -> Bit 64
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primGenMaybeIx-neg-32.lc", line 9
 external genMaybeIxM2G {primGenMaybeIx M2G      2G} :: M2G    -> (Ix 2G -> M2G)    -> Word -> M2G
          ^
-No generated implementation: parameter value 2147483648 is too large; must be at most 2147483647
+No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: Aborting after 5 previously reported errors
 

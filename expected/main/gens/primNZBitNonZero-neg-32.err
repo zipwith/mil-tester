@@ -1,32 +1,32 @@
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 3
 external nonZero0  {primNZBitNonZero  0} :: Bit  0 -> Maybe (NZBit  0)
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 4
 external nonZero1  {primNZBitNonZero  1} :: Bit  1 -> Maybe (NZBit  1)
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 5
 external nonZero33 {primNZBitNonZero 33} :: Bit 33 -> Maybe (NZBit 33)
          ^
-No generated implementation: bit vector of width 33 does not fit in a single word
+No generated implementation: Bit vector of width 33 does not fit in a single word
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 6
 external nonZero48 {primNZBitNonZero 48} :: Bit 48 -> Maybe (NZBit 48)
          ^
-No generated implementation: bit vector of width 48 does not fit in a single word
+No generated implementation: Bit vector of width 48 does not fit in a single word
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 7
 external nonZero65 {primNZBitNonZero 65} :: Bit 65 -> Maybe (NZBit 65)
          ^
-No generated implementation: bit vector of width 65 does not fit in a single word
+No generated implementation: Bit vector of width 65 does not fit in a single word
 
 ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 8
 external nonZero1K {primNZBitNonZero 1K} :: Bit 1K -> Maybe (NZBit 1K)
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: Aborting after 6 previously reported errors
 

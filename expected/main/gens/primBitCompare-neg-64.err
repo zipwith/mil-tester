@@ -1,42 +1,42 @@
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 3
 external sgt72 {primBitSGt 72} :: Bit 72 -> Bit 72 -> Flag
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 4
 external sgt98 {primBitSGt 98} :: Bit 98 -> Bit 98 -> Flag
          ^
-No generated implementation: bit vector of width 98 does not fit in a single word
+No generated implementation: Bit vector of width 98 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 7
 external sge72 {primBitSGe 72} :: Bit 72 -> Bit 72 -> Flag
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 8
 external sge98 {primBitSGe 98} :: Bit 98 -> Bit 98 -> Flag
          ^
-No generated implementation: bit vector of width 98 does not fit in a single word
+No generated implementation: Bit vector of width 98 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 11
 external slt72 {primBitSLt 72} :: Bit 72 -> Bit 72 -> Flag
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 12
 external slt98 {primBitSLt 98} :: Bit 98 -> Bit 98 -> Flag
          ^
-No generated implementation: bit vector of width 98 does not fit in a single word
+No generated implementation: Bit vector of width 98 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 15
 external sle72 {primBitSLe 72} :: Bit 72 -> Bit 72 -> Flag
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitCompare-neg-64.lc", line 16
 external sle98 {primBitSLe 98} :: Bit 98 -> Bit 98 -> Flag
          ^
-No generated implementation: bit vector of width 98 does not fit in a single word
+No generated implementation: Bit vector of width 98 does not fit in a single word
 
 ERROR: Aborting after 8 previously reported errors
 

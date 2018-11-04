@@ -1,87 +1,87 @@
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 3
 external bitBit0       {primBitBit 0}       :: Ix 0  -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 4
 external bitSetBit0    {primBitSetBit 0}    :: Bit 0 -> Ix 0  -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 5
 external bitClearBit0  {primBitClearBit 0}  :: Bit 0 -> Ix 0  -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 6
 external bitFlipBit0   {primBitFlipBit 0}   :: Bit 0 -> Ix 0  -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 7
 external bitTestBit0   {primBitTestBit 0}   :: Bit 0 -> Ix 0  -> Flag
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 8
 external bitBitSize0   {primBitBitSize 0}   :: Bit 0 -> Ix 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 11
 external bitBit1       {primBitBit 1}       :: Ix 1  -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 12
 external bitSetBit1    {primBitSetBit 1}    :: Bit 1 -> Ix 1  -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 13
 external bitClearBit1  {primBitClearBit 1}  :: Bit 1 -> Ix 1  -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 14
 external bitFlipBit1   {primBitFlipBit 1}   :: Bit 1 -> Ix 1  -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 15
 external bitTestBit1   {primBitTestBit 1}   :: Bit 1 -> Ix 1  -> Flag
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 19
 external bitBit1K       {primBitBit 1K}       :: Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 20
 external bitSetBit1K    {primBitSetBit 1K}    :: Bit 1K -> Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 21
 external bitClearBit1K  {primBitClearBit 1K}  :: Bit 1K -> Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 22
 external bitFlipBit1K   {primBitFlipBit 1K}   :: Bit 1K -> Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 23
 external bitTestBit1K   {primBitTestBit 1K}   :: Bit 1K -> Ix 1K  -> Flag
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitManip-neg-32.lc", line 24
 external bitBitSize1K   {primBitBitSize 1K}   :: Bit 1K -> Ix 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: Aborting after 17 previously reported errors
 

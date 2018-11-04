@@ -1,27 +1,27 @@
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 3
 external cat_0_0   {:#  0  0  0} :: Bit 0  -> Bit 0  -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 4
 external cat_0_1   {:#  0  1  1} :: Bit 0  -> Bit 1  -> Bit 1
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 5
 external cat_1_0   {:#  1  0  1} :: Bit 1  -> Bit 0  -> Bit 1
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 6
 external cat_0_2   {:#  0  2  2} :: Bit 0  -> Bit 2  -> Bit 2
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 7
 external cat_2_0   {:#  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
          ^
-No generated implementation: parameter 0 is too low; must be at least 1
+No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 10
 external cat_2_2   {:#  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2

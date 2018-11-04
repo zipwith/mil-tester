@@ -1,62 +1,62 @@
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 3
 external neg72  {primBitNegate  72} :: Bit 72  -> Bit 72
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 4
 external neg497 {primBitNegate 497} :: Bit 497 -> Bit 497
          ^
-No generated implementation: bit vector of width 497 does not fit in a single word
+No generated implementation: Bit vector of width 497 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 5
 external neg999 {primBitNegate 999} :: Bit 999 -> Bit 999
          ^
-No generated implementation: bit vector of width 999 does not fit in a single word
+No generated implementation: Bit vector of width 999 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 8
 external plus72  {primBitPlus  72} :: Bit 72  -> Bit 72  -> Bit 72
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 9
 external plus497 {primBitPlus 497} :: Bit 497 -> Bit 497 -> Bit 497
          ^
-No generated implementation: bit vector of width 497 does not fit in a single word
+No generated implementation: Bit vector of width 497 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 10
 external plus999 {primBitPlus 999} :: Bit 999 -> Bit 999 -> Bit 999
          ^
-No generated implementation: bit vector of width 999 does not fit in a single word
+No generated implementation: Bit vector of width 999 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 13
 external minus72  {primBitMinus  72} :: Bit 72  -> Bit 72  -> Bit 72
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 14
 external minus497 {primBitMinus 497} :: Bit 497 -> Bit 497 -> Bit 497
          ^
-No generated implementation: bit vector of width 497 does not fit in a single word
+No generated implementation: Bit vector of width 497 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 15
 external minus999 {primBitMinus 999} :: Bit 999 -> Bit 999 -> Bit 999
          ^
-No generated implementation: bit vector of width 999 does not fit in a single word
+No generated implementation: Bit vector of width 999 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 18
 external times72  {primBitTimes  72} :: Bit 72  -> Bit 72  -> Bit 72
          ^
-No generated implementation: bit vector of width 72 does not fit in a single word
+No generated implementation: Bit vector of width 72 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 19
 external times497 {primBitTimes 497} :: Bit 497 -> Bit 497 -> Bit 497
          ^
-No generated implementation: bit vector of width 497 does not fit in a single word
+No generated implementation: Bit vector of width 497 does not fit in a single word
 
 ERROR: "actual/main/gens/primBitArith-neg-64.lc", line 20
 external times999 {primBitTimes 999} :: Bit 999 -> Bit 999 -> Bit 999
          ^
-No generated implementation: bit vector of width 999 does not fit in a single word
+No generated implementation: Bit vector of width 999 does not fit in a single word
 
 ERROR: Aborting after 12 previously reported errors
 

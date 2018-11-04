@@ -1,17 +1,17 @@
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 10
 external ia3  {primInitArray 3}   :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
          ^
-Generator for primInitArray needs at least 2 arguments
+No generated implementation: primInitArray requires (at least) 2 arguments
 
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 11
 external ia3W {primInitArray 3 W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
          ^
-No generated implementation: Cannot determine ByteSize for Word
+No generated implementation: Argument 2 (Word) does not have expected kind (area)
 
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 12
 external iaWW {primInitArray W W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
          ^
-No generated implementation: Word is not a natural number
+No generated implementation: Argument 1 (Word) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 15
 external ia3S {primInitArray 3 S} :: (Ix 3 -> Init S) -> Init (Array 3 S)

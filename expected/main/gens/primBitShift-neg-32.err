@@ -1,32 +1,32 @@
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 3
 external bitShiftL0   {primBitShiftL 0}   :: Bit 0   -> Ix 0   -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 4
 external bitShiftL1   {primBitShiftL 1}   :: Bit 1   -> Ix 1   -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 5
 external bitShiftL1K  {primBitShiftL 1K}  :: Bit 1K  -> Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 8
 external bitShiftRu0  {primBitShiftRu 0}  :: Bit 0   -> Ix 0   -> Bit 0
          ^
-No generated implementation: parameter 0 is too low; must be at least 2
+No generated implementation: Argument value 0 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 9
 external bitShiftRu1  {primBitShiftRu 1}  :: Bit 1   -> Ix 1   -> Bit 1
          ^
-No generated implementation: parameter 1 is too low; must be at least 2
+No generated implementation: Argument value 1 is too low; must be at least 2
 
 ERROR: "actual/main/gens/primBitShift-neg-32.lc", line 10
 external bitShiftRu1K {primBitShiftRu 1K} :: Bit 1K  -> Ix 1K  -> Bit 1K
          ^
-No generated implementation: parameter 1024 is too large; must be less than 1000
+No generated implementation: Argument value 1024 is too large; must be less than 1000
 
 ERROR: Aborting after 6 previously reported errors
 
