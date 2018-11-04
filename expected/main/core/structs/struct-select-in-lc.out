@@ -1,0 +1,17 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint f :: [Word] >>= [Word]
+f[t0] =
+  t1 <- load32((t0))
+  t2 <- add((t0, 4))
+  t3 <- load32((t2))
+  t4 <- add((t0, 8))
+  t5 <- mul((t1, t3))
+  t6 <- store32((t4, t5))
+  add((t1, t3))
+
+-----------------------------------------
+-- Entrypoints: f

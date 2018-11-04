@@ -1,0 +1,64 @@
+External generators: --------------------
+:#                  forall (a :: nat) (b :: nat) (c :: nat). Bit a -> Bit b -> Bit c
+@                   forall (a :: nat) (b :: area). Ref (Array a b) -> Ix a -> Ref b
+primBitAnd          forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitBit          forall (a :: nat). Ix a -> Bit a
+primBitBitSize      forall (a :: nat). Bit a -> Ix a
+primBitClearBit     forall (a :: nat). Bit a -> Ix a -> Bit a
+primBitEq           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitFlipBit      forall (a :: nat). Bit a -> Ix a -> Bit a
+primBitFromLiteral  forall (a :: nat) (b :: nat). Unit -> Bit b
+primBitGe           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitGt           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitLe           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitLt           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitMinus        forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitNe           forall (a :: nat). Bit a -> Bit a -> TODO
+primBitNegate       forall (a :: nat). Bit a -> Bit a
+primBitNot          forall (a :: nat). Bit a -> Bit a
+primBitOr           forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitPlus         forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitSGe          forall (a :: nat). Bit a -> Bit a -> TODO
+primBitSGt          forall (a :: nat). Bit a -> Bit a -> TODO
+primBitSLe          forall (a :: nat). Bit a -> Bit a -> TODO
+primBitSLt          forall (a :: nat). Bit a -> Bit a -> TODO
+primBitSelect       forall (a :: nat) (b :: nat) (c :: nat). Bit a -> Bit b
+primBitSetBit       forall (a :: nat). Bit a -> Ix a -> Bit a
+primBitShiftL       forall (a :: nat). Bit a -> Ix a -> Bit a
+primBitShiftRu      forall (a :: nat). Bit a -> Ix a -> Bit a
+primBitTestBit      forall (a :: nat). Bit a -> Ix a -> TODO
+primBitTimes        forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitToWord       forall (a :: nat). Bit a -> Word
+primBitXor          forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitsHi          forall (a :: nat) (b :: nat). Bit a -> Bit b
+primBitsLo          forall (a :: nat) (b :: nat). Bit a -> Bit b
+primDecIx           forall (a :: nat). Ix a -> TODO
+primGenDecIx        forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Ix b -> a
+primGenIncIx        forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Ix b -> a
+primGenLeqIx        forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Word -> Ix b -> a
+primGenMaybeIx      forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Word -> a
+primIncIx           forall (a :: nat). Ix a -> TODO
+primInitArray       forall (a :: nat) (b :: area). (Ix a -> Init b) -> Init (Array a b)
+primInitStored      forall (a :: *). a -> Init (Stored a)
+primIxEq            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxFromLiteral   forall (a :: nat) (b :: nat). Unit -> Ix b
+primIxGe            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxGt            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxLe            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxLt            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxMaxBound      forall (a :: nat). Ix a
+primIxNe            forall (a :: nat). Ix a -> Ix a -> TODO
+primIxShiftL        forall (a :: nat) (b :: nat). Ix a -> Ix b -> Ix a
+primIxShiftR        forall (a :: nat) (b :: nat). Ix a -> Ix b -> Ix a
+primIxToBit         forall (a :: nat) (b :: nat). Ix a -> Bit b
+primModIx           forall (a :: nat) (b :: nat). Bit a -> Ix b
+primNZBitDiv        forall (a :: nat). Bit a -> NZBit a -> Bit a
+primNZBitFromLiteralforall (a :: nat) (b :: nat). Unit -> NZBit b
+primNZBitNonZero    forall (a :: nat). Bit a -> TODO
+primReadRefStored   forall (a :: *). Ref (Stored a) -> TODO
+primRelaxIx         forall (a :: nat) (b :: nat). Ix a -> Ix b
+primStructSelect    forall (a :: area) (b :: lab) (c :: area). Ref a -> Unit -> Ref c
+primWordToBit       forall (a :: nat). Word -> Bit a
+primWriteRefStored  forall (a :: *). Ref (Stored a) -> a -> TODO
+61 external generators listed
+-----------------------------------------

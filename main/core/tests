@@ -2,3 +2,4 @@ tests: syntax
 tests: bitdata
 tests: structs
 tests: areas
+tests: prims

@@ -1,5 +1,8 @@
 This file contains tests for external generators
 -----------------------
+exec:  gens-list-all   ./milc -e
+
+-----------------------
 .lc:  gen-no-ref    ./milc -pcosoboro -m
 external putchar :: Word -> Proc Unit
 

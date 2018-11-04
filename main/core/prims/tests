@@ -1,0 +1,5 @@
+This file contains tests for primitives
+-----------------------
+exec:  prims-list-all   ./milc -h
+
+-----------------------

@@ -371,3 +371,18 @@ struct V1 [ p :: Array 12 S ]
 struct V2 [ r :: Array 12 U ]
 
 ------------
+.lc: struct-select-in-lc   ./milc -pcosoro -m
+require "prelude.lc"
+  
+struct S [x, y, z :: Stored Word]
+
+external readWord  {primReadRefStored  Word} :: Ref (Stored Word) -> Proc Word
+external writeWord {primWriteRefStored Word} :: Ref (Stored Word) -> Word -> Proc Unit
+
+entrypoint f :: Ref S -> Proc Word
+f r = do u <- readWord r.x
+         v <- readWord r.y
+         writeWord r.z (mul u v)
+         return (add u v)
+
+------------
