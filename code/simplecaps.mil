@@ -1,0 +1,22 @@
+-- Some examples using bitdata and struct types with sizes in MIL
+bitdata CNode/32 = CNode [ ptr  :: Bit 27 | radix :: Bit 5 ]
+bitdata Guard    = Guard [ bits :: Bit 18 | size  :: Bit 5 ]
+
+-- With --32, should use a single word check for NullCap below,
+-- reflected by using a mask test with a mask containing 32 1s.
+-- With --64, a single word equality check is sufficient (no mask required)
+bitdata Cap/64
+  = NullCap  [ 0                                   ]
+  | CNodeCap [ cnode :: CNode | guard :: Guard | 0 | B01 ]
+  | OtherCap [ various :: Bit 62                   | B10 ]
+
+struct CapSlot /16 [ cap :: Stored Cap | other :: Stored (Bit 64) ]
+
+entrypoint a
+external a {b} :: Ref CapSlot
+
+entrypoint isNull
+isNull[x] = case x of NullCap -> bt[]
+                      _       -> bf[]
+bt[] = return B1
+bf[] = return B0
