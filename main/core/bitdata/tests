@@ -541,3 +541,29 @@ usecase1 pde = if isMapped1 pde then a else b
 external a, b :: Proc Unit
 
 -----------------------
+.lc:   bitdata32    ./milc -m -pcosoro
+
+bitdata VMR/2 = KO [0]
+              | RO [1]
+              | RW [2]
+
+entrypoint f
+f vmr = case vmr of
+          KO -> 0
+          RO -> 1
+          RW -> 2
+
+-----------------------
+.lc:   bitdata32l    ./milc -pcosoro -l
+
+bitdata VMR/2 = KO [0]
+              | RO [1]
+              | RW [2]
+
+entrypoint f
+f vmr = case vmr of
+          KO -> 0
+          RO -> 1
+          RW -> 2
+
+-----------------------

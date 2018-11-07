@@ -1,0 +1,18 @@
+-----------------------------------------
+-- not recursive
+external b :: Word
+
+-----------------------------------------
+-- not recursive
+entrypoint a :: Word
+a <-
+  return b
+
+-----------------------------------------
+-- not recursive
+entrypoint isNull :: [Word, Word] >>= [Flag]
+isNull[t0, t1] =
+  primEq((t0, 0))
+
+-----------------------------------------
+-- Entrypoints: a isNull

@@ -2,8 +2,7 @@
 -- not recursive
 entrypoint isUnmapped :: [Word] >>= [Flag]
 isUnmapped[t0] =
-  t1 <- and((t0, 1))
-  primEq((t1, 0))
+  primEq((t0, 0))
 
 -----------------------------------------
 -- not recursive
@@ -16,8 +15,7 @@ isMapped[t0] =
 -- not recursive
 entrypoint isMapped1 :: [Word] >>= [Flag]
 isMapped1[t0] =
-  t1 <- and((t0, 1))
-  primNeq((t1, 0))
+  primNeq((t0, 0))
 
 -----------------------------------------
 -- not recursive

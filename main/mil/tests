@@ -141,20 +141,16 @@ entrypoint three
 three <- add((one, two))
 
 -------
-.mil: typesizes-in-mil   ./milc -m -pco
--- Some examples using bitdata and struct types with sizes in MIL
-bitdata CNode/32 = CNode [ ptr  :: Bit 27 | radix :: Bit 5 ]
-bitdata Guard    = Guard [ bits :: Bit 18 | size  :: Bit 5 ]
+exec: typesizes-in-mil   ./milc -m -pco --32 simplecaps.mil
 
-bitdata Cap/64
-  = NullCap  [ 0                                   ]
-  | CNodeCap [ cnode :: CNode | guard :: Guard | 0 | B01 ]
-  | OtherCap [ various :: Bit 62                   | B10 ]
+-------
+exec: typesizes-in-milr  ./milc -m -pcosoro --32 simplecaps.mil
 
-struct CapSlot /16 [ cap :: Stored Cap | other :: Stored (Bit 64) ]
+-------
+.mil: typesizes-in-mil-64   ./milc -m -pco --64 simplecaps.mil
 
-entrypoint a
-external a {b} :: Ref CapSlot
+-------
+.mil: typesizes-in-mil-64r  ./milc -m -pcosoro --64 simplecaps.mil
 
 -------
 .mil: t-dot-c-example   ./milc -m -pcosoro
