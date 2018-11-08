@@ -1,0 +1,37 @@
+-----------------------------------------
+-- not recursive
+external id :: [Word] ->> [Word]
+
+-----------------------------------------
+-- not recursive
+entrypoint x :: Word
+x <-
+  id @ 1
+
+-----------------------------------------
+-- not recursive
+external id1 :: [Bit 1] ->> [Bit 1]
+
+-----------------------------------------
+-- not recursive
+entrypoint y :: Bit 1
+y <-
+  id1 @ B1
+
+-----------------------------------------
+-- not recursive
+external id2 :: [Ref String] ->> [Ref String]
+
+-----------------------------------------
+-- not recursive
+str0 :: Ref String
+str0 <- "hello"
+
+-----------------------------------------
+-- not recursive
+entrypoint z :: Ref String
+z <-
+  id2 @ str0
+
+-----------------------------------------
+-- Entrypoints: x y z

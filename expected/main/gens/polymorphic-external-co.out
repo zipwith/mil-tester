@@ -1,0 +1,29 @@
+-----------------------------------------
+-- not recursive
+external id :: forall (a :: *). [a] ->> [a]
+
+-----------------------------------------
+-- not recursive
+str0 :: Ref String
+str0 <- "hello"
+
+-----------------------------------------
+-- not recursive
+entrypoint z :: Ref String
+z <-
+  id @ str0
+
+-----------------------------------------
+-- not recursive
+entrypoint y :: Bit 1
+y <-
+  id @ B1
+
+-----------------------------------------
+-- not recursive
+entrypoint x :: Word
+x <-
+  id @ 1
+
+-----------------------------------------
+-- Entrypoints: z y x

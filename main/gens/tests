@@ -116,6 +116,48 @@ entrypoint mylarge
 mylarge <- return large
 
 -----------------------
+.lc: polymorphic-external-co ./milc -m -pco
+external id :: a -> a
+entrypoint x, y, z
+x = id 1
+y = id B1
+z = id "hello"
+-----------------------
+.lc: polymorphic-external-coso ./milc -m -pcoso
+external id :: a -> a
+entrypoint x, y, z
+x = id 1
+y = id B1
+z = id "hello"
+-----------------------
+.lc: polymorphic-external-cosoro ./milc -m -pcosoro
+external id :: a -> a
+entrypoint x, y, z
+x = id 1
+y = id B1
+z = id "hello"
+-----------------------
+.lc: polymorphic-external-gen-co ./milc -m -pco
+entrypoint x1, x2, x4
+external plus {primBitPlus n} :: Bit n -> Bit n -> Bit n
+x1 = plus B1 B0
+x2 = plus B10 B11
+x4 = plus B0010 B0011
+-----------------------
+.lc: polymorphic-external-gen-coso ./milc -m -pcoso
+entrypoint x1, x2, x4
+external plus {primBitPlus n} :: Bit n -> Bit n -> Bit n
+x1 = plus B1 B0
+x2 = plus B10 B11
+x4 = plus B0010 B0011
+-----------------------
+.lc: polymorphic-external-gen-cosoro ./milc -m -pcosoro
+entrypoint x1, x2, x4
+external plus {primBitPlus n} :: Bit n -> Bit n -> Bit n
+x1 = plus B1 B0
+x2 = plus B10 B11
+x4 = plus B0010 B0011
+-----------------------
 .lc: primBitFromLiteral-basic   ./milc -pcosoboro -m
 entrypoint invalid1, invalid2, invalid3, invalid4, invalid5
 
@@ -2611,4 +2653,4 @@ external ia7S {primInitArray 7 S} :: (Ix 7 -> Init S) -> Init (Array 7 S)
 external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
 external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
 
-------------
+-----------------------

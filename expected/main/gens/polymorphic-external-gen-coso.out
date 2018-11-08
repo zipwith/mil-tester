@@ -1,0 +1,53 @@
+-----------------------------------------
+-- not recursive
+external plus {primBitPlus 1} :: [Bit 1] ->> [[Bit 1] ->> [Bit 1]]
+
+-----------------------------------------
+-- not recursive
+b5 :: [] >>= [Bit 1]
+b5[] =
+  t0 <- plus @ B1
+  t0 @ B0
+
+-----------------------------------------
+-- not recursive
+entrypoint x1 :: Bit 1
+x1 <-
+  b5[]
+
+-----------------------------------------
+-- not recursive
+external plus1 {primBitPlus 2} :: [Bit 2] ->> [[Bit 2] ->> [Bit 2]]
+
+-----------------------------------------
+-- not recursive
+b4 :: [] >>= [Bit 2]
+b4[] =
+  t0 <- plus1 @ B10
+  t0 @ B11
+
+-----------------------------------------
+-- not recursive
+entrypoint x2 :: Bit 2
+x2 <-
+  b4[]
+
+-----------------------------------------
+-- not recursive
+external plus2 {primBitPlus 4} :: [Bit 4] ->> [[Bit 4] ->> [Bit 4]]
+
+-----------------------------------------
+-- not recursive
+b3 :: [] >>= [Bit 4]
+b3[] =
+  t0 <- plus2 @ X2
+  t0 @ X3
+
+-----------------------------------------
+-- not recursive
+entrypoint x4 :: Bit 4
+x4 <-
+  b3[]
+
+-----------------------------------------
+-- Entrypoints: x1 x2 x4

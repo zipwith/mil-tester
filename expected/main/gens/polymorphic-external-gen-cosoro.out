@@ -1,0 +1,20 @@
+-----------------------------------------
+-- not recursive
+entrypoint x1 :: Flag
+x1 <-
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint x2 :: Word
+x2 <-
+  return 1
+
+-----------------------------------------
+-- not recursive
+entrypoint x4 :: Word
+x4 <-
+  return 5
+
+-----------------------------------------
+-- Entrypoints: x1 x2 x4

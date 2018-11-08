@@ -1,0 +1,25 @@
+-----------------------------------------
+-- not recursive
+entrypoint x :: Word
+x <-
+  id((1))
+
+-----------------------------------------
+-- not recursive
+entrypoint y :: Flag
+y <-
+  id1((flag1))
+
+-----------------------------------------
+-- not recursive
+str0 :: Word
+str0 <- "hello"
+
+-----------------------------------------
+-- not recursive
+entrypoint z :: Word
+z <-
+  id2((str0))
+
+-----------------------------------------
+-- Entrypoints: x y z
