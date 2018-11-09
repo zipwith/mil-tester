@@ -1,0 +1,55 @@
+define internal i32 @func_b101(i32 %r0) {
+  br label %b101
+
+b101:
+  %r1 = icmp ult i32 %r0, 15
+  br i1 %r1, label %b103, label %b104
+
+b103:
+  %r4 = shl i32 %r0, 1
+  %r3 = add i32 %r4, 2
+  %r2 = or i32 %r3, 1
+  ret i32 %r2
+
+b104:
+  ret i32 0
+}
+
+define i32 @findNull(i32 %r0) {
+  br label %findNull
+
+findNull:
+  %r3 = inttoptr i32 %r0 to i32*
+  %r2 = load i32, i32* %r3
+  %r1 = icmp eq i32 %r2, 0
+  br i1 %r1, label %b105, label %b85
+
+b105:
+  ret i32 %r0
+
+b85:
+  %r7 = phi i32 [0, %findNull], [%r9, %b94]
+  %r8 = phi i32 [%r0, %findNull], [%r8, %b94]
+  %r6 = call i32 @func_b101(i32 %r7)
+  %r5 = and i32 %r6, 1
+  %r4 = icmp eq i32 %r5, 1
+  br i1 %r4, label %b94, label %b104
+
+b94:
+  %r9 = lshr i32 %r6, 1
+  %r14 = shl i32 %r9, 2
+  %r13 = add i32 %r8, %r14
+  %r12 = inttoptr i32 %r13 to i32*
+  %r11 = load i32, i32* %r12
+  %r10 = icmp eq i32 %r11, 0
+  br i1 %r10, label %b95, label %b85
+
+b104:
+  ret i32 0
+
+b95:
+  %r16 = shl i32 %r9, 2
+  %r15 = add i32 %r8, %r16
+  ret i32 %r15
+}
+

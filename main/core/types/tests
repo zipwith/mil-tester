@@ -1,0 +1,51 @@
+--------------
+.lc: pointers-bitsize-32   ./milc -m -pco --32
+-- Do we compute the correct BitSize for pointers?
+bitdata ExW/32 = ExW [ val :: Ptr (Stored Word) | 0 ]
+
+entrypoint idexW :: ExW -> Ptr (Stored Word)
+idexW e = e.val
+
+bitdata ExB/32 = ExB [ val :: Ptr (Stored (Bit 8)) | 0 ]
+
+entrypoint idexB :: ExB -> Ptr (Stored (Bit 8))
+idexB e = e.val
+
+bitdata ExL/32 = ExL [ val :: Ptr (Stored (Bit 64)) | 0 ]
+
+entrypoint idexL :: ExL -> Ptr (Stored (Bit 64))
+idexL e = e.val
+
+--------------
+.lc: pointers-bitsize-64   ./milc -m -pco --64
+-- Do we compute the correct BitSize for pointers?
+bitdata ExW/64 = ExW [ val :: Ptr (Stored Word) | 0 ]
+
+entrypoint idexW :: ExW -> Ptr (Stored Word)
+idexW e = e.val
+
+bitdata ExB/64 = ExB [ val :: Ptr (Stored (Bit 8)) | 0 ]
+
+entrypoint idexB :: ExB -> Ptr (Stored (Bit 8))
+idexB e = e.val
+
+bitdata ExL/64 = ExL [ val :: Ptr (Stored (Bit 64)) | 0 ]
+
+entrypoint idexL :: ExL -> Ptr (Stored (Bit 64))
+idexL e = e.val
+
+--------------
+exec: pointers-deref-co         ./milc -m -pco       --32 deref.lc
+exec: pointers-deref-coso       ./milc -m -pcoso     --32 deref.lc
+exec: pointers-deref-cosobo     ./milc -m -pcosobo   --32 deref.lc
+exec: pointers-deref-cosoro     ./milc -m -pcosoro   --32 deref.lc
+exec: pointers-deref-cosoboro   ./milc -m -pcosoboro --32 deref.lc
+exec: pointers-deref-l          ./milc -l            --32 deref.lc
+--------------
+exec: pointers-findnull-co       ./milc -m -pco       --32  findnull.lc
+exec: pointers-findnull-coso     ./milc -m -pcoso     --32  findnull.lc
+exec: pointers-findnull-cosobo   ./milc -m -pcosobo   --32  findnull.lc
+exec: pointers-findnull-cosoro   ./milc -m -pcosoro   --32  findnull.lc
+exec: pointers-findnull-cosoboro ./milc -m -pcosoboro --32  findnull.lc
+exec: pointers-findnull-l        ./milc -l            --32  findnull.lc
+--------------

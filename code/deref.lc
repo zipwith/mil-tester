@@ -1,0 +1,7 @@
+require "prelude.lc"
+deref p = case p of Null  -> Nothing
+                    Ref r -> Just r
+entrypoint derefSW, derefSI
+derefSW = deref :: Ptr (Stored Word) -> Maybe (Ref (Stored Word))
+derefSI = deref :: Ptr (Stored (Ix 256)) -> Maybe (Ref (Stored (Ix 256)))
+

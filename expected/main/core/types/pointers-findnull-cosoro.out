@@ -1,0 +1,51 @@
+-----------------------------------------
+-- not recursive
+b72 :: [] >>= [Word]
+b72[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+b89 :: [Word, Word] >>= [Word]
+b89[t0, t1] =
+  t2 <- shl((t1, 2))
+  add((t0, t2))
+
+-----------------------------------------
+-- recursive
+b106 :: [Word, Word] >>= [Word]
+b106[t0, t1] =
+  t2 <- add((t0, 1))
+  t3 <- shl((t0, 2))
+  t4 <- add((t1, t3))
+  t5 <- add((t4, 4))
+  t6 <- load32((t5))
+  t7 <- primEq((t6, 0))
+  if t7
+    then b89[t1, t2]
+    else b105[t2, t1]
+b105 :: [Word, Word] >>= [Word]
+b105[t0, t1] =
+  t2 <- primUlt((t0, 15))
+  if t2
+    then b106[t0, t1]
+    else b72[]
+
+-----------------------------------------
+-- not recursive
+b100 :: forall (a :: *). [a] >>= [a]
+b100[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint findNull :: [Word] >>= [Word]
+findNull[t0] =
+  t1 <- load32((t0))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b100[t0]
+    else b105[0, t0]
+
+-----------------------------------------
+-- Entrypoints: findNull

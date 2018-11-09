@@ -1,0 +1,17 @@
+require "prelude.lc"
+
+external zero16   {primIxFromLiteral 0 16} :: Unit -> Ix 16
+external get      {primReadRefStored a}    :: Ref (Stored a) -> Proc a
+external at       {@ n a}                  :: Ref (Array n a) -> Ix n -> Ref a
+external genIncIx {primGenIncIx a b}       :: a -> (Ix b -> a) -> Ix b -> a
+incIx = genIncIx Nothing Just
+
+entrypoint findNull :: Ref (Array 16 (Stored (Ptr (Stored Word)))) -> Proc (Ptr (Stored (Ptr (Stored Word))))
+findNull array
+  = let loop i = case<- get (array `at` i) of
+                   Null    -> return (Ref (array `at` i))
+                   Ref obj -> case incIx i of
+                                Just j  -> loop j
+                                Nothing -> return Null
+    in loop (zero16 Unit)
+

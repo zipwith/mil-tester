@@ -1,0 +1,29 @@
+define i32 @derefSI(i32 %r0) {
+  br label %derefSI
+
+derefSI:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b66, label %b82
+
+b66:
+  ret i32 0
+
+b82:
+  ret i32 %r0
+}
+
+define i32 @derefSW(i32 %r0) {
+  br label %derefSW
+
+derefSW:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b66, label %b81
+
+b66:
+  ret i32 0
+
+b81:
+  %r2 = lshr i32 %r0, 2
+  ret i32 %r2
+}
+

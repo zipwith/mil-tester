@@ -1,0 +1,142 @@
+bitdata Maybe0 /5
+  = Nothing0 [ B0_0000 ]
+    -- predNothing0(x :: Bit 5) = x == 0b0
+  | Just1 [ Just10 :: Ix 16 | B1 ]
+    -- predJust1(x :: Bit 5) = (x & 0b1) == 0b1
+
+-- bit pattern:
+--  0000_
+--  00011
+--  001_1
+--  01__1
+--  1___1
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external zero16 {primIxFromLiteral 0 16} :: [Unit] ->> [Ix 16]
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+external at {@ 16 (Stored (Ptr (Stored Word)))} :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[Ix 16] ->> [Ref (Stored (Ptr (Stored Word)))]]
+
+-----------------------------------------
+-- not recursive
+external get {primReadRefStored (Ptr (Stored Word))} :: [Ref (Stored (Ptr (Stored Word)))] ->> [[] ->> [Ptr (Stored Word)]]
+
+-----------------------------------------
+-- not recursive
+external genIncIx {primGenIncIx Maybe0 16} :: [Maybe0] ->> [[[Ix 16] ->> [Maybe0]] ->> [[Ix 16] ->> [Maybe0]]]
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b93 :: [Ix 16] >>= [Maybe0]
+b93[t0] =
+  t1 <- Maybe0.Just1(t0)
+  Just1(t1)
+
+-----------------------------------------
+-- not recursive
+k43 :: {} [Ix 16] ->> [Maybe0]
+k43{} t0 = b93[t0]
+
+-----------------------------------------
+-- not recursive
+Just :: [Ix 16] ->> [Maybe0]
+Just <-
+  k43{}
+
+-----------------------------------------
+-- not recursive
+Null :: Ptr (Stored (Ptr (Stored Word)))
+Null <-
+  Null()
+
+-----------------------------------------
+-- not recursive
+b72 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b72[] =
+  return Null
+
+-----------------------------------------
+-- not recursive
+b69 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b69[t0, t1] =
+  t2 <- at @ t0
+  t3 <- t2 @ t1
+  Ref(t3)
+
+-----------------------------------------
+-- recursive
+b95 :: [Maybe0, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b95[t0, t1] =
+  assert t0 Just1
+  t2 <- Just1 0 t0
+  t3 <- Maybe0.Just1 0 t2
+  t4 <- at @ t1
+  t5 <- t4 @ t3
+  t6 <- get @ t5
+  t7 <- t6 @ []
+  case t7 of
+    Null -> b69[t1, t3]
+    Ref -> b85[t3, t1]
+b85 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b85[t0, t1] =
+  t2 <- genIncIx @ Nothing
+  t3 <- t2 @ Just
+  t4 <- t3 @ t0
+  case t4 of
+    Just1 -> b95[t4, t1]
+    Nothing0 -> b72[]
+
+-----------------------------------------
+-- not recursive
+b74 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b74[t0, t1] =
+  t2 <- at @ t0
+  t3 <- t2 @ t1
+  t4 <- get @ t3
+  t5 <- t4 @ []
+  case t5 of
+    Null -> b69[t0, t1]
+    Ref -> b85[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k45 :: {Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k45{t0, t1} [] = b74[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b65 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+b65[t0] =
+  t1 <- zero16 @ Unit
+  k45{t1, t0}
+
+-----------------------------------------
+-- not recursive
+k44 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+k44{} t0 = b65[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+findNull <-
+  k44{}
+
+-----------------------------------------
+-- Entrypoints: findNull

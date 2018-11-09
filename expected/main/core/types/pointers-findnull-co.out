@@ -1,0 +1,125 @@
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external zero16 {primIxFromLiteral 0 16} :: [Unit] ->> [Ix 16]
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+external at {@ n a} :: forall (n :: nat) (a :: area). [Ref (Array n a)] ->> [[Ix n] ->> [Ref a]]
+
+-----------------------------------------
+-- not recursive
+external get {primReadRefStored a} :: forall (a :: *). [Ref (Stored a)] ->> [[] ->> [a]]
+
+-----------------------------------------
+-- not recursive
+external genIncIx {primGenIncIx a b} :: forall (a :: *) (b :: nat). [a] ->> [[[Ix b] ->> [a]] ->> [[Ix b] ->> [a]]]
+
+-----------------------------------------
+-- not recursive
+Nothing :: forall (a :: *). Maybe a
+Nothing <-
+  Nothing()
+
+-----------------------------------------
+-- not recursive
+k43 :: forall (a :: *). {} [a] ->> [Maybe a]
+k43{} t0 = Just(t0)
+
+-----------------------------------------
+-- not recursive
+Just :: forall (a :: *). [a] ->> [Maybe a]
+Just <-
+  k43{}
+
+-----------------------------------------
+-- not recursive
+Null :: forall (a :: area). Ptr a
+Null <-
+  Null()
+
+-----------------------------------------
+-- not recursive
+b72 :: forall (a :: area). [] >>= [Ptr a]
+b72[] =
+  return Null
+
+-----------------------------------------
+-- not recursive
+b69 :: forall (n :: nat) (a :: area). [Ref (Array n a), Ix n] >>= [Ptr a]
+b69[t0, t1] =
+  t2 <- at @ t0
+  t3 <- t2 @ t1
+  Ref(t3)
+
+-----------------------------------------
+-- recursive
+b87 :: forall (b :: nat) (a :: area). [Maybe (Ix b), Ref (Array b (Stored (Ptr a)))] >>= [Ptr (Stored (Ptr a))]
+b87[t0, t1] =
+  assert t0 Just
+  t2 <- Just 0 t0
+  t3 <- at @ t1
+  t4 <- t3 @ t2
+  t5 <- get @ t4
+  t6 <- t5 @ []
+  case t6 of
+    Null -> b69[t1, t2]
+    Ref -> b85[t2, t1]
+b85 :: forall (b :: nat) (a :: area). [Ix b, Ref (Array b (Stored (Ptr a)))] >>= [Ptr (Stored (Ptr a))]
+b85[t0, t1] =
+  t2 <- genIncIx @ Nothing
+  t3 <- t2 @ Just
+  t4 <- t3 @ t0
+  case t4 of
+    Just -> b87[t4, t1]
+    Nothing -> b72[]
+
+-----------------------------------------
+-- not recursive
+b74 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b74[t0, t1] =
+  t2 <- at @ t0
+  t3 <- t2 @ t1
+  t4 <- get @ t3
+  t5 <- t4 @ []
+  case t5 of
+    Null -> b69[t0, t1]
+    Ref -> b85[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k45 :: {Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k45{t0, t1} [] = b74[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b65 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+b65[t0] =
+  t1 <- zero16 @ Unit
+  k45{t1, t0}
+
+-----------------------------------------
+-- not recursive
+k44 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+k44{} t0 = b65[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+findNull <-
+  k44{}
+
+-----------------------------------------
+-- Entrypoints: findNull

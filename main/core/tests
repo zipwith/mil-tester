@@ -1,4 +1,5 @@
 tests: syntax
+tests: types
 tests: bitdata
 tests: structs
 tests: areas

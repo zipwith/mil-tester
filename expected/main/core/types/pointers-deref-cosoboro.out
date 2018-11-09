@@ -1,0 +1,38 @@
+-----------------------------------------
+-- not recursive
+b71 :: [Word] >>= [Word]
+b71[t0] =
+  lshr((t0, 2))
+
+-----------------------------------------
+-- not recursive
+b66 :: [] >>= [Word]
+b66[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint derefSW :: [Word] >>= [Word]
+derefSW[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b66[]
+    else b71[t0]
+
+-----------------------------------------
+-- not recursive
+b72 :: [Word] >>= [Word]
+b72[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint derefSI :: [Word] >>= [Word]
+derefSI[t0] =
+  t1 <- primEq((t0, 0))
+  if t1
+    then b66[]
+    else b72[t0]
+
+-----------------------------------------
+-- Entrypoints: derefSW derefSI

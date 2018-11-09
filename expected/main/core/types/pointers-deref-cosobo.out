@@ -1,0 +1,112 @@
+bitdata Maybe0 /30
+  = Nothing0 [ B00_0000_0000_0000_0000_0000_0000_0000 ]
+    -- predNothing0(x :: Bit 30) = x == 0b0
+  | Just1 [ Just10 :: Ref (Stored Word) ]
+    -- predJust1(x :: Bit 30) = x != 0b0
+
+-- bit pattern:
+--  ______________________________
+
+bitdata Maybe1 /32
+  = Nothing2 [ X0000_0000 ]
+    -- predNothing2(x :: Bit 32) = x == 0b0
+  | Just3 [ Just30 :: Ref (Stored (Ix 256)) ]
+    -- predJust3(x :: Bit 32) = x != 0b0
+
+-- bit pattern:
+--  ________________________________
+
+-----------------------------------------
+-- not recursive
+b71 :: [Ptr (Stored Word)] >>= [Maybe0]
+b71[t0] =
+  assert t0 Ref
+  t1 <- Ref 0 t0
+  t2 <- Maybe0.Just1(t1)
+  Just1(t2)
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b66 :: [] >>= [Maybe0]
+b66[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+b68 :: [Ptr (Stored Word)] >>= [Maybe0]
+b68[t0] =
+  case t0 of
+    Null -> b66[]
+    Ref -> b71[t0]
+
+-----------------------------------------
+-- not recursive
+k44 :: {} [Ptr (Stored Word)] ->> [Maybe0]
+k44{} t0 = b68[t0]
+
+-----------------------------------------
+-- not recursive
+deref :: [Ptr (Stored Word)] ->> [Maybe0]
+deref <-
+  k44{}
+
+-----------------------------------------
+-- not recursive
+entrypoint derefSW :: [Ptr (Stored Word)] ->> [Maybe0]
+derefSW <-
+  return deref
+
+-----------------------------------------
+-- not recursive
+b72 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
+b72[t0] =
+  assert t0 Ref
+  t1 <- Ref 0 t0
+  t2 <- Maybe1.Just3(t1)
+  Just3(t2)
+
+-----------------------------------------
+-- not recursive
+s2 :: Maybe1
+s2 <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+b661 :: [] >>= [Maybe1]
+b661[] =
+  return s2
+
+-----------------------------------------
+-- not recursive
+b681 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
+b681[t0] =
+  case t0 of
+    Null -> b661[]
+    Ref -> b72[t0]
+
+-----------------------------------------
+-- not recursive
+k441 :: {} [Ptr (Stored (Ix 256))] ->> [Maybe1]
+k441{} t0 = b681[t0]
+
+-----------------------------------------
+-- not recursive
+s1 :: [Ptr (Stored (Ix 256))] ->> [Maybe1]
+s1 <-
+  k441{}
+
+-----------------------------------------
+-- not recursive
+entrypoint derefSI :: [Ptr (Stored (Ix 256))] ->> [Maybe1]
+derefSI <-
+  return s1
+
+-----------------------------------------
+-- Entrypoints: derefSW derefSI

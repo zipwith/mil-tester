@@ -1,7 +1,7 @@
 This is the main file for collecting mil-tools test cases.
 
+tests: core
 tests: mil
 tests: lc
-tests: core
 tests: gens
 
