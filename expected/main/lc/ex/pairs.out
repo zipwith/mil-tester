@@ -3,8 +3,8 @@ data Pair0
 
 -----------------------------------------
 -- not recursive
-b64 :: [] >>= [Pair0]
-b64[] =
+b65 :: [] >>= [Pair0]
+b65[] =
   t0 <- f1((1))
   t1 <- f2((2))
   Pair0(t0, t1)
@@ -13,7 +13,7 @@ b64[] =
 -- not recursive
 entrypoint main :: Pair0
 main <-
-  b64[]
+  b65[]
 
 -----------------------------------------
 -- Entrypoints: main

@@ -4,14 +4,14 @@ data Foo0
 
 -----------------------------------------
 -- not recursive
-k5 :: {} [Word] ->> [Word]
-k5{} t0 = return t0
+k6 :: {} [Word] ->> [Word]
+k6{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 s1 :: [Word] ->> [Word]
 s1 <-
-  k5{}
+  k6{}
 
 -----------------------------------------
 -- not recursive

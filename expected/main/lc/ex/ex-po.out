@@ -12,8 +12,8 @@ d1 <-
 
 -----------------------------------------
 -- not recursive
-b71 :: forall (a :: *). [Dup a] >>= [Dup a]
-b71[t0] =
+b72 :: forall (a :: *). [Dup a] >>= [Dup a]
+b72[t0] =
   assert t0 Dup
   t1 <- Dup 0 t0
   t2 <- Dup 1 t0
@@ -27,22 +27,22 @@ b0[] =
 
 -----------------------------------------
 -- not recursive
-b69 :: forall (a :: *). [Dup a] >>= [Dup a]
-b69[t0] =
+b70 :: forall (a :: *). [Dup a] >>= [Dup a]
+b70[t0] =
   case t0 of
-    Dup -> b71[t0]
+    Dup -> b72[t0]
     _ -> b0[]
 
 -----------------------------------------
 -- not recursive
-k45 :: forall (a :: *). {} [Dup a] ->> [Dup a]
-k45{} t0 = b69[t0]
+k46 :: forall (a :: *). {} [Dup a] ->> [Dup a]
+k46{} t0 = b70[t0]
 
 -----------------------------------------
 -- not recursive
 s2 :: forall (a :: *). [Dup a] ->> [Dup a]
 s2 <-
-  k45{}
+  k46{}
 
 -----------------------------------------
 -- not recursive

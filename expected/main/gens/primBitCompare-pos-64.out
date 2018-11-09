@@ -87,8 +87,8 @@ gt64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b17 :: [Word, Word, Word, Word] >>= [Flag]
-b17[t0, t1, t2, t3] =
+b18 :: [Word, Word, Word, Word] >>= [Flag]
+b18[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then gt32[t0, t2]
@@ -101,7 +101,7 @@ gt98[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b17[t0, t1, t2, t3]
+    else b18[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -123,8 +123,8 @@ ge64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b23 :: [Word, Word, Word, Word] >>= [Flag]
-b23[t0, t1, t2, t3] =
+b24 :: [Word, Word, Word, Word] >>= [Flag]
+b24[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then ge32[t0, t2]
@@ -137,7 +137,7 @@ ge98[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b23[t0, t1, t2, t3]
+    else b24[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -159,8 +159,8 @@ lt64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b29 :: [Word, Word, Word, Word] >>= [Flag]
-b29[t0, t1, t2, t3] =
+b30 :: [Word, Word, Word, Word] >>= [Flag]
+b30[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then lt32[t0, t2]
@@ -173,7 +173,7 @@ lt98[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b29[t0, t1, t2, t3]
+    else b30[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -195,8 +195,8 @@ le64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b35 :: [Word, Word, Word, Word] >>= [Flag]
-b35[t0, t1, t2, t3] =
+b36 :: [Word, Word, Word, Word] >>= [Flag]
+b36[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then le32[t0, t2]
@@ -209,7 +209,7 @@ le98[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b35[t0, t1, t2, t3]
+    else b36[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive

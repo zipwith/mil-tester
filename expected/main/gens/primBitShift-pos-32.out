@@ -20,8 +20,8 @@ bitShiftL32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b8 :: [Word, Word] >>= [Word, Word]
-b8[t0, t1] =
+b9 :: [Word, Word] >>= [Word, Word]
+b9[t0, t1] =
   t2 <- add((t1, -32))
   t3 <- shl((t0, t2))
   t4 <- and((t3, 63))
@@ -29,24 +29,24 @@ b8[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b7 :: [Word] >>= [Word, Word]
-b7[t0] =
+b8 :: [Word] >>= [Word, Word]
+b8[t0] =
   t1 <- and((t0, 63))
   return [0, t1]
 
 -----------------------------------------
 -- not recursive
-b9 :: [Word, Word] >>= [Word, Word]
-b9[t0, t1] =
+b10 :: [Word, Word] >>= [Word, Word]
+b10[t0, t1] =
   t2 <- primEq((t1, 32))
   if t2
-    then b7[t0]
-    else b8[t0, t1]
+    then b8[t0]
+    else b9[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b6 :: [Word, Word, Word] >>= [Word, Word]
-b6[t0, t1, t2] =
+b7 :: [Word, Word, Word] >>= [Word, Word]
+b7[t0, t1, t2] =
   t3 <- sub((32, t2))
   t4 <- shl((t0, t2))
   t5 <- shl((t1, t2))
@@ -61,36 +61,36 @@ entrypoint bitShiftL38 :: [Word, Word, Word] >>= [Word, Word]
 bitShiftL38[t0, t1, t2] =
   t3 <- primUlt((t2, 32))
   if t3
-    then b6[t0, t1, t2]
-    else b9[t0, t2]
+    then b7[t0, t1, t2]
+    else b10[t0, t2]
 
 -----------------------------------------
 -- not recursive
-b13 :: [Word, Word] >>= [Word, Word]
-b13[t0, t1] =
+b14 :: [Word, Word] >>= [Word, Word]
+b14[t0, t1] =
   t2 <- add((t1, -32))
   t3 <- shl((t0, t2))
   return [0, t3]
 
 -----------------------------------------
 -- not recursive
-b12 :: forall (a :: *). [a] >>= [Word, a]
-b12[t0] =
+b13 :: forall (a :: *). [a] >>= [Word, a]
+b13[t0] =
   return [0, t0]
 
 -----------------------------------------
 -- not recursive
-b14 :: [Word, Word] >>= [Word, Word]
-b14[t0, t1] =
+b15 :: [Word, Word] >>= [Word, Word]
+b15[t0, t1] =
   t2 <- primEq((t1, 32))
   if t2
-    then b12[t0]
-    else b13[t0, t1]
+    then b13[t0]
+    else b14[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b11 :: [Word, Word, Word] >>= [Word, Word]
-b11[t0, t1, t2] =
+b12 :: [Word, Word, Word] >>= [Word, Word]
+b12[t0, t1, t2] =
   t3 <- sub((32, t2))
   t4 <- shl((t0, t2))
   t5 <- shl((t1, t2))
@@ -104,13 +104,13 @@ entrypoint bitShiftL64 :: [Word, Word, Word] >>= [Word, Word]
 bitShiftL64[t0, t1, t2] =
   t3 <- primUlt((t2, 32))
   if t3
-    then b11[t0, t1, t2]
-    else b14[t0, t2]
+    then b12[t0, t1, t2]
+    else b15[t0, t2]
 
 -----------------------------------------
 -- not recursive
-b25 :: [Word, Word] >>= [Word, Word, Word, Word]
-b25[t0, t1] =
+b26 :: [Word, Word] >>= [Word, Word, Word, Word]
+b26[t0, t1] =
   t2 <- add((t1, -96))
   t3 <- shl((t0, t2))
   t4 <- and((t3, 3))
@@ -118,24 +118,24 @@ b25[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b24 :: [Word] >>= [Word, Word, Word, Word]
-b24[t0] =
+b25 :: [Word] >>= [Word, Word, Word, Word]
+b25[t0] =
   t1 <- and((t0, 3))
   return [0, 0, 0, t1]
 
 -----------------------------------------
 -- not recursive
-b26 :: [Word, Word] >>= [Word, Word, Word, Word]
-b26[t0, t1] =
+b27 :: [Word, Word] >>= [Word, Word, Word, Word]
+b27[t0, t1] =
   t2 <- primEq((t1, 96))
   if t2
-    then b24[t0]
-    else b25[t0, t1]
+    then b25[t0]
+    else b26[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b22 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b22[t0, t1, t2] =
+b23 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b23[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- sub((96, t2))
   t5 <- shl((t0, t3))
@@ -147,33 +147,33 @@ b22[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b21 :: forall (a :: *). [a, Word] >>= [Word, Word, a, Word]
-b21[t0, t1] =
+b22 :: forall (a :: *). [a, Word] >>= [Word, Word, a, Word]
+b22[t0, t1] =
   t2 <- and((t1, 3))
   return [0, 0, t0, t2]
 
 -----------------------------------------
 -- not recursive
-b23 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b23[t0, t1, t2] =
+b24 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b24[t0, t1, t2] =
   t3 <- primEq((t2, 64))
   if t3
-    then b21[t0, t1]
-    else b22[t0, t1, t2]
+    then b22[t0, t1]
+    else b23[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-b27 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b27[t0, t1, t2] =
+b28 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b28[t0, t1, t2] =
   t3 <- primUlt((t2, 96))
   if t3
-    then b23[t0, t1, t2]
-    else b26[t0, t2]
+    then b24[t0, t1, t2]
+    else b27[t0, t2]
 
 -----------------------------------------
 -- not recursive
-b18 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b18[t0, t1, t2, t3] =
+b19 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b19[t0, t1, t2, t3] =
   t4 <- add((t3, -32))
   t5 <- sub((64, t3))
   t6 <- shl((t0, t4))
@@ -188,24 +188,24 @@ b18[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b17 :: forall (a :: *) (b :: *). [a, b, Word] >>= [Word, a, b, Word]
-b17[t0, t1, t2] =
+b18 :: forall (a :: *) (b :: *). [a, b, Word] >>= [Word, a, b, Word]
+b18[t0, t1, t2] =
   t3 <- and((t2, 3))
   return [0, t0, t1, t3]
 
 -----------------------------------------
 -- not recursive
-b19 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b19[t0, t1, t2, t3] =
+b20 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b20[t0, t1, t2, t3] =
   t4 <- primEq((t3, 32))
   if t4
-    then b17[t0, t1, t2]
-    else b18[t0, t1, t2, t3]
+    then b18[t0, t1, t2]
+    else b19[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b16 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b16[t0, t1, t2, t3, t4] =
+b17 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b17[t0, t1, t2, t3, t4] =
   t5 <- sub((32, t4))
   t6 <- shl((t0, t4))
   t7 <- shl((t3, t4))
@@ -222,12 +222,12 @@ b16[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-b20 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b20[t0, t1, t2, t3, t4] =
+b21 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b21[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 32))
   if t5
-    then b16[t0, t1, t2, t3, t4]
-    else b19[t0, t1, t2, t4]
+    then b17[t0, t1, t2, t3, t4]
+    else b20[t0, t1, t2, t4]
 
 -----------------------------------------
 -- not recursive
@@ -235,36 +235,36 @@ entrypoint bitShiftL98 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, 
 bitShiftL98[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 64))
   if t5
-    then b20[t0, t1, t2, t3, t4]
-    else b27[t0, t1, t4]
+    then b21[t0, t1, t2, t3, t4]
+    else b28[t0, t1, t4]
 
 -----------------------------------------
 -- not recursive
-b38 :: [Word, Word] >>= [Word, Word, Word, Word]
-b38[t0, t1] =
+b39 :: [Word, Word] >>= [Word, Word, Word, Word]
+b39[t0, t1] =
   t2 <- add((t1, -96))
   t3 <- shl((t0, t2))
   return [0, 0, 0, t3]
 
 -----------------------------------------
 -- not recursive
-b37 :: forall (a :: *). [a] >>= [Word, Word, Word, a]
-b37[t0] =
+b38 :: forall (a :: *). [a] >>= [Word, Word, Word, a]
+b38[t0] =
   return [0, 0, 0, t0]
 
 -----------------------------------------
 -- not recursive
-b39 :: [Word, Word] >>= [Word, Word, Word, Word]
-b39[t0, t1] =
+b40 :: [Word, Word] >>= [Word, Word, Word, Word]
+b40[t0, t1] =
   t2 <- primEq((t1, 96))
   if t2
-    then b37[t0]
-    else b38[t0, t1]
+    then b38[t0]
+    else b39[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b35 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b35[t0, t1, t2] =
+b36 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b36[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- sub((96, t2))
   t5 <- shl((t0, t3))
@@ -275,32 +275,32 @@ b35[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b34 :: forall (a :: *) (b :: *). [a, b] >>= [Word, Word, a, b]
-b34[t0, t1] =
+b35 :: forall (a :: *) (b :: *). [a, b] >>= [Word, Word, a, b]
+b35[t0, t1] =
   return [0, 0, t0, t1]
 
 -----------------------------------------
 -- not recursive
-b36 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b36[t0, t1, t2] =
+b37 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b37[t0, t1, t2] =
   t3 <- primEq((t2, 64))
   if t3
-    then b34[t0, t1]
-    else b35[t0, t1, t2]
+    then b35[t0, t1]
+    else b36[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-b40 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b40[t0, t1, t2] =
+b41 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b41[t0, t1, t2] =
   t3 <- primUlt((t2, 96))
   if t3
-    then b36[t0, t1, t2]
-    else b39[t0, t2]
+    then b37[t0, t1, t2]
+    else b40[t0, t2]
 
 -----------------------------------------
 -- not recursive
-b31 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b31[t0, t1, t2, t3] =
+b32 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b32[t0, t1, t2, t3] =
   t4 <- add((t3, -32))
   t5 <- sub((64, t3))
   t6 <- shl((t0, t4))
@@ -314,23 +314,23 @@ b31[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b30 :: forall (a :: *) (b :: *) (c :: *). [a, b, c] >>= [Word, a, b, c]
-b30[t0, t1, t2] =
+b31 :: forall (a :: *) (b :: *) (c :: *). [a, b, c] >>= [Word, a, b, c]
+b31[t0, t1, t2] =
   return [0, t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-b32 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b32[t0, t1, t2, t3] =
+b33 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b33[t0, t1, t2, t3] =
   t4 <- primEq((t3, 32))
   if t4
-    then b30[t0, t1, t2]
-    else b31[t0, t1, t2, t3]
+    then b31[t0, t1, t2]
+    else b32[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b29 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b29[t0, t1, t2, t3, t4] =
+b30 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b30[t0, t1, t2, t3, t4] =
   t5 <- sub((32, t4))
   t6 <- shl((t0, t4))
   t7 <- shl((t3, t4))
@@ -346,12 +346,12 @@ b29[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-b33 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b33[t0, t1, t2, t3, t4] =
+b34 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b34[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 32))
   if t5
-    then b29[t0, t1, t2, t3, t4]
-    else b32[t0, t1, t2, t4]
+    then b30[t0, t1, t2, t3, t4]
+    else b33[t0, t1, t2, t4]
 
 -----------------------------------------
 -- not recursive
@@ -359,8 +359,8 @@ entrypoint bitShiftL128 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word,
 bitShiftL128[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 64))
   if t5
-    then b33[t0, t1, t2, t3, t4]
-    else b40[t0, t1, t4]
+    then b34[t0, t1, t2, t3, t4]
+    else b41[t0, t1, t4]
 
 -----------------------------------------
 -- not recursive
@@ -382,16 +382,16 @@ bitShiftRu32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b48 :: [Word, Word] >>= [Word, Word]
-b48[t0, t1] =
+b49 :: [Word, Word] >>= [Word, Word]
+b49[t0, t1] =
   t2 <- add((t1, -32))
   t3 <- lshr((t0, t2))
   return [t3, 0]
 
 -----------------------------------------
 -- not recursive
-b46 :: [Word, Word, Word] >>= [Word, Word]
-b46[t0, t1, t2] =
+b47 :: [Word, Word, Word] >>= [Word, Word]
+b47[t0, t1, t2] =
   t3 <- sub((32, t2))
   t4 <- lshr((t1, t2))
   t5 <- shl((t1, t3))
@@ -401,18 +401,18 @@ b46[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b45 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
-b45[t0, t1] =
+b46 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
+b46[t0, t1] =
   return [t0, t1]
 
 -----------------------------------------
 -- not recursive
-b47 :: [Word, Word, Word] >>= [Word, Word]
-b47[t0, t1, t2] =
+b48 :: [Word, Word, Word] >>= [Word, Word]
+b48[t0, t1, t2] =
   t3 <- primEq((t2, 0))
   if t3
-    then b45[t0, t1]
-    else b46[t0, t1, t2]
+    then b46[t0, t1]
+    else b47[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
@@ -420,8 +420,8 @@ entrypoint bitShiftRu38 :: [Word, Word, Word] >>= [Word, Word]
 bitShiftRu38[t0, t1, t2] =
   t3 <- primUlt((t2, 32))
   if t3
-    then b47[t0, t1, t2]
-    else b48[t1, t2]
+    then b48[t0, t1, t2]
+    else b49[t1, t2]
 
 -----------------------------------------
 -- not recursive
@@ -429,21 +429,21 @@ entrypoint bitShiftRu64 :: [Word, Word, Word] >>= [Word, Word]
 bitShiftRu64[t0, t1, t2] =
   t3 <- primUlt((t2, 32))
   if t3
-    then b47[t0, t1, t2]
-    else b48[t1, t2]
+    then b48[t0, t1, t2]
+    else b49[t1, t2]
 
 -----------------------------------------
 -- not recursive
-b65 :: [Word, Word] >>= [Word, Word, Word, Word]
-b65[t0, t1] =
+b66 :: [Word, Word] >>= [Word, Word, Word, Word]
+b66[t0, t1] =
   t2 <- add((t1, -96))
   t3 <- lshr((t0, t2))
   return [t3, 0, 0, 0]
 
 -----------------------------------------
 -- not recursive
-b63 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b63[t0, t1, t2] =
+b64 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b64[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- sub((96, t2))
   t5 <- lshr((t1, t3))
@@ -454,32 +454,32 @@ b63[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b62 :: forall (a :: *) (b :: *). [a, b] >>= [a, b, Word, Word]
-b62[t0, t1] =
+b63 :: forall (a :: *) (b :: *). [a, b] >>= [a, b, Word, Word]
+b63[t0, t1] =
   return [t0, t1, 0, 0]
 
 -----------------------------------------
 -- not recursive
-b64 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b64[t0, t1, t2] =
+b65 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b65[t0, t1, t2] =
   t3 <- primEq((t2, 64))
   if t3
-    then b62[t0, t1]
-    else b63[t0, t1, t2]
+    then b63[t0, t1]
+    else b64[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-b66 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
-b66[t0, t1, t2] =
+b67 :: [Word, Word, Word] >>= [Word, Word, Word, Word]
+b67[t0, t1, t2] =
   t3 <- primUlt((t2, 96))
   if t3
-    then b64[t0, t1, t2]
-    else b65[t1, t2]
+    then b65[t0, t1, t2]
+    else b66[t1, t2]
 
 -----------------------------------------
 -- not recursive
-b59 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b59[t0, t1, t2, t3] =
+b60 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b60[t0, t1, t2, t3] =
   t4 <- add((t3, -32))
   t5 <- sub((64, t3))
   t6 <- lshr((t2, t4))
@@ -493,23 +493,23 @@ b59[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b58 :: forall (a :: *) (b :: *) (c :: *). [a, b, c] >>= [a, b, c, Word]
-b58[t0, t1, t2] =
+b59 :: forall (a :: *) (b :: *) (c :: *). [a, b, c] >>= [a, b, c, Word]
+b59[t0, t1, t2] =
   return [t0, t1, t2, 0]
 
 -----------------------------------------
 -- not recursive
-b60 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b60[t0, t1, t2, t3] =
+b61 :: [Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b61[t0, t1, t2, t3] =
   t4 <- primEq((t3, 32))
   if t4
-    then b58[t0, t1, t2]
-    else b59[t0, t1, t2, t3]
+    then b59[t0, t1, t2]
+    else b60[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b56 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b56[t0, t1, t2, t3, t4] =
+b57 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b57[t0, t1, t2, t3, t4] =
   t5 <- sub((32, t4))
   t6 <- lshr((t3, t4))
   t7 <- shl((t3, t5))
@@ -525,27 +525,27 @@ b56[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-b55 :: forall (a :: *) (b :: *) (c :: *) (d :: *). [a, b, c, d] >>= [a, b, c, d]
-b55[t0, t1, t2, t3] =
+b56 :: forall (a :: *) (b :: *) (c :: *) (d :: *). [a, b, c, d] >>= [a, b, c, d]
+b56[t0, t1, t2, t3] =
   return [t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b57 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b57[t0, t1, t2, t3, t4] =
+b58 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b58[t0, t1, t2, t3, t4] =
   t5 <- primEq((t4, 0))
   if t5
-    then b55[t0, t1, t2, t3]
-    else b56[t0, t1, t2, t3, t4]
+    then b56[t0, t1, t2, t3]
+    else b57[t0, t1, t2, t3, t4]
 
 -----------------------------------------
 -- not recursive
-b61 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
-b61[t0, t1, t2, t3, t4] =
+b62 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word]
+b62[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 32))
   if t5
-    then b57[t0, t1, t2, t3, t4]
-    else b60[t1, t2, t3, t4]
+    then b58[t0, t1, t2, t3, t4]
+    else b61[t1, t2, t3, t4]
 
 -----------------------------------------
 -- not recursive
@@ -553,8 +553,8 @@ entrypoint bitShiftRu98 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word,
 bitShiftRu98[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 64))
   if t5
-    then b61[t0, t1, t2, t3, t4]
-    else b66[t2, t3, t4]
+    then b62[t0, t1, t2, t3, t4]
+    else b67[t2, t3, t4]
 
 -----------------------------------------
 -- not recursive
@@ -562,8 +562,8 @@ entrypoint bitShiftRu128 :: [Word, Word, Word, Word, Word] >>= [Word, Word, Word
 bitShiftRu128[t0, t1, t2, t3, t4] =
   t5 <- primUlt((t4, 64))
   if t5
-    then b61[t0, t1, t2, t3, t4]
-    else b66[t2, t3, t4]
+    then b62[t0, t1, t2, t3, t4]
+    else b67[t2, t3, t4]
 
 -----------------------------------------
 -- Entrypoints: bitShiftL2 bitShiftL12 bitShiftL32 bitShiftL38 bitShiftL64 bitShiftL98 bitShiftL128 bitShiftRu2 bitShiftRu12 bitShiftRu32 bitShiftRu38 bitShiftRu64 bitShiftRu98 bitShiftRu128

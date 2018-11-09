@@ -10,45 +10,45 @@
 
 @ns = global i32 0
 
-define internal void @func_b87(i32 %r0, i32 %r1) {
-  br label %b87
+define internal void @func_b88(i32 %r0, i32 %r1) {
+  br label %b88
 
-b87:
-  %r5 = phi i32 [%r0, %0], [%r4, %b87]
-  %r6 = phi i32 [%r1, %0], [%r3, %b87]
+b88:
+  %r5 = phi i32 [%r0, %0], [%r4, %b88]
+  %r6 = phi i32 [%r1, %0], [%r3, %b88]
   %r7 = inttoptr i32 %r5 to i32*
   store i32 0, i32* %r7
   %r3 = add i32 %r6, 1
   %r4 = add i32 %r5, 4
   %r2 = icmp ult i32 %r3, 64
-  br i1 %r2, label %b87, label %b82
+  br i1 %r2, label %b88, label %b83
 
-b82:
+b83:
   ret void
 }
 
-define internal void @func_b89(i32 %r0, i32 %r1) {
-  br label %b89
+define internal void @func_b90(i32 %r0, i32 %r1) {
+  br label %b90
 
-b89:
-  %r5 = phi i32 [%r0, %0], [%r4, %b89]
-  %r6 = phi i32 [%r1, %0], [%r3, %b89]
+b90:
+  %r5 = phi i32 [%r0, %0], [%r4, %b90]
+  %r6 = phi i32 [%r1, %0], [%r3, %b90]
   %r7 = inttoptr i32 %r5 to i32*
   store i32 %r6, i32* %r7
   %r3 = add i32 %r6, 1
   %r4 = add i32 %r5, 4
   %r2 = icmp ult i32 %r3, 64
-  br i1 %r2, label %b89, label %b82
+  br i1 %r2, label %b90, label %b83
 
-b82:
+b83:
   ret void
 }
 
 define void @main() {
   store i32 ptrtoint(i8* @nums1 to i32), i32* @ns1
   store i32 ptrtoint(i8* @nums to i32), i32* @ns
-  call void @func_b87(i32 ptrtoint(i8* @nums to i32), i32 0)
-  tail call void @func_b89(i32 ptrtoint(i8* @nums1 to i32), i32 0)
+  call void @func_b88(i32 ptrtoint(i8* @nums to i32), i32 0)
+  tail call void @func_b90(i32 ptrtoint(i8* @nums1 to i32), i32 0)
   ret void
 }
 

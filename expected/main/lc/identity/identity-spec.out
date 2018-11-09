@@ -9,14 +9,14 @@ bitdata Bool /1
 
 -----------------------------------------
 -- not recursive
-k43 :: {} [Word] ->> [Word]
-k43{} t0 = return t0
+k44 :: {} [Word] ->> [Word]
+k44{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 id :: [Word] ->> [Word]
 id <-
-  k43{}
+  k44{}
 
 -----------------------------------------
 -- not recursive
@@ -26,14 +26,14 @@ idWord <-
 
 -----------------------------------------
 -- not recursive
-k431 :: {} [Bool] ->> [Bool]
-k431{} t0 = return t0
+k441 :: {} [Bool] ->> [Bool]
+k441{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 s1 :: [Bool] ->> [Bool]
 s1 <-
-  k431{}
+  k441{}
 
 -----------------------------------------
 -- not recursive

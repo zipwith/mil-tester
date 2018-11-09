@@ -9,8 +9,8 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b3 :: [Word] >>= [Unit]
-b3[t0] =
+b4 :: [Word] >>= [Unit]
+b4[t0] =
   [] <- print((t0))
   return Unit
 
@@ -20,8 +20,8 @@ entrypoint main :: [Word, Word] >>= [Unit]
 main[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
-    then b3[t0]
-    else b3[t1]
+    then b4[t0]
+    else b4[t1]
 
 -----------------------------------------
 -- Entrypoints: main

@@ -99,34 +99,34 @@ bf <-
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word]
-b5[] =
+b6 :: [] >>= [Word]
+b6[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-b4 :: [] >>= [Word]
-b4[] =
+b5 :: [] >>= [Word]
+b5[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b6 :: [BOOL] >>= [Word]
-b6[t0] =
+b7 :: [BOOL] >>= [Word]
+b7[t0] =
   case t0 of
-    Tt -> b4[]
-    Ff -> b5[]
+    Tt -> b5[]
+    Ff -> b6[]
 
 -----------------------------------------
 -- not recursive
-k2 :: {} [BOOL] ->> [Word]
-k2{} t0 = b6[t0]
+k3 :: {} [BOOL] ->> [Word]
+k3{} t0 = b7[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint decide :: [BOOL] ->> [Word]
 decide <-
-  k2{}
+  k3{}
 
 -----------------------------------------
 -- Entrypoints: tt ff at sf bt bf decide

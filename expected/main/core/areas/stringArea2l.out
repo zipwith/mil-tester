@@ -16,12 +16,12 @@ define i32 @greet(i1 %r0) {
   br label %greet
 
 greet:
-  br i1 %r0, label %b65, label %b66
-
-b65:
-  ret i32 ptrtoint(i8* @str1 to i32)
+  br i1 %r0, label %b66, label %b67
 
 b66:
+  ret i32 ptrtoint(i8* @str1 to i32)
+
+b67:
   ret i32 ptrtoint(i8* @str2 to i32)
 }
 

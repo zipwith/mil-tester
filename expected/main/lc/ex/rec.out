@@ -3,49 +3,49 @@ data Pair0
 
 -----------------------------------------
 -- not recursive
-b74 :: [Word] >>= [Word]
-b74[t0] =
+b75 :: [Word] >>= [Word]
+b75[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b68 :: [Word, Word] >>= [Word]
-b68[t0, t1] =
-  t2 <- b92[t1, t0]
+b69 :: [Word, Word] >>= [Word]
+b69[t0, t1] =
+  t2 <- b93[t1, t0]
   add((t0, t2))
-b92 :: [Word, Word] >>= [Word]
-b92[t0, t1] =
+b93 :: [Word, Word] >>= [Word]
+b93[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b74[t1]
-    else b75[t1, t0]
-b75 :: [Word, Word] >>= [Word]
-b75[t0, t1] =
-  t2 <- b96[t1, t0]
+    then b75[t1]
+    else b76[t1, t0]
+b76 :: [Word, Word] >>= [Word]
+b76[t0, t1] =
+  t2 <- b97[t1, t0]
   add((t0, t2))
-b96 :: [Word, Word] >>= [Word]
-b96[t0, t1] =
+b97 :: [Word, Word] >>= [Word]
+b97[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b74[t0]
-    else b68[t1, t0]
+    then b75[t0]
+    else b69[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k44 :: {Word} [Word] ->> [Word]
-k44{t0} t1 = b96[t1, t0]
+k45 :: {Word} [Word] ->> [Word]
+k45{t0} t1 = b97[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k46 :: {Word} [Word] ->> [Word]
-k46{t0} t1 = b92[t1, t0]
+k47 :: {Word} [Word] ->> [Word]
+k47{t0} t1 = b93[t1, t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: [Word] >>= [Pair0]
 main[t0] =
-  t1 <- k44{t0}
-  t2 <- k46{t0}
+  t1 <- k45{t0}
+  t2 <- k47{t0}
   Pair0(t2, t1)
 
 -----------------------------------------

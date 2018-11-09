@@ -31,42 +31,42 @@ s5 <-
 
 -----------------------------------------
 -- not recursive
-b82 :: [] >>= [Unit]
-b82[] =
+b83 :: [] >>= [Unit]
+b83[] =
   return s5
 
 -----------------------------------------
 -- recursive
-b87 :: [Word, Word] >>= [Unit]
-b87[t0, t1] =
+b88 :: [Word, Word] >>= [Unit]
+b88[t0, t1] =
   [] <- noinline(())
   t2 <- store32((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   t5 <- primUlt((t3, 64))
   if t5
-    then b87[t4, t3]
-    else b82[]
+    then b88[t4, t3]
+    else b83[]
 
 -----------------------------------------
 -- recursive
-b89 :: [Word, Word] >>= [Unit]
-b89[t0, t1] =
+b90 :: [Word, Word] >>= [Unit]
+b90[t0, t1] =
   [] <- noinline(())
   t2 <- store32((t0, t1))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   t5 <- primUlt((t3, 64))
   if t5
-    then b89[t4, t3]
-    else b82[]
+    then b90[t4, t3]
+    else b83[]
 
 -----------------------------------------
 -- not recursive
 initialize :: [] >>= [Unit]
 initialize[] =
-  t0 <- b87[nums, 0]
-  b89[nums1, 0]
+  t0 <- b88[nums, 0]
+  b90[nums1, 0]
 
 -----------------------------------------
 -- Entrypoints: ns ns1

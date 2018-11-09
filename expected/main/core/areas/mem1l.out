@@ -30,10 +30,10 @@ display:
   ret void
 }
 
-define internal void @func_b163() {
-  br label %b163
+define internal void @func_b164() {
+  br label %b164
 
-b163:
+b164:
   %r8 = add i32 ptrtoint(i8* @s2 to i32), 4
   %r7 = inttoptr i32 %r8 to i32*
   %r6 = load i32, i32* %r7
@@ -71,7 +71,7 @@ main:
   %r11 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
   %r10 = load i32, i32* %r11
   call void @printWord(i32 %r10)
-  call void @func_b163()
+  call void @func_b164()
   %r9 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
   %r5 = load i32, i32* %r9
   %r7 = inttoptr i32 %r8 to i32*
@@ -86,7 +86,7 @@ main:
   br label %c6
 
 c6:
-  tail call void @func_b163()
+  tail call void @func_b164()
   ret void
 }
 

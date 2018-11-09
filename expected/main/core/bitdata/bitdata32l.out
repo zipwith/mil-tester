@@ -3,19 +3,19 @@ define i32 @f(i32 %r0) {
 
 f:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b7, label %b12
-
-b7:
-  ret i32 0
-
-b12:
-  %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b8, label %b9
+  br i1 %r1, label %b8, label %b13
 
 b8:
-  ret i32 1
+  ret i32 0
+
+b13:
+  %r2 = icmp eq i32 %r0, 1
+  br i1 %r2, label %b9, label %b10
 
 b9:
+  ret i32 1
+
+b10:
   ret i32 2
 }
 

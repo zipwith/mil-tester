@@ -7,82 +7,82 @@ data Main1
 
 -----------------------------------------
 -- not recursive
-b73 :: [Word, Word] >>= [Word]
-b73[t0, t1] =
+b74 :: [Word, Word] >>= [Word]
+b74[t0, t1] =
   t2 <- add((t0, t1))
   add((t2, 4))
 
 -----------------------------------------
 -- not recursive
-k51 :: {Word} [Word] ->> [Word]
-k51{t0} t1 = b73[t0, t1]
+k52 :: {Word} [Word] ->> [Word]
+k52{t0} t1 = b74[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k52 :: {} [Word] ->> [[Word] ->> [Word]]
-k52{} t0 = k51{t0}
+k53 :: {} [Word] ->> [[Word] ->> [Word]]
+k53{} t0 = k52{t0}
 
 -----------------------------------------
 -- not recursive
 ex5 :: [Word] ->> [[Word] ->> [Word]]
 ex5 <-
-  k52{}
+  k53{}
 
 -----------------------------------------
 -- not recursive
-b76 :: [Word, Word] >>= [Word]
-b76[t0, t1] =
+b77 :: [Word, Word] >>= [Word]
+b77[t0, t1] =
   t2 <- add((t0, t1))
   add((t2, 7))
 
 -----------------------------------------
 -- not recursive
-k53 :: {Word} [Word] ->> [Word]
-k53{t0} t1 = b76[t0, t1]
+k54 :: {Word} [Word] ->> [Word]
+k54{t0} t1 = b77[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k54 :: {} [Word] ->> [[Word] ->> [Word]]
-k54{} t0 = k53{t0}
+k55 :: {} [Word] ->> [[Word] ->> [Word]]
+k55{} t0 = k54{t0}
 
 -----------------------------------------
 -- not recursive
 ex4 :: [Word] ->> [[Word] ->> [Word]]
 ex4 <-
-  k54{}
+  k55{}
 
 -----------------------------------------
 -- not recursive
-k55 :: {} [Word] ->> [Word]
-k55{} t0 = mul((t0, 5))
+k56 :: {} [Word] ->> [Word]
+k56{} t0 = mul((t0, 5))
 
 -----------------------------------------
 -- not recursive
 ex3 :: [Word] ->> [Word]
 ex3 <-
-  k55{}
+  k56{}
 
 -----------------------------------------
 -- not recursive
-k58 :: {} [Word] ->> [Word]
-k58{} t0 = mul((t0, 2))
+k59 :: {} [Word] ->> [Word]
+k59{} t0 = mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
 ex2 :: [Word] ->> [Word]
 ex2 <-
-  k58{}
+  k59{}
 
 -----------------------------------------
 -- not recursive
-k59 :: {} [Word] ->> [Word]
-k59{} t0 = mul((t0, 3))
+k60 :: {} [Word] ->> [Word]
+k60{} t0 = mul((t0, 3))
 
 -----------------------------------------
 -- not recursive
 ex1a :: [Word] ->> [Word]
 ex1a <-
-  k59{}
+  k60{}
 
 -----------------------------------------
 -- not recursive
@@ -92,8 +92,8 @@ Nil <-
 
 -----------------------------------------
 -- not recursive
-b92 :: [Word, Word] >>= [List0]
-b92[t0, t1] =
+b93 :: [Word, Word] >>= [List0]
+b93[t0, t1] =
   t2 <- shl((t1, 2))
   t3 <- add((t2, t1))
   t4 <- mul((t1, 10))
@@ -129,19 +129,19 @@ b92[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k61 :: {Word} [Word] ->> [List0]
-k61{t0} t1 = b92[t1, t0]
+k62 :: {Word} [Word] ->> [List0]
+k62{t0} t1 = b93[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k62 :: {} [Word] ->> [[Word] ->> [List0]]
-k62{} t0 = k61{t0}
+k63 :: {} [Word] ->> [[Word] ->> [List0]]
+k63{} t0 = k62{t0}
 
 -----------------------------------------
 -- not recursive
 ex0 :: [Word] ->> [[Word] ->> [List0]]
 ex0 <-
-  k62{}
+  k63{}
 
 -----------------------------------------
 -- not recursive

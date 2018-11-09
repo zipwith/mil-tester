@@ -80,15 +80,15 @@ sub64 <-
 
 -----------------------------------------
 -- not recursive
-b4 :: [] >>= [Word]
-b4[] =
+b5 :: [] >>= [Word]
+b5[] =
   [t0, t1] <- rdtscPrim(())
   return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint rdtscClosure :: {} [] ->> [Word]
-rdtscClosure{} [] = b4[]
+rdtscClosure{} [] = b5[]
 
 -----------------------------------------
 -- not recursive

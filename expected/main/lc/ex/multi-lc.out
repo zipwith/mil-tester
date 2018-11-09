@@ -9,8 +9,8 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b69 :: [] >>= [Unit]
-b69[] =
+b70 :: [] >>= [Unit]
+b70[] =
   [t0, t1] <- rdtscPrim(())
   [t2, t3] <- rdtscPrim(())
   t4 <- sub((t2, t0))
@@ -19,14 +19,14 @@ b69[] =
 
 -----------------------------------------
 -- not recursive
-k45 :: {} [] ->> [Unit]
-k45{} [] = b69[]
+k46 :: {} [] ->> [Unit]
+k46{} [] = b70[]
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: [] ->> [Unit]
 main <-
-  k45{}
+  k46{}
 
 -----------------------------------------
 -- not recursive
@@ -110,15 +110,15 @@ sub64 <-
 
 -----------------------------------------
 -- not recursive
-b7 :: [] >>= [Word]
-b7[] =
+b8 :: [] >>= [Word]
+b8[] =
   [t0, t1] <- rdtscPrim(())
   return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint rdtscClosure :: {} [] ->> [Word]
-rdtscClosure{} [] = b7[]
+rdtscClosure{} [] = b8[]
 
 -----------------------------------------
 -- not recursive

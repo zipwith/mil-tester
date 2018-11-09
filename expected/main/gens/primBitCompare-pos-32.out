@@ -213,8 +213,8 @@ gt32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b42 :: [Word, Word, Word, Word] >>= [Flag]
-b42[t0, t1, t2, t3] =
+b43 :: [Word, Word, Word, Word] >>= [Flag]
+b43[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then gt2[t0, t2]
@@ -227,7 +227,7 @@ gt33[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b42[t0, t1, t2, t3]
+    else b43[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -236,7 +236,7 @@ gt48[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b42[t0, t1, t2, t3]
+    else b43[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -245,12 +245,12 @@ gt64[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b42[t0, t1, t2, t3]
+    else b43[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b53 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
-b53[t0, t1, t2, t3, t4, t5] =
+b54 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b54[t0, t1, t2, t3, t4, t5] =
   t6 <- primEq((t2, t5))
   if t6
     then gt33[t0, t1, t3, t4]
@@ -263,12 +263,12 @@ gt72[t0, t1, t2, t3, t4, t5] =
   t6 <- primUgt((t2, t5))
   if t6
     then returnTrue[]
-    else b53[t0, t1, t2, t3, t4, t5]
+    else b54[t0, t1, t2, t3, t4, t5]
 
 -----------------------------------------
 -- not recursive
-b60 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
-b60[t0, t1, t2, t3, t4, t5, t6, t7] =
+b61 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b61[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primEq((t3, t7))
   if t8
     then gt72[t0, t1, t2, t4, t5, t6]
@@ -281,7 +281,7 @@ gt98[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primUgt((t3, t7))
   if t8
     then returnTrue[]
-    else b60[t0, t1, t2, t3, t4, t5, t6, t7]
+    else b61[t0, t1, t2, t3, t4, t5, t6, t7]
 
 -----------------------------------------
 -- not recursive
@@ -321,8 +321,8 @@ ge32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b67 :: [Word, Word, Word, Word] >>= [Flag]
-b67[t0, t1, t2, t3] =
+b68 :: [Word, Word, Word, Word] >>= [Flag]
+b68[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then ge2[t0, t2]
@@ -335,7 +335,7 @@ ge33[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b67[t0, t1, t2, t3]
+    else b68[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -344,7 +344,7 @@ ge48[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b67[t0, t1, t2, t3]
+    else b68[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -353,12 +353,12 @@ ge64[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
     then returnTrue[]
-    else b67[t0, t1, t2, t3]
+    else b68[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b78 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
-b78[t0, t1, t2, t3, t4, t5] =
+b79 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b79[t0, t1, t2, t3, t4, t5] =
   t6 <- primEq((t2, t5))
   if t6
     then ge33[t0, t1, t3, t4]
@@ -371,12 +371,12 @@ ge72[t0, t1, t2, t3, t4, t5] =
   t6 <- primUgt((t2, t5))
   if t6
     then returnTrue[]
-    else b78[t0, t1, t2, t3, t4, t5]
+    else b79[t0, t1, t2, t3, t4, t5]
 
 -----------------------------------------
 -- not recursive
-b85 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
-b85[t0, t1, t2, t3, t4, t5, t6, t7] =
+b86 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b86[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primEq((t3, t7))
   if t8
     then ge72[t0, t1, t2, t4, t5, t6]
@@ -389,7 +389,7 @@ ge98[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primUgt((t3, t7))
   if t8
     then returnTrue[]
-    else b85[t0, t1, t2, t3, t4, t5, t6, t7]
+    else b86[t0, t1, t2, t3, t4, t5, t6, t7]
 
 -----------------------------------------
 -- not recursive
@@ -429,8 +429,8 @@ lt32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b92 :: [Word, Word, Word, Word] >>= [Flag]
-b92[t0, t1, t2, t3] =
+b93 :: [Word, Word, Word, Word] >>= [Flag]
+b93[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then lt2[t0, t2]
@@ -443,7 +443,7 @@ lt33[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b92[t0, t1, t2, t3]
+    else b93[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -452,7 +452,7 @@ lt48[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b92[t0, t1, t2, t3]
+    else b93[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -461,12 +461,12 @@ lt64[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b92[t0, t1, t2, t3]
+    else b93[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b103 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
-b103[t0, t1, t2, t3, t4, t5] =
+b104 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b104[t0, t1, t2, t3, t4, t5] =
   t6 <- primEq((t2, t5))
   if t6
     then lt33[t0, t1, t3, t4]
@@ -479,12 +479,12 @@ lt72[t0, t1, t2, t3, t4, t5] =
   t6 <- primUlt((t2, t5))
   if t6
     then returnTrue[]
-    else b103[t0, t1, t2, t3, t4, t5]
+    else b104[t0, t1, t2, t3, t4, t5]
 
 -----------------------------------------
 -- not recursive
-b110 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
-b110[t0, t1, t2, t3, t4, t5, t6, t7] =
+b111 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b111[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primEq((t3, t7))
   if t8
     then lt72[t0, t1, t2, t4, t5, t6]
@@ -497,7 +497,7 @@ lt98[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primUlt((t3, t7))
   if t8
     then returnTrue[]
-    else b110[t0, t1, t2, t3, t4, t5, t6, t7]
+    else b111[t0, t1, t2, t3, t4, t5, t6, t7]
 
 -----------------------------------------
 -- not recursive
@@ -537,8 +537,8 @@ le32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b117 :: [Word, Word, Word, Word] >>= [Flag]
-b117[t0, t1, t2, t3] =
+b118 :: [Word, Word, Word, Word] >>= [Flag]
+b118[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
     then le2[t0, t2]
@@ -551,7 +551,7 @@ le33[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b117[t0, t1, t2, t3]
+    else b118[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -560,7 +560,7 @@ le48[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b117[t0, t1, t2, t3]
+    else b118[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -569,12 +569,12 @@ le64[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
     then returnTrue[]
-    else b117[t0, t1, t2, t3]
+    else b118[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-b128 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
-b128[t0, t1, t2, t3, t4, t5] =
+b129 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b129[t0, t1, t2, t3, t4, t5] =
   t6 <- primEq((t2, t5))
   if t6
     then le33[t0, t1, t3, t4]
@@ -587,12 +587,12 @@ le72[t0, t1, t2, t3, t4, t5] =
   t6 <- primUlt((t2, t5))
   if t6
     then returnTrue[]
-    else b128[t0, t1, t2, t3, t4, t5]
+    else b129[t0, t1, t2, t3, t4, t5]
 
 -----------------------------------------
 -- not recursive
-b135 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
-b135[t0, t1, t2, t3, t4, t5, t6, t7] =
+b136 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b136[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primEq((t3, t7))
   if t8
     then le72[t0, t1, t2, t4, t5, t6]
@@ -605,7 +605,7 @@ le98[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- primUlt((t3, t7))
   if t8
     then returnTrue[]
-    else b135[t0, t1, t2, t3, t4, t5, t6, t7]
+    else b136[t0, t1, t2, t3, t4, t5, t6, t7]
 
 -----------------------------------------
 -- not recursive

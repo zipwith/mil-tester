@@ -4,15 +4,15 @@ data List0
 
 -----------------------------------------
 -- not recursive
-b76 :: [List0] >>= [Word]
-b76[t0] =
+b77 :: [List0] >>= [Word]
+b77[t0] =
   assert t0 Cons1
   Cons1 0 t0
 
 -----------------------------------------
 -- not recursive
-b65 :: [] >>= [Word]
-b65[] =
+b66 :: [] >>= [Word]
+b66[] =
   return 1
 
 -----------------------------------------
@@ -20,8 +20,8 @@ b65[] =
 entrypoint main :: [List0] >>= [Word]
 main[t0] =
   case t0 of
-    Nil0 -> b65[]
-    Cons1 -> b76[t0]
+    Nil0 -> b66[]
+    Cons1 -> b77[t0]
 
 -----------------------------------------
 -- Entrypoints: main

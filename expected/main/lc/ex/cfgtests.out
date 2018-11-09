@@ -3,19 +3,19 @@ define i32 @myfib(i32 %r0) {
 
 myfib:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b73, label %b111
+  br i1 %r1, label %b74, label %b112
 
-b73:
+b74:
   ret i32 0
 
-b111:
+b112:
   %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b75, label %b76
-
-b75:
-  ret i32 1
+  br i1 %r2, label %b76, label %b77
 
 b76:
+  ret i32 1
+
+b77:
   %r7 = add i32 %r0, -1
   %r4 = call i32 @myfib(i32 %r7)
   %r6 = add i32 %r0, -2
@@ -24,17 +24,17 @@ b76:
   ret i32 %r3
 }
 
-define internal i32 @func_b111(i32 %r0) {
-  br label %b111
+define internal i32 @func_b112(i32 %r0) {
+  br label %b112
 
-b111:
+b112:
   %r1 = icmp eq i32 %r0, 1
-  br i1 %r1, label %b75, label %b76
-
-b75:
-  ret i32 1
+  br i1 %r1, label %b76, label %b77
 
 b76:
+  ret i32 1
+
+b77:
   %r6 = add i32 %r0, -1
   %r3 = call i32 @myfib(i32 %r6)
   %r5 = add i32 %r0, -2
@@ -45,10 +45,10 @@ b76:
 
 declare i32 @globalcount(i32)
 
-define internal i32 @func_b104(i32 %r0) {
-  br label %b104
+define internal i32 @func_b105(i32 %r0) {
+  br label %b105
 
-b104:
+b105:
   %r8 = call i32 @myfib(i32 %r0)
   %r7 = add i32 %r0, %r8
   %r6 = add i32 %r0, %r7
@@ -64,14 +64,14 @@ define i32 @main() {
   br label %main
 
 main:
-  %r3 = call i32 @func_b111(i32 1)
+  %r3 = call i32 @func_b112(i32 1)
   %r2 = add i32 %r3, 6
   %r1 = call i32 @globalcount(i32 %r2)
-  %r0 = call i32 @func_b104(i32 %r1)
+  %r0 = call i32 @func_b105(i32 %r1)
   br label %c14
 
 c14:
-  %r4 = tail call i32 @func_b104(i32 %r0)
+  %r4 = tail call i32 @func_b105(i32 %r0)
   ret i32 %r4
 }
 
@@ -96,14 +96,14 @@ define i32 @gotolabel(i32 %r0, i32 %r1) {
 
 gotolabel:
   %r2 = icmp slt i32 %r0, %r1
-  br i1 %r2, label %b86, label %g22
+  br i1 %r2, label %b87, label %g22
 
-b86:
+b87:
   %r4 = phi i32 [%r0, %gotolabel], [%r1, %g22]
   %r3 = mul i32 %r4, %r4
   ret i32 %r3
 
 g22:
-  br label %b86
+  br label %b87
 }
 

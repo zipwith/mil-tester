@@ -40,77 +40,77 @@ main <-
 
 -----------------------------------------
 -- not recursive
-b77 :: forall (a :: *). [a] >>= [a]
-b77[t0] =
+b78 :: forall (a :: *). [a] >>= [a]
+b78[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b82 :: forall (a :: *). [List a, Word] >>= [Word]
-b82[t0, t1] =
+b83 :: forall (a :: *). [List a, Word] >>= [Word]
+b83[t0, t1] =
   assert t0 Cons
   t2 <- Cons 1 t0
   t3 <- add((t1, 1))
   case t2 of
-    Nil -> b77[t3]
-    Cons -> b82[t2, t3]
+    Nil -> b78[t3]
+    Cons -> b83[t2, t3]
 
 -----------------------------------------
 -- not recursive
-b79 :: forall (a :: *). [List a, Word] >>= [Word]
-b79[t0, t1] =
+b80 :: forall (a :: *). [List a, Word] >>= [Word]
+b80[t0, t1] =
   case t0 of
-    Nil -> b77[t1]
-    Cons -> b82[t0, t1]
+    Nil -> b78[t1]
+    Cons -> b83[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k46 :: forall (a :: *). {Word} [List a] ->> [Word]
-k46{t0} t1 = b79[t1, t0]
+k47 :: forall (a :: *). {Word} [List a] ->> [Word]
+k47{t0} t1 = b80[t1, t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint length :: forall (a :: *). [List a] ->> [Word]
 length <-
-  k46{0}
+  k47{0}
 
 -----------------------------------------
 -- not recursive
-b71 :: forall (a :: *). [] >>= [List a]
-b71[] =
+b72 :: forall (a :: *). [] >>= [List a]
+b72[] =
   return Nil
 
 -----------------------------------------
 -- recursive
-b83 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
-b83[t0, t1] =
+b84 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b84[t0, t1] =
   assert t0 Cons
   t2 <- Cons 0 t0
   t3 <- Cons 1 t0
   t4 <- t1 @ t2
-  t5 <- b73[t3, t1]
+  t5 <- b74[t3, t1]
   Cons(t4, t5)
-b73 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
-b73[t0, t1] =
+b74 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b74[t0, t1] =
   case t0 of
-    Nil -> b71[]
-    Cons -> b83[t0, t1]
+    Nil -> b72[]
+    Cons -> b84[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k44 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
-k44{t0} t1 = b73[t1, t0]
+k45 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
+k45{t0} t1 = b74[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k45 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
-k45{} t0 = k44{t0}
+k46 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+k46{} t0 = k45{t0}
 
 -----------------------------------------
 -- not recursive
 entrypoint map :: forall (a :: *) (a0 :: *). [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
 map <-
-  k45{}
+  k46{}
 
 -----------------------------------------
 -- Entrypoints: size main length map

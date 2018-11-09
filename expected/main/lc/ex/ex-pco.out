@@ -9,22 +9,22 @@ d1 <-
 
 -----------------------------------------
 -- not recursive
-b68 :: forall (a :: *). [Dup a] >>= [Dup a]
-b68[t0] =
+b69 :: forall (a :: *). [Dup a] >>= [Dup a]
+b69[t0] =
   t1 <- Dup 0 t0
   t2 <- Dup 1 t0
   Dup(t2, t1)
 
 -----------------------------------------
 -- not recursive
-k45 :: forall (a :: *). {} [Dup a] ->> [Dup a]
-k45{} t0 = b68[t0]
+k46 :: forall (a :: *). {} [Dup a] ->> [Dup a]
+k46{} t0 = b69[t0]
 
 -----------------------------------------
 -- not recursive
 swap :: forall (a :: *). [Dup a] ->> [Dup a]
 swap <-
-  k45{}
+  k46{}
 
 -----------------------------------------
 -- not recursive

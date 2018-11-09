@@ -67,62 +67,62 @@ x <-
 
 -----------------------------------------
 -- not recursive
-b19 :: [Perms] >>= [Bit 1]
-b19[t0] =
+b20 :: [Perms] >>= [Bit 1]
+b20[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 0 t1
 
 -----------------------------------------
 -- not recursive
-k6 :: {} [Perms] ->> [Bit 1]
-k6{} t0 = b19[t0]
+k7 :: {} [Perms] ->> [Bit 1]
+k7{} t0 = b20[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint getR :: [Perms] ->> [Bit 1]
 getR <-
-  k6{}
+  k7{}
 
 -----------------------------------------
 -- not recursive
-b17 :: [Perms] >>= [Bit 1]
-b17[t0] =
+b18 :: [Perms] >>= [Bit 1]
+b18[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 1 t1
 
 -----------------------------------------
 -- not recursive
-k5 :: {} [Perms] ->> [Bit 1]
-k5{} t0 = b17[t0]
+k6 :: {} [Perms] ->> [Bit 1]
+k6{} t0 = b18[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint getW :: [Perms] ->> [Bit 1]
 getW <-
-  k5{}
+  k6{}
 
 -----------------------------------------
 -- not recursive
-b15 :: [Perms] >>= [Bit 1]
-b15[t0] =
+b16 :: [Perms] >>= [Bit 1]
+b16[t0] =
   t1 <- Perms 0 t0
   Perms.Perms 2 t1
 
 -----------------------------------------
 -- not recursive
-k4 :: {} [Perms] ->> [Bit 1]
-k4{} t0 = b15[t0]
+k5 :: {} [Perms] ->> [Bit 1]
+k5{} t0 = b16[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint getX :: [Perms] ->> [Bit 1]
 getX <-
-  k4{}
+  k5{}
 
 -----------------------------------------
 -- not recursive
-b12 :: [Perms] >>= [Perms]
-b12[t0] =
+b13 :: [Perms] >>= [Perms]
+b13[t0] =
   t1 <- Perms 0 t0
   t2 <- Perms.Perms 1 t1
   t3 <- Perms.Perms 2 t1
@@ -132,14 +132,14 @@ b12[t0] =
 
 -----------------------------------------
 -- not recursive
-k3 :: {} [Perms] ->> [Perms]
-k3{} t0 = b12[t0]
+k4 :: {} [Perms] ->> [Perms]
+k4{} t0 = b13[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint rotate :: [Perms] ->> [Perms]
 rotate <-
-  k3{}
+  k4{}
 
 -----------------------------------------
 -- Entrypoints: all0 all1 all2 r w x getR getW getX rotate
