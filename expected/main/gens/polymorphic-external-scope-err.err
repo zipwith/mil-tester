@@ -1,0 +1,7 @@
+ERROR: "actual/main/gens/polymorphic-external-scope-err.lc", line 1
+external initStored {primInitStored n a}    :: t -> Init (Stored t)
+                                    ^
+The type variable "n" is not in scope
+
+ERROR: Aborting after previously reported error
+

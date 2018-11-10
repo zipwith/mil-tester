@@ -158,6 +158,9 @@ x1 = plus B1 B0
 x2 = plus B10 B11
 x4 = plus B0010 B0011
 -----------------------
+.lc: polymorphic-external-scope-err ./milc -m -pco
+external initStored {primInitStored n a}    :: t -> Init (Stored t)
+-----------------------
 .lc: primBitFromLiteral-basic   ./milc -pcosoboro -m
 entrypoint invalid1, invalid2, invalid3, invalid4, invalid5
 
