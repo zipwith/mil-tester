@@ -1,0 +1,18 @@
+require "prelude.lc"
+
+bitdata Perms = Perms [ r, w, x :: Bool ]
+
+entrypoint set1, set2, set4, set4, set5
+set1 r = Perms [r|w=r|x=r]
+set2 w = Perms [r=w|w|x=w]
+set3 x = Perms [r=x|w=x|x]
+set4 r w x = Perms [r|w|x]
+set5 r w x = Perms [x|w|r]
+
+entrypoint upd1, upd2, upd4, upd4, upd5
+upd1 r   e = case e of Perms u -> Perms u[r]
+upd2 w   e = case e of Perms u -> Perms u[w]
+upd3 r w e = case e of Perms u -> Perms u[r|w]
+upd4 r   e = case e of Perms u -> Perms u[r|w=r]
+upd5 r   e = case e of Perms u -> Perms u[w=r|r]
+

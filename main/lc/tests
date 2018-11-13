@@ -558,6 +558,9 @@ entrypoint sub
 sub = minus
 
 -------
+exec: punning1  ./milc --32 -m -pcosoro punning.lc
+
+-------
 tests: identity
 tests: datatest
 tests: fib
