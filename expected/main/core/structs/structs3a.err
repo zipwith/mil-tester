@@ -3,10 +3,5 @@ struct S1/16
 ^
 Sum of component widths is 16 more than expected total
 
-ERROR: "actual/main/core/structs/structs3a.lc", line 11
-struct T [ s :: S | s1 :: S1 ]
-                    ^
-Unable to determine alignment for field s1 :: S1
-
-ERROR: Aborting after 2 previously reported errors
+ERROR: Aborting after previously reported error
 

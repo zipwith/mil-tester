@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs-cannot-determine-ref-size.lc", line 7
+bitdata Status/32 = Absent [0] | Present [ link :: Ref S | 1 ]
+                                                   ^
+Cannot determine bit level representation for values of type Ref S
+
+ERROR: Aborting after previously reported error
+

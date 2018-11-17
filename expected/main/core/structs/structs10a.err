@@ -3,20 +3,5 @@ struct PageTable/4K [ ptes :: Array 1K (Stored PTE) ]
 ^
 Sum of component widths is 4096 more than expected total
 
-ERROR: "actual/main/core/structs/structs10a.lc", line 6
-struct PageTable12/4K [ ptes :: Array 1K (Stored PTE) ] aligned 12
-^
-Sum of component widths is 4096 more than expected total
-
-ERROR: "actual/main/core/structs/structs10a.lc", line 9
-struct PageTable1K/4K [ ptes :: Array 1K (Stored PTE) ] aligned 1K
-^
-Sum of component widths is 4096 more than expected total
-
-ERROR: "actual/main/core/structs/structs10a.lc", line 12
-struct PageTable4K/4K [ ptes :: Array 1K (Stored PTE) ] aligned 4K
-^
-Sum of component widths is 4096 more than expected total
-
-ERROR: Aborting after 4 previously reported errors
+ERROR: Aborting after previously reported error
 

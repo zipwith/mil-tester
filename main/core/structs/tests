@@ -386,3 +386,27 @@ f r = do u <- readWord r.x
          return (add u v)
 
 ------------
+.lc: structs-cannot-determine-ref-size   ./milc -m
+-- Recursion between S and Status makes it hard to determine
+-- the alignment of S, and hence the bitsize of Ref S in order
+-- to validate the definition of Status ...
+
+struct  S [ status :: Stored Status | badge :: Stored Word ]
+  
+bitdata Status/32 = Absent [0] | Present [ link :: Ref S | 1 ]
+
+entrypoint absent
+absent = Absent
+
+------------
+.lc: structs-cannot-determine-ref-size-add-aligned   ./milc -m
+-- ... the solution (for now) is to require an explicit alignment
+-- declaration on the structure definition:
+struct  S [ status :: Stored Status | badge :: Stored Word ] aligned 4
+
+bitdata Status/32 = Absent [0] | Present [ link :: Ref S | 1 ]
+
+entrypoint absent
+absent = Absent
+
+------------

@@ -3,10 +3,5 @@ struct S1/16
 ^
 Sum of component widths is 16 more than expected total
 
-ERROR: "actual/main/core/structs/structs4a.lc", line 12
-struct T1/Size [ s :: S | s1 :: S1 ]    -- symbolic size
-^
-Sum of component widths is 16 more than expected total
-
-ERROR: Aborting after 2 previously reported errors
+ERROR: Aborting after previously reported error
 

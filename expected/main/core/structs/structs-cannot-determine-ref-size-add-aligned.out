@@ -1,0 +1,37 @@
+struct S / 8
+  [ status :: Stored Status  {- offset=0 -}
+  | badge :: Stored Word  {- offset=4 -} ]
+  aligned 4
+
+bitdata Status /32
+  = Absent [ X0000_0000 ]
+    -- predAbsent(x :: Bit 32) = x == 0b0
+  | Present [ link :: Ref S | B01 ]
+    -- predPresent(x :: Bit 32) = (x & 0b1) == 0b1
+
+-- bit pattern:
+--  00000000000000000000000000000000
+--  00000000000000000000000000000101
+--  00000000000000000000000000001_01
+--  0000000000000000000000000001__01
+--  000000000000000000000000001___01
+--  00000000000000000000000001____01
+--  0000000000000000000000001_____01
+--  000000000000000000000001______01
+--  00000000000000000000001_______01
+--  etc... (22 more lines)
+
+-----------------------------------------
+-- not recursive
+Absent :: Status
+Absent <-
+  Absent()
+
+-----------------------------------------
+-- not recursive
+entrypoint absent :: Status
+absent <-
+  return Absent
+
+-----------------------------------------
+-- Entrypoints: absent

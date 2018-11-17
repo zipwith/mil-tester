@@ -6,12 +6,7 @@ Cannot access field b (offset 6 is not divisible by alignment 4)
 ERROR: "actual/main/core/structs/nested-struct-align-32.lc", line 7
 struct V1 [ p :: Array 12 S ]
                  ^
-There is no byte level representation for values of type Array 12 S
+Cannot determine byte level representation for values of type Array 12 S
 
-ERROR: "actual/main/core/structs/nested-struct-align-32.lc", line 8
-struct V2 [ r :: Array 12 U ]
-                 ^
-There is no byte level representation for values of type Array 12 U
-
-ERROR: Aborting after 3 previously reported errors
+ERROR: Aborting after 2 previously reported errors
 
