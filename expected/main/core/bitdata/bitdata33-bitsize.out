@@ -1,0 +1,18 @@
+bitdata Foo /1
+
+-- bit pattern:
+--  _
+
+-----------------------------------------
+-- not recursive
+k3 :: forall (a :: *). {} [a] ->> [a]
+k3{} t0 = return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint idfoo :: [Foo] ->> [Foo]
+idfoo <-
+  k3{}
+
+-----------------------------------------
+-- Entrypoints: idfoo

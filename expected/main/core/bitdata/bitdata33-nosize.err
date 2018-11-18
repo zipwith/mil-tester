@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata33-nosize.lc", line 2
+bitdata Foo
+^
+Unable to determine a unique BitSize value for Foo
+
+ERROR: Aborting after previously reported error
+

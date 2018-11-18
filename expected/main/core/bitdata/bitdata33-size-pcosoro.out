@@ -1,0 +1,8 @@
+-----------------------------------------
+-- not recursive
+entrypoint idfoo :: [Word] >>= [Word]
+idfoo[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: idfoo

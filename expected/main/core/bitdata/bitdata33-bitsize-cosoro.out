@@ -1,0 +1,8 @@
+-----------------------------------------
+-- not recursive
+entrypoint idfoo :: [Flag] >>= [Flag]
+idfoo[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: idfoo

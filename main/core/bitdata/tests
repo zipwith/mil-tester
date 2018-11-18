@@ -567,3 +567,57 @@ f vmr = case vmr of
           RW -> 2
 
 -----------------------
+.lc:   bitdata33-size    ./milc -m --32
+-- A bitdata definition with no constructors, but with a size
+bitdata Foo /32
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-size-pcosoro    ./milc -m --32 -pcosoro
+-- A bitdata definition with no constructors, but with a size
+bitdata Foo /32
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-nosize    ./milc -m --32
+-- A bitdata definition with no constructors and no size
+bitdata Foo
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-bigsize-cosoro    ./milc -m --32 -pcosoro
+-- A bitdata definition with no constructors and size requiring multiple words
+bitdata Foo /64
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-bigsize    ./milc -m --32
+-- A bitdata definition with no constructors and size requiring multiple words
+bitdata Foo /64
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-bitsize-cosoro    ./milc -m --32 -pcosoro
+-- A bitdata definition with no constructors and size requiring a single bit
+bitdata Foo /1
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-bitsize    ./milc -m --32
+-- A bitdata definition with no constructors and size requiring a single bit
+bitdata Foo /1
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-zerosize-cosoro    ./milc -m --32 -pcosoro
+-- A bitdata definition with no constructors and zero size
+bitdata Foo /0
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------
+.lc:   bitdata33-zerosize    ./milc -m --32
+-- A bitdata definition with no constructors and zero size
+bitdata Foo /0
+entrypoint idfoo :: Foo -> Foo
+idfoo x = x
+-----------------------

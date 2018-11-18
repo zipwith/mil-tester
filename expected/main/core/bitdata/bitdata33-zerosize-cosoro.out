@@ -1,0 +1,11 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint idfoo :: [Unit] >>= [Unit]
+idfoo[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: idfoo
