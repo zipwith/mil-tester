@@ -1,0 +1,8 @@
+-----------------------------------------
+-- not recursive
+entrypoint vram :: Word
+vram <-
+  return 753664
+
+-----------------------------------------
+-- Entrypoints: vram

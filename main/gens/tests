@@ -2657,3 +2657,43 @@ external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
 external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
 
 -----------------------
+.lc: external-imp-by-atom   ./milc -pcosoro -m --32
+entrypoint vram
+external vram = 0xb8000 :: Ref (Stored Word)
+
+-----------------------
+.lc: external-imp-by-prim   ./milc -pcosoro -m --32
+require "prelude.lc"
+external eqRef = eq :: Ref a -> Ref a -> Bool
+
+entrypoint er8  :: Ref (Stored (Bit 8))  -> Ref (Stored (Bit 8))  -> Bool
+er8 = eqRef
+
+entrypoint er16 :: Ref (Stored (Bit 16)) -> Ref (Stored (Bit 16)) -> Bool
+er16 = eqRef
+
+-----------------------
+.lc: external-imp-by-top   ./milc -pcosoro -m --32
+require "prelude.lc"
+
+struct  CTE /16 [ a :: Stored (Bit 64) | b :: Stored (Bit 64) ] aligned 16
+bitdata CP/32
+
+-- Style 1: manupulation of raw Word values:
+entrypoint lookupCP
+external lookupCP = imp_lookupCP :: CP -> Word -> Ref CTE
+
+export imp_lookupCP  :: Word -> Word -> Word
+imp_lookupCP cp index = let radix  = cp     `and`  31
+                            offset = (index `lshr` (32 `sub` radix)) `mul` 16
+                        in (cp `and` not 31) `add` offset
+
+-- Style 2: implementation using a shadow type that has the same final representation
+entrypoint radixCP
+external radixCP  = imp_radixCP  :: CP -> Ix 32
+bitdata ImpCP /32 = ImpCP [ ptr :: Bit 27 | radix :: Ix 32 ]
+
+export imp_radixCP :: ImpCP -> Ix 32
+imp_radixCP x       = x.radix
+
+-----------------------

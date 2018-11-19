@@ -1,0 +1,19 @@
+-----------------------------------------
+-- not recursive
+entrypoint lookupCP :: [Word, Word] >>= [Word]
+lookupCP[t0, t1] =
+  t2 <- and((t0, 31))
+  t3 <- sub((32, t2))
+  t4 <- lshr((t1, t3))
+  t5 <- shl((t4, 4))
+  t6 <- and((t0, -32))
+  add((t6, t5))
+
+-----------------------------------------
+-- not recursive
+entrypoint radixCP :: [Word] >>= [Word]
+radixCP[t0] =
+  and((t0, 31))
+
+-----------------------------------------
+-- Entrypoints: lookupCP radixCP

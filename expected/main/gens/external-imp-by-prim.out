@@ -1,0 +1,14 @@
+-----------------------------------------
+-- not recursive
+entrypoint er8 :: [Word, Word] >>= [Flag]
+er8[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint er16 :: [Word, Word] >>= [Flag]
+er16[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: er8 er16
