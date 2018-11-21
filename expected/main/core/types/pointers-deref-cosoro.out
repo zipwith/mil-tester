@@ -2,10 +2,6 @@ data Maybe0
   = Nothing0
   | Just1 Word
 
-data Maybe1
-  = Nothing2
-  | Just3 Word
-
 -----------------------------------------
 -- not recursive
 b71 :: [Word] >>= [Maybe0]
@@ -35,30 +31,12 @@ derefSW[t0] =
 
 -----------------------------------------
 -- not recursive
-b72 :: [Word] >>= [Maybe1]
-b72[t0] =
-  Just3(t0)
-
------------------------------------------
--- not recursive
-s2 :: Maybe1
-s2 <-
-  Nothing2()
-
------------------------------------------
--- not recursive
-b661 :: [] >>= [Maybe1]
-b661[] =
-  return s2
-
------------------------------------------
--- not recursive
-entrypoint derefSI :: [Word] >>= [Maybe1]
+entrypoint derefSI :: [Word] >>= [Maybe0]
 derefSI[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b661[]
-    else b72[t0]
+    then b66[]
+    else b71[t0]
 
 -----------------------------------------
 -- Entrypoints: derefSW derefSI

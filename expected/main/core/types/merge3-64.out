@@ -1,0 +1,27 @@
+data Maybe3
+  = Nothing4
+  | Just5 Pair0
+
+data Pair0
+  = Pair0 Word Word
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe3
+Nothing <-
+  Nothing4()
+
+-----------------------------------------
+-- not recursive
+entrypoint n1 :: Maybe3
+n1 <-
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+entrypoint n2 :: Maybe3
+n2 <-
+  return Nothing
+
+-----------------------------------------
+-- Entrypoints: n1 n2

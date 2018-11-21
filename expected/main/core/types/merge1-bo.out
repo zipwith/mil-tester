@@ -1,0 +1,62 @@
+data Dup5
+  = Dup5 Word Word
+
+data Quad6
+  = Quad6 Word Word Word Word
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Word] >>= [Word]
+swap7[t0] =
+  t1 <- lshr((t0, 7))
+  t2 <- shl((t0, 7))
+  t3 <- and((t2, 16256))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Word] >>= [Word]
+swap8[t0] =
+  t1 <- lshr((t0, 8))
+  t2 <- shl((t0, 8))
+  t3 <- and((t2, 65280))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Word
+d1 <-
+  return 14
+
+-----------------------------------------
+-- not recursive
+entrypoint f1 :: Word
+f1 <-
+  return 910
+
+-----------------------------------------
+-- not recursive
+entrypoint f2 :: Word
+f2 <-
+  return 3728270
+
+-----------------------------------------
+-- not recursive
+entrypoint f3 :: Dup5
+f3 <-
+  Dup5(3728270, 3728270)
+
+-----------------------------------------
+-- not recursive
+entrypoint q :: Quad6
+q <-
+  Quad6(1, 2, 3, 4)
+
+-----------------------------------------
+-- not recursive
+entrypoint p :: Dup5
+p <-
+  Dup5(1, 2)
+
+-----------------------------------------
+-- Entrypoints: swap7 swap8 d1 f1 f2 f3 q p

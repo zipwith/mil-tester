@@ -1,11 +1,3 @@
-data Maybe0
-  = Nothing0
-  | Just1 Word
-
-data Maybe1
-  = Nothing2
-  | Just3 Word
-
 data Maybe2
   = Nothing4
   | Just5 Word
@@ -24,7 +16,7 @@ b8[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM1 :: [Maybe0, [Word] ->> [Maybe0], Word, Word] >>= [Maybe0]
+entrypoint genLeqIxM1 :: [Maybe2, [Word] ->> [Maybe2], Word, Word] >>= [Maybe2]
 genLeqIxM1[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -33,7 +25,7 @@ genLeqIxM1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM7 :: [Maybe1, [Word] ->> [Maybe1], Word, Word] >>= [Maybe1]
+entrypoint genLeqIxM7 :: [Maybe2, [Word] ->> [Maybe2], Word, Word] >>= [Maybe2]
 genLeqIxM7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -51,25 +43,25 @@ genLeqIxM64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-Nothing :: Maybe0
+Nothing :: Maybe2
 Nothing <-
-  Nothing0()
+  Nothing4()
 
 -----------------------------------------
 -- not recursive
-b33 :: [] >>= [Maybe0]
+b33 :: [] >>= [Maybe2]
 b33[] =
   return Nothing
 
 -----------------------------------------
 -- not recursive
-b32 :: [Word] >>= [Maybe0]
+b32 :: [Word] >>= [Maybe2]
 b32[t0] =
-  Just1(t0)
+  Just5(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx1 :: [Word, Word] >>= [Maybe0]
+entrypoint leqIx1 :: [Word, Word] >>= [Maybe2]
 leqIx1[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
@@ -78,48 +70,12 @@ leqIx1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-s1 :: Maybe1
-s1 <-
-  Nothing2()
-
------------------------------------------
--- not recursive
-b35 :: [] >>= [Maybe1]
-b35[] =
-  return s1
-
------------------------------------------
--- not recursive
-b34 :: [Word] >>= [Maybe1]
-b34[t0] =
-  Just3(t0)
-
------------------------------------------
--- not recursive
-entrypoint leqIx7 :: [Word, Word] >>= [Maybe1]
+entrypoint leqIx7 :: [Word, Word] >>= [Maybe2]
 leqIx7[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
-    then b34[t0]
-    else b35[]
-
------------------------------------------
--- not recursive
-s3 :: Maybe2
-s3 <-
-  Nothing4()
-
------------------------------------------
--- not recursive
-b37 :: [] >>= [Maybe2]
-b37[] =
-  return s3
-
------------------------------------------
--- not recursive
-b36 :: [Word] >>= [Maybe2]
-b36[t0] =
-  Just5(t0)
+    then b32[t0]
+    else b33[]
 
 -----------------------------------------
 -- not recursive
@@ -127,8 +83,8 @@ entrypoint leqIx64 :: [Word, Word] >>= [Maybe2]
 leqIx64[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
-    then b36[t0]
-    else b37[]
+    then b32[t0]
+    else b33[]
 
 -----------------------------------------
 -- Entrypoints: genLeqIxM1 genLeqIxM7 genLeqIxM64 leqIx1 leqIx7 leqIx64

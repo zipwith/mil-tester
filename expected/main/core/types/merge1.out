@@ -1,0 +1,69 @@
+data Dup1
+  = Dup1 Word Word
+
+data Dup3
+  = Dup3 Dup1 Dup1
+
+data Dup4
+  = Dup4 Dup3 Dup3
+
+data Dup5
+  = Dup5 Dup4 Dup4
+
+data Quad6
+  = Quad6 Word Word Word Word
+
+-----------------------------------------
+-- not recursive
+entrypoint swap7 :: [Dup1] >>= [Dup1]
+swap7[t0] =
+  t1 <- Dup1 0 t0
+  t2 <- Dup1 1 t0
+  Dup1(t2, t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint swap8 :: [Dup1] >>= [Dup1]
+swap8[t0] =
+  t1 <- Dup1 0 t0
+  t2 <- Dup1 1 t0
+  Dup1(t2, t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint d1 :: Dup1
+d1 <-
+  Dup1(1, 6)
+
+-----------------------------------------
+-- not recursive
+entrypoint f1 :: Dup3
+f1 <-
+  Dup3(d1, d1)
+
+-----------------------------------------
+-- not recursive
+entrypoint f2 :: Dup4
+f2 <-
+  Dup4(f1, f1)
+
+-----------------------------------------
+-- not recursive
+entrypoint f3 :: Dup5
+f3 <-
+  Dup5(f2, f2)
+
+-----------------------------------------
+-- not recursive
+entrypoint q :: Quad6
+q <-
+  Quad6(1, 2, 3, 4)
+
+-----------------------------------------
+-- not recursive
+entrypoint p :: Dup1
+p <-
+  Dup1(1, 2)
+
+-----------------------------------------
+-- Entrypoints: swap7 swap8 d1 f1 f2 f3 q p

@@ -16,9 +16,6 @@ data Maybe1
   = Nothing1
   | Just2 Word
 
-data Pair0
-  = Pair0 Word Word
-
 data Rainbow
   = Red
   | Orange
@@ -29,9 +26,9 @@ data Rainbow
 
 -----------------------------------------
 -- not recursive
-entrypoint origin :: Pair0
+entrypoint origin :: Dup4
 origin <-
-  Pair0(1, 8)
+  Dup6(1, 8)
 
 -----------------------------------------
 -- not recursive

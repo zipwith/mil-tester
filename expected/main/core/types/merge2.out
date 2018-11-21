@@ -1,0 +1,142 @@
+data List4
+  = Nil8
+  | Cons9 Word List4
+
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+data Maybe1
+  = Nothing2
+  | Just3 Maybe0
+
+data Maybe2
+  = Nothing4
+  | Just5 Maybe1
+
+data T
+  = Oy
+  | He
+  | N
+  | Ha
+  | Ar
+  | Je
+  | Ne
+  | Oh
+  | My
+
+data V
+  = A
+  | E
+  | I
+  | O
+  | U
+
+data YN
+  = Yes
+  | No
+
+-----------------------------------------
+-- not recursive
+entrypoint j1 :: Maybe0
+j1 <-
+  Just1(1)
+
+-----------------------------------------
+-- not recursive
+entrypoint j2 :: Maybe1
+j2 <-
+  Just3(j1)
+
+-----------------------------------------
+-- not recursive
+entrypoint j3 :: Maybe2
+j3 <-
+  Just5(j2)
+
+-----------------------------------------
+-- not recursive
+entrypoint j4 :: Maybe0
+j4 <-
+  Just1(1)
+
+-----------------------------------------
+-- not recursive
+Nil :: List4
+Nil <-
+  Nil8()
+
+-----------------------------------------
+-- not recursive
+s1 :: List4
+s1 <-
+  Cons9(3, Nil)
+
+-----------------------------------------
+-- not recursive
+s2 :: List4
+s2 <-
+  Cons9(2, s1)
+
+-----------------------------------------
+-- not recursive
+entrypoint l :: List4
+l <-
+  Cons9(1, s2)
+
+-----------------------------------------
+-- not recursive
+N :: T
+N <-
+  N()
+
+-----------------------------------------
+-- not recursive
+entrypoint en :: T
+en <-
+  return N
+
+-----------------------------------------
+-- not recursive
+E :: V
+E <-
+  E()
+
+-----------------------------------------
+-- not recursive
+entrypoint ee :: V
+ee <-
+  return E
+
+-----------------------------------------
+-- not recursive
+Yes :: YN
+Yes <-
+  Yes()
+
+-----------------------------------------
+-- not recursive
+entrypoint yx :: YN
+yx <-
+  return Yes
+
+-----------------------------------------
+-- not recursive
+entrypoint sx :: YN
+sx <-
+  return Yes
+
+-----------------------------------------
+-- not recursive
+entrypoint ux :: YN
+ux <-
+  return Yes
+
+-----------------------------------------
+-- not recursive
+entrypoint tx :: YN
+tx <-
+  return Yes
+
+-----------------------------------------
+-- Entrypoints: j1 j2 j3 j4 l en ee yx sx ux tx

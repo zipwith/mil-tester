@@ -2,24 +2,20 @@ data List1
   = Nil2
   | Cons3 Word List1
 
-data ListWord0
-  = LNil0
-  | LCons1 Word ListWord0
-
 data Unit
   = Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint LNil :: ListWord0
+entrypoint LNil :: List1
 LNil <-
-  LNil0()
+  Nil2()
 
 -----------------------------------------
 -- not recursive
-entrypoint LCons :: [Word, ListWord0] >>= [ListWord0]
+entrypoint LCons :: [Word, List1] >>= [List1]
 LCons[t0, t1] =
-  LCons1(t0, t1)
+  Cons3(t0, t1)
 
 -----------------------------------------
 -- not recursive
