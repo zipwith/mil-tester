@@ -1,0 +1,34 @@
+require "prelude.mil"
+
+-- Pure MIL implementations of loadChar, refChar, and nextChar.
+-- Implementing nextChar in LC is mostly a nicer option, but
+-- doing everything in MIL instead has the advantage that we
+-- don't need to export loadChar, refToWord, or any of the
+-- implementations (loadCharImp, refToWordImp, and nextCharImp).
+
+external loadChar  = loadCharImp :: [Ref String] ->> [[] ->> [Word]]
+loadCharImp       :: [Addr] ->> [[] ->> [Bit 8]]
+loadCharImp       <- loadCharImp1{}
+loadCharImp1{} s   = loadCharImp2{s}
+loadCharImp2{s} [] = load8((s))
+
+external refToWord = refToWordImp :: [Ref a] ->> [Word]
+refToWordImp      :: [Word] ->> [Word]
+refToWordImp      <- refToWordImp1{}
+refToWordImp1{} w  = return w
+
+external nextChar = nextCharImp :: Ref String -> Proc (Maybe (Pair Word (Ref String)))
+
+nextCharImp         :: Ref String -> Proc (Maybe (Pair Word Word))
+nextCharImp         <- {r} c <- nextCharImp1{r}; Proc(c)
+nextCharImp1{r} []   = x <- loadChar @ r
+                       c <- x @ []
+                       t <- primEq((c, 0))
+                       if t then done[] else step[c, r]
+done[]               = n <- Nothing()
+                       return n
+step[c, r]           = w  <- refToWord @ r
+                       p1 <- add((w, 1))
+                       q  <- Pair(c, p1)
+                       Just(q)
+

@@ -1,0 +1,161 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b153 :: [] >>= [Unit]
+b153[] =
+  return Unit
+
+-----------------------------------------
+-- recursive
+b194 :: [Word, Word] >>= [Unit]
+b194[t0, t1] =
+  t2 <- add((t1, 1))
+  t3 <- putchar((t0))
+  [] <- noinline(())
+  t4 <- load8((t2))
+  t5 <- primEq((t4, 0))
+  if t5
+    then b153[]
+    else b194[t4, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint puts :: [Word] >>= [Unit]
+puts[t0] =
+  [] <- noinline(())
+  t1 <- load8((t0))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b153[]
+    else b194[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b100 :: [Word] >>= [Word]
+b100[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b201 :: [Word, Word] >>= [Word]
+b201[t0, t1] =
+  t2 <- add((t0, 1))
+  t3 <- add((t1, 1))
+  b150[t3, t2]
+b150 :: [Word, Word] >>= [Word]
+b150[t0, t1] =
+  [] <- noinline(())
+  t2 <- load8((t1))
+  t3 <- primEq((t2, 0))
+  if t3
+    then b100[t0]
+    else b201[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint length :: [Word] >>= [Word]
+length[t0] =
+  b150[0, t0]
+
+-----------------------------------------
+-- recursive
+b206 :: [Word, Word] >>= [Word]
+b206[t0, t1] =
+  t2 <- add((t0, 1))
+  t3 <- add((t1, 1))
+  b157[t3, t2]
+b157 :: [Word, Word] >>= [Word]
+b157[t0, t1] =
+  [] <- noinline(())
+  t2 <- load8((t1))
+  t3 <- primEq((t2, 0))
+  if t3
+    then b100[t0]
+    else b206[t1, t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint len2 :: [Word] >>= [Word]
+len2[t0] =
+  b157[0, t0]
+
+-----------------------------------------
+-- not recursive
+b1001 :: [Unit] >>= [Unit]
+b1001[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b211 :: [Word, Word] >>= [Unit]
+b211[t0, t1] =
+  t2 <- add((t1, 1))
+  t3 <- putchar((t0))
+  [] <- noinline(())
+  t4 <- load8((t2))
+  t5 <- primEq((t4, 0))
+  if t5
+    then b1001[t3]
+    else b211[t4, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint puts2 :: [Word] >>= [Unit]
+puts2[t0] =
+  [] <- noinline(())
+  t1 <- load8((t0))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b153[]
+    else b211[t1, t0]
+
+-----------------------------------------
+-- recursive
+b218 :: [Word, Word] >>= [Word]
+b218[t0, t1] =
+  t2 <- add((t0, 1))
+  b220[t2, t1]
+b220 :: [Word, Word] >>= [Word]
+b220[t0, t1] =
+  t2 <- add((t1, 1))
+  [] <- noinline(())
+  t3 <- load8((t0))
+  t4 <- primEq((t3, 0))
+  if t4
+    then b100[t2]
+    else b218[t0, t2]
+
+-----------------------------------------
+-- not recursive
+b222 :: [Word] >>= [Word]
+b222[t0] =
+  t1 <- add((t0, 1))
+  b220[t1, 0]
+
+-----------------------------------------
+-- not recursive
+b180 :: [] >>= [Word]
+b180[] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint length1 :: [Word] >>= [Word]
+length1[t0] =
+  [] <- noinline(())
+  t1 <- load8((t0))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b180[]
+    else b222[t0]
+
+-----------------------------------------
+-- Entrypoints: puts length len2 puts2 length1

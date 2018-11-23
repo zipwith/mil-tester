@@ -1,0 +1,42 @@
+require "prelude.lc"
+require "noinline.mil"
+
+-- NOTE: must load either string1.lc or string2.mil BEFORE this file
+
+fst p = case p of Pair x y -> x
+snd p = case p of Pair x y -> y
+
+external putchar  :: Word -> Proc Unit
+
+entrypoint puts :: Ref String -> Proc Unit
+puts s           = noinline (case<- nextChar s of
+                               Nothing -> return Unit
+                               Just p  -> putchar (fst p)
+                                          puts (snd p))
+
+entrypoint length :: Ref String -> Proc Word
+length s = noinline (loop s 0)
+ where loop s n = case<- nextChar s of
+                    Nothing -> return n
+                    Just p  -> noinline (loop (snd p) (add n 1))
+
+foldString            :: a -> (a -> Word -> Proc a) -> Ref String -> Proc a
+foldString init step s = noinline (loop s init)
+ where loop s a = case<- nextChar s of
+                    Nothing -> return a
+                    Just p  -> do w <- step a (fst p)
+                                  noinline (loop (snd p) w)
+
+entrypoint len2 :: Ref String -> Proc Word
+len2 = foldString 0 (\l c -> return (add 1 l))
+
+entrypoint puts2 :: Ref String -> Proc Unit
+puts2 = foldString Unit (\l c -> putchar c)
+
+entrypoint length1 :: Ref String -> Proc Word
+length1 s = noinline (step s 0)
+ where loop s n = noinline (step s n)
+       step s n = case<- nextChar s of
+                    Nothing -> return n
+                    Just p  -> loop (snd p) (add n 1)
+
