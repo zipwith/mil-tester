@@ -18,7 +18,7 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-b66 :: forall (a :: *). [] >>= [Maybe a]
+b66 :: forall (a :: area). [] >>= [Maybe (Ref a)]
 b66[] =
   return Nothing
 

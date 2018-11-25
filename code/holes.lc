@@ -1,0 +1,29 @@
+require "prelude.lc"
+
+entrypoint foo
+foo = \x y z -> add (add x y) z
+
+entrypoint polyfoo
+polyfoo = \x y z -> x (y z)
+
+bitdata T = A [ x :: Bit 4 | y :: Bit 4 ]
+
+entrypoint hole12 :: T -> Bit 4
+hole12 t = t.x
+
+entrypoint hole19 :: T -> Bit 4 -> T
+hole19 t v = case t of A r -> A r[x=v]
+
+entrypoint hole1314 :: T -> Bit 4 -> T
+hole1314 t v = t[x=v]
+
+entrypoint hole15 :: Bit 4 -> T
+hole15 v = A [ x=v | y=v ]
+
+entrypoint hole161718
+hole161718 = S [ x<-initW | y <-initS | z<-initB ]
+external initW :: Init (Stored (Bit 32))
+external initS :: Init (Stored (Bit 16))
+external initB :: Init (Stored (Bit  8))
+struct S [ x :: Stored (Bit 32) | y :: Stored (Bit 16) | z :: Stored (Bit 8) ]
+

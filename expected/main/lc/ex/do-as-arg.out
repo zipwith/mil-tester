@@ -1,0 +1,63 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0b0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0b1
+
+-- bit pattern:
+--  _
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external blah :: [[] ->> [Unit]] ->> [[] ->> [Word]]
+
+-----------------------------------------
+-- not recursive
+external get :: [Bool] ->> [[] ->> [Word]]
+
+-----------------------------------------
+-- not recursive
+True :: Bool
+True <-
+  True()
+
+-----------------------------------------
+-- not recursive
+external put :: [Word] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+b65 :: [] >>= [Unit]
+b65[] =
+  t0 <- get @ True
+  t1 <- t0 @ []
+  t2 <- put @ t1
+  t2 @ []
+
+-----------------------------------------
+-- not recursive
+k44 :: {} [] ->> [Unit]
+k44{} [] = b65[]
+
+-----------------------------------------
+-- not recursive
+s1 :: [] ->> [Unit]
+s1 <-
+  k44{}
+
+-----------------------------------------
+-- not recursive
+k45 :: forall (a :: *). {} [a] ->> [[] ->> [Word]]
+k45{} t0 = blah @ s1
+
+-----------------------------------------
+-- not recursive
+entrypoint stuff :: forall (a :: *). [a] ->> [[] ->> [Word]]
+stuff <-
+  k45{}
+
+-----------------------------------------
+-- Entrypoints: stuff

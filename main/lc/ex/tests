@@ -31,6 +31,36 @@ exec: manti4      ./milc -m -pcosoboro manti4.lc
 
 exec: cfgtests    ./milc -l cfgtest.lc
 
+exec: holes       ./milc holes.lc -m -pco
+
+exec: amb-co      ./milc -m -pco --32 amb.lc
+exec: amb-cosoro  ./milc -m -pcosoro --32 amb.lc
+
+------------
+.lc: cond-as-arg    ./milc -m -pcosoro
+require "prelude.lc"
+
+external print :: Word -> Proc Unit
+entrypoint foo
+foo x = print (if x then 1 else 2)
+
+------------
+.lc: do-as-arg    ./milc -m -pco
+require "prelude.lc"
+external blah :: Proc Unit -> Proc Word
+external get :: Bool -> Proc Word
+external put :: Word -> Proc Unit
+
+entrypoint stuff
+stuff w = blah (do x <- get True; put x)
+
+------------
+.lc: bind        ./milc -m -pco
+entrypoint bind
+bind :: Proc a -> (a -> Proc b) -> Proc b
+bind  = \c f -> do x <- c; f x
+
+------------
 .lc: rec         ./milc -m -pcosoboro
 require "prelude.lc"
 

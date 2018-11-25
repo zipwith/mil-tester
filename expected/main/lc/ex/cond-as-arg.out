@@ -1,0 +1,25 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+b72 :: [] >>= [Unit]
+b72[] =
+  print((2))
+
+-----------------------------------------
+-- not recursive
+b73 :: [] >>= [Unit]
+b73[] =
+  print((1))
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: [Flag] >>= [Unit]
+foo[t0] =
+  if t0
+    then b73[]
+    else b72[]
+
+-----------------------------------------
+-- Entrypoints: foo

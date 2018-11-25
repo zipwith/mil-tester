@@ -40,7 +40,7 @@ main <-
 
 -----------------------------------------
 -- not recursive
-b78 :: forall (a :: *). [a] >>= [a]
+b78 :: [Word] >>= [Word]
 b78[t0] =
   return t0
 

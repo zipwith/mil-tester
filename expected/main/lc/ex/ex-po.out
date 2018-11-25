@@ -46,7 +46,7 @@ s2 <-
 
 -----------------------------------------
 -- not recursive
-swap :: forall (arg :: *). Dup arg -> Dup arg
+swap :: forall (a :: *). Dup a -> Dup a
 swap <-
   Func(s2)
 

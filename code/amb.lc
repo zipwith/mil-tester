@@ -1,0 +1,20 @@
+require "prelude.lc"
+
+entrypoint why
+why  :: Ix 24 -> Maybe (Ix 24)
+why x = maybeIx24 (ixToWord x)
+
+maybeIx24 :: Word -> Maybe (Ix 24)
+maybeIx24  = maybeIx
+
+export maybeIx      :: Word -> Maybe (Ix n)
+maybeIx              = genMaybeIx Nothing Just
+
+export ixToWord :: Ix m -> Word
+ixToWord i       = bitToWord (ixToBit i)
+
+external genMaybeIx {primGenMaybeIx (Maybe (Ix n)) n}
+   :: Maybe (Ix n) -> (Ix n -> Maybe (Ix n)) -> Word -> Maybe (Ix n)
+external bitToWord  {primBitToWord 32} :: Bit 32 -> Word
+external ixToBit    {primIxToBit m n}  :: Ix m -> Bit n
+

@@ -5,9 +5,6 @@ data B
 data Dup3
   = Dup5 Either2 Either2
 
-data Dup4
-  = Dup6 Word Word
-
 data Either2
   = Left3 Word
   | Right4 Word
@@ -15,6 +12,9 @@ data Either2
 data Maybe1
   = Nothing1
   | Just2 Word
+
+data Pair0
+  = Pair0 Word Word
 
 data Rainbow
   = Red
@@ -26,9 +26,9 @@ data Rainbow
 
 -----------------------------------------
 -- not recursive
-entrypoint origin :: Dup4
+entrypoint origin :: Pair0
 origin <-
-  Dup6(1, 8)
+  Pair0(1, 8)
 
 -----------------------------------------
 -- not recursive
@@ -62,11 +62,11 @@ elf <-
 
 -----------------------------------------
 -- not recursive
-entrypoint swap :: [Dup4] >>= [Dup4]
+entrypoint swap :: [Pair0] >>= [Pair0]
 swap[t0] =
-  t1 <- Dup6 0 t0
-  t2 <- Dup6 1 t0
-  Dup6(t2, t1)
+  t1 <- Pair0 0 t0
+  t2 <- Pair0 1 t0
+  Pair0(t2, t1)
 
 -----------------------------------------
 -- not recursive

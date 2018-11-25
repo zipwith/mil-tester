@@ -1,0 +1,56 @@
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+-----------------------------------------
+-- not recursive
+external ixToBit {primIxToBit m n} :: forall (m :: nat) (n :: nat). [Ix m] ->> [Bit n]
+
+-----------------------------------------
+-- not recursive
+external bitToWord {primBitToWord 32} :: [Bit 32] ->> [Word]
+
+-----------------------------------------
+-- not recursive
+external genMaybeIx {primGenMaybeIx (Maybe (Ix n)) n} :: forall (n :: nat). [Maybe (Ix n)] ->> [[[Ix n] ->> [Maybe (Ix n)]] ->> [[Word] ->> [Maybe (Ix n)]]]
+
+-----------------------------------------
+-- not recursive
+Nothing :: forall (a :: *). Maybe a
+Nothing <-
+  Nothing()
+
+-----------------------------------------
+-- not recursive
+k43 :: forall (a :: *). {} [a] ->> [Maybe a]
+k43{} t0 = Just(t0)
+
+-----------------------------------------
+-- not recursive
+Just :: forall (a :: *). [a] ->> [Maybe a]
+Just <-
+  k43{}
+
+-----------------------------------------
+-- not recursive
+b68 :: [Ix 24] >>= [Maybe (Ix 24)]
+b68[t0] =
+  t1 <- ixToBit @ t0
+  t2 <- bitToWord @ t1
+  t3 <- genMaybeIx @ Nothing
+  t4 <- t3 @ Just
+  t4 @ t2
+
+-----------------------------------------
+-- not recursive
+k45 :: {} [Ix 24] ->> [Maybe (Ix 24)]
+k45{} t0 = b68[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint why :: [Ix 24] ->> [Maybe (Ix 24)]
+why <-
+  k45{}
+
+-----------------------------------------
+-- Entrypoints: why

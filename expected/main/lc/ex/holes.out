@@ -1,0 +1,165 @@
+struct S / 7
+  [ x :: Stored (Bit 32)  {- offset=0 -}
+  | y :: Stored (Bit 16)  {- offset=4 -}
+  | z :: Stored (Bit 8)  {- offset=6 -} ]
+  aligned 4
+
+bitdata T /8
+  = A [ x :: Bit 4 | y :: Bit 4 ]
+    -- predA(x :: Bit 8) = true
+
+-- bit pattern:
+--  ________
+
+-----------------------------------------
+-- not recursive
+external initW :: Init (Stored (Bit 32))
+
+-----------------------------------------
+-- not recursive
+external initS :: Init (Stored (Bit 16))
+
+-----------------------------------------
+-- not recursive
+external initB :: Init (Stored (Bit 8))
+
+-----------------------------------------
+-- not recursive
+b75 :: [] >>= [Init S]
+b75[] =
+  t0 <- init_x((initW))
+  t1 <- init_y((initS))
+  t2 <- primInitSeq((t0, t1))
+  t3 <- init_z((initB))
+  primInitSeq((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint hole161718 :: Init S
+hole161718 <-
+  b75[]
+
+-----------------------------------------
+-- not recursive
+b76 :: [Bit 4] >>= [T]
+b76[t0] =
+  t1 <- T.A(t0, t0)
+  A(t1)
+
+-----------------------------------------
+-- not recursive
+k46 :: {} [Bit 4] ->> [T]
+k46{} t0 = b76[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint hole15 :: [Bit 4] ->> [T]
+hole15 <-
+  k46{}
+
+-----------------------------------------
+-- not recursive
+b78 :: [T, Bit 4] >>= [T]
+b78[t0, t1] =
+  t2 <- A 0 t0
+  t3 <- update_x((t2, t1))
+  A(t3)
+
+-----------------------------------------
+-- not recursive
+k47 :: {T} [Bit 4] ->> [T]
+k47{t0} t1 = b78[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k48 :: {} [T] ->> [[Bit 4] ->> [T]]
+k48{} t0 = k47{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint hole1314 :: [T] ->> [[Bit 4] ->> [T]]
+hole1314 <-
+  k48{}
+
+-----------------------------------------
+-- not recursive
+entrypoint hole19 :: [T] ->> [[Bit 4] ->> [T]]
+hole19 <-
+  k48{}
+
+-----------------------------------------
+-- not recursive
+b86 :: [T] >>= [Bit 4]
+b86[t0] =
+  t1 <- A 0 t0
+  T.A 0 t1
+
+-----------------------------------------
+-- not recursive
+k51 :: {} [T] ->> [Bit 4]
+k51{} t0 = b86[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint hole12 :: [T] ->> [Bit 4]
+hole12 <-
+  k51{}
+
+-----------------------------------------
+-- not recursive
+b88 :: forall (a :: *) (b :: *) (c :: *). [[a] ->> [b], [c] ->> [a], c] >>= [b]
+b88[t0, t1, t2] =
+  t3 <- t1 @ t2
+  t0 @ t3
+
+-----------------------------------------
+-- not recursive
+k52 :: forall (a :: *) (b :: *) (c :: *). {[a] ->> [b], [b] ->> [c]} [a] ->> [c]
+k52{t0, t1} t2 = b88[t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+k53 :: forall (a :: *) (b :: *) (c :: *). {[a] ->> [b]} [[c] ->> [a]] ->> [[c] ->> [b]]
+k53{t0} t1 = k52{t1, t0}
+
+-----------------------------------------
+-- not recursive
+k54 :: forall (a :: *) (b :: *) (c :: *). {} [[a] ->> [b]] ->> [[[c] ->> [a]] ->> [[c] ->> [b]]]
+k54{} t0 = k53{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint polyfoo :: forall (a :: *) (b :: *) (c :: *). [[a] ->> [b]] ->> [[[c] ->> [a]] ->> [[c] ->> [b]]]
+polyfoo <-
+  k54{}
+
+-----------------------------------------
+-- not recursive
+b92 :: [Word, Word, Word] >>= [Word]
+b92[t0, t1, t2] =
+  t3 <- add((t0, t1))
+  add((t3, t2))
+
+-----------------------------------------
+-- not recursive
+k55 :: {Word, Word} [Word] ->> [Word]
+k55{t0, t1} t2 = b92[t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+k56 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k56{t0} t1 = k55{t1, t0}
+
+-----------------------------------------
+-- not recursive
+k57 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k57{} t0 = k56{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+foo <-
+  k57{}
+
+-----------------------------------------
+-- Entrypoints: hole161718 hole15 hole1314 hole19 hole12 polyfoo foo

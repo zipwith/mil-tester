@@ -196,13 +196,13 @@ sub <-
 
 -----------------------------------------
 -- not recursive
-b72 :: forall (a :: *). [a] >>= [a]
+b72 :: [Word] >>= [Word]
 b72[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b74 :: forall (a :: *). [a] >>= [a]
+b74 :: [Word] >>= [Word]
 b74[t0] =
   t1 <- return t0
   b72[t1]
@@ -280,13 +280,13 @@ fib <-
 
 -----------------------------------------
 -- not recursive
-b80 :: forall (a :: *). [a] >>= [a]
+b80 :: [Word] >>= [Word]
 b80[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b82 :: forall (a :: *). [a] >>= [a]
+b82 :: [Word] >>= [Word]
 b82[t0] =
   t1 <- return t0
   b80[t1]
