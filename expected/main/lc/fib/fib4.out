@@ -3,20 +3,20 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-b73 :: [] >>= [Word]
-b73[] =
+b79 :: [] >>= [Word]
+b79[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-b75 :: [] >>= [Word]
-b75[] =
+b81 :: [] >>= [Word]
+b81[] =
   return 1
 
 -----------------------------------------
 -- recursive
-b76 :: [Word] >>= [Word]
-b76[t0] =
+b82 :: [Word] >>= [Word]
+b82[t0] =
   t1 <- add((t0, -1))
   t2 <- b112[t1]
   t3 <- add((t0, -2))
@@ -26,14 +26,14 @@ b112 :: [Word] >>= [Word]
 b112[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b73[]
+    then b79[]
     else b108[t0]
 b108 :: [Word] >>= [Word]
 b108[t0] =
   t1 <- primEq((t0, 1))
   if t1
-    then b75[]
-    else b76[t0]
+    then b81[]
+    else b82[t0]
 
 -----------------------------------------
 -- not recursive
@@ -43,8 +43,8 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-b70 :: [] >>= [Unit]
-b70[] =
+b86 :: [] >>= [Unit]
+b86[] =
   [] <- printWord((91))
   t0 <- b108[12]
   [] <- printWord((t0))
@@ -59,7 +59,7 @@ b70[] =
 -- not recursive
 main :: [] >>= [Unit]
 main[] =
-  b70[]
+  b86[]
 
 -----------------------------------------
 -- not recursive

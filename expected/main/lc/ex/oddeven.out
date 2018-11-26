@@ -3,32 +3,32 @@ data Pair0
 
 -----------------------------------------
 -- not recursive
-b70 :: [] >>= [Flag]
-b70[] =
+b71 :: [] >>= [Flag]
+b71[] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-b75 :: [] >>= [Flag]
-b75[] =
+b66 :: [] >>= [Flag]
+b66[] =
   return flag0
 
 -----------------------------------------
 -- recursive
-b76 :: [Word] >>= [Flag]
-b76[t0] =
+b67 :: [Word] >>= [Flag]
+b67[t0] =
   t1 <- add((t0, -1))
   t2 <- primEq((t1, 0))
   if t2
-    then b70[]
-    else b71[t1]
-b71 :: [Word] >>= [Flag]
-b71[t0] =
+    then b71[]
+    else b72[t1]
+b72 :: [Word] >>= [Flag]
+b72[t0] =
   t1 <- add((t0, -1))
   t2 <- primEq((t1, 0))
   if t2
-    then b75[]
-    else b76[t1]
+    then b66[]
+    else b67[t1]
 
 -----------------------------------------
 -- not recursive
@@ -36,8 +36,8 @@ entrypoint main :: [Word] >>= [Flag]
 main[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b70[]
-    else b71[t0]
+    then b71[]
+    else b72[t0]
 
 -----------------------------------------
 -- not recursive
@@ -51,8 +51,8 @@ entrypoint main1 :: [Word] >>= [Flag]
 main1[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b70[]
-    else b71[t0]
+    then b71[]
+    else b72[t0]
 
 -----------------------------------------
 -- not recursive
@@ -71,19 +71,19 @@ b104 :: [Word] >>= [Flag]
 b104[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b75[]
-    else b76[t0]
+    then b66[]
+    else b67[t0]
 
 -----------------------------------------
 -- not recursive
-k46 :: {} [Word] ->> [Flag]
-k46{} t0 = b104[t0]
+k44 :: {} [Word] ->> [Flag]
+k44{} t0 = b104[t0]
 
 -----------------------------------------
 -- not recursive
 odd :: [Word] ->> [Flag]
 odd <-
-  k46{}
+  k44{}
 
 -----------------------------------------
 -- not recursive
@@ -98,8 +98,8 @@ main3[t0] =
   t1 <- add((t0, 1))
   t2 <- primEq((t1, 0))
   if t2
-    then b75[]
-    else b76[t1]
+    then b66[]
+    else b67[t1]
 
 -----------------------------------------
 -- Entrypoints: main main0 main1 main2 main3

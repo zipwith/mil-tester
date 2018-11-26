@@ -21,21 +21,21 @@ bitdata ExW /32
 
 -----------------------------------------
 -- not recursive
-b16 :: [ExL] >>= [Ptr (Stored (Bit 64))]
-b16[t0] =
+b20 :: [ExL] >>= [Ptr (Stored (Bit 64))]
+b20[t0] =
   t1 <- ExL 0 t0
   ExL.ExL 0 t1
 
 -----------------------------------------
 -- not recursive
-k6 :: {} [ExL] ->> [Ptr (Stored (Bit 64))]
-k6{} t0 = b16[t0]
+k8 :: {} [ExL] ->> [Ptr (Stored (Bit 64))]
+k8{} t0 = b20[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint idexL :: [ExL] ->> [Ptr (Stored (Bit 64))]
 idexL <-
-  k6{}
+  k8{}
 
 -----------------------------------------
 -- not recursive
@@ -57,21 +57,21 @@ idexB <-
 
 -----------------------------------------
 -- not recursive
-b20 :: [ExW] >>= [Ptr (Stored Word)]
-b20[t0] =
+b16 :: [ExW] >>= [Ptr (Stored Word)]
+b16[t0] =
   t1 <- ExW 0 t0
   ExW.ExW 0 t1
 
 -----------------------------------------
 -- not recursive
-k8 :: {} [ExW] ->> [Ptr (Stored Word)]
-k8{} t0 = b20[t0]
+k6 :: {} [ExW] ->> [Ptr (Stored Word)]
+k6{} t0 = b16[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint idexW :: [ExW] ->> [Ptr (Stored Word)]
 idexW <-
-  k8{}
+  k6{}
 
 -----------------------------------------
 -- Entrypoints: idexL idexB idexW

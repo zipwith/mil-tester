@@ -33,8 +33,8 @@ Just <-
 
 -----------------------------------------
 -- not recursive
-b68 :: [Ix 24] >>= [Maybe (Ix 24)]
-b68[t0] =
+b65 :: [Ix 24] >>= [Maybe (Ix 24)]
+b65[t0] =
   t1 <- ixToBit @ t0
   t2 <- bitToWord @ t1
   t3 <- genMaybeIx @ Nothing
@@ -43,14 +43,14 @@ b68[t0] =
 
 -----------------------------------------
 -- not recursive
-k45 :: {} [Ix 24] ->> [Maybe (Ix 24)]
-k45{} t0 = b68[t0]
+k44 :: {} [Ix 24] ->> [Maybe (Ix 24)]
+k44{} t0 = b65[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint why :: [Ix 24] ->> [Maybe (Ix 24)]
 why <-
-  k45{}
+  k44{}
 
 -----------------------------------------
 -- Entrypoints: why

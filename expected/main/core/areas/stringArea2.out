@@ -1,24 +1,24 @@
 -----------------------------------------
 -- not recursive
-str2 :: Word
-str2 <- "goodbye"
+str1 :: Word
+str1 <- "goodbye"
 
 -----------------------------------------
 -- not recursive
 b67 :: [] >>= [Word]
 b67[] =
-  return str2
+  return str1
 
 -----------------------------------------
 -- not recursive
-str1 :: Word
-str1 <- "hello"
+str0 :: Word
+str0 <- "hello"
 
 -----------------------------------------
 -- not recursive
 b66 :: [] >>= [Word]
 b66[] =
-  return str1
+  return str0
 
 -----------------------------------------
 -- not recursive
@@ -30,14 +30,14 @@ greet[t0] =
 
 -----------------------------------------
 -- not recursive
-str0 :: Word
-str0 <- "Please enter your name: "
+str2 :: Word
+str2 <- "Please enter your name: "
 
 -----------------------------------------
 -- not recursive
 entrypoint prompt :: Word
 prompt <-
-  return str0
+  return str2
 
 -----------------------------------------
 -- Entrypoints: greet prompt

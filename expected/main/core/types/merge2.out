@@ -14,6 +14,10 @@ data Maybe2
   = Nothing4
   | Just5 Maybe1
 
+data Sel
+  = Selected
+  | NotSelected
+
 data T
   = Oy
   | He
@@ -31,10 +35,6 @@ data V
   | I
   | O
   | U
-
-data YN
-  = Yes
-  | No
 
 -----------------------------------------
 -- not recursive
@@ -110,31 +110,31 @@ ee <-
 
 -----------------------------------------
 -- not recursive
-Yes :: YN
+Yes :: Sel
 Yes <-
-  Yes()
+  Selected()
 
 -----------------------------------------
 -- not recursive
-entrypoint yx :: YN
+entrypoint yx :: Sel
 yx <-
   return Yes
 
 -----------------------------------------
 -- not recursive
-entrypoint sx :: YN
+entrypoint sx :: Sel
 sx <-
   return Yes
 
 -----------------------------------------
 -- not recursive
-entrypoint ux :: YN
+entrypoint ux :: Sel
 ux <-
   return Yes
 
 -----------------------------------------
 -- not recursive
-entrypoint tx :: YN
+entrypoint tx :: Sel
 tx <-
   return Yes
 

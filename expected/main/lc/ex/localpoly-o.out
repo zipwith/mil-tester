@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-k3 :: forall (a :: *). {} [a] ->> [a]
-k3{} t0 = return t0
+k4 :: forall (a :: *). {} [a] ->> [a]
+k4{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint f :: forall (a :: *). [a] ->> [a]
 f <-
-  k3{}
+  k4{}
 
 -----------------------------------------
 -- Entrypoints: f

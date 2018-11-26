@@ -34,47 +34,47 @@ bitdata Z2 /6
 
 -----------------------------------------
 -- not recursive
-k6 :: {} [U2] ->> [U2]
-k6{} t0 = return t0
+k3 :: {} [U2] ->> [U2]
+k3{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint idU2 :: [U2] ->> [U2]
 idU2 <-
-  k6{}
+  k3{}
 
 -----------------------------------------
 -- not recursive
-k5 :: {} [Z2] ->> [Z2]
-k5{} t0 = return t0
+k4 :: {} [Z2] ->> [Z2]
+k4{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint idZ2 :: [Z2] ->> [Z2]
 idZ2 <-
-  k5{}
+  k4{}
 
 -----------------------------------------
 -- not recursive
-k4 :: {} [Q] ->> [Q]
-k4{} t0 = return t0
+k5 :: {} [Q] ->> [Q]
+k5{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint idQ :: [Q] ->> [Q]
 idQ <-
-  k4{}
+  k5{}
 
 -----------------------------------------
 -- not recursive
-k3 :: {} [H] ->> [H]
-k3{} t0 = return t0
+k6 :: {} [H] ->> [H]
+k6{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint idH :: [H] ->> [H]
 idH <-
-  k3{}
+  k6{}
 
 -----------------------------------------
 -- Entrypoints: idU2 idZ2 idQ idH

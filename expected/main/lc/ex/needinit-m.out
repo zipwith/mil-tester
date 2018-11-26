@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-b70 :: [] >>= [Word]
-b70[] =
+b68 :: [] >>= [Word]
+b68[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b68 :: [] >>= [Word]
-b68[] =
+b66 :: [] >>= [Word]
+b66[] =
   return 0
 
 -----------------------------------------
@@ -16,10 +16,10 @@ b86 :: [Word] >>= [Word]
 b86[t0] =
   t1 <- primEq((t0, 1))
   if t1
-    then b70[]
-    else b71[t0]
-b71 :: [Word] >>= [Word]
-b71[t0] =
+    then b68[]
+    else b69[t0]
+b69 :: [Word] >>= [Word]
+b69[t0] =
   t1 <- add((t0, -1))
   t2 <- b90[t1]
   t3 <- add((t0, -2))
@@ -29,13 +29,13 @@ b90 :: [Word] >>= [Word]
 b90[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b68[]
+    then b66[]
     else b86[t0]
 
 -----------------------------------------
 -- not recursive
-b65 :: [] >>= [Word]
-b65[] =
+b74 :: [] >>= [Word]
+b74[] =
   t0 <- b90[14]
   t1 <- b90[13]
   add((t0, t1))
@@ -44,12 +44,12 @@ b65[] =
 -- not recursive
 entrypoint fib15 :: Word
 fib15 <-
-  b65[]
+  b74[]
 
 -----------------------------------------
 -- not recursive
-b66 :: [] >>= [Word]
-b66[] =
+b73 :: [] >>= [Word]
+b73[] =
   t0 <- b90[11]
   t1 <- b90[10]
   add((t0, t1))
@@ -58,7 +58,7 @@ b66[] =
 -- not recursive
 entrypoint fib12 :: Word
 fib12 <-
-  b66[]
+  b73[]
 
 -----------------------------------------
 -- not recursive

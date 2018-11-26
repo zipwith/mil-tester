@@ -52,14 +52,14 @@ Null <-
 
 -----------------------------------------
 -- not recursive
-b72 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b72[] =
+b69 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b69[] =
   return Null
 
 -----------------------------------------
 -- not recursive
-b69 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b69[t0, t1] =
+b66 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b66[t0, t1] =
   t2 <- at @ t0
   t3 <- t2 @ t1
   Ref(t3)
@@ -75,7 +75,7 @@ b87[t0, t1] =
   t5 <- get @ t4
   t6 <- t5 @ []
   case t6 of
-    Null -> b69[t1, t2]
+    Null -> b66[t1, t2]
     Ref -> b85[t2, t1]
 b85 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
 b85[t0, t1] =
@@ -84,42 +84,42 @@ b85[t0, t1] =
   t4 <- t3 @ t0
   case t4 of
     Just -> b87[t4, t1]
-    Nothing -> b72[]
+    Nothing -> b69[]
 
 -----------------------------------------
 -- not recursive
-b74 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b74[t0, t1] =
+b71 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b71[t0, t1] =
   t2 <- at @ t0
   t3 <- t2 @ t1
   t4 <- get @ t3
   t5 <- t4 @ []
   case t5 of
-    Null -> b69[t0, t1]
+    Null -> b66[t0, t1]
     Ref -> b85[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k45 :: {Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
-k45{t0, t1} [] = b74[t1, t0]
+k44 :: {Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k44{t0, t1} [] = b71[t1, t0]
 
 -----------------------------------------
 -- not recursive
-b65 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
-b65[t0] =
+b77 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+b77[t0] =
   t1 <- zero16 @ Unit
-  k45{t1, t0}
+  k44{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k44 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
-k44{} t0 = b65[t0]
+k47 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+k47{} t0 = b77[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
 findNull <-
-  k44{}
+  k47{}
 
 -----------------------------------------
 -- Entrypoints: findNull

@@ -20,8 +20,8 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b14 :: [] >>= [Byte]
-b14[] =
+b8 :: [] >>= [Byte]
+b8[] =
   t0 <- seventeen @ Unit
   t1 <- Byte.Byte(t0)
   Byte(t1)
@@ -30,43 +30,43 @@ b14[] =
 -- not recursive
 entrypoint aByte :: Byte
 aByte <-
-  b14[]
+  b8[]
 
 -----------------------------------------
 -- not recursive
-b11 :: [Byte] >>= [Bit 8]
-b11[t0] =
+b10 :: [Byte] >>= [Bit 8]
+b10[t0] =
   t1 <- Byte 0 t0
   Byte.Byte 0 t1
 
 -----------------------------------------
 -- not recursive
-k5 :: {} [Byte] ->> [Bit 8]
-k5{} t0 = b11[t0]
+k4 :: {} [Byte] ->> [Bit 8]
+k4{} t0 = b10[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint getVal :: [Byte] ->> [Bit 8]
 getVal <-
-  k5{}
+  k4{}
 
 -----------------------------------------
 -- not recursive
-b8 :: [Bit 8] >>= [Byte]
-b8[t0] =
+b13 :: [Bit 8] >>= [Byte]
+b13[t0] =
   t1 <- Byte.Byte(t0)
   Byte(t1)
 
 -----------------------------------------
 -- not recursive
-k4 :: {} [Bit 8] ->> [Byte]
-k4{} t0 = b8[t0]
+k5 :: {} [Bit 8] ->> [Byte]
+k5{} t0 = b13[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint setVal :: [Bit 8] ->> [Byte]
 setVal <-
-  k4{}
+  k5{}
 
 -----------------------------------------
 -- Entrypoints: aByte getVal setVal

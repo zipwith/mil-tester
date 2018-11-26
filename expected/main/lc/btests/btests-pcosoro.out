@@ -5,6 +5,9 @@ data B
 data Dup3
   = Dup5 Either2 Either2
 
+data Dup4
+  = Dup6 Word Word
+
 data Either2
   = Left3 Word
   | Right4 Word
@@ -12,9 +15,6 @@ data Either2
 data Maybe1
   = Nothing1
   | Just2 Word
-
-data Pair0
-  = Pair0 Word Word
 
 data Rainbow
   = Red
@@ -26,9 +26,9 @@ data Rainbow
 
 -----------------------------------------
 -- not recursive
-entrypoint origin :: Pair0
+entrypoint origin :: Dup4
 origin <-
-  Pair0(1, 8)
+  Dup6(1, 8)
 
 -----------------------------------------
 -- not recursive
@@ -62,11 +62,11 @@ elf <-
 
 -----------------------------------------
 -- not recursive
-entrypoint swap :: [Pair0] >>= [Pair0]
+entrypoint swap :: [Dup4] >>= [Dup4]
 swap[t0] =
-  t1 <- Pair0 0 t0
-  t2 <- Pair0 1 t0
-  Pair0(t2, t1)
+  t1 <- Dup6 0 t0
+  t2 <- Dup6 1 t0
+  Dup6(t2, t1)
 
 -----------------------------------------
 -- not recursive
@@ -114,14 +114,14 @@ const[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b70 :: [Word] >>= [Word]
-b70[t0] =
+b83 :: [Word] >>= [Word]
+b83[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b71 :: [Word] >>= [Word]
-b71[t0] =
+b84 :: [Word] >>= [Word]
+b84[t0] =
   t1 <- add((t0, -1))
   t2 <- fib[t1]
   t3 <- add((t0, -2))
@@ -131,8 +131,8 @@ entrypoint fib :: [Word] >>= [Word]
 fib[t0] =
   t1 <- primSlt((t0, 2))
   if t1
-    then b70[t0]
-    else b71[t0]
+    then b83[t0]
+    else b84[t0]
 
 -----------------------------------------
 -- Entrypoints: origin no elf swap color flag [wide,wide1] add3 const fib

@@ -59,14 +59,14 @@ getF[t0] =
 
 -----------------------------------------
 -- not recursive
-b83 :: [] >>= [Flag]
-b83[] =
+b73 :: [] >>= [Flag]
+b73[] =
   return no
 
 -----------------------------------------
 -- not recursive
-b84 :: [] >>= [Flag]
-b84[] =
+b74 :: [] >>= [Flag]
+b74[] =
   return yes
 
 -----------------------------------------
@@ -74,21 +74,21 @@ b84[] =
 entrypoint bool2one :: [Flag] >>= [Flag]
 bool2one[t0] =
   if t0
-    then b84[]
-    else b83[]
+    then b74[]
+    else b73[]
 
 -----------------------------------------
 -- not recursive
 entrypoint boolflip :: [Flag] >>= [Flag]
 boolflip[t0] =
   if t0
-    then b83[]
-    else b84[]
+    then b73[]
+    else b74[]
 
 -----------------------------------------
 -- not recursive
-b81 :: [] >>= [Word]
-b81[] =
+b77 :: [] >>= [Word]
+b77[] =
   t0 <- fromWord2((6))
   t1 <- fromWord2((2))
   t2 <- shl((t0, 4))
@@ -98,12 +98,12 @@ b81[] =
 -- not recursive
 entrypoint nibs1 :: Word
 nibs1 <-
-  b81[]
+  b77[]
 
 -----------------------------------------
 -- not recursive
-b80 :: [] >>= [Word]
-b80[] =
+b78 :: [] >>= [Word]
+b78[] =
   t0 <- fromWord2((2))
   t1 <- fromWord2((6))
   t2 <- shl((t1, 4))
@@ -113,7 +113,7 @@ b80[] =
 -- not recursive
 entrypoint nibs2 :: Word
 nibs2 <-
-  b80[]
+  b78[]
 
 -----------------------------------------
 -- not recursive
@@ -170,8 +170,8 @@ noperms <-
 
 -----------------------------------------
 -- not recursive
-b62 :: [] >>= [Word]
-b62[] =
+b96 :: [] >>= [Word]
+b96[] =
   t0 <- and((s1, 3))
   t1 <- flagToWord((yes))
   t2 <- shl((t1, 2))
@@ -181,12 +181,12 @@ b62[] =
 -- not recursive
 entrypoint roperms :: Word
 roperms <-
-  b62[]
+  b96[]
 
 -----------------------------------------
 -- not recursive
-b61 :: [] >>= [Word]
-b61[] =
+b97 :: [] >>= [Word]
+b97[] =
   t0 <- and((roperms, 5))
   t1 <- flagToWord((yes))
   t2 <- shl((t1, 1))
@@ -196,12 +196,12 @@ b61[] =
 -- not recursive
 entrypoint rwperms :: Word
 rwperms <-
-  b61[]
+  b97[]
 
 -----------------------------------------
 -- not recursive
-b60 :: [] >>= [Word]
-b60[] =
+b98 :: [] >>= [Word]
+b98[] =
   t0 <- and((rwperms, 6))
   t1 <- flagToWord((yes))
   or((t0, t1))
@@ -210,7 +210,7 @@ b60[] =
 -- not recursive
 entrypoint allperms :: Word
 allperms <-
-  b60[]
+  b98[]
 
 -----------------------------------------
 -- not recursive

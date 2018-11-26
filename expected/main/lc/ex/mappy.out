@@ -40,8 +40,8 @@ main <-
 
 -----------------------------------------
 -- not recursive
-b78 :: [Word] >>= [Word]
-b78[t0] =
+b66 :: [Word] >>= [Word]
+b66[t0] =
   return t0
 
 -----------------------------------------
@@ -52,27 +52,27 @@ b83[t0, t1] =
   t2 <- Cons 1 t0
   t3 <- add((t1, 1))
   case t2 of
-    Nil -> b78[t3]
+    Nil -> b66[t3]
     Cons -> b83[t2, t3]
 
 -----------------------------------------
 -- not recursive
-b80 :: forall (a :: *). [List a, Word] >>= [Word]
-b80[t0, t1] =
+b68 :: forall (a :: *). [List a, Word] >>= [Word]
+b68[t0, t1] =
   case t0 of
-    Nil -> b78[t1]
+    Nil -> b66[t1]
     Cons -> b83[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k47 :: forall (a :: *). {Word} [List a] ->> [Word]
-k47{t0} t1 = b80[t1, t0]
+k44 :: forall (a :: *). {Word} [List a] ->> [Word]
+k44{t0} t1 = b68[t1, t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint length :: forall (a :: *). [List a] ->> [Word]
 length <-
-  k47{0}
+  k44{0}
 
 -----------------------------------------
 -- not recursive
@@ -98,19 +98,19 @@ b74[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k45 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
-k45{t0} t1 = b74[t1, t0]
+k46 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
+k46{t0} t1 = b74[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k46 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
-k46{} t0 = k45{t0}
+k47 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+k47{} t0 = k46{t0}
 
 -----------------------------------------
 -- not recursive
 entrypoint map :: forall (a :: *) (a0 :: *). [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
 map <-
-  k46{}
+  k47{}
 
 -----------------------------------------
 -- Entrypoints: size main length map

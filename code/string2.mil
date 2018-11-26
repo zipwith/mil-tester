@@ -1,10 +1,8 @@
 require "prelude.mil"
 
 -- Pure MIL implementations of loadChar, refChar, and nextChar.
--- Implementing nextChar in LC is mostly a nicer option, but
--- doing everything in MIL instead has the advantage that we
--- don't need to export loadChar, refToWord, or any of the
--- implementations (loadCharImp, refToWordImp, and nextCharImp).
+-- (Implementing nextChar in LC is mostly a nicer option, but
+-- still requires a MIL implementation of loadChar.)
 
 external loadChar  = loadCharImp :: [Ref String] ->> [[] ->> [Word]]
 loadCharImp       :: [Addr] ->> [[] ->> [Bit 8]]

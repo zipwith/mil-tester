@@ -3,19 +3,19 @@ define i32 @myfib(i32 %r0) {
 
 myfib:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b74, label %b112
+  br i1 %r1, label %b82, label %b112
 
-b74:
+b82:
   ret i32 0
 
 b112:
   %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b76, label %b77
+  br i1 %r2, label %b84, label %b85
 
-b76:
+b84:
   ret i32 1
 
-b77:
+b85:
   %r7 = add i32 %r0, -1
   %r4 = call i32 @myfib(i32 %r7)
   %r6 = add i32 %r0, -2
@@ -29,12 +29,12 @@ define internal i32 @func_b112(i32 %r0) {
 
 b112:
   %r1 = icmp eq i32 %r0, 1
-  br i1 %r1, label %b76, label %b77
+  br i1 %r1, label %b84, label %b85
 
-b76:
+b84:
   ret i32 1
 
-b77:
+b85:
   %r6 = add i32 %r0, -1
   %r3 = call i32 @myfib(i32 %r6)
   %r5 = add i32 %r0, -2
@@ -96,14 +96,14 @@ define i32 @gotolabel(i32 %r0, i32 %r1) {
 
 gotolabel:
   %r2 = icmp slt i32 %r0, %r1
-  br i1 %r2, label %b87, label %g22
+  br i1 %r2, label %b73, label %g22
 
-b87:
+b73:
   %r4 = phi i32 [%r0, %gotolabel], [%r1, %g22]
   %r3 = mul i32 %r4, %r4
   ret i32 %r3
 
 g22:
-  br label %b87
+  br label %b73
 }
 
