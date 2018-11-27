@@ -561,6 +561,18 @@ sub = minus
 exec: punning1  ./milc --32 -m -pcosoro punning.lc
 
 -------
+.lc: letfatbarcase  ./milc -m -pco
+require "basic.mil"
+  
+entrypoint f
+f  :: Word -> Word
+f x = let c = (case x `lt` x of False -> True) | True
+      in (case c of True -> x) | f x
+
+-------
+exec: albfib    ./milc albfib.lc --standalone -l
+
+-------
 tests: identity
 tests: datatest
 tests: fib
