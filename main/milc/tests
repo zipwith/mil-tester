@@ -1,0 +1,7 @@
+Tests for milc behaviors:
+---------
+exec:  milc-usage   ./milc
+exec:  milc--help   ./milc --help
+exec:  milc-help    ./milc -help
+exec:  milc-nofile  ./milc thisfiledoesnotexist
+

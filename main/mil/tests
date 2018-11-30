@@ -141,6 +141,24 @@ entrypoint three
 three <- add((one, two))
 
 -------
+.mil: bad-type-signatures ./milc -m -pco
+require "basic.mil"
+
+export f :: [a] >>= [a]
+f[x] = add((x, 1))
+
+export g :: [a] >>= [a]
+g[x] = bnot((x))
+
+-------
+.mil: bad-check-body-calls  ./milc -m -pco
+require "basic.mil"
+
+export b, c
+b[x] = u <- add((x,x)); bnot((x))
+c[x] = u <- add((x,x)); bnot((x))
+
+-------
 exec: typesizes-in-mil   ./milc -m -pco --32 simplecaps.mil
 
 -------

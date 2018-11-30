@@ -1,5 +1,6 @@
 This is the main file for collecting mil-tools test cases.
 
+tests: milc
 tests: core
 tests: mil
 tests: lc

@@ -1,0 +1,33 @@
+usage: milc [inputs|options]
+inputs:  filename.milc  Load options from specified file
+         filename.mil   Load MIL source from specified file (.lmil for literate)
+         filename.lc    Load LC source from specified file (.llc for literate)
+options: -v             verbose on
+         -d             display debug messages
+         -ipathlist     append items to input search path
+         -p{c,o,b,s,r}* passes
+                        c = cfun rewrite
+                        o = optimizer
+                        s = specialization (eliminate polymorphism)
+                        b = bitdata generation
+                        r = representation transformation (requires earlier s)
+         -m[filename]   mil code
+         -t[filename]   type definitions
+         -g[filename]   GraphViz file for mil structure
+         -c[filename]   type set
+         -s[filename]   specialization type set (requires s)
+         -r[filename]   representation type set (requires r)
+         -e[filename]   list external generators
+         -h[filename]   list primitives (but -help prints usage message)
+         -l[filename]   LLVM code (requires s)
+         -f[filename]   LLVM interface (requires s)
+         -b[filename]   bytecode text
+         -x[filename]   execute bytecode
+         --mil-main=N   Set name of main function in MIL input
+         --llvm-main=N  Set name of main function in LLVM output
+         --standalone   Equivalent to --mil-main=main --llvm-main=main
+         --32 / --64    Set wordsize to 32 / 64 bits
+         --target=T     Set LLVM target triple to T
+         --help         Display this message
+ERROR: Unrecognized option character '-'
+

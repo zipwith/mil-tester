@@ -1,0 +1,4 @@
+ERROR: Unable to locate "thisfiledoesnotexist" on current search path
+
+ERROR: Cannot open input file "thisfiledoesnotexist"
+
