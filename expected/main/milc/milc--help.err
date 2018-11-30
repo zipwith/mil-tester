@@ -29,5 +29,3 @@ options: -v             verbose on
          --32 / --64    Set wordsize to 32 / 64 bits
          --target=T     Set LLVM target triple to T
          --help         Display this message
-ERROR: Unrecognized option character '-'
-
