@@ -36,14 +36,14 @@ bf <-
 
 -----------------------------------------
 -- not recursive
-b6 :: [] >>= [Word]
-b6[] =
+b5 :: [] >>= [Word]
+b5[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word]
-b5[] =
+b6 :: [] >>= [Word]
+b6[] =
   return 1
 
 -----------------------------------------
@@ -51,8 +51,8 @@ b5[] =
 entrypoint decide :: [Flag] >>= [Word]
 decide[t0] =
   if t0
-    then b5[]
-    else b6[]
+    then b6[]
+    else b5[]
 
 -----------------------------------------
 -- Entrypoints: tt ff at sf bt bf decide

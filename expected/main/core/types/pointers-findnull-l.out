@@ -1,17 +1,17 @@
-define internal i32 @func_b101(i32 %r0) {
-  br label %b101
+define internal i32 @func_b102(i32 %r0) {
+  br label %b102
 
-b101:
+b102:
   %r1 = icmp ult i32 %r0, 15
-  br i1 %r1, label %b103, label %b104
+  br i1 %r1, label %b104, label %b105
 
-b103:
+b104:
   %r4 = shl i32 %r0, 1
   %r3 = add i32 %r4, 2
   %r2 = or i32 %r3, 1
   ret i32 %r2
 
-b104:
+b105:
   ret i32 0
 }
 
@@ -22,18 +22,18 @@ findNull:
   %r3 = inttoptr i32 %r0 to i32*
   %r2 = load i32, i32* %r3
   %r1 = icmp eq i32 %r2, 0
-  br i1 %r1, label %b105, label %b85
+  br i1 %r1, label %b106, label %b85
 
-b105:
+b106:
   ret i32 %r0
 
 b85:
   %r7 = phi i32 [0, %findNull], [%r9, %b94]
   %r8 = phi i32 [%r0, %findNull], [%r8, %b94]
-  %r6 = call i32 @func_b101(i32 %r7)
+  %r6 = call i32 @func_b102(i32 %r7)
   %r5 = and i32 %r6, 1
   %r4 = icmp eq i32 %r5, 1
-  br i1 %r4, label %b94, label %b104
+  br i1 %r4, label %b94, label %b105
 
 b94:
   %r9 = lshr i32 %r6, 1
@@ -44,7 +44,7 @@ b94:
   %r10 = icmp eq i32 %r11, 0
   br i1 %r10, label %b95, label %b85
 
-b104:
+b105:
   ret i32 0
 
 b95:

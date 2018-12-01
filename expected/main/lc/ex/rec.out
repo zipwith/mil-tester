@@ -3,32 +3,32 @@ data Pair0
 
 -----------------------------------------
 -- not recursive
-b66 :: [Word] >>= [Word]
-b66[t0] =
+b67 :: [Word] >>= [Word]
+b67[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b74 :: [Word, Word] >>= [Word]
-b74[t0, t1] =
+b73 :: [Word, Word] >>= [Word]
+b73[t0, t1] =
   t2 <- b93[t1, t0]
   add((t0, t2))
 b93 :: [Word, Word] >>= [Word]
 b93[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b66[t1]
-    else b67[t1, t0]
-b67 :: [Word, Word] >>= [Word]
-b67[t0, t1] =
+    then b67[t1]
+    else b66[t1, t0]
+b66 :: [Word, Word] >>= [Word]
+b66[t0, t1] =
   t2 <- b97[t1, t0]
   add((t0, t2))
 b97 :: [Word, Word] >>= [Word]
 b97[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b66[t0]
-    else b74[t1, t0]
+    then b67[t0]
+    else b73[t1, t0]
 
 -----------------------------------------
 -- not recursive

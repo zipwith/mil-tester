@@ -124,6 +124,33 @@ eq <-
 
 -----------------------------------------
 -- not recursive
+b78 :: [Word] >>= [Word]
+b78[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b83 :: [] >>= [Word]
+b83[] =
+  t0 <- return 0
+  b78[t0]
+
+-----------------------------------------
+-- not recursive
+b79 :: [Word] >>= [Word]
+b79[t0] =
+  t1 <- return t0
+  b78[t1]
+
+-----------------------------------------
+-- not recursive
+b81 :: [] >>= [Word]
+b81[] =
+  t0 <- return 1
+  b79[t0]
+
+-----------------------------------------
+-- not recursive
 b6 :: [Word, Word] >>= [Word]
 b6[t0, t1] =
   add((t0, t1))
@@ -196,36 +223,9 @@ sub <-
 
 -----------------------------------------
 -- not recursive
-b78 :: [Word] >>= [Word]
-b78[t0] =
-  return t0
-
------------------------------------------
--- not recursive
-b80 :: [Word] >>= [Word]
-b80[t0] =
-  t1 <- return t0
-  b78[t1]
-
------------------------------------------
--- not recursive
-b81 :: [] >>= [Word]
-b81[] =
-  t0 <- return 1
-  b80[t0]
-
------------------------------------------
--- not recursive
 b0 :: forall (a :: tuple). [] >>= a
 b0[] =
   halt(())
-
------------------------------------------
--- not recursive
-b79 :: [] >>= [Word]
-b79[] =
-  t0 <- return 0
-  b78[t0]
 
 -----------------------------------------
 -- recursive
@@ -242,21 +242,21 @@ b84[t0] =
   t3 <- Func 0 t2
   t4 <- t3 @ 0
   case t4 of
-    True -> b79[]
-    False -> b83[t0]
+    True -> b83[]
+    False -> b82[t0]
     _ -> b0[]
-b83 :: [Word] >>= [Word]
-b83[t0] =
+b82 :: [Word] >>= [Word]
+b82[t0] =
   t1 <- Func 0 eq
   t2 <- t1 @ t0
   t3 <- Func 0 t2
   t4 <- t3 @ 1
   case t4 of
     True -> b81[]
-    False -> b82[t0]
+    False -> b80[t0]
     _ -> b0[]
-b82 :: [Word] >>= [Word]
-b82[t0] =
+b80 :: [Word] >>= [Word]
+b80[t0] =
   t1 <- Func 0 add
   t2 <- Func 0 fib
   t3 <- Func 0 sub
@@ -273,7 +273,7 @@ b82[t0] =
   t14 <- t13 @ 2
   t15 <- t10 @ t14
   t16 <- t9 @ t15
-  b80[t16]
+  b79[t16]
 fib :: Word -> Word
 fib <-
   b85[]
@@ -286,15 +286,29 @@ b70[t0] =
 
 -----------------------------------------
 -- not recursive
-b72 :: [Word] >>= [Word]
-b72[t0] =
+b75 :: [] >>= [Word]
+b75[] =
+  t0 <- return 0
+  b70[t0]
+
+-----------------------------------------
+-- not recursive
+b71 :: [Word] >>= [Word]
+b71[t0] =
   t1 <- return t0
   b70[t1]
 
 -----------------------------------------
 -- not recursive
-b74 :: [Word] >>= [Word]
-b74[t0] =
+b73 :: [] >>= [Word]
+b73[] =
+  t0 <- return 1
+  b71[t0]
+
+-----------------------------------------
+-- not recursive
+b72 :: [Word] >>= [Word]
+b72[t0] =
   t1 <- Func 0 add
   t2 <- Func 0 fib
   t3 <- Func 0 sub
@@ -311,34 +325,20 @@ b74[t0] =
   t14 <- t13 @ 2
   t15 <- t10 @ t14
   t16 <- t9 @ t15
-  b72[t16]
+  b71[t16]
 
 -----------------------------------------
 -- not recursive
-b73 :: [] >>= [Word]
-b73[] =
-  t0 <- return 1
-  b72[t0]
-
------------------------------------------
--- not recursive
-b75 :: [Word] >>= [Word]
-b75[t0] =
+b74 :: [Word] >>= [Word]
+b74[t0] =
   t1 <- Func 0 eq
   t2 <- t1 @ t0
   t3 <- Func 0 t2
   t4 <- t3 @ 1
   case t4 of
     True -> b73[]
-    False -> b74[t0]
+    False -> b72[t0]
     _ -> b0[]
-
------------------------------------------
--- not recursive
-b71 :: [] >>= [Word]
-b71[] =
-  t0 <- return 0
-  b70[t0]
 
 -----------------------------------------
 -- not recursive
@@ -349,8 +349,8 @@ b76[t0] =
   t3 <- Func 0 t2
   t4 <- t3 @ 0
   case t4 of
-    True -> b71[]
-    False -> b75[t0]
+    True -> b75[]
+    False -> b74[t0]
     _ -> b0[]
 
 -----------------------------------------

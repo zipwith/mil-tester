@@ -4,6 +4,18 @@ data Maybe (a :: *)
 
 -----------------------------------------
 -- not recursive
+Nothing :: forall (a :: *). Maybe a
+Nothing <-
+  Nothing()
+
+-----------------------------------------
+-- not recursive
+b67 :: forall (a :: area). [] >>= [Maybe (Ref a)]
+b67[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
 b70 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
 b70[t0] =
   assert t0 Ref
@@ -12,22 +24,10 @@ b70[t0] =
 
 -----------------------------------------
 -- not recursive
-Nothing :: forall (a :: *). Maybe a
-Nothing <-
-  Nothing()
-
------------------------------------------
--- not recursive
-b66 :: forall (a :: area). [] >>= [Maybe (Ref a)]
-b66[] =
-  return Nothing
-
------------------------------------------
--- not recursive
 b68 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
 b68[t0] =
   case t0 of
-    Null -> b66[]
+    Null -> b67[]
     Ref -> b70[t0]
 
 -----------------------------------------

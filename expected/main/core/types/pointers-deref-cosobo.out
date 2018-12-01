@@ -18,6 +18,18 @@ bitdata Maybe1 /32
 
 -----------------------------------------
 -- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b67 :: [] >>= [Maybe0]
+b67[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
 b71 :: [Ptr (Stored Word)] >>= [Maybe0]
 b71[t0] =
   assert t0 Ref
@@ -27,22 +39,10 @@ b71[t0] =
 
 -----------------------------------------
 -- not recursive
-Nothing :: Maybe0
-Nothing <-
-  Nothing0()
-
------------------------------------------
--- not recursive
-b66 :: [] >>= [Maybe0]
-b66[] =
-  return Nothing
-
------------------------------------------
--- not recursive
 b68 :: [Ptr (Stored Word)] >>= [Maybe0]
 b68[t0] =
   case t0 of
-    Null -> b66[]
+    Null -> b67[]
     Ref -> b71[t0]
 
 -----------------------------------------
@@ -64,6 +64,18 @@ derefSW <-
 
 -----------------------------------------
 -- not recursive
+s2 :: Maybe1
+s2 <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+b671 :: [] >>= [Maybe1]
+b671[] =
+  return s2
+
+-----------------------------------------
+-- not recursive
 b72 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
 b72[t0] =
   assert t0 Ref
@@ -73,22 +85,10 @@ b72[t0] =
 
 -----------------------------------------
 -- not recursive
-s2 :: Maybe1
-s2 <-
-  Nothing2()
-
------------------------------------------
--- not recursive
-b661 :: [] >>= [Maybe1]
-b661[] =
-  return s2
-
------------------------------------------
--- not recursive
 b681 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
 b681[t0] =
   case t0 of
-    Null -> b661[]
+    Null -> b671[]
     Ref -> b72[t0]
 
 -----------------------------------------

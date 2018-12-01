@@ -59,14 +59,14 @@ getF[t0] =
 
 -----------------------------------------
 -- not recursive
-b73 :: [] >>= [Flag]
-b73[] =
+b74 :: [] >>= [Flag]
+b74[] =
   return no
 
 -----------------------------------------
 -- not recursive
-b74 :: [] >>= [Flag]
-b74[] =
+b73 :: [] >>= [Flag]
+b73[] =
   return yes
 
 -----------------------------------------
@@ -74,16 +74,16 @@ b74[] =
 entrypoint bool2one :: [Flag] >>= [Flag]
 bool2one[t0] =
   if t0
-    then b74[]
-    else b73[]
+    then b73[]
+    else b74[]
 
 -----------------------------------------
 -- not recursive
 entrypoint boolflip :: [Flag] >>= [Flag]
 boolflip[t0] =
   if t0
-    then b73[]
-    else b74[]
+    then b74[]
+    else b73[]
 
 -----------------------------------------
 -- not recursive
@@ -148,8 +148,8 @@ setfun[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b120 :: [] >>= [Word]
-b120[] =
+b123 :: [] >>= [Word]
+b123[] =
   t0 <- flagToWord((no))
   t1 <- shl((t0, 1))
   t2 <- or((t0, t1))
@@ -160,7 +160,7 @@ b120[] =
 -- not recursive
 s1 :: Word
 s1 <-
-  b120[]
+  b123[]
 
 -----------------------------------------
 -- not recursive

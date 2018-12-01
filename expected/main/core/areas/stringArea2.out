@@ -1,18 +1,7 @@
 -----------------------------------------
 -- not recursive
-str1 :: Word
-str1 <- "goodbye"
-
------------------------------------------
--- not recursive
-b67 :: [] >>= [Word]
-b67[] =
-  return str1
-
------------------------------------------
--- not recursive
 str0 :: Word
-str0 <- "hello"
+str0 <- "goodbye"
 
 -----------------------------------------
 -- not recursive
@@ -22,11 +11,22 @@ b66[] =
 
 -----------------------------------------
 -- not recursive
+str1 :: Word
+str1 <- "hello"
+
+-----------------------------------------
+-- not recursive
+b67 :: [] >>= [Word]
+b67[] =
+  return str1
+
+-----------------------------------------
+-- not recursive
 entrypoint greet :: [Flag] >>= [Word]
 greet[t0] =
   if t0
-    then b66[]
-    else b67[]
+    then b67[]
+    else b66[]
 
 -----------------------------------------
 -- not recursive

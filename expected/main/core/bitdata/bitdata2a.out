@@ -101,21 +101,21 @@ bf <-
 -- not recursive
 b6 :: [] >>= [Word]
 b6[] =
-  return 2
+  return 1
 
 -----------------------------------------
 -- not recursive
 b5 :: [] >>= [Word]
 b5[] =
-  return 1
+  return 2
 
 -----------------------------------------
 -- not recursive
 b7 :: [BOOL] >>= [Word]
 b7[t0] =
   case t0 of
-    Tt -> b5[]
-    Ff -> b6[]
+    Tt -> b6[]
+    Ff -> b5[]
 
 -----------------------------------------
 -- not recursive

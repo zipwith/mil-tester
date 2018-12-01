@@ -16,8 +16,8 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-b66 :: [] >>= [Maybe0]
-b66[] =
+b67 :: [] >>= [Maybe0]
+b67[] =
   return Nothing
 
 -----------------------------------------
@@ -26,7 +26,7 @@ entrypoint derefSW :: [Word] >>= [Maybe0]
 derefSW[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b66[]
+    then b67[]
     else b71[t0]
 
 -----------------------------------------
@@ -35,7 +35,7 @@ entrypoint derefSI :: [Word] >>= [Maybe0]
 derefSI[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b66[]
+    then b67[]
     else b71[t0]
 
 -----------------------------------------

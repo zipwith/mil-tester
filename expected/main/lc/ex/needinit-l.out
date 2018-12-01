@@ -7,19 +7,19 @@ define i32 @fib(i32 %r0) {
 
 fib:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b66, label %b86
+  br i1 %r1, label %b70, label %b86
 
-b66:
+b70:
   ret i32 0
 
 b86:
   %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b68, label %b69
+  br i1 %r2, label %b68, label %b67
 
 b68:
   ret i32 1
 
-b69:
+b67:
   %r7 = add i32 %r0, -1
   %r4 = call i32 @fib(i32 %r7)
   %r6 = add i32 %r0, -2

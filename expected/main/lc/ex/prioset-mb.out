@@ -14,26 +14,26 @@ clearPrioset[] =
 
 -----------------------------------------
 -- not recursive
-b221 :: [] >>= [Word]
-b221[] =
+b233 :: [] >>= [Word]
+b233[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-b220 :: [Word] >>= [Word]
-b220[t0] =
+b232 :: [Word] >>= [Word]
+b232[t0] =
   t1 <- shl((t0, 1))
   t2 <- add((t1, -2))
   or((t2, 1))
 
 -----------------------------------------
 -- not recursive
-b207 :: [Word] >>= [Word]
-b207[t0] =
+b219 :: [Word] >>= [Word]
+b219[t0] =
   t1 <- primUgt((t0, 0))
   if t1
-    then b220[t0]
-    else b221[]
+    then b232[t0]
+    else b233[]
 
 -----------------------------------------
 -- not recursive
@@ -70,7 +70,7 @@ b76[t0, t1, t2, t3] =
   t5 <- store8((t4, t1))
   t6 <- add((prioidx, t1))
   t7 <- store8((t6, t0))
-  t8 <- b207[t2]
+  t8 <- b219[t2]
   t9 <- primEq((t8, 0))
   if t9
     then b177[t3]
@@ -93,7 +93,7 @@ insertPriority[t0] =
   t2 <- add((t1, 1))
   t3 <- store32((priosetSize, t2))
   t4 <- and((t1, 255))
-  t5 <- b207[t4]
+  t5 <- b219[t4]
   t6 <- primEq((t5, 0))
   if t6
     then b177[t0]
@@ -107,8 +107,8 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b108 :: [] >>= [Unit]
-b108[] =
+b107 :: [] >>= [Unit]
+b107[] =
   return Unit
 
 -----------------------------------------
@@ -120,17 +120,17 @@ construct_Just1[t0] =
 
 -----------------------------------------
 -- not recursive
-b223 :: [Word, Word] >>= [Word]
-b223[t0, t1] =
+b235 :: [Word, Word] >>= [Word]
+b235[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
     then construct_Just1[t0]
-    else b221[]
+    else b233[]
 
 -----------------------------------------
 -- not recursive
-b87 :: [Word, Word, Word, Word] >>= [Unit]
-b87[t0, t1, t2, t3] =
+b97 :: [Word, Word, Word, Word] >>= [Unit]
+b97[t0, t1, t2, t3] =
   t4 <- add((prioset, t0))
   t5 <- store8((t4, t1))
   t6 <- add((prioidx, t1))
@@ -142,86 +142,86 @@ b87[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b89 :: [Word, Word, Word, Word] >>= [Unit]
-b89[t0, t1, t2, t3] =
-  t4 <- primUgt((t1, t3))
+b98 :: [Word, Word, Word, Word] >>= [Unit]
+b98[t0, t1, t2, t3] =
+  t4 <- primUgt((t0, t3))
   if t4
-    then b87[t0, t1, t2, t3]
-    else b66[t3, t0]
+    then b97[t2, t0, t1, t3]
+    else b66[t3, t2]
 
 -----------------------------------------
 -- recursive
-b97 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
-b97[t0, t1, t2, t3, t4, t5, t6] =
-  t7 <- primUgt((t0, t6))
+b93 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b93[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primUgt((t1, t3))
   if t7
-    then b66[t0, t1]
-    else b95[t6, t5, t1, t4, t3, t0, t2]
+    then b66[t1, t4]
+    else b89[t6, t5, t4, t3, t2, t1, t0]
 b189 :: [Word, Word, Word, Word, Word, Word] >>= [Unit]
 b189[t0, t1, t2, t3, t4, t5] =
   t6 <- lshr((t0, 1))
   t7 <- add((prioset, t6))
   t8 <- load8((t7))
-  t9 <- primUgt((t1, t5))
+  t9 <- primUgt((t2, t5))
   if t9
-    then b97[t1, t2, t3, t4, t5, t6, t8]
-    else b95[t8, t6, t2, t5, t4, t1, t3]
-b95 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
-b95[t0, t1, t2, t3, t4, t5, t6] =
-  t7 <- primUgt((t3, t0))
+    then b93[t1, t2, t6, t8, t3, t4, t5]
+    else b89[t5, t4, t3, t8, t6, t2, t1]
+b89 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b89[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primUgt((t0, t3))
   if t7
-    then b94[t2, t3, t4, t5, t6]
-    else b94[t2, t0, t1, t5, t6]
-b94 :: [Word, Word, Word, Word, Word] >>= [Unit]
-b94[t0, t1, t2, t3, t4] =
+    then b88[t2, t0, t1, t5, t6]
+    else b88[t2, t3, t4, t5, t6]
+b88 :: [Word, Word, Word, Word, Word] >>= [Unit]
+b88[t0, t1, t2, t3, t4] =
   t5 <- add((prioset, t0))
   t6 <- store8((t5, t1))
   t7 <- add((prioidx, t1))
   t8 <- store8((t7, t0))
   t9 <- mul((t2, 2))
   t10 <- add((t9, 1))
-  t11 <- b223[t10, t4]
+  t11 <- b235[t10, t4]
   t12 <- primEq((t11, 0))
   if t12
     then b66[t3, t2]
-    else b212[t11, t2, t4, t3]
-b212 :: [Word, Word, Word, Word] >>= [Unit]
-b212[t0, t1, t2, t3] =
+    else b224[t11, t2, t4, t3]
+b224 :: [Word, Word, Word, Word] >>= [Unit]
+b224[t0, t1, t2, t3] =
   t4 <- lshr((t0, 1))
   t5 <- add((prioset, t4))
   t6 <- load8((t5))
   t7 <- mul((t1, 2))
   t8 <- add((t7, 2))
-  t9 <- b223[t8, t2]
+  t9 <- b235[t8, t2]
   t10 <- primEq((t9, 0))
   if t10
-    then b89[t1, t6, t4, t3]
-    else b189[t9, t3, t1, t2, t4, t6]
+    then b98[t6, t4, t1, t3]
+    else b189[t9, t2, t3, t1, t4, t6]
 
 -----------------------------------------
 -- not recursive
 b156 :: [Word, Word, Word] >>= [Unit]
 b156[t0, t1, t2] =
-  t3 <- mul((t1, 2))
+  t3 <- mul((t2, 2))
   t4 <- add((t3, 1))
-  t5 <- b223[t4, t0]
+  t5 <- b235[t4, t0]
   t6 <- primEq((t5, 0))
   if t6
-    then b66[t2, t1]
-    else b212[t5, t1, t0, t2]
+    then b66[t1, t2]
+    else b224[t5, t2, t0, t1]
 
 -----------------------------------------
 -- not recursive
-b107 :: [Word, Word, Word] >>= [Unit]
-b107[t0, t1, t2] =
+b108 :: [Word, Word, Word] >>= [Unit]
+b108[t0, t1, t2] =
   t3 <- add((prioidx, t0))
   t4 <- load8((t3))
   t5 <- add((t2, -2))
   t6 <- and((t5, 255))
-  t7 <- b156[t6, t4, t1]
+  t7 <- b156[t6, t1, t4]
   t8 <- add((prioset, t4))
   t9 <- load8((t8))
-  t10 <- b207[t4]
+  t10 <- b219[t4]
   t11 <- primEq((t10, 0))
   if t11
     then b177[t9]
@@ -239,8 +239,8 @@ removePriority[t0] =
   t6 <- load8((t5))
   t7 <- primNeq((t0, t6))
   if t7
-    then b107[t0, t6, t1]
-    else b108[]
+    then b108[t0, t6, t1]
+    else b107[]
 
 -----------------------------------------
 -- not recursive
@@ -278,15 +278,15 @@ b194[] =
 
 -----------------------------------------
 -- recursive
-b224 :: [Word, Word] >>= [Unit]
-b224[t0, t1] =
+b236 :: [Word, Word] >>= [Unit]
+b236[t0, t1] =
   [] <- noinline(())
   t2 <- store8((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 1))
   t5 <- primUlt((t3, 256))
   if t5
-    then b224[t4, t3]
+    then b236[t4, t3]
     else b194[]
 
 -----------------------------------------
@@ -294,8 +294,8 @@ b224[t0, t1] =
 initialize :: [] >>= [Unit]
 initialize[] =
   t0 <- store32((priosetSize, 0))
-  t1 <- b224[prioset, 0]
-  b224[prioidx, 0]
+  t1 <- b236[prioset, 0]
+  b236[prioidx, 0]
 
 -----------------------------------------
 -- Entrypoints: clearPrioset insertPriority removePriority highestPriority1

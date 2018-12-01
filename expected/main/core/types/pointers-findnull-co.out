@@ -25,6 +25,14 @@ external get {primReadRefStored a} :: forall (a :: *). [Ref (Stored a)] ->> [[] 
 
 -----------------------------------------
 -- not recursive
+b70 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b70[t0, t1] =
+  t2 <- at @ t0
+  t3 <- t2 @ t1
+  Ref(t3)
+
+-----------------------------------------
+-- not recursive
 external genIncIx {primGenIncIx a b} :: forall (a :: *) (b :: nat). [a] ->> [[[Ix b] ->> [a]] ->> [[Ix b] ->> [a]]]
 
 -----------------------------------------
@@ -52,17 +60,9 @@ Null <-
 
 -----------------------------------------
 -- not recursive
-b69 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b69[] =
+b67 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b67[] =
   return Null
-
------------------------------------------
--- not recursive
-b66 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b66[t0, t1] =
-  t2 <- at @ t0
-  t3 <- t2 @ t1
-  Ref(t3)
 
 -----------------------------------------
 -- recursive
@@ -75,7 +75,7 @@ b87[t0, t1] =
   t5 <- get @ t4
   t6 <- t5 @ []
   case t6 of
-    Null -> b66[t1, t2]
+    Null -> b70[t1, t2]
     Ref -> b85[t2, t1]
 b85 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
 b85[t0, t1] =
@@ -84,23 +84,23 @@ b85[t0, t1] =
   t4 <- t3 @ t0
   case t4 of
     Just -> b87[t4, t1]
-    Nothing -> b69[]
+    Nothing -> b67[]
 
 -----------------------------------------
 -- not recursive
-b71 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b71 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
 b71[t0, t1] =
-  t2 <- at @ t0
-  t3 <- t2 @ t1
+  t2 <- at @ t1
+  t3 <- t2 @ t0
   t4 <- get @ t3
   t5 <- t4 @ []
   case t5 of
-    Null -> b66[t0, t1]
-    Ref -> b85[t1, t0]
+    Null -> b70[t1, t0]
+    Ref -> b85[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k44 :: {Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k44 :: {Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
 k44{t0, t1} [] = b71[t1, t0]
 
 -----------------------------------------
@@ -108,7 +108,7 @@ k44{t0, t1} [] = b71[t1, t0]
 b77 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
 b77[t0] =
   t1 <- zero16 @ Unit
-  k44{t1, t0}
+  k44{t0, t1}
 
 -----------------------------------------
 -- not recursive

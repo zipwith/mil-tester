@@ -13,17 +13,17 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b86 :: [] >>= [Unit]
-b86[] =
+b85 :: [] >>= [Unit]
+b85[] =
+  [] <- print((1))
+  [] <- print((2))
   [] <- print((3))
   return Unit
 
 -----------------------------------------
 -- not recursive
-b85 :: [] >>= [Unit]
-b85[] =
-  [] <- print((1))
-  [] <- print((2))
+b86 :: [] >>= [Unit]
+b86[] =
   [] <- print((3))
   return Unit
 

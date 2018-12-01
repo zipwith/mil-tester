@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-b88 :: [] >>= [Word]
-b88[] =
+b89 :: [] >>= [Word]
+b89[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Word]
-b79[] =
+b83 :: [] >>= [Word]
+b83[] =
   return 0
 
 -----------------------------------------
@@ -16,10 +16,10 @@ b119 :: [Word] >>= [Word]
 b119[t0] =
   t1 <- primEq((t0, 1))
   if t1
-    then b88[]
-    else b82[t0]
-b82 :: [Word] >>= [Word]
-b82[t0] =
+    then b89[]
+    else b80[t0]
+b80 :: [Word] >>= [Word]
+b80[t0] =
   t1 <- add((t0, -1))
   t2 <- fib[t1]
   t3 <- add((t0, -2))
@@ -29,25 +29,25 @@ entrypoint fib :: [Word] >>= [Word]
 fib[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b79[]
+    then b83[]
     else b119[t0]
 
 -----------------------------------------
 -- not recursive
-b73 :: [Word] >>= [Word]
-b73[t0] =
+b74 :: [Word] >>= [Word]
+b74[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b67 :: [Word, Word, Word] >>= [Word]
-b67[t0, t1, t2] =
+b66 :: [Word, Word, Word] >>= [Word]
+b66[t0, t1, t2] =
   t3 <- add((t0, t1))
   t4 <- add((t2, -1))
   t5 <- primEq((t4, 0))
   if t5
-    then b73[t1]
-    else b67[t1, t3, t4]
+    then b74[t1]
+    else b66[t1, t3, t4]
 
 -----------------------------------------
 -- not recursive
@@ -62,12 +62,12 @@ itfib[t0] =
   t1 <- primEq((t0, 0))
   if t1
     then b125[]
-    else b67[0, 1, t0]
+    else b66[0, 1, t0]
 
 -----------------------------------------
 -- recursive
-b89 :: [Word] >>= [Word]
-b89[t0] =
+b88 :: [Word] >>= [Word]
+b88[t0] =
   t1 <- add((t0, -1))
   t2 <- recfac[t1]
   mul((t0, t2))
@@ -75,19 +75,19 @@ entrypoint recfac :: [Word] >>= [Word]
 recfac[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b88[]
-    else b89[t0]
+    then b89[]
+    else b88[t0]
 
 -----------------------------------------
 -- recursive
-b74 :: [Word, Word] >>= [Word]
-b74[t0, t1] =
+b73 :: [Word, Word] >>= [Word]
+b73[t0, t1] =
   t2 <- mul((t0, t1))
   t3 <- add((t1, -1))
   t4 <- primEq((t3, 0))
   if t4
-    then b73[t2]
-    else b74[t2, t3]
+    then b74[t2]
+    else b73[t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -102,7 +102,7 @@ itfac[t0] =
   t1 <- primEq((t0, 0))
   if t1
     then b127[]
-    else b74[1, t0]
+    else b73[1, t0]
 
 -----------------------------------------
 -- Entrypoints: fib itfib recfac itfac

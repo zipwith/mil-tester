@@ -165,10 +165,10 @@ exec: typesizes-in-mil   ./milc -m -pco --32 simplecaps.mil
 exec: typesizes-in-milr  ./milc -m -pcosoro --32 simplecaps.mil
 
 -------
-.mil: typesizes-in-mil-64   ./milc -m -pco --64 simplecaps.mil
+exec: typesizes-in-mil-64   ./milc -m -pco --64 simplecaps.mil
 
 -------
-.mil: typesizes-in-mil-64r  ./milc -m -pcosoro --64 simplecaps.mil
+exec: typesizes-in-mil-64r  ./milc -m -pcosoro --64 simplecaps.mil
 
 -------
 .mil: t-dot-c-example   ./milc -m -pcosoro

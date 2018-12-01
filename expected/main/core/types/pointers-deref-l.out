@@ -3,9 +3,9 @@ define i32 @derefSI(i32 %r0) {
 
 derefSI:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b66, label %b82
+  br i1 %r1, label %b67, label %b82
 
-b66:
+b67:
   ret i32 0
 
 b82:
@@ -17,9 +17,9 @@ define i32 @derefSW(i32 %r0) {
 
 derefSW:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b66, label %b81
+  br i1 %r1, label %b67, label %b81
 
-b66:
+b67:
   ret i32 0
 
 b81:
