@@ -21,6 +21,7 @@ options: -v             verbose on
          -h[filename]   list primitives (but -help prints usage message)
          -l[filename]   LLVM code (requires s)
          -f[filename]   LLVM interface (requires s)
+         -G[filename]   CFGs GraphViz output (requires s)
          -b[filename]   bytecode text
          -x[filename]   execute bytecode
          --mil-main=N   Set name of main function in MIL input
