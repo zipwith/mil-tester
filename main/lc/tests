@@ -573,6 +573,9 @@ f x = let c = (case x `lt` x of False -> True) | True
 exec: albfib    ./milc albfib.lc --standalone -l
 
 -------
+exec: albstruct ./milc basic.mil struct.lc -m -l --standalone
+
+-------
 tests: identity
 tests: datatest
 tests: fib
