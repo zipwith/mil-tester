@@ -1,14 +1,14 @@
 # mil-tester : A test suite for mil-tools
 
-This repository contains a rough first cut at a tester suite
-for mil-tools.  It is cobbled together from assorted old tests
-for MIL and LC together with a small number of new tests.  Some
-details in the ways that this test suite has been configured
-were motivated more by the goal of testing the implementation
-of tester than by the goal of testing mi-tools.  I hope this
-will be a good starting point for a more substantial test suite,
-but there is much room here for rationalizing, reorganizing,
-and expanding the current version.
+This repository contains a rough first cut at a tester suite for
+mil-tools (https://github.com/habit-lang/mil-tools).  It is
+cobbled together from assorted old tests for MIL and LC together
+with a small number of new tests.  Some details in the ways that
+this test suite has been configured were motivated more by the
+goal of testing the implementation of tester than by the goal of
+testing mi-tools.  I hope this will be a good starting point for a
+more substantial test suite, but there is much room here for
+rationalizing, reorganizing, and expanding the current version.
 
 Basic requirements and instructions for use:
 
