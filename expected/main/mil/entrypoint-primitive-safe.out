@@ -9,6 +9,9 @@ bar:
 }
 
 define void @main() {
+  br label %b6
+
+b6:
   ret void
 }
 

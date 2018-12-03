@@ -27,6 +27,9 @@ b66:
 
 define void @main() {
   store i32 ptrtoint(i8* @str2 to i32), i32* @prompt
+  br label %b71
+
+b71:
   ret void
 }
 

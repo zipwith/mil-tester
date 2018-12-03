@@ -53,6 +53,9 @@ define void @initialize() {
   store i32 %r0, i32* @fib15
   %r1 = call i32 @func_b73()
   store i32 %r1, i32* @fib12
+  br label %b91
+
+b91:
   ret void
 }
 

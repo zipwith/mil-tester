@@ -27,6 +27,9 @@ inc:
 }
 
 define void @main() {
+  br label %initialize
+
+initialize:
   %r0 = inttoptr i32 ptrtoint(i8* @count to i32) to i32*
   store i32 7, i32* %r0
   ret void

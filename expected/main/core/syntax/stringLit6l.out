@@ -6,6 +6,9 @@
 
 define void @begin() {
   store i32 ptrtoint(i8* @str0 to i32), i32* @msg
+  br label %b4
+
+b4:
   ret void
 }
 

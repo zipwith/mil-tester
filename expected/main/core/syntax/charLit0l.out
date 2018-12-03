@@ -23,6 +23,9 @@
 @a = global i32 97
 
 define void @begin() {
+  br label %b4
+
+b4:
   ret void
 }
 

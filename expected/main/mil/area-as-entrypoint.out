@@ -5,6 +5,9 @@
 declare void @init(i32)
 
 define void @main() {
+  br label %initialize
+
+initialize:
   tail call void @init(i32 ptrtoint(i8* @vram to i32))
   ret void
 }

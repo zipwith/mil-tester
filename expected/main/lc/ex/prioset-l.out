@@ -304,9 +304,15 @@ b185:
 }
 
 define void @main() {
+  br label %initialize
+
+initialize:
   %r0 = inttoptr i32 ptrtoint(i8* @priosetSize to i32) to i32*
   store i32 0, i32* %r0
   call void @func_b226(i32 ptrtoint(i8* @prioset to i32), i32 0)
+  br label %c36
+
+c36:
   tail call void @func_b226(i32 ptrtoint(i8* @prioidx to i32), i32 0)
   ret void
 }

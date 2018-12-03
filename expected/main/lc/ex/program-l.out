@@ -1,6 +1,9 @@
 declare void @printWord(i32)
 
-define internal void @func_main() {
+define void @main() {
+  br label %initialize
+
+initialize:
   br label %main
 
 main:
@@ -8,11 +11,6 @@ main:
 
 b91:
   call void @printWord(i32 144)
-  ret void
-}
-
-define void @main() {
-  tail call void @func_main()
   ret void
 }
 

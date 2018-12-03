@@ -188,7 +188,10 @@ b496:
   br i1 %r9, label %b468, label %b496
 }
 
-define internal i32 @func_main() {
+define i32 @main() {
+  br label %initialize
+
+initialize:
   br label %main
 
 main:
@@ -200,11 +203,6 @@ b315:
   %r1 = call i32 @func_b406(i32 14)
   %r2 = call i32 @func_b406(i32 13)
   %r0 = add i32 %r1, %r2
-  ret i32 %r0
-}
-
-define i32 @main() {
-  %r0 = tail call i32 @func_main()
   ret i32 %r0
 }
 

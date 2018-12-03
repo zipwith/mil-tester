@@ -3,6 +3,9 @@
 @msg = alias i8, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str.0, i32 0, i32 0)
 
 define void @begin() {
+  br label %b4
+
+b4:
   ret void
 }
 

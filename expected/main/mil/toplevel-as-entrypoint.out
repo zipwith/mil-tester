@@ -3,6 +3,9 @@
 @verily = global i1 true
 
 define void @main() {
+  br label %b4
+
+b4:
   ret void
 }
 
