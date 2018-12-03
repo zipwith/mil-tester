@@ -18,5 +18,5 @@ Basic requirements and instructions for use:
 
 * Run the tests by using `tester -r main`.
 
-* Check the documentation for `tester` for basic information about how test cases are defined, and then follow the examples in the `main` folder to create new test cases.  (Not that it may be easier to create a new set of test cases, keeping `main` as a reference instead of modifying it directly.)
+* Check the documentation for `tester` for basic information about how test cases are defined, and then follow the examples in the `main` folder to create new test cases.  (Note that it may be easier to create a new set of test cases, keeping `main` as a reference instead of modifying it directly.)
 
