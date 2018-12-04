@@ -30,63 +30,59 @@ display:
   ret void
 }
 
-define internal void @func_b164() {
-  br label %b164
-
-b164:
-  %r8 = add i32 ptrtoint(i8* @s2 to i32), 4
-  %r7 = inttoptr i32 %r8 to i32*
-  %r6 = load i32, i32* %r7
-  call void @printWord(i32 %r6)
-  %r5 = add i32 ptrtoint(i8* @s2 to i32), 8
-  %r4 = inttoptr i32 %r5 to i32*
-  %r3 = load i32, i32* %r4
-  call void @printWord(i32 %r3)
-  %r2 = add i32 ptrtoint(i8* @s2 to i32), 12
-  %r1 = inttoptr i32 %r2 to i32*
-  %r0 = load i32, i32* %r1
-  call void @printWord(i32 %r0)
-  ret void
-}
-
 define void @main() {
   br label %main
 
 main:
-  %r21 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r35 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r34 = load i32, i32* %r35
+  call void @printWord(i32 %r34)
+  %r16 = add i32 ptrtoint(i8* @s1 to i32), 4
+  %r33 = inttoptr i32 %r16 to i32*
+  %r32 = load i32, i32* %r33
+  call void @printWord(i32 %r32)
+  %r31 = add i32 ptrtoint(i8* @s1 to i32), 8
+  %r30 = inttoptr i32 %r31 to i32*
+  %r29 = load i32, i32* %r30
+  call void @printWord(i32 %r29)
+  %r28 = add i32 ptrtoint(i8* @s1 to i32), 12
+  %r27 = inttoptr i32 %r28 to i32*
+  %r26 = load i32, i32* %r27
+  call void @printWord(i32 %r26)
+  %r25 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  %r24 = load i32, i32* %r25
+  call void @printWord(i32 %r24)
+  %r8 = add i32 ptrtoint(i8* @s2 to i32), 4
+  %r23 = inttoptr i32 %r8 to i32*
+  %r22 = load i32, i32* %r23
+  call void @printWord(i32 %r22)
+  %r5 = add i32 ptrtoint(i8* @s2 to i32), 8
+  %r21 = inttoptr i32 %r5 to i32*
   %r20 = load i32, i32* %r21
   call void @printWord(i32 %r20)
-  %r8 = add i32 ptrtoint(i8* @s1 to i32), 4
-  %r19 = inttoptr i32 %r8 to i32*
+  %r2 = add i32 ptrtoint(i8* @s2 to i32), 12
+  %r19 = inttoptr i32 %r2 to i32*
   %r18 = load i32, i32* %r19
   call void @printWord(i32 %r18)
-  %r17 = add i32 ptrtoint(i8* @s1 to i32), 8
-  %r16 = inttoptr i32 %r17 to i32*
-  %r15 = load i32, i32* %r16
-  call void @printWord(i32 %r15)
-  %r14 = add i32 ptrtoint(i8* @s1 to i32), 12
-  %r13 = inttoptr i32 %r14 to i32*
-  %r12 = load i32, i32* %r13
-  call void @printWord(i32 %r12)
-  %r11 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
-  %r10 = load i32, i32* %r11
-  call void @printWord(i32 %r10)
-  call void @func_b164()
-  %r9 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
-  %r5 = load i32, i32* %r9
+  %r17 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r13 = load i32, i32* %r17
+  %r15 = inttoptr i32 %r16 to i32*
+  %r14 = load i32, i32* %r15
+  %r12 = add i32 %r13, %r14
+  %r11 = inttoptr i32 %r2 to i32*
+  store i32 %r12, i32* %r11
+  %r10 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  %r9 = load i32, i32* %r10
+  call void @printWord(i32 %r9)
   %r7 = inttoptr i32 %r8 to i32*
   %r6 = load i32, i32* %r7
-  %r4 = add i32 ptrtoint(i8* @s2 to i32), 12
-  %r3 = add i32 %r5, %r6
-  %r2 = inttoptr i32 %r4 to i32*
-  store i32 %r3, i32* %r2
-  %r1 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  call void @printWord(i32 %r6)
+  %r4 = inttoptr i32 %r5 to i32*
+  %r3 = load i32, i32* %r4
+  call void @printWord(i32 %r3)
+  %r1 = inttoptr i32 %r2 to i32*
   %r0 = load i32, i32* %r1
   call void @printWord(i32 %r0)
-  br label %c6
-
-c6:
-  tail call void @func_b164()
   ret void
 }
 

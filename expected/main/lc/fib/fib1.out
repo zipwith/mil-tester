@@ -18,43 +18,6 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-b64 :: [Word] >>= [Unit]
-b64[t0] =
-  [] <- printWord((t0))
-  Unit()
-
------------------------------------------
--- not recursive
-entrypoint printWord1 :: {Word} [] ->> [Unit]
-printWord1{t0} [] = b64[t0]
-
------------------------------------------
--- not recursive
-b62 :: [Word] >>= [Proc Unit]
-b62[t0] =
-  t1 <- printWord1{t0}
-  Proc(t1)
-
------------------------------------------
--- not recursive
-k40 :: {} [Word] ->> [Proc Unit]
-k40{} t0 = b62[t0]
-
------------------------------------------
--- not recursive
-b63 :: [] >>= [Word -> Proc Unit]
-b63[] =
-  t0 <- k40{}
-  Func(t0)
-
------------------------------------------
--- not recursive
-entrypoint printWord :: Word -> Proc Unit
-printWord <-
-  b63[]
-
------------------------------------------
--- not recursive
 entrypoint false :: Bool
 false <-
   False()
@@ -370,6 +333,43 @@ b77[] =
 fib1 :: Word -> Word
 fib1 <-
   b77[]
+
+-----------------------------------------
+-- not recursive
+b64 :: [Word] >>= [Unit]
+b64[t0] =
+  [] <- printWord((t0))
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint printWord1 :: {Word} [] ->> [Unit]
+printWord1{t0} [] = b64[t0]
+
+-----------------------------------------
+-- not recursive
+b62 :: [Word] >>= [Proc Unit]
+b62[t0] =
+  t1 <- printWord1{t0}
+  Proc(t1)
+
+-----------------------------------------
+-- not recursive
+k40 :: {} [Word] ->> [Proc Unit]
+k40{} t0 = b62[t0]
+
+-----------------------------------------
+-- not recursive
+b63 :: [] >>= [Word -> Proc Unit]
+b63[] =
+  t0 <- k40{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint printWord :: Word -> Proc Unit
+printWord <-
+  b63[]
 
 -----------------------------------------
 -- not recursive

@@ -1,26 +1,3 @@
-define internal i32 @func_b406(i32 %r0) {
-  br label %b406
-
-b406:
-  %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b324, label %b407
-
-b324:
-  ret i32 1
-
-b407:
-  %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b324, label %b408
-
-b408:
-  %r7 = add i32 %r0, -1
-  %r4 = call i32 @func_b406(i32 %r7)
-  %r6 = add i32 %r0, -2
-  %r5 = call i32 @func_b406(i32 %r6)
-  %r3 = add i32 %r4, %r5
-  ret i32 %r3
-}
-
 define internal i32 @func_b469(i32 %r0) {
   br label %b469
 
@@ -186,6 +163,29 @@ b496:
   %r5 = srem i32 %r10, 10
   %r9 = icmp ult i32 %r5, 10
   br i1 %r9, label %b468, label %b496
+}
+
+define internal i32 @func_b406(i32 %r0) {
+  br label %b406
+
+b406:
+  %r1 = icmp eq i32 %r0, 0
+  br i1 %r1, label %b324, label %b407
+
+b324:
+  ret i32 1
+
+b407:
+  %r2 = icmp eq i32 %r0, 1
+  br i1 %r2, label %b324, label %b408
+
+b408:
+  %r7 = add i32 %r0, -1
+  %r4 = call i32 @func_b406(i32 %r7)
+  %r6 = add i32 %r0, -2
+  %r5 = call i32 @func_b406(i32 %r6)
+  %r3 = add i32 %r4, %r5
+  ret i32 %r3
 }
 
 define i32 @main() {

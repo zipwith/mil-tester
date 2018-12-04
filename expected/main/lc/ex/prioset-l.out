@@ -297,9 +297,9 @@ b226:
   %r3 = add i32 %r6, 1
   %r4 = add i32 %r5, 1
   %r2 = icmp ult i32 %r3, 256
-  br i1 %r2, label %b226, label %b185
+  br i1 %r2, label %b226, label %b184
 
-b185:
+b184:
   ret void
 }
 
