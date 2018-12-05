@@ -576,6 +576,9 @@ exec: albfib    ./milc albfib.lc --standalone -l
 exec: albstruct ./milc basic.mil struct.lc -m -l --standalone
 
 -------
+exec: albgdtac  ./milc basic.mil gdtac.lc -m -l --standalone
+
+-------
 tests: identity
 tests: datatest
 tests: fib
