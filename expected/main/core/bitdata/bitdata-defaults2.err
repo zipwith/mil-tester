@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata-defaults2.lc", line 2
+bitdata T = T [ x = z :: Bit 4 | y :: Bit 2 ]
+                    ^
+Type mismatch: cannot unify "4" with "2"
+
+ERROR: Aborting after previously reported error
+

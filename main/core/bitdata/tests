@@ -621,3 +621,51 @@ bitdata Foo /0
 entrypoint idfoo :: Foo -> Foo
 idfoo x = x
 -----------------------
+.lc:   bitdata-defaults1     ./milc -m -pcosor --32
+-- default not defined, should be an error:
+bitdata T = T [ x = z :: Bit 4 | y :: Bit 2 ]
+
+-----------------------
+.lc:   bitdata-defaults2     ./milc -m -pcosor --32
+-- default defined, wrong type
+bitdata T = T [ x = z :: Bit 4 | y :: Bit 2 ]
+
+z = B01
+
+-----------------------
+.lc:   bitdata-defaults3     ./milc -m -pcosor --32
+-- default defined inline, wrong type
+bitdata T = T [ x = B01 :: Bit 4 | y :: Bit 2 ]
+
+-----------------------
+.lc:   bitdata-defaults4     ./milc -m -pcosor --32
+-- default defined, correct type:
+bitdata T = T [ x = z :: Bit 4 | y :: Bit 2 ]
+
+z = B0001
+
+entrypoint sample, sample1, sample2
+sample  = T [ y = B00 ]
+sample1 = T [ y = B01 ]
+sample2 = T [ y = B00 | x = B1111 ]
+
+-----------------------
+.lc:   bitdata-defaults5     ./milc -m -pcosor --32
+-- default defined inline, correct type:
+bitdata T = T [ x = B0001 :: Bit 4 | y :: Bit 2 ]
+
+entrypoint sample, sample1, sample2
+sample  = T [ y = B00 ]
+sample1 = T [ y = B01 ]
+sample2 = T [ y = B00 | x = B1111 ]
+
+-----------------------
+.lc:   bitdata-defaults6     ./milc -m -pcosor --32
+-- default defined inline, correct type:
+bitdata T = T [ x = B0001 :: Bit 4 | y :: Bit 2 ]
+
+entrypoint sample, sample1
+sample  = T [ x = B0000 ] -- no default for y
+sample1 = T [ y = B000 ]  -- wrong type for y
+
+-----------------------

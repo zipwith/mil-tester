@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata-defaults1.lc", line 2
+bitdata T = T [ x = z :: Bit 4 | y :: Bit 2 ]
+                    ^
+"z" is not in scope
+
+ERROR: Aborting after previously reported error
+
