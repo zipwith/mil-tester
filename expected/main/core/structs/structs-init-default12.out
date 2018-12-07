@@ -1,0 +1,35 @@
+struct S / 16
+  [ x :: Stored Word  {- offset=0 -}
+  | y :: Stored Word  {- offset=4 -}
+  | z :: Stored Word  {- offset=8 -}
+  | t :: Stored Word  {- offset=12 -} ]
+  aligned 4
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint s :: Word
+s <- area S aligned 4
+
+-----------------------------------------
+-- not recursive
+b20 :: [] >>= [Unit]
+b20[] =
+  t0 <- store32((s, 0))
+  t1 <- add((s, 4))
+  t2 <- store32((t1, 1))
+  t3 <- add((s, 8))
+  t4 <- store32((t3, 2))
+  t5 <- add((s, 12))
+  store32((t5, 3))
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  b20[]
+
+-----------------------------------------
+-- Entrypoints: s

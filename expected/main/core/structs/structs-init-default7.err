@@ -1,0 +1,5 @@
+ERROR: "actual/main/core/structs/structs-init-default7.lc", line 7
+area s <- S [ z <- initStored 93 ] :: Ref S
+          ^
+Structure S requires initializer for field x :: Stored Word
+

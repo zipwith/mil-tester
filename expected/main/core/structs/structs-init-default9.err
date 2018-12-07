@@ -1,0 +1,5 @@
+ERROR: "actual/main/core/structs/structs-init-default9.lc", line 7
+area s <- S [ z <- initStored 93 | p <- initStored 78 | x <- initStored 12 ] :: Ref S
+                                   ^
+Structure S does not include a field with label "p"
+

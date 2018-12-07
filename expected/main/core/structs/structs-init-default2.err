@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/structs/structs-init-default2.lc", line 2
+struct S [ x, y <- i, z :: Stored Word ]
+                   ^
+"i" is not in scope
+
+ERROR: Aborting after previously reported error
+

@@ -410,3 +410,151 @@ entrypoint absent
 absent = Absent
 
 ------------
+.lc: structs-init-default1   ./milc --32 -m -pcsoro
+-- initializer field not in scope:
+struct S [ x <- i :: Stored Word ]
+
+------------
+.lc: structs-init-default2   ./milc --32 -m -pcsoro
+-- multiple fields, initializer field not in scope:
+struct S [ x, y <- i, z :: Stored Word ]
+
+------------
+.lc: structs-init-default3   ./milc --32 -m -pcsoro
+-- multiple fields, initializer in scope:
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ x <- initStored 12 | z <- initStored 93 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default4   ./milc --32 -m -pcsoro
+-- multiple fields, initializer in scope, permuted order in initializer:
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ z <- initStored 93 | x <- initStored 12 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default5   ./milc --32 -m -pcsoro
+-- multiple fields, initializer in scope, permuted order in struct def1:
+struct S [ y <- i, x, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ x <- initStored 12 | z <- initStored 93 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default6   ./milc --32 -m -pcsoro
+-- multiple fields, override default initializer
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ y <- initStored 100 | x <- initStored 12 | z <- initStored 93 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default7   ./milc --32 -m -pcsoro
+-- multiple fields, omit field without initializer:
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ z <- initStored 93 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default8   ./milc --32 -m -pcsoro
+-- multiple fields, multiple initializers for a single field:
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ z <- initStored 93 | x <- initStored 12 | z <- initStored 42] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default9   ./milc --32 -m -pcsoro
+-- multiple fields, initializer in scope, initializer for non-field label:
+struct S [ x, y <- i, z :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ z <- initStored 93 | p <- initStored 78 | x <- initStored 12 ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default10   ./milc --32 -m -pcsoro
+-- multiple fields, shared initializer
+struct S [ x<-i, y <- i, z<-i :: Stored Word | t <- i :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default11   ./milc --32 -m -pcsoro
+-- multiple fields, shared initializer, override to one element
+struct S [ x<-i, y <- i, z<-i :: Stored Word | t <- i :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+i = initStored 17
+
+area s <- S [ y<-initStored 99] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default12   ./milc --32 -m -pcsoro
+-- multiple fields, inline initializers
+struct S [ x <- initStored 0,
+           y <- initStored 1,
+           z <- initStored 2 :: Stored Word
+         | t <- initStored 3 :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+
+area s <- S [ ] :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default13   ./milc --32 -m -pcsoro
+-- multiple fields, inline initializers, type incorrect area initializer
+struct S [ x <- initStored 0,
+           y <- initStored 1,
+           z <- initStored 2 :: Stored Word
+         | t <- initStored 3 :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+
+area s <- initStored 0 :: Ref S
+entrypoint s
+
+------------
+.lc: structs-init-default14   ./milc --32 -m -pcsoro
+-- multiple fields, inline initializers, out of scope area initializer
+struct S [ x <- initStored 0,
+           y <- initStored 1,
+           z <- initStored 2 :: Stored Word
+         | t <- initStored 3 :: Stored Word ]
+
+external initStored {primInitStored t}     :: t -> Init (Stored t)
+
+area s <- initStored0 :: Ref S
+entrypoint s
+
+------------

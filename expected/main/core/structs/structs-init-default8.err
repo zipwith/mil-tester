@@ -1,0 +1,5 @@
+ERROR: "actual/main/core/structs/structs-init-default8.lc", line 7
+area s <- S [ z <- initStored 93 | x <- initStored 12 | z <- initStored 42] :: Ref S
+                                                        ^
+There are multiple initializers for field "z"
+
