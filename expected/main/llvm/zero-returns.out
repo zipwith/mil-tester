@@ -1,0 +1,7 @@
+define void @b(i32 %r0, i32 %r1) {
+  br label %b
+
+b:
+  ret void
+}
+

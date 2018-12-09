@@ -1,0 +1,14 @@
+A place for tests involving the generated LLVM code
+-------------
+.mil: multiple-returns   ./milc -l --32
+entrypoint b
+b      :: [Word, Word] >>= [Word, Word, Word]
+b[x, y] = return [y, 12, x]
+
+-------------
+.mil: zero-returns   ./milc -l --32
+entrypoint b
+b      :: [Word, Word] >>= []
+b[x, y] = return []
+
+-------------

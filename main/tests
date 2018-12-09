@@ -5,4 +5,5 @@ tests: core
 tests: mil
 tests: lc
 tests: gens
+tests: llvm
 
