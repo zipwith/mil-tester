@@ -20,173 +20,173 @@ a <- area S aligned 4
 
 -----------------------------------------
 -- not recursive
-b337 :: [] >>= [Word]
-b337[] =
+b349 :: [] >>= [Word]
+b349[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b510 :: [Word, Word, Word] >>= [Word]
-b510[t0, t1, t2] =
+b522 :: [Word, Word, Word] >>= [Word]
+b522[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
-    then b509[t2, t1, t0]
-    else b481[t2, t0]
-b509 :: [Word, Word, Word] >>= [Word]
-b509[t0, t1, t2] =
+    then b521[t2, t1, t0]
+    else b493[t2, t0]
+b521 :: [Word, Word, Word] >>= [Word]
+b521[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- mul((t2, 1000))
   t5 <- primUge((t0, t4))
   if t5
-    then b506[t3, t1, t0]
-    else b481[t0, t3]
-b506 :: [Word, Word, Word] >>= [Word]
-b506[t0, t1, t2] =
+    then b518[t3, t1, t0]
+    else b493[t0, t3]
+b518 :: [Word, Word, Word] >>= [Word]
+b518[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
-    then b481[t2, t0]
-    else b510[t0, t1, t2]
-b487 :: [Word, Word, Word] >>= [Word]
-b487[t0, t1, t2] =
+    then b493[t2, t0]
+    else b522[t0, t1, t2]
+b499 :: [Word, Word, Word] >>= [Word]
+b499[t0, t1, t2] =
   t3 <- mul((t1, 10))
   t4 <- mul((t1, 1000))
   t5 <- primUge((t2, t4))
   if t5
-    then b506[t3, t0, t2]
-    else b481[t2, t3]
-b486 :: [Word, Word, Word] >>= [Word]
-b486[t0, t1, t2] =
+    then b518[t3, t0, t2]
+    else b493[t2, t3]
+b498 :: [Word, Word, Word] >>= [Word]
+b498[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
-    then b487[t1, t0, t2]
-    else b481[t2, t0]
-b484 :: [Word, Word, Word] >>= [Word]
-b484[t0, t1, t2] =
+    then b499[t1, t0, t2]
+    else b493[t2, t0]
+b496 :: [Word, Word, Word] >>= [Word]
+b496[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
-    then b481[t2, t0]
-    else b486[t0, t1, t2]
-b483 :: [Word, Word, Word] >>= [Word]
-b483[t0, t1, t2] =
+    then b493[t2, t0]
+    else b498[t0, t1, t2]
+b495 :: [Word, Word, Word] >>= [Word]
+b495[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- mul((t2, 1000))
   t5 <- primUge((t0, t4))
   if t5
-    then b484[t3, t1, t0]
-    else b481[t0, t3]
-b482 :: [Word, Word, Word] >>= [Word]
-b482[t0, t1, t2] =
+    then b496[t3, t1, t0]
+    else b493[t0, t3]
+b494 :: [Word, Word, Word] >>= [Word]
+b494[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
-    then b483[t2, t1, t0]
-    else b481[t2, t0]
-b480 :: [Word, Word, Word] >>= [Word]
-b480[t0, t1, t2] =
+    then b495[t2, t1, t0]
+    else b493[t2, t0]
+b492 :: [Word, Word, Word] >>= [Word]
+b492[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
-    then b481[t2, t0]
-    else b482[t0, t1, t2]
-b479 :: [Word, Word] >>= [Word]
-b479[t0, t1] =
+    then b493[t2, t0]
+    else b494[t0, t1, t2]
+b491 :: [Word, Word] >>= [Word]
+b491[t0, t1] =
   t2 <- primUge((t0, 100))
   if t2
-    then b480[1, t1, t0]
-    else b481[t0, 1]
-b481 :: [Word, Word] >>= [Word]
-b481[t0, t1] =
+    then b492[1, t1, t0]
+    else b493[t0, 1]
+b493 :: [Word, Word] >>= [Word]
+b493[t0, t1] =
   t2 <- mul((t1, 10))
   t3 <- sub((t0, t2))
-  t4 <- b478[t3]
+  t4 <- b490[t3]
   add((t1, t4))
-b478 :: [Word] >>= [Word]
-b478[t0] =
+b490 :: [Word] >>= [Word]
+b490[t0] =
   t1 <- primUlt((t0, 10))
   if t1
-    then b337[]
-    else b479[t0, 10000000]
+    then b349[]
+    else b491[t0, 10000000]
 
 -----------------------------------------
 -- not recursive
-b557 :: [Word] >>= [Word]
-b557[t0] =
+b569 :: [Word] >>= [Word]
+b569[t0] =
   t1 <- add((t0, -10))
-  t2 <- b478[t1]
+  t2 <- b490[t1]
   add((t2, 1))
 
 -----------------------------------------
 -- not recursive
-b565 :: [Word] >>= [Word]
-b565[t0] =
+b577 :: [Word] >>= [Word]
+b577[t0] =
   t1 <- add((t0, -100))
-  t2 <- b478[t1]
+  t2 <- b490[t1]
   add((t2, 10))
 
 -----------------------------------------
 -- not recursive
-b570 :: [Word] >>= [Word]
-b570[t0] =
+b582 :: [Word] >>= [Word]
+b582[t0] =
   t1 <- add((t0, -1000))
-  t2 <- b478[t1]
+  t2 <- b490[t1]
   add((t2, 100))
 
 -----------------------------------------
 -- recursive
-b514 :: [Word, Word, Word] >>= [Word]
-b514[t0, t1, t2] =
+b526 :: [Word, Word, Word] >>= [Word]
+b526[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
-    then b513[t2, t1, t0]
-    else b481[t2, t0]
-b513 :: [Word, Word, Word] >>= [Word]
-b513[t0, t1, t2] =
+    then b525[t2, t1, t0]
+    else b493[t2, t0]
+b525 :: [Word, Word, Word] >>= [Word]
+b525[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- mul((t2, 1000))
   t5 <- primUge((t0, t4))
   if t5
-    then b511[t3, t1, t0]
-    else b481[t0, t3]
-b511 :: [Word, Word, Word] >>= [Word]
-b511[t0, t1, t2] =
+    then b523[t3, t1, t0]
+    else b493[t0, t3]
+b523 :: [Word, Word, Word] >>= [Word]
+b523[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
-    then b481[t2, t0]
-    else b514[t0, t1, t2]
+    then b493[t2, t0]
+    else b526[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-b581 :: [Word] >>= [Word]
-b581[t0] =
+b593 :: [Word] >>= [Word]
+b593[t0] =
   t1 <- primUge((t0, 10000))
   if t1
-    then b511[100, 10000000, t0]
-    else b570[t0]
+    then b523[100, 10000000, t0]
+    else b582[t0]
 
 -----------------------------------------
 -- not recursive
-b578 :: [Word] >>= [Word]
-b578[t0] =
+b590 :: [Word] >>= [Word]
+b590[t0] =
   t1 <- primUge((t0, 1000))
   if t1
-    then b581[t0]
-    else b565[t0]
+    then b593[t0]
+    else b577[t0]
 
 -----------------------------------------
 -- not recursive
-b572 :: [Word] >>= [Word]
-b572[t0] =
+b584 :: [Word] >>= [Word]
+b584[t0] =
   t1 <- primUge((t0, 100))
   if t1
-    then b578[t0]
-    else b557[t0]
+    then b590[t0]
+    else b569[t0]
 
 -----------------------------------------
 -- not recursive
-b91 :: [Word] >>= [Word]
-b91[t0] =
+b103 :: [Word] >>= [Word]
+b103[t0] =
   t1 <- primUlt((t0, 10))
   if t1
-    then b337[]
-    else b572[t0]
+    then b349[]
+    else b584[t0]
 
 -----------------------------------------
 -- not recursive
@@ -196,38 +196,38 @@ Proxy$fqc <-
 
 -----------------------------------------
 -- not recursive
-b316 :: [Word] >>= [Unit]
-b316[t0] =
+b328 :: [Word] >>= [Unit]
+b328[t0] =
   t1 <- add((t0, 48))
   t2 <- putchar((t1))
   return Proxy$fqc
 
 -----------------------------------------
 -- recursive
-b505 :: [Word] >>= [Unit]
-b505[t0] =
-  t1 <- b478[t0]
-  t2 <- b358[t1]
+b517 :: [Word] >>= [Unit]
+b517[t0] =
+  t1 <- b490[t0]
+  t2 <- b370[t1]
   t3 <- rem((t0, 10))
   t4 <- primUlt((t3, 10))
   if t4
-    then b316[t3]
-    else b505[t3]
-b358 :: [Word] >>= [Unit]
-b358[t0] =
+    then b328[t3]
+    else b517[t3]
+b370 :: [Word] >>= [Unit]
+b370[t0] =
   t1 <- primUlt((t0, 10))
   if t1
-    then b316[t0]
-    else b343[t0]
-b343 :: [Word] >>= [Unit]
-b343[t0] =
-  t1 <- b91[t0]
-  t2 <- b358[t1]
+    then b328[t0]
+    else b355[t0]
+b355 :: [Word] >>= [Unit]
+b355[t0] =
+  t1 <- b103[t0]
+  t2 <- b370[t1]
   t3 <- rem((t0, 10))
   t4 <- primUlt((t3, 10))
   if t4
-    then b316[t3]
-    else b505[t3]
+    then b328[t3]
+    else b517[t3]
 
 -----------------------------------------
 -- not recursive
@@ -239,8 +239,8 @@ initialize[] =
   t3 <- load32((a))
   t4 <- primUlt((t3, 10))
   if t4
-    then b316[t3]
-    else b343[t3]
+    then b328[t3]
+    else b355[t3]
 
 -----------------------------------------
 -- Entrypoints:
@@ -248,171 +248,171 @@ initialize[] =
 
 @a = internal alias i8, i8* bitcast([5 x i8]* @raw.0 to i8*)
 
-define internal i32 @func_b478(i32 %r0) {
-  br label %b478
+define internal i32 @func_b490(i32 %r0) {
+  br label %b490
 
-b478:
+b490:
   %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b337, label %b479
+  br i1 %r1, label %b349, label %b491
 
-b337:
+b349:
   ret i32 0
 
-b479:
+b491:
   %r2 = icmp uge i32 %r0, 100
-  br i1 %r2, label %b480, label %b481
+  br i1 %r2, label %b492, label %b493
 
-b480:
+b492:
   %r3 = icmp eq i32 1, 10000000
-  br i1 %r3, label %b481, label %b482
+  br i1 %r3, label %b493, label %b494
 
-b481:
-  %r8 = phi i32 [%r0, %b479], [%r0, %b480], [%r0, %b482], [%r0, %b483], [%r0, %b484], [%r0, %b486], [%r0, %b487], [%r14, %b506], [%r14, %b510], [%r14, %b509]
-  %r5 = phi i32 [1, %b479], [1, %b480], [1, %b482], [%r13, %b483], [%r13, %b484], [%r13, %b486], [%r12, %b487], [%r11, %b506], [%r11, %b510], [%r10, %b509]
+b493:
+  %r8 = phi i32 [%r0, %b491], [%r0, %b492], [%r0, %b494], [%r0, %b495], [%r0, %b496], [%r0, %b498], [%r0, %b499], [%r14, %b518], [%r14, %b522], [%r14, %b521]
+  %r5 = phi i32 [1, %b491], [1, %b492], [1, %b494], [%r13, %b495], [%r13, %b496], [%r13, %b498], [%r12, %b499], [%r11, %b518], [%r11, %b522], [%r10, %b521]
   %r9 = mul i32 %r5, 10
   %r7 = sub i32 %r8, %r9
-  %r6 = call i32 @func_b478(i32 %r7)
+  %r6 = call i32 @func_b490(i32 %r7)
   %r4 = add i32 %r5, %r6
   ret i32 %r4
 
-b482:
+b494:
   %r15 = icmp ule i32 1, 10000000
-  br i1 %r15, label %b483, label %b481
+  br i1 %r15, label %b495, label %b493
 
-b483:
+b495:
   %r13 = mul i32 1, 10
   %r17 = mul i32 1, 1000
   %r16 = icmp uge i32 %r0, %r17
-  br i1 %r16, label %b484, label %b481
+  br i1 %r16, label %b496, label %b493
 
-b484:
+b496:
   %r18 = icmp eq i32 %r13, 10000000
-  br i1 %r18, label %b481, label %b486
+  br i1 %r18, label %b493, label %b498
 
-b486:
+b498:
   %r19 = icmp ule i32 %r13, 10000000
-  br i1 %r19, label %b487, label %b481
+  br i1 %r19, label %b499, label %b493
 
-b487:
+b499:
   %r12 = mul i32 %r13, 10
   %r21 = mul i32 %r13, 1000
   %r20 = icmp uge i32 %r0, %r21
-  br i1 %r20, label %b506, label %b481
+  br i1 %r20, label %b518, label %b493
 
-b506:
-  %r11 = phi i32 [%r12, %b487], [%r10, %b509]
-  %r23 = phi i32 [10000000, %b487], [%r23, %b509]
-  %r14 = phi i32 [%r0, %b487], [%r14, %b509]
+b518:
+  %r11 = phi i32 [%r12, %b499], [%r10, %b521]
+  %r23 = phi i32 [10000000, %b499], [%r23, %b521]
+  %r14 = phi i32 [%r0, %b499], [%r14, %b521]
   %r22 = icmp eq i32 %r11, %r23
-  br i1 %r22, label %b481, label %b510
+  br i1 %r22, label %b493, label %b522
 
-b510:
+b522:
   %r24 = icmp ule i32 %r11, %r23
-  br i1 %r24, label %b509, label %b481
+  br i1 %r24, label %b521, label %b493
 
-b509:
+b521:
   %r10 = mul i32 %r11, 10
   %r26 = mul i32 %r11, 1000
   %r25 = icmp uge i32 %r14, %r26
-  br i1 %r25, label %b506, label %b481
+  br i1 %r25, label %b518, label %b493
 }
 
-define internal i32 @func_b91(i32 %r0) {
-  br label %b91
+define internal i32 @func_b103(i32 %r0) {
+  br label %b103
 
-b91:
+b103:
   %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b337, label %b572
+  br i1 %r1, label %b349, label %b584
 
-b337:
+b349:
   ret i32 0
 
-b572:
+b584:
   %r2 = icmp uge i32 %r0, 100
-  br i1 %r2, label %b578, label %b557
+  br i1 %r2, label %b590, label %b569
 
-b578:
+b590:
   %r3 = icmp uge i32 %r0, 1000
-  br i1 %r3, label %b581, label %b565
+  br i1 %r3, label %b593, label %b577
 
-b557:
+b569:
   %r6 = add i32 %r0, -10
-  %r5 = call i32 @func_b478(i32 %r6)
+  %r5 = call i32 @func_b490(i32 %r6)
   %r4 = add i32 %r5, 1
   ret i32 %r4
 
-b581:
+b593:
   %r7 = icmp uge i32 %r0, 10000
-  br i1 %r7, label %b511, label %b570
+  br i1 %r7, label %b523, label %b582
 
-b565:
+b577:
   %r10 = add i32 %r0, -100
-  %r9 = call i32 @func_b478(i32 %r10)
+  %r9 = call i32 @func_b490(i32 %r10)
   %r8 = add i32 %r9, 10
   ret i32 %r8
 
-b511:
-  %r12 = phi i32 [100, %b581], [%r15, %b513]
-  %r13 = phi i32 [10000000, %b581], [%r13, %b513]
-  %r14 = phi i32 [%r0, %b581], [%r14, %b513]
+b523:
+  %r12 = phi i32 [100, %b593], [%r15, %b525]
+  %r13 = phi i32 [10000000, %b593], [%r13, %b525]
+  %r14 = phi i32 [%r0, %b593], [%r14, %b525]
   %r11 = icmp eq i32 %r12, %r13
-  br i1 %r11, label %b481, label %b514
+  br i1 %r11, label %b493, label %b526
 
-b570:
+b582:
   %r18 = add i32 %r0, -1000
-  %r17 = call i32 @func_b478(i32 %r18)
+  %r17 = call i32 @func_b490(i32 %r18)
   %r16 = add i32 %r17, 100
   ret i32 %r16
 
-b481:
-  %r23 = phi i32 [%r14, %b511], [%r14, %b514], [%r14, %b513]
-  %r20 = phi i32 [%r12, %b511], [%r12, %b514], [%r15, %b513]
+b493:
+  %r23 = phi i32 [%r14, %b523], [%r14, %b526], [%r14, %b525]
+  %r20 = phi i32 [%r12, %b523], [%r12, %b526], [%r15, %b525]
   %r24 = mul i32 %r20, 10
   %r22 = sub i32 %r23, %r24
-  %r21 = call i32 @func_b478(i32 %r22)
+  %r21 = call i32 @func_b490(i32 %r22)
   %r19 = add i32 %r20, %r21
   ret i32 %r19
 
-b514:
+b526:
   %r25 = icmp ule i32 %r12, %r13
-  br i1 %r25, label %b513, label %b481
+  br i1 %r25, label %b525, label %b493
 
-b513:
+b525:
   %r15 = mul i32 %r12, 10
   %r27 = mul i32 %r12, 1000
   %r26 = icmp uge i32 %r14, %r27
-  br i1 %r26, label %b511, label %b481
+  br i1 %r26, label %b523, label %b493
 }
 
 declare i32 @putchar(i32)
 
-define internal void @func_b358(i32 %r0) {
-  br label %b358
+define internal void @func_b370(i32 %r0) {
+  br label %b370
 
-b358:
+b370:
   %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b316, label %b343
+  br i1 %r1, label %b328, label %b355
 
-b316:
-  %r4 = phi i32 [%r0, %b358], [%r6, %b343], [%r5, %b505]
+b328:
+  %r4 = phi i32 [%r0, %b370], [%r6, %b355], [%r5, %b517]
   %r3 = add i32 %r4, 48
   %r2 = call i32 @putchar(i32 %r3)
   ret void
 
-b343:
-  %r8 = call i32 @func_b91(i32 %r0)
-  call void @func_b358(i32 %r8)
+b355:
+  %r8 = call i32 @func_b103(i32 %r0)
+  call void @func_b370(i32 %r8)
   %r6 = srem i32 %r0, 10
   %r7 = icmp ult i32 %r6, 10
-  br i1 %r7, label %b316, label %b505
+  br i1 %r7, label %b328, label %b517
 
-b505:
-  %r10 = phi i32 [%r6, %b343], [%r5, %b505]
-  %r11 = call i32 @func_b478(i32 %r10)
-  call void @func_b358(i32 %r11)
+b517:
+  %r10 = phi i32 [%r6, %b355], [%r5, %b517]
+  %r11 = call i32 @func_b490(i32 %r10)
+  call void @func_b370(i32 %r11)
   %r5 = srem i32 %r10, 10
   %r9 = icmp ult i32 %r5, 10
-  br i1 %r9, label %b316, label %b505
+  br i1 %r9, label %b328, label %b517
 }
 
 define void @main() {
@@ -428,27 +428,27 @@ initialize:
   %r2 = inttoptr i32 ptrtoint(i8* @a to i32) to i32*
   %r1 = load i32, i32* %r2
   %r0 = icmp ult i32 %r1, 10
-  br i1 %r0, label %b316, label %b343
+  br i1 %r0, label %b328, label %b355
 
-b316:
-  %r9 = phi i32 [%r1, %initialize], [%r11, %b343], [%r10, %b505]
+b328:
+  %r9 = phi i32 [%r1, %initialize], [%r11, %b355], [%r10, %b517]
   %r8 = add i32 %r9, 48
   %r7 = call i32 @putchar(i32 %r8)
   ret void
 
-b343:
-  %r13 = call i32 @func_b91(i32 %r1)
-  call void @func_b358(i32 %r13)
+b355:
+  %r13 = call i32 @func_b103(i32 %r1)
+  call void @func_b370(i32 %r13)
   %r11 = srem i32 %r1, 10
   %r12 = icmp ult i32 %r11, 10
-  br i1 %r12, label %b316, label %b505
+  br i1 %r12, label %b328, label %b517
 
-b505:
-  %r15 = phi i32 [%r11, %b343], [%r10, %b505]
-  %r16 = call i32 @func_b478(i32 %r15)
-  call void @func_b358(i32 %r16)
+b517:
+  %r15 = phi i32 [%r11, %b355], [%r10, %b517]
+  %r16 = call i32 @func_b490(i32 %r15)
+  call void @func_b370(i32 %r16)
   %r10 = srem i32 %r15, 10
   %r14 = icmp ult i32 %r10, 10
-  br i1 %r14, label %b316, label %b505
+  br i1 %r14, label %b328, label %b517
 }
 

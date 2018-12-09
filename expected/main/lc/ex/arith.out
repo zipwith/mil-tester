@@ -18,192 +18,192 @@ data Three4
 
 -----------------------------------------
 -- not recursive
-k88 :: {} [Word] ->> [Word]
-k88{} t0 = return 1056820
+k96 :: {} [Word] ->> [Word]
+k96{} t0 = return 1056820
 
 -----------------------------------------
 -- not recursive
 example3 :: [Word] ->> [Word]
 example3 <-
-  k88{}
+  k96{}
 
 -----------------------------------------
 -- not recursive
-b115 :: [Word] >>= [Word]
-b115[t0] =
+b127 :: [Word] >>= [Word]
+b127[t0] =
   t1 <- and((t0, 1044495))
   or((t1, 2097200))
 
 -----------------------------------------
 -- not recursive
-k87 :: {} [Word] ->> [Word]
-k87{} t0 = b115[t0]
+k95 :: {} [Word] ->> [Word]
+k95{} t0 = b127[t0]
 
 -----------------------------------------
 -- not recursive
 example2 :: [Word] ->> [Word]
 example2 <-
-  k87{}
+  k95{}
 
 -----------------------------------------
 -- not recursive
-b113 :: [Word] >>= [Word]
-b113[t0] =
+b125 :: [Word] >>= [Word]
+b125[t0] =
   t1 <- and((t0, -16))
   or((t1, 2))
 
 -----------------------------------------
 -- not recursive
-k86 :: {} [Word] ->> [Word]
-k86{} t0 = b113[t0]
+k94 :: {} [Word] ->> [Word]
+k94{} t0 = b125[t0]
 
 -----------------------------------------
 -- not recursive
 example1 :: [Word] ->> [Word]
 example1 <-
-  k86{}
+  k94{}
 
 -----------------------------------------
 -- not recursive
-b243 :: [Word, Word] >>= [Word]
-b243[t0, t1] =
+b255 :: [Word, Word] >>= [Word]
+b255[t0, t1] =
   t2 <- and((t1, -16))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-k162 :: {Word} [Word] ->> [Word]
-k162{t0} t1 = b243[t0, t1]
+k170 :: {Word} [Word] ->> [Word]
+k170{t0} t1 = b255[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k85 :: {} [Word] ->> [[Word] ->> [Word]]
-k85{} t0 = k162{t0}
+k93 :: {} [Word] ->> [[Word] ->> [Word]]
+k93{} t0 = k170{t0}
 
 -----------------------------------------
 -- not recursive
 setTfield :: [Word] ->> [[Word] ->> [Word]]
 setTfield <-
-  k85{}
+  k93{}
 
 -----------------------------------------
 -- not recursive
-b242 :: [Word, Word] >>= [Word]
-b242[t0, t1] =
+b254 :: [Word, Word] >>= [Word]
+b254[t0, t1] =
   t2 <- and((t1, -4081))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-k161 :: {Word} [Word] ->> [Word]
-k161{t0} t1 = b242[t0, t1]
+k169 :: {Word} [Word] ->> [Word]
+k169{t0} t1 = b254[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b109 :: [Word] >>= [[Word] ->> [Word]]
-b109[t0] =
+b121 :: [Word] >>= [[Word] ->> [Word]]
+b121[t0] =
   t1 <- shl((t0, 4))
-  k161{t1}
+  k169{t1}
 
 -----------------------------------------
 -- not recursive
-k84 :: {} [Word] ->> [[Word] ->> [Word]]
-k84{} t0 = b109[t0]
+k92 :: {} [Word] ->> [[Word] ->> [Word]]
+k92{} t0 = b121[t0]
 
 -----------------------------------------
 -- not recursive
 setZfield :: [Word] ->> [[Word] ->> [Word]]
 setZfield <-
-  k84{}
+  k92{}
 
 -----------------------------------------
 -- not recursive
-b241 :: [Word, Word] >>= [Word]
-b241[t0, t1] =
+b253 :: [Word, Word] >>= [Word]
+b253[t0, t1] =
   t2 <- and((t1, -1044481))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-k160 :: {Word} [Word] ->> [Word]
-k160{t0} t1 = b241[t0, t1]
+k168 :: {Word} [Word] ->> [Word]
+k168{t0} t1 = b253[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b107 :: [Word] >>= [[Word] ->> [Word]]
-b107[t0] =
+b119 :: [Word] >>= [[Word] ->> [Word]]
+b119[t0] =
   t1 <- shl((t0, 12))
-  k160{t1}
+  k168{t1}
 
 -----------------------------------------
 -- not recursive
-k83 :: {} [Word] ->> [[Word] ->> [Word]]
-k83{} t0 = b107[t0]
+k91 :: {} [Word] ->> [[Word] ->> [Word]]
+k91{} t0 = b119[t0]
 
 -----------------------------------------
 -- not recursive
 setYfield :: [Word] ->> [[Word] ->> [Word]]
 setYfield <-
-  k83{}
+  k91{}
 
 -----------------------------------------
 -- not recursive
-b239 :: [Word, Word] >>= [Word]
-b239[t0, t1] =
+b251 :: [Word, Word] >>= [Word]
+b251[t0, t1] =
   t2 <- and((t1, 1048575))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-k158 :: {Word} [Word] ->> [Word]
-k158{t0} t1 = b239[t0, t1]
+k166 :: {Word} [Word] ->> [Word]
+k166{t0} t1 = b251[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b105 :: [Word] >>= [[Word] ->> [Word]]
-b105[t0] =
+b117 :: [Word] >>= [[Word] ->> [Word]]
+b117[t0] =
   t1 <- shl((t0, 20))
-  k158{t1}
+  k166{t1}
 
 -----------------------------------------
 -- not recursive
-k82 :: {} [Word] ->> [[Word] ->> [Word]]
-k82{} t0 = b105[t0]
+k90 :: {} [Word] ->> [[Word] ->> [Word]]
+k90{} t0 = b117[t0]
 
 -----------------------------------------
 -- not recursive
 setXfield :: [Word] ->> [[Word] ->> [Word]]
 setXfield <-
-  k82{}
+  k90{}
 
 -----------------------------------------
 -- not recursive
-b101 :: [Word, Word, Word] >>= [Word]
-b101[t0, t1, t2] =
+b113 :: [Word, Word, Word] >>= [Word]
+b113[t0, t1, t2] =
   t3 <- not((t1))
   t4 <- and((t0, t3))
   or((t4, t2))
 
 -----------------------------------------
 -- not recursive
-k79 :: {Word, Word} [Word] ->> [Word]
-k79{t0, t1} t2 = b101[t2, t1, t0]
+k87 :: {Word, Word} [Word] ->> [Word]
+k87{t0, t1} t2 = b113[t2, t1, t0]
 
 -----------------------------------------
 -- not recursive
-k80 :: {Word} [Word] ->> [[Word] ->> [Word]]
-k80{t0} t1 = k79{t1, t0}
+k88 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k88{t0} t1 = k87{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k81 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
-k81{} t0 = k80{t0}
+k89 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k89{} t0 = k88{t0}
 
 -----------------------------------------
 -- not recursive
 setField :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
 setField <-
-  k81{}
+  k89{}
 
 -----------------------------------------
 -- not recursive
@@ -219,80 +219,80 @@ s25 <-
 
 -----------------------------------------
 -- not recursive
-k113 :: {} [Word] ->> [Word]
-k113{} t0 = or((t0, 15))
+k121 :: {} [Word] ->> [Word]
+k121{} t0 = or((t0, 15))
 
 -----------------------------------------
 -- not recursive
 barg :: [Word] ->> [Word]
 barg <-
-  k113{}
+  k121{}
 
 -----------------------------------------
 -- not recursive
-k112 :: {} [Word] ->> [Word]
-k112{} t0 = and((t0, 15))
+k120 :: {} [Word] ->> [Word]
+k120{} t0 = and((t0, 15))
 
 -----------------------------------------
 -- not recursive
 barf :: [Word] ->> [Word]
 barf <-
-  k112{}
+  k120{}
 
 -----------------------------------------
 -- not recursive
-k111 :: {} [Word] ->> [Word]
-k111{} t0 = return t0
+k119 :: {} [Word] ->> [Word]
+k119{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 bare :: [Word] ->> [Word]
 bare <-
-  k111{}
+  k119{}
 
 -----------------------------------------
 -- not recursive
-k109 :: {} [Word] ->> [Word]
-k109{} t0 = neg((t0))
+k117 :: {} [Word] ->> [Word]
+k117{} t0 = neg((t0))
 
 -----------------------------------------
 -- not recursive
 barc :: [Word] ->> [Word]
 barc <-
-  k109{}
+  k117{}
 
 -----------------------------------------
 -- not recursive
-k108 :: {} [Word] ->> [Word]
-k108{} t0 = not((t0))
+k116 :: {} [Word] ->> [Word]
+k116{} t0 = not((t0))
 
 -----------------------------------------
 -- not recursive
 barb :: [Word] ->> [Word]
 barb <-
-  k108{}
+  k116{}
 
 -----------------------------------------
 -- not recursive
-k107 :: {} [Word] ->> [Word]
-k107{} t0 = return 0
+k115 :: {} [Word] ->> [Word]
+k115{} t0 = return 0
 
 -----------------------------------------
 -- not recursive
 bara :: [Word] ->> [Word]
 bara <-
-  k107{}
+  k115{}
 
 -----------------------------------------
 -- not recursive
-k110 :: {} [Word] ->> [Word]
-k110{} t0 = return -1
+k118 :: {} [Word] ->> [Word]
+k118{} t0 = return -1
 
 -----------------------------------------
 -- not recursive
 bard :: [Word] ->> [Word]
 bard <-
-  k110{}
+  k118{}
 
 -----------------------------------------
 -- not recursive
@@ -308,14 +308,14 @@ foos <-
 
 -----------------------------------------
 -- not recursive
-k97 :: {} [Word] ->> [Word]
-k97{} t0 = add((t0, 3))
+k105 :: {} [Word] ->> [Word]
+k105{} t0 = add((t0, 3))
 
 -----------------------------------------
 -- not recursive
 plus3e :: [Word] ->> [Word]
 plus3e <-
-  k97{}
+  k105{}
 
 -----------------------------------------
 -- not recursive
@@ -325,32 +325,32 @@ plusses <-
 
 -----------------------------------------
 -- not recursive
-b129 :: [Word] >>= [Word]
-b129[t0] =
+b141 :: [Word] >>= [Word]
+b141[t0] =
   t1 <- add((t0, 1))
   mul((t1, t1))
 
 -----------------------------------------
 -- not recursive
-k91 :: {} [Word] ->> [Word]
-k91{} t0 = b129[t0]
+k99 :: {} [Word] ->> [Word]
+k99{} t0 = b141[t0]
 
 -----------------------------------------
 -- not recursive
 square2 :: [Word] ->> [Word]
 square2 <-
-  k91{}
+  k99{}
 
 -----------------------------------------
 -- not recursive
-k89 :: {} [Word] ->> [Word]
-k89{} t0 = mul((t0, t0))
+k97 :: {} [Word] ->> [Word]
+k97{} t0 = mul((t0, t0))
 
 -----------------------------------------
 -- not recursive
 square :: [Word] ->> [Word]
 square <-
-  k89{}
+  k97{}
 
 -----------------------------------------
 -- not recursive

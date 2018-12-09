@@ -1,58 +1,58 @@
 -----------------------------------------
 -- not recursive
-b106 :: [] >>= [Word]
-b106[] =
+b118 :: [] >>= [Word]
+b118[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-b105 :: [Word] >>= [Word]
-b105[t0] =
+b117 :: [Word] >>= [Word]
+b117[t0] =
   t1 <- shl((t0, 1))
   t2 <- add((t1, 2))
   or((t2, 1))
 
 -----------------------------------------
 -- not recursive
-b103 :: [Word] >>= [Word]
-b103[t0] =
+b115 :: [Word] >>= [Word]
+b115[t0] =
   t1 <- primUlt((t0, 15))
   if t1
-    then b105[t0]
-    else b106[]
+    then b117[t0]
+    else b118[]
 
 -----------------------------------------
 -- not recursive
-b96 :: [Word, Word] >>= [Word]
-b96[t0, t1] =
+b108 :: [Word, Word] >>= [Word]
+b108[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- recursive
-b95 :: [Word, Word] >>= [Word]
-b95[t0, t1] =
+b107 :: [Word, Word] >>= [Word]
+b107[t0, t1] =
   t2 <- lshr((t0, 1))
   t3 <- shl((t2, 2))
   t4 <- add((t1, t3))
   t5 <- load32((t4))
   t6 <- primEq((t5, 0))
   if t6
-    then b96[t1, t2]
-    else b85[t2, t1]
-b85 :: [Word, Word] >>= [Word]
-b85[t0, t1] =
-  t2 <- b103[t0]
+    then b108[t1, t2]
+    else b97[t2, t1]
+b97 :: [Word, Word] >>= [Word]
+b97[t0, t1] =
+  t2 <- b115[t0]
   t3 <- and((t2, 1))
   t4 <- primEq((t3, 1))
   if t4
-    then b95[t2, t1]
-    else b106[]
+    then b107[t2, t1]
+    else b118[]
 
 -----------------------------------------
 -- not recursive
-b107 :: forall (a :: *). [a] >>= [a]
-b107[t0] =
+b119 :: forall (a :: *). [a] >>= [a]
+b119[t0] =
   return t0
 
 -----------------------------------------
@@ -62,8 +62,8 @@ findNull[t0] =
   t1 <- load32((t0))
   t2 <- primEq((t1, 0))
   if t2
-    then b107[t0]
-    else b85[0, t0]
+    then b119[t0]
+    else b97[0, t0]
 
 -----------------------------------------
 -- Entrypoints: findNull

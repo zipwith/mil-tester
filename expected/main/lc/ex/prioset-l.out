@@ -30,11 +30,11 @@ insertPriority:
   store i32 %r5, i32* %r4
   %r2 = and i32 %r3, 255
   %r1 = icmp ugt i32 %r2, 0
-  br i1 %r1, label %b253, label %b177
+  br i1 %r1, label %b265, label %b189
 
-b253:
-  %r15 = phi i32 [%r2, %insertPriority], [%r13, %b76]
-  %r9 = phi i32 [%r0, %insertPriority], [%r9, %b76]
+b265:
+  %r15 = phi i32 [%r2, %insertPriority], [%r13, %b88]
+  %r9 = phi i32 [%r0, %insertPriority], [%r9, %b88]
   %r14 = add i32 %r15, -1
   %r13 = lshr i32 %r14, 1
   %r12 = add i32 ptrtoint(i8* @prioset to i32), %r13
@@ -42,10 +42,10 @@ b253:
   %r11 = load i8, i8* %r10
   %r8 = zext i8 %r11 to i32
   %r7 = icmp ult i32 %r8, %r9
-  br i1 %r7, label %b76, label %b66
+  br i1 %r7, label %b88, label %b78
 
-b177:
-  %r19 = phi i32 [%r0, %insertPriority], [%r9, %b76]
+b189:
+  %r19 = phi i32 [%r0, %insertPriority], [%r9, %b88]
   %r20 = inttoptr i32 ptrtoint(i8* @prioset to i32) to i8*
   %r21 = trunc i32 %r19 to i8
   store i8 %r21, i8* %r20
@@ -55,7 +55,7 @@ b177:
   store i8 %r17, i8* %r16
   ret void
 
-b76:
+b88:
   %r28 = add i32 ptrtoint(i8* @prioset to i32), %r15
   %r26 = inttoptr i32 %r28 to i8*
   %r27 = trunc i32 %r8 to i8
@@ -65,9 +65,9 @@ b76:
   %r24 = trunc i32 %r15 to i8
   store i8 %r24, i8* %r23
   %r22 = icmp ugt i32 %r13, 0
-  br i1 %r22, label %b253, label %b177
+  br i1 %r22, label %b265, label %b189
 
-b66:
+b78:
   %r34 = add i32 ptrtoint(i8* @prioset to i32), %r15
   %r32 = inttoptr i32 %r34 to i8*
   %r33 = trunc i32 %r9 to i8
@@ -79,18 +79,18 @@ b66:
   ret void
 }
 
-define internal void @func_b267(i32 %r0, i32 %r1, i32 %r2, i32 %r3) {
-  br label %b267
+define internal void @func_b279(i32 %r0, i32 %r1, i32 %r2, i32 %r3) {
+  br label %b279
 
-b267:
+b279:
   %r4 = icmp ule i32 %r0, %r1
-  br i1 %r4, label %b256, label %b66
+  br i1 %r4, label %b268, label %b78
 
-b256:
-  %r14 = phi i32 [%r0, %b267], [%r19, %b88]
-  %r9 = phi i32 [%r2, %b267], [%r18, %b88]
-  %r7 = phi i32 [%r1, %b267], [%r17, %b88]
-  %r16 = phi i32 [%r3, %b267], [%r15, %b88]
+b268:
+  %r14 = phi i32 [%r0, %b279], [%r19, %b100]
+  %r9 = phi i32 [%r2, %b279], [%r18, %b100]
+  %r7 = phi i32 [%r1, %b279], [%r17, %b100]
+  %r16 = phi i32 [%r3, %b279], [%r15, %b100]
   %r13 = add i32 ptrtoint(i8* @prioset to i32), %r14
   %r11 = inttoptr i32 %r13 to i8*
   %r12 = load i8, i8* %r11
@@ -98,11 +98,11 @@ b256:
   %r8 = mul i32 %r9, 2
   %r6 = add i32 %r8, 2
   %r5 = icmp ule i32 %r6, %r7
-  br i1 %r5, label %b259, label %b98
+  br i1 %r5, label %b271, label %b110
 
-b66:
-  %r24 = phi i32 [%r3, %b267], [%r16, %b98], [%r16, %b93], [%r15, %b88]
-  %r21 = phi i32 [%r2, %b267], [%r9, %b98], [%r9, %b93], [%r18, %b88]
+b78:
+  %r24 = phi i32 [%r3, %b279], [%r16, %b110], [%r16, %b105], [%r15, %b100]
+  %r21 = phi i32 [%r2, %b279], [%r9, %b110], [%r9, %b105], [%r18, %b100]
   %r27 = add i32 ptrtoint(i8* @prioset to i32), %r21
   %r25 = inttoptr i32 %r27 to i8*
   %r26 = trunc i32 %r24 to i8
@@ -113,34 +113,34 @@ b66:
   store i8 %r22, i8* %r20
   ret void
 
-b259:
+b271:
   %r32 = add i32 ptrtoint(i8* @prioset to i32), %r6
   %r30 = inttoptr i32 %r32 to i8*
   %r31 = load i8, i8* %r30
   %r29 = zext i8 %r31 to i32
   %r28 = icmp ugt i32 %r16, %r10
-  br i1 %r28, label %b93, label %b89
+  br i1 %r28, label %b105, label %b101
 
-b98:
+b110:
   %r33 = icmp ugt i32 %r10, %r16
-  br i1 %r33, label %b97, label %b66
+  br i1 %r33, label %b109, label %b78
 
-b93:
+b105:
   %r34 = icmp ugt i32 %r16, %r29
-  br i1 %r34, label %b66, label %b89
+  br i1 %r34, label %b78, label %b101
 
-b89:
-  %r36 = phi i32 [%r10, %b259], [%r10, %b93]
-  %r42 = phi i32 [%r14, %b259], [%r14, %b93]
-  %r41 = phi i32 [%r9, %b259], [%r9, %b93]
-  %r37 = phi i32 [%r29, %b259], [%r29, %b93]
-  %r40 = phi i32 [%r6, %b259], [%r6, %b93]
-  %r39 = phi i32 [%r16, %b259], [%r16, %b93]
-  %r38 = phi i32 [%r7, %b259], [%r7, %b93]
+b101:
+  %r36 = phi i32 [%r10, %b271], [%r10, %b105]
+  %r42 = phi i32 [%r14, %b271], [%r14, %b105]
+  %r41 = phi i32 [%r9, %b271], [%r9, %b105]
+  %r37 = phi i32 [%r29, %b271], [%r29, %b105]
+  %r40 = phi i32 [%r6, %b271], [%r6, %b105]
+  %r39 = phi i32 [%r16, %b271], [%r16, %b105]
+  %r38 = phi i32 [%r7, %b271], [%r7, %b105]
   %r35 = icmp ugt i32 %r36, %r37
-  br i1 %r35, label %b88, label %g18
+  br i1 %r35, label %b100, label %g18
 
-b97:
+b109:
   %r54 = add i32 ptrtoint(i8* @prioset to i32), %r9
   %r52 = inttoptr i32 %r54 to i8*
   %r53 = trunc i32 %r10 to i8
@@ -159,12 +159,12 @@ b97:
   store i8 %r44, i8* %r43
   ret void
 
-b88:
-  %r58 = phi i32 [%r41, %b89], [%r41, %g18]
-  %r61 = phi i32 [%r36, %b89], [%r37, %g18]
-  %r18 = phi i32 [%r42, %b89], [%r40, %g18]
-  %r15 = phi i32 [%r39, %b89], [%r39, %g18]
-  %r17 = phi i32 [%r38, %b89], [%r38, %g18]
+b100:
+  %r58 = phi i32 [%r41, %b101], [%r41, %g18]
+  %r61 = phi i32 [%r36, %b101], [%r37, %g18]
+  %r18 = phi i32 [%r42, %b101], [%r40, %g18]
+  %r15 = phi i32 [%r39, %b101], [%r39, %g18]
+  %r17 = phi i32 [%r38, %b101], [%r38, %g18]
   %r64 = add i32 ptrtoint(i8* @prioset to i32), %r58
   %r62 = inttoptr i32 %r64 to i8*
   %r63 = trunc i32 %r61 to i8
@@ -176,10 +176,10 @@ b88:
   %r56 = mul i32 %r18, 2
   %r19 = add i32 %r56, 1
   %r55 = icmp ule i32 %r19, %r17
-  br i1 %r55, label %b256, label %b66
+  br i1 %r55, label %b268, label %b78
 
 g18:
-  br label %b88
+  br label %b100
 }
 
 define void @removePriority(i32 %r0) {
@@ -197,9 +197,9 @@ removePriority:
   %r4 = load i8, i8* %r3
   %r2 = zext i8 %r4 to i32
   %r1 = icmp ne i32 %r0, %r2
-  br i1 %r1, label %b108, label %b107
+  br i1 %r1, label %b120, label %b119
 
-b108:
+b120:
   %r23 = add i32 ptrtoint(i8* @prioidx to i32), %r0
   %r21 = inttoptr i32 %r23 to i8*
   %r22 = load i8, i8* %r21
@@ -208,20 +208,20 @@ b108:
   %r18 = and i32 %r20, 255
   %r19 = mul i32 %r12, 2
   %r17 = add i32 %r19, 1
-  call void @func_b267(i32 %r17, i32 %r18, i32 %r12, i32 %r2)
+  call void @func_b279(i32 %r17, i32 %r18, i32 %r12, i32 %r2)
   %r16 = add i32 ptrtoint(i8* @prioset to i32), %r12
   %r14 = inttoptr i32 %r16 to i8*
   %r15 = load i8, i8* %r14
   %r13 = zext i8 %r15 to i32
   %r11 = icmp ugt i32 %r12, 0
-  br i1 %r11, label %b253, label %b177
+  br i1 %r11, label %b265, label %b189
 
-b107:
+b119:
   ret void
 
-b253:
-  %r32 = phi i32 [%r12, %b108], [%r30, %b76]
-  %r26 = phi i32 [%r13, %b108], [%r26, %b76]
+b265:
+  %r32 = phi i32 [%r12, %b120], [%r30, %b88]
+  %r26 = phi i32 [%r13, %b120], [%r26, %b88]
   %r31 = add i32 %r32, -1
   %r30 = lshr i32 %r31, 1
   %r29 = add i32 ptrtoint(i8* @prioset to i32), %r30
@@ -229,10 +229,10 @@ b253:
   %r28 = load i8, i8* %r27
   %r25 = zext i8 %r28 to i32
   %r24 = icmp ult i32 %r25, %r26
-  br i1 %r24, label %b76, label %b66
+  br i1 %r24, label %b88, label %b78
 
-b177:
-  %r36 = phi i32 [%r13, %b108], [%r26, %b76]
+b189:
+  %r36 = phi i32 [%r13, %b120], [%r26, %b88]
   %r37 = inttoptr i32 ptrtoint(i8* @prioset to i32) to i8*
   %r38 = trunc i32 %r36 to i8
   store i8 %r38, i8* %r37
@@ -242,7 +242,7 @@ b177:
   store i8 %r34, i8* %r33
   ret void
 
-b76:
+b88:
   %r45 = add i32 ptrtoint(i8* @prioset to i32), %r32
   %r43 = inttoptr i32 %r45 to i8*
   %r44 = trunc i32 %r25 to i8
@@ -252,9 +252,9 @@ b76:
   %r41 = trunc i32 %r32 to i8
   store i8 %r41, i8* %r40
   %r39 = icmp ugt i32 %r30, 0
-  br i1 %r39, label %b253, label %b177
+  br i1 %r39, label %b265, label %b189
 
-b66:
+b78:
   %r51 = add i32 ptrtoint(i8* @prioset to i32), %r32
   %r49 = inttoptr i32 %r51 to i8*
   %r50 = trunc i32 %r26 to i8
@@ -273,33 +273,33 @@ highestPriority1:
   %r2 = inttoptr i32 ptrtoint(i8* @priosetSize to i32) to i32*
   %r1 = load i32, i32* %r2
   %r0 = icmp eq i32 %r1, 0
-  br i1 %r0, label %b162, label %b175
+  br i1 %r0, label %b174, label %b187
 
-b162:
+b174:
   ret i32 -1
 
-b175:
+b187:
   %r4 = inttoptr i32 ptrtoint(i8* @prioset to i32) to i8*
   %r5 = load i8, i8* %r4
   %r3 = zext i8 %r5 to i32
   ret i32 %r3
 }
 
-define internal void @func_b226(i32 %r0, i32 %r1) {
-  br label %b226
+define internal void @func_b238(i32 %r0, i32 %r1) {
+  br label %b238
 
-b226:
-  %r5 = phi i32 [%r0, %0], [%r4, %b226]
-  %r6 = phi i32 [%r1, %0], [%r3, %b226]
+b238:
+  %r5 = phi i32 [%r0, %0], [%r4, %b238]
+  %r6 = phi i32 [%r1, %0], [%r3, %b238]
   %r7 = inttoptr i32 %r5 to i8*
   %r8 = trunc i32 0 to i8
   store i8 %r8, i8* %r7
   %r3 = add i32 %r6, 1
   %r4 = add i32 %r5, 1
   %r2 = icmp ult i32 %r3, 256
-  br i1 %r2, label %b226, label %b184
+  br i1 %r2, label %b238, label %b196
 
-b184:
+b196:
   ret void
 }
 
@@ -309,11 +309,11 @@ define void @main() {
 initialize:
   %r0 = inttoptr i32 ptrtoint(i8* @priosetSize to i32) to i32*
   store i32 0, i32* %r0
-  call void @func_b226(i32 ptrtoint(i8* @prioset to i32), i32 0)
+  call void @func_b238(i32 ptrtoint(i8* @prioset to i32), i32 0)
   br label %c36
 
 c36:
-  tail call void @func_b226(i32 ptrtoint(i8* @prioidx to i32), i32 0)
+  tail call void @func_b238(i32 ptrtoint(i8* @prioidx to i32), i32 0)
   ret void
 }
 

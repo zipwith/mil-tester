@@ -7,9 +7,9 @@ initialize:
   br label %main
 
 main:
-  br label %b91
+  br label %b103
 
-b91:
+b103:
   call void @printWord(i32 144)
   ret void
 }

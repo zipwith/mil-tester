@@ -1,32 +1,32 @@
 -----------------------------------------
 -- not recursive
-b66 :: [Word] >>= [Flag]
-b66[t0] =
+b78 :: [Word] >>= [Flag]
+b78[t0] =
   f5((t0))
 
 -----------------------------------------
 -- not recursive
-b67 :: [Word] >>= [Flag]
-b67[t0] =
+b79 :: [Word] >>= [Flag]
+b79[t0] =
   f4((t0))
 
 -----------------------------------------
 -- not recursive
-b69 :: [Word] >>= [Flag]
-b69[t0] =
+b81 :: [Word] >>= [Flag]
+b81[t0] =
   t1 <- f3((t0))
   if t1
-    then b67[t0]
-    else b66[t0]
+    then b79[t0]
+    else b78[t0]
 
 -----------------------------------------
 -- not recursive
-b70 :: [Word] >>= [Flag]
-b70[t0] =
+b82 :: [Word] >>= [Flag]
+b82[t0] =
   t1 <- f2((t0))
   if t1
-    then b67[t0]
-    else b66[t0]
+    then b79[t0]
+    else b78[t0]
 
 -----------------------------------------
 -- not recursive
@@ -34,8 +34,8 @@ entrypoint main :: [Word] >>= [Flag]
 main[t0] =
   t1 <- f1((t0))
   if t1
-    then b70[t0]
-    else b69[t0]
+    then b82[t0]
+    else b81[t0]
 
 -----------------------------------------
 -- Entrypoints: main

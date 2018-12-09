@@ -22,19 +22,19 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-k43 :: forall (a :: *). {} [a] ->> [Maybe a]
-k43{} t0 = Just(t0)
+k51 :: forall (a :: *). {} [a] ->> [Maybe a]
+k51{} t0 = Just(t0)
 
 -----------------------------------------
 -- not recursive
 Just :: forall (a :: *). [a] ->> [Maybe a]
 Just <-
-  k43{}
+  k51{}
 
 -----------------------------------------
 -- not recursive
-b65 :: [Ix 24] >>= [Maybe (Ix 24)]
-b65[t0] =
+b77 :: [Ix 24] >>= [Maybe (Ix 24)]
+b77[t0] =
   t1 <- ixToBit @ t0
   t2 <- bitToWord @ t1
   t3 <- genMaybeIx @ Nothing
@@ -43,14 +43,14 @@ b65[t0] =
 
 -----------------------------------------
 -- not recursive
-k44 :: {} [Ix 24] ->> [Maybe (Ix 24)]
-k44{} t0 = b65[t0]
+k52 :: {} [Ix 24] ->> [Maybe (Ix 24)]
+k52{} t0 = b77[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint why :: [Ix 24] ->> [Maybe (Ix 24)]
 why <-
-  k44{}
+  k52{}
 
 -----------------------------------------
 -- Entrypoints: why

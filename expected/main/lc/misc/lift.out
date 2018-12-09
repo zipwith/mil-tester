@@ -6,97 +6,97 @@ data Pair (a :: *) (b :: *)
 
 -----------------------------------------
 -- not recursive
-k95 :: forall (a :: *). {} [a] ->> [Word]
-k95{} t0 = loop(())
+k103 :: forall (a :: *). {} [a] ->> [Word]
+k103{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
 s9 :: forall (a :: *). [a] ->> [Word]
 s9 <-
-  k95{}
+  k103{}
 
 -----------------------------------------
 -- not recursive
-k109 :: forall (a :: *). {} [Word] ->> [[a] ->> [Word]]
-k109{} t0 = return s9
+k117 :: forall (a :: *). {} [Word] ->> [[a] ->> [Word]]
+k117{} t0 = return s9
 
 -----------------------------------------
 -- not recursive
 s10 :: forall (a :: *). [Word] ->> [[a] ->> [Word]]
 s10 <-
-  k109{}
+  k117{}
 
 -----------------------------------------
 -- not recursive
-k110 :: forall (a :: *). {} [Word] ->> [[Word] ->> [[a] ->> [Word]]]
-k110{} t0 = return s10
+k118 :: forall (a :: *). {} [Word] ->> [[Word] ->> [[a] ->> [Word]]]
+k118{} t0 = return s10
 
 -----------------------------------------
 -- not recursive
 entrypoint m :: forall (a :: *). [Word] ->> [[Word] ->> [[a] ->> [Word]]]
 m <-
-  k110{}
+  k118{}
 
 -----------------------------------------
 -- not recursive
-k89 :: forall (a :: *). {} [Word] ->> [a]
-k89{} t0 = loop(())
+k97 :: forall (a :: *). {} [Word] ->> [a]
+k97{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
 s6 :: forall (a :: *). [Word] ->> [a]
 s6 <-
-  k89{}
+  k97{}
 
 -----------------------------------------
 -- not recursive
-k106 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [b]]
-k106{} t0 = return s6
+k114 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [b]]
+k114{} t0 = return s6
 
 -----------------------------------------
 -- not recursive
 s7 :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [b]]
 s7 <-
-  k106{}
+  k114{}
 
 -----------------------------------------
 -- not recursive
-k107 :: forall (a :: *) (b :: *). {} [Word] ->> [[a] ->> [[Word] ->> [b]]]
-k107{} t0 = return s7
+k115 :: forall (a :: *) (b :: *). {} [Word] ->> [[a] ->> [[Word] ->> [b]]]
+k115{} t0 = return s7
 
 -----------------------------------------
 -- not recursive
 s8 :: forall (a :: *) (b :: *). [Word] ->> [[a] ->> [[Word] ->> [b]]]
 s8 <-
-  k107{}
+  k115{}
 
 -----------------------------------------
 -- not recursive
-k108 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
-k108{} t0 = return s8
+k116 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
+k116{} t0 = return s8
 
 -----------------------------------------
 -- not recursive
 entrypoint l :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
 l <-
-  k108{}
+  k116{}
 
 -----------------------------------------
 -- not recursive
 entrypoint k :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
 k <-
-  k108{}
+  k116{}
 
 -----------------------------------------
 -- not recursive
-k118 :: forall (a :: *) (b :: tuple). {} [a] ->> b
-k118{} t0 = loop(())
+k126 :: forall (a :: *) (b :: tuple). {} [a] ->> b
+k126{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
 s16 :: forall (a :: *) (b :: tuple). [a] ->> b
 s16 <-
-  k118{}
+  k126{}
 
 -----------------------------------------
 -- not recursive
@@ -106,31 +106,31 @@ s19 <-
 
 -----------------------------------------
 -- not recursive
-k102 :: {} [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
-k102{} t0 = return s19
+k110 :: {} [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
+k110{} t0 = return s19
 
 -----------------------------------------
 -- not recursive
 entrypoint j :: [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
 j <-
-  k102{}
+  k110{}
 
 -----------------------------------------
 -- not recursive
 entrypoint h :: [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
 h <-
-  k102{}
+  k110{}
 
 -----------------------------------------
 -- not recursive
-k99 :: {} [Word] ->> [Word]
-k99{} t0 = mul((t0, 2))
+k107 :: {} [Word] ->> [Word]
+k107{} t0 = mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
 entrypoint f :: [Word] ->> [Word]
 f <-
-  k99{}
+  k107{}
 
 -----------------------------------------
 -- not recursive

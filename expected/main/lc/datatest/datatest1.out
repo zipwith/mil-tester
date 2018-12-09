@@ -28,26 +28,26 @@ bar <-
 
 -----------------------------------------
 -- not recursive
-k43 :: forall (a :: *). {} [a] ->> [Maybe a]
-k43{} t0 = Just(t0)
+k51 :: forall (a :: *). {} [a] ->> [Maybe a]
+k51{} t0 = Just(t0)
 
 -----------------------------------------
 -- not recursive
-b64 :: forall (a :: *). [] >>= [a -> Maybe a]
-b64[] =
-  t0 <- k43{}
+b76 :: forall (a :: *). [] >>= [a -> Maybe a]
+b76[] =
+  t0 <- k51{}
   Func(t0)
 
 -----------------------------------------
 -- not recursive
 Just :: forall (a :: *). a -> Maybe a
 Just <-
-  b64[]
+  b76[]
 
 -----------------------------------------
 -- not recursive
-b65 :: [] >>= [Maybe Word]
-b65[] =
+b77 :: [] >>= [Maybe Word]
+b77[] =
   t0 <- Func 0 Just
   t0 @ 3
 
@@ -55,7 +55,7 @@ b65[] =
 -- not recursive
 entrypoint foo :: Maybe Word
 foo <-
-  b65[]
+  b77[]
 
 -----------------------------------------
 -- Entrypoints: bar foo

@@ -10,36 +10,36 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-b67 :: forall (a :: area). [] >>= [Maybe (Ref a)]
-b67[] =
+b79 :: forall (a :: area). [] >>= [Maybe (Ref a)]
+b79[] =
   return Nothing
 
 -----------------------------------------
 -- not recursive
-b70 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
-b70[t0] =
+b82 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
+b82[t0] =
   assert t0 Ref
   t1 <- Ref 0 t0
   Just(t1)
 
 -----------------------------------------
 -- not recursive
-b68 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
-b68[t0] =
+b80 :: forall (a :: area). [Ptr a] >>= [Maybe (Ref a)]
+b80[t0] =
   case t0 of
-    Null -> b67[]
-    Ref -> b70[t0]
+    Null -> b79[]
+    Ref -> b82[t0]
 
 -----------------------------------------
 -- not recursive
-k44 :: forall (a :: area). {} [Ptr a] ->> [Maybe (Ref a)]
-k44{} t0 = b68[t0]
+k52 :: forall (a :: area). {} [Ptr a] ->> [Maybe (Ref a)]
+k52{} t0 = b80[t0]
 
 -----------------------------------------
 -- not recursive
 deref :: forall (a :: area). [Ptr a] ->> [Maybe (Ref a)]
 deref <-
-  k44{}
+  k52{}
 
 -----------------------------------------
 -- not recursive

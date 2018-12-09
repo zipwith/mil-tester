@@ -24,14 +24,14 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-b67 :: [] >>= [Maybe0]
-b67[] =
+b79 :: [] >>= [Maybe0]
+b79[] =
   return Nothing
 
 -----------------------------------------
 -- not recursive
-b71 :: [Ptr (Stored Word)] >>= [Maybe0]
-b71[t0] =
+b83 :: [Ptr (Stored Word)] >>= [Maybe0]
+b83[t0] =
   assert t0 Ref
   t1 <- Ref 0 t0
   t2 <- Maybe0.Just1(t1)
@@ -39,22 +39,22 @@ b71[t0] =
 
 -----------------------------------------
 -- not recursive
-b68 :: [Ptr (Stored Word)] >>= [Maybe0]
-b68[t0] =
+b80 :: [Ptr (Stored Word)] >>= [Maybe0]
+b80[t0] =
   case t0 of
-    Null -> b67[]
-    Ref -> b71[t0]
+    Null -> b79[]
+    Ref -> b83[t0]
 
 -----------------------------------------
 -- not recursive
-k44 :: {} [Ptr (Stored Word)] ->> [Maybe0]
-k44{} t0 = b68[t0]
+k52 :: {} [Ptr (Stored Word)] ->> [Maybe0]
+k52{} t0 = b80[t0]
 
 -----------------------------------------
 -- not recursive
 deref :: [Ptr (Stored Word)] ->> [Maybe0]
 deref <-
-  k44{}
+  k52{}
 
 -----------------------------------------
 -- not recursive
@@ -70,14 +70,14 @@ s2 <-
 
 -----------------------------------------
 -- not recursive
-b671 :: [] >>= [Maybe1]
-b671[] =
+b791 :: [] >>= [Maybe1]
+b791[] =
   return s2
 
 -----------------------------------------
 -- not recursive
-b72 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
-b72[t0] =
+b84 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
+b84[t0] =
   assert t0 Ref
   t1 <- Ref 0 t0
   t2 <- Maybe1.Just3(t1)
@@ -85,22 +85,22 @@ b72[t0] =
 
 -----------------------------------------
 -- not recursive
-b681 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
-b681[t0] =
+b801 :: [Ptr (Stored (Ix 256))] >>= [Maybe1]
+b801[t0] =
   case t0 of
-    Null -> b671[]
-    Ref -> b72[t0]
+    Null -> b791[]
+    Ref -> b84[t0]
 
 -----------------------------------------
 -- not recursive
-k441 :: {} [Ptr (Stored (Ix 256))] ->> [Maybe1]
-k441{} t0 = b681[t0]
+k521 :: {} [Ptr (Stored (Ix 256))] ->> [Maybe1]
+k521{} t0 = b801[t0]
 
 -----------------------------------------
 -- not recursive
 s1 :: [Ptr (Stored (Ix 256))] ->> [Maybe1]
 s1 <-
-  k441{}
+  k521{}
 
 -----------------------------------------
 -- not recursive

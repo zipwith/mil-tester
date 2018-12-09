@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-k39 :: {} [Word] ->> [Word]
-k39{} t0 = return t0
+k47 :: {} [Word] ->> [Word]
+k47{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
 entrypoint f :: [Word] ->> [Word]
 f <-
-  k39{}
+  k47{}
 
 -----------------------------------------
 -- Entrypoints: f

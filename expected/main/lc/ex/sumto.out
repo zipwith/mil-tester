@@ -1,24 +1,24 @@
 -----------------------------------------
 -- not recursive
-b89 :: [Word] >>= [Word]
-b89[t0] =
+b101 :: [Word] >>= [Word]
+b101[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b88 :: [Word, Word] >>= [Word]
-b88[t0, t1] =
+b100 :: [Word, Word] >>= [Word]
+b100[t0, t1] =
   t2 <- add((t0, t1))
   t3 <- add((t1, -1))
   t4 <- primEq((t3, 0))
   if t4
-    then b89[t2]
-    else b88[t2, t3]
+    then b101[t2]
+    else b100[t2, t3]
 
 -----------------------------------------
 -- not recursive
-b109 :: [] >>= [Word]
-b109[] =
+b121 :: [] >>= [Word]
+b121[] =
   return 0
 
 -----------------------------------------
@@ -27,8 +27,8 @@ entrypoint main :: [Word] >>= [Word]
 main[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b109[]
-    else b88[0, t0]
+    then b121[]
+    else b100[0, t0]
 
 -----------------------------------------
 -- Entrypoints: main

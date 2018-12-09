@@ -9,22 +9,22 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b100 :: [Word] >>= [Unit]
-b100[t0] =
+b112 :: [Word] >>= [Unit]
+b112[t0] =
   t1 <- intToStr((t0))
   [] <- print((t1))
   return Unit
 
 -----------------------------------------
 -- recursive
-b101 :: [Word, Word] >>= [Unit]
-b101[t0, t1] =
+b113 :: [Word, Word] >>= [Unit]
+b113[t0, t1] =
   t2 <- add((t1, -1))
   t3 <- mul((t0, t1))
   t4 <- primEq((t2, 0))
   if t4
-    then b100[t3]
-    else b101[t3, t2]
+    then b112[t3]
+    else b113[t3, t2]
 
 -----------------------------------------
 -- not recursive
@@ -32,8 +32,8 @@ entrypoint main :: [Word, Word] >>= [Unit]
 main[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b100[t1]
-    else b101[t1, t0]
+    then b112[t1]
+    else b113[t1, t0]
 
 -----------------------------------------
 -- Entrypoints: main

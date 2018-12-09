@@ -10,20 +10,20 @@
 
 @ns = global i32 0
 
-define internal void @func_b88(i32 %r0, i32 %r1) {
-  br label %b88
+define internal void @func_b100(i32 %r0, i32 %r1) {
+  br label %b100
 
-b88:
-  %r5 = phi i32 [%r0, %0], [%r4, %b88]
-  %r6 = phi i32 [%r1, %0], [%r3, %b88]
+b100:
+  %r5 = phi i32 [%r0, %0], [%r4, %b100]
+  %r6 = phi i32 [%r1, %0], [%r3, %b100]
   %r7 = inttoptr i32 %r5 to i32*
   store i32 0, i32* %r7
   %r3 = add i32 %r6, 1
   %r4 = add i32 %r5, 4
   %r2 = icmp ult i32 %r3, 64
-  br i1 %r2, label %b88, label %b83
+  br i1 %r2, label %b100, label %b95
 
-b83:
+b95:
   ret void
 }
 
@@ -33,20 +33,20 @@ define void @main() {
   br label %initialize
 
 initialize:
-  call void @func_b88(i32 ptrtoint(i8* @nums to i32), i32 0)
-  br label %b90
+  call void @func_b100(i32 ptrtoint(i8* @nums to i32), i32 0)
+  br label %b102
 
-b90:
-  %r3 = phi i32 [ptrtoint(i8* @nums1 to i32), %initialize], [%r2, %b90]
-  %r4 = phi i32 [0, %initialize], [%r1, %b90]
+b102:
+  %r3 = phi i32 [ptrtoint(i8* @nums1 to i32), %initialize], [%r2, %b102]
+  %r4 = phi i32 [0, %initialize], [%r1, %b102]
   %r5 = inttoptr i32 %r3 to i32*
   store i32 %r4, i32* %r5
   %r1 = add i32 %r4, 1
   %r2 = add i32 %r3, 4
   %r0 = icmp ult i32 %r1, 64
-  br i1 %r0, label %b90, label %b83
+  br i1 %r0, label %b102, label %b95
 
-b83:
+b95:
   ret void
 }
 

@@ -23,42 +23,42 @@ s3 <-
 
 -----------------------------------------
 -- not recursive
-b123 :: [] >>= [Pair2]
-b123[] =
+b135 :: [] >>= [Pair2]
+b135[] =
   return s3
 
 -----------------------------------------
 -- not recursive
-b117 :: [Word] >>= [Pair2]
-b117[t0] =
+b129 :: [Word] >>= [Pair2]
+b129[t0] =
   Pair4(Leaf, t0)
 
 -----------------------------------------
 -- recursive
-b131 :: [Tree0, Word] >>= [Pair2]
-b131[t0, t1] =
+b143 :: [Tree0, Word] >>= [Pair2]
+b143[t0, t1] =
   assert t0 Node1
   t2 <- Node1 0 t0
   t3 <- Node1 2 t0
-  t4 <- b116[t2, t1]
+  t4 <- b128[t2, t1]
   t5 <- Pair4 0 t4
   t6 <- Pair4 1 t4
   t7 <- add((t6, 1))
-  t8 <- b116[t3, t7]
+  t8 <- b128[t3, t7]
   t9 <- Pair4 0 t8
   t10 <- Node3(t5, t6, t9)
   t11 <- Pair4 1 t8
   Pair4(t10, t11)
-b116 :: [Tree0, Word] >>= [Pair2]
-b116[t0, t1] =
+b128 :: [Tree0, Word] >>= [Pair2]
+b128[t0, t1] =
   case t0 of
-    Leaf0 -> b117[t1]
-    Node1 -> b131[t0, t1]
+    Leaf0 -> b129[t1]
+    Node1 -> b143[t0, t1]
 
 -----------------------------------------
 -- recursive
-b132 :: [Tree0] >>= [Pair2]
-b132[t0] =
+b144 :: [Tree0] >>= [Pair2]
+b144[t0] =
   assert t0 Node1
   t1 <- Node1 0 t0
   t2 <- Node1 2 t0
@@ -66,7 +66,7 @@ b132[t0] =
   t4 <- Pair4 0 t3
   t5 <- Pair4 1 t3
   t6 <- add((t5, 1))
-  t7 <- b116[t2, t6]
+  t7 <- b128[t2, t6]
   t8 <- Pair4 0 t7
   t9 <- Node3(t4, t5, t8)
   t10 <- Pair4 1 t7
@@ -74,8 +74,8 @@ b132[t0] =
 entrypoint main :: [Tree0] >>= [Pair2]
 main[t0] =
   case t0 of
-    Leaf0 -> b123[]
-    Node1 -> b132[t0]
+    Leaf0 -> b135[]
+    Node1 -> b144[t0]
 
 -----------------------------------------
 -- Entrypoints: main

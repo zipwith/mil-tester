@@ -25,8 +25,8 @@ external get {primReadRefStored (Ptr (Stored Word))} :: [Ref (Stored (Ptr (Store
 
 -----------------------------------------
 -- not recursive
-b70 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b70[t0, t1] =
+b82 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b82[t0, t1] =
   t2 <- at @ t0
   t3 <- t2 @ t1
   Ref(t3)
@@ -43,14 +43,14 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-k43 :: {} [Ix 16] ->> [Maybe0]
-k43{} t0 = Just1(t0)
+k51 :: {} [Ix 16] ->> [Maybe0]
+k51{} t0 = Just1(t0)
 
 -----------------------------------------
 -- not recursive
 Just :: [Ix 16] ->> [Maybe0]
 Just <-
-  k43{}
+  k51{}
 
 -----------------------------------------
 -- not recursive
@@ -60,14 +60,14 @@ Null <-
 
 -----------------------------------------
 -- not recursive
-b67 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b67[] =
+b79 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b79[] =
   return Null
 
 -----------------------------------------
 -- recursive
-b88 :: [Maybe0, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b88[t0, t1] =
+b100 :: [Maybe0, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b100[t0, t1] =
   assert t0 Just1
   t2 <- Just1 0 t0
   t3 <- at @ t1
@@ -75,51 +75,51 @@ b88[t0, t1] =
   t5 <- get @ t4
   t6 <- t5 @ []
   case t6 of
-    Null -> b70[t1, t2]
-    Ref -> b85[t2, t1]
-b85 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b85[t0, t1] =
+    Null -> b82[t1, t2]
+    Ref -> b97[t2, t1]
+b97 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b97[t0, t1] =
   t2 <- genIncIx @ Nothing
   t3 <- t2 @ Just
   t4 <- t3 @ t0
   case t4 of
-    Just1 -> b88[t4, t1]
-    Nothing0 -> b67[]
+    Just1 -> b100[t4, t1]
+    Nothing0 -> b79[]
 
 -----------------------------------------
 -- not recursive
-b71 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b71[t0, t1] =
+b83 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b83[t0, t1] =
   t2 <- at @ t1
   t3 <- t2 @ t0
   t4 <- get @ t3
   t5 <- t4 @ []
   case t5 of
-    Null -> b70[t1, t0]
-    Ref -> b85[t0, t1]
+    Null -> b82[t1, t0]
+    Ref -> b97[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k44 :: {Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
-k44{t0, t1} [] = b71[t1, t0]
+k52 :: {Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k52{t0, t1} [] = b83[t1, t0]
 
 -----------------------------------------
 -- not recursive
-b77 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
-b77[t0] =
+b89 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+b89[t0] =
   t1 <- zero16 @ Unit
-  k44{t0, t1}
+  k52{t0, t1}
 
 -----------------------------------------
 -- not recursive
-k47 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
-k47{} t0 = b77[t0]
+k55 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+k55{} t0 = b89[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
 findNull <-
-  k47{}
+  k55{}
 
 -----------------------------------------
 -- Entrypoints: findNull

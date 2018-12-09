@@ -1,25 +1,25 @@
 -----------------------------------------
 -- not recursive
-b89 :: [] >>= [Word]
-b89[] =
+b101 :: [] >>= [Word]
+b101[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b83 :: [] >>= [Word]
-b83[] =
+b95 :: [] >>= [Word]
+b95[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b119 :: [Word] >>= [Word]
-b119[t0] =
+b131 :: [Word] >>= [Word]
+b131[t0] =
   t1 <- primEq((t0, 1))
   if t1
-    then b89[]
-    else b80[t0]
-b80 :: [Word] >>= [Word]
-b80[t0] =
+    then b101[]
+    else b92[t0]
+b92 :: [Word] >>= [Word]
+b92[t0] =
   t1 <- add((t0, -1))
   t2 <- fib[t1]
   t3 <- add((t0, -2))
@@ -29,30 +29,30 @@ entrypoint fib :: [Word] >>= [Word]
 fib[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b83[]
-    else b119[t0]
+    then b95[]
+    else b131[t0]
 
 -----------------------------------------
 -- not recursive
-b74 :: [Word] >>= [Word]
-b74[t0] =
+b86 :: [Word] >>= [Word]
+b86[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b66 :: [Word, Word, Word] >>= [Word]
-b66[t0, t1, t2] =
+b78 :: [Word, Word, Word] >>= [Word]
+b78[t0, t1, t2] =
   t3 <- add((t0, t1))
   t4 <- add((t2, -1))
   t5 <- primEq((t4, 0))
   if t5
-    then b74[t1]
-    else b66[t1, t3, t4]
+    then b86[t1]
+    else b78[t1, t3, t4]
 
 -----------------------------------------
 -- not recursive
-b125 :: [] >>= [Word]
-b125[] =
+b137 :: [] >>= [Word]
+b137[] =
   return 0
 
 -----------------------------------------
@@ -61,13 +61,13 @@ entrypoint itfib :: [Word] >>= [Word]
 itfib[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b125[]
-    else b66[0, 1, t0]
+    then b137[]
+    else b78[0, 1, t0]
 
 -----------------------------------------
 -- recursive
-b88 :: [Word] >>= [Word]
-b88[t0] =
+b100 :: [Word] >>= [Word]
+b100[t0] =
   t1 <- add((t0, -1))
   t2 <- recfac[t1]
   mul((t0, t2))
@@ -75,24 +75,24 @@ entrypoint recfac :: [Word] >>= [Word]
 recfac[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b89[]
-    else b88[t0]
+    then b101[]
+    else b100[t0]
 
 -----------------------------------------
 -- recursive
-b73 :: [Word, Word] >>= [Word]
-b73[t0, t1] =
+b85 :: [Word, Word] >>= [Word]
+b85[t0, t1] =
   t2 <- mul((t0, t1))
   t3 <- add((t1, -1))
   t4 <- primEq((t3, 0))
   if t4
-    then b74[t2]
-    else b73[t2, t3]
+    then b86[t2]
+    else b85[t2, t3]
 
 -----------------------------------------
 -- not recursive
-b127 :: [] >>= [Word]
-b127[] =
+b139 :: [] >>= [Word]
+b139[] =
   return 1
 
 -----------------------------------------
@@ -101,8 +101,8 @@ entrypoint itfac :: [Word] >>= [Word]
 itfac[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b127[]
-    else b73[1, t0]
+    then b139[]
+    else b85[1, t0]
 
 -----------------------------------------
 -- Entrypoints: fib itfib recfac itfac

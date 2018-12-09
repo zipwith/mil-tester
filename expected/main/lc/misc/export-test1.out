@@ -19,14 +19,14 @@ LCons[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b69 :: [] >>= [Word]
-b69[] =
+b81 :: [] >>= [Word]
+b81[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b75 :: [List1] >>= [Word]
-b75[t0] =
+b87 :: [List1] >>= [Word]
+b87[t0] =
   assert t0 Cons3
   t1 <- Cons3 0 t0
   t2 <- Cons3 1 t0
@@ -35,8 +35,8 @@ b75[t0] =
 entrypoint sum :: [List1] >>= [Word]
 sum[t0] =
   case t0 of
-    Nil2 -> b69[]
-    Cons3 -> b75[t0]
+    Nil2 -> b81[]
+    Cons3 -> b87[t0]
 
 -----------------------------------------
 -- not recursive

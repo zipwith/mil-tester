@@ -126,8 +126,8 @@ elf <-
 
 -----------------------------------------
 -- not recursive
-b72 :: [Dup4] >>= [Dup4]
-b72[t0] =
+b84 :: [Dup4] >>= [Dup4]
+b84[t0] =
   t1 <- Dup6 0 t0
   t2 <- Dup4.Dup6 0 t1
   t3 <- Dup4.Dup6 1 t1
@@ -136,14 +136,14 @@ b72[t0] =
 
 -----------------------------------------
 -- not recursive
-k48 :: {} [Dup4] ->> [Dup4]
-k48{} t0 = b72[t0]
+k56 :: {} [Dup4] ->> [Dup4]
+k56{} t0 = b84[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint swap :: [Dup4] ->> [Dup4]
 swap <-
-  k48{}
+  k56{}
 
 -----------------------------------------
 -- not recursive
@@ -177,80 +177,80 @@ wide <-
 
 -----------------------------------------
 -- not recursive
-b75 :: [Word, Word, Word] >>= [Word]
-b75[t0, t1, t2] =
+b87 :: [Word, Word, Word] >>= [Word]
+b87[t0, t1, t2] =
   t3 <- add((t1, t2))
   add((t0, t3))
 
 -----------------------------------------
 -- not recursive
-k49 :: {Word, Word} [Word] ->> [Word]
-k49{t0, t1} t2 = b75[t1, t0, t2]
+k57 :: {Word, Word} [Word] ->> [Word]
+k57{t0, t1} t2 = b87[t1, t0, t2]
 
 -----------------------------------------
 -- not recursive
-k50 :: {Word} [Word] ->> [[Word] ->> [Word]]
-k50{t0} t1 = k49{t1, t0}
+k58 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k58{t0} t1 = k57{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k51 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
-k51{} t0 = k50{t0}
+k59 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k59{} t0 = k58{t0}
 
 -----------------------------------------
 -- not recursive
 entrypoint add3 :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
 add3 <-
-  k51{}
+  k59{}
 
 -----------------------------------------
 -- not recursive
-k52 :: {Word} [Word] ->> [Word]
-k52{t0} t1 = return t0
+k60 :: {Word} [Word] ->> [Word]
+k60{t0} t1 = return t0
 
 -----------------------------------------
 -- not recursive
-k53 :: {} [Word] ->> [[Word] ->> [Word]]
-k53{} t0 = k52{t0}
+k61 :: {} [Word] ->> [[Word] ->> [Word]]
+k61{} t0 = k60{t0}
 
 -----------------------------------------
 -- not recursive
 entrypoint const :: [Word] ->> [[Word] ->> [Word]]
 const <-
-  k53{}
+  k61{}
 
 -----------------------------------------
 -- not recursive
-b84 :: [Word] >>= [Word]
-b84[t0] =
+b96 :: [Word] >>= [Word]
+b96[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b83 :: [Word] >>= [Word]
-b83[t0] =
+b95 :: [Word] >>= [Word]
+b95[t0] =
   t1 <- add((t0, -1))
-  t2 <- b98[t1]
+  t2 <- b110[t1]
   t3 <- add((t0, -2))
-  t4 <- b98[t3]
+  t4 <- b110[t3]
   add((t2, t4))
-b98 :: [Word] >>= [Word]
-b98[t0] =
+b110 :: [Word] >>= [Word]
+b110[t0] =
   t1 <- primSlt((t0, 2))
   if t1
-    then b84[t0]
-    else b83[t0]
+    then b96[t0]
+    else b95[t0]
 
 -----------------------------------------
 -- not recursive
-k54 :: {} [Word] ->> [Word]
-k54{} t0 = b98[t0]
+k62 :: {} [Word] ->> [Word]
+k62{} t0 = b110[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint fib :: [Word] ->> [Word]
 fib <-
-  k54{}
+  k62{}
 
 -----------------------------------------
 -- Entrypoints: origin no elf swap color flag wide add3 const fib

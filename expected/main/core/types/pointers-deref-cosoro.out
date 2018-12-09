@@ -4,8 +4,8 @@ data Maybe0
 
 -----------------------------------------
 -- not recursive
-b71 :: [Word] >>= [Maybe0]
-b71[t0] =
+b83 :: [Word] >>= [Maybe0]
+b83[t0] =
   Just1(t0)
 
 -----------------------------------------
@@ -16,8 +16,8 @@ Nothing <-
 
 -----------------------------------------
 -- not recursive
-b67 :: [] >>= [Maybe0]
-b67[] =
+b79 :: [] >>= [Maybe0]
+b79[] =
   return Nothing
 
 -----------------------------------------
@@ -26,8 +26,8 @@ entrypoint derefSW :: [Word] >>= [Maybe0]
 derefSW[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b67[]
-    else b71[t0]
+    then b79[]
+    else b83[t0]
 
 -----------------------------------------
 -- not recursive
@@ -35,8 +35,8 @@ entrypoint derefSI :: [Word] >>= [Maybe0]
 derefSI[t0] =
   t1 <- primEq((t0, 0))
   if t1
-    then b67[]
-    else b71[t0]
+    then b79[]
+    else b83[t0]
 
 -----------------------------------------
 -- Entrypoints: derefSW derefSI
