@@ -2412,6 +2412,58 @@ external div65 {primNZBitDiv 65} :: Bit 65 -> NZBit 65 -> Bit 65
 external div1K {primNZBitDiv 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
 
 ------------
+.lc: primNZBitRem-pos-32     ./milc -pcosoboro -m --32
+
+entrypoint rem2, rem12, rem32
+external rem2  {primNZBitRem  2} :: Bit  2 -> NZBit  2 -> Bit  2
+external rem12 {primNZBitRem 12} :: Bit 12 -> NZBit 12 -> Bit 12
+external rem32 {primNZBitRem 32} :: Bit 32 -> NZBit 32 -> Bit 32
+
+entrypoint bit49, nz3
+external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+
+entrypoint val
+val = rem12 (bit49 Unit) (nz3 Unit)
+
+------------
+.lc: primNZBitRem-neg-32     ./milc -pcosoboro -m --32
+
+entrypoint rem0, rem1, rem33, rem48, rem65, rem1K
+external rem0  {primNZBitRem  0} :: Bit  0 -> NZBit  0 -> Bit  0
+external rem1  {primNZBitRem  1} :: Bit  1 -> NZBit  1 -> Bit  1
+external rem33 {primNZBitRem 33} :: Bit 33 -> NZBit 33 -> Bit 33
+external rem48 {primNZBitRem 48} :: Bit 48 -> NZBit 48 -> Bit 48
+external rem65 {primNZBitRem 65} :: Bit 65 -> NZBit 65 -> Bit 65
+external rem1K {primNZBitRem 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
+
+------------
+.lc: primNZBitRem-pos-64     ./milc -pcosoboro -m --64
+
+entrypoint rem2, rem12, rem32, rem33, rem48
+external rem2  {primNZBitRem  2} :: Bit  2 -> NZBit  2 -> Bit  2
+external rem12 {primNZBitRem 12} :: Bit 12 -> NZBit 12 -> Bit 12
+external rem32 {primNZBitRem 32} :: Bit 32 -> NZBit 32 -> Bit 32
+external rem33 {primNZBitRem 33} :: Bit 33 -> NZBit 33 -> Bit 33
+external rem48 {primNZBitRem 48} :: Bit 48 -> NZBit 48 -> Bit 48
+
+entrypoint bit49, nz3
+external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+
+entrypoint val
+val = rem12 (bit49 Unit) (nz3 Unit)
+
+------------
+.lc: primNZBitRem-neg-64     ./milc -pcosoboro -m --64
+
+entrypoint rem0, rem1, rem65, rem1K
+external rem0  {primNZBitRem  0} :: Bit  0 -> NZBit  0 -> Bit  0
+external rem1  {primNZBitRem  1} :: Bit  1 -> NZBit  1 -> Bit  1
+external rem65 {primNZBitRem 65} :: Bit 65 -> NZBit 65 -> Bit 65
+external rem1K {primNZBitRem 1K} :: Bit 1K -> NZBit 1K -> Bit 1K
+
+------------
 exec: primReadRefStored-pos-32  ./milc -pcosoboro -m --32 readRef-pos.lc
 exec: primReadRefStored-pos-64  ./milc -pcosoboro -m --64 readRef-pos.lc
 

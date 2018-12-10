@@ -1,0 +1,53 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint rem2 :: [Word, Word] >>= [Word]
+rem2[t0, t1] =
+  rem((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint rem12 :: [Word, Word] >>= [Word]
+rem12[t0, t1] =
+  rem((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint rem32 :: [Word, Word] >>= [Word]
+rem32[t0, t1] =
+  rem((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint rem33 :: [Word, Word] >>= [Word]
+rem33[t0, t1] =
+  rem((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint rem48 :: [Word, Word] >>= [Word]
+rem48[t0, t1] =
+  rem((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint bit49 :: [Unit] >>= [Word]
+bit49[t0] =
+  return 49
+
+-----------------------------------------
+-- not recursive
+entrypoint nz3 :: [Unit] >>= [Word]
+nz3[t0] =
+  return 3
+
+-----------------------------------------
+-- not recursive
+entrypoint val :: Word
+val <-
+  rem((49, 3))
+
+-----------------------------------------
+-- Entrypoints: rem2 rem12 rem32 rem33 rem48 bit49 nz3 val
