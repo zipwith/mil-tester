@@ -21,9 +21,9 @@ div32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bit49 :: [Unit] >>= [Word]
-bit49[t0] =
-  return 49
+entrypoint bit59 :: [Unit] >>= [Word]
+bit59[t0] =
+  return 59
 
 -----------------------------------------
 -- not recursive
@@ -35,7 +35,7 @@ nz3[t0] =
 -- not recursive
 entrypoint val :: Word
 val <-
-  return 16
+  return 19
 
 -----------------------------------------
--- Entrypoints: div2 div12 div32 bit49 nz3 val
+-- Entrypoints: div2 div12 div32 bit59 nz3 val

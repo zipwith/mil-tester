@@ -22,6 +22,7 @@ primitive mul pure :: [Word, Word] >>= [Word]
 primitive div impure :: [Word, Word] >>= [Word]
 primitive rem impure :: [Word, Word] >>= [Word]
 primitive nzdiv pure :: [Word, NZWord] >>= [Word]
+primitive nzrem pure :: [Word, NZWord] >>= [Word]
 primitive primEq pure :: [Word, Word] >>= [Flag]
 primitive primNeq pure :: [Word, Word] >>= [Flag]
 primitive primSlt pure :: [Word, Word] >>= [Flag]
@@ -49,5 +50,5 @@ primitive store32 impure :: [Addr, Bit 32] >>= [Unit]
 primitive store64 impure :: [Addr, Bit 64] >>= [Unit]
 primitive primInitSeq pure :: forall (a :: area). [Init a, Init a] >>= [Init a]
 primitive primInitSelf pure :: forall (a :: nat) (b :: area). [Ref b ->> Init a] >>= [Init a]
-50 primitives listed
+51 primitives listed
 -----------------------------------------

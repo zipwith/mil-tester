@@ -2367,12 +2367,12 @@ external div2  {primNZBitDiv  2} :: Bit  2 -> NZBit  2 -> Bit  2
 external div12 {primNZBitDiv 12} :: Bit 12 -> NZBit 12 -> Bit 12
 external div32 {primNZBitDiv 32} :: Bit 32 -> NZBit 32 -> Bit 32
 
-entrypoint bit49, nz3
-external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+entrypoint bit59, nz3
+external bit59 {primBitFromLiteral  59 12} :: Unit -> Bit 12
 external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
 
 entrypoint val
-val = div12 (bit49 Unit) (nz3 Unit)
+val = div12 (bit59 Unit) (nz3 Unit)
 
 ------------
 .lc: primNZBitDiv-neg-32     ./milc -pcosoboro -m --32
@@ -2395,12 +2395,12 @@ external div32 {primNZBitDiv 32} :: Bit 32 -> NZBit 32 -> Bit 32
 external div33 {primNZBitDiv 33} :: Bit 33 -> NZBit 33 -> Bit 33
 external div48 {primNZBitDiv 48} :: Bit 48 -> NZBit 48 -> Bit 48
 
-entrypoint bit49, nz3
-external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+entrypoint bit59, nz3
+external bit59 {primBitFromLiteral  59 12} :: Unit -> Bit 12
 external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
 
 entrypoint val
-val = div12 (bit49 Unit) (nz3 Unit)
+val = div12 (bit59 Unit) (nz3 Unit)
 
 ------------
 .lc: primNZBitDiv-neg-64     ./milc -pcosoboro -m --64
@@ -2419,12 +2419,16 @@ external rem2  {primNZBitRem  2} :: Bit  2 -> NZBit  2 -> Bit  2
 external rem12 {primNZBitRem 12} :: Bit 12 -> NZBit 12 -> Bit 12
 external rem32 {primNZBitRem 32} :: Bit 32 -> NZBit 32 -> Bit 32
 
-entrypoint bit49, nz3
-external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
-external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+entrypoint bit59, nz3
+external bit59 {primBitFromLiteral   59 12} :: Unit -> Bit 12
+external nz3   {primNZBitFromLiteral  3 12} :: Unit -> NZBit 12
+external nz16  {primNZBitFromLiteral 16 12} :: Unit -> NZBit 12
 
 entrypoint val
-val = rem12 (bit49 Unit) (nz3 Unit)
+val = rem12 (bit59 Unit) (nz3 Unit)
+
+entrypoint mod
+mod x = x `rem12` nz16 Unit
 
 ------------
 .lc: primNZBitRem-neg-32     ./milc -pcosoboro -m --32
@@ -2447,12 +2451,16 @@ external rem32 {primNZBitRem 32} :: Bit 32 -> NZBit 32 -> Bit 32
 external rem33 {primNZBitRem 33} :: Bit 33 -> NZBit 33 -> Bit 33
 external rem48 {primNZBitRem 48} :: Bit 48 -> NZBit 48 -> Bit 48
 
-entrypoint bit49, nz3
-external bit49 {primBitFromLiteral  49 12} :: Unit -> Bit 12
+entrypoint bit59, nz3
+external bit59 {primBitFromLiteral  59 12} :: Unit -> Bit 12
 external nz3   {primNZBitFromLiteral 3 12} :: Unit -> NZBit 12
+external nz16  {primNZBitFromLiteral 16 12} :: Unit -> NZBit 12
 
 entrypoint val
-val = rem12 (bit49 Unit) (nz3 Unit)
+val = rem12 (bit59 Unit) (nz3 Unit)
+
+entrypoint mod
+mod x = x `rem12` nz16 Unit
 
 ------------
 .lc: primNZBitRem-neg-64     ./milc -pcosoboro -m --64
