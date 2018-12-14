@@ -36,6 +36,8 @@ exec: holes       ./milc holes.lc -m -pco
 exec: amb-co      ./milc -m -pco --32 amb.lc
 exec: amb-cosoro  ./milc -m -pcosoro --32 amb.lc
 
+exec: simple-hof  ./milc -m -pcsoro --32 size.lc
+
 ------------
 .lc: cond-as-arg    ./milc -m -pcosoro
 require "prelude.lc"

@@ -1,0 +1,14 @@
+require "basic.mil"
+
+external showDecimal :: Word -> Proc Unit
+external putChar     :: Word -> Proc Unit
+
+entrypoint showSize :: Word -> Proc Unit
+showSize  = multiplier 30 'G' (multiplier 20 'M' (multiplier 10 'K' showDecimal))
+ where 
+  multiplier :: Word -> Word -> (Word -> Proc Unit) -> (Word -> Proc Unit)
+  multiplier w c next val
+              = if ((val `ashr` w) `shl` w) `eq` val
+                  then do showDecimal (val `ashr` w)
+                          putChar c
+                  else next val

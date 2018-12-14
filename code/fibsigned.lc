@@ -1,0 +1,277 @@
+type M = Proc
+
+
+
+export main
+
+data List_Bool$f6u  = Nil$f6a  | Cons$f6b Bool List_Bool$f6u
+
+data Proxy_Ord48$f6v  = Proxy$f6c 
+
+data Proxy_Ord56$f6w  = Proxy$f6d 
+
+data Proxy_Ord504$f6x  = Proxy$f6e 
+
+data Proxy_Ord490000000$f6y  = Proxy$f6f 
+
+data Proxy_Ord4900$f6z  = Proxy$f6g 
+
+data Ordering  = LT  | EQ  | GT 
+
+data Proxy_Ord490$f70  = Proxy$f6h 
+
+data Proxy_Ord528$f71  = Proxy$f6i 
+
+data Proxy_Ord535$f72  = Proxy$f6j 
+
+data Proxy_Ord52$f73  = Proxy$f6k 
+
+data Proxy_Ord496$f74  = Proxy$f6l 
+
+data List_Bit32$f75  = Nil$f6m  | Cons$f6n (Bit 32) List_Bit32$f75
+
+data List_Unsigned$f76  = Nil$f6o  | Cons$f6p Unsigned List_Unsigned$f76
+
+data Proxy_Ord49$f77  = Proxy$f6q 
+
+data Proxy_HashDotbits$f78  = Proxy$f6r 
+
+data Proxy_Ord50$f79  = Proxy$f6s 
+
+data Proxy_Ord495$f7a  = Proxy$f6t 
+
+bitdata Unsigned/32 = Unsigned [bits :: Bit 32 {- width = 32, offset = 0 -}]
+
+bitdata Signed/32 = Signed [bits :: Bit 32 {- width = 32, offset = 0 -}]
+
+AmpAmp :: Bool -> Bool -> Bool
+AmpAmp = \ (x$43 :: Bool) -> \ (x$44 :: Bool) -> ((case x$43 of
+                                                     True -> x$44) | (False))
+PipePipe :: Bool -> Bool -> Bool
+PipePipe = \ (x$45 :: Bool) -> \ (x$46 :: Bool) -> ((case x$45 of
+                                                       True -> True) | (x$46))
+pmNot :: Bool -> Bool
+pmNot = \ (x$47 :: Bool) -> ((case x$47 of
+                                False -> True) | (case x$47 of
+                                                    True -> False))
+and :: List_Bool$f6u -> Bool
+and = \ (x$akk :: List_Bool$f6u) -> ((case x$akk of
+                                        Nil$f6a -> True) | (case x$akk of
+                                                              Cons$f6b x$ahp xs$ahq -> ((case x$ahp of
+                                                                                           True -> (and xs$ahq)) | (False))))
+or :: List_Bool$f6u -> Bool
+or = \ (x$akl :: List_Bool$f6u) -> ((case x$akl of
+                                       Nil$f6a -> False) | (case x$akl of
+                                                              Cons$f6b x$ahr xs$ahs -> ((case x$ahr of
+                                                                                           False -> (or xs$ahs)) | (True))))
+primReturnM$eyi :: Unit -> M Unit
+primReturnM$eyi = \ (x :: Unit) -> primRet x
+external primBitFromLiteral$eym {primBitFromLiteral 0 32} :: Proxy_Ord48$f6v -> Bit 32
+fromLiteral$eyj :: Proxy_Ord48$f6v -> Unsigned
+fromLiteral$eyj = \ (x$a4 :: Proxy_Ord48$f6v) -> Unsigned[bits = (primBitFromLiteral$eym x$a4)]
+primReturnM$eyo :: Bool -> M Bool
+primReturnM$eyo = \ (x :: Bool) -> primRet x
+bitdataSelect$ez4 :: Unsigned.Unsigned -> Proxy_HashDotbits$f78 -> Bit 32
+bitdataSelect$ez4 = \ (Dollarx :: Unsigned.Unsigned) -> \ (Dollary :: Proxy_HashDotbits$f78) -> Dollarx.bits
+select$ez1 :: Unsigned -> Proxy_HashDotbits$f78 -> Bit 32
+select$ez1 = \ (Dollarr :: Unsigned) -> \ (Dollarf :: Proxy_HashDotbits$f78) -> case Dollarr of
+                                                                                  Unsigned Dollarv -> ((bitdataSelect$ez4 Dollarv) Dollarf)
+external primBitEq$ez6 {primBitEq 32} :: Bit 32 -> Bit 32 -> Bool
+EqEq$eyy :: Unsigned -> Unsigned -> Bool
+EqEq$eyy = \ (x$a1 :: Unsigned) -> \ (x$a2 :: Unsigned) -> ((primBitEq$ez6 (((select$ez1 x$a1) (Proxy$f6r)))) (((select$ez1 x$a2) (Proxy$f6r))))
+external primIxFromLiteral$ez8 {primIxFromLiteral 8 32} :: Proxy_Ord56$f6w -> Ix 32
+external primIxFromLiteral$eza {primIxFromLiteral 16 32} :: Proxy_Ord496$f74 -> Ix 32
+external primIxFromLiteral$ezc {primIxFromLiteral 24 32} :: Proxy_Ord504$f6x -> Ix 32
+external primBitShiftL$ezg {primBitShiftL 32} :: Bit 32 -> Ix 32 -> Bit 32
+shiftL$ezf :: Bit 32 -> Ix 32 -> Bit 32
+shiftL$ezf = \ (x$82 :: Bit 32) -> \ (x$83 :: Ix 32) -> ((primBitShiftL$ezg x$82) x$83)
+shiftL$ezd :: Unsigned -> Ix 32 -> Unsigned
+shiftL$ezd = \ (x$89 :: Unsigned) -> \ (x$8a :: Ix 32) -> Unsigned[bits = ((shiftL$ezf (((select$ez1 x$89) (Proxy$f6r)))) x$8a)]
+external primBitPlus$ezk {primBitPlus 32} :: Bit 32 -> Bit 32 -> Bit 32
+Plus$ezh :: Unsigned -> Unsigned -> Unsigned
+Plus$ezh = \ (x$5x :: Unsigned) -> \ (x$5y :: Unsigned) -> Unsigned[bits = ((primBitPlus$ezk (((select$ez1 x$5x) (Proxy$f6r)))) (((select$ez1 x$5y) (Proxy$f6r))))]
+external primBitFromLiteral$ezo {primBitFromLiteral 1 32} :: Proxy_Ord49$f77 -> Bit 32
+fromLiteral$ezl :: Proxy_Ord49$f77 -> Unsigned
+fromLiteral$ezl = \ (x$a4 :: Proxy_Ord49$f77) -> Unsigned[bits = (primBitFromLiteral$ezo x$a4)]
+external primBitNegate$ezs {primBitNegate 32} :: Bit 32 -> Bit 32
+negate$ezp :: Unsigned -> Unsigned
+negate$ezp = \ (x$63 :: Unsigned) -> Unsigned[bits = (primBitNegate$ezs (((select$ez1 x$63) (Proxy$f6r))))]
+primReturnM$ezu :: Unsigned -> M Unsigned
+primReturnM$ezu = \ (x :: Unsigned) -> primRet x
+external primBitFromLiteral$f09 {primBitFromLiteral 10000000 32} :: Proxy_Ord490000000$f6y -> Bit 32
+fromLiteral$f06 :: Proxy_Ord490000000$f6y -> Unsigned
+fromLiteral$f06 = \ (x$a4 :: Proxy_Ord490000000$f6y) -> Unsigned[bits = (primBitFromLiteral$f09 x$a4)]
+external primBitFromLiteral$f0d {primBitFromLiteral 100 32} :: Proxy_Ord4900$f6z -> Bit 32
+fromLiteral$f0a :: Proxy_Ord4900$f6z -> Unsigned
+fromLiteral$f0a = \ (x$a4 :: Proxy_Ord4900$f6z) -> Unsigned[bits = (primBitFromLiteral$f0d x$a4)]
+external primBitLe$f0n {primBitLe 32} :: Bit 32 -> Bit 32 -> Bool
+compare$def$f0k :: Bit 32 -> Bit 32 -> Ordering
+compare$def$f0k = \ (x$4z :: Bit 32) -> \ (x$50 :: Bit 32) -> ((let condition$4k :: Bool
+                                                                    condition$4k = ((primBitEq$ez6 x$4z) x$50)
+                                                                in case condition$4k of
+                                                                     True -> EQ) | (((let condition$4l :: Bool
+                                                                                          condition$4l = ((primBitLe$f0n x$4z) x$50)
+                                                                                      in case condition$4l of
+                                                                                           True -> LT) | (case True of
+                                                                                                            True -> GT))))
+GtEq$def$f0h :: Bit 32 -> Bit 32 -> Bool
+GtEq$def$f0h = \ (x$4r :: Bit 32) -> \ (x$4s :: Bit 32) -> let scrutinee$4g :: Ordering
+                                                               scrutinee$4g = ((compare$def$f0k x$4r) x$4s)
+                                                           in ((case scrutinee$4g of
+                                                                  LT -> False) | (True))
+GtEq$f0e :: Unsigned -> Unsigned -> Bool
+GtEq$f0e = \ (x$ay :: Unsigned) -> \ (x$az :: Unsigned) -> ((GtEq$def$f0h (((select$ez1 x$ay) (Proxy$f6r)))) (((select$ez1 x$az) (Proxy$f6r))))
+external primBitTimes$f0r {primBitTimes 32} :: Bit 32 -> Bit 32 -> Bit 32
+Star$f0o :: Unsigned -> Unsigned -> Unsigned
+Star$f0o = \ (x$61 :: Unsigned) -> \ (x$62 :: Unsigned) -> Unsigned[bits = ((primBitTimes$f0r (((select$ez1 x$61) (Proxy$f6r)))) (((select$ez1 x$62) (Proxy$f6r))))]
+external primBitMinus$f0v {primBitMinus 32} :: Bit 32 -> Bit 32 -> Bit 32
+Dash$f0s :: Unsigned -> Unsigned -> Unsigned
+Dash$f0s = \ (x$5z :: Unsigned) -> \ (x$60 :: Unsigned) -> Unsigned[bits = ((primBitMinus$f0v (((select$ez1 x$5z) (Proxy$f6r)))) (((select$ez1 x$60) (Proxy$f6r))))]
+external primModIx$f0x {primModIx 32 10} :: Bit 32 -> Ix 10
+modIx$f0w :: Unsigned -> Ix 10
+modIx$f0w = \ (x$94 :: Unsigned) -> (primModIx$f0x (((select$ez1 x$94) (Proxy$f6r))))
+external primIxToBit$f0z {primIxToBit 10 32} :: Ix 10 -> Bit 32
+unsigned$f0y :: Ix 10 -> Unsigned
+unsigned$f0y = \ (x$ae :: Ix 10) -> Unsigned[bits = (primIxToBit$f0z x$ae)]
+external primBitFromLiteral$f13 {primBitFromLiteral 10 32} :: Proxy_Ord490$f70 -> Bit 32
+fromLiteral$f10 :: Proxy_Ord490$f70 -> Unsigned
+fromLiteral$f10 = \ (x$a4 :: Proxy_Ord490$f70) -> Unsigned[bits = (primBitFromLiteral$f13 x$a4)]
+external primBitLt$f17 {primBitLt 32} :: Bit 32 -> Bit 32 -> Bool
+Lt$f14 :: Unsigned -> Unsigned -> Bool
+Lt$f14 = \ (x$as :: Unsigned) -> \ (x$at :: Unsigned) -> ((primBitLt$f17 (((select$ez1 x$as) (Proxy$f6r)))) (((select$ez1 x$at) (Proxy$f6r))))
+external primBitFromLiteral$f1b {primBitFromLiteral 48 32} :: Proxy_Ord528$f71 -> Bit 32
+fromLiteral$f18 :: Proxy_Ord528$f71 -> Unsigned
+fromLiteral$f18 = \ (x$a4 :: Proxy_Ord528$f71) -> Unsigned[bits = (primBitFromLiteral$f1b x$a4)]
+external primBitFromLiteral$f1g {primBitFromLiteral 55 32} :: Proxy_Ord535$f72 -> Bit 32
+fromLiteral$f1d :: Proxy_Ord535$f72 -> Unsigned
+fromLiteral$f1d = \ (x$a4 :: Proxy_Ord535$f72) -> Unsigned[bits = (primBitFromLiteral$f1g x$a4)]
+external primBitFromLiteral$f1p {primBitFromLiteral 15 32} :: Proxy_Ord495$f7a -> Bit 32
+fromLiteral$f1m :: Proxy_Ord495$f7a -> Unsigned
+fromLiteral$f1m = \ (x$a4 :: Proxy_Ord495$f7a) -> Unsigned[bits = (primBitFromLiteral$f1p x$a4)]
+external primBitAnd$f1t {primBitAnd 32} :: Bit 32 -> Bit 32 -> Bit 32
+DotAmpDot$f1q :: Unsigned -> Unsigned -> Unsigned
+DotAmpDot$f1q = \ (x$7m :: Unsigned) -> \ (x$7n :: Unsigned) -> Unsigned[bits = ((primBitAnd$f1t (((select$ez1 x$7m) (Proxy$f6r)))) (((select$ez1 x$7n) (Proxy$f6r))))]
+external primIxFromLiteral$f1v {primIxFromLiteral 4 32} :: Proxy_Ord52$f73 -> Ix 32
+external primBitShiftRu$f1z {primBitShiftRu 32} :: Bit 32 -> Ix 32 -> Bit 32
+shiftR$f1y :: Bit 32 -> Ix 32 -> Bit 32
+shiftR$f1y = \ (x$84 :: Bit 32) -> \ (x$85 :: Ix 32) -> ((primBitShiftRu$f1z x$84) x$85)
+shiftR$f1w :: Unsigned -> Ix 32 -> Unsigned
+shiftR$f1w = \ (x$8b :: Unsigned) -> \ (x$8c :: Ix 32) -> Unsigned[bits = ((shiftR$f1y (((select$ez1 x$8b) (Proxy$f6r)))) x$8c)]
+external primBitFromLiteral$f23 {primBitFromLiteral 16 32} :: Proxy_Ord496$f74 -> Bit 32
+fromLiteral$f20 :: Proxy_Ord496$f74 -> Unsigned
+fromLiteral$f20 = \ (x$a4 :: Proxy_Ord496$f74) -> Unsigned[bits = (primBitFromLiteral$f23 x$a4)]
+primReturnM$f26 :: List_Bit32$f75 -> M List_Bit32$f75
+primReturnM$f26 = \ (x :: List_Bit32$f75) -> primRet x
+external getchar {getchar} :: M Unsigned
+getint :: M Unsigned
+getint = do x0$d3n <- getchar;
+            let condition$d4m :: Bool
+                condition$d4m = ((EqEq$eyy x0$d3n) ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))
+            in ((case condition$d4m of
+                   True -> (primReturnM$ezu ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))) | (do x1$d3o <- getchar;
+                                                                                                   let condition$d4l :: Bool
+                                                                                                       condition$d4l = ((EqEq$eyy x1$d3o) ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))
+                                                                                                   in ((case condition$d4l of
+                                                                                                          True -> (primReturnM$ezu ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))) | (do x2$d3p <- getchar;
+                                                                                                                                                                                          let condition$d4k :: Bool
+                                                                                                                                                                                              condition$d4k = ((EqEq$eyy x2$d3p) ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))
+                                                                                                                                                                                          in ((case condition$d4k of
+                                                                                                                                                                                                 True -> (primReturnM$ezu ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))) | (do x3$d3q <- getchar;
+                                                                                                                                                                                                                                                                                 let condition$d4j :: Bool
+                                                                                                                                                                                                                                                                                     condition$d4j = ((EqEq$eyy x3$d3q) ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))
+                                                                                                                                                                                                                                                                                 in ((case condition$d4j of
+                                                                                                                                                                                                                                                                                        True -> (primReturnM$ezu ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))) | ((primReturnM$ezu (((Plus$ezh (((shiftL$ezd x3$d3q) ((primIxFromLiteral$ezc (Proxy$f6e)))))) (((Plus$ezh (((shiftL$ezd x2$d3p) ((primIxFromLiteral$eza (Proxy$f6l)))))) (((Plus$ezh (((shiftL$ezd x1$d3o) ((primIxFromLiteral$ez8 (Proxy$f6d)))))) x0$d3n)))))))))))))))
+readInts :: M List_Bit32$f75
+readInts = do x$d42 <- getint;
+              let condition$d5n :: Bool
+                  condition$d5n = ((EqEq$eyy x$d42) ((negate$ezp ((fromLiteral$ezl (Proxy$f6q))))))
+              in ((case condition$d5n of
+                     True -> (primReturnM$f26 (Nil$f6m))) | (do xs$d43 <- readInts;
+                                                                (primReturnM$f26 (((Cons$f6n (((select$ez1 x$d42) (Proxy$f6r)))) xs$d43)))))
+external putchar {putchar} :: Unsigned -> M Unsigned
+putStr :: List_Unsigned$f76 -> M Unsigned
+putStr = \ (x$d5t :: List_Unsigned$f76) -> ((case x$d5t of
+                                               Nil$f6o -> (primReturnM$ezu ((fromLiteral$eyj (Proxy$f6c))))) | (case x$d5t of
+                                                                                                                  Cons$f6p x$d44 xs$d45 -> do x$d5p <- (putchar x$d44);
+                                                                                                                                              (putStr xs$d45)))
+putLine :: M Unsigned
+putLine = do x$d41 <- (primReturnM$eyi (Unit));
+             (putchar ((fromLiteral$f10 (Proxy$f6h))))
+putHexChar :: Unsigned -> M Unsigned
+putHexChar = \ (x$d5r :: Unsigned) -> ((let condition$d5b :: Bool
+                                            condition$d5b = ((Lt$f14 x$d5r) ((fromLiteral$f10 (Proxy$f6h))))
+                                        in case condition$d5b of
+                                             True -> (putchar (((Plus$ezh x$d5r) ((fromLiteral$f18 (Proxy$f6i))))))) | (case True of
+                                                                                                                          True -> (putchar (((Plus$ezh x$d5r) ((fromLiteral$f1d (Proxy$f6j))))))))
+putHexInt :: Unsigned -> M Unit
+putHexInt = \ (x$d5s :: Unsigned) -> ((let condition$d5i :: Bool
+                                           condition$d5i = ((Lt$f14 x$d5s) ((fromLiteral$f20 (Proxy$f6l))))
+                                       in case condition$d5i of
+                                            True -> do x$d5e <- (putHexChar x$d5s);
+                                                       (primReturnM$eyi (Unit))) | (case True of
+                                                                                      True -> do x$d5f <- (putHexInt (((shiftR$f1w x$d5s) ((primIxFromLiteral$f1v (Proxy$f6k))))));
+                                                                                                 (putHexInt (((DotAmpDot$f1q x$d5s) ((fromLiteral$f1m (Proxy$f6t))))))))
+putint :: Unsigned -> M Unit
+putint = \ (x$d5q :: Unsigned) -> let mod10$d3t :: (Unsigned -> Unsigned)
+                                      mod10$d3t = \ (x$d50 :: Unsigned) -> (unsigned$f0y (let x$d4n :: Ix 10
+                                                                                              x$d4n = (modIx$f0w x$d50)
+                                                                                          in x$d4n))
+                                      div10$d3s :: (Unsigned -> Unsigned)
+                                      div10$d3s = \ (x$d51 :: Unsigned) -> let maxK$f03 :: Unsigned
+                                                                               maxK$f03 = (fromLiteral$f06 (Proxy$f6f))
+                                                                               f$d3w :: (Unsigned -> Unsigned)
+                                                                               f$d3w = \ (x$d4u :: Unsigned) -> let condition$d4s :: Bool
+                                                                                                                    condition$d4s = let scrutinee$d4o :: Bool
+                                                                                                                                        scrutinee$d4o = ((Lt$f14 x$d51) (((Star$f0o ((fromLiteral$f0a (Proxy$f6g)))) x$d4u)))
+                                                                                                                                    in ((case scrutinee$d4o of
+                                                                                                                                           False -> ((GtEq$f0e x$d4u) maxK$f03)) | (True))
+                                                                                                                in ((case condition$d4s of
+                                                                                                                       True -> ((Plus$ezh x$d4u) ((div10$d3s (((Dash$f0s x$d51) (((Star$f0o ((fromLiteral$f10 (Proxy$f6h)))) x$d4u)))))))) | ((f$d3w (((Star$f0o x$d4u) ((fromLiteral$f10 (Proxy$f6h))))))))
+                                                                           in ((let condition$d4y :: Bool
+                                                                                    condition$d4y = ((Lt$f14 x$d51) ((fromLiteral$f10 (Proxy$f6h))))
+                                                                                in case condition$d4y of
+                                                                                     True -> (fromLiteral$eyj (Proxy$f6c))) | (case True of
+                                                                                                                                 True -> (f$d3w ((fromLiteral$ezl (Proxy$f6q))))))
+                                  in ((let condition$d56 :: Bool
+                                           condition$d56 = ((Lt$f14 x$d5q) ((fromLiteral$f10 (Proxy$f6h))))
+                                       in case condition$d56 of
+                                            True -> do x$d53 <- (putchar (((Plus$ezh x$d5q) ((fromLiteral$f18 (Proxy$f6i))))));
+                                                       (primReturnM$eyi (Unit))) | (case True of
+                                                                                      True -> do x$d55 <- (putint ((div10$d3s x$d5q)));
+                                                                                                 (putint ((mod10$d3t x$d5q)))))
+external fflush {fflush} :: Unsigned -> M Unsigned
+flush :: M Unit
+flush = do b$d3m <- (primReturnM$eyo True);
+           x$d46 <- (fflush ((fromLiteral$eyj (Proxy$f6c))));
+           (primReturnM$eyi (Unit))
+fromLiteral$f2c :: Proxy_Ord49$f77 -> Signed
+fromLiteral$f2c = \ (x$b5 :: Proxy_Ord49$f77) -> Signed[bits = (primBitFromLiteral$ezo x$b5)]
+bitdataSelect$f2k :: Signed.Signed -> Proxy_HashDotbits$f78 -> Bit 32
+bitdataSelect$f2k = \ (Dollarx :: Signed.Signed) -> \ (Dollary :: Proxy_HashDotbits$f78) -> Dollarx.bits
+select$f2h :: Signed -> Proxy_HashDotbits$f78 -> Bit 32
+select$f2h = \ (Dollarr :: Signed) -> \ (Dollarf :: Proxy_HashDotbits$f78) -> case Dollarr of
+                                                                                Signed Dollarv -> ((bitdataSelect$f2k Dollarv) Dollarf)
+Dash$f2f :: Signed -> Signed -> Signed
+Dash$f2f = \ (x$c2 :: Signed) -> \ (x$c3 :: Signed) -> Signed[bits = ((primBitMinus$f0v (((select$f2h x$c2) (Proxy$f6r)))) (((select$f2h x$c3) (Proxy$f6r))))]
+Plus$f2l :: Signed -> Signed -> Signed
+Plus$f2l = \ (x$c0 :: Signed) -> \ (x$c1 :: Signed) -> Signed[bits = ((primBitPlus$ezk (((select$f2h x$c0) (Proxy$f6r)))) (((select$f2h x$c1) (Proxy$f6r))))]
+external primBitFromLiteral$f2p {primBitFromLiteral 2 32} :: Proxy_Ord50$f79 -> Bit 32
+fromLiteral$f2m :: Proxy_Ord50$f79 -> Signed
+fromLiteral$f2m = \ (x$b5 :: Proxy_Ord50$f79) -> Signed[bits = (primBitFromLiteral$f2p x$b5)]
+external primBitSLt$f2r {primBitSLt 32} :: Bit 32 -> Bit 32 -> Bool
+Lt$f2q :: Signed -> Signed -> Bool
+Lt$f2q = \ (x$bk :: Signed) -> \ (x$bl :: Signed) -> ((primBitSLt$f2r (((select$f2h x$bk) (Proxy$f6r)))) (((select$f2h x$bl) (Proxy$f6r))))
+fib :: Signed -> Signed
+fib = \ (x$epc :: Signed) -> ((let condition$ep7 :: Bool
+                                   condition$ep7 = ((Lt$f2q x$epc) ((fromLiteral$f2m (Proxy$f6s))))
+                               in case condition$ep7 of
+                                    True -> x$epc) | (case True of
+                                                        True -> ((Plus$f2l ((fib (((Dash$f2f x$epc) ((fromLiteral$f2c (Proxy$f6q)))))))) ((fib (((Dash$f2f x$epc) ((fromLiteral$f2m (Proxy$f6s))))))))))
+fromLiteral$f2u :: Proxy_Ord495$f7a -> Signed
+fromLiteral$f2u = \ (x$b5 :: Proxy_Ord495$f7a) -> Signed[bits = (primBitFromLiteral$f1p x$b5)]
+unsigned$f2x :: Signed -> Unsigned
+unsigned$f2x = \ (x$a9 :: Signed) -> Unsigned[bits = ((select$f2h x$a9) (Proxy$f6r))]
+main :: M Unsigned
+main = do x$ep3 <- (primReturnM$eyi (Unit));
+          x$ep9 <- (putint ((unsigned$f2x ((fib ((fromLiteral$f2u (Proxy$f6t))))))));
+          (primReturnM$ezu ((unsigned$f2x ((fib ((fromLiteral$f2u (Proxy$f6t))))))))
