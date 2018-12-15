@@ -1,168 +1,239 @@
-define internal i32 @func_b481(i32 %r0) {
-  br label %b481
+define internal i32 @func_b500(i32 %r0) {
+  br label %b500
 
-b481:
+b500:
   %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b333, label %b482
+  br i1 %r1, label %b333, label %b501
 
 b333:
   ret i32 0
 
-b482:
+b501:
   %r2 = icmp uge i32 %r0, 100
-  br i1 %r2, label %b483, label %b484
+  br i1 %r2, label %b656, label %b621
 
-b483:
-  %r3 = icmp eq i32 1, 10000000
-  br i1 %r3, label %b484, label %b485
+b656:
+  %r4 = phi i32 [1, %b501], [%r7, %b658]
+  %r5 = phi i32 [10000000, %b501], [%r5, %b658]
+  %r6 = phi i32 [%r0, %b501], [%r6, %b658]
+  %r3 = icmp eq i32 %r4, %r5
+  br i1 %r3, label %b621, label %b659
 
-b484:
-  %r8 = phi i32 [%r0, %b482], [%r0, %b483], [%r0, %b485], [%r0, %b486], [%r0, %b487], [%r0, %b489], [%r0, %b490], [%r14, %b509], [%r14, %b513], [%r14, %b512]
-  %r5 = phi i32 [1, %b482], [1, %b483], [1, %b485], [%r13, %b486], [%r13, %b487], [%r13, %b489], [%r12, %b490], [%r11, %b509], [%r11, %b513], [%r10, %b512]
-  %r9 = mul i32 %r5, 10
-  %r7 = sub i32 %r8, %r9
-  %r6 = call i32 @func_b481(i32 %r7)
-  %r4 = add i32 %r5, %r6
-  ret i32 %r4
-
-b485:
-  %r15 = icmp ule i32 1, 10000000
-  br i1 %r15, label %b486, label %b484
-
-b486:
-  %r13 = mul i32 1, 10
-  %r17 = mul i32 1, 1000
-  %r16 = icmp uge i32 %r0, %r17
-  br i1 %r16, label %b487, label %b484
-
-b487:
-  %r18 = icmp eq i32 %r13, 10000000
-  br i1 %r18, label %b484, label %b489
-
-b489:
-  %r19 = icmp ule i32 %r13, 10000000
-  br i1 %r19, label %b490, label %b484
-
-b490:
-  %r12 = mul i32 %r13, 10
-  %r21 = mul i32 %r13, 1000
-  %r20 = icmp uge i32 %r0, %r21
-  br i1 %r20, label %b509, label %b484
-
-b509:
-  %r11 = phi i32 [%r12, %b490], [%r10, %b512]
-  %r23 = phi i32 [10000000, %b490], [%r23, %b512]
-  %r14 = phi i32 [%r0, %b490], [%r14, %b512]
-  %r22 = icmp eq i32 %r11, %r23
-  br i1 %r22, label %b484, label %b513
-
-b513:
-  %r24 = icmp ule i32 %r11, %r23
-  br i1 %r24, label %b512, label %b484
-
-b512:
-  %r10 = mul i32 %r11, 10
-  %r26 = mul i32 %r11, 1000
-  %r25 = icmp uge i32 %r14, %r26
-  br i1 %r25, label %b509, label %b484
-}
-
-define internal i32 @func_b99(i32 %r0) {
-  br label %b99
-
-b99:
-  %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b333, label %b571
-
-b333:
-  ret i32 0
-
-b571:
-  %r2 = icmp uge i32 %r0, 100
-  br i1 %r2, label %b575, label %b556
-
-b575:
-  %r3 = icmp uge i32 %r0, 1000
-  br i1 %r3, label %b578, label %b564
-
-b556:
-  %r6 = add i32 %r0, -10
-  %r5 = call i32 @func_b481(i32 %r6)
-  %r4 = add i32 %r5, 1
-  ret i32 %r4
-
-b578:
-  %r7 = icmp uge i32 %r0, 10000
-  br i1 %r7, label %b514, label %b569
-
-b564:
-  %r10 = add i32 %r0, -100
-  %r9 = call i32 @func_b481(i32 %r10)
-  %r8 = add i32 %r9, 10
+b621:
+  %r12 = phi i32 [%r0, %b501], [%r6, %b656], [%r6, %b659], [%r6, %b658]
+  %r9 = phi i32 [1, %b501], [%r4, %b656], [%r4, %b659], [%r7, %b658]
+  %r13 = mul i32 %r9, 10
+  %r11 = sub i32 %r12, %r13
+  %r10 = call i32 @func_b500(i32 %r11)
+  %r8 = add i32 %r9, %r10
   ret i32 %r8
 
-b514:
-  %r12 = phi i32 [100, %b578], [%r15, %b516]
-  %r13 = phi i32 [10000000, %b578], [%r13, %b516]
-  %r14 = phi i32 [%r0, %b578], [%r14, %b516]
-  %r11 = icmp eq i32 %r12, %r13
-  br i1 %r11, label %b484, label %b517
+b659:
+  %r14 = icmp ule i32 %r4, %r5
+  br i1 %r14, label %b658, label %b621
 
-b569:
-  %r18 = add i32 %r0, -1000
-  %r17 = call i32 @func_b481(i32 %r18)
-  %r16 = add i32 %r17, 100
-  ret i32 %r16
-
-b484:
-  %r23 = phi i32 [%r14, %b514], [%r14, %b517], [%r14, %b516]
-  %r20 = phi i32 [%r12, %b514], [%r12, %b517], [%r15, %b516]
-  %r24 = mul i32 %r20, 10
-  %r22 = sub i32 %r23, %r24
-  %r21 = call i32 @func_b481(i32 %r22)
-  %r19 = add i32 %r20, %r21
-  ret i32 %r19
-
-b517:
-  %r25 = icmp ule i32 %r12, %r13
-  br i1 %r25, label %b516, label %b484
-
-b516:
-  %r15 = mul i32 %r12, 10
-  %r27 = mul i32 %r12, 1000
-  %r26 = icmp uge i32 %r14, %r27
-  br i1 %r26, label %b514, label %b484
+b658:
+  %r7 = mul i32 %r4, 10
+  %r16 = mul i32 %r4, 1000
+  %r15 = icmp uge i32 %r6, %r16
+  br i1 %r15, label %b656, label %b621
 }
 
 declare i32 @putchar(i32)
+
+define internal void @func_b498(i32 %r0) {
+  br label %b498
+
+b498:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b486, label %b630
+
+b486:
+  %r4 = phi i32 [%r0, %b498], [%r7, %b609], [%r6, %b695], [%r5, %b679]
+  %r3 = add i32 %r4, 48
+  %r2 = call i32 @putchar(i32 %r3)
+  ret void
+
+b630:
+  %r9 = phi i32 [%r0, %b498], [%r7, %b609], [%r6, %b695], [%r5, %b679]
+  %r8 = icmp ult i32 %r9, 10
+  br i1 %r8, label %b609, label %b642
+
+b609:
+  call void @func_b498(i32 0)
+  %r7 = srem i32 %r9, 10
+  %r10 = icmp ult i32 %r7, 10
+  br i1 %r10, label %b486, label %b630
+
+b642:
+  %r11 = icmp uge i32 %r9, 100
+  br i1 %r11, label %b694, label %b695
+
+b694:
+  %r13 = phi i32 [1, %b642], [%r16, %b700]
+  %r14 = phi i32 [10000000, %b642], [%r14, %b700]
+  %r15 = phi i32 [%r9, %b642], [%r15, %b700]
+  %r12 = icmp eq i32 %r13, %r14
+  br i1 %r12, label %b679, label %b698
+
+b695:
+  %r18 = phi i32 [%r9, %b642], [%r15, %b700]
+  %r20 = phi i32 [1, %b642], [%r16, %b700]
+  %r23 = mul i32 %r20, 10
+  %r22 = sub i32 %r18, %r23
+  %r21 = call i32 @func_b500(i32 %r22)
+  %r19 = add i32 %r20, %r21
+  call void @func_b498(i32 %r19)
+  %r6 = srem i32 %r18, 10
+  %r17 = icmp ult i32 %r6, 10
+  br i1 %r17, label %b486, label %b630
+
+b679:
+  %r27 = phi i32 [%r13, %b694], [%r13, %b698]
+  %r25 = phi i32 [%r15, %b694], [%r15, %b698]
+  %r30 = mul i32 %r27, 10
+  %r29 = sub i32 %r25, %r30
+  %r28 = call i32 @func_b500(i32 %r29)
+  %r26 = add i32 %r27, %r28
+  call void @func_b354(i32 %r26)
+  %r5 = srem i32 %r25, 10
+  %r24 = icmp ult i32 %r5, 10
+  br i1 %r24, label %b486, label %b630
+
+b698:
+  %r31 = icmp ule i32 %r13, %r14
+  br i1 %r31, label %b700, label %b679
+
+b700:
+  %r16 = mul i32 %r13, 10
+  %r33 = mul i32 %r13, 1000
+  %r32 = icmp uge i32 %r15, %r33
+  br i1 %r32, label %b694, label %b695
+}
 
 define internal void @func_b354(i32 %r0) {
   br label %b354
 
 b354:
   %r1 = icmp ult i32 %r0, 10
-  br i1 %r1, label %b480, label %b339
+  br i1 %r1, label %b486, label %b675
 
-b480:
-  %r4 = phi i32 [%r0, %b354], [%r6, %b339], [%r5, %b508]
+b486:
+  %r4 = phi i32 [%r0, %b354], [%r7, %b609], [%r6, %b695], [%r5, %b679]
   %r3 = add i32 %r4, 48
   %r2 = call i32 @putchar(i32 %r3)
   ret void
 
-b339:
-  %r8 = call i32 @func_b99(i32 %r0)
-  call void @func_b354(i32 %r8)
-  %r6 = srem i32 %r0, 10
-  %r7 = icmp ult i32 %r6, 10
-  br i1 %r7, label %b480, label %b508
+b675:
+  %r8 = icmp ult i32 %r0, 10
+  br i1 %r8, label %b609, label %b678
 
-b508:
-  %r10 = phi i32 [%r6, %b339], [%r5, %b508]
-  %r11 = call i32 @func_b481(i32 %r10)
-  call void @func_b354(i32 %r11)
-  %r5 = srem i32 %r10, 10
-  %r9 = icmp ult i32 %r5, 10
-  br i1 %r9, label %b480, label %b508
+b609:
+  %r11 = phi i32 [0, %b675], [0, %b630]
+  %r10 = phi i32 [%r0, %b675], [%r12, %b630]
+  call void @func_b498(i32 %r11)
+  %r7 = srem i32 %r10, 10
+  %r9 = icmp ult i32 %r7, 10
+  br i1 %r9, label %b486, label %b630
+
+b678:
+  %r13 = icmp uge i32 %r0, 100
+  br i1 %r13, label %b681, label %b695
+
+b630:
+  %r12 = phi i32 [%r7, %b609], [%r6, %b695], [%r5, %b679]
+  %r14 = icmp ult i32 %r12, 10
+  br i1 %r14, label %b609, label %b642
+
+b681:
+  %r15 = icmp eq i32 1, 10000000
+  br i1 %r15, label %b695, label %b685
+
+b695:
+  %r17 = phi i32 [%r0, %b678], [%r0, %b681], [%r12, %b642], [%r0, %b685], [%r0, %b687], [%r0, %b690], [%r29, %b700], [%r0, %b693], [%r0, %b696], [%r28, %b699], [%r28, %b702], [%r28, %b703]
+  %r19 = phi i32 [1, %b678], [1, %b681], [1, %b642], [1, %b685], [%r26, %b687], [%r26, %b690], [%r27, %b700], [%r26, %b693], [%r25, %b696], [%r24, %b699], [%r24, %b702], [%r23, %b703]
+  %r22 = mul i32 %r19, 10
+  %r21 = sub i32 %r17, %r22
+  %r20 = call i32 @func_b500(i32 %r21)
+  %r18 = add i32 %r19, %r20
+  call void @func_b498(i32 %r18)
+  %r6 = srem i32 %r17, 10
+  %r16 = icmp ult i32 %r6, 10
+  br i1 %r16, label %b486, label %b630
+
+b642:
+  %r30 = icmp uge i32 %r12, 100
+  br i1 %r30, label %b694, label %b695
+
+b685:
+  %r31 = icmp ule i32 1, 10000000
+  br i1 %r31, label %b687, label %b695
+
+b694:
+  %r33 = phi i32 [1, %b642], [%r27, %b700]
+  %r34 = phi i32 [10000000, %b642], [%r34, %b700]
+  %r29 = phi i32 [%r12, %b642], [%r29, %b700]
+  %r32 = icmp eq i32 %r33, %r34
+  br i1 %r32, label %b679, label %b698
+
+b687:
+  %r26 = mul i32 1, 10
+  %r36 = mul i32 1, 1000
+  %r35 = icmp uge i32 %r0, %r36
+  br i1 %r35, label %b690, label %b695
+
+b679:
+  %r40 = phi i32 [%r33, %b694], [%r33, %b698]
+  %r38 = phi i32 [%r29, %b694], [%r29, %b698]
+  %r43 = mul i32 %r40, 10
+  %r42 = sub i32 %r38, %r43
+  %r41 = call i32 @func_b500(i32 %r42)
+  %r39 = add i32 %r40, %r41
+  call void @func_b354(i32 %r39)
+  %r5 = srem i32 %r38, 10
+  %r37 = icmp ult i32 %r5, 10
+  br i1 %r37, label %b486, label %b630
+
+b698:
+  %r44 = icmp ule i32 %r33, %r34
+  br i1 %r44, label %b700, label %b679
+
+b690:
+  %r45 = icmp eq i32 %r26, 10000000
+  br i1 %r45, label %b695, label %b693
+
+b700:
+  %r27 = mul i32 %r33, 10
+  %r47 = mul i32 %r33, 1000
+  %r46 = icmp uge i32 %r29, %r47
+  br i1 %r46, label %b694, label %b695
+
+b693:
+  %r48 = icmp ule i32 %r26, 10000000
+  br i1 %r48, label %b696, label %b695
+
+b696:
+  %r25 = mul i32 %r26, 10
+  %r50 = mul i32 %r26, 1000
+  %r49 = icmp uge i32 %r0, %r50
+  br i1 %r49, label %b699, label %b695
+
+b699:
+  %r24 = phi i32 [%r25, %b696], [%r23, %b703]
+  %r52 = phi i32 [10000000, %b696], [%r52, %b703]
+  %r28 = phi i32 [%r0, %b696], [%r28, %b703]
+  %r51 = icmp eq i32 %r24, %r52
+  br i1 %r51, label %b695, label %b702
+
+b702:
+  %r53 = icmp ule i32 %r24, %r52
+  br i1 %r53, label %b703, label %b695
+
+b703:
+  %r23 = mul i32 %r24, 10
+  %r55 = mul i32 %r24, 1000
+  %r54 = icmp uge i32 %r28, %r55
+  br i1 %r54, label %b699, label %b695
 }
 
 define internal i32 @func_b418(i32 %r0) {
@@ -170,14 +241,14 @@ define internal i32 @func_b418(i32 %r0) {
 
 b418:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b336, label %b419
+  br i1 %r1, label %b488, label %b419
 
-b336:
+b488:
   ret i32 1
 
 b419:
   %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b336, label %b420
+  br i1 %r2, label %b488, label %b420
 
 b420:
   %r7 = add i32 %r0, -1
@@ -198,7 +269,12 @@ main:
   br label %b327
 
 b327:
-  %r3 = call i32 @func_b418(i32 15)
+  br label %b753
+
+b753:
+  %r4 = call i32 @func_b418(i32 14)
+  %r5 = call i32 @func_b418(i32 13)
+  %r3 = add i32 %r4, %r5
   call void @func_b354(i32 %r3)
   %r1 = call i32 @func_b418(i32 14)
   %r2 = call i32 @func_b418(i32 13)
