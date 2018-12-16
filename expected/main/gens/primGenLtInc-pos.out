@@ -1,0 +1,84 @@
+data Maybe0
+  = Nothing0
+  | Just1 Word
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b138 :: [] >>= [Maybe0]
+b138[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+b137 :: [Word] >>= [Maybe0]
+b137[t0] =
+  Just1(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc80 :: [Word, Word, Word] >>= [Maybe0]
+ltInc80[t0, t1, t2] =
+  t3 <- add((t1, t0))
+  t4 <- primUle((t3, t2))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc1K :: [Word, Word, Word] >>= [Maybe0]
+ltInc1K[t0, t1, t2] =
+  t3 <- add((t1, t0))
+  t4 <- primUle((t3, t2))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc1G :: [Word, Word, Word] >>= [Maybe0]
+ltInc1G[t0, t1, t2] =
+  t3 <- add((t1, t0))
+  t4 <- primUle((t3, t2))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec80 :: [Word, Word, Word] >>= [Maybe0]
+ltDec80[t0, t1, t2] =
+  t3 <- sub((t2, t0))
+  t4 <- primSle((t1, t3))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec1K :: [Word, Word, Word] >>= [Maybe0]
+ltDec1K[t0, t1, t2] =
+  t3 <- sub((t2, t0))
+  t4 <- primSle((t1, t3))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec1G :: [Word, Word, Word] >>= [Maybe0]
+ltDec1G[t0, t1, t2] =
+  t3 <- sub((t2, t0))
+  t4 <- primSle((t1, t3))
+  if t4
+    then b137[t3]
+    else b138[]
+
+-----------------------------------------
+-- Entrypoints: ltInc80 ltInc1K ltInc1G ltDec80 ltDec1K ltDec1G

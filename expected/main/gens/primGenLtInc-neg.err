@@ -1,0 +1,32 @@
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 3
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 3
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         ^
+No generated implementation: Argument value 3221225472 is too large; must be at most 2147483647
+
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 3
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         ^
+No generated implementation: Argument value 5368709120 is too large; must be at most 2147483647
+
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 4
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 4
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+         ^
+No generated implementation: Argument value 3221225472 is too large; must be at most 2147483647
+
+ERROR: "actual/main/gens/primGenLtInc-neg.lc", line 4
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+         ^
+No generated implementation: Argument value 5368709120 is too large; must be at most 2147483647
+
+ERROR: Aborting after 6 previously reported errors
+

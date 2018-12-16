@@ -1453,6 +1453,42 @@ external decIx100 {primDecIx 100} :: Ix 100 -> Maybe (Ix 100)
 external decIx3M  {primDecIx 3M}  :: Ix 3M  -> Maybe (Ix 3M)
 
 -----------------------
+.lc: primGenLtInc-pos   ./milc -pcsoro -m --32
+require "prelude.lc"
+  
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+   :: Maybe (Ix m) -> (Ix m -> Maybe (Ix m)) -> Ix m -> Ix m -> Ix m -> Maybe (Ix m)
+
+entrypoint ltInc80, ltInc1K, ltInc1G
+ltInc80 = genLtInc Nothing Just :: Ix 80 -> Ix 80 -> Ix 80 -> Maybe (Ix 80)
+ltInc1K = genLtInc Nothing Just :: Ix 1K -> Ix 1K -> Ix 1K -> Maybe (Ix 1K)
+ltInc1G = genLtInc Nothing Just :: Ix 1G -> Ix 1G -> Ix 1G -> Maybe (Ix 1G)
+
+entrypoint ltDec80, ltDec1K, ltDec1G
+ltDec80 = genLtDec Nothing Just :: Ix 80 -> Ix 80 -> Ix 80 -> Maybe (Ix 80)
+ltDec1K = genLtDec Nothing Just :: Ix 1K -> Ix 1K -> Ix 1K -> Maybe (Ix 1K)
+ltDec1G = genLtDec Nothing Just :: Ix 1G -> Ix 1G -> Ix 1G -> Maybe (Ix 1G)
+
+-----------------------
+.lc: primGenLtInc-neg   ./milc -pcsoro -m --32
+require "prelude.lc"
+  
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+   :: Maybe (Ix m) -> (Ix m -> Maybe (Ix m)) -> Ix m -> Ix m -> Ix m -> Maybe (Ix m)
+
+entrypoint ltInc0, ltInc3G, ltInc5G
+ltInc0  = genLtInc Nothing Just :: Ix 0  -> Ix 0  -> Ix 0  -> Maybe (Ix 0)
+ltInc3G = genLtInc Nothing Just :: Ix 3G -> Ix 3G -> Ix 3G -> Maybe (Ix 3G)
+ltInc5G = genLtInc Nothing Just :: Ix 5G -> Ix 5G -> Ix 5G -> Maybe (Ix 5G)
+
+entrypoint ltDec0, ltDec3G, ltDec5G
+ltDec0  = genLtDec Nothing Just :: Ix 0  -> Ix 0  -> Ix 0  -> Maybe (Ix 0)
+ltDec3G = genLtDec Nothing Just :: Ix 3G -> Ix 3G -> Ix 3G -> Maybe (Ix 3G)
+ltDec5G = genLtDec Nothing Just :: Ix 5G -> Ix 5G -> Ix 5G -> Maybe (Ix 5G)
+
+-----------------------
 .lc: primGenMaybeIx-pos-32   ./milc -pcosoboro -m --32
 
 data Maybe a = Nothing | Just a
