@@ -1,0 +1,15 @@
+require "prelude.lc"
+
+external getchar :: Proc Word
+external putchar :: Word -> Proc Unit
+
+entrypoint main
+main = loop Nil
+loop cs = do c <- getchar
+             if c `eq` '-' then dump cs else loop (Cons c cs)
+
+dump cs = case cs of
+            Nil -> return Unit
+            Cons d ds -> do dump ds
+                            putchar d
+

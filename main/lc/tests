@@ -570,7 +570,7 @@ f x = let c = (case x `lt` x of False -> True) | True
       in (case c of True -> x) | f x
 
 -------
-exec: albfib    ./milc albfib.lc --standalone -l
+exec: albfib    ./milc albfib.lc --standalone -m -l
 
 -------
 exec: albstruct ./milc basic.mil struct.lc -m -l --standalone
@@ -580,6 +580,38 @@ exec: albgdtac  ./milc basic.mil gdtac.lc -m -l --standalone
 
 -------
 exec: albfibsigned ./milc basic.mil fibsigned.lc -m -l --standalone
+
+-------
+exec: albishecho   ./milc basic.mil echo.lc -m -pcsoro --standalone
+
+-------
+exec: albishecho-g ./milc basic.mil echo.lc -g -pcsoro --standalone
+
+-------
+exec: simplifiedecholoop   ./milc loop.lc -m -pcsoro
+
+-------
+exec: simplifiedecholoop-g ./milc loop.lc -g -pcsoro
+
+-------
+.lc: map-inlines     ./milc -m -pcsoro
+require "prelude.lc"
+
+map f xs = case xs of
+            Nil       -> Nil
+            Cons y ys -> Cons (f y) (map f ys)
+
+entrypoint mapsucc, mapdouble
+mapsucc     = map (add 1)
+mapdouble   = map (mul 2)
+
+entrypoint mapcomp :: (Word -> Word) -> (Word -> Word) -> List Word -> List Word
+mapcomp f g = map (comp f g)
+
+comp f g x  = f (g x)
+
+entrypoint maptoodd
+maptoodd    = mapcomp (add 1) (mul 2)
 
 -------
 tests: identity

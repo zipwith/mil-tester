@@ -2793,7 +2793,11 @@ export imp_radixCP :: ImpCP -> Ix 32
 imp_radixCP x       = x.radix
 
 -----------------------
-exec: stringcursor-lc-mil   ./milc -m -pcosoro --32 string1.lc string.lc
+exec: stringcursor-lc-mil            ./milc -m -pcosoro --32 string1.lc string-unannotated.lc
 -----------------------
-exec: stringcursor-mil-only ./milc -m -pcosoro --32 string2.mil string.lc
+exec: stringcursor-mil-only          ./milc -m -pcosoro --32 string2.mil string-unannotated.lc
+-----------------------
+exec: stringcursor-lc-mil-noinline   ./milc -m -pcosoro --32 string1.lc string-noinline.lc
+-----------------------
+exec: stringcursor-mil-only-noinline ./milc -m -pcosoro --32 string2.mil string-noinline.lc
 -----------------------

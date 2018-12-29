@@ -165,6 +165,12 @@ exec: typesizes-in-mil   ./milc -m -pco --32 simplecaps.mil
 exec: typesizes-in-milr  ./milc -m -pcosoro --32 simplecaps.mil
 
 -------
+exec: typesizes-in-milrso ./milc -m -pcosoroso --32 simplecaps.mil
+Runs an additional specialization step (to reset derived blocks as regular
+blocks so that a subsequent optimization pass can be used to remove unused
+arguments).
+
+-------
 exec: typesizes-in-mil-64   ./milc -m -pco --64 simplecaps.mil
 
 -------
