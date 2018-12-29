@@ -1,88 +1,255 @@
-@raw.0 = internal global [16 x i8] zeroinitializer, align 16
+; layout for Nil46
+%dt0 = type {i32}
 
-@s1 = internal alias i8, i8* bitcast([16 x i8]* @raw.0 to i8*)
+; data layout for values of type List45
+%dt1 = type {i32}
 
-@raw.1 = internal global [16 x i8] zeroinitializer, align 16
+@layout.0 = private constant %dt0 {i32 0}
 
-@s2 = internal alias i8, i8* bitcast([16 x i8]* @raw.1 to i8*)
+@val.1 = internal alias %dt1, %dt1* bitcast(%dt0* @layout.0 to %dt1*)
+
+; closure types for [] ->> [Word]
+%dt4 = type i32 (%dt5*)*
+
+%dt5 = type {%dt4}
+
+; closure types for [Word] ->> [[] ->> [Word]]
+%dt2 = type %dt5* (%dt3*, i32)*
+
+%dt3 = type {%dt2}
+
+; layout for k73
+%dt6 = type {%dt2}
+
+@layout.2 = private constant %dt6 {%dt2 @clos_k73}
+
+@val.3 = internal alias %dt3, %dt3* bitcast(%dt6* @layout.2 to %dt3*)
+
+; layout for Cons57
+%dt7 = type {i32, %dt3*, %dt1*}
+
+@layout.4 = private constant %dt7 {i32 1, %dt3* @val.3, %dt1* @val.1}
+
+@val.5 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.4 to %dt1*)
+
+; layout for k72
+%dt8 = type {%dt2}
+
+@layout.6 = private constant %dt8 {%dt2 @clos_k72}
+
+@val.7 = internal alias %dt3, %dt3* bitcast(%dt8* @layout.6 to %dt3*)
+
+@layout.8 = private constant %dt7 {i32 1, %dt3* @val.7, %dt1* @val.5}
+
+@val.9 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.8 to %dt1*)
+
+; layout for k71
+%dt9 = type {%dt2}
+
+@layout.10 = private constant %dt9 {%dt2 @clos_k71}
+
+@val.11 = internal alias %dt3, %dt3* bitcast(%dt9* @layout.10 to %dt3*)
+
+@layout.12 = private constant %dt7 {i32 1, %dt3* @val.11, %dt1* @val.9}
+
+@val.13 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.12 to %dt1*)
+
+@raw.14 = internal global [16 x i8] zeroinitializer, align 16
+
+@s1 = internal alias i8, i8* bitcast([16 x i8]* @raw.14 to i8*)
+
+@raw.15 = internal global [16 x i8] zeroinitializer, align 16
+
+@s2 = internal alias i8, i8* bitcast([16 x i8]* @raw.15 to i8*)
+
+@layout.16 = private constant %dt7 {i32 1, %dt3* @val.3, %dt1* @val.1}
+
+@val.17 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.16 to %dt1*)
+
+@layout.18 = private constant %dt7 {i32 1, %dt3* @val.7, %dt1* @val.17}
+
+@val.19 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.18 to %dt1*)
+
+@layout.20 = private constant %dt7 {i32 1, %dt3* @val.11, %dt1* @val.19}
+
+@val.21 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.20 to %dt1*)
+
+; layout for k70
+%dt10 = type {%dt2}
+
+@layout.22 = private constant %dt10 {%dt2 @clos_k70}
+
+@val.23 = internal alias %dt3, %dt3* bitcast(%dt10* @layout.22 to %dt3*)
+
+@layout.24 = private constant %dt7 {i32 1, %dt3* @val.23, %dt1* @val.21}
+
+@val.25 = internal alias %dt1, %dt1* bitcast(%dt7* @layout.24 to %dt1*)
 
 declare void @printWord(i32)
+
+define internal void @func_b150(%dt1* %r0, i32 %r1) {
+  br label %b150
+
+b150:
+  %r15 = phi %dt1* [%r0, %0], [%r4, %b150]
+  %r10 = phi i32 [%r1, %0], [%r10, %b150]
+  %r16 = bitcast %dt1* %r15 to %dt7*
+  %r17 = getelementptr inbounds %dt7, %dt7* %r16, i32 0, i32 1
+  %r9 = load %dt3*, %dt3** %r17
+  %r13 = bitcast %dt1* %r15 to %dt7*
+  %r14 = getelementptr inbounds %dt7, %dt7* %r13, i32 0, i32 2
+  %r4 = load %dt1*, %dt1** %r14
+  %r12 = getelementptr inbounds %dt3, %dt3* %r9, i32 0, i32 0
+  %r11 = load %dt2, %dt2* %r12
+  %r6 = call %dt5* %r11(%dt3* %r9, i32 %r10)
+  %r8 = getelementptr inbounds %dt5, %dt5* %r6, i32 0, i32 0
+  %r7 = load %dt4, %dt4* %r8
+  %r5 = call i32 %r7(%dt5* %r6)
+  call void @printWord(i32 %r5)
+  ; read the tag for a data object
+  %r3 = getelementptr inbounds %dt1, %dt1* %r4, i32 0, i32 0
+  %r2 = load i32, i32* %r3
+  ; branch based on the tag value
+  switch i32 %r2, label %b150 [
+      i32 0, label %b145 ]
+
+b145:
+  ret void
+}
+
+; layout for k95
+%dt11 = type {%dt4, i32}
+
+define internal i32 @clos_k95(%dt5* %r0) {
+  ; load stored values from closure
+  %r4 = bitcast %dt5* %r0 to %dt11*
+  %r5 = getelementptr inbounds %dt11, %dt11* %r4, i32 0, i32 1
+  %r3 = load i32, i32* %r5
+  ; body of closure starts here
+  %r2 = inttoptr i32 %r3 to i32*
+  %r1 = load i32, i32* %r2
+  ret i32 %r1
+}
+
+declare i8* @alloc(i32)
+
+define internal %dt5* @clos_k73(%dt3* %r0, i32 %r1) {
+  ; body of closure starts here
+  br label %b127
+
+b127:
+  %r4 = add i32 %r1, 12
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt11, %dt11* null, i32 1
+  %r8 = ptrtoint %dt11* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt11*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 0
+  store %dt4 @clos_k95, %dt4* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 1
+  store i32 %r4, i32* %r5
+  %r2 = bitcast %dt11* %r3 to %dt5*
+  ret %dt5* %r2
+}
+
+define internal %dt5* @clos_k72(%dt3* %r0, i32 %r1) {
+  ; body of closure starts here
+  br label %b126
+
+b126:
+  %r4 = add i32 %r1, 8
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt11, %dt11* null, i32 1
+  %r8 = ptrtoint %dt11* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt11*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 0
+  store %dt4 @clos_k95, %dt4* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 1
+  store i32 %r4, i32* %r5
+  %r2 = bitcast %dt11* %r3 to %dt5*
+  ret %dt5* %r2
+}
+
+define internal %dt5* @clos_k71(%dt3* %r0, i32 %r1) {
+  ; body of closure starts here
+  br label %b125
+
+b125:
+  %r4 = add i32 %r1, 4
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt11, %dt11* null, i32 1
+  %r8 = ptrtoint %dt11* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt11*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 0
+  store %dt4 @clos_k95, %dt4* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 1
+  store i32 %r4, i32* %r5
+  %r2 = bitcast %dt11* %r3 to %dt5*
+  ret %dt5* %r2
+}
 
 define void @display(i32 %r0) {
   br label %display
 
 display:
-  %r11 = inttoptr i32 %r0 to i32*
-  %r10 = load i32, i32* %r11
-  call void @printWord(i32 %r10)
-  %r9 = add i32 %r0, 4
-  %r8 = inttoptr i32 %r9 to i32*
-  %r7 = load i32, i32* %r8
-  call void @printWord(i32 %r7)
-  %r6 = add i32 %r0, 8
-  %r5 = inttoptr i32 %r6 to i32*
-  %r4 = load i32, i32* %r5
-  call void @printWord(i32 %r4)
-  %r3 = add i32 %r0, 12
-  %r2 = inttoptr i32 %r3 to i32*
+  %r2 = inttoptr i32 %r0 to i32*
   %r1 = load i32, i32* %r2
   call void @printWord(i32 %r1)
+  br label %c12
+
+c12:
+  tail call void @func_b150(%dt1* @val.13, i32 %r0)
   ret void
+}
+
+define internal %dt5* @clos_k70(%dt3* %r0, i32 %r1) {
+  ; body of closure starts here
+  ; calculate the number of bytes that we need to allocate
+  %r6 = getelementptr inbounds %dt11, %dt11* null, i32 1
+  %r7 = ptrtoint %dt11* %r6 to i32
+  ; allocate memory for the object
+  %r8 = call i8* @alloc(i32 %r7)
+  %r3 = bitcast i8* %r8 to %dt11*
+  ; set the tag
+  %r5 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 0
+  store %dt4 @clos_k95, %dt4* %r5
+  ; initialize other fields
+  %r4 = getelementptr inbounds %dt11, %dt11* %r3, i32 0, i32 1
+  store i32 %r1, i32* %r4
+  %r2 = bitcast %dt11* %r3 to %dt5*
+  ret %dt5* %r2
 }
 
 define void @main() {
   br label %main
 
 main:
-  %r35 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
-  %r34 = load i32, i32* %r35
-  call void @printWord(i32 %r34)
-  %r16 = add i32 ptrtoint(i8* @s1 to i32), 4
-  %r33 = inttoptr i32 %r16 to i32*
-  %r32 = load i32, i32* %r33
-  call void @printWord(i32 %r32)
-  %r31 = add i32 ptrtoint(i8* @s1 to i32), 8
-  %r30 = inttoptr i32 %r31 to i32*
-  %r29 = load i32, i32* %r30
-  call void @printWord(i32 %r29)
-  %r28 = add i32 ptrtoint(i8* @s1 to i32), 12
-  %r27 = inttoptr i32 %r28 to i32*
-  %r26 = load i32, i32* %r27
-  call void @printWord(i32 %r26)
-  %r25 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
-  %r24 = load i32, i32* %r25
-  call void @printWord(i32 %r24)
-  %r8 = add i32 ptrtoint(i8* @s2 to i32), 4
-  %r23 = inttoptr i32 %r8 to i32*
-  %r22 = load i32, i32* %r23
-  call void @printWord(i32 %r22)
-  %r5 = add i32 ptrtoint(i8* @s2 to i32), 8
-  %r21 = inttoptr i32 %r5 to i32*
-  %r20 = load i32, i32* %r21
-  call void @printWord(i32 %r20)
+  call void @func_b150(%dt1* @val.25, i32 ptrtoint(i8* @s1 to i32))
+  call void @func_b150(%dt1* @val.25, i32 ptrtoint(i8* @s2 to i32))
+  %r7 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r3 = load i32, i32* %r7
+  %r6 = add i32 ptrtoint(i8* @s1 to i32), 4
+  %r5 = inttoptr i32 %r6 to i32*
+  %r4 = load i32, i32* %r5
   %r2 = add i32 ptrtoint(i8* @s2 to i32), 12
-  %r19 = inttoptr i32 %r2 to i32*
-  %r18 = load i32, i32* %r19
-  call void @printWord(i32 %r18)
-  %r17 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
-  %r13 = load i32, i32* %r17
-  %r15 = inttoptr i32 %r16 to i32*
-  %r14 = load i32, i32* %r15
-  %r12 = add i32 %r13, %r14
-  %r11 = inttoptr i32 %r2 to i32*
-  store i32 %r12, i32* %r11
-  %r10 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
-  %r9 = load i32, i32* %r10
-  call void @printWord(i32 %r9)
-  %r7 = inttoptr i32 %r8 to i32*
-  %r6 = load i32, i32* %r7
-  call void @printWord(i32 %r6)
-  %r4 = inttoptr i32 %r5 to i32*
-  %r3 = load i32, i32* %r4
-  call void @printWord(i32 %r3)
-  %r1 = inttoptr i32 %r2 to i32*
-  %r0 = load i32, i32* %r1
-  call void @printWord(i32 %r0)
+  %r1 = add i32 %r3, %r4
+  %r0 = inttoptr i32 %r2 to i32*
+  store i32 %r1, i32* %r0
+  br label %c16
+
+c16:
+  tail call void @func_b150(%dt1* @val.25, i32 ptrtoint(i8* @s2 to i32))
   ret void
 }
 

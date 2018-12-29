@@ -1,0 +1,61 @@
+data List0
+  = Nil0
+  | Cons1 Word List0
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b96 :: [] >>= [Unit]
+b96[] =
+  return Unit
+
+-----------------------------------------
+-- recursive
+b97 :: [List0] >>= [Unit]
+b97[t0] =
+  t1 <- Cons1 0 t0
+  t2 <- Cons1 1 t0
+  t3 <- b95[t2]
+  putchar((t1))
+b95 :: [List0] >>= [Unit]
+b95[t0] =
+  case t0 of
+    Nil0 -> b96[]
+    Cons1 -> b97[t0]
+
+-----------------------------------------
+-- recursive
+b79 :: [Word, List0] >>= [Unit]
+b79[t0, t1] =
+  t2 <- Cons1(t0, t1)
+  b81[t2]
+b81 :: [List0] >>= [Unit]
+b81[t0] =
+  t1 <- getchar(())
+  t2 <- primEq((t1, 45))
+  if t2
+    then b95[t0]
+    else b79[t1, t0]
+
+-----------------------------------------
+-- not recursive
+Nil :: List0
+Nil <-
+  Nil0()
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  b81[Nil]
+
+-----------------------------------------
+-- Entrypoints: main

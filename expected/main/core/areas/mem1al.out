@@ -1,0 +1,213 @@
+@raw.0 = internal global [16 x i8] zeroinitializer, align 16
+
+@s1 = internal alias i8, i8* bitcast([16 x i8]* @raw.0 to i8*)
+
+@raw.1 = internal global [16 x i8] zeroinitializer, align 16
+
+@s2 = internal alias i8, i8* bitcast([16 x i8]* @raw.1 to i8*)
+
+declare void @printWord(i32)
+
+define void @display(i32 %r0) {
+  br label %display
+
+display:
+  %r11 = inttoptr i32 %r0 to i32*
+  %r10 = load i32, i32* %r11
+  call void @printWord(i32 %r10)
+  %r9 = add i32 %r0, 4
+  %r8 = inttoptr i32 %r9 to i32*
+  %r7 = load i32, i32* %r8
+  call void @printWord(i32 %r7)
+  %r6 = add i32 %r0, 8
+  %r5 = inttoptr i32 %r6 to i32*
+  %r4 = load i32, i32* %r5
+  call void @printWord(i32 %r4)
+  %r3 = add i32 %r0, 12
+  %r2 = inttoptr i32 %r3 to i32*
+  %r1 = load i32, i32* %r2
+  call void @printWord(i32 %r1)
+  ret void
+}
+
+define void @main() {
+  br label %main
+
+main:
+  %r35 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r34 = load i32, i32* %r35
+  call void @printWord(i32 %r34)
+  %r16 = add i32 ptrtoint(i8* @s1 to i32), 4
+  %r33 = inttoptr i32 %r16 to i32*
+  %r32 = load i32, i32* %r33
+  call void @printWord(i32 %r32)
+  %r31 = add i32 ptrtoint(i8* @s1 to i32), 8
+  %r30 = inttoptr i32 %r31 to i32*
+  %r29 = load i32, i32* %r30
+  call void @printWord(i32 %r29)
+  %r28 = add i32 ptrtoint(i8* @s1 to i32), 12
+  %r27 = inttoptr i32 %r28 to i32*
+  %r26 = load i32, i32* %r27
+  call void @printWord(i32 %r26)
+  %r25 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  %r24 = load i32, i32* %r25
+  call void @printWord(i32 %r24)
+  %r8 = add i32 ptrtoint(i8* @s2 to i32), 4
+  %r23 = inttoptr i32 %r8 to i32*
+  %r22 = load i32, i32* %r23
+  call void @printWord(i32 %r22)
+  %r5 = add i32 ptrtoint(i8* @s2 to i32), 8
+  %r21 = inttoptr i32 %r5 to i32*
+  %r20 = load i32, i32* %r21
+  call void @printWord(i32 %r20)
+  %r2 = add i32 ptrtoint(i8* @s2 to i32), 12
+  %r19 = inttoptr i32 %r2 to i32*
+  %r18 = load i32, i32* %r19
+  call void @printWord(i32 %r18)
+  %r17 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  %r13 = load i32, i32* %r17
+  %r15 = inttoptr i32 %r16 to i32*
+  %r14 = load i32, i32* %r15
+  %r12 = add i32 %r13, %r14
+  %r11 = inttoptr i32 %r2 to i32*
+  store i32 %r12, i32* %r11
+  %r10 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  %r9 = load i32, i32* %r10
+  call void @printWord(i32 %r9)
+  %r7 = inttoptr i32 %r8 to i32*
+  %r6 = load i32, i32* %r7
+  call void @printWord(i32 %r6)
+  %r4 = inttoptr i32 %r5 to i32*
+  %r3 = load i32, i32* %r4
+  call void @printWord(i32 %r3)
+  %r1 = inttoptr i32 %r2 to i32*
+  %r0 = load i32, i32* %r1
+  call void @printWord(i32 %r0)
+  ret void
+}
+
+define void @writeT(i32 %r0, i32 %r1) {
+  br label %writeT
+
+writeT:
+  %r3 = add i32 %r0, 12
+  %r2 = inttoptr i32 %r3 to i32*
+  store i32 %r1, i32* %r2
+  ret void
+}
+
+define void @writeZ(i32 %r0, i32 %r1) {
+  br label %writeZ
+
+writeZ:
+  %r3 = add i32 %r0, 8
+  %r2 = inttoptr i32 %r3 to i32*
+  store i32 %r1, i32* %r2
+  ret void
+}
+
+define void @writeY(i32 %r0, i32 %r1) {
+  br label %writeY
+
+writeY:
+  %r3 = add i32 %r0, 4
+  %r2 = inttoptr i32 %r3 to i32*
+  store i32 %r1, i32* %r2
+  ret void
+}
+
+define void @writeX(i32 %r0, i32 %r1) {
+  br label %writeX
+
+writeX:
+  %r2 = inttoptr i32 %r0 to i32*
+  store i32 %r1, i32* %r2
+  ret void
+}
+
+define i32 @readT(i32 %r0) {
+  br label %readT
+
+readT:
+  %r3 = add i32 %r0, 12
+  %r2 = inttoptr i32 %r3 to i32*
+  %r1 = load i32, i32* %r2
+  ret i32 %r1
+}
+
+define i32 @readZ(i32 %r0) {
+  br label %readZ
+
+readZ:
+  %r3 = add i32 %r0, 8
+  %r2 = inttoptr i32 %r3 to i32*
+  %r1 = load i32, i32* %r2
+  ret i32 %r1
+}
+
+define i32 @readY(i32 %r0) {
+  br label %readY
+
+readY:
+  %r3 = add i32 %r0, 4
+  %r2 = inttoptr i32 %r3 to i32*
+  %r1 = load i32, i32* %r2
+  ret i32 %r1
+}
+
+define i32 @readX(i32 %r0) {
+  br label %readX
+
+readX:
+  %r2 = inttoptr i32 %r0 to i32*
+  %r1 = load i32, i32* %r2
+  ret i32 %r1
+}
+
+define void @init(i32 %r0) {
+  br label %init
+
+init:
+  %r7 = inttoptr i32 %r0 to i32*
+  store i32 10, i32* %r7
+  %r6 = add i32 %r0, 4
+  %r5 = inttoptr i32 %r6 to i32*
+  store i32 9, i32* %r5
+  %r4 = add i32 %r0, 8
+  %r3 = inttoptr i32 %r4 to i32*
+  store i32 19, i32* %r3
+  %r2 = add i32 %r0, 12
+  %r1 = inttoptr i32 %r2 to i32*
+  store i32 94, i32* %r1
+  ret void
+}
+
+define void @main() {
+  br label %initialize
+
+initialize:
+  %r13 = inttoptr i32 ptrtoint(i8* @s1 to i32) to i32*
+  store i32 10, i32* %r13
+  %r12 = add i32 ptrtoint(i8* @s1 to i32), 4
+  %r11 = inttoptr i32 %r12 to i32*
+  store i32 9, i32* %r11
+  %r10 = add i32 ptrtoint(i8* @s1 to i32), 8
+  %r9 = inttoptr i32 %r10 to i32*
+  store i32 19, i32* %r9
+  %r8 = add i32 ptrtoint(i8* @s1 to i32), 12
+  %r7 = inttoptr i32 %r8 to i32*
+  store i32 94, i32* %r7
+  %r6 = inttoptr i32 ptrtoint(i8* @s2 to i32) to i32*
+  store i32 10, i32* %r6
+  %r5 = add i32 ptrtoint(i8* @s2 to i32), 4
+  %r4 = inttoptr i32 %r5 to i32*
+  store i32 9, i32* %r4
+  %r3 = add i32 ptrtoint(i8* @s2 to i32), 8
+  %r2 = inttoptr i32 %r3 to i32*
+  store i32 19, i32* %r2
+  %r1 = add i32 ptrtoint(i8* @s2 to i32), 12
+  %r0 = inttoptr i32 %r1 to i32*
+  store i32 94, i32* %r0
+  ret void
+}
+

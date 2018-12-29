@@ -153,9 +153,24 @@ genLeqIxM64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
+b82 :: [] >>= [Flag]
+b82[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b81 :: forall (a :: *). [a] >>= [Flag]
+b81[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
 entrypoint leqIx1 :: [Word, Word] >>= [Flag]
 leqIx1[t0, t1] =
-  primUle((t0, t1))
+  t2 <- primUle((t0, t1))
+  if t2
+    then b81[t0]
+    else b82[]
 
 -----------------------------------------
 -- not recursive

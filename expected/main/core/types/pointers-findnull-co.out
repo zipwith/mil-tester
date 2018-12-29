@@ -66,28 +66,19 @@ b79[] =
 
 -----------------------------------------
 -- recursive
+b97 :: [Ptr (Stored Word), Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b97[t0, t1, t2] =
+  t3 <- genIncIx @ Nothing
+  t4 <- t3 @ Just
+  t5 <- t4 @ t1
+  case t5 of
+    Just -> b99[t5, t2]
+    Nothing -> b79[]
 b99 :: [Maybe (Ix 16), Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
 b99[t0, t1] =
   assert t0 Just
   t2 <- Just 0 t0
-  t3 <- at @ t1
-  t4 <- t3 @ t2
-  t5 <- get @ t4
-  t6 <- t5 @ []
-  case t6 of
-    Null -> b82[t1, t2]
-    Ref -> b97[t2, t1]
-b97 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
-b97[t0, t1] =
-  t2 <- genIncIx @ Nothing
-  t3 <- t2 @ Just
-  t4 <- t3 @ t0
-  case t4 of
-    Just -> b99[t4, t1]
-    Nothing -> b79[]
-
------------------------------------------
--- not recursive
+  b83[t2, t1]
 b83 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
 b83[t0, t1] =
   t2 <- at @ t1
@@ -96,7 +87,7 @@ b83[t0, t1] =
   t5 <- t4 @ []
   case t5 of
     Null -> b82[t1, t0]
-    Ref -> b97[t0, t1]
+    Ref -> b97[t5, t0, t1]
 
 -----------------------------------------
 -- not recursive

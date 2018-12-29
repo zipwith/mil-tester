@@ -1,0 +1,58 @@
+data List_Unsigned$f2l0
+  = Nil$f240
+  | Cons$f251 Word List_Unsigned$f2l0
+
+-----------------------------------------
+-- not recursive
+b137 :: [] >>= [Word]
+b137[] =
+  return 0
+
+-----------------------------------------
+-- recursive
+b138 :: [List_Unsigned$f2l0] >>= [Word]
+b138[t0] =
+  t1 <- Cons$f251 0 t0
+  t2 <- Cons$f251 1 t0
+  t3 <- b136[t2]
+  putchar((t1))
+b136 :: [List_Unsigned$f2l0] >>= [Word]
+b136[t0] =
+  case t0 of
+    Nil$f240 -> b137[]
+    Cons$f251 -> b138[t0]
+
+-----------------------------------------
+-- recursive
+b126 :: [Word, List_Unsigned$f2l0] >>= [Word]
+b126[t0, t1] =
+  t2 <- Cons$f251(t0, t1)
+  b129[t2]
+b129 :: [List_Unsigned$f2l0] >>= [Word]
+b129[t0] =
+  t1 <- getchar(())
+  t2 <- primEq((t1, -1))
+  if t2
+    then b136[t0]
+    else b126[t1, t0]
+
+-----------------------------------------
+-- not recursive
+Nil$f24 :: List_Unsigned$f2l0
+Nil$f24 <-
+  Nil$f240()
+
+-----------------------------------------
+-- not recursive
+main :: [] >>= [Word]
+main[] =
+  b129[Nil$f24]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Word]
+initialize[] =
+  main[]
+
+-----------------------------------------
+-- Entrypoints:

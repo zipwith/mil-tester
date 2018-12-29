@@ -73,7 +73,11 @@ b36[t0, t1, t2] =
 -- not recursive
 entrypoint ia6SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia6SW[t0, t1] =
-  b36[t0, t1, 0]
+  [] <- noinline(())
+  t2 <- t0 @ 0
+  t3 <- t2 @ t1
+  t4 <- add((t1, 4))
+  b36[t0, t4, 1]
 
 -----------------------------------------
 -- recursive
@@ -93,7 +97,11 @@ b39[t0, t1, t2] =
 -- not recursive
 entrypoint ia16SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia16SW[t0, t1] =
-  b39[t0, t1, 0]
+  [] <- noinline(())
+  t2 <- t0 @ 0
+  t3 <- t2 @ t1
+  t4 <- add((t1, 4))
+  b39[t0, t4, 1]
 
 -----------------------------------------
 -- not recursive
@@ -132,41 +140,47 @@ cia4SW[t0] =
 
 -----------------------------------------
 -- recursive
-b50 :: [Word, Word] >>= [Unit]
-b50[t0, t1] =
+b48 :: [Word, Word] >>= [Unit]
+b48[t0, t1] =
   [] <- noinline(())
   t2 <- store32((t0, 106))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   t5 <- primUlt((t3, 6))
   if t5
-    then b50[t4, t3]
+    then b48[t4, t3]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia6SW :: [Word] >>= [Unit]
 cia6SW[t0] =
-  b50[t0, 0]
+  [] <- noinline(())
+  t1 <- store32((t0, 106))
+  t2 <- add((t0, 4))
+  b48[t2, 1]
 
 -----------------------------------------
 -- recursive
-b52 :: [Word, Word] >>= [Unit]
-b52[t0, t1] =
+b50 :: [Word, Word] >>= [Unit]
+b50[t0, t1] =
   [] <- noinline(())
   t2 <- store32((t0, 116))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   t5 <- primUlt((t3, 16))
   if t5
-    then b52[t4, t3]
+    then b50[t4, t3]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia16SW :: [Word] >>= [Unit]
 cia16SW[t0] =
-  b52[t0, 0]
+  [] <- noinline(())
+  t1 <- store32((t0, 116))
+  t2 <- add((t0, 4))
+  b50[t2, 1]
 
 -----------------------------------------
 -- not recursive
@@ -200,7 +214,11 @@ b43[t0, t1, t2] =
 -- not recursive
 entrypoint ia7T :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia7T[t0, t1] =
-  b43[t0, t1, 0]
+  [] <- noinline(())
+  t2 <- t0 @ 0
+  t3 <- t2 @ t1
+  t4 <- add((t1, 12))
+  b43[t0, t4, 1]
 
 -----------------------------------------
 -- Entrypoints: ia0SW ia1SW ia2SW ia4SW ia6SW ia16SW cia0SW cia1SW cia2SW cia4SW cia6SW cia16SW ia3T ia7T

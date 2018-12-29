@@ -5,48 +5,45 @@ findNull:
   %r3 = inttoptr i32 %r0 to i32*
   %r2 = load i32, i32* %r3
   %r1 = icmp eq i32 %r2, 0
-  br i1 %r1, label %b118, label %b123
+  br i1 %r1, label %b125, label %b122
 
-b118:
+b125:
   ret i32 %r0
 
-b123:
+b122:
   %r5 = phi i32 [0, %findNull], [%r8, %b106]
   %r7 = phi i32 [%r0, %findNull], [%r6, %b106]
   %r4 = icmp ult i32 %r5, 15
-  br i1 %r4, label %b124, label %b119
+  br i1 %r4, label %b123, label %b118
 
-b124:
-  %r14 = shl i32 %r5, 1
-  %r12 = add i32 %r14, 2
-  %r13 = or i32 %r12, 1
-  %r11 = and i32 %r12, 1
-  %r10 = or i32 %r11, 1
-  %r9 = icmp eq i32 %r10, 1
-  br i1 %r9, label %b106, label %b79
+b123:
+  %r11 = shl i32 %r5, 1
+  %r10 = add i32 %r11, 2
+  %r9 = or i32 %r10, 1
+  br label %b118
 
-b119:
-  %r16 = and i32 0, 1
-  %r15 = icmp eq i32 %r16, 1
-  br i1 %r15, label %b106, label %b79
+b118:
+  %r6 = phi i32 [%r7, %b122], [%r7, %b123]
+  %r14 = phi i32 [0, %b122], [%r9, %b123]
+  %r13 = and i32 %r14, 1
+  %r12 = icmp eq i32 %r13, 1
+  br i1 %r12, label %b106, label %b79
 
 b106:
-  %r22 = phi i32 [%r13, %b124], [0, %b119]
-  %r6 = phi i32 [%r7, %b124], [%r7, %b119]
-  %r8 = lshr i32 %r22, 1
-  %r21 = shl i32 %r8, 2
-  %r20 = add i32 %r6, %r21
-  %r19 = inttoptr i32 %r20 to i32*
-  %r18 = load i32, i32* %r19
-  %r17 = icmp eq i32 %r18, 0
-  br i1 %r17, label %b107, label %b123
+  %r8 = lshr i32 %r14, 1
+  %r19 = shl i32 %r8, 2
+  %r18 = add i32 %r6, %r19
+  %r17 = inttoptr i32 %r18 to i32*
+  %r16 = load i32, i32* %r17
+  %r15 = icmp eq i32 %r16, 0
+  br i1 %r15, label %b107, label %b122
 
 b79:
   ret i32 0
 
 b107:
-  %r24 = shl i32 %r8, 2
-  %r23 = add i32 %r6, %r24
-  ret i32 %r23
+  %r21 = shl i32 %r8, 2
+  %r20 = add i32 %r6, %r21
+  ret i32 %r20
 }
 

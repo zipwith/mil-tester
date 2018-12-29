@@ -1,3 +1,19 @@
+define internal i32 @func_b83(i32 %r0, i32 %r1, i32 %r2) {
+  br label %b83
+
+b83:
+  %r7 = phi i32 [%r0, %0], [%r8, %b83]
+  %r8 = phi i32 [%r1, %0], [%r6, %b83]
+  %r5 = phi i32 [%r2, %0], [%r4, %b83]
+  %r6 = add i32 %r7, %r8
+  %r4 = add i32 %r5, -1
+  %r3 = icmp eq i32 %r4, 0
+  br i1 %r3, label %b84, label %b83
+
+b84:
+  ret i32 %r8
+}
+
 declare void @printWord(i32)
 
 define void @main() {
@@ -7,10 +23,11 @@ initialize:
   br label %main
 
 main:
-  br label %b110
+  br label %b102
 
-b110:
-  call void @printWord(i32 144)
+b102:
+  %r0 = call i32 @func_b83(i32 0, i32 1, i32 12)
+  call void @printWord(i32 %r0)
   ret void
 }
 

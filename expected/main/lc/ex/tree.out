@@ -23,8 +23,8 @@ s3 <-
 
 -----------------------------------------
 -- not recursive
-b135 :: [] >>= [Pair2]
-b135[] =
+b134 :: [] >>= [Pair2]
+b134[] =
   return s3
 
 -----------------------------------------
@@ -36,44 +36,44 @@ b147[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b129 :: [Word] >>= [Pair2]
-b129[t0] =
+b128 :: [Word] >>= [Pair2]
+b128[t0] =
   Pair4(Leaf, t0)
 
 -----------------------------------------
 -- recursive
-b156 :: [Tree0, Word] >>= [Pair2]
-b156[t0, t1] =
+b132 :: [Tree0, Word] >>= [Pair2]
+b132[t0, t1] =
   assert t0 Node1
   t2 <- Node1 0 t0
   t3 <- Node1 2 t0
-  t4 <- b128[t2, t1]
+  t4 <- b127[t2, t1]
   t5 <- Pair4 0 t4
   t6 <- Pair4 1 t4
   t7 <- add((t6, 1))
-  t8 <- b128[t3, t7]
+  t8 <- b127[t3, t7]
   t9 <- Pair4 0 t8
   t10 <- Node3(t5, t6, t9)
   t11 <- Pair4 1 t8
   Pair4(t10, t11)
-b128 :: [Tree0, Word] >>= [Pair2]
-b128[t0, t1] =
+b127 :: [Tree0, Word] >>= [Pair2]
+b127[t0, t1] =
   case t0 of
-    Leaf0 -> b129[t1]
-    Node1 -> b156[t0, t1]
+    Leaf0 -> b128[t1]
+    Node1 -> b132[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b157 :: [Tree0, Word, Word, Tree1] >>= [Pair2]
-b157[t0, t1, t2, t3] =
+b151 :: [Tree0, Word, Word, Tree1] >>= [Pair2]
+b151[t0, t1, t2, t3] =
   assert t0 Node1
   t4 <- Node1 0 t0
   t5 <- Node1 2 t0
-  t6 <- b128[t4, t1]
+  t6 <- b127[t4, t1]
   t7 <- Pair4 0 t6
   t8 <- Pair4 1 t6
   t9 <- add((t8, 1))
-  t10 <- b128[t5, t9]
+  t10 <- b127[t5, t9]
   t11 <- Pair4 0 t10
   t12 <- Node3(t7, t8, t11)
   t13 <- Pair4 1 t10
@@ -82,8 +82,8 @@ b157[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- recursive
-b158 :: [Tree0] >>= [Pair2]
-b158[t0] =
+b137 :: [Tree0] >>= [Pair2]
+b137[t0] =
   assert t0 Node1
   t1 <- Node1 0 t0
   t2 <- Node1 2 t0
@@ -93,12 +93,12 @@ b158[t0] =
   t6 <- add((t5, 1))
   case t2 of
     Leaf0 -> b147[t5, t4, t6]
-    Node1 -> b157[t2, t6, t5, t4]
+    Node1 -> b151[t2, t6, t5, t4]
 entrypoint main :: [Tree0] >>= [Pair2]
 main[t0] =
   case t0 of
-    Leaf0 -> b135[]
-    Node1 -> b158[t0]
+    Leaf0 -> b134[]
+    Node1 -> b137[t0]
 
 -----------------------------------------
 -- Entrypoints: main

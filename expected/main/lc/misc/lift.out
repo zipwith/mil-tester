@@ -94,20 +94,20 @@ k126{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
-s16 :: forall (a :: *) (b :: tuple). [a] ->> b
-s16 <-
+s14 :: forall (a :: *) (b :: tuple). [a] ->> b
+s14 <-
   k126{}
 
 -----------------------------------------
 -- not recursive
-s19 :: forall (a :: *) (b :: tuple) (c :: *) (d :: tuple). Pair ([a] ->> b) ([c] ->> d)
-s19 <-
-  Pair(s16, s16)
+s18 :: forall (a :: *) (b :: tuple) (c :: *) (d :: tuple). Pair ([a] ->> b) ([c] ->> d)
+s18 <-
+  Pair(s14, s14)
 
 -----------------------------------------
 -- not recursive
 k110 :: {} [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
-k110{} t0 = return s19
+k110{} t0 = return s18
 
 -----------------------------------------
 -- not recursive

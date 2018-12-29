@@ -43,7 +43,7 @@ main[t0] =
 -- not recursive
 entrypoint main0 :: Flag
 main0 <-
-  return flag1
+  b83[34]
 
 -----------------------------------------
 -- not recursive
@@ -67,8 +67,8 @@ even <-
 
 -----------------------------------------
 -- not recursive
-b116 :: [Word] >>= [Flag]
-b116[t0] =
+b105 :: [Word] >>= [Flag]
+b105[t0] =
   t1 <- primEq((t0, 0))
   if t1
     then b79[]
@@ -77,7 +77,7 @@ b116[t0] =
 -----------------------------------------
 -- not recursive
 k52 :: {} [Word] ->> [Flag]
-k52{} t0 = b116[t0]
+k52{} t0 = b105[t0]
 
 -----------------------------------------
 -- not recursive

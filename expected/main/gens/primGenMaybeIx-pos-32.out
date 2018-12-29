@@ -153,9 +153,24 @@ genMaybeIxM64[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
+b79 :: [] >>= [Flag]
+b79[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b78 :: forall (a :: *). [a] >>= [Flag]
+b78[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
 entrypoint maybeIx1 :: [Word] >>= [Flag]
 maybeIx1[t0] =
-  primUle((t0, 0))
+  t1 <- primUle((t0, 0))
+  if t1
+    then b78[t0]
+    else b79[]
 
 -----------------------------------------
 -- not recursive

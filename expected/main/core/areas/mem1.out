@@ -1,3 +1,7 @@
+data List4
+  = Nil4
+  | Cons5 ([Word] ->> [[] ->> [Word]]) List4
+
 struct S / 16
   [ x :: Stored Word  {- offset=0 -}
   | y :: Stored Word  {- offset=4 -}
@@ -81,54 +85,165 @@ s1 <- area S aligned 16
 
 -----------------------------------------
 -- not recursive
-s2 :: Word
-s2 <- area S aligned 16
-
------------------------------------------
--- not recursive
 Unit :: Unit
 Unit <-
   Unit()
 
 -----------------------------------------
 -- not recursive
+b145 :: [] >>= [Unit]
+b145[] =
+  return Unit
+
+-----------------------------------------
+-- recursive
+b150 :: [List4, Word] >>= [Unit]
+b150[t0, t1] =
+  t2 <- Cons5 0 t0
+  t3 <- Cons5 1 t0
+  t4 <- t2 @ t1
+  t5 <- t4 @ []
+  [] <- printWord((t5))
+  case t3 of
+    Nil4 -> b145[]
+    Cons5 -> b150[t3, t1]
+
+-----------------------------------------
+-- not recursive
+s2 :: Word
+s2 <- area S aligned 16
+
+-----------------------------------------
+-- not recursive
+Nil :: List4
+Nil <-
+  Nil4()
+
+-----------------------------------------
+-- not recursive
+k95 :: {Word} [] ->> [Word]
+k95{t0} [] = load32((t0))
+
+-----------------------------------------
+-- not recursive
+b127 :: [Word] >>= [[] ->> [Word]]
+b127[t0] =
+  t1 <- add((t0, 12))
+  k95{t1}
+
+-----------------------------------------
+-- not recursive
+k73 :: {} [Word] ->> [[] ->> [Word]]
+k73{} t0 = b127[t0]
+
+-----------------------------------------
+-- not recursive
+readT_impl :: [Word] ->> [[] ->> [Word]]
+readT_impl <-
+  k73{}
+
+-----------------------------------------
+-- not recursive
+s11 :: List4
+s11 <-
+  Cons5(readT_impl, Nil)
+
+-----------------------------------------
+-- not recursive
+b126 :: [Word] >>= [[] ->> [Word]]
+b126[t0] =
+  t1 <- add((t0, 8))
+  k95{t1}
+
+-----------------------------------------
+-- not recursive
+k72 :: {} [Word] ->> [[] ->> [Word]]
+k72{} t0 = b126[t0]
+
+-----------------------------------------
+-- not recursive
+readZ_impl :: [Word] ->> [[] ->> [Word]]
+readZ_impl <-
+  k72{}
+
+-----------------------------------------
+-- not recursive
+s14 :: List4
+s14 <-
+  Cons5(readZ_impl, s11)
+
+-----------------------------------------
+-- not recursive
+b125 :: [Word] >>= [[] ->> [Word]]
+b125[t0] =
+  t1 <- add((t0, 4))
+  k95{t1}
+
+-----------------------------------------
+-- not recursive
+k71 :: {} [Word] ->> [[] ->> [Word]]
+k71{} t0 = b125[t0]
+
+-----------------------------------------
+-- not recursive
+readY_impl :: [Word] ->> [[] ->> [Word]]
+readY_impl <-
+  k71{}
+
+-----------------------------------------
+-- not recursive
+s15 :: List4
+s15 <-
+  Cons5(readY_impl, s14)
+
+-----------------------------------------
+-- not recursive
+k70 :: {} [Word] ->> [[] ->> [Word]]
+k70{} t0 = k95{t0}
+
+-----------------------------------------
+-- not recursive
+readX_impl :: [Word] ->> [[] ->> [Word]]
+readX_impl <-
+  k70{}
+
+-----------------------------------------
+-- not recursive
+s16 :: List4
+s16 <-
+  Cons5(readX_impl, s15)
+
+-----------------------------------------
+-- not recursive
 entrypoint main :: [] >>= [Unit]
 main[] =
-  t0 <- load32((s1))
-  [] <- printWord((t0))
-  t1 <- add((s1, 4))
-  t2 <- load32((t1))
-  [] <- printWord((t2))
-  t3 <- add((s1, 8))
+  t0 <- b150[s16, s1]
+  t1 <- b150[s16, s2]
+  t2 <- load32((s1))
+  t3 <- add((s1, 4))
   t4 <- load32((t3))
-  [] <- printWord((t4))
-  t5 <- add((s1, 12))
-  t6 <- load32((t5))
-  [] <- printWord((t6))
-  t7 <- load32((s2))
-  [] <- printWord((t7))
-  t8 <- add((s2, 4))
-  t9 <- load32((t8))
-  [] <- printWord((t9))
-  t10 <- add((s2, 8))
-  t11 <- load32((t10))
-  [] <- printWord((t11))
-  t12 <- add((s2, 12))
-  t13 <- load32((t12))
-  [] <- printWord((t13))
-  t14 <- load32((s1))
-  t15 <- load32((t1))
-  t16 <- add((t14, t15))
-  t17 <- store32((t12, t16))
-  t18 <- load32((s2))
-  [] <- printWord((t18))
-  t19 <- load32((t8))
-  [] <- printWord((t19))
-  t20 <- load32((t10))
-  [] <- printWord((t20))
-  t21 <- load32((t12))
-  [] <- printWord((t21))
-  return Unit
+  t5 <- add((s2, 12))
+  t6 <- add((t2, t4))
+  t7 <- store32((t5, t6))
+  b150[s16, s2]
+
+-----------------------------------------
+-- not recursive
+s31 :: List4
+s31 <-
+  Cons5(readT_impl, Nil)
+
+-----------------------------------------
+-- not recursive
+s32 :: List4
+s32 <-
+  Cons5(readZ_impl, s31)
+
+-----------------------------------------
+-- not recursive
+s33 :: List4
+s33 <-
+  Cons5(readY_impl, s32)
 
 -----------------------------------------
 -- not recursive
@@ -136,16 +251,7 @@ entrypoint display :: [Word] >>= [Unit]
 display[t0] =
   t1 <- load32((t0))
   [] <- printWord((t1))
-  t2 <- add((t0, 4))
-  t3 <- load32((t2))
-  [] <- printWord((t3))
-  t4 <- add((t0, 8))
-  t5 <- load32((t4))
-  [] <- printWord((t5))
-  t6 <- add((t0, 12))
-  t7 <- load32((t6))
-  [] <- printWord((t7))
-  return Unit
+  b150[s33, t0]
 
 -----------------------------------------
 -- not recursive

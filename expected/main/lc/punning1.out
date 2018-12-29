@@ -20,8 +20,8 @@ set2[t0] =
 
 -----------------------------------------
 -- not recursive
-construct_Perms :: [Flag, Flag, Flag] >>= [Word]
-construct_Perms[t0, t1, t2] =
+entrypoint set4 :: [Flag, Flag, Flag] >>= [Word]
+set4[t0, t1, t2] =
   t3 <- flagToWord((t2))
   t4 <- flagToWord((t1))
   t5 <- shl((t4, 1))
@@ -32,15 +32,15 @@ construct_Perms[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint set4 :: [Flag, Flag, Flag] >>= [Word]
-set4[t0, t1, t2] =
-  construct_Perms[t0, t1, t2]
-
------------------------------------------
--- not recursive
 entrypoint set5 :: [Flag, Flag, Flag] >>= [Word]
 set5[t0, t1, t2] =
-  construct_Perms[t0, t1, t2]
+  t3 <- flagToWord((t2))
+  t4 <- flagToWord((t1))
+  t5 <- shl((t4, 1))
+  t6 <- or((t3, t5))
+  t7 <- flagToWord((t0))
+  t8 <- shl((t7, 2))
+  or((t6, t8))
 
 -----------------------------------------
 -- not recursive

@@ -3,27 +3,51 @@ data Unit
 
 -----------------------------------------
 -- not recursive
+b84 :: [Word] >>= [Word]
+b84[t0] =
+  return t0
+
+-----------------------------------------
+-- recursive
+b83 :: [Word, Word, Word] >>= [Word]
+b83[t0, t1, t2] =
+  t3 <- add((t0, t1))
+  t4 <- add((t2, -1))
+  t5 <- primEq((t4, 0))
+  if t5
+    then b84[t1]
+    else b83[t1, t3, t4]
+
+-----------------------------------------
+-- not recursive
 s1 :: Unit
 s1 <-
   Unit()
 
 -----------------------------------------
 -- not recursive
-b110 :: [] >>= [Unit]
-b110[] =
-  [] <- printWord((144))
+b76 :: [Word] >>= [Unit]
+b76[t0] =
+  [] <- printWord((t0))
   return s1
 
 -----------------------------------------
 -- not recursive
-k59 :: {} [] ->> [Unit]
-k59{} [] = b110[]
+entrypoint printWord1 :: {Word} [] ->> [Unit]
+printWord1{t0} [] = b76[t0]
+
+-----------------------------------------
+-- not recursive
+b90 :: [] >>= [[] ->> [Unit]]
+b90[] =
+  t0 <- b83[0, 1, 12]
+  printWord1{t0}
 
 -----------------------------------------
 -- not recursive
 main :: [] ->> [Unit]
 main <-
-  k59{}
+  b90[]
 
 -----------------------------------------
 -- Entrypoints:

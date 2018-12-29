@@ -23,14 +23,14 @@ isMapped1[t0] =
 
 -----------------------------------------
 -- not recursive
-b97 :: [] >>= [Unit]
-b97[] =
+b102 :: forall (a :: *). [a] >>= [Unit]
+b102[t0] =
   a(())
 
 -----------------------------------------
 -- not recursive
-b96 :: [] >>= [Unit]
-b96[] =
+b101 :: [] >>= [Unit]
+b101[] =
   b(())
 
 -----------------------------------------
@@ -40,8 +40,14 @@ usecase[t0] =
   t1 <- and((t0, 1))
   t2 <- primEq((t1, 0))
   if t2
-    then b96[]
-    else b97[]
+    then b101[]
+    else b102[t0]
+
+-----------------------------------------
+-- not recursive
+b104 :: [] >>= [Unit]
+b104[] =
+  a(())
 
 -----------------------------------------
 -- not recursive
@@ -50,8 +56,8 @@ usecase1[t0] =
   t1 <- and((t0, 1))
   t2 <- primEq((t1, 0))
   if t2
-    then b96[]
-    else b97[]
+    then b101[]
+    else b104[]
 
 -----------------------------------------
 -- Entrypoints: aPDE isMapped isMapped1 usecase usecase1

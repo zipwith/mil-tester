@@ -1,0 +1,170 @@
+struct S / 16
+  [ x :: Stored Word  {- offset=0 -}
+  | y :: Stored Word  {- offset=4 -}
+  | z :: Stored Word  {- offset=8 -}
+  | t :: Stored Word  {- offset=12 -} ]
+  aligned 4
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint init :: [Word] >>= [Unit]
+init[t0] =
+  t1 <- store32((t0, 10))
+  t2 <- add((t0, 4))
+  t3 <- store32((t2, 9))
+  t4 <- add((t0, 8))
+  t5 <- store32((t4, 19))
+  t6 <- add((t0, 12))
+  store32((t6, 94))
+
+-----------------------------------------
+-- not recursive
+entrypoint readX :: [Word] >>= [Word]
+readX[t0] =
+  load32((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint readY :: [Word] >>= [Word]
+readY[t0] =
+  t1 <- add((t0, 4))
+  load32((t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint readZ :: [Word] >>= [Word]
+readZ[t0] =
+  t1 <- add((t0, 8))
+  load32((t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint readT :: [Word] >>= [Word]
+readT[t0] =
+  t1 <- add((t0, 12))
+  load32((t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint writeX :: [Word, Word] >>= [Unit]
+writeX[t0, t1] =
+  store32((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint writeY :: [Word, Word] >>= [Unit]
+writeY[t0, t1] =
+  t2 <- add((t0, 4))
+  store32((t2, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint writeZ :: [Word, Word] >>= [Unit]
+writeZ[t0, t1] =
+  t2 <- add((t0, 8))
+  store32((t2, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint writeT :: [Word, Word] >>= [Unit]
+writeT[t0, t1] =
+  t2 <- add((t0, 12))
+  store32((t2, t1))
+
+-----------------------------------------
+-- not recursive
+s1 :: Word
+s1 <- area S aligned 16
+
+-----------------------------------------
+-- not recursive
+s2 :: Word
+s2 <- area S aligned 16
+
+-----------------------------------------
+-- not recursive
+s3 :: Unit
+s3 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  t0 <- load32((s1))
+  [] <- printWord((t0))
+  t1 <- add((s1, 4))
+  t2 <- load32((t1))
+  [] <- printWord((t2))
+  t3 <- add((s1, 8))
+  t4 <- load32((t3))
+  [] <- printWord((t4))
+  t5 <- add((s1, 12))
+  t6 <- load32((t5))
+  [] <- printWord((t6))
+  t7 <- load32((s2))
+  [] <- printWord((t7))
+  t8 <- add((s2, 4))
+  t9 <- load32((t8))
+  [] <- printWord((t9))
+  t10 <- add((s2, 8))
+  t11 <- load32((t10))
+  [] <- printWord((t11))
+  t12 <- add((s2, 12))
+  t13 <- load32((t12))
+  [] <- printWord((t13))
+  t14 <- load32((s1))
+  t15 <- load32((t1))
+  t16 <- add((t14, t15))
+  t17 <- store32((t12, t16))
+  t18 <- load32((s2))
+  [] <- printWord((t18))
+  t19 <- load32((t8))
+  [] <- printWord((t19))
+  t20 <- load32((t10))
+  [] <- printWord((t20))
+  t21 <- load32((t12))
+  [] <- printWord((t21))
+  return s3
+
+-----------------------------------------
+-- not recursive
+entrypoint display :: [Word] >>= [Unit]
+display[t0] =
+  t1 <- load32((t0))
+  [] <- printWord((t1))
+  t2 <- add((t0, 4))
+  t3 <- load32((t2))
+  [] <- printWord((t3))
+  t4 <- add((t0, 8))
+  t5 <- load32((t4))
+  [] <- printWord((t5))
+  t6 <- add((t0, 12))
+  t7 <- load32((t6))
+  [] <- printWord((t7))
+  return s3
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  t0 <- store32((s1, 10))
+  t1 <- add((s1, 4))
+  t2 <- store32((t1, 9))
+  t3 <- add((s1, 8))
+  t4 <- store32((t3, 19))
+  t5 <- add((s1, 12))
+  t6 <- store32((t5, 94))
+  t7 <- store32((s2, 10))
+  t8 <- add((s2, 4))
+  t9 <- store32((t8, 9))
+  t10 <- add((s2, 8))
+  t11 <- store32((t10, 19))
+  t12 <- add((s2, 12))
+  store32((t12, 94))
+
+-----------------------------------------
+-- Entrypoints: init readX readY readZ readT writeX writeY writeZ writeT main display
