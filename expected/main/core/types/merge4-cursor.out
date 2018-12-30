@@ -1,7 +1,7 @@
 -----------------------------------------
 -- not recursive
-b113 :: [] >>= [Word]
-b113[] =
+b124 :: [] >>= [Word]
+b124[] =
   return 0
 
 -----------------------------------------
@@ -12,26 +12,26 @@ b87[t0] =
 
 -----------------------------------------
 -- recursive
-b120 :: [Word, Word, Word] >>= [Word]
-b120[t0, t1, t2] =
+b118 :: [Word, Word, Word] >>= [Word]
+b118[t0, t1, t2] =
   t3 <- add((t1, 16))
   t4 <- add((t0, -1))
-  b122[t1, t4, t3, t2]
-b122 :: [Word, Word, Word, Word] >>= [Word]
-b122[t0, t1, t2, t3] =
+  b120[t1, t4, t3, t2]
+b120 :: [Word, Word, Word, Word] >>= [Word]
+b120[t0, t1, t2, t3] =
   t4 <- add((t3, 1))
   t5 <- primNeq((t1, 0))
   if t5
-    then b120[t1, t2, t4]
+    then b118[t1, t2, t4]
     else b87[t4]
 
 -----------------------------------------
 -- not recursive
-b125 :: [Word, Word] >>= [Word]
-b125[t0, t1] =
+b123 :: [Word, Word] >>= [Word]
+b123[t0, t1] =
   t2 <- add((t1, 16))
   t3 <- add((t0, -1))
-  b122[t1, t3, t2, 0]
+  b120[t1, t3, t2, 0]
 
 -----------------------------------------
 -- not recursive
@@ -39,8 +39,8 @@ entrypoint count :: [Word, Word] >>= [Word]
 count[t0, t1] =
   t2 <- primNeq((t0, 0))
   if t2
-    then b125[t0, t1]
-    else b113[]
+    then b123[t0, t1]
+    else b124[]
 
 -----------------------------------------
 -- Entrypoints: count

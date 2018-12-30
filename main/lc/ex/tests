@@ -6,7 +6,7 @@ exec: ex-pcoso    ./milc -m ex.lc -pcoso
 exec: ex-pcosoro  ./milc -m ex.lc -pcosoro
 exec: ex-pcosbo   ./milc -m ex.lc -pcosbo
 exec: ex-pcosboro ./milc -m ex.lc -pcosboro
-exec: ex-l        ./milc -l ex.lc
+exec: ex-l        ./milc -l ex.lc --llvm-main=initialize
 
 exec: funlib-l    ./milc -l funlib.lc
 exec: funlib-m    ./milc -m funlib.lc -pcosboro

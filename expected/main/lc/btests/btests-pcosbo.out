@@ -230,21 +230,21 @@ b96[t0] =
 b95 :: [Word] >>= [Word]
 b95[t0] =
   t1 <- add((t0, -1))
-  t2 <- b110[t1]
+  t2 <- b114[t1, 2]
   t3 <- add((t0, -2))
-  t4 <- b110[t3]
+  t4 <- b114[t3, 2]
   add((t2, t4))
-b110 :: [Word] >>= [Word]
-b110[t0] =
-  t1 <- primSlt((t0, 2))
-  if t1
+b114 :: [Word, Word] >>= [Word]
+b114[t0, t1] =
+  t2 <- primSlt((t0, t1))
+  if t2
     then b96[t0]
     else b95[t0]
 
 -----------------------------------------
 -- not recursive
 k62 :: {} [Word] ->> [Word]
-k62{} t0 = b110[t0]
+k62{} t0 = b114[t0, 2]
 
 -----------------------------------------
 -- not recursive

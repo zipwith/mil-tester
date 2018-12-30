@@ -65,20 +65,21 @@ example1 <-
 
 -----------------------------------------
 -- not recursive
-b255 :: [Word, Word] >>= [Word]
-b255[t0, t1] =
-  t2 <- and((t1, -16))
-  or((t2, t0))
+b113 :: [Word, Word, Word] >>= [Word]
+b113[t0, t1, t2] =
+  t3 <- not((t1))
+  t4 <- and((t0, t3))
+  or((t4, t2))
 
 -----------------------------------------
 -- not recursive
-k170 :: {Word} [Word] ->> [Word]
-k170{t0} t1 = b255[t0, t1]
+k87 :: {Word, Word} [Word] ->> [Word]
+k87{t0, t1} t2 = b113[t2, t1, t0]
 
 -----------------------------------------
 -- not recursive
 k93 :: {} [Word] ->> [[Word] ->> [Word]]
-k93{} t0 = k170{t0}
+k93{} t0 = k87{t0, 15}
 
 -----------------------------------------
 -- not recursive
@@ -88,22 +89,10 @@ setTfield <-
 
 -----------------------------------------
 -- not recursive
-b254 :: [Word, Word] >>= [Word]
-b254[t0, t1] =
-  t2 <- and((t1, -4081))
-  or((t2, t0))
-
------------------------------------------
--- not recursive
-k169 :: {Word} [Word] ->> [Word]
-k169{t0} t1 = b254[t0, t1]
-
------------------------------------------
--- not recursive
 b121 :: [Word] >>= [[Word] ->> [Word]]
 b121[t0] =
   t1 <- shl((t0, 4))
-  k169{t1}
+  k87{t1, 4080}
 
 -----------------------------------------
 -- not recursive
@@ -118,22 +107,10 @@ setZfield <-
 
 -----------------------------------------
 -- not recursive
-b253 :: [Word, Word] >>= [Word]
-b253[t0, t1] =
-  t2 <- and((t1, -1044481))
-  or((t2, t0))
-
------------------------------------------
--- not recursive
-k168 :: {Word} [Word] ->> [Word]
-k168{t0} t1 = b253[t0, t1]
-
------------------------------------------
--- not recursive
 b119 :: [Word] >>= [[Word] ->> [Word]]
 b119[t0] =
   t1 <- shl((t0, 12))
-  k168{t1}
+  k87{t1, 1044480}
 
 -----------------------------------------
 -- not recursive
@@ -148,22 +125,10 @@ setYfield <-
 
 -----------------------------------------
 -- not recursive
-b251 :: [Word, Word] >>= [Word]
-b251[t0, t1] =
-  t2 <- and((t1, 1048575))
-  or((t2, t0))
-
------------------------------------------
--- not recursive
-k166 :: {Word} [Word] ->> [Word]
-k166{t0} t1 = b251[t0, t1]
-
------------------------------------------
--- not recursive
 b117 :: [Word] >>= [[Word] ->> [Word]]
 b117[t0] =
   t1 <- shl((t0, 20))
-  k166{t1}
+  k87{t1, -1048576}
 
 -----------------------------------------
 -- not recursive
@@ -175,19 +140,6 @@ k90{} t0 = b117[t0]
 setXfield :: [Word] ->> [[Word] ->> [Word]]
 setXfield <-
   k90{}
-
------------------------------------------
--- not recursive
-b113 :: [Word, Word, Word] >>= [Word]
-b113[t0, t1, t2] =
-  t3 <- not((t1))
-  t4 <- and((t0, t3))
-  or((t4, t2))
-
------------------------------------------
--- not recursive
-k87 :: {Word, Word} [Word] ->> [Word]
-k87{t0, t1} t2 = b113[t2, t1, t0]
 
 -----------------------------------------
 -- not recursive
@@ -213,8 +165,8 @@ bitfields <-
 
 -----------------------------------------
 -- not recursive
-s25 :: Four1
-s25 <-
+s30 :: Four1
+s30 <-
   Four1(-1, -2, -7, -2)
 
 -----------------------------------------
@@ -354,15 +306,15 @@ square <-
 
 -----------------------------------------
 -- not recursive
-s19 :: Three4
-s19 <-
+s31 :: Three4
+s31 <-
   Three4(square, square2, square2)
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: Six5
 main <-
-  Six5(s19, plusses, foos, bars, s25, bitfields)
+  Six5(s31, plusses, foos, bars, s30, bitfields)
 
 -----------------------------------------
 -- Entrypoints: main

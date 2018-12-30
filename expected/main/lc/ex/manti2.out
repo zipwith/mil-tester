@@ -9,29 +9,11 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b106 :: [Word] >>= [Unit]
-b106[t0] =
-  t1 <- mul((t0, 2))
-  t2 <- intToStr((t1))
-  [] <- print((t2))
-  return Unit
-
------------------------------------------
--- recursive
-b105 :: [Word, Word] >>= [Unit]
-b105[t0, t1] =
-  t2 <- add((t1, -1))
-  t3 <- add((t0, t1))
-  t4 <- primEq((t2, 0))
-  if t4
-    then b106[t3]
-    else b105[t3, t2]
-
------------------------------------------
--- not recursive
 entrypoint main :: [] >>= [Unit]
 main[] =
-  b105[1, 6]
+  t0 <- intToStr((44))
+  [] <- print((t0))
+  return Unit
 
 -----------------------------------------
 -- Entrypoints: main

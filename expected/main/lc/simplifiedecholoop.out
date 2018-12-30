@@ -7,6 +7,12 @@ data Unit
 
 -----------------------------------------
 -- not recursive
+Nil :: List0
+Nil <-
+  Nil0()
+
+-----------------------------------------
+-- not recursive
 Unit :: Unit
 Unit <-
   Unit()
@@ -47,15 +53,20 @@ b81[t0] =
 
 -----------------------------------------
 -- not recursive
-Nil :: List0
-Nil <-
-  Nil0()
+b111 :: [Word] >>= [Unit]
+b111[t0] =
+  t1 <- Cons1(t0, Nil)
+  b81[t1]
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: [] >>= [Unit]
 main[] =
-  b81[Nil]
+  t0 <- getchar(())
+  t1 <- primEq((t0, 45))
+  if t1
+    then b96[]
+    else b111[t0]
 
 -----------------------------------------
 -- Entrypoints: main

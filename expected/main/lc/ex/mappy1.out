@@ -10,79 +10,33 @@ Nil <-
 
 -----------------------------------------
 -- not recursive
-b85 :: [] >>= [List0]
-b85[] =
-  return Nil
-
------------------------------------------
--- recursive
-b101 :: [List0] >>= [List0]
-b101[t0] =
-  case t0 of
-    Nil0 -> b85[]
-    Cons1 -> b102[t0]
-b102 :: [List0] >>= [List0]
-b102[t0] =
-  t1 <- Cons1 0 t0
-  t2 <- Cons1 1 t0
-  t3 <- mul((t1, t1))
-  t4 <- b101[t2]
-  Cons1(t3, t4)
-
------------------------------------------
--- not recursive
-s3 :: List0
-s3 <-
-  Cons1(4, Nil)
-
------------------------------------------
--- not recursive
-s4 :: List0
-s4 <-
-  Cons1(3, s3)
-
------------------------------------------
--- not recursive
 s5 :: List0
 s5 <-
-  Cons1(2, s4)
+  Cons1(16, Nil)
 
 -----------------------------------------
 -- not recursive
-xs :: List0
-xs <-
-  Cons1(1, s5)
+s6 :: List0
+s6 <-
+  Cons1(9, s5)
+
+-----------------------------------------
+-- not recursive
+s7 :: List0
+s7 <-
+  Cons1(4, s6)
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: List0
 main <-
-  b102[xs]
-
------------------------------------------
--- not recursive
-b79 :: [Word] >>= [Word]
-b79[t0] =
-  return t0
-
------------------------------------------
--- recursive
-b78 :: [List0, Word] >>= [Word]
-b78[t0, t1] =
-  t2 <- Cons1 1 t0
-  t3 <- add((t1, 1))
-  b80[t2, t3]
-b80 :: [List0, Word] >>= [Word]
-b80[t0, t1] =
-  case t0 of
-    Nil0 -> b79[t1]
-    Cons1 -> b78[t0, t1]
+  Cons1(1, s7)
 
 -----------------------------------------
 -- not recursive
 entrypoint size :: Word
 size <-
-  b80[main, 0]
+  return 4
 
 -----------------------------------------
 -- Entrypoints: main size

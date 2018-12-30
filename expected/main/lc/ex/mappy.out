@@ -4,6 +4,42 @@ data List (a :: *)
 
 -----------------------------------------
 -- not recursive
+entrypoint size :: Word
+size <-
+  return 4
+
+-----------------------------------------
+-- not recursive
+Nil :: forall (a :: *). List a
+Nil <-
+  Nil()
+
+-----------------------------------------
+-- not recursive
+s5 :: List Word
+s5 <-
+  Cons(16, Nil)
+
+-----------------------------------------
+-- not recursive
+s6 :: List Word
+s6 <-
+  Cons(9, s5)
+
+-----------------------------------------
+-- not recursive
+s7 :: List Word
+s7 <-
+  Cons(4, s6)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: List Word
+main <-
+  Cons(1, s7)
+
+-----------------------------------------
+-- not recursive
 b79 :: [Word] >>= [Word]
 b79[t0] =
   return t0
@@ -23,69 +59,6 @@ b80[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-Nil :: forall (a :: *). List a
-Nil <-
-  Nil()
-
------------------------------------------
--- not recursive
-b85 :: forall (a :: *). [] >>= [List a]
-b85[] =
-  return Nil
-
------------------------------------------
--- recursive
-b101 :: [List Word] >>= [List Word]
-b101[t0] =
-  case t0 of
-    Nil -> b85[]
-    Cons -> b102[t0]
-b102 :: [List Word] >>= [List Word]
-b102[t0] =
-  t1 <- Cons 0 t0
-  t2 <- Cons 1 t0
-  t3 <- mul((t1, t1))
-  t4 <- b101[t2]
-  Cons(t3, t4)
-
------------------------------------------
--- not recursive
-s3 :: List Word
-s3 <-
-  Cons(4, Nil)
-
------------------------------------------
--- not recursive
-s4 :: List Word
-s4 <-
-  Cons(3, s3)
-
------------------------------------------
--- not recursive
-s5 :: List Word
-s5 <-
-  Cons(2, s4)
-
------------------------------------------
--- not recursive
-xs :: List Word
-xs <-
-  Cons(1, s5)
-
------------------------------------------
--- not recursive
-entrypoint main :: List Word
-main <-
-  b102[xs]
-
------------------------------------------
--- not recursive
-entrypoint size :: Word
-size <-
-  b80[main, 0]
-
------------------------------------------
--- not recursive
 k52 :: forall (a :: *). {Word} [List a] ->> [Word]
 k52{t0} t1 = b80[t1, t0]
 
@@ -94,6 +67,12 @@ k52{t0} t1 = b80[t1, t0]
 entrypoint length :: forall (a :: *). [List a] ->> [Word]
 length <-
   k52{0}
+
+-----------------------------------------
+-- not recursive
+b85 :: forall (a :: *). [] >>= [List a]
+b85[] =
+  return Nil
 
 -----------------------------------------
 -- recursive

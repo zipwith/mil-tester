@@ -1,9 +1,9 @@
 digraph MIL {
   "main"[style=filled, fillcolor=lightblue];
-  "Nil"[style=filled, fillcolor=white];
-  "main" -> "Nil";
+  "b111"[style=filled, fillcolor=lightblue];
+  "main" -> "b111";
   "b81"[style=filled, fillcolor=lightblue];
-  "main" -> "b81";
+  "b111" -> "b81";
   "b79" -> "b81";
   "b95"[style=filled, fillcolor=lightblue];
   "b81" -> "b95";
@@ -11,9 +11,12 @@ digraph MIL {
   "b97"[style=filled, fillcolor=lightblue];
   "b95" -> "b97";
   "b96"[style=filled, fillcolor=lightblue];
+  "main" -> "b96";
   "b95" -> "b96";
   "Unit"[style=filled, fillcolor=white];
   "b96" -> "Unit";
   "b79"[style=filled, fillcolor=lightblue];
   "b81" -> "b79";
+  "Nil"[style=filled, fillcolor=white];
+  "b111" -> "Nil";
 }

@@ -9,49 +9,33 @@ b117[t0] =
 
 -----------------------------------------
 -- not recursive
-b100 :: [Word] >>= [Unit]
-b100[t0] =
-  t1 <- ashr((t0, 10))
-  t2 <- showDecimal((t1))
-  putChar((75))
+b74 :: [Word, Word, Word] >>= [Unit]
+b74[t0, t1, t2] =
+  t3 <- ashr((t0, t1))
+  t4 <- showDecimal((t3))
+  putChar((t2))
 
 -----------------------------------------
 -- not recursive
-b115 :: [Word] >>= [Unit]
-b115[t0] =
-  t1 <- ashr((t0, 10))
-  t2 <- shl((t1, 10))
-  t3 <- primEq((t2, t0))
-  if t3
-    then b100[t0]
-    else b117[t0]
+b116 :: [Word, Word, Word] >>= [Unit]
+b116[t0, t1, t2] =
+  t3 <- ashr((t2, t1))
+  t4 <- shl((t3, t1))
+  t5 <- primEq((t4, t2))
+  if t5
+    then b74[t2, t1, t0]
+    else b117[t2]
 
 -----------------------------------------
 -- not recursive
-b103 :: [Word] >>= [Unit]
-b103[t0] =
-  t1 <- ashr((t0, 20))
-  t2 <- showDecimal((t1))
-  putChar((77))
-
------------------------------------------
--- not recursive
-b113 :: [Word] >>= [Unit]
-b113[t0] =
-  t1 <- ashr((t0, 20))
-  t2 <- shl((t1, 20))
-  t3 <- primEq((t2, t0))
-  if t3
-    then b103[t0]
-    else b115[t0]
-
------------------------------------------
--- not recursive
-b106 :: [Word] >>= [Unit]
-b106[t0] =
-  t1 <- ashr((t0, 30))
-  t2 <- showDecimal((t1))
-  putChar((71))
+b115 :: [Word, Word, Word, Word, Word] >>= [Unit]
+b115[t0, t1, t2, t3, t4] =
+  t5 <- ashr((t4, t3))
+  t6 <- shl((t5, t3))
+  t7 <- primEq((t6, t4))
+  if t7
+    then b74[t4, t3, t2]
+    else b116[t0, t1, t4]
 
 -----------------------------------------
 -- not recursive
@@ -61,8 +45,8 @@ showSize[t0] =
   t2 <- shl((t1, 30))
   t3 <- primEq((t2, t0))
   if t3
-    then b106[t0]
-    else b113[t0]
+    then b74[t0, 30, 71]
+    else b115[75, 10, 77, 20, t0]
 
 -----------------------------------------
 -- Entrypoints: showSize

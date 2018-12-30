@@ -15,8 +15,8 @@ s <- area S aligned 4
 
 -----------------------------------------
 -- not recursive
-b21 :: [] >>= [Unit]
-b21[] =
+b19 :: [] >>= [Unit]
+b19[] =
   t0 <- store32((s, 17))
   t1 <- add((s, 4))
   t2 <- store32((t1, 99))
@@ -29,7 +29,7 @@ b21[] =
 -- not recursive
 initialize :: [] >>= [Unit]
 initialize[] =
-  b21[]
+  b19[]
 
 -----------------------------------------
 -- Entrypoints: s

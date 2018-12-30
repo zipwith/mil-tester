@@ -13,8 +13,8 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b97 :: [] >>= [Unit]
-b97[] =
+b94 :: [] >>= [Unit]
+b94[] =
   [] <- print((1))
   [] <- print((2))
   [] <- print((3))
@@ -22,8 +22,8 @@ b97[] =
 
 -----------------------------------------
 -- not recursive
-b98 :: [] >>= [Unit]
-b98[] =
+b95 :: [] >>= [Unit]
+b95[] =
   [] <- print((3))
   return Unit
 
@@ -32,8 +32,8 @@ b98[] =
 entrypoint main :: [Maybe0] >>= [Unit]
 main[t0] =
   case t0 of
-    Just1 -> b97[]
-    Nothing0 -> b98[]
+    Just1 -> b94[]
+    Nothing0 -> b95[]
 
 -----------------------------------------
 -- Entrypoints: main

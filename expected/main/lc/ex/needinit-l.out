@@ -2,17 +2,63 @@
 
 @fib12 = global i32 0
 
+define internal i32 @func_b99(i32 %r0, i32 %r1) {
+  br label %b99
+
+b99:
+  %r2 = icmp eq i32 %r0, %r1
+  br i1 %r2, label %b82, label %b95
+
+b82:
+  ret i32 0
+
+b95:
+  %r3 = icmp eq i32 %r0, 1
+  br i1 %r3, label %b80, label %b79
+
+b80:
+  ret i32 1
+
+b79:
+  %r8 = add i32 %r0, -1
+  %r5 = call i32 @func_b99(i32 %r8, i32 0)
+  %r7 = add i32 %r0, -2
+  %r6 = call i32 @func_b99(i32 %r7, i32 0)
+  %r4 = add i32 %r5, %r6
+  ret i32 %r4
+}
+
+define internal i32 @func_b106() {
+  br label %b106
+
+b106:
+  %r1 = call i32 @func_b99(i32 14, i32 0)
+  %r2 = call i32 @func_b99(i32 13, i32 0)
+  %r0 = add i32 %r1, %r2
+  ret i32 %r0
+}
+
+define internal i32 @func_b107() {
+  br label %b107
+
+b107:
+  %r1 = call i32 @func_b99(i32 11, i32 0)
+  %r2 = call i32 @func_b99(i32 10, i32 0)
+  %r0 = add i32 %r1, %r2
+  ret i32 %r0
+}
+
 define i32 @fib(i32 %r0) {
   br label %fib
 
 fib:
   %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b82, label %b98
+  br i1 %r1, label %b82, label %b95
 
 b82:
   ret i32 0
 
-b98:
+b95:
   %r2 = icmp eq i32 %r0, 1
   br i1 %r2, label %b80, label %b79
 
@@ -21,21 +67,21 @@ b80:
 
 b79:
   %r7 = add i32 %r0, -1
-  %r4 = call i32 @fib(i32 %r7)
+  %r4 = call i32 @func_b99(i32 %r7, i32 0)
   %r6 = add i32 %r0, -2
-  %r5 = call i32 @fib(i32 %r6)
+  %r5 = call i32 @func_b99(i32 %r6, i32 0)
   %r3 = add i32 %r4, %r5
   ret i32 %r3
 }
 
 define void @initialize() {
-  %r0 = call i32 @fib(i32 15)
+  %r0 = call i32 @func_b106()
   store i32 %r0, i32* @fib15
-  %r1 = call i32 @fib(i32 12)
+  %r1 = call i32 @func_b107()
   store i32 %r1, i32* @fib12
-  br label %b103
+  br label %b108
 
-b103:
+b108:
   ret void
 }
 

@@ -13,54 +13,39 @@ Nil <-
 
 -----------------------------------------
 -- not recursive
-b78 :: [] >>= [List0]
-b78[] =
-  return Nil
-
------------------------------------------
--- recursive
-b100 :: [List0, Word] >>= [List0]
-b100[t0, t1] =
-  case t0 of
-    Cons1 -> b99[t0, t1]
-    Nil0 -> b78[]
-b99 :: [List0, Word] >>= [List0]
-b99[t0, t1] =
-  t2 <- Cons1 0 t0
-  t3 <- Cons1 1 t0
-  t4 <- add((t2, t1))
-  t5 <- b100[t3, t1]
-  Cons1(t4, t5)
+s9 :: List0
+s9 <-
+  Cons1(5, Nil)
 
 -----------------------------------------
 -- not recursive
-s3 :: List0
-s3 <-
-  Cons1(3, Nil)
-
------------------------------------------
--- not recursive
-s5 :: List0
-s5 <-
-  Cons1(2, s3)
-
------------------------------------------
--- not recursive
-s7 :: List0
-s7 <-
-  Cons1(1, s5)
+s11 :: List0
+s11 <-
+  Cons1(4, s9)
 
 -----------------------------------------
 -- not recursive
 res2 :: List0
 res2 <-
-  b99[s7, 2]
+  Cons1(3, s11)
+
+-----------------------------------------
+-- not recursive
+s10 :: List0
+s10 <-
+  Cons1(4, Nil)
+
+-----------------------------------------
+-- not recursive
+s12 :: List0
+s12 <-
+  Cons1(3, s10)
 
 -----------------------------------------
 -- not recursive
 res1 :: List0
 res1 <-
-  b99[s7, 1]
+  Cons1(2, s12)
 
 -----------------------------------------
 -- not recursive

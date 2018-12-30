@@ -22,3 +22,10 @@ swap7:
   ret i32 %r1
 }
 
+define void @initialize() {
+  br label %b114
+
+b114:
+  ret void
+}
+
