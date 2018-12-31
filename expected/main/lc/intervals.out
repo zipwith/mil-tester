@@ -1,0 +1,520 @@
+data Maybe0
+  = Nothing0
+  | Just1 Word Word
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+b120 :: [Word, Word] >>= [Flag]
+b120[t0, t1] =
+  primSlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+btrue :: [] >>= [Flag]
+btrue[] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint disjoint :: [Word, Word, Word, Word] >>= [Flag]
+disjoint[t0, t1, t2, t3] =
+  t4 <- primSlt((t0, t3))
+  if t4
+    then btrue[]
+    else b120[t2, t1]
+
+-----------------------------------------
+-- not recursive
+bfalse :: [] >>= [Flag]
+bfalse[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b134 :: [Word, Word] >>= [Flag]
+b134[t0, t1] =
+  t2 <- add((t0, 1))
+  primSlt((t2, t1))
+
+-----------------------------------------
+-- not recursive
+b213 :: [Word, Word] >>= [Flag]
+b213[t0, t1] =
+  t2 <- primSlt((t0, t1))
+  if t2
+    then b134[t0, t1]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+b478 :: [Word, Word, Word, Word] >>= [Flag]
+b478[t0, t1, t2, t3] =
+  t4 <- add((t0, 1))
+  t5 <- primSlt((t4, t1))
+  if t5
+    then btrue[]
+    else b213[t3, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint separate :: [Word, Word, Word, Word] >>= [Flag]
+separate[t0, t1, t2, t3] =
+  t4 <- primSlt((t0, t3))
+  if t4
+    then b478[t0, t3, t1, t2]
+    else b213[t2, t1]
+
+-----------------------------------------
+-- not recursive
+b277 :: [Word, Word] >>= [Maybe0]
+b277[t0, t1] =
+  Just1(t0, t1)
+
+-----------------------------------------
+-- not recursive
+b281 :: [Word, Word, Word] >>= [Maybe0]
+b281[t0, t1, t2] =
+  t3 <- primSlt((t0, t1))
+  if t3
+    then b277[t1, t2]
+    else b277[t0, t2]
+
+-----------------------------------------
+-- not recursive
+b142 :: [Word, Word, Word, Word] >>= [Maybe0]
+b142[t0, t1, t2, t3] =
+  t4 <- primSlt((t3, t1))
+  if t4
+    then b281[t0, t2, t3]
+    else b281[t0, t2, t1]
+
+-----------------------------------------
+-- not recursive
+Nothing :: Maybe0
+Nothing <-
+  Nothing0()
+
+-----------------------------------------
+-- not recursive
+b143 :: [] >>= [Maybe0]
+b143[] =
+  return Nothing
+
+-----------------------------------------
+-- not recursive
+b479 :: [Word, Word, Word, Word] >>= [Maybe0]
+b479[t0, t1, t2, t3] =
+  t4 <- add((t0, 1))
+  t5 <- primSlt((t4, t1))
+  if t5
+    then b143[]
+    else b142[t3, t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+b254 :: [Word, Word, Word, Word] >>= [Maybe0]
+b254[t0, t1, t2, t3] =
+  t4 <- primSlt((t0, t3))
+  if t4
+    then b479[t0, t3, t1, t2]
+    else b142[t2, t3, t0, t1]
+
+-----------------------------------------
+-- not recursive
+b480 :: [Word, Word, Word, Word] >>= [Maybe0]
+b480[t0, t1, t2, t3] =
+  t4 <- add((t0, 1))
+  t5 <- primSlt((t4, t1))
+  if t5
+    then b143[]
+    else b254[t3, t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint merge :: [Word, Word, Word, Word] >>= [Maybe0]
+merge[t0, t1, t2, t3] =
+  t4 <- primSlt((t0, t3))
+  if t4
+    then b480[t0, t3, t1, t2]
+    else b254[t2, t3, t0, t1]
+
+-----------------------------------------
+-- not recursive
+b367 :: [Word, Word, Word, Word] >>= [Flag]
+b367[t0, t1, t2, t3] =
+  t4 <- shl((t3, 1))
+  t5 <- shl((t3, 3))
+  t6 <- add((t2, t5))
+  t7 <- store32((t6, t1))
+  t8 <- add((t6, 4))
+  t9 <- store32((t8, t0))
+  t10 <- add((t2, 256))
+  t11 <- store8((t10, t4))
+  return flag1
+
+-----------------------------------------
+-- not recursive
+b268 :: [Word] >>= [Flag]
+b268[t0] =
+  t1 <- add((t0, 256))
+  t2 <- store8((t1, 0))
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b538 :: [Word, Word, Word, Word] >>= [Flag]
+b538[t0, t1, t2, t3] =
+  t4 <- shl((t0, 1))
+  t5 <- shl((t0, 3))
+  t6 <- add((t1, t5))
+  t7 <- store32((t6, t3))
+  t8 <- add((t6, 4))
+  t9 <- store32((t8, t2))
+  t10 <- add((t1, 256))
+  t11 <- store8((t10, t4))
+  return flag1
+
+-----------------------------------------
+-- not recursive
+b609 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b609[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b538[t6, t5, t4, t3]
+    else b268[t5]
+
+-----------------------------------------
+-- not recursive
+b214 :: [Word, Word] >>= [Flag]
+b214[t0, t1] =
+  t2 <- shl((t1, 1))
+  t3 <- add((t0, 256))
+  t4 <- store8((t3, t2))
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b617 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b617[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b538[t6, t5, t4, t3]
+    else b214[t5, t1]
+
+-----------------------------------------
+-- recursive
+b616 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b616[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t1, t2))
+  if t6
+    then b601[1, t4, t5, t3, t2, t0]
+    else b601[1, t4, t5, t3, t1, t0]
+b613 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b613[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primSlt((t3, t0))
+  if t7
+    then b615[t1, t2, t3, t4, t5, t6]
+    else b616[t0, t1, t2, t4, t5, t6]
+b615 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b615[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t0, t1))
+  if t6
+    then b601[1, t4, t5, t3, t1, t2]
+    else b601[1, t4, t5, t3, t0, t2]
+b601 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b601[t0, t1, t2, t3, t4, t5] =
+  t6 <- sub((t2, t0))
+  t7 <- primSle((t1, t6))
+  if t7
+    then b605[t6, t2, t3, t1, t5, t4]
+    else b367[t5, t4, t3, t2]
+b605 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b605[t0, t1, t2, t3, t4, t5] =
+  t6 <- shl((t1, 3))
+  t7 <- add((t2, t6))
+  t8 <- shl((t3, 3))
+  t9 <- add((t2, t8))
+  t10 <- load32((t7))
+  t11 <- add((t7, 4))
+  t12 <- load32((t11))
+  t13 <- store32((t9, t10))
+  t14 <- add((t9, 4))
+  t15 <- store32((t14, t12))
+  b608[t4, t5, t0, t2, t3]
+b611 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b611[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primSlt((t0, t2))
+  if t7
+    then b612[t0, t2, t1, t3, t4, t5, t6]
+    else b613[t2, t3, t0, t1, t4, t5, t6]
+b612 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b612[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- add((t0, 1))
+  t8 <- primSlt((t7, t1))
+  if t8
+    then b614[1, t5, t6, t3, t1, t4]
+    else b613[t1, t3, t0, t2, t4, t5, t6]
+b610 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b610[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- add((t0, 1))
+  t8 <- primSlt((t7, t1))
+  if t8
+    then b614[1, t5, t6, t0, t2, t4]
+    else b611[t3, t1, t2, t0, t4, t5, t6]
+b614 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b614[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b608[t4, t3, t2, t5, t6]
+    else b617[1, t1, 31, t3, t4, t5]
+b608 :: [Word, Word, Word, Word, Word] >>= [Flag]
+b608[t0, t1, t2, t3, t4] =
+  t5 <- shl((t4, 3))
+  t6 <- add((t3, t5))
+  t7 <- load32((t6))
+  t8 <- add((t6, 4))
+  t9 <- load32((t8))
+  t10 <- primSlt((t1, t9))
+  if t10
+    then b610[t1, t9, t0, t7, t3, t4, t2]
+    else b611[t7, t9, t0, t1, t3, t4, t2]
+
+-----------------------------------------
+-- not recursive
+b604 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b604[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b608[t4, t3, t2, t5, t6]
+    else b609[1, 0, 31, t3, t4, t5]
+
+-----------------------------------------
+-- recursive
+b602 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b602[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t0, 1))
+  t7 <- primSlt((t6, t1))
+  if t7
+    then b604[1, 0, t5, t3, t1, t4]
+    else b603[t1, t3, t0, t2, t4, t5]
+b599 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b599[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t0, 1))
+  t7 <- primSlt((t6, t1))
+  if t7
+    then b604[1, 0, t5, t0, t2, t4]
+    else b600[t3, t1, t2, t0, t4, t5]
+b607 :: [Word, Word, Word, Word, Word] >>= [Flag]
+b607[t0, t1, t2, t3, t4] =
+  t5 <- primSlt((t1, t2))
+  if t5
+    then b590[1, 0, t4, t3, t2, t0]
+    else b590[1, 0, t4, t3, t1, t0]
+b590 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b590[t0, t1, t2, t3, t4, t5] =
+  t6 <- sub((t2, t0))
+  t7 <- primSle((t1, t6))
+  if t7
+    then b595[t6, t2, t3, t5, t4]
+    else b367[t5, t4, t3, t2]
+b595 :: [Word, Word, Word, Word, Word] >>= [Flag]
+b595[t0, t1, t2, t3, t4] =
+  t5 <- shl((t1, 3))
+  t6 <- add((t2, t5))
+  t7 <- load32((t6))
+  t8 <- add((t6, 4))
+  t9 <- load32((t8))
+  t10 <- store32((t2, t7))
+  t11 <- add((t2, 4))
+  t12 <- store32((t11, t9))
+  t13 <- load32((t2))
+  t14 <- load32((t11))
+  t15 <- primSlt((t4, t14))
+  if t15
+    then b599[t4, t14, t3, t13, t2, t0]
+    else b600[t13, t14, t3, t4, t2, t0]
+b600 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b600[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t0, t2))
+  if t6
+    then b602[t0, t2, t1, t3, t4, t5]
+    else b603[t2, t3, t0, t1, t4, t5]
+b603 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b603[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t3, t0))
+  if t6
+    then b606[t1, t2, t3, t4, t5]
+    else b607[t0, t1, t2, t4, t5]
+b606 :: [Word, Word, Word, Word, Word] >>= [Flag]
+b606[t0, t1, t2, t3, t4] =
+  t5 <- primSlt((t0, t1))
+  if t5
+    then b590[1, 0, t4, t3, t1, t2]
+    else b590[1, 0, t4, t3, t0, t2]
+
+-----------------------------------------
+-- not recursive
+b517 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b517[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t3, t1))
+  if t6
+    then b606[t0, t2, t3, t4, t5]
+    else b606[t0, t2, t1, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b566 :: [Word, Word, Word, Word] >>= [Flag]
+b566[t0, t1, t2, t3] =
+  t4 <- shl((t0, 1))
+  t5 <- shl((t0, 3))
+  t6 <- add((t1, t5))
+  t7 <- store32((t6, t2))
+  t8 <- add((t6, 4))
+  t9 <- store32((t8, t3))
+  t10 <- add((t1, 256))
+  t11 <- store8((t10, t4))
+  return flag1
+
+-----------------------------------------
+-- not recursive
+b593 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b593[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primSlt((t3, t1))
+  if t7
+    then b615[t0, t2, t3, t4, t5, t6]
+    else b615[t0, t2, t1, t4, t5, t6]
+
+-----------------------------------------
+-- not recursive
+b598 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b598[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b566[t6, t5, t4, t3]
+    else b214[t5, t1]
+
+-----------------------------------------
+-- recursive
+b587 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b587[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- primSlt((t0, t3))
+  if t7
+    then b592[t0, t3, t1, t2, t4, t5, t6]
+    else b593[t2, t3, t0, t1, t4, t5, t6]
+b592 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b592[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- add((t0, 1))
+  t8 <- primSlt((t7, t1))
+  if t8
+    then b594[1, t5, t6, t1, t3, t4]
+    else b593[t3, t1, t0, t2, t4, t5, t6]
+b586 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Flag]
+b586[t0, t1, t2, t3, t4, t5, t6] =
+  t7 <- add((t0, 1))
+  t8 <- primSlt((t7, t1))
+  if t8
+    then b594[1, t5, t6, t2, t0, t4]
+    else b587[t3, t1, t0, t2, t4, t5, t6]
+b594 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b594[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b597[t6, t5, t2, t4, t3]
+    else b598[1, t1, 31, t3, t4, t5]
+b597 :: [Word, Word, Word, Word, Word] >>= [Flag]
+b597[t0, t1, t2, t3, t4] =
+  t5 <- shl((t0, 3))
+  t6 <- add((t1, t5))
+  t7 <- load32((t6))
+  t8 <- add((t6, 4))
+  t9 <- load32((t8))
+  t10 <- primSlt((t3, t9))
+  if t10
+    then b586[t3, t9, t4, t7, t1, t0, t2]
+    else b587[t7, t9, t3, t4, t1, t0, t2]
+
+-----------------------------------------
+-- not recursive
+b589 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b589[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t1, t0))
+  t7 <- primUle((t6, t2))
+  if t7
+    then b597[t6, t5, t2, t4, t3]
+    else b566[1, t5, t4, t3]
+
+-----------------------------------------
+-- not recursive
+b516 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b516[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t0, 1))
+  t7 <- primSlt((t6, t1))
+  if t7
+    then b589[1, 0, t5, t1, t3, t4]
+    else b517[t3, t1, t0, t2, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b511 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b511[t0, t1, t2, t3, t4, t5] =
+  t6 <- primSlt((t0, t3))
+  if t6
+    then b516[t0, t3, t1, t2, t4, t5]
+    else b517[t2, t3, t0, t1, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b510 :: [Word, Word, Word, Word, Word, Word] >>= [Flag]
+b510[t0, t1, t2, t3, t4, t5] =
+  t6 <- add((t0, 1))
+  t7 <- primSlt((t6, t1))
+  if t7
+    then b589[1, 0, t5, t2, t0, t4]
+    else b511[t3, t1, t0, t2, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b507 :: [Word, Word, Word, Word] >>= [Flag]
+b507[t0, t1, t2, t3] =
+  t4 <- lshr((t0, 1))
+  t5 <- load32((t1))
+  t6 <- add((t1, 4))
+  t7 <- load32((t6))
+  t8 <- primSlt((t2, t7))
+  if t8
+    then b510[t2, t7, t3, t5, t1, t4]
+    else b511[t5, t7, t2, t3, t1, t4]
+
+-----------------------------------------
+-- not recursive
+b294 :: [Word, Word, Word] >>= [Flag]
+b294[t0, t1, t2] =
+  t3 <- store32((t2, t0))
+  t4 <- add((t2, 4))
+  t5 <- store32((t4, t1))
+  t6 <- add((t2, 256))
+  t7 <- store8((t6, 0))
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint insertInterval :: [Word, Word, Word] >>= [Flag]
+insertInterval[t0, t1, t2] =
+  t3 <- add((t0, 256))
+  t4 <- load8((t3))
+  t5 <- primEq((t4, 1))
+  if t5
+    then b294[t1, t2, t0]
+    else b507[t4, t0, t1, t2]
+
+-----------------------------------------
+-- Entrypoints: disjoint separate merge insertInterval

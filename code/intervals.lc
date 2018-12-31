@@ -1,0 +1,96 @@
+require "prelude.lc"
+
+(+) = add
+(<) = lt
+(==) = eq
+
+(@) = at
+
+bitdata Interval = Interval [ lo :: Word | hi :: Word ]
+
+entrypoint disjoint    :: Interval -> Interval -> Bool
+disjoint i j = before i j || before j i
+ where before    :: Interval -> Interval -> Bool
+       before i j = i.hi < j.lo
+
+entrypoint separate    :: Interval -> Interval -> Bool
+separate i j = strictlyBefore i j || strictlyBefore j i
+ where strictlyBefore    :: Interval -> Interval -> Bool
+       strictlyBefore i j = i.hi << j.lo
+       x << y             = (x < y) && ((x+1) < y)
+
+entrypoint merge    :: Interval -> Interval -> Maybe Interval
+merge i j = if separate i j
+              then Nothing
+              else Just Interval[ lo = i.lo `min` j.lo
+                                | hi = i.hi `max` j.hi ]
+
+min, max :: Word -> Word -> Word
+x `min` y = if y < x then y else x
+x `max` y = if x < y then y else x
+
+struct IntervalSet
+  [ array :: Array NumIntervals (Stored Interval)
+  | last  :: Stored Last ]
+
+type NumIntervals  = 32
+
+bitdata Last = Empty [                         1 ]
+             | Last  [ n :: Ix NumIntervals | B0 ]
+
+entrypoint insertInterval :: Ref IntervalSet -> Interval -> Proc Bool
+insertInterval intset int
+  = case<- get intset.last of
+      Empty  -> saveLast ix0 int
+      Last l -> loop ix0 l.n int
+ where 
+  loop i n int
+    = do inti <- get (intset.array @ i)
+         case merge int inti of
+           Nothing ->
+             case i `ltInc` n of
+               Just j  ->
+                 loop j n int
+
+               Nothing ->
+                 case incIx i of
+                   Nothing -> lastAt i False
+                   Just j  -> saveLast j int
+
+           Just newint ->
+             case i `ltDec` n of
+               Nothing ->
+                 saveLast n newint
+
+               Just newn ->
+                 do (intset.array @ n) >-> (intset.array @ i)
+                    loop i newn newint
+
+  saveLast n int = do set (intset.array @ n) int
+                      lastAt n True
+
+  lastAt n b = do set intset.last (Last [n])
+                  return b
+
+external at       {@ n a}                 :: Ref (Array n a) -> Ix n -> Ref a
+external get      {primReadRefStored t}   :: Ref (Stored t) -> Proc t
+external set      {primWriteRefStored t}  :: Ref (Stored t) -> t -> Proc Unit
+external ix0u     {primIxFromLiteral 0 n} :: Unit -> Ix n
+external ix1u     {primIxFromLiteral 1 n} :: Unit -> Ix n
+external maxBound {primIxMaxBound m}      :: Ix m
+external genLtInc {primGenLtInc (Maybe (Ix m)) m},
+         genLtDec {primGenLtDec (Maybe (Ix m)) m}
+   :: Maybe (Ix m) -> (Ix m -> Maybe (Ix m)) -> Ix m -> Ix m -> Ix m -> Maybe (Ix m)
+
+src >-> dst  = get src >>= set dst
+c >>= f      = do r <- c; f r
+ix0          = ix0u Unit
+ix1          = ix1u Unit
+
+ltInc, ltDec :: Ix n -> Ix n -> Maybe (Ix n)
+ltInc = genLtInc Nothing Just ix1
+ltDec = genLtDec Nothing Just ix1
+
+export incIx :: Ix n -> Maybe (Ix n)
+incIx i = i   `ltInc` maxBound
+

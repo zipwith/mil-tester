@@ -1,0 +1,50 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0b0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0b1
+
+-- bit pattern:
+--  _
+
+data Pair (a :: *) (b :: *)
+  = Pair a b
+
+-----------------------------------------
+-- not recursive
+s1 :: Bool
+s1 <-
+  True()
+
+-----------------------------------------
+-- not recursive
+b90 :: forall (a :: *). [a] >>= [Pair Bool a]
+b90[t0] =
+  Pair(s1, t0)
+
+-----------------------------------------
+-- not recursive
+b84 :: forall (a :: *). [Bool, a] >>= [Pair Bool a]
+b84[t0, t1] =
+  case t0 of
+    True -> b90[t1]
+    False -> b90[t1]
+
+-----------------------------------------
+-- not recursive
+k54 :: forall (a :: *). {Bool} [a] ->> [Pair Bool a]
+k54{t0} t1 = b84[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k55 :: forall (a :: *). {} [Bool] ->> [[a] ->> [Pair Bool a]]
+k55{} t0 = k54{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint f :: forall (b :: *). [Bool] ->> [[b] ->> [Pair Bool b]]
+f <-
+  k55{}
+
+-----------------------------------------
+-- Entrypoints: f
