@@ -6,12 +6,12 @@ exec: ex-pcoso    ./milc -m ex.lc -pcoso
 exec: ex-pcosoro  ./milc -m ex.lc -pcosoro
 exec: ex-pcosbo   ./milc -m ex.lc -pcosbo
 exec: ex-pcosboro ./milc -m ex.lc -pcosboro
-exec: ex-l        ./milc -l ex.lc --llvm-main=initialize
+exec: ex-l        ./milc -l ex.lc --llvm-main=initialize -pcosboros
 
-exec: funlib-l    ./milc -l funlib.lc
+exec: funlib-l    ./milc -l funlib.lc -pcosboros
 exec: funlib-m    ./milc -m funlib.lc -pcosboro
 
-exec: needinit-l  ./milc -l needinit.lc --llvm-main=initialize
+exec: needinit-l  ./milc -l needinit.lc --llvm-main=initialize -pcosboros
 exec: needinit-m  ./milc -m needinit.lc
 
 exec: program-l   ./milc --standalone -l program.lc
@@ -29,7 +29,7 @@ exec: manti2      ./milc -m -pcosoboro manti2.lc
 exec: manti3      ./milc -m -pcosoboro manti3.lc
 exec: manti4      ./milc -m -pcosoboro manti4.lc
 
-exec: cfgtests    ./milc -l cfgtest.lc
+exec: cfgtests    ./milc -l cfgtest.lc -pcosboros
 
 exec: holes       ./milc holes.lc -m -pco
 

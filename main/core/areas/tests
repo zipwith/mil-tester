@@ -56,5 +56,5 @@ exec: mem1a     ./milc -m --32 mem1a.lc -pcosoboro
 exec: mem1al    ./milc -l --32 mem1a.lc --llvm-main=main
 ------------
 exec: mem2      ./milc -m --32 mem2.lc -pcosoboro
-exec: mem2l     ./milc -l --32 mem2.lc --llvm-main=main
+exec: mem2l     ./milc -l --32 mem2.lc --llvm-main=main -pcosboros
 ------------

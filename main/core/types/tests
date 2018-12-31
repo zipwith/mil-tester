@@ -40,14 +40,14 @@ exec: pointers-deref-coso       ./milc -m -pcoso     --32 deref.lc
 exec: pointers-deref-cosobo     ./milc -m -pcosobo   --32 deref.lc
 exec: pointers-deref-cosoro     ./milc -m -pcosoro   --32 deref.lc
 exec: pointers-deref-cosoboro   ./milc -m -pcosoboro --32 deref.lc
-exec: pointers-deref-l          ./milc -l            --32 deref.lc
+exec: pointers-deref-l          ./milc -l -pcosboros --32 deref.lc
 --------------
 exec: pointers-findnull-co       ./milc -m -pco       --32  findnull.lc
 exec: pointers-findnull-coso     ./milc -m -pcoso     --32  findnull.lc
 exec: pointers-findnull-cosobo   ./milc -m -pcosobo   --32  findnull.lc
 exec: pointers-findnull-cosoro   ./milc -m -pcosoro   --32  findnull.lc
 exec: pointers-findnull-cosoboro ./milc -m -pcosoboro --32  findnull.lc
-exec: pointers-findnull-l        ./milc -l            --32  findnull.lc
+exec: pointers-findnull-l        ./milc -l -pcosboros --32  findnull.lc
 --------------
 .lc: merge1   ./milc -m -pcosoro
 require "prelude.lc"

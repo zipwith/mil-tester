@@ -2,4 +2,4 @@ exec: btests-m         ./milc btests.lc -m
 exec: btests-pcosbo    ./milc btests.lc -m -pcosbo
 exec: btests-pcosboro  ./milc btests.lc -m -pcosboro
 exec: btests-pcosoro   ./milc btests.lc -m -pcosoro
-exec: btests-l         ./milc btests.lc -l --llvm-main=initialize
+exec: btests-l         ./milc btests.lc -l --llvm-main=initialize -pcosboros
