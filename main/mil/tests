@@ -214,3 +214,23 @@ external bit5ToWord  {primBitToWord 5}  :: [Bit 5]  ->> [Word]
 external bit27ToWord {primBitToWord 27} :: [Bit 27] ->> [Word]
 
 -------
+.mil:  closure-chains   ./milc -p -m
+type A :: *
+type B :: *
+type C :: *
+
+primitive p :: [A,B] >>= [C]
+
+entrypoint bar
+bar <- {x,y} p((x,y))
+
+entrypoint baz
+baz <- {w} return w
+
+entrypoint foo
+primitive foo impure {} :: [Word, Word] >>= [Word]
+
+entrypoint foo1
+primitive foo1 impure {} [] :: [Word, Word] >>= [Word]
+
+-------

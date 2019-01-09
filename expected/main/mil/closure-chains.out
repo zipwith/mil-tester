@@ -1,0 +1,140 @@
+data -> (a :: *) (b :: *)
+  = Func ([a] ->> [b])
+
+data Proc (a :: *)
+  = Proc ([] ->> [a])
+
+-----------------------------------------
+-- not recursive
+k5 :: {Word, Word} [] ->> [Word]
+k5{t0, t1} [] = foo1((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b6 :: [Word, Word] >>= [Proc Word]
+b6[t0, t1] =
+  t2 <- k5{t0, t1}
+  Proc(t2)
+
+-----------------------------------------
+-- not recursive
+k6 :: {Word} [Word] ->> [Proc Word]
+k6{t0} t1 = b6[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b7 :: [Word] >>= [Word -> Proc Word]
+b7[t0] =
+  t1 <- k6{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k7 :: {} [Word] ->> [Word -> Proc Word]
+k7{} t0 = b7[t0]
+
+-----------------------------------------
+-- not recursive
+b8 :: [] >>= [Word -> Word -> Proc Word]
+b8[] =
+  t0 <- k7{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint foo1 :: Word -> Word -> Proc Word
+foo1 <-
+  b8[]
+
+-----------------------------------------
+-- not recursive
+k3 :: {Word} [Word] ->> [Word]
+k3{t0} t1 = foo((t0, t1))
+
+-----------------------------------------
+-- not recursive
+b4 :: [Word] >>= [Word -> Word]
+b4[t0] =
+  t1 <- k3{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Word] ->> [Word -> Word]
+k4{} t0 = b4[t0]
+
+-----------------------------------------
+-- not recursive
+b5 :: [] >>= [Word -> Word -> Word]
+b5[] =
+  t0 <- k4{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint foo :: Word -> Word -> Word
+foo <-
+  b5[]
+
+-----------------------------------------
+-- not recursive
+b12 :: forall (a :: *). [a] >>= [a]
+b12[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+k10 :: forall (a :: *). {} [a] ->> [a]
+k10{} t0 = b12[t0]
+
+-----------------------------------------
+-- not recursive
+b13 :: forall (a :: *). [] >>= [a -> a]
+b13[] =
+  t0 <- k10{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint baz :: forall (a :: *). a -> a
+baz <-
+  b13[]
+
+-----------------------------------------
+-- not recursive
+b9 :: [A, B] >>= [C]
+b9[t0, t1] =
+  p((t0, t1))
+
+-----------------------------------------
+-- not recursive
+k8 :: {A} [B] ->> [C]
+k8{t0} t1 = b9[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b10 :: [A] >>= [B -> C]
+b10[t0] =
+  t1 <- k8{t0}
+  Func(t1)
+
+-----------------------------------------
+-- not recursive
+k9 :: {} [A] ->> [B -> C]
+k9{} t0 = b10[t0]
+
+-----------------------------------------
+-- not recursive
+b11 :: [] >>= [A -> B -> C]
+b11[] =
+  t0 <- k9{}
+  Func(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint bar :: A -> B -> C
+bar <-
+  b11[]
+
+-----------------------------------------
+-- Entrypoints: foo1 foo baz bar
