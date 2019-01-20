@@ -1,29 +1,29 @@
 -----------------------------------------
 -- not recursive
-entrypoint mkPCI0 :: [Word, Word, Word] >>= [Word]
-mkPCI0[t0, t1, t2] =
+construct_PCI :: [Word, Word, Word] >>= [Word]
+construct_PCI[t0, t1, t2] =
   t3 <- shl((t1, 3))
   t4 <- or((t2, t3))
   t5 <- shl((t0, 8))
   or((t4, t5))
+
+-----------------------------------------
+-- not recursive
+entrypoint mkPCI0 :: [Word, Word, Word] >>= [Word]
+mkPCI0[t0, t1, t2] =
+  construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
 entrypoint mkPCI1 :: [Word, Word, Word] >>= [Word]
 mkPCI1[t0, t1, t2] =
-  t3 <- shl((t1, 3))
-  t4 <- or((t2, t3))
-  t5 <- shl((t0, 8))
-  or((t4, t5))
+  construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
 entrypoint mkPCI2 :: [Word, Word, Word] >>= [Word]
 mkPCI2[t0, t1, t2] =
-  t3 <- shl((t1, 3))
-  t4 <- or((t2, t3))
-  t5 <- shl((t0, 8))
-  or((t4, t5))
+  construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive

@@ -32,8 +32,8 @@ fromNat <-
 
 -----------------------------------------
 -- not recursive
-entrypoint bx :: [Word, Word, Word, Word] >>= [Word, Word]
-bx[t0, t1, t2, t3] =
+entrypoint b :: [Word, Word, Word, Word] >>= [Word, Word]
+b[t0, t1, t2, t3] =
   [t4, t5] <- subc0((t1, t3))
   [t6, t7] <- subc((t0, t2, t5))
   return [t4, t6]
@@ -41,7 +41,7 @@ bx[t0, t1, t2, t3] =
 -----------------------------------------
 -- not recursive
 entrypoint kb :: {Word, Word} [Word, Word] ->> [Word, Word]
-kb{t0, t1} [t2, t3] = bx[t0, t1, t2, t3]
+kb{t0, t1} [t2, t3] = b[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
@@ -53,14 +53,6 @@ ka{} [t0, t1] = kb{t0, t1}
 entrypoint subx :: [Word, Word] ->> [[Word, Word] ->> [Word, Word]]
 subx <-
   ka{}
-
------------------------------------------
--- not recursive
-entrypoint b :: [Word, Word, Word, Word] >>= [Word, Word]
-b[t0, t1, t2, t3] =
-  [t4, t5] <- subc0((t1, t3))
-  [t6, t7] <- subc((t0, t2, t5))
-  return [t4, t6]
 
 -----------------------------------------
 -- not recursive

@@ -120,12 +120,6 @@ b96[t0] =
 
 -----------------------------------------
 -- recursive
-b114 :: [Word, Word] >>= [Word]
-b114[t0, t1] =
-  t2 <- primSlt((t0, t1))
-  if t2
-    then b96[t0]
-    else b95[t0]
 b95 :: [Word] >>= [Word]
 b95[t0] =
   t1 <- add((t0, -1))
@@ -133,15 +127,18 @@ b95[t0] =
   t3 <- add((t0, -2))
   t4 <- b114[t3, 2]
   add((t2, t4))
+b114 :: [Word, Word] >>= [Word]
+b114[t0, t1] =
+  t2 <- primSlt((t0, t1))
+  if t2
+    then b96[t0]
+    else b95[t0]
 
 -----------------------------------------
 -- not recursive
 entrypoint fib :: [Word] >>= [Word]
 fib[t0] =
-  t1 <- primSlt((t0, 2))
-  if t1
-    then b96[t0]
-    else b95[t0]
+  b114[t0, 2]
 
 -----------------------------------------
 -- Entrypoints: origin no elf swap color flag [wide,wide1] add3 const fib

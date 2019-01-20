@@ -16,11 +16,6 @@ b79[] =
 
 -----------------------------------------
 -- recursive
-b102 :: [List0, Word] >>= [List0]
-b102[t0, t1] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b103[t0, t1]
 b103 :: [List0, Word] >>= [List0]
 b103[t0, t1] =
   t2 <- Cons1 0 t0
@@ -28,22 +23,20 @@ b103[t0, t1] =
   t4 <- add((t1, t2))
   t5 <- b102[t3, t1]
   Cons1(t4, t5)
+b102 :: [List0, Word] >>= [List0]
+b102[t0, t1] =
+  case t0 of
+    Nil0 -> b79[]
+    Cons1 -> b103[t0, t1]
 
 -----------------------------------------
 -- not recursive
 entrypoint mapsucc :: [List0] >>= [List0]
 mapsucc[t0] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b103[t0, 1]
+  b102[t0, 1]
 
 -----------------------------------------
 -- recursive
-b104 :: [List0, Word] >>= [List0]
-b104[t0, t1] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b105[t0, t1]
 b105 :: [List0, Word] >>= [List0]
 b105[t0, t1] =
   t2 <- Cons1 0 t0
@@ -51,22 +44,20 @@ b105[t0, t1] =
   t4 <- mul((t1, t2))
   t5 <- b104[t3, t1]
   Cons1(t4, t5)
+b104 :: [List0, Word] >>= [List0]
+b104[t0, t1] =
+  case t0 of
+    Nil0 -> b79[]
+    Cons1 -> b105[t0, t1]
 
 -----------------------------------------
 -- not recursive
 entrypoint mapdouble :: [List0] >>= [List0]
 mapdouble[t0] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b105[t0, 2]
+  b104[t0, 2]
 
 -----------------------------------------
 -- recursive
-b106 :: forall (a :: *). [List0, [Word] ->> [a], [a] ->> [Word]] >>= [List0]
-b106[t0, t1, t2] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b107[t0, t1, t2]
 b107 :: forall (a :: *). [List0, [Word] ->> [a], [a] ->> [Word]] >>= [List0]
 b107[t0, t1, t2] =
   t3 <- Cons1 0 t0
@@ -75,22 +66,20 @@ b107[t0, t1, t2] =
   t6 <- t2 @ t5
   t7 <- b106[t4, t1, t2]
   Cons1(t6, t7)
+b106 :: forall (a :: *). [List0, [Word] ->> [a], [a] ->> [Word]] >>= [List0]
+b106[t0, t1, t2] =
+  case t0 of
+    Nil0 -> b79[]
+    Cons1 -> b107[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
 entrypoint mapcomp :: [[Word] ->> [Word], [Word] ->> [Word], List0] >>= [List0]
 mapcomp[t0, t1, t2] =
-  case t2 of
-    Nil0 -> b79[]
-    Cons1 -> b107[t2, t1, t0]
+  b106[t2, t1, t0]
 
 -----------------------------------------
 -- recursive
-b108 :: [List0, Word, Word] >>= [List0]
-b108[t0, t1, t2] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b109[t0, t1, t2]
 b109 :: [List0, Word, Word] >>= [List0]
 b109[t0, t1, t2] =
   t3 <- Cons1 0 t0
@@ -99,14 +88,17 @@ b109[t0, t1, t2] =
   t6 <- add((t2, t5))
   t7 <- b108[t4, t1, t2]
   Cons1(t6, t7)
+b108 :: [List0, Word, Word] >>= [List0]
+b108[t0, t1, t2] =
+  case t0 of
+    Nil0 -> b79[]
+    Cons1 -> b109[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
 entrypoint maptoodd :: [List0] >>= [List0]
 maptoodd[t0] =
-  case t0 of
-    Nil0 -> b79[]
-    Cons1 -> b109[t0, 2, 1]
+  b108[t0, 2, 1]
 
 -----------------------------------------
 -- Entrypoints: mapsucc mapdouble mapcomp maptoodd

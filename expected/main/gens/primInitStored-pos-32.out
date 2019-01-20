@@ -33,11 +33,17 @@ initStoredBit32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
+b4 :: [Word, Word, Word] >>= [Unit]
+b4[t0, t1, t2] =
+  t3 <- store32((t0, t1))
+  t4 <- add((t0, 4))
+  store32((t4, t2))
+
+-----------------------------------------
+-- not recursive
 entrypoint initStoredBit64 :: [Word, Word, Word] >>= [Unit]
 initStoredBit64[t0, t1, t2] =
-  t3 <- store32((t2, t0))
-  t4 <- add((t2, 4))
-  store32((t4, t1))
+  b4[t2, t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -85,9 +91,7 @@ initStoredBit9[t0, t1] =
 -- not recursive
 entrypoint initStoredBit33 :: [Word, Word, Word] >>= [Unit]
 initStoredBit33[t0, t1, t2] =
-  t3 <- store32((t2, t0))
-  t4 <- add((t2, 4))
-  store32((t4, t1))
+  b4[t2, t0, t1]
 
 -----------------------------------------
 -- Entrypoints: initStoredBit8 initStoredIx8 initStoredBit16 initStoredIx384 initStoredBit32 initStoredBit64 initStoredBit0 initStoredBit1 initStoredFlag initStoredBit2 initStoredBit5 initStoredBit9 initStoredBit33

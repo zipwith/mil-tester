@@ -184,19 +184,13 @@ baz[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-quuxI :: [] >>= [Word]
-quuxI[] =
-  return 32
-
------------------------------------------
--- not recursive
 quuxH :: [Word] >>= [Word]
 quuxH[t0] =
   t1 <- and((t0, 7))
   t2 <- primEq((t1, 3))
   if t2
     then bret[31]
-    else quuxI[]
+    else bret[32]
 
 -----------------------------------------
 -- not recursive

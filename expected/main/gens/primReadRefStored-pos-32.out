@@ -33,12 +33,18 @@ readRefStoredBit32[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit64 :: [Word] >>= [Word, Word]
-readRefStoredBit64[t0] =
+b4 :: [Word] >>= [Word, Word]
+b4[t0] =
   t1 <- load32((t0))
   t2 <- add((t0, 4))
   t3 <- load32((t2))
   return [t1, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint readRefStoredBit64 :: [Word] >>= [Word, Word]
+readRefStoredBit64[t0] =
+  b4[t0]
 
 -----------------------------------------
 -- not recursive
@@ -86,10 +92,7 @@ readRefStoredBit9[t0] =
 -- not recursive
 entrypoint readRefStoredBit33 :: [Word] >>= [Word, Word]
 readRefStoredBit33[t0] =
-  t1 <- load32((t0))
-  t2 <- add((t0, 4))
-  t3 <- load32((t2))
-  return [t1, t3]
+  b4[t0]
 
 -----------------------------------------
 -- Entrypoints: readRefStoredBit8 readRefStoredIx8 readRefStoredBit16 readRefStoredIx384 readRefStoredBit32 readRefStoredBit64 readRefStoredBit0 readRefStoredBit1 readRefStoredFlag readRefStoredBit2 readRefStoredBit5 readRefStoredBit9 readRefStoredBit33

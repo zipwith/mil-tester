@@ -1,0 +1,96 @@
+define i32 @updFun(i32 %r0, i32 %r1) {
+  br label %updFun
+
+updFun:
+  %r3 = and i32 %r1, 65528
+  %r2 = or i32 %r3, %r0
+  ret i32 %r2
+}
+
+define i32 @updDev(i32 %r0, i32 %r1) {
+  br label %updDev
+
+updDev:
+  %r3 = and i32 %r1, 65287
+  %r4 = shl i32 %r0, 3
+  %r2 = or i32 %r3, %r4
+  ret i32 %r2
+}
+
+define i32 @updBus(i32 %r0, i32 %r1) {
+  br label %updBus
+
+updBus:
+  %r3 = and i32 %r1, 255
+  %r4 = shl i32 %r0, 8
+  %r2 = or i32 %r3, %r4
+  ret i32 %r2
+}
+
+define i32 @getFun(i32 %r0) {
+  br label %getFun
+
+getFun:
+  %r1 = and i32 %r0, 7
+  ret i32 %r1
+}
+
+define i32 @getDev(i32 %r0) {
+  br label %getDev
+
+getDev:
+  %r2 = lshr i32 %r0, 3
+  %r1 = and i32 %r2, 31
+  ret i32 %r1
+}
+
+define i32 @getBus(i32 %r0) {
+  br label %getBus
+
+getBus:
+  %r1 = lshr i32 %r0, 8
+  ret i32 %r1
+}
+
+define i32 @mkPCI2(i32 %r0, i32 %r1, i32 %r2) {
+  br label %mkPCI2
+
+mkPCI2:
+  br label %construct_PCI
+
+construct_PCI:
+  %r6 = shl i32 %r1, 3
+  %r4 = or i32 %r2, %r6
+  %r5 = shl i32 %r0, 8
+  %r3 = or i32 %r4, %r5
+  ret i32 %r3
+}
+
+define i32 @mkPCI1(i32 %r0, i32 %r1, i32 %r2) {
+  br label %mkPCI1
+
+mkPCI1:
+  br label %construct_PCI
+
+construct_PCI:
+  %r6 = shl i32 %r1, 3
+  %r4 = or i32 %r2, %r6
+  %r5 = shl i32 %r0, 8
+  %r3 = or i32 %r4, %r5
+  ret i32 %r3
+}
+
+define i32 @mkPCI0(i32 %r0, i32 %r1, i32 %r2) {
+  br label %mkPCI0
+
+mkPCI0:
+  br label %construct_PCI
+
+construct_PCI:
+  %r6 = shl i32 %r1, 3
+  %r4 = or i32 %r2, %r6
+  %r5 = shl i32 %r0, 8
+  %r3 = or i32 %r4, %r5
+  ret i32 %r3
+}
+

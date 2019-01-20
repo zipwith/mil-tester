@@ -52,26 +52,11 @@ define i32 @fib(i32 %r0) {
   br label %fib
 
 fib:
-  %r1 = icmp eq i32 %r0, 0
-  br i1 %r1, label %b82, label %b95
+  br label %c12
 
-b82:
-  ret i32 0
-
-b95:
-  %r2 = icmp eq i32 %r0, 1
-  br i1 %r2, label %b80, label %b79
-
-b80:
-  ret i32 1
-
-b79:
-  %r7 = add i32 %r0, -1
-  %r4 = call i32 @func_b99(i32 %r7, i32 0)
-  %r6 = add i32 %r0, -2
-  %r5 = call i32 @func_b99(i32 %r6, i32 0)
-  %r3 = add i32 %r4, %r5
-  ret i32 %r3
+c12:
+  %r1 = tail call i32 @func_b99(i32 %r0, i32 0)
+  ret i32 %r1
 }
 
 define void @initialize() {

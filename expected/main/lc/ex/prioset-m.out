@@ -228,7 +228,6 @@ b194[] =
 -- recursive
 b231 :: [Word, Word] >>= [Unit]
 b231[t0, t1] =
-  [] <- noinline(())
   t2 <- store8((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 1))
@@ -245,11 +244,9 @@ b230[t0, t1] =
 initialize :: [] >>= [Unit]
 initialize[] =
   t0 <- store32((priosetSize, 0))
-  [] <- noinline(())
   t1 <- store8((prioset, 0))
   t2 <- add((prioset, 1))
   t3 <- b230[t2, 1]
-  [] <- noinline(())
   t4 <- store8((prioidx, 0))
   t5 <- add((prioidx, 1))
   b230[t5, 1]

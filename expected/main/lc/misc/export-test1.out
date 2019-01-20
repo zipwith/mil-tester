@@ -29,13 +29,19 @@ b80 :: [List1] >>= [Word]
 b80[t0] =
   t1 <- Cons3 0 t0
   t2 <- Cons3 1 t0
-  t3 <- sum[t2]
+  t3 <- b82[t2]
   add((t1, t3))
-entrypoint sum :: [List1] >>= [Word]
-sum[t0] =
+b82 :: [List1] >>= [Word]
+b82[t0] =
   case t0 of
     Nil2 -> b81[]
     Cons3 -> b80[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint sum :: [List1] >>= [Word]
+sum[t0] =
+  b82[t0]
 
 -----------------------------------------
 -- not recursive

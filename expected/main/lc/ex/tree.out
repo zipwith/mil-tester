@@ -23,11 +23,6 @@ b128[t0] =
 
 -----------------------------------------
 -- recursive
-b127 :: [Tree0, Word] >>= [Pair2]
-b127[t0, t1] =
-  case t0 of
-    Leaf0 -> b128[t1]
-    Node1 -> b132[t0, t1]
 b132 :: [Tree0, Word] >>= [Pair2]
 b132[t0, t1] =
   assert t0 Node1
@@ -42,14 +37,17 @@ b132[t0, t1] =
   t10 <- Node3(t5, t6, t9)
   t11 <- Pair4 1 t8
   Pair4(t10, t11)
+b127 :: [Tree0, Word] >>= [Pair2]
+b127[t0, t1] =
+  case t0 of
+    Leaf0 -> b128[t1]
+    Node1 -> b132[t0, t1]
 
 -----------------------------------------
 -- not recursive
 entrypoint main :: [Tree0] >>= [Pair2]
 main[t0] =
-  case t0 of
-    Leaf0 -> b128[0]
-    Node1 -> b132[t0, 0]
+  b127[t0, 0]
 
 -----------------------------------------
 -- Entrypoints: main

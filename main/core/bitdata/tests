@@ -292,44 +292,13 @@ getVal b = case b of Byte v -> v.val
 setVal v = Byte [ val=v ]
 
 ----------
-.lc:  bitdata27    ./milc -pcosoro -m --32
--- a simple product, multiple fields
-bitdata PCI = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
-
-entrypoint mkPCI0, mkPCI1, mkPCI2
-mkPCI0 a b c = PCI [ bus=a | dev=b | fun=c ]
-mkPCI1 a b c = PCI [ fun=c | bus=a | dev=b ]
-mkPCI2 a b c = PCI [ dev=b | fun=c | bus=a ]
-
-entrypoint getBus, getDev, getFun
-getBus pci = case pci of PCI r -> r.bus
-getDev pci = case pci of PCI r -> r.dev
-getFun pci = case pci of PCI r -> r.fun
-
-entrypoint updBus, updDev, updFun
-updBus v pci = case pci of PCI r -> PCI r[bus=v]
-updDev v pci = case pci of PCI r -> PCI r[dev=v]
-updFun v pci = case pci of PCI r -> PCI r[fun=v]
+exec:  bitdata27           ./milc -pcosoro -m --32 bitdata27.lc
 
 ----------
-.lc:  bitdata27-no-rep    ./milc -pcoso -m --32
--- a simple product, multiple fields
-bitdata PCI = PCI [ bus :: Bit 8 | dev :: Bit 5 | fun :: Bit 3 ]
+exec:  bitdata27-no-rep    ./milc -pcoso -m --32 bitdata27.lc
 
-entrypoint mkPCI0, mkPCI1, mkPCI2
-mkPCI0 a b c = PCI [ bus=a | dev=b | fun=c ]
-mkPCI1 a b c = PCI [ fun=c | bus=a | dev=b ]
-mkPCI2 a b c = PCI [ dev=b | fun=c | bus=a ]
-
-entrypoint getBus, getDev, getFun
-getBus pci = case pci of PCI r -> r.bus
-getDev pci = case pci of PCI r -> r.dev
-getFun pci = case pci of PCI r -> r.fun
-
-entrypoint updBus, updDev, updFun
-updBus v pci = case pci of PCI r -> PCI r[bus=v]
-updDev v pci = case pci of PCI r -> PCI r[dev=v]
-updFun v pci = case pci of PCI r -> PCI r[fun=v]
+----------
+exec:  bitdata27-l         ./milc -l --32 bitdata27.lc
 
 ----------
 .lc:   bitdata28    ./milc -pcosoro -m --32

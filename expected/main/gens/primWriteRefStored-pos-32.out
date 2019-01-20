@@ -33,11 +33,17 @@ writeRefStoredBit32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit64 :: [Word, Word, Word] >>= [Unit]
-writeRefStoredBit64[t0, t1, t2] =
+b4 :: [Word, Word, Word] >>= [Unit]
+b4[t0, t1, t2] =
   t3 <- store32((t0, t1))
   t4 <- add((t0, 4))
   store32((t4, t2))
+
+-----------------------------------------
+-- not recursive
+entrypoint writeRefStoredBit64 :: [Word, Word, Word] >>= [Unit]
+writeRefStoredBit64[t0, t1, t2] =
+  b4[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
@@ -85,9 +91,7 @@ writeRefStoredBit9[t0, t1] =
 -- not recursive
 entrypoint writeRefStoredBit33 :: [Word, Word, Word] >>= [Unit]
 writeRefStoredBit33[t0, t1, t2] =
-  t3 <- store32((t0, t1))
-  t4 <- add((t0, 4))
-  store32((t4, t2))
+  b4[t0, t1, t2]
 
 -----------------------------------------
 -- Entrypoints: writeRefStoredBit8 writeRefStoredIx8 writeRefStoredBit16 writeRefStoredIx384 writeRefStoredBit32 writeRefStoredBit64 writeRefStoredBit0 writeRefStoredBit1 writeRefStoredFlag writeRefStoredBit2 writeRefStoredBit5 writeRefStoredBit9 writeRefStoredBit33

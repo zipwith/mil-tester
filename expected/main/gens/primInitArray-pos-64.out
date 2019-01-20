@@ -59,49 +59,45 @@ b34[] =
 -- recursive
 b36 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
 b36[t0, t1, t2] =
-  [] <- noinline(())
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 8))
-  t7 <- primUlt((t5, 6))
-  if t7
-    then b36[t0, t6, t5]
+  b35[t0, t6, t5]
+b35 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b35[t0, t1, t2] =
+  t3 <- primUlt((t2, 6))
+  if t3
+    then b36[t0, t1, t2]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia6SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia6SW[t0, t1] =
-  [] <- noinline(())
-  t2 <- t0 @ 0
-  t3 <- t2 @ t1
-  t4 <- add((t1, 8))
-  b36[t0, t4, 1]
+  b35[t0, t1, 0]
 
 -----------------------------------------
 -- recursive
 b39 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
 b39[t0, t1, t2] =
-  [] <- noinline(())
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 8))
-  t7 <- primUlt((t5, 16))
-  if t7
-    then b39[t0, t6, t5]
+  b38[t0, t6, t5]
+b38 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b38[t0, t1, t2] =
+  t3 <- primUlt((t2, 16))
+  if t3
+    then b39[t0, t1, t2]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia16SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia16SW[t0, t1] =
-  [] <- noinline(())
-  t2 <- t0 @ 0
-  t3 <- t2 @ t1
-  t4 <- add((t1, 8))
-  b39[t0, t4, 1]
+  b38[t0, t1, 0]
 
 -----------------------------------------
 -- not recursive
@@ -142,45 +138,43 @@ cia4SW[t0] =
 -- recursive
 b48 :: [Word, Word] >>= [Unit]
 b48[t0, t1] =
-  [] <- noinline(())
   t2 <- store64((t0, 106))
   t3 <- add((t1, 1))
   t4 <- add((t0, 8))
-  t5 <- primUlt((t3, 6))
-  if t5
-    then b48[t4, t3]
+  b47[t4, t3]
+b47 :: [Word, Word] >>= [Unit]
+b47[t0, t1] =
+  t2 <- primUlt((t1, 6))
+  if t2
+    then b48[t0, t1]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia6SW :: [Word] >>= [Unit]
 cia6SW[t0] =
-  [] <- noinline(())
-  t1 <- store64((t0, 106))
-  t2 <- add((t0, 8))
-  b48[t2, 1]
+  b47[t0, 0]
 
 -----------------------------------------
 -- recursive
 b50 :: [Word, Word] >>= [Unit]
 b50[t0, t1] =
-  [] <- noinline(())
   t2 <- store64((t0, 116))
   t3 <- add((t1, 1))
   t4 <- add((t0, 8))
-  t5 <- primUlt((t3, 16))
-  if t5
-    then b50[t4, t3]
+  b49[t4, t3]
+b49 :: [Word, Word] >>= [Unit]
+b49[t0, t1] =
+  t2 <- primUlt((t1, 16))
+  if t2
+    then b50[t0, t1]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia16SW :: [Word] >>= [Unit]
 cia16SW[t0] =
-  [] <- noinline(())
-  t1 <- store64((t0, 116))
-  t2 <- add((t0, 8))
-  b50[t2, 1]
+  b49[t0, 0]
 
 -----------------------------------------
 -- not recursive
@@ -200,25 +194,23 @@ ia3T[t0, t1] =
 -- recursive
 b43 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
 b43[t0, t1, t2] =
-  [] <- noinline(())
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 24))
-  t7 <- primUlt((t5, 7))
-  if t7
-    then b43[t0, t6, t5]
+  b42[t0, t6, t5]
+b42 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b42[t0, t1, t2] =
+  t3 <- primUlt((t2, 7))
+  if t3
+    then b43[t0, t1, t2]
     else b34[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia7T :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia7T[t0, t1] =
-  [] <- noinline(())
-  t2 <- t0 @ 0
-  t3 <- t2 @ t1
-  t4 <- add((t1, 24))
-  b43[t0, t4, 1]
+  b42[t0, t1, 0]
 
 -----------------------------------------
 -- Entrypoints: ia0SW ia1SW ia2SW ia4SW ia6SW ia16SW cia0SW cia1SW cia2SW cia4SW cia6SW cia16SW ia3T ia7T
