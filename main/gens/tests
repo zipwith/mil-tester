@@ -1076,10 +1076,18 @@ external max2G {primIxMaxBound 2G} :: Ix 2G
 .lc: primIxToBit-pos-32   ./milc -pcosoboro -m --32
 
 -- examples that fit in a single word:
+entrypoint ix1ToBit1,     ix1ToBit2,     ix1ToBit3
+entrypoint ix2ToBit1,     ix2ToBit2,     ix2ToBit3
 entrypoint ix4ToBit2,     ix4ToBit10,    ix257ToBit9, ix257ToBit11
 entrypoint ix1000ToBit10, ix1000ToBit12, ix1MToBit20, ix1MToBit32
 entrypoint ix511ToBit9,   ix512ToBit9
 
+external ix1ToBit1     {primIxToBit 1     1} :: Ix 1 -> Bit 1
+external ix1ToBit2     {primIxToBit 1     2} :: Ix 1 -> Bit 2
+external ix1ToBit3     {primIxToBit 1     3} :: Ix 1 -> Bit 3
+external ix2ToBit1     {primIxToBit 2     1} :: Ix 2 -> Bit 1
+external ix2ToBit2     {primIxToBit 2     2} :: Ix 2 -> Bit 2
+external ix2ToBit3     {primIxToBit 2     3} :: Ix 2 -> Bit 3
 external ix4ToBit2     {primIxToBit 4     2} :: Ix 4 -> Bit 2
 external ix4ToBit10    {primIxToBit 4    10} :: Ix 4 -> Bit 10
 external ix257ToBit9   {primIxToBit 257   9} :: Ix 257 -> Bit 9
@@ -1123,7 +1131,7 @@ external ix513ToBit9   {primIxToBit 513   9} :: Ix 513  -> Bit 9
 
 entrypoint shlix2_1, shlix4_2, shlix8_3, shlix1K_10, shlix1G_30
 external shlix2_1   {primIxShiftL  2  1} :: Ix 2  -> Ix 1  -> Ix 2
-external shlix4_2   {primIxShiftL  4  2} :: Ix 4  -> Ix 2  -> Ix 2
+external shlix4_2   {primIxShiftL  4  2} :: Ix 4  -> Ix 2  -> Ix 4
 external shlix8_3   {primIxShiftL  8  3} :: Ix 8  -> Ix 3  -> Ix 8
 external shlix1K_10 {primIxShiftL 1K 10} :: Ix 4K -> Ix 10 -> Ix 4K
 external shlix1G_30 {primIxShiftL 1G 30} :: Ix 1G -> Ix 30 -> Ix 1G
@@ -1151,7 +1159,7 @@ external shlix3G_31 {primIxShiftL  3G 31} :: Ix 3G  -> Ix 31 -> Ix 3G
 
 entrypoint shrix2_1, shrix4_2, shrix8_3, shrix1K_10, shrix1G_30
 external shrix2_1   {primIxShiftR  2  1} :: Ix 2  -> Ix 1  -> Ix 2
-external shrix4_2   {primIxShiftR  4  2} :: Ix 4  -> Ix 2  -> Ix 2
+external shrix4_2   {primIxShiftR  4  2} :: Ix 4  -> Ix 2  -> Ix 4
 external shrix8_3   {primIxShiftR  8  3} :: Ix 8  -> Ix 3  -> Ix 8
 external shrix1K_10 {primIxShiftR 1K 10} :: Ix 4K -> Ix 10 -> Ix 4K
 external shrix1G_30 {primIxShiftR 1G 30} :: Ix 1G -> Ix 30 -> Ix 1G
@@ -1177,10 +1185,9 @@ external shrix3G_31 {primIxShiftL  3G 31} :: Ix 3G  -> Ix 31 -> Ix 3G
 -----------------------
 .lc: primModIx-pos-32   ./milc -pcosoboro -m --32
 
-entrypoint modIx2_1,   modIx2_4
+entrypoint modIx2_4
 entrypoint modIx10_16, modIx10_32, modIx32_16, modIx32_32, modIx32_1G
 
-external modIx2_1    {primModIx  2  1} :: Bit  2 -> Ix 1
 external modIx2_4    {primModIx  2  4} :: Bit  2 -> Ix 4
 external modIx10_16  {primModIx 10 16} :: Bit 10 -> Ix 16
 external modIx10_32  {primModIx 10 32} :: Bit 20 -> Ix 32
@@ -1198,12 +1205,46 @@ external modIx64_256 {primModIx 64 256} :: Bit 64 -> Ix 17
 external modIx72_4K  {primModIx 72 4K}  :: Bit 72 -> Ix 4K
 external modIx96_256 {primModIx 96 256} :: Bit 96 -> Ix 256
 
+entrypoint modIx0_1, modIx1_1, modIx2_1, modIx3_1, modIx4_1
+external modIx0_1 {primModIx 0 1} :: Bit 0 -> Ix 1
+external modIx1_1 {primModIx 1 1} :: Bit 1 -> Ix 1
+external modIx2_1 {primModIx 2 1} :: Bit 2 -> Ix 1
+external modIx3_1 {primModIx 3 1} :: Bit 3 -> Ix 1
+external modIx4_1 {primModIx 4 1} :: Bit 4 -> Ix 1
+
+entrypoint modIx0_2, modIx1_2, modIx2_2, modIx3_2, modIx4_2
+external modIx0_2 {primModIx 0 2} :: Bit 0 -> Ix 2
+external modIx1_2 {primModIx 1 2} :: Bit 1 -> Ix 2
+external modIx2_2 {primModIx 2 2} :: Bit 2 -> Ix 2
+external modIx3_2 {primModIx 3 2} :: Bit 3 -> Ix 2
+external modIx4_2 {primModIx 4 2} :: Bit 4 -> Ix 2
+
+entrypoint modIx0_3, modIx1_3, modIx2_3, modIx3_3, modIx4_3
+external modIx0_3 {primModIx 0 3} :: Bit 0 -> Ix 3
+external modIx1_3 {primModIx 1 3} :: Bit 1 -> Ix 3
+external modIx2_3 {primModIx 2 3} :: Bit 2 -> Ix 3
+external modIx3_3 {primModIx 3 3} :: Bit 3 -> Ix 3
+external modIx4_3 {primModIx 4 3} :: Bit 4 -> Ix 3
+
+entrypoint modIx1_4
+external modIx1_4 {primModIx 1 4} :: Bit  1 -> Ix 4
+
+entrypoint modIx0_7, modIx1_7, modIx2_7, modIx3_7, modIx4_7
+external modIx0_7 {primModIx 0 7} :: Bit 0 -> Ix 7
+external modIx1_7 {primModIx 1 7} :: Bit 1 -> Ix 7
+external modIx2_7 {primModIx 2 7} :: Bit 2 -> Ix 7
+external modIx3_7 {primModIx 3 7} :: Bit 3 -> Ix 7
+external modIx4_7 {primModIx 4 7} :: Bit 4 -> Ix 7
+
+entrypoint modIx0_8, modIx1_8, modIx2_8, modIx3_8, modIx4_8
+external modIx0_8 {primModIx 0 8} :: Bit 0 -> Ix 8
+external modIx1_8 {primModIx 1 8} :: Bit 1 -> Ix 8
+external modIx2_8 {primModIx 2 8} :: Bit 2 -> Ix 8
+external modIx3_8 {primModIx 3 8} :: Bit 3 -> Ix 8
+external modIx4_8 {primModIx 4 8} :: Bit 4 -> Ix 8
+
 -----------------------
 .lc: primModIx-neg-32   ./milc -pcosoboro -m --32
-
-entrypoint modIx1_1,  modIx1_4
-external modIx1_1    {primModIx  1  1} :: Bit  1 -> Ix 1   -- Ix 1
-external modIx1_4    {primModIx  1  4} :: Bit  1 -> Ix 4
 
 entrypoint modIx33_5, modIx64_17
 external modIx33_5   {primModIx 33  5} :: Bit 33 -> Ix 5   -- bigger than a word, not power of two
@@ -1219,8 +1260,13 @@ external modIx32_4G  {primModIx 32 4G} :: Bit 32 -> Ix 4G
 .lc: primRelaxIx-pos-32   ./milc -pcosoboro -m --32
 
 entrypoint relax1_1, relax1_2, relax3_7, relax1K_1K, relax1K_1G
+entrypoint relax1_3, relax2_2, relax2_3, relax3_3
 external relax1_1   {primRelaxIx  1  1} :: Ix 1  -> Ix 1
 external relax1_2   {primRelaxIx  1  2} :: Ix 1  -> Ix 2
+external relax1_3   {primRelaxIx  1  3} :: Ix 1  -> Ix 3
+external relax2_2   {primRelaxIx  2  2} :: Ix 2  -> Ix 2
+external relax2_3   {primRelaxIx  2  3} :: Ix 2  -> Ix 3
+external relax3_3   {primRelaxIx  3  3} :: Ix 3  -> Ix 3
 external relax3_7   {primRelaxIx  3  7} :: Ix 3  -> Ix 7
 external relax1K_1K {primRelaxIx 1K 1K} :: Ix 1K -> Ix 1K
 external relax1K_1G {primRelaxIx 1K 1G} :: Ix 1K -> Ix 1G
@@ -1249,6 +1295,14 @@ external genIncI1 {primGenIncIx (Ix 1)   1} :: Ix 1   -> (Ix 1 -> Ix 1)   -> Ix 
 external genIncB1 {primGenIncIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> Ix 1 -> Bit 64
 external genIncM1 {primGenIncIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Ix 1 -> M1
 type M1 = Maybe (Ix 1)
+
+entrypoint genIncF2, genIncW2, genIncI2, genIncB2, genIncM2
+external genIncF2 {primGenIncIx Flag     2} :: Flag   -> (Ix 2 -> Flag)   -> Ix 2 -> Flag
+external genIncW2 {primGenIncIx Word     2} :: Word   -> (Ix 2 -> Word)   -> Ix 2 -> Word
+external genIncI2 {primGenIncIx (Ix 1)   2} :: Ix 1   -> (Ix 2 -> Ix 1)   -> Ix 2 -> Ix 1
+external genIncB2 {primGenIncIx (Bit 64) 2} :: Bit 64 -> (Ix 2 -> Bit 64) -> Ix 2 -> Bit 64
+external genIncM2 {primGenIncIx M2       2} :: M2     -> (Ix 2 -> M2)     -> Ix 2 -> M2
+type M2 = Maybe (Ix 2)
 
 entrypoint genIncF7, genIncW7, genIncI7, genIncB7, genIncM7
 external genIncF7 {primGenIncIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Ix 7 -> Flag
@@ -1351,6 +1405,14 @@ external genDecB1 {primGenDecIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> Ix 
 external genDecM1 {primGenDecIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Ix 1 -> M1
 type M1 = Maybe (Ix 1)
 
+entrypoint genDecF2, genDecW2, genDecI2, genDecB2, genDecM2
+external genDecF2 {primGenDecIx Flag     2} :: Flag   -> (Ix 2 -> Flag)   -> Ix 2 -> Flag
+external genDecW2 {primGenDecIx Word     2} :: Word   -> (Ix 2 -> Word)   -> Ix 2 -> Word
+external genDecI2 {primGenDecIx (Ix 1)   2} :: Ix 1   -> (Ix 2 -> Ix 1)   -> Ix 2 -> Ix 1
+external genDecB2 {primGenDecIx (Bit 64) 2} :: Bit 64 -> (Ix 2 -> Bit 64) -> Ix 2 -> Bit 64
+external genDecM2 {primGenDecIx M2       2} :: M2     -> (Ix 2 -> M2)     -> Ix 2 -> M2
+type M2 = Maybe (Ix 2)
+
 entrypoint genDecF7, genDecW7, genDecI7, genDecB7, genDecM7
 external genDecF7 {primGenDecIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Ix 7 -> Flag
 external genDecW7 {primGenDecIx Word     7} :: Word   -> (Ix 7 -> Word)   -> Ix 7 -> Word
@@ -1413,8 +1475,9 @@ type M2G = Maybe (Ix 2G)
 
 data Maybe a = Nothing | Just a
 
-entrypoint decIx1, decIx7, decIx31, decIx65535
+entrypoint decIx1, decIx2, decIx7, decIx31, decIx65535
 external decIx1     {primDecIx 1}     :: Ix 1     -> Maybe (Ix 1)
+external decIx2     {primDecIx 2}     :: Ix 2     -> Maybe (Ix 2)
 external decIx7     {primDecIx 7}     :: Ix 7     -> Maybe (Ix 7)
 external decIx31    {primDecIx 31}    :: Ix 31    -> Maybe (Ix 31)
 external decIx65535 {primDecIx 65535} :: Ix 65535 -> Maybe (Ix 65535)
@@ -1425,8 +1488,9 @@ external decIx65535 {primDecIx 65535} :: Ix 65535 -> Maybe (Ix 65535)
 
 data Maybe a = Nothing | Just a
 
-entrypoint decIx1, decIx7, decIx31, decIx65535
+entrypoint decIx1, decIx2, decIx7, decIx31, decIx65535
 external decIx1     {primDecIx 1}     :: Ix 1     -> Maybe (Ix 1)
+external decIx2     {primDecIx 2}     :: Ix 2     -> Maybe (Ix 2)
 external decIx7     {primDecIx 7}     :: Ix 7     -> Maybe (Ix 7)
 external decIx31    {primDecIx 31}    :: Ix 31    -> Maybe (Ix 31)
 external decIx65535 {primDecIx 65535} :: Ix 65535 -> Maybe (Ix 65535)
@@ -1436,8 +1500,8 @@ external decIx65535 {primDecIx 65535} :: Ix 65535 -> Maybe (Ix 65535)
 
 data Maybe a = Nothing | Just a
 
-entrypoint decIx2, decIx8, decIx32, decIx4K, decIx1G
-external decIx2   {primDecIx 2}   :: Ix 2   -> Maybe (Ix 2)   -- powers of two
+entrypoint decIx4, decIx8, decIx32, decIx4K, decIx1G
+external decIx4   {primDecIx 4}   :: Ix 4   -> Maybe (Ix 4)   -- powers of two
 external decIx8   {primDecIx 8}   :: Ix 8   -> Maybe (Ix 8)
 external decIx32  {primDecIx 32}  :: Ix 32  -> Maybe (Ix 32)
 external decIx4K  {primDecIx 4K}  :: Ix 4K  -> Maybe (Ix 4K)
@@ -1460,12 +1524,18 @@ external genLtInc {primGenLtInc (Maybe (Ix m)) m},
          genLtDec {primGenLtDec (Maybe (Ix m)) m}
    :: Maybe (Ix m) -> (Ix m -> Maybe (Ix m)) -> Ix m -> Ix m -> Ix m -> Maybe (Ix m)
 
-entrypoint ltInc80, ltInc1K, ltInc1G
+entrypoint ltInc1, ltInc2, ltInc3, ltInc80, ltInc1K, ltInc1G
+ltInc1  = genLtInc Nothing Just :: Ix 1  -> Ix 1  -> Ix 1  -> Maybe (Ix 1 )
+ltInc2  = genLtInc Nothing Just :: Ix 2  -> Ix 2  -> Ix 2  -> Maybe (Ix 2 )
+ltInc3  = genLtInc Nothing Just :: Ix 3  -> Ix 3  -> Ix 3  -> Maybe (Ix 3 )
 ltInc80 = genLtInc Nothing Just :: Ix 80 -> Ix 80 -> Ix 80 -> Maybe (Ix 80)
 ltInc1K = genLtInc Nothing Just :: Ix 1K -> Ix 1K -> Ix 1K -> Maybe (Ix 1K)
 ltInc1G = genLtInc Nothing Just :: Ix 1G -> Ix 1G -> Ix 1G -> Maybe (Ix 1G)
 
-entrypoint ltDec80, ltDec1K, ltDec1G
+entrypoint ltDec1, ltDec2, ltDec3, ltDec80, ltDec1K, ltDec1G
+ltDec1  = genLtDec Nothing Just :: Ix 1  -> Ix 1  -> Ix 1  -> Maybe (Ix 1 )
+ltDec2  = genLtDec Nothing Just :: Ix 2  -> Ix 2  -> Ix 2  -> Maybe (Ix 2 )
+ltDec3  = genLtDec Nothing Just :: Ix 3  -> Ix 3  -> Ix 3  -> Maybe (Ix 3 )
 ltDec80 = genLtDec Nothing Just :: Ix 80 -> Ix 80 -> Ix 80 -> Maybe (Ix 80)
 ltDec1K = genLtDec Nothing Just :: Ix 1K -> Ix 1K -> Ix 1K -> Maybe (Ix 1K)
 ltDec1G = genLtDec Nothing Just :: Ix 1G -> Ix 1G -> Ix 1G -> Maybe (Ix 1G)
@@ -1500,6 +1570,14 @@ external genMaybeIxI1 {primGenMaybeIx (Ix 1)   1} :: Ix 1   -> (Ix 1 -> Ix 1)   
 external genMaybeIxB1 {primGenMaybeIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> Word -> Bit 64
 external genMaybeIxM1 {primGenMaybeIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Word -> M1
 type M1 = Maybe (Ix 1)
+
+entrypoint genMaybeIxF2, genMaybeIxW2, genMaybeIxI2, genMaybeIxB2, genMaybeIxM2
+external genMaybeIxF2 {primGenMaybeIx Flag     2} :: Flag   -> (Ix 2 -> Flag)   -> Word -> Flag
+external genMaybeIxW2 {primGenMaybeIx Word     2} :: Word   -> (Ix 2 -> Word)   -> Word -> Word
+external genMaybeIxI2 {primGenMaybeIx (Ix 1)   2} :: Ix 1   -> (Ix 2 -> Ix 1)   -> Word -> Ix 1
+external genMaybeIxB2 {primGenMaybeIx (Bit 64) 2} :: Bit 64 -> (Ix 2 -> Bit 64) -> Word -> Bit 64
+external genMaybeIxM2 {primGenMaybeIx M2       2} :: M2     -> (Ix 2 -> M2)     -> Word -> M2
+type M2 = Maybe (Ix 2)
 
 entrypoint genMaybeIxF7, genMaybeIxW7, genMaybeIxI7, genMaybeIxB7, genMaybeIxM7
 external genMaybeIxF7 {primGenMaybeIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Word -> Flag
@@ -1567,6 +1645,14 @@ external genLeqIxB1 {primGenLeqIx (Bit 64) 1} :: Bit 64 -> (Ix 1 -> Bit 64) -> W
 external genLeqIxM1 {primGenLeqIx M1       1} :: M1     -> (Ix 1 -> M1)     -> Word -> Ix 1 -> M1
 type M1 = Maybe (Ix 1)
 
+entrypoint genLeqIxF2, genLeqIxW2, genLeqIxI2, genLeqIxB2, genLeqIxM2
+external genLeqIxF2 {primGenLeqIx Flag     2} :: Flag   -> (Ix 2 -> Flag)   -> Word -> Ix 2 -> Flag
+external genLeqIxW2 {primGenLeqIx Word     2} :: Word   -> (Ix 2 -> Word)   -> Word -> Ix 2 -> Word
+external genLeqIxI2 {primGenLeqIx (Ix 1)   2} :: Ix 1   -> (Ix 2 -> Ix 1)   -> Word -> Ix 2 -> Ix 1
+external genLeqIxB2 {primGenLeqIx (Bit 64) 2} :: Bit 64 -> (Ix 2 -> Bit 64) -> Word -> Ix 2 -> Bit 64
+external genLeqIxM2 {primGenLeqIx M2       2} :: M2     -> (Ix 2 -> M2)     -> Word -> Ix 2 -> M2
+type M2 = Maybe (Ix 2)
+
 entrypoint genLeqIxF7, genLeqIxW7, genLeqIxI7, genLeqIxB7, genLeqIxM7
 external genLeqIxF7 {primGenLeqIx Flag     7} :: Flag   -> (Ix 7 -> Flag)   -> Word -> Ix 7 -> Flag
 external genLeqIxW7 {primGenLeqIx Word     7} :: Word   -> (Ix 7 -> Word)   -> Word -> Ix 7 -> Word
@@ -1624,9 +1710,11 @@ type M2G = Maybe (Ix 2G)
 .lc: primIxCompare-pos-32   ./milc -pcosoboro -m --32
 require "prelude.lc"  -- for "Bool"
 
-entrypoint ixEq1, ixEq7, ixEq65, ixEq1K
+entrypoint ixEq1, ixEq2, ixEq3, ixEq7, ixEq65, ixEq1K
 entrypoint ixEq123, ixEq2047M, ixEq1G
 external ixEq1     {primIxEq   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixEq2     {primIxEq   2}    :: Ix 2     -> Ix 2     -> Bool
+external ixEq3     {primIxEq   3}    :: Ix 3     -> Ix 3     -> Bool
 external ixEq7     {primIxEq   7}    :: Ix 7     -> Ix 7     -> Bool
 external ixEq65    {primIxEq  65}    :: Ix 65    -> Ix 65    -> Bool
 external ixEq1K    {primIxEq  1K}    :: Ix 1K    -> Ix 1K    -> Bool
@@ -1640,6 +1728,27 @@ external ixLt15    {primIxLt  15}    :: Ix 15    -> Ix 15    -> Bool
 external ixLe15    {primIxLe  15}    :: Ix 15    -> Ix 15    -> Bool
 external ixGt15    {primIxGt  15}    :: Ix 15    -> Ix 15    -> Bool
 external ixGe15    {primIxGe  15}    :: Ix 15    -> Ix 15    -> Bool
+
+entrypoint ixNe1, ixLt1, ixLe1, ixGt1, ixGe1 
+external ixNe1     {primIxNe   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixLt1     {primIxLt   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixLe1     {primIxLe   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixGt1     {primIxGt   1}    :: Ix 1     -> Ix 1     -> Bool
+external ixGe1     {primIxGe   1}    :: Ix 1     -> Ix 1     -> Bool
+
+entrypoint ixNe2, ixLt2, ixLe2, ixGt2, ixGe2 
+external ixNe2     {primIxNe   2}    :: Ix 2     -> Ix 2     -> Bool
+external ixLt2     {primIxLt   2}    :: Ix 2     -> Ix 2     -> Bool
+external ixLe2     {primIxLe   2}    :: Ix 2     -> Ix 2     -> Bool
+external ixGt2     {primIxGt   2}    :: Ix 2     -> Ix 2     -> Bool
+external ixGe2     {primIxGe   2}    :: Ix 2     -> Ix 2     -> Bool
+
+entrypoint ixNe3, ixLt3, ixLe3, ixGt3, ixGe3 
+external ixNe3     {primIxNe   3}    :: Ix 3     -> Ix 3     -> Bool
+external ixLt3     {primIxLt   3}    :: Ix 3     -> Ix 3     -> Bool
+external ixLe3     {primIxLe   3}    :: Ix 3     -> Ix 3     -> Bool
+external ixGt3     {primIxGt   3}    :: Ix 3     -> Ix 3     -> Bool
+external ixGe3     {primIxGe   3}    :: Ix 3     -> Ix 3     -> Bool
 
 -----------------------
 .lc: primIxCompare-neg-32   ./milc -pcosoboro -m --32
@@ -2289,14 +2398,18 @@ external bitShiftRu128 {primBitShiftRu 128} :: Bit 128 -> Ix 128 -> Bit 128
 -----------------------
 .lc: primBitShift-neg-32    ./milc -pcosoboro -m --32
 
-entrypoint bitShiftL0, bitShiftL1, bitShiftL1K
+entrypoint bitShiftL0, bitShiftL1, bitShiftL2, bitShiftL3, bitShiftL1K
 external bitShiftL0   {primBitShiftL 0}   :: Bit 0   -> Ix 0   -> Bit 0
 external bitShiftL1   {primBitShiftL 1}   :: Bit 1   -> Ix 1   -> Bit 1
+external bitShiftL2   {primBitShiftL 2}   :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftL3   {primBitShiftL 3}   :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftL1K  {primBitShiftL 1K}  :: Bit 1K  -> Ix 1K  -> Bit 1K
 
-entrypoint bitShiftRu0, bitShiftRu1, bitShiftRu1K
+entrypoint bitShiftRu0, bitShiftRu1, bitShiftRu2, bitShiftRu3, bitShiftRu1K
 external bitShiftRu0  {primBitShiftRu 0}  :: Bit 0   -> Ix 0   -> Bit 0
 external bitShiftRu1  {primBitShiftRu 1}  :: Bit 1   -> Ix 1   -> Bit 1
+external bitShiftRu2  {primBitShiftRu 2}  :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftRu3  {primBitShiftRu 3}  :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftRu1K {primBitShiftRu 1K} :: Bit 1K  -> Ix 1K  -> Bit 1K
 
 -----------------------
@@ -2536,8 +2649,7 @@ exec: primInitStored-neg-64     ./milc -pcosoboro -m --64 initStored-neg.lc
 
 type SW = Stored Word
 
-entrypoint at0SW, at1SW, at2SW, at10SW, at160SW, at256SW, at1KSW, at4KSW
-external at0SW   {@   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+entrypoint at1SW, at2SW, at10SW, at160SW, at256SW, at1KSW, at4KSW
 external at1SW   {@   1 SW} :: Ref (Array   1 SW) -> Ix   1 -> Ref SW
 external at2SW   {@   2 SW} :: Ref (Array   2 SW) -> Ix   2 -> Ref SW
 external at10SW  {@  10 SW} :: Ref (Array  10 SW) -> Ix  10 -> Ref SW
@@ -2548,8 +2660,7 @@ external at4KSW  {@  4K SW} :: Ref (Array  4K SW) -> Ix  4K -> Ref SW
 
 type SI = Stored (Ix 256)
 
-entrypoint at0SI, at1SI, at2SI, at10SI, at160SI, at256SI, at1KSI, at4KSI
-external at0SI   {@   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+entrypoint at1SI, at2SI, at10SI, at160SI, at256SI, at1KSI, at4KSI
 external at1SI   {@   1 SI} :: Ref (Array   1 SI) -> Ix   1 -> Ref SI
 external at2SI   {@   2 SI} :: Ref (Array   2 SI) -> Ix   2 -> Ref SI
 external at10SI  {@  10 SI} :: Ref (Array  10 SI) -> Ix  10 -> Ref SI
@@ -2560,8 +2671,7 @@ external at4KSI  {@  4K SI} :: Ref (Array  4K SI) -> Ix  4K -> Ref SI
 
 type SS = Stored (Bit 16)
 
-entrypoint at0SS, at1SS, at2SS, at10SS, at160SS, at256SS, at1KSS, at4KSS
-external at0SS   {@   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+entrypoint at1SS, at2SS, at10SS, at160SS, at256SS, at1KSS, at4KSS
 external at1SS   {@   1 SS} :: Ref (Array   1 SS) -> Ix   1 -> Ref SS
 external at2SS   {@   2 SS} :: Ref (Array   2 SS) -> Ix   2 -> Ref SS
 external at10SS  {@  10 SS} :: Ref (Array  10 SS) -> Ix  10 -> Ref SS
@@ -2572,8 +2682,7 @@ external at4KSS  {@  4K SS} :: Ref (Array  4K SS) -> Ix  4K -> Ref SS
 
 type SA = Array 23 (Stored (Bit 16))
 
-entrypoint at0SA, at1SA, at2SA, at10SA, at160SA, at256SA, at1KSA, at4KSA
-external at0SA   {@   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
+entrypoint at1SA, at2SA, at10SA, at160SA, at256SA, at1KSA, at4KSA
 external at1SA   {@   1 SA} :: Ref (Array   1 SA) -> Ix   1 -> Ref SA
 external at2SA   {@   2 SA} :: Ref (Array   2 SA) -> Ix   2 -> Ref SA
 external at10SA  {@  10 SA} :: Ref (Array  10 SA) -> Ix  10 -> Ref SA
@@ -2596,6 +2705,19 @@ external bad2 {@ 8 SW}    :: Ref (Array 5 SW) -> Ix 8 -> Ref SW -- won't catch :
 external bad3 {@ 4 S}     :: Ref (Array 4  S) -> Ix 4 -> Ref S
 external bad4 {@ 4 Word}  :: Ref (Array 4 SW) -> Ix 4 -> Ref SW
 external bad5 {@ 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
+
+type SI = Stored (Ix 256)
+type SS = Stored (Bit 16)
+type SA = Array 23 (Stored (Bit 16))
+
+entrypoint at0SW
+external at0SW   {@   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+entrypoint at0SI
+external at0SI   {@   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+entrypoint at0SS
+external at0SS   {@   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+entrypoint at0SA
+external at0SA   {@   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
 
 ------------
 .lc: primStructSelect-pos-32  ./milc -pcosoboro -m --32
@@ -2673,8 +2795,7 @@ struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
 -- examples with abstract (closure) initializer
-entrypoint ia0SW, ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
-external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
+entrypoint ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
 external ia1SW  {primInitArray  1  SW} :: (Ix  1 -> Init SW) -> Init (Array  1 SW)
 external ia2SW  {primInitArray  2  SW} :: (Ix  2 -> Init SW) -> Init (Array  2 SW)
 external ia4SW  {primInitArray  4  SW} :: (Ix  4 -> Init SW) -> Init (Array  4 SW)
@@ -2684,8 +2805,7 @@ external ia16SW {primInitArray 16  SW} :: (Ix 16 -> Init SW) -> Init (Array 16 S
 -- examples with concrete (known) initializer
 external initSW {primInitStored Word} :: Word -> Init (Stored Word)
 
-entrypoint cia0SW, cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
-cia0SW  = ia0SW  (\i -> initSW 100)
+entrypoint cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
 cia1SW  = ia1SW  (\i -> initSW 101)
 cia2SW  = ia2SW  (\i -> initSW 102)
 cia4SW  = ia4SW  (\i -> initSW 104)
@@ -2707,8 +2827,7 @@ struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
 -- examples with abstract (closure) initializer
-entrypoint ia0SW, ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
-external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
+entrypoint ia1SW, ia2SW, ia4SW, ia6SW, ia16SW
 external ia1SW  {primInitArray  1  SW} :: (Ix  1 -> Init SW) -> Init (Array  1 SW)
 external ia2SW  {primInitArray  2  SW} :: (Ix  2 -> Init SW) -> Init (Array  2 SW)
 external ia4SW  {primInitArray  4  SW} :: (Ix  4 -> Init SW) -> Init (Array  4 SW)
@@ -2718,8 +2837,7 @@ external ia16SW {primInitArray 16  SW} :: (Ix 16 -> Init SW) -> Init (Array 16 S
 -- examples with concrete (known) initializer
 external initSW {primInitStored Word} :: Word -> Init (Stored Word)
 
-entrypoint cia0SW, cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
-cia0SW  = ia0SW  (\i -> initSW 100)
+entrypoint cia1SW, cia2SW, cia4SW, cia6SW, cia16SW
 cia1SW  = ia1SW  (\i -> initSW 101)
 cia2SW  = ia2SW  (\i -> initSW 102)
 cia4SW  = ia4SW  (\i -> initSW 104)
@@ -2740,6 +2858,9 @@ type SB = Stored (Bit 8)
 struct S [ x :: SW | y :: SB | z :: SB ]
 struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
+
+entrypoint ia0SW
+external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
 
 entrypoint ia3, ia3W, iaWW
 external ia3  {primInitArray 3}   :: (Ix 3 -> Init SW) -> Init (Array 3 SW)

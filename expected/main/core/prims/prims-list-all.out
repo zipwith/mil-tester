@@ -34,6 +34,7 @@ primitive primUle pure :: [Word, Word] >>= [Flag]
 primitive primUgt pure :: [Word, Word] >>= [Flag]
 primitive primUge pure :: [Word, Word] >>= [Flag]
 primitive flagToWord pure :: [Flag] >>= [Word]
+primitive wordToFlag pure :: [Word] >>= [Flag]
 primitive halt doesntReturn :: forall (a :: tuple). [] >>= a
 primitive loop doesntReturn :: forall (a :: tuple). [] >>= a
 primitive printWord impure :: [Word] >>= []
@@ -50,5 +51,5 @@ primitive store32 impure :: [Addr, Bit 32] >>= [Unit]
 primitive store64 impure :: [Addr, Bit 64] >>= [Unit]
 primitive primInitSeq pure :: forall (a :: area). [Init a, Init a] >>= [Init a]
 primitive primInitSelf pure :: forall (a :: nat) (b :: area). [Ref b ->> Init a] >>= [Init a]
-51 primitives listed
+52 primitives listed
 -----------------------------------------

@@ -1,7 +1,7 @@
 ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 5
-external decIx2   {primDecIx 2}   :: Ix 2   -> Maybe (Ix 2)   -- powers of two
+external decIx4   {primDecIx 4}   :: Ix 4   -> Maybe (Ix 4)   -- powers of two
          ^
-No generated implementation: 2 is not a power of two minus 1
+No generated implementation: 4 is not a power of two minus 1
 
 ERROR: "actual/main/gens/primDecIx-neg-32.lc", line 6
 external decIx8   {primDecIx 8}   :: Ix 8   -> Maybe (Ix 8)

@@ -1,8 +1,19 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-entrypoint decIx1 :: [Word] >>= [Flag]
+entrypoint decIx1 :: [Unit] >>= [Flag]
 decIx1[t0] =
   return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint decIx2 :: [Flag] >>= [Word]
+decIx2[t0] =
+  t1 <- flagToWord((t0))
+  t2 <- add((t1, 3))
+  and((t2, 2))
 
 -----------------------------------------
 -- not recursive
@@ -26,4 +37,4 @@ decIx65535[t0] =
   and((t1, 65535))
 
 -----------------------------------------
--- Entrypoints: decIx1 decIx7 decIx31 decIx65535
+-- Entrypoints: decIx1 decIx2 decIx7 decIx31 decIx65535

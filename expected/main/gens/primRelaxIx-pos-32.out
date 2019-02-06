@@ -1,14 +1,17 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-entrypoint relax1_1 :: [Word] >>= [Word]
+entrypoint relax1_1 :: [Unit] >>= [Unit]
 relax1_1[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint relax1_2 :: [Word] >>= [Word]
+entrypoint relax1_2 :: [Unit] >>= [Flag]
 relax1_2[t0] =
-  return t0
+  return flag0
 
 -----------------------------------------
 -- not recursive
@@ -29,4 +32,28 @@ relax1K_1G[t0] =
   return t0
 
 -----------------------------------------
--- Entrypoints: relax1_1 relax1_2 relax3_7 relax1K_1K relax1K_1G
+-- not recursive
+entrypoint relax1_3 :: [Unit] >>= [Word]
+relax1_3[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax2_2 :: [Flag] >>= [Flag]
+relax2_2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint relax2_3 :: [Flag] >>= [Word]
+relax2_3[t0] =
+  flagToWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint relax3_3 :: [Word] >>= [Word]
+relax3_3[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: relax1_1 relax1_2 relax3_7 relax1K_1K relax1K_1G relax1_3 relax2_2 relax2_3 relax3_3

@@ -1,84 +1,184 @@
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 Unit
+
+data Maybe1
+  = Nothing2
+  | Just3 Flag
+
+data Maybe2
+  = Nothing4
+  | Just5 Word
+
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive
-Nothing :: Maybe0
-Nothing <-
-  Nothing0()
+s11 :: Unit
+s11 <-
+  Unit()
 
 -----------------------------------------
 -- not recursive
-b138 :: [] >>= [Maybe0]
-b138[] =
-  return Nothing
+s29 :: Maybe0
+s29 <-
+  Just1(s11)
 
 -----------------------------------------
 -- not recursive
-b137 :: [Word] >>= [Maybe0]
-b137[t0] =
-  Just1(t0)
+entrypoint ltInc1 :: [Unit, Unit, Unit] >>= [Maybe0]
+ltInc1[t0, t1, t2] =
+  return s29
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc80 :: [Word, Word, Word] >>= [Maybe0]
+s1 :: Maybe1
+s1 <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+b190 :: [] >>= [Maybe1]
+b190[] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+b189 :: [Word] >>= [Maybe1]
+b189[t0] =
+  t1 <- wordToFlag((t0))
+  Just3(t1)
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc2 :: [Flag, Flag, Flag] >>= [Maybe1]
+ltInc2[t0, t1, t2] =
+  t3 <- flagToWord((t0))
+  t4 <- flagToWord((t1))
+  t5 <- add((t3, t4))
+  t6 <- flagToWord((t2))
+  t7 <- primUle((t5, t6))
+  if t7
+    then b189[t5]
+    else b190[]
+
+-----------------------------------------
+-- not recursive
+s3 :: Maybe2
+s3 <-
+  Nothing4()
+
+-----------------------------------------
+-- not recursive
+b192 :: [] >>= [Maybe2]
+b192[] =
+  return s3
+
+-----------------------------------------
+-- not recursive
+b191 :: [Word] >>= [Maybe2]
+b191[t0] =
+  Just5(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc3 :: [Word, Word, Word] >>= [Maybe2]
+ltInc3[t0, t1, t2] =
+  t3 <- add((t1, t0))
+  t4 <- primUle((t3, t2))
+  if t4
+    then b191[t3]
+    else b192[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltInc80 :: [Word, Word, Word] >>= [Maybe2]
 ltInc80[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc1K :: [Word, Word, Word] >>= [Maybe0]
+entrypoint ltInc1K :: [Word, Word, Word] >>= [Maybe2]
 ltInc1K[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc1G :: [Word, Word, Word] >>= [Maybe0]
+entrypoint ltInc1G :: [Word, Word, Word] >>= [Maybe2]
 ltInc1G[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec80 :: [Word, Word, Word] >>= [Maybe0]
+entrypoint ltDec1 :: [Unit, Unit, Unit] >>= [Maybe0]
+ltDec1[t0, t1, t2] =
+  return s29
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec2 :: [Flag, Flag, Flag] >>= [Maybe1]
+ltDec2[t0, t1, t2] =
+  t3 <- flagToWord((t2))
+  t4 <- flagToWord((t0))
+  t5 <- sub((t3, t4))
+  t6 <- flagToWord((t1))
+  t7 <- primSle((t6, t5))
+  if t7
+    then b189[t5]
+    else b190[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec3 :: [Word, Word, Word] >>= [Maybe2]
+ltDec3[t0, t1, t2] =
+  t3 <- sub((t2, t0))
+  t4 <- primSle((t1, t3))
+  if t4
+    then b191[t3]
+    else b192[]
+
+-----------------------------------------
+-- not recursive
+entrypoint ltDec80 :: [Word, Word, Word] >>= [Maybe2]
 ltDec80[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec1K :: [Word, Word, Word] >>= [Maybe0]
+entrypoint ltDec1K :: [Word, Word, Word] >>= [Maybe2]
 ltDec1K[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec1G :: [Word, Word, Word] >>= [Maybe0]
+entrypoint ltDec1G :: [Word, Word, Word] >>= [Maybe2]
 ltDec1G[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
   if t4
-    then b137[t3]
-    else b138[]
+    then b191[t3]
+    else b192[]
 
 -----------------------------------------
--- Entrypoints: ltInc80 ltInc1K ltInc1G ltDec80 ltDec1K ltDec1G
+-- Entrypoints: ltInc1 ltInc2 ltInc3 ltInc80 ltInc1K ltInc1G ltDec1 ltDec2 ltDec3 ltDec80 ltDec1K ltDec1G

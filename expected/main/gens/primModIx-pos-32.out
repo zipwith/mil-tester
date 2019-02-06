@@ -1,14 +1,11 @@
------------------------------------------
--- not recursive
-entrypoint modIx2_1 :: [Word] >>= [Word]
-modIx2_1[t0] =
-  return 0
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive
 entrypoint modIx2_4 :: [Word] >>= [Word]
 modIx2_4[t0] =
-  and((t0, 3))
+  return t0
 
 -----------------------------------------
 -- not recursive
@@ -77,4 +74,166 @@ modIx96_256[t0, t1, t2] =
   and((t0, 255))
 
 -----------------------------------------
--- Entrypoints: modIx2_1 modIx2_4 modIx10_16 modIx10_32 modIx32_16 modIx32_32 modIx32_1G modIx13_5 modIx24_17 modIx33_8 modIx64_256 modIx72_4K modIx96_256
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx0_1 :: [Unit] >>= [Unit]
+modIx0_1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_1 :: [Flag] >>= [Unit]
+modIx1_1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_1 :: [Word] >>= [Unit]
+modIx2_1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx3_1 :: [Word] >>= [Unit]
+modIx3_1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx4_1 :: [Word] >>= [Unit]
+modIx4_1[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx0_2 :: [Unit] >>= [Flag]
+modIx0_2[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_2 :: [Flag] >>= [Flag]
+modIx1_2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_2 :: [Word] >>= [Flag]
+modIx2_2[t0] =
+  wordToFlag((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx3_2 :: [Word] >>= [Flag]
+modIx3_2[t0] =
+  wordToFlag((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx4_2 :: [Word] >>= [Flag]
+modIx4_2[t0] =
+  wordToFlag((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx0_3 :: [Unit] >>= [Word]
+modIx0_3[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_3 :: [Flag] >>= [Word]
+modIx1_3[t0] =
+  flagToWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_3 :: [Word] >>= [Word]
+modIx2_3[t0] =
+  rem((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx3_3 :: [Word] >>= [Word]
+modIx3_3[t0] =
+  rem((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx4_3 :: [Word] >>= [Word]
+modIx4_3[t0] =
+  rem((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_4 :: [Flag] >>= [Word]
+modIx1_4[t0] =
+  flagToWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx0_7 :: [Unit] >>= [Word]
+modIx0_7[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_7 :: [Flag] >>= [Word]
+modIx1_7[t0] =
+  flagToWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_7 :: [Word] >>= [Word]
+modIx2_7[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx3_7 :: [Word] >>= [Word]
+modIx3_7[t0] =
+  rem((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx4_7 :: [Word] >>= [Word]
+modIx4_7[t0] =
+  rem((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx0_8 :: [Unit] >>= [Word]
+modIx0_8[t0] =
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx1_8 :: [Flag] >>= [Word]
+modIx1_8[t0] =
+  flagToWord((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx2_8 :: [Word] >>= [Word]
+modIx2_8[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx3_8 :: [Word] >>= [Word]
+modIx3_8[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint modIx4_8 :: [Word] >>= [Word]
+modIx4_8[t0] =
+  and((t0, 7))
+
+-----------------------------------------
+-- Entrypoints: modIx2_4 modIx10_16 modIx10_32 modIx32_16 modIx32_32 modIx32_1G modIx13_5 modIx24_17 modIx33_8 modIx64_256 modIx72_4K modIx96_256 modIx0_1 modIx1_1 modIx2_1 modIx3_1 modIx4_1 modIx0_2 modIx1_2 modIx2_2 modIx3_2 modIx4_2 modIx0_3 modIx1_3 modIx2_3 modIx3_3 modIx4_3 modIx1_4 modIx0_7 modIx1_7 modIx2_7 modIx3_7 modIx4_7 modIx0_8 modIx1_8 modIx2_8 modIx3_8 modIx4_8

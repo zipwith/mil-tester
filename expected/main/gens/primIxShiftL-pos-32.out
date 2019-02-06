@@ -1,16 +1,19 @@
------------------------------------------
--- not recursive
-entrypoint shlix2_1 :: [Word, Word] >>= [Word]
-shlix2_1[t0, t1] =
-  t2 <- shl((t0, t1))
-  and((t2, 1))
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint shlix4_2 :: [Word, Word] >>= [Word]
+entrypoint shlix2_1 :: [Flag, Unit] >>= [Flag]
+shlix2_1[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint shlix4_2 :: [Word, Flag] >>= [Word]
 shlix4_2[t0, t1] =
-  t2 <- shl((t0, t1))
-  and((t2, 3))
+  t2 <- flagToWord((t1))
+  t3 <- shl((t0, t2))
+  and((t3, 3))
 
 -----------------------------------------
 -- not recursive

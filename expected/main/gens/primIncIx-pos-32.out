@@ -1,14 +1,18 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-entrypoint incIx1 :: [Word] >>= [Flag]
+entrypoint incIx1 :: [Unit] >>= [Flag]
 incIx1[t0] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx2 :: [Word] >>= [Word]
+entrypoint incIx2 :: [Flag] >>= [Word]
 incIx2[t0] =
-  add((t0, 1))
+  t1 <- flagToWord((t0))
+  add((t1, 1))
 
 -----------------------------------------
 -- not recursive

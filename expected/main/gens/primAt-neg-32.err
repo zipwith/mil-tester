@@ -23,5 +23,25 @@ external bad5 {@ 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
          ^
 No generated implementation: Argument 2 (Word) does not have expected kind (area)
 
-ERROR: Aborting after 5 previously reported errors
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 19
+external at0SW   {@   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 21
+external at0SI   {@   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 23
+external at0SS   {@   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32.lc", line 25
+external at0SA   {@   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: Aborting after 9 previously reported errors
 

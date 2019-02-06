@@ -1,66 +1,100 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-b22 :: forall (a :: *). [a] >>= [a]
-b22[t0] =
+entrypoint genDecF1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+genDecF1[t0, t1, t2] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b21 :: forall (a :: tuple). [[Word] ->> a, Word] >>= a
-b21[t0, t1] =
-  t2 <- add((t1, -1))
-  t0 @ t2
-
------------------------------------------
--- not recursive
-entrypoint genDecF1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
-genDecF1[t0, t1, t2] =
-  t3 <- primUgt((t2, 0))
-  if t3
-    then b21[t1, t2]
-    else b22[t0]
-
------------------------------------------
--- not recursive
-entrypoint genDecW1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+entrypoint genDecW1 :: [Word, [Unit] ->> [Word], Unit] >>= [Word]
 genDecW1[t0, t1, t2] =
-  t3 <- primUgt((t2, 0))
-  if t3
-    then b21[t1, t2]
-    else b22[t0]
+  return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecI1 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+entrypoint genDecI1 :: [Unit, [Unit] ->> [Unit], Unit] >>= [Unit]
 genDecI1[t0, t1, t2] =
-  t3 <- primUgt((t2, 0))
-  if t3
-    then b21[t1, t2]
-    else b22[t0]
+  return t0
 
 -----------------------------------------
 -- not recursive
-b31 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
-b31[t0, t1] =
+entrypoint genDecB1 :: [Word, Word, [Unit] ->> [Word, Word], Unit] >>= [Word, Word]
+genDecB1[t0, t1, t2, t3] =
   return [t0, t1]
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecB1 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Word]
-genDecB1[t0, t1, t2, t3] =
-  t4 <- primUgt((t3, 0))
-  if t4
-    then b21[t2, t3]
-    else b31[t0, t1]
+entrypoint genDecM1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+genDecM1[t0, t1, t2] =
+  return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecM1 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
-genDecM1[t0, t1, t2] =
-  t3 <- primUgt((t2, 0))
+b31 :: forall (a :: *). [a] >>= [a]
+b31[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+b30 :: forall (a :: tuple). [[Flag] ->> a] >>= a
+b30[t0] =
+  t0 @ flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecF2 :: [Flag, [Flag] ->> [Flag], Flag] >>= [Flag]
+genDecF2[t0, t1, t2] =
+  if t2
+    then b30[t1]
+    else b31[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecW2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+genDecW2[t0, t1, t2] =
+  if t2
+    then b30[t1]
+    else b31[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecI2 :: [Unit, [Flag] ->> [Unit], Flag] >>= [Unit]
+genDecI2[t0, t1, t2] =
+  if t2
+    then b30[t1]
+    else b31[t0]
+
+-----------------------------------------
+-- not recursive
+b40 :: forall (a :: *) (b :: *). [a, b] >>= [a, b]
+b40[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecB2 :: [Word, Word, [Flag] ->> [Word, Word], Flag] >>= [Word, Word]
+genDecB2[t0, t1, t2, t3] =
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b30[t2]
+    else b40[t0, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint genDecM2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+genDecM2[t0, t1, t2] =
+  if t2
+    then b30[t1]
+    else b31[t0]
+
+-----------------------------------------
+-- not recursive
+b45 :: forall (a :: tuple). [[Word] ->> a, Word] >>= a
+b45[t0, t1] =
+  t2 <- add((t1, -1))
+  t0 @ t2
 
 -----------------------------------------
 -- not recursive
@@ -68,8 +102,8 @@ entrypoint genDecF7 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
 genDecF7[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -77,8 +111,8 @@ entrypoint genDecW7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecW7[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -86,8 +120,8 @@ entrypoint genDecI7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecI7[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -95,8 +129,8 @@ entrypoint genDecB7 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, Wo
 genDecB7[t0, t1, t2, t3] =
   t4 <- primUgt((t3, 0))
   if t4
-    then b21[t2, t3]
-    else b31[t0, t1]
+    then b45[t2, t3]
+    else b40[t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -104,8 +138,8 @@ entrypoint genDecM7 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecM7[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -113,8 +147,8 @@ entrypoint genDecF64 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
 genDecF64[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -122,8 +156,8 @@ entrypoint genDecW64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecW64[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -131,8 +165,8 @@ entrypoint genDecI64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecI64[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
@@ -140,8 +174,8 @@ entrypoint genDecB64 :: [Word, Word, [Word] ->> [Word, Word], Word] >>= [Word, W
 genDecB64[t0, t1, t2, t3] =
   t4 <- primUgt((t3, 0))
   if t4
-    then b21[t2, t3]
-    else b31[t0, t1]
+    then b45[t2, t3]
+    else b40[t0, t1]
 
 -----------------------------------------
 -- not recursive
@@ -149,40 +183,25 @@ entrypoint genDecM64 :: [Word, [Word] ->> [Word], Word] >>= [Word]
 genDecM64[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
-    then b21[t1, t2]
-    else b22[t0]
+    then b45[t1, t2]
+    else b31[t0]
 
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Flag]
-b79[] =
+entrypoint decIx1 :: [Unit] >>= [Flag]
+decIx1[t0] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-b78 :: forall (a :: *). [a] >>= [Flag]
-b78[t0] =
-  return flag1
-
------------------------------------------
--- not recursive
-entrypoint decIx1 :: [Word] >>= [Flag]
-decIx1[t0] =
-  t1 <- primUgt((t0, 0))
-  if t1
-    then b78[t0]
-    else b79[]
-
------------------------------------------
--- not recursive
-b81 :: [] >>= [Word]
-b81[] =
+b88 :: [] >>= [Word]
+b88[] =
   return 7
 
 -----------------------------------------
 -- not recursive
-b80 :: [Word] >>= [Word]
-b80[t0] =
+b87 :: [Word] >>= [Word]
+b87[t0] =
   add((t0, -1))
 
 -----------------------------------------
@@ -191,19 +210,19 @@ entrypoint decIx7 :: [Word] >>= [Word]
 decIx7[t0] =
   t1 <- primUgt((t0, 0))
   if t1
-    then b80[t0]
-    else b81[]
+    then b87[t0]
+    else b88[]
 
 -----------------------------------------
 -- not recursive
-b83 :: [] >>= [Word]
-b83[] =
+b90 :: [] >>= [Word]
+b90[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-b82 :: [Word] >>= [Word]
-b82[t0] =
+b89 :: [Word] >>= [Word]
+b89[t0] =
   t1 <- shl((t0, 1))
   t2 <- add((t1, -2))
   or((t2, 1))
@@ -214,8 +233,8 @@ entrypoint decIx64 :: [Word] >>= [Word]
 decIx64[t0] =
   t1 <- primUgt((t0, 0))
   if t1
-    then b82[t0]
-    else b83[]
+    then b89[t0]
+    else b90[]
 
 -----------------------------------------
--- Entrypoints: genDecF1 genDecW1 genDecI1 genDecB1 genDecM1 genDecF7 genDecW7 genDecI7 genDecB7 genDecM7 genDecF64 genDecW64 genDecI64 genDecB64 genDecM64 decIx1 decIx7 decIx64
+-- Entrypoints: genDecF1 genDecW1 genDecI1 genDecB1 genDecM1 genDecF2 genDecW2 genDecI2 genDecB2 genDecM2 genDecF7 genDecW7 genDecI7 genDecB7 genDecM7 genDecF64 genDecW64 genDecI64 genDecB64 genDecM64 decIx1 decIx7 decIx64

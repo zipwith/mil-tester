@@ -3,34 +3,28 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-s7 :: Unit
-s7 <-
+s6 :: Unit
+s6 <-
   Unit()
 
 -----------------------------------------
 -- not recursive
-entrypoint ia0SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
-ia0SW[t0, t1] =
-  return s7
-
------------------------------------------
--- not recursive
-entrypoint ia1SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia1SW :: [[Unit] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia1SW[t0, t1] =
-  t2 <- t0 @ 0
+  t2 <- t0 @ s6
   t3 <- t2 @ t1
-  return s7
+  return s6
 
 -----------------------------------------
 -- not recursive
-entrypoint ia2SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia2SW :: [[Flag] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia2SW[t0, t1] =
-  t2 <- t0 @ 0
+  t2 <- t0 @ flag0
   t3 <- t2 @ t1
   t4 <- add((t1, 4))
-  t5 <- t0 @ 1
+  t5 <- t0 @ flag1
   t6 <- t5 @ t4
-  return s7
+  return s6
 
 -----------------------------------------
 -- not recursive
@@ -47,70 +41,64 @@ ia4SW[t0, t1] =
   t10 <- add((t1, 12))
   t11 <- t0 @ 3
   t12 <- t11 @ t10
-  return s7
+  return s6
 
 -----------------------------------------
 -- not recursive
-b34 :: [] >>= [Unit]
-b34[] =
-  return s7
+b30 :: [] >>= [Unit]
+b30[] =
+  return s6
 
 -----------------------------------------
 -- recursive
-b36 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b36[t0, t1, t2] =
+b32 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b32[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 4))
-  b35[t0, t6, t5]
-b35 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b35[t0, t1, t2] =
+  b31[t0, t6, t5]
+b31 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b31[t0, t1, t2] =
   t3 <- primUlt((t2, 6))
   if t3
-    then b36[t0, t1, t2]
-    else b34[]
+    then b32[t0, t1, t2]
+    else b30[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia6SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia6SW[t0, t1] =
-  b35[t0, t1, 0]
+  b31[t0, t1, 0]
 
 -----------------------------------------
 -- recursive
-b39 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b39[t0, t1, t2] =
+b35 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b35[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 4))
-  b38[t0, t6, t5]
-b38 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b38[t0, t1, t2] =
+  b34[t0, t6, t5]
+b34 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b34[t0, t1, t2] =
   t3 <- primUlt((t2, 16))
   if t3
-    then b39[t0, t1, t2]
-    else b34[]
+    then b35[t0, t1, t2]
+    else b30[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia16SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia16SW[t0, t1] =
-  b38[t0, t1, 0]
-
------------------------------------------
--- not recursive
-entrypoint cia0SW :: [Word] >>= [Unit]
-cia0SW[t0] =
-  return s7
+  b34[t0, t1, 0]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia1SW :: [Word] >>= [Unit]
 cia1SW[t0] =
   t1 <- store32((t0, 101))
-  return s7
+  return s6
 
 -----------------------------------------
 -- not recursive
@@ -119,7 +107,7 @@ cia2SW[t0] =
   t1 <- store32((t0, 102))
   t2 <- add((t0, 4))
   t3 <- store32((t2, 102))
-  return s7
+  return s6
 
 -----------------------------------------
 -- not recursive
@@ -132,49 +120,49 @@ cia4SW[t0] =
   t5 <- store32((t4, 104))
   t6 <- add((t0, 12))
   t7 <- store32((t6, 104))
-  return s7
+  return s6
 
 -----------------------------------------
 -- recursive
-b48 :: [Word, Word] >>= [Unit]
-b48[t0, t1] =
+b44 :: [Word, Word] >>= [Unit]
+b44[t0, t1] =
   t2 <- store32((t0, 106))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
-  b47[t4, t3]
-b47 :: [Word, Word] >>= [Unit]
-b47[t0, t1] =
+  b43[t4, t3]
+b43 :: [Word, Word] >>= [Unit]
+b43[t0, t1] =
   t2 <- primUlt((t1, 6))
   if t2
-    then b48[t0, t1]
-    else b34[]
+    then b44[t0, t1]
+    else b30[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia6SW :: [Word] >>= [Unit]
 cia6SW[t0] =
-  b47[t0, 0]
+  b43[t0, 0]
 
 -----------------------------------------
 -- recursive
-b50 :: [Word, Word] >>= [Unit]
-b50[t0, t1] =
+b46 :: [Word, Word] >>= [Unit]
+b46[t0, t1] =
   t2 <- store32((t0, 116))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
-  b49[t4, t3]
-b49 :: [Word, Word] >>= [Unit]
-b49[t0, t1] =
+  b45[t4, t3]
+b45 :: [Word, Word] >>= [Unit]
+b45[t0, t1] =
   t2 <- primUlt((t1, 16))
   if t2
-    then b50[t0, t1]
-    else b34[]
+    then b46[t0, t1]
+    else b30[]
 
 -----------------------------------------
 -- not recursive
 entrypoint cia16SW :: [Word] >>= [Unit]
 cia16SW[t0] =
-  b49[t0, 0]
+  b45[t0, 0]
 
 -----------------------------------------
 -- not recursive
@@ -188,29 +176,29 @@ ia3T[t0, t1] =
   t7 <- add((t1, 24))
   t8 <- t0 @ 2
   t9 <- t8 @ t7
-  return s7
+  return s6
 
 -----------------------------------------
 -- recursive
-b43 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b43[t0, t1, t2] =
+b39 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b39[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 12))
-  b42[t0, t6, t5]
-b42 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
-b42[t0, t1, t2] =
+  b38[t0, t6, t5]
+b38 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b38[t0, t1, t2] =
   t3 <- primUlt((t2, 7))
   if t3
-    then b43[t0, t1, t2]
-    else b34[]
+    then b39[t0, t1, t2]
+    else b30[]
 
 -----------------------------------------
 -- not recursive
 entrypoint ia7T :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia7T[t0, t1] =
-  b42[t0, t1, 0]
+  b38[t0, t1, 0]
 
 -----------------------------------------
--- Entrypoints: ia0SW ia1SW ia2SW ia4SW ia6SW ia16SW cia0SW cia1SW cia2SW cia4SW cia6SW cia16SW ia3T ia7T
+-- Entrypoints: ia1SW ia2SW ia4SW ia6SW ia16SW cia1SW cia2SW cia4SW cia6SW cia16SW ia3T ia7T

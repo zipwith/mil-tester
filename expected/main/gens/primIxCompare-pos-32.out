@@ -1,7 +1,24 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1 :: [Word, Word] >>= [Flag]
+entrypoint ixEq1 :: [Unit, Unit] >>= [Flag]
 ixEq1[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq2 :: [Flag, Flag] >>= [Flag]
+ixEq2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primEq((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixEq3 :: [Word, Word] >>= [Flag]
+ixEq3[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
@@ -71,4 +88,104 @@ ixGe15[t0, t1] =
   primUge((t0, t1))
 
 -----------------------------------------
--- Entrypoints: ixEq1 ixEq7 ixEq65 ixEq1K ixEq123 ixEq2047M ixEq1G ixNe15 ixLt15 ixLe15 ixGt15 ixGe15
+-- not recursive
+entrypoint ixNe1 :: [Unit, Unit] >>= [Flag]
+ixNe1[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLt1 :: [Unit, Unit] >>= [Flag]
+ixLt1[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLe1 :: [Unit, Unit] >>= [Flag]
+ixLe1[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGt1 :: [Unit, Unit] >>= [Flag]
+ixGt1[t0, t1] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGe1 :: [Unit, Unit] >>= [Flag]
+ixGe1[t0, t1] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint ixNe2 :: [Flag, Flag] >>= [Flag]
+ixNe2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primNeq((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLt2 :: [Flag, Flag] >>= [Flag]
+ixLt2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primUlt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLe2 :: [Flag, Flag] >>= [Flag]
+ixLe2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primUle((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGt2 :: [Flag, Flag] >>= [Flag]
+ixGt2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primUgt((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGe2 :: [Flag, Flag] >>= [Flag]
+ixGe2[t0, t1] =
+  t2 <- flagToWord((t0))
+  t3 <- flagToWord((t1))
+  primUge((t2, t3))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixNe3 :: [Word, Word] >>= [Flag]
+ixNe3[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLt3 :: [Word, Word] >>= [Flag]
+ixLt3[t0, t1] =
+  primUlt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixLe3 :: [Word, Word] >>= [Flag]
+ixLe3[t0, t1] =
+  primUle((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGt3 :: [Word, Word] >>= [Flag]
+ixGt3[t0, t1] =
+  primUgt((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint ixGe3 :: [Word, Word] >>= [Flag]
+ixGe3[t0, t1] =
+  primUge((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: ixEq1 ixEq2 ixEq3 ixEq7 ixEq65 ixEq1K ixEq123 ixEq2047M ixEq1G ixNe15 ixLt15 ixLe15 ixGt15 ixGe15 ixNe1 ixLt1 ixLe1 ixGt1 ixGe1 ixNe2 ixLt2 ixLe2 ixGt2 ixGe2 ixNe3 ixLt3 ixLe3 ixGt3 ixGe3

@@ -1,14 +1,18 @@
------------------------------------------
--- not recursive
-entrypoint shrix2_1 :: [Word, Word] >>= [Word]
-shrix2_1[t0, t1] =
-  lshr((t0, t1))
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix4_2 :: [Word, Word] >>= [Word]
+entrypoint shrix2_1 :: [Flag, Unit] >>= [Flag]
+shrix2_1[t0, t1] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint shrix4_2 :: [Word, Flag] >>= [Word]
 shrix4_2[t0, t1] =
-  lshr((t0, t1))
+  t2 <- flagToWord((t1))
+  lshr((t0, t2))
 
 -----------------------------------------
 -- not recursive

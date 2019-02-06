@@ -1,6 +1,13 @@
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 Unit
+
+data Maybe1
+  = Nothing2
+  | Just3 Word
+
+data Unit
+  = Unit
 
 -----------------------------------------
 -- not recursive
@@ -10,35 +17,47 @@ b9[t0] =
 
 -----------------------------------------
 -- not recursive
-b8 :: forall (a :: *) (b :: tuple). [[a] ->> b, a] >>= b
-b8[t0, t1] =
+s5 :: Unit
+s5 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b8 :: forall (a :: tuple). [[Unit] ->> a] >>= a
+b8[t0] =
+  t0 @ s5
+
+-----------------------------------------
+-- not recursive
+entrypoint genLeqIxM1 :: [Maybe0, [Unit] ->> [Maybe0], Word, Unit] >>= [Maybe0]
+genLeqIxM1[t0, t1, t2, t3] =
+  t4 <- primUle((t2, 0))
+  if t4
+    then b8[t1]
+    else b9[t0]
+
+-----------------------------------------
+-- not recursive
+b11 :: forall (a :: *) (b :: tuple). [[a] ->> b, a] >>= b
+b11[t0, t1] =
   t0 @ t1
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM1 :: [Maybe0, [Word] ->> [Maybe0], Word, Word] >>= [Maybe0]
-genLeqIxM1[t0, t1, t2, t3] =
-  t4 <- primUle((t2, t3))
-  if t4
-    then b8[t1, t2]
-    else b9[t0]
-
------------------------------------------
--- not recursive
-entrypoint genLeqIxM7 :: [Maybe0, [Word] ->> [Maybe0], Word, Word] >>= [Maybe0]
+entrypoint genLeqIxM7 :: [Maybe1, [Word] ->> [Maybe1], Word, Word] >>= [Maybe1]
 genLeqIxM7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b8[t1, t2]
+    then b11[t1, t2]
     else b9[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM64 :: [Maybe0, [Word] ->> [Maybe0], Word, Word] >>= [Maybe0]
+entrypoint genLeqIxM64 :: [Maybe1, [Word] ->> [Maybe1], Word, Word] >>= [Maybe1]
 genLeqIxM64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
-    then b8[t1, t2]
+    then b11[t1, t2]
     else b9[t0]
 
 -----------------------------------------
@@ -55,36 +74,60 @@ b33[] =
 
 -----------------------------------------
 -- not recursive
-b32 :: [Word] >>= [Maybe0]
-b32[t0] =
-  Just1(t0)
+s9 :: Maybe0
+s9 <-
+  Just1(s5)
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx1 :: [Word, Word] >>= [Maybe0]
+b32 :: [] >>= [Maybe0]
+b32[] =
+  return s9
+
+-----------------------------------------
+-- not recursive
+entrypoint leqIx1 :: [Word, Unit] >>= [Maybe0]
 leqIx1[t0, t1] =
-  t2 <- primUle((t0, t1))
+  t2 <- primUle((t0, 0))
   if t2
-    then b32[t0]
+    then b32[]
     else b33[]
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx7 :: [Word, Word] >>= [Maybe0]
+s1 :: Maybe1
+s1 <-
+  Nothing2()
+
+-----------------------------------------
+-- not recursive
+b35 :: [] >>= [Maybe1]
+b35[] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+b34 :: [Word] >>= [Maybe1]
+b34[t0] =
+  Just3(t0)
+
+-----------------------------------------
+-- not recursive
+entrypoint leqIx7 :: [Word, Word] >>= [Maybe1]
 leqIx7[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
-    then b32[t0]
-    else b33[]
+    then b34[t0]
+    else b35[]
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx64 :: [Word, Word] >>= [Maybe0]
+entrypoint leqIx64 :: [Word, Word] >>= [Maybe1]
 leqIx64[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
-    then b32[t0]
-    else b33[]
+    then b34[t0]
+    else b35[]
 
 -----------------------------------------
 -- Entrypoints: genLeqIxM1 genLeqIxM7 genLeqIxM64 leqIx1 leqIx7 leqIx64
