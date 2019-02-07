@@ -2242,40 +2242,45 @@ external sle98 {primBitSLe 98} :: Bit 98 -> Bit 98 -> Flag
 -----------------------
 .lc: primBitManip-pos-32    ./milc -pcosoboro -m --32
 
-entrypoint bitBit2, bitBit12
+entrypoint bitBit1,  bitBit2,  bitBit12
 entrypoint bitBit48, bitBit64, bitBit128
+external bitBit1      {primBitBit 1}       :: Ix 1  -> Bit 1
 external bitBit2      {primBitBit 2}       :: Ix 2  -> Bit 2
 external bitBit12     {primBitBit 12}      :: Ix 12 -> Bit 12
 external bitBit48     {primBitBit 48}      :: Ix 48 -> Bit 48
 external bitBit64     {primBitBit 64}      :: Ix 64 -> Bit 64
 external bitBit128    {primBitBit 128 }    :: Ix 128 -> Bit 128
 
-entrypoint bitSetBit2, bitSetBit12
+entrypoint bitSetBit1,  bitSetBit2, bitSetBit12
 entrypoint bitSetBit48, bitSetBit64, bitSetBit128
+external bitSetBit1   {primBitSetBit 1}    :: Bit 1   -> Ix 1   -> Bit 1
 external bitSetBit2   {primBitSetBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitSetBit12  {primBitSetBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitSetBit48  {primBitSetBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitSetBit64  {primBitSetBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitSetBit128 {primBitSetBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitClearBit2, bitClearBit12
+entrypoint bitClearBit1,  bitClearBit2, bitClearBit12
 entrypoint bitClearBit48, bitClearBit64, bitClearBit128
+external bitClearBit1   {primBitClearBit 1}    :: Bit 1   -> Ix 1   -> Bit 1
 external bitClearBit2   {primBitClearBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitClearBit12  {primBitClearBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitClearBit48  {primBitClearBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitClearBit64  {primBitClearBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitClearBit128 {primBitClearBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitFlipBit2, bitFlipBit12
+entrypoint bitFlipBit1,  bitFlipBit2, bitFlipBit12
 entrypoint bitFlipBit48, bitFlipBit64, bitFlipBit128
+external bitFlipBit1   {primBitFlipBit 1}    :: Bit 1   -> Ix 1   -> Bit 1
 external bitFlipBit2   {primBitFlipBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitFlipBit12  {primBitFlipBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitFlipBit48  {primBitFlipBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitFlipBit64  {primBitFlipBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitFlipBit128 {primBitFlipBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitTestBit2, bitTestBit12
+entrypoint bitTestBit1,  bitTestBit2, bitTestBit12
 entrypoint bitTestBit48, bitTestBit64, bitTestBit128
+external bitTestBit1   {primBitTestBit 1}    :: Bit 1   -> Ix 1   -> Flag
 external bitTestBit2   {primBitTestBit 2}    :: Bit 2   -> Ix 2   -> Flag
 external bitTestBit12  {primBitTestBit 12}   :: Bit 12  -> Ix 12  -> Flag
 external bitTestBit48  {primBitTestBit 48}   :: Bit 48  -> Ix 48  -> Flag
@@ -2294,40 +2299,45 @@ external bitBitSize128 {primBitBitSize 128}  :: Bit 128 -> Ix 128
 -----------------------
 .lc: primBitManip-pos-64    ./milc -pcosoboro -m --64
 
-entrypoint bitBit2, bitBit12
+entrypoint bitBit1, bitBit2, bitBit12
 entrypoint bitBit48, bitBit64, bitBit128
+external bitBit1      {primBitBit 1}       :: Ix 1  -> Bit 1
 external bitBit2      {primBitBit 2}       :: Ix 2  -> Bit 2
 external bitBit12     {primBitBit 12}      :: Ix 12 -> Bit 12
 external bitBit48     {primBitBit 48}      :: Ix 48 -> Bit 48
 external bitBit64     {primBitBit 64}      :: Ix 64 -> Bit 64
 external bitBit128    {primBitBit 128 }    :: Ix 128 -> Bit 128
 
-entrypoint bitSetBit2, bitSetBit12
+entrypoint bitSetBit1, bitSetBit2, bitSetBit12
 entrypoint bitSetBit48, bitSetBit64, bitSetBit128
+external bitSetBit1   {primBitSetBit 1}    :: Bit 1 -> Ix 1  -> Bit 1
 external bitSetBit2   {primBitSetBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitSetBit12  {primBitSetBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitSetBit48  {primBitSetBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitSetBit64  {primBitSetBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitSetBit128 {primBitSetBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitClearBit2, bitClearBit12
+entrypoint bitClearBit1, bitClearBit2, bitClearBit12
 entrypoint bitClearBit48, bitClearBit64, bitClearBit128
+external bitClearBit1   {primBitClearBit 1}  :: Bit 1 -> Ix 1  -> Bit 1
 external bitClearBit2   {primBitClearBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitClearBit12  {primBitClearBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitClearBit48  {primBitClearBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitClearBit64  {primBitClearBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitClearBit128 {primBitClearBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitFlipBit2, bitFlipBit12
+entrypoint bitFlipBit1, bitFlipBit2, bitFlipBit12
 entrypoint bitFlipBit48, bitFlipBit64, bitFlipBit128
+external bitFlipBit1   {primBitFlipBit 1}   :: Bit 1 -> Ix 1  -> Bit 1
 external bitFlipBit2   {primBitFlipBit 2}    :: Bit 2   -> Ix 2   -> Bit 2
 external bitFlipBit12  {primBitFlipBit 12}   :: Bit 12  -> Ix 12  -> Bit 12
 external bitFlipBit48  {primBitFlipBit 48}   :: Bit 48  -> Ix 48  -> Bit 48
 external bitFlipBit64  {primBitFlipBit 64}   :: Bit 64  -> Ix 64  -> Bit 64 
 external bitFlipBit128 {primBitFlipBit 128}  :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitTestBit2, bitTestBit12
+entrypoint bitTestBit1, bitTestBit2, bitTestBit12
 entrypoint bitTestBit48, bitTestBit64, bitTestBit128
+external bitTestBit1   {primBitTestBit 1}   :: Bit 1 -> Ix 1  -> Flag
 external bitTestBit2   {primBitTestBit 2}    :: Bit 2   -> Ix 2   -> Flag
 external bitTestBit12  {primBitTestBit 12}   :: Bit 12  -> Ix 12  -> Flag
 external bitTestBit48  {primBitTestBit 48}   :: Bit 48  -> Ix 48  -> Flag
@@ -2354,14 +2364,6 @@ external bitFlipBit0   {primBitFlipBit 0}   :: Bit 0 -> Ix 0  -> Bit 0
 external bitTestBit0   {primBitTestBit 0}   :: Bit 0 -> Ix 0  -> Flag
 external bitBitSize0   {primBitBitSize 0}   :: Bit 0 -> Ix 0
 
-entrypoint bitBit1, bitSetBit1, bitClearBit1, bitFlipBit1, bitTestBit1
-external bitBit1       {primBitBit 1}       :: Ix 1  -> Bit 1
-external bitSetBit1    {primBitSetBit 1}    :: Bit 1 -> Ix 1  -> Bit 1
-external bitClearBit1  {primBitClearBit 1}  :: Bit 1 -> Ix 1  -> Bit 1
-external bitFlipBit1   {primBitFlipBit 1}   :: Bit 1 -> Ix 1  -> Bit 1
-external bitTestBit1   {primBitTestBit 1}   :: Bit 1 -> Ix 1  -> Flag
--- NOTE: bitBitSize is defined for Bit 1; perhaps other BitManip operators should be too ...
-
 entrypoint bitBit1K, bitSetBit1K, bitClearBit1K, bitFlipBit1K, bitTestBit1K, bitBitSize1K
 external bitBit1K       {primBitBit 1K}       :: Ix 1K  -> Bit 1K
 external bitSetBit1K    {primBitSetBit 1K}    :: Bit 1K -> Ix 1K  -> Bit 1K
@@ -2375,9 +2377,11 @@ external bitBitSize1K   {primBitBitSize 1K}   :: Bit 1K -> Ix 1K
 
 -- It would be useful to add executable tests for all of these ...
 
-entrypoint bitShiftL2, bitShiftL12, bitShiftL32, bitShiftL38
+entrypoint bitShiftL1, bitShiftL2, bitShiftL3, bitShiftL12, bitShiftL32, bitShiftL38
 entrypoint bitShiftL64, bitShiftL98, bitShiftL128
+external bitShiftL1   {primBitShiftL 1}   :: Bit 1   -> Ix 1   -> Bit 1
 external bitShiftL2   {primBitShiftL 2}   :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftL3   {primBitShiftL 3}   :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftL12  {primBitShiftL 12}  :: Bit 12  -> Ix 12  -> Bit 12
 external bitShiftL32  {primBitShiftL 32}  :: Bit 32  -> Ix 32  -> Bit 32
 external bitShiftL38  {primBitShiftL 38}  :: Bit 38  -> Ix 38  -> Bit 38
@@ -2385,9 +2389,11 @@ external bitShiftL64  {primBitShiftL 64}  :: Bit 64  -> Ix 64  -> Bit 64
 external bitShiftL98  {primBitShiftL 98}  :: Bit 98  -> Ix 98  -> Bit 98
 external bitShiftL128 {primBitShiftL 128} :: Bit 128 -> Ix 128 -> Bit 128
 
-entrypoint bitShiftRu2, bitShiftRu12, bitShiftRu32, bitShiftRu38
+entrypoint bitShiftRu1, bitShiftRu2, bitShiftRu3, bitShiftRu12, bitShiftRu32, bitShiftRu38
 entrypoint bitShiftRu64, bitShiftRu98, bitShiftRu128
+external bitShiftRu1   {primBitShiftRu 1}   :: Bit 1   -> Ix 1   -> Bit 1
 external bitShiftRu2   {primBitShiftRu 2}   :: Bit 2   -> Ix 2   -> Bit 2
+external bitShiftRu3   {primBitShiftRu 3}   :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftRu12  {primBitShiftRu 12}  :: Bit 12  -> Ix 12  -> Bit 12
 external bitShiftRu32  {primBitShiftRu 32}  :: Bit 32  -> Ix 32  -> Bit 32
 external bitShiftRu38  {primBitShiftRu 38}  :: Bit 38  -> Ix 38  -> Bit 38
@@ -2398,19 +2404,15 @@ external bitShiftRu128 {primBitShiftRu 128} :: Bit 128 -> Ix 128 -> Bit 128
 -----------------------
 .lc: primBitShift-neg-32    ./milc -pcosoboro -m --32
 
-entrypoint bitShiftL0, bitShiftL1, bitShiftL2, bitShiftL3, bitShiftL1K
+entrypoint bitShiftL0, bitShiftL1K, bitShiftL2K
 external bitShiftL0   {primBitShiftL 0}   :: Bit 0   -> Ix 0   -> Bit 0
-external bitShiftL1   {primBitShiftL 1}   :: Bit 1   -> Ix 1   -> Bit 1
-external bitShiftL2   {primBitShiftL 2}   :: Bit 2   -> Ix 2   -> Bit 2
-external bitShiftL3   {primBitShiftL 3}   :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftL1K  {primBitShiftL 1K}  :: Bit 1K  -> Ix 1K  -> Bit 1K
+external bitShiftL2K  {primBitShiftL 2K}  :: Bit 2K  -> Ix 2K  -> Bit 2K
 
-entrypoint bitShiftRu0, bitShiftRu1, bitShiftRu2, bitShiftRu3, bitShiftRu1K
+entrypoint bitShiftRu0, bitShiftRu1K, bitShiftRu2K
 external bitShiftRu0  {primBitShiftRu 0}  :: Bit 0   -> Ix 0   -> Bit 0
-external bitShiftRu1  {primBitShiftRu 1}  :: Bit 1   -> Ix 1   -> Bit 1
-external bitShiftRu2  {primBitShiftRu 2}  :: Bit 2   -> Ix 2   -> Bit 2
-external bitShiftRu3  {primBitShiftRu 3}  :: Bit 3   -> Ix 3   -> Bit 3
 external bitShiftRu1K {primBitShiftRu 1K} :: Bit 1K  -> Ix 1K  -> Bit 1K
+external bitShiftRu2K {primBitShiftRu 2K} :: Bit 2K  -> Ix 2K  -> Bit 2K
 
 -----------------------
 .lc: primNZBitFromLiteral-pos-32  ./milc -pcosoboro -m --32
