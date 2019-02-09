@@ -50,6 +50,7 @@ primitive store16 impure :: [Addr, Bit 16] >>= [Unit]
 primitive store32 impure :: [Addr, Bit 32] >>= [Unit]
 primitive store64 impure :: [Addr, Bit 64] >>= [Unit]
 primitive primInitSeq pure :: forall (a :: area). [Init a, Init a] >>= [Init a]
-primitive primInitSelf pure :: forall (a :: nat) (b :: area). [Ref b ->> Init a] >>= [Init a]
-52 primitives listed
+primitive primInitSelf pure :: forall (a :: area). [[Ref a] ->> [Init a]] >>= [Init a]
+primitive primReInit impure :: forall (a :: area). [Ref a, Init a] >>= []
+53 primitives listed
 -----------------------------------------

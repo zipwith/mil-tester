@@ -10,9 +10,9 @@ initSelfSW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint reInitSW :: [[Word] ->> [Unit], Word] >>= [Unit]
+entrypoint reInitSW :: [Word, [Word] ->> [Unit]] >>= [Unit]
 reInitSW[t0, t1] =
-  t0 @ t1
+  t1 @ t0
 
 -----------------------------------------
 -- Entrypoints: initSelfSW reInitSW

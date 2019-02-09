@@ -59,7 +59,7 @@ primNZBitDiv         forall (a :: nat). Bit a -> NZBit a -> Bit a
 primNZBitFromLiteral forall (a :: nat) (b :: nat). Unit -> NZBit b
 primNZBitNonZero     forall (a :: nat). Bit a -> TODO
 primNZBitRem         forall (a :: nat). Bit a -> NZBit a -> Bit a
-primReInit           forall (a :: area). Init a -> Ref a -> Proc Unit
+primReInit           forall (a :: area). Ref a -> Init a -> Proc Unit
 primReadRefStored    forall (a :: *). Ref (Stored a) -> Proc a
 primRelaxIx          forall (a :: nat) (b :: nat). Ix a -> Ix b
 primStructSelect     forall (a :: area) (b :: lab) (c :: area). Ref a -> Unit -> Ref c
