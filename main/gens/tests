@@ -2876,6 +2876,18 @@ external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
 external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
 
 -----------------------
+.lc: primInitSelf   ./milc -m -pcsosrsos
+external initSelf {primInitSelf a} :: (Ref a -> Init a) -> Init a
+external reInit   {primReInit a}   :: Init a -> Ref a -> Proc Unit
+
+type SW = Stored Word
+entrypoint reInitSW   :: Init SW -> Ref SW -> Proc Unit
+reInitSW = reInit
+
+entrypoint initSelfSW :: (Ref SW -> Init SW) -> Init SW
+initSelfSW = initSelf
+
+-----------------------
 .lc: external-imp-by-atom   ./milc -pcosoro -m --32
 entrypoint vram
 external vram = 0xb8000 :: Ref (Stored Word)

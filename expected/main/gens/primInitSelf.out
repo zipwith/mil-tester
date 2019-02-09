@@ -1,0 +1,18 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint initSelfSW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+initSelfSW[t0, t1] =
+  t2 <- t0 @ t1
+  t2 @ t1
+
+-----------------------------------------
+-- not recursive
+entrypoint reInitSW :: [[Word] ->> [Unit], Word] >>= [Unit]
+reInitSW[t0, t1] =
+  t0 @ t1
+
+-----------------------------------------
+-- Entrypoints: initSelfSW reInitSW
