@@ -1,72 +1,57 @@
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 3
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 3
 external nz0_0  {primNZBitFromLiteral     0  0} :: Unit -> NZBit 0
          ^
 No generated implementation: A positive value is required
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 4
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 4
 external nz0_1  {primNZBitFromLiteral     0  1} :: Unit -> NZBit 1
          ^
 No generated implementation: A positive value is required
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 5
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 5
 external nz0_2  {primNZBitFromLiteral     0  2} :: Unit -> NZBit 2
          ^
 No generated implementation: A positive value is required
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 6
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 6
 external nz0_4  {primNZBitFromLiteral     0  4} :: Unit -> NZBit 4
          ^
 No generated implementation: A positive value is required
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 7
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 7
 external nzW_2  {primNZBitFromLiteral  Word  2} :: Unit -> NZBit 2
          ^
 No generated implementation: Argument 1 (Word) does not have expected kind (nat)
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 8
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 8
 external nz1_2K {primNZBitFromLiteral     1 2K} :: Unit -> NZBit 2K
          ^
 No generated implementation: Argument value 2048 is too large; must be less than 1000
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 11
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 11
 external nz7_2  {primNZBitFromLiteral     7  2} :: Unit -> NZBit 2
          ^
 No generated implementation: Argument value 7 is too large; must be less than 4
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 12
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 12
 external nz17_3 {primNZBitFromLiteral    17  3} :: Unit -> NZBit 3
          ^
 No generated implementation: Argument value 17 is too large; must be less than 8
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 13
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 13
 external nz16_4 {primNZBitFromLiteral    16  4} :: Unit -> NZBit 4
          ^
 No generated implementation: Argument value 16 is too large; must be less than 16
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 14
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 14
 external nz17_4 {primNZBitFromLiteral    17  4} :: Unit -> NZBit 4
          ^
 No generated implementation: Argument value 17 is too large; must be less than 16
 
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 17
-external nz1_33 {primNZBitFromLiteral     1 33} :: Unit -> NZBit 33
-         ^
-No generated implementation: Bit vector of width 33 does not fit in a single word
-
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 18
-external nz1_48 {primNZBitFromLiteral     1 48} :: Unit -> NZBit 48
-         ^
-No generated implementation: Bit vector of width 48 does not fit in a single word
-
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 19
-external nz1_64 {primNZBitFromLiteral     1 64} :: Unit -> NZBit 64
-         ^
-No generated implementation: Bit vector of width 64 does not fit in a single word
-
-ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 20
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64.lc", line 17
 external nz1_96 {primNZBitFromLiteral     1 96} :: Unit -> NZBit 96
          ^
 No generated implementation: Bit vector of width 96 does not fit in a single word
 
-ERROR: Aborting after 14 previously reported errors
+ERROR: Aborting after 11 previously reported errors
 

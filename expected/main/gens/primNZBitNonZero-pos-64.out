@@ -47,4 +47,46 @@ just12[t0] =
   return t0
 
 -----------------------------------------
--- Entrypoints: nonZero2 nonZero4 nonZero15 nonZero32 nonZero33 nonZero48 nothing4 just12
+-- not recursive
+entrypoint forget2 :: [Word] >>= [Word]
+forget2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget4 :: [Word] >>= [Word]
+forget4[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget15 :: [Word] >>= [Word]
+forget15[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget32 :: [Word] >>= [Word]
+forget32[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget33 :: [Word] >>= [Word]
+forget33[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget48 :: [Word] >>= [Word]
+forget48[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint forget64 :: [Word] >>= [Word]
+forget64[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: nonZero2 nonZero4 nonZero15 nonZero32 nonZero33 nonZero48 nothing4 just12 forget2 forget4 forget15 forget32 forget33 forget48 forget64

@@ -28,5 +28,25 @@ external nonZero1K {primNZBitNonZero 1K} :: Bit 1K -> Maybe (NZBit 1K)
          ^
 No generated implementation: Argument value 1024 is too large; must be less than 1000
 
-ERROR: Aborting after 6 previously reported errors
+ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 11
+external forget33 {primNZBitForget 33} :: NZBit 33 -> Bit 33
+         ^
+No generated implementation: Bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 12
+external forget48 {primNZBitForget 48} :: NZBit 48 -> Bit 48
+         ^
+No generated implementation: Bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 13
+external forget64 {primNZBitForget 64} :: NZBit 64 -> Bit 64
+         ^
+No generated implementation: Bit vector of width 64 does not fit in a single word
+
+ERROR: "actual/main/gens/primNZBitNonZero-neg-32.lc", line 14
+external forget96 {primNZBitForget 96} :: NZBit 96 -> Bit 96
+         ^
+No generated implementation: Bit vector of width 96 does not fit in a single word
+
+ERROR: Aborting after 10 previously reported errors
 

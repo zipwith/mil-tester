@@ -56,6 +56,7 @@ primIxShiftR         forall (a :: nat) (b :: nat). Ix a -> Ix b -> Ix a
 primIxToBit          forall (a :: nat) (b :: nat). Ix a -> Bit b
 primModIx            forall (a :: nat) (b :: nat). Bit a -> Ix b
 primNZBitDiv         forall (a :: nat). Bit a -> NZBit a -> Bit a
+primNZBitForget      forall (a :: nat). NZBit a -> Bit a
 primNZBitFromLiteral forall (a :: nat) (b :: nat). Unit -> NZBit b
 primNZBitNonZero     forall (a :: nat). Bit a -> TODO
 primNZBitRem         forall (a :: nat). Bit a -> NZBit a -> Bit a
@@ -65,5 +66,5 @@ primRelaxIx          forall (a :: nat) (b :: nat). Ix a -> Ix b
 primStructSelect     forall (a :: area) (b :: lab) (c :: area). Ref a -> Unit -> Ref c
 primWordToBit        forall (a :: nat). Word -> Bit a
 primWriteRefStored   forall (a :: *). Ref (Stored a) -> a -> Proc Unit
-66 external generators listed
+67 external generators listed
 -----------------------------------------

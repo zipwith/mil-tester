@@ -18,5 +18,10 @@ external nonZero1K {primNZBitNonZero 1K} :: Bit 1K -> Maybe (NZBit 1K)
          ^
 No generated implementation: Argument value 1024 is too large; must be less than 1000
 
-ERROR: Aborting after 4 previously reported errors
+ERROR: "actual/main/gens/primNZBitNonZero-neg-64.lc", line 9
+external forget96 {primNZBitForget 96} :: NZBit 96 -> Bit 96
+         ^
+No generated implementation: Bit vector of width 96 does not fit in a single word
+
+ERROR: Aborting after 5 previously reported errors
 
