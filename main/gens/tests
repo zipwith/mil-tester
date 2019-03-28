@@ -309,65 +309,65 @@ external toBit192 {primWordToBit 192} :: Word -> Bit 192
 .lc: primBitConcat-pos-32   ./milc -pcosoboro -m --32
 
 entrypoint cat_1_1, cat_1_2, cat_2_1
-external cat_1_1   {:#  1  1  2} :: Bit 1  -> Bit 1  -> Bit 2
-external cat_1_2   {:#  1  2  3} :: Bit 1  -> Bit 2  -> Bit 3
-external cat_2_1   {:#  2  1  3} :: Bit 2  -> Bit 1  -> Bit 3
+external cat_1_1   {primBitsConcat  1  1  2} :: Bit 1  -> Bit 1  -> Bit 2
+external cat_1_2   {primBitsConcat  1  2  3} :: Bit 1  -> Bit 2  -> Bit 3
+external cat_2_1   {primBitsConcat  2  1  3} :: Bit 2  -> Bit 1  -> Bit 3
 
 entrypoint cat_2_2, cat_12_12, cat_16_16, cat_32_16, cat_32_32
-external cat_2_2   {:#  2  2  4} :: Bit 2  -> Bit 2  -> Bit 4
-external cat_12_12 {:# 12 12 24} :: Bit 12 -> Bit 12 -> Bit 24
-external cat_16_16 {:# 16 16 32} :: Bit 16 -> Bit 16 -> Bit 32
-external cat_32_16 {:# 32 16 48} :: Bit 32 -> Bit 16 -> Bit 48
-external cat_32_32 {:# 32 32 64} :: Bit 32 -> Bit 32 -> Bit 64
+external cat_2_2   {primBitsConcat  2  2  4} :: Bit 2  -> Bit 2  -> Bit 4
+external cat_12_12 {primBitsConcat 12 12 24} :: Bit 12 -> Bit 12 -> Bit 24
+external cat_16_16 {primBitsConcat 16 16 32} :: Bit 16 -> Bit 16 -> Bit 32
+external cat_32_16 {primBitsConcat 32 16 48} :: Bit 32 -> Bit 16 -> Bit 48
+external cat_32_32 {primBitsConcat 32 32 64} :: Bit 32 -> Bit 32 -> Bit 64
 
 entrypoint cat3_5
 cat3_5 = c3_5
-external c3_5 {:# 3 5 8} :: Bit 3 -> Bit 5 -> Bit 8
+external c3_5 {primBitsConcat 3 5 8} :: Bit 3 -> Bit 5 -> Bit 8
 
 entrypoint cat5_3
 cat5_3 = c5_3
-external c5_3 {:# 5 3 8} :: Bit 5 -> Bit 3 -> Bit 8
+external c5_3 {primBitsConcat 5 3 8} :: Bit 5 -> Bit 3 -> Bit 8
 
 entrypoint cat16_32
 cat16_32 = c16_32
-external c16_32 {:# 16 32 48} :: Bit 16 -> Bit 32 -> Bit 48
+external c16_32 {primBitsConcat 16 32 48} :: Bit 16 -> Bit 32 -> Bit 48
 
 -----------------------
 .lc: primBitConcat-neg-32   ./milc -pcosoboro -m --32
 
 entrypoint cat_0_0, cat_0_1, cat_1_0, cat_0_2, cat_2_0
-external cat_0_0   {:#  0  0  0} :: Bit 0  -> Bit 0  -> Bit 0
-external cat_0_1   {:#  0  1  1} :: Bit 0  -> Bit 1  -> Bit 1
-external cat_1_0   {:#  1  0  1} :: Bit 1  -> Bit 0  -> Bit 1
-external cat_0_2   {:#  0  2  2} :: Bit 0  -> Bit 2  -> Bit 2
-external cat_2_0   {:#  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
+external cat_0_0   {primBitsConcat  0  0  0} :: Bit 0  -> Bit 0  -> Bit 0
+external cat_0_1   {primBitsConcat  0  1  1} :: Bit 0  -> Bit 1  -> Bit 1
+external cat_1_0   {primBitsConcat  1  0  1} :: Bit 1  -> Bit 0  -> Bit 1
+external cat_0_2   {primBitsConcat  0  2  2} :: Bit 0  -> Bit 2  -> Bit 2
+external cat_2_0   {primBitsConcat  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
 
 entrypoint cat_2_2, cat_12_12, cat_16_16, cat_32_16, cat_32_32
-external cat_2_2   {:#  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
-external cat_12_12 {:# 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
-external cat_16_16 {:# 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
-external cat_32_16 {:# 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
-external cat_32_32 {:# 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
+external cat_2_2   {primBitsConcat  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
+external cat_12_12 {primBitsConcat 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
+external cat_16_16 {primBitsConcat 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
+external cat_32_16 {primBitsConcat 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
+external cat_32_32 {primBitsConcat 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
 
 -----------------------
 .lc: primBitConcat-pos-64   ./milc -pcosoboro -m --64
 
 entrypoint cat_2_2, cat_12_12, cat_16_16, cat_32_16, cat_32_32
-external cat_2_2   {:#  2  2  4} :: Bit 2  -> Bit 2  -> Bit 4
-external cat_12_12 {:# 12 12 24} :: Bit 12 -> Bit 12 -> Bit 24
-external cat_16_16 {:# 16 16 32} :: Bit 16 -> Bit 16 -> Bit 32
-external cat_32_16 {:# 32 16 48} :: Bit 32 -> Bit 16 -> Bit 48
-external cat_32_32 {:# 32 32 64} :: Bit 32 -> Bit 32 -> Bit 64
+external cat_2_2   {primBitsConcat  2  2  4} :: Bit 2  -> Bit 2  -> Bit 4
+external cat_12_12 {primBitsConcat 12 12 24} :: Bit 12 -> Bit 12 -> Bit 24
+external cat_16_16 {primBitsConcat 16 16 32} :: Bit 16 -> Bit 16 -> Bit 32
+external cat_32_16 {primBitsConcat 32 16 48} :: Bit 32 -> Bit 16 -> Bit 48
+external cat_32_32 {primBitsConcat 32 32 64} :: Bit 32 -> Bit 32 -> Bit 64
 
 -----------------------
 .lc: primBitConcat-neg-64   ./milc -pcosoboro -m --64
 
 entrypoint cat_2_2, cat_12_12, cat_16_16, cat_32_16, cat_32_32
-external cat_2_2   {:#  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
-external cat_12_12 {:# 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
-external cat_16_16 {:# 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
-external cat_32_16 {:# 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
-external cat_32_32 {:# 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
+external cat_2_2   {primBitsConcat  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
+external cat_12_12 {primBitsConcat 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
+external cat_16_16 {primBitsConcat 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
+external cat_32_16 {primBitsConcat 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
+external cat_32_32 {primBitsConcat 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
 
 -----------------------
 .lc: primBitSelect-pos-32  ./milc -pcosoboro -m --32
@@ -2724,46 +2724,46 @@ exec: primInitStored-neg-64     ./milc -pcosoboro -m --64 initStored-neg.lc
 type SW = Stored Word
 
 entrypoint at1SW, at2SW, at10SW, at160SW, at256SW, at1KSW, at4KSW
-external at1SW   {@   1 SW} :: Ref (Array   1 SW) -> Ix   1 -> Ref SW
-external at2SW   {@   2 SW} :: Ref (Array   2 SW) -> Ix   2 -> Ref SW
-external at10SW  {@  10 SW} :: Ref (Array  10 SW) -> Ix  10 -> Ref SW
-external at160SW {@ 160 SW} :: Ref (Array 160 SW) -> Ix 160 -> Ref SW
-external at256SW {@ 256 SW} :: Ref (Array 256 SW) -> Ix 256 -> Ref SW
-external at1KSW  {@  1K SW} :: Ref (Array  1K SW) -> Ix  1K -> Ref SW
-external at4KSW  {@  4K SW} :: Ref (Array  4K SW) -> Ix  4K -> Ref SW
+external at1SW   {primAt   1 SW} :: Ref (Array   1 SW) -> Ix   1 -> Ref SW
+external at2SW   {primAt   2 SW} :: Ref (Array   2 SW) -> Ix   2 -> Ref SW
+external at10SW  {primAt  10 SW} :: Ref (Array  10 SW) -> Ix  10 -> Ref SW
+external at160SW {primAt 160 SW} :: Ref (Array 160 SW) -> Ix 160 -> Ref SW
+external at256SW {primAt 256 SW} :: Ref (Array 256 SW) -> Ix 256 -> Ref SW
+external at1KSW  {primAt  1K SW} :: Ref (Array  1K SW) -> Ix  1K -> Ref SW
+external at4KSW  {primAt  4K SW} :: Ref (Array  4K SW) -> Ix  4K -> Ref SW
 
 type SI = Stored (Ix 256)
 
 entrypoint at1SI, at2SI, at10SI, at160SI, at256SI, at1KSI, at4KSI
-external at1SI   {@   1 SI} :: Ref (Array   1 SI) -> Ix   1 -> Ref SI
-external at2SI   {@   2 SI} :: Ref (Array   2 SI) -> Ix   2 -> Ref SI
-external at10SI  {@  10 SI} :: Ref (Array  10 SI) -> Ix  10 -> Ref SI
-external at160SI {@ 160 SI} :: Ref (Array 160 SI) -> Ix 160 -> Ref SI
-external at256SI {@ 256 SI} :: Ref (Array 256 SI) -> Ix 256 -> Ref SI
-external at1KSI  {@  1K SI} :: Ref (Array  1K SI) -> Ix  1K -> Ref SI
-external at4KSI  {@  4K SI} :: Ref (Array  4K SI) -> Ix  4K -> Ref SI
+external at1SI   {primAt   1 SI} :: Ref (Array   1 SI) -> Ix   1 -> Ref SI
+external at2SI   {primAt   2 SI} :: Ref (Array   2 SI) -> Ix   2 -> Ref SI
+external at10SI  {primAt  10 SI} :: Ref (Array  10 SI) -> Ix  10 -> Ref SI
+external at160SI {primAt 160 SI} :: Ref (Array 160 SI) -> Ix 160 -> Ref SI
+external at256SI {primAt 256 SI} :: Ref (Array 256 SI) -> Ix 256 -> Ref SI
+external at1KSI  {primAt  1K SI} :: Ref (Array  1K SI) -> Ix  1K -> Ref SI
+external at4KSI  {primAt  4K SI} :: Ref (Array  4K SI) -> Ix  4K -> Ref SI
 
 type SS = Stored (Bit 16)
 
 entrypoint at1SS, at2SS, at10SS, at160SS, at256SS, at1KSS, at4KSS
-external at1SS   {@   1 SS} :: Ref (Array   1 SS) -> Ix   1 -> Ref SS
-external at2SS   {@   2 SS} :: Ref (Array   2 SS) -> Ix   2 -> Ref SS
-external at10SS  {@  10 SS} :: Ref (Array  10 SS) -> Ix  10 -> Ref SS
-external at160SS {@ 160 SS} :: Ref (Array 160 SS) -> Ix 160 -> Ref SS
-external at256SS {@ 256 SS} :: Ref (Array 256 SS) -> Ix 256 -> Ref SS
-external at1KSS  {@  1K SS} :: Ref (Array  1K SS) -> Ix  1K -> Ref SS
-external at4KSS  {@  4K SS} :: Ref (Array  4K SS) -> Ix  4K -> Ref SS
+external at1SS   {primAt   1 SS} :: Ref (Array   1 SS) -> Ix   1 -> Ref SS
+external at2SS   {primAt   2 SS} :: Ref (Array   2 SS) -> Ix   2 -> Ref SS
+external at10SS  {primAt  10 SS} :: Ref (Array  10 SS) -> Ix  10 -> Ref SS
+external at160SS {primAt 160 SS} :: Ref (Array 160 SS) -> Ix 160 -> Ref SS
+external at256SS {primAt 256 SS} :: Ref (Array 256 SS) -> Ix 256 -> Ref SS
+external at1KSS  {primAt  1K SS} :: Ref (Array  1K SS) -> Ix  1K -> Ref SS
+external at4KSS  {primAt  4K SS} :: Ref (Array  4K SS) -> Ix  4K -> Ref SS
 
 type SA = Array 23 (Stored (Bit 16))
 
 entrypoint at1SA, at2SA, at10SA, at160SA, at256SA, at1KSA, at4KSA
-external at1SA   {@   1 SA} :: Ref (Array   1 SA) -> Ix   1 -> Ref SA
-external at2SA   {@   2 SA} :: Ref (Array   2 SA) -> Ix   2 -> Ref SA
-external at10SA  {@  10 SA} :: Ref (Array  10 SA) -> Ix  10 -> Ref SA
-external at160SA {@ 160 SA} :: Ref (Array 160 SA) -> Ix 160 -> Ref SA
-external at256SA {@ 256 SA} :: Ref (Array 256 SA) -> Ix 256 -> Ref SA
-external at1KSA  {@  1K SA} :: Ref (Array  1K SA) -> Ix  1K -> Ref SA
-external at4KSA  {@  4K SA} :: Ref (Array  4K SA) -> Ix  4K -> Ref SA
+external at1SA   {primAt   1 SA} :: Ref (Array   1 SA) -> Ix   1 -> Ref SA
+external at2SA   {primAt   2 SA} :: Ref (Array   2 SA) -> Ix   2 -> Ref SA
+external at10SA  {primAt  10 SA} :: Ref (Array  10 SA) -> Ix  10 -> Ref SA
+external at160SA {primAt 160 SA} :: Ref (Array 160 SA) -> Ix 160 -> Ref SA
+external at256SA {primAt 256 SA} :: Ref (Array 256 SA) -> Ix 256 -> Ref SA
+external at1KSA  {primAt  1K SA} :: Ref (Array  1K SA) -> Ix  1K -> Ref SA
+external at4KSA  {primAt  4K SA} :: Ref (Array  4K SA) -> Ix  4K -> Ref SA
 
 ------------
 .lc: primAt-neg-32  ./milc -pcosoboro -m --32
@@ -2773,25 +2773,25 @@ type SB = Stored (Bit 8)
 struct S [ x :: SW | y :: SB ]
 
 entrypoint bad0, bad1, bad2, bad3, bad4, bad5
-external bad0 {@ 0}       :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
-external bad1 {@ Word}    :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
-external bad2 {@ 8 SW}    :: Ref (Array 5 SW) -> Ix 8 -> Ref SW -- won't catch :-(
-external bad3 {@ 4 S}     :: Ref (Array 4  S) -> Ix 4 -> Ref S
-external bad4 {@ 4 Word}  :: Ref (Array 4 SW) -> Ix 4 -> Ref SW
-external bad5 {@ 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
+external bad0 {primAt 0}       :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+external bad1 {primAt Word}    :: Ref (Array 8 SW) -> Ix 8 -> Ref SW
+external bad2 {primAt 8 SW}    :: Ref (Array 5 SW) -> Ix 8 -> Ref SW -- won't catch :-(
+external bad3 {primAt 4 S}     :: Ref (Array 4  S) -> Ix 4 -> Ref S
+external bad4 {primAt 4 Word}  :: Ref (Array 4 SW) -> Ix 4 -> Ref SW
+external bad5 {primAt 4G Word} :: Ref (Array 4G SW) -> Ix 4G -> Ref SW
 
 type SI = Stored (Ix 256)
 type SS = Stored (Bit 16)
 type SA = Array 23 (Stored (Bit 16))
 
 entrypoint at0SW
-external at0SW   {@   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+external at0SW   {primAt   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
 entrypoint at0SI
-external at0SI   {@   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+external at0SI   {primAt   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
 entrypoint at0SS
-external at0SS   {@   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+external at0SS   {primAt   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
 entrypoint at0SA
-external at0SA   {@   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
+external at0SA   {primAt   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
 
 ------------
 .lc: primStructSelect-pos-32  ./milc -pcosoboro -m --32

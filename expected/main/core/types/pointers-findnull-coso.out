@@ -17,7 +17,7 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-external at {@ 16 (Stored (Ptr (Stored Word)))} :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[Ix 16] ->> [Ref (Stored (Ptr (Stored Word)))]]
+external at {primAt 16 (Stored (Ptr (Stored Word)))} :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[Ix 16] ->> [Ref (Stored (Ptr (Stored Word)))]]
 
 -----------------------------------------
 -- not recursive

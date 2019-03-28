@@ -1,6 +1,5 @@
 External generators: --------------------
-:#                   forall (a :: nat) (b :: nat) (c :: nat). Bit a -> Bit b -> Bit c
-@                    forall (a :: nat) (b :: area). Ref (Array a b) -> Ix a -> Ref b
+primAt               forall (a :: nat) (b :: area). Ref (Array a b) -> Ix a -> Ref b
 primBitAnd           forall (a :: nat). Bit a -> Bit a -> Bit a
 primBitBit           forall (a :: nat). Ix a -> Bit a
 primBitBitSize       forall (a :: nat). Bit a -> Ix a
@@ -30,6 +29,7 @@ primBitTestBit       forall (a :: nat). Bit a -> Ix a -> TODO
 primBitTimes         forall (a :: nat). Bit a -> Bit a -> Bit a
 primBitToWord        forall (a :: nat). Bit a -> Word
 primBitXor           forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitsConcat       forall (a :: nat) (b :: nat) (c :: nat). Bit a -> Bit b -> Bit c
 primBitsHi           forall (a :: nat) (b :: nat). Bit a -> Bit b
 primBitsLo           forall (a :: nat) (b :: nat). Bit a -> Bit b
 primDecIx            forall (a :: nat). Ix a -> TODO

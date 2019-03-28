@@ -10,7 +10,7 @@ external writeRef   {primWriteRefStored 4 Word} :: Ref (Stored Word) -> Word -> 
 type N = 64 -- size of array
 type W = 32 -- bit width big enough for N distinct values
 
-external at {@ N (Stored Word)} :: Ref (Array N (Stored Word)) -> Ix N -> Ref (Stored Word)
+external at {primAt N (Stored Word)} :: Ref (Array N (Stored Word)) -> Ix N -> Ref (Stored Word)
 external initArray {primInitArray N (Stored Word)}
      :: (Ix N -> Init (Stored Word)) -> Init (Array N (Stored Word))
 

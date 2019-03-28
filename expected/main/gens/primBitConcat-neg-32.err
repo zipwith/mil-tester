@@ -1,50 +1,50 @@
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 3
-external cat_0_0   {:#  0  0  0} :: Bit 0  -> Bit 0  -> Bit 0
+external cat_0_0   {primBitsConcat  0  0  0} :: Bit 0  -> Bit 0  -> Bit 0
          ^
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 4
-external cat_0_1   {:#  0  1  1} :: Bit 0  -> Bit 1  -> Bit 1
+external cat_0_1   {primBitsConcat  0  1  1} :: Bit 0  -> Bit 1  -> Bit 1
          ^
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 5
-external cat_1_0   {:#  1  0  1} :: Bit 1  -> Bit 0  -> Bit 1
+external cat_1_0   {primBitsConcat  1  0  1} :: Bit 1  -> Bit 0  -> Bit 1
          ^
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 6
-external cat_0_2   {:#  0  2  2} :: Bit 0  -> Bit 2  -> Bit 2
+external cat_0_2   {primBitsConcat  0  2  2} :: Bit 0  -> Bit 2  -> Bit 2
          ^
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 7
-external cat_2_0   {:#  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
+external cat_2_0   {primBitsConcat  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
          ^
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 10
-external cat_2_2   {:#  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
+external cat_2_2   {primBitsConcat  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
          ^
 No generated implementation: 3 is not the sum of 2 and 2
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 11
-external cat_12_12 {:# 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
+external cat_12_12 {primBitsConcat 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
          ^
 No generated implementation: 32 is not the sum of 12 and 12
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 12
-external cat_16_16 {:# 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
+external cat_16_16 {primBitsConcat 16 16 30} :: Bit 16 -> Bit 16 -> Bit 30
          ^
 No generated implementation: 30 is not the sum of 16 and 16
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 13
-external cat_32_16 {:# 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
+external cat_32_16 {primBitsConcat 32 16 54} :: Bit 32 -> Bit 16 -> Bit 54
          ^
 No generated implementation: 54 is not the sum of 32 and 16
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 14
-external cat_32_32 {:# 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
+external cat_32_32 {primBitsConcat 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
          ^
 No generated implementation: 72 is not the sum of 32 and 32
 

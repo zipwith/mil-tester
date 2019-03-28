@@ -17,7 +17,7 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-external at {@ n a} :: forall (n :: nat) (a :: area). [Ref (Array n a)] ->> [[Ix n] ->> [Ref a]]
+external at {primAt n a} :: forall (n :: nat) (a :: area). [Ref (Array n a)] ->> [[Ix n] ->> [Ref a]]
 
 -----------------------------------------
 -- not recursive

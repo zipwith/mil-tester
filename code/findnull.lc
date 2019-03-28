@@ -2,7 +2,7 @@ require "prelude.lc"
 
 external zero16   {primIxFromLiteral 0 16} :: Unit -> Ix 16
 external get      {primReadRefStored a}    :: Ref (Stored a) -> Proc a
-external at       {@ n a}                  :: Ref (Array n a) -> Ix n -> Ref a
+external at       {primAt n a}             :: Ref (Array n a) -> Ix n -> Ref a
 external genIncIx {primGenIncIx a b}       :: a -> (Ix b -> a) -> Ix b -> a
 incIx = genIncIx Nothing Just
 

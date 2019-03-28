@@ -72,7 +72,7 @@ insertInterval intset int
   lastAt n b = do set intset.last (Last [n])
                   return b
 
-external at       {@ n a}                 :: Ref (Array n a) -> Ix n -> Ref a
+external at       {primAt n a}            :: Ref (Array n a) -> Ix n -> Ref a
 external get      {primReadRefStored t}   :: Ref (Stored t) -> Proc t
 external set      {primWriteRefStored t}  :: Ref (Stored t) -> t -> Proc Unit
 external ix0u     {primIxFromLiteral 0 n} :: Unit -> Ix n
