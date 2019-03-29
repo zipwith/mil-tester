@@ -1,0 +1,6 @@
+-----------------------------------------
+-- not recursive
+export external wordOr {primBitOr 64} :: [Bit 64] ->> [[Bit 64] ->> [Bit 64]]
+
+-----------------------------------------
+-- Entrypoints: wordOr

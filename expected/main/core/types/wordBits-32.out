@@ -1,0 +1,27 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external bit0u {primBitFromLiteral 0 32} :: [Unit] ->> [Bit 32]
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+bit0 :: Bit 32
+bit0 <-
+  bit0u @ Unit
+
+-----------------------------------------
+-- not recursive
+entrypoint val :: Bit 32
+val <-
+  return bit0
+
+-----------------------------------------
+-- Entrypoints: val

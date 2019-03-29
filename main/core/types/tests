@@ -207,3 +207,25 @@ count  = loop 0
                     Nothing -> n
 
 --------------
+.lc: wordBits-external-32   ./milc -m -pcso --32
+entrypoint wordOr
+external wordOr {primBitOr WordBits} :: Bit WordBits -> Bit WordBits -> Bit WordBits
+
+--------------
+.lc: wordBits-external-64   ./milc -m -pcso --64
+entrypoint wordOr
+external wordOr {primBitOr WordBits} :: Bit WordBits -> Bit WordBits -> Bit WordBits
+
+--------------
+.lc: wordBits-32          ./milc -m -pcso --32
+require "bit.llc"
+entrypoint val :: Bit WordBits
+val= bit0
+
+--------------
+.lc: wordBits-64          ./milc -m -pcso --64
+require "bit.llc"
+entrypoint val :: Bit WordBits
+val= bit0
+
+--------------
