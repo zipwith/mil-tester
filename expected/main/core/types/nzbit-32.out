@@ -1,0 +1,18 @@
+-----------------------------------------
+-- not recursive
+k3 :: {Word} [NZBit 32] ->> [Word]
+k3{t0} t1 = nzdiv((t0, t1))
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Word] ->> [[NZBit 32] ->> [Word]]
+k4{} t0 = k3{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint nzdiv :: [Word] ->> [[NZBit 32] ->> [Word]]
+nzdiv <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: nzdiv

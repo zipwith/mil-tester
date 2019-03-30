@@ -229,3 +229,8 @@ entrypoint val :: Bit WordBits
 val= bit0
 
 --------------
+.mil: nzbit-32            ./milc -m -pco --32
+entrypoint nzdiv
+nzdiv <- {x,y} nzdiv((x,y))
+
+--------------
