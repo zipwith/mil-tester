@@ -17,7 +17,7 @@ ia1SW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia2SW :: [[Flag] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia2SW :: [[Bit 1] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
 ia2SW[t0, t1] =
   t2 <- t0 @ flag0
   t3 <- t2 @ t1

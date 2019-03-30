@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixEq1 :: [Unit, Unit] >>= [Bit 1]
 ixEq1[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixEq2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixEq2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -17,109 +17,109 @@ ixEq2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq3 :: [Word, Word] >>= [Flag]
+entrypoint ixEq3 :: [Word, Word] >>= [Bit 1]
 ixEq3[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq7 :: [Word, Word] >>= [Flag]
+entrypoint ixEq7 :: [Word, Word] >>= [Bit 1]
 ixEq7[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq65 :: [Word, Word] >>= [Flag]
+entrypoint ixEq65 :: [Word, Word] >>= [Bit 1]
 ixEq65[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1K :: [Word, Word] >>= [Flag]
+entrypoint ixEq1K :: [Word, Word] >>= [Bit 1]
 ixEq1K[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq123 :: [Word, Word] >>= [Flag]
+entrypoint ixEq123 :: [Word, Word] >>= [Bit 1]
 ixEq123[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq2047M :: [Word, Word] >>= [Flag]
+entrypoint ixEq2047M :: [Word, Word] >>= [Bit 1]
 ixEq2047M[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1G :: [Word, Word] >>= [Flag]
+entrypoint ixEq1G :: [Word, Word] >>= [Bit 1]
 ixEq1G[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe15 :: [Word, Word] >>= [Flag]
+entrypoint ixNe15 :: [Word, Word] >>= [Bit 1]
 ixNe15[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt15 :: [Word, Word] >>= [Flag]
+entrypoint ixLt15 :: [Word, Word] >>= [Bit 1]
 ixLt15[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe15 :: [Word, Word] >>= [Flag]
+entrypoint ixLe15 :: [Word, Word] >>= [Bit 1]
 ixLe15[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt15 :: [Word, Word] >>= [Flag]
+entrypoint ixGt15 :: [Word, Word] >>= [Bit 1]
 ixGt15[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe15 :: [Word, Word] >>= [Flag]
+entrypoint ixGe15 :: [Word, Word] >>= [Bit 1]
 ixGe15[t0, t1] =
   primUge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixNe1 :: [Unit, Unit] >>= [Bit 1]
 ixNe1[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixLt1 :: [Unit, Unit] >>= [Bit 1]
 ixLt1[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixLe1 :: [Unit, Unit] >>= [Bit 1]
 ixLe1[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixGt1 :: [Unit, Unit] >>= [Bit 1]
 ixGt1[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe1 :: [Unit, Unit] >>= [Flag]
+entrypoint ixGe1 :: [Unit, Unit] >>= [Bit 1]
 ixGe1[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixNe2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixNe2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -127,7 +127,7 @@ ixNe2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixLt2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixLt2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -135,7 +135,7 @@ ixLt2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixLe2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixLe2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -143,7 +143,7 @@ ixLe2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixGt2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixGt2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -151,7 +151,7 @@ ixGt2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe2 :: [Flag, Flag] >>= [Flag]
+entrypoint ixGe2 :: [Bit 1, Bit 1] >>= [Bit 1]
 ixGe2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -159,31 +159,31 @@ ixGe2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe3 :: [Word, Word] >>= [Flag]
+entrypoint ixNe3 :: [Word, Word] >>= [Bit 1]
 ixNe3[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt3 :: [Word, Word] >>= [Flag]
+entrypoint ixLt3 :: [Word, Word] >>= [Bit 1]
 ixLt3[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe3 :: [Word, Word] >>= [Flag]
+entrypoint ixLe3 :: [Word, Word] >>= [Bit 1]
 ixLe3[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt3 :: [Word, Word] >>= [Flag]
+entrypoint ixGt3 :: [Word, Word] >>= [Bit 1]
 ixGt3[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe3 :: [Word, Word] >>= [Flag]
+entrypoint ixGe3 :: [Word, Word] >>= [Bit 1]
 ixGe3[t0, t1] =
   primUge((t0, t1))
 

@@ -24,19 +24,19 @@ seventeen <-
 
 -----------------------------------------
 -- not recursive
-entrypoint no :: Flag
+entrypoint no :: Bit 1
 no <-
   fromWord1((0))
 
 -----------------------------------------
 -- not recursive
-entrypoint yes :: Flag
+entrypoint yes :: Bit 1
 yes <-
   fromWord1((1))
 
 -----------------------------------------
 -- not recursive
-entrypoint makeTwo :: [Flag, Flag] >>= [Word]
+entrypoint makeTwo :: [Bit 1, Bit 1] >>= [Word]
 makeTwo[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- flagToWord((t1))
@@ -45,33 +45,33 @@ makeTwo[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint getT :: [Word] >>= [Flag]
+entrypoint getT :: [Word] >>= [Bit 1]
 getT[t0] =
   t1 <- and((t0, 2))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getF :: [Word] >>= [Flag]
+entrypoint getF :: [Word] >>= [Bit 1]
 getF[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-b74 :: [] >>= [Flag]
+b74 :: [] >>= [Bit 1]
 b74[] =
   return no
 
 -----------------------------------------
 -- not recursive
-b73 :: [] >>= [Flag]
+b73 :: [] >>= [Bit 1]
 b73[] =
   return yes
 
 -----------------------------------------
 -- not recursive
-entrypoint bool2one :: [Flag] >>= [Flag]
+entrypoint bool2one :: [Bit 1] >>= [Bit 1]
 bool2one[t0] =
   if t0
     then b73[]
@@ -79,7 +79,7 @@ bool2one[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint boolflip :: [Flag] >>= [Flag]
+entrypoint boolflip :: [Bit 1] >>= [Bit 1]
 boolflip[t0] =
   if t0
     then b74[]
@@ -231,7 +231,7 @@ addExec[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint setWrite :: [Flag, Word] >>= [Word]
+entrypoint setWrite :: [Bit 1, Word] >>= [Word]
 setWrite[t0, t1] =
   t2 <- and((t1, 5))
   t3 <- flagToWord((t0))
@@ -240,7 +240,7 @@ setWrite[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint oddCreate :: [Flag] >>= [Word]
+entrypoint oddCreate :: [Bit 1] >>= [Word]
 oddCreate[t0] =
   t1 <- flagToWord((t0))
   t2 <- flagToWord((yes))

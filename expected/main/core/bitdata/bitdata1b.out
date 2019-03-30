@@ -1,12 +1,12 @@
 -----------------------------------------
 -- not recursive
-entrypoint false :: Flag
+entrypoint false :: Bit 1
 false <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint true :: Flag
+entrypoint true :: Bit 1
 true <-
   return flag1
 

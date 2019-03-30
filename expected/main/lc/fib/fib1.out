@@ -42,7 +42,7 @@ btrue[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bconv :: [Flag] >>= [Bool]
+entrypoint bconv :: [Bit 1] >>= [Bool]
 bconv[t0] =
   if t0
     then btrue[]

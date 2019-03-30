@@ -9,14 +9,14 @@ aPDE <-
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped :: [Word] >>= [Flag]
+entrypoint isMapped :: [Word] >>= [Bit 1]
 isMapped[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped1 :: [Word] >>= [Flag]
+entrypoint isMapped1 :: [Word] >>= [Bit 1]
 isMapped1[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))

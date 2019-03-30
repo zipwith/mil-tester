@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx1 :: [Unit] >>= [Flag]
+entrypoint incIx1 :: [Unit] >>= [Bit 1]
 incIx1[t0] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx2 :: [Flag] >>= [Word]
+entrypoint incIx2 :: [Bit 1] >>= [Word]
 incIx2[t0] =
   t1 <- flagToWord((t0))
   add((t1, 1))

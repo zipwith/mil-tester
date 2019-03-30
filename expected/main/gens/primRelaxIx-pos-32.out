@@ -9,7 +9,7 @@ relax1_1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint relax1_2 :: [Unit] >>= [Flag]
+entrypoint relax1_2 :: [Unit] >>= [Bit 1]
 relax1_2[t0] =
   return flag0
 
@@ -39,13 +39,13 @@ relax1_3[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint relax2_2 :: [Flag] >>= [Flag]
+entrypoint relax2_2 :: [Bit 1] >>= [Bit 1]
 relax2_2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint relax2_3 :: [Flag] >>= [Word]
+entrypoint relax2_3 :: [Bit 1] >>= [Word]
 relax2_3[t0] =
   flagToWord((t0))
 

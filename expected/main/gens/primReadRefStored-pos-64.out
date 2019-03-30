@@ -51,13 +51,13 @@ readRefStoredBit0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit1 :: [Word] >>= [Flag]
+entrypoint readRefStoredBit1 :: [Word] >>= [Bit 1]
 readRefStoredBit1[t0] =
   load1((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredFlag :: [Word] >>= [Flag]
+entrypoint readRefStoredFlag :: [Word] >>= [Bit 1]
 readRefStoredFlag[t0] =
   load1((t0))
 

@@ -1,36 +1,36 @@
 -----------------------------------------
 -- not recursive
-entrypoint tt :: Flag
+entrypoint tt :: Bit 1
 tt <-
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint ff :: Flag
+entrypoint ff :: Bit 1
 ff <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint at :: Flag
+entrypoint at :: Bit 1
 at <-
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint sf :: Flag
+entrypoint sf :: Bit 1
 sf <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint bt :: Flag
+entrypoint bt :: Bit 1
 bt <-
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint bf :: Flag
+entrypoint bf :: Bit 1
 bf <-
   return flag0
 
@@ -48,7 +48,7 @@ b6[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint decide :: [Flag] >>= [Word]
+entrypoint decide :: [Bit 1] >>= [Word]
 decide[t0] =
   if t0
     then b6[]

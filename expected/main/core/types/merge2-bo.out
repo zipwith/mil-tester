@@ -76,25 +76,25 @@ ee <-
 
 -----------------------------------------
 -- not recursive
-entrypoint yx :: Flag
+entrypoint yx :: Bit 1
 yx <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint sx :: Flag
+entrypoint sx :: Bit 1
 sx <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint ux :: Flag
+entrypoint ux :: Bit 1
 ux <-
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint tx :: Flag
+entrypoint tx :: Bit 1
 tx <-
   return flag0
 

@@ -4,7 +4,7 @@ data Maybe0
 
 data Maybe1
   = Nothing2
-  | Just3 Flag
+  | Just3 (Bit 1)
 
 data Maybe2
   = Nothing4
@@ -52,7 +52,7 @@ b189[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc2 :: [Flag, Flag, Flag] >>= [Maybe1]
+entrypoint ltInc2 :: [Bit 1, Bit 1, Bit 1] >>= [Maybe1]
 ltInc2[t0, t1, t2] =
   t3 <- flagToWord((t0))
   t4 <- flagToWord((t1))
@@ -129,7 +129,7 @@ ltDec1[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec2 :: [Flag, Flag, Flag] >>= [Maybe1]
+entrypoint ltDec2 :: [Bit 1, Bit 1, Bit 1] >>= [Maybe1]
 ltDec2[t0, t1, t2] =
   t3 <- flagToWord((t2))
   t4 <- flagToWord((t0))

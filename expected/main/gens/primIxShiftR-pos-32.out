@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix2_1 :: [Flag, Unit] >>= [Flag]
+entrypoint shrix2_1 :: [Bit 1, Unit] >>= [Bit 1]
 shrix2_1[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix4_2 :: [Word, Flag] >>= [Word]
+entrypoint shrix4_2 :: [Word, Bit 1] >>= [Word]
 shrix4_2[t0, t1] =
   t2 <- flagToWord((t1))
   lshr((t0, t2))

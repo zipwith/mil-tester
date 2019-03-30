@@ -9,7 +9,7 @@ max1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint max2 :: Flag
+entrypoint max2 :: Bit 1
 max2 <-
   return flag1
 

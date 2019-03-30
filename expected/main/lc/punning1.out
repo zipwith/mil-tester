@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-b125 :: [Flag] >>= [Word]
+b125 :: [Bit 1] >>= [Word]
 b125[t0] =
   t1 <- flagToWord((t0))
   t2 <- shl((t1, 1))
@@ -10,19 +10,19 @@ b125[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint set1 :: [Flag] >>= [Word]
+entrypoint set1 :: [Bit 1] >>= [Word]
 set1[t0] =
   b125[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint set2 :: [Flag] >>= [Word]
+entrypoint set2 :: [Bit 1] >>= [Word]
 set2[t0] =
   b125[t0]
 
 -----------------------------------------
 -- not recursive
-construct_Perms :: [Flag, Flag, Flag] >>= [Word]
+construct_Perms :: [Bit 1, Bit 1, Bit 1] >>= [Word]
 construct_Perms[t0, t1, t2] =
   t3 <- flagToWord((t2))
   t4 <- flagToWord((t1))
@@ -34,19 +34,19 @@ construct_Perms[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint set4 :: [Flag, Flag, Flag] >>= [Word]
+entrypoint set4 :: [Bit 1, Bit 1, Bit 1] >>= [Word]
 set4[t0, t1, t2] =
   construct_Perms[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint set5 :: [Flag, Flag, Flag] >>= [Word]
+entrypoint set5 :: [Bit 1, Bit 1, Bit 1] >>= [Word]
 set5[t0, t1, t2] =
   construct_Perms[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint upd1 :: [Flag, Word] >>= [Word]
+entrypoint upd1 :: [Bit 1, Word] >>= [Word]
 upd1[t0, t1] =
   t2 <- and((t1, 3))
   t3 <- flagToWord((t0))
@@ -55,7 +55,7 @@ upd1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint upd2 :: [Flag, Word] >>= [Word]
+entrypoint upd2 :: [Bit 1, Word] >>= [Word]
 upd2[t0, t1] =
   t2 <- and((t1, 5))
   t3 <- flagToWord((t0))
@@ -64,7 +64,7 @@ upd2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint upd4 :: [Flag, Word] >>= [Word]
+entrypoint upd4 :: [Bit 1, Word] >>= [Word]
 upd4[t0, t1] =
   t2 <- and((t1, 3))
   t3 <- flagToWord((t0))
@@ -76,7 +76,7 @@ upd4[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint upd5 :: [Flag, Word] >>= [Word]
+entrypoint upd5 :: [Bit 1, Word] >>= [Word]
 upd5[t0, t1] =
   t2 <- and((t1, 5))
   t3 <- flagToWord((t0))

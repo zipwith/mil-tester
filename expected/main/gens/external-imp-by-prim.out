@@ -1,12 +1,12 @@
 -----------------------------------------
 -- not recursive
-entrypoint er8 :: [Word, Word] >>= [Flag]
+entrypoint er8 :: [Word, Word] >>= [Bit 1]
 er8[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint er16 :: [Word, Word] >>= [Flag]
+entrypoint er16 :: [Word, Word] >>= [Bit 1]
 er16[t0, t1] =
   primEq((t0, t1))
 

@@ -15,7 +15,7 @@ not0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint not1 :: [Flag] >>= [Flag]
+entrypoint not1 :: [Bit 1] >>= [Bit 1]
 not1[t0] =
   bnot((t0))
 

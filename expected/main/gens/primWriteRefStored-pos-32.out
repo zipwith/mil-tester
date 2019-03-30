@@ -59,13 +59,13 @@ writeRefStoredBit0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit1 :: [Word, Flag] >>= [Unit]
+entrypoint writeRefStoredBit1 :: [Word, Bit 1] >>= [Unit]
 writeRefStoredBit1[t0, t1] =
   store1((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredFlag :: [Word, Flag] >>= [Unit]
+entrypoint writeRefStoredFlag :: [Word, Bit 1] >>= [Unit]
 writeRefStoredFlag[t0, t1] =
   store1((t0, t1))
 

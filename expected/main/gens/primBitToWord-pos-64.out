@@ -9,7 +9,7 @@ toWord0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord1 :: [Flag] >>= [Word]
+entrypoint toWord1 :: [Bit 1] >>= [Word]
 toWord1[t0] =
   flagToWord((t0))
 

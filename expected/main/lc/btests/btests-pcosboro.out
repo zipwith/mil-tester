@@ -33,7 +33,7 @@ color <-
 
 -----------------------------------------
 -- not recursive
-entrypoint flag :: Flag
+entrypoint flag :: Bit 1
 flag <-
   return flag1
 

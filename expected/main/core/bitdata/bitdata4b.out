@@ -36,21 +36,21 @@ x <-
 
 -----------------------------------------
 -- not recursive
-entrypoint getR :: [Word] >>= [Flag]
+entrypoint getR :: [Word] >>= [Bit 1]
 getR[t0] =
   t1 <- and((t0, 4))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getW :: [Word] >>= [Flag]
+entrypoint getW :: [Word] >>= [Bit 1]
 getW[t0] =
   t1 <- and((t0, 2))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getX :: [Word] >>= [Flag]
+entrypoint getX :: [Word] >>= [Bit 1]
 getX[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))

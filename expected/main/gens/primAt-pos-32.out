@@ -9,7 +9,7 @@ at1SW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SW :: [Word, Flag] >>= [Word]
+entrypoint at2SW :: [Word, Bit 1] >>= [Word]
 at2SW[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t2, 2))
@@ -58,7 +58,7 @@ at1SI[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SI :: [Word, Flag] >>= [Word]
+entrypoint at2SI :: [Word, Bit 1] >>= [Word]
 at2SI[t0, t1] =
   t2 <- flagToWord((t1))
   add((t0, t2))
@@ -101,7 +101,7 @@ at1SS[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SS :: [Word, Flag] >>= [Word]
+entrypoint at2SS :: [Word, Bit 1] >>= [Word]
 at2SS[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- mul((t2, 2))
@@ -150,7 +150,7 @@ at1SA[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SA :: [Word, Flag] >>= [Word]
+entrypoint at2SA :: [Word, Bit 1] >>= [Word]
 at2SA[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- mul((t2, 46))

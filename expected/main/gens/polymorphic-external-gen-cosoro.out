@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint x1 :: Flag
+entrypoint x1 :: Bit 1
 x1 <-
   return flag1
 

@@ -1,19 +1,19 @@
 -----------------------------------------
 -- not recursive
-entrypoint isUnmapped :: [Word] >>= [Flag]
+entrypoint isUnmapped :: [Word] >>= [Bit 1]
 isUnmapped[t0] =
   primEq((t0, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped :: [Word] >>= [Flag]
+entrypoint isMapped :: [Word] >>= [Bit 1]
 isMapped[t0] =
   t1 <- and((t0, 1))
   primEq((t1, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped1 :: [Word] >>= [Flag]
+entrypoint isMapped1 :: [Word] >>= [Bit 1]
 isMapped1[t0] =
   primNeq((t0, 0))
 

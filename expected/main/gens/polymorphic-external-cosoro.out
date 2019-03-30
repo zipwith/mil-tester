@@ -6,7 +6,7 @@ x <-
 
 -----------------------------------------
 -- not recursive
-entrypoint y :: Flag
+entrypoint y :: Bit 1
 y <-
   id1((flag1))
 

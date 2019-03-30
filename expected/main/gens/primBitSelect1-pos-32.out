@@ -69,63 +69,63 @@ nullFromLong64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong0 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong0 :: [Word, Word] >>= [Bit 1]
 bitFromLong0[t0, t1] =
   t2 <- and((t0, 1))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong1 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong1 :: [Word, Word] >>= [Bit 1]
 bitFromLong1[t0, t1] =
   t2 <- and((t0, 2))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong2 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong2 :: [Word, Word] >>= [Bit 1]
 bitFromLong2[t0, t1] =
   t2 <- and((t0, 4))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong29 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong29 :: [Word, Word] >>= [Bit 1]
 bitFromLong29[t0, t1] =
   t2 <- and((t0, 536870912))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong31 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong31 :: [Word, Word] >>= [Bit 1]
 bitFromLong31[t0, t1] =
   t2 <- and((t0, -2147483648))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong32 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong32 :: [Word, Word] >>= [Bit 1]
 bitFromLong32[t0, t1] =
   t2 <- and((t1, 1))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong33 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong33 :: [Word, Word] >>= [Bit 1]
 bitFromLong33[t0, t1] =
   t2 <- and((t1, 2))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong48 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong48 :: [Word, Word] >>= [Bit 1]
 bitFromLong48[t0, t1] =
   t2 <- and((t1, 65536))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong63 :: [Word, Word] >>= [Flag]
+entrypoint bitFromLong63 :: [Word, Word] >>= [Bit 1]
 bitFromLong63[t0, t1] =
   t2 <- and((t1, -2147483648))
   primNeq((t2, 0))

@@ -15,13 +15,13 @@ nullHi0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint flagHi0 :: [Flag] >>= [Unit]
+entrypoint flagHi0 :: [Bit 1] >>= [Unit]
 flagHi0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint flagHi1 :: [Flag] >>= [Flag]
+entrypoint flagHi1 :: [Bit 1] >>= [Bit 1]
 flagHi1[t0] =
   return t0
 
@@ -33,7 +33,7 @@ byteHi0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi1 :: [Word] >>= [Flag]
+entrypoint byteHi1 :: [Word] >>= [Bit 1]
 byteHi1[t0] =
   t1 <- and((t0, 128))
   primNeq((t1, 0))
@@ -88,7 +88,7 @@ intHi0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi1 :: [Word] >>= [Flag]
+entrypoint intHi1 :: [Word] >>= [Bit 1]
 intHi1[t0] =
   t1 <- and((t0, 2147483648))
   primNeq((t1, 0))
@@ -161,7 +161,7 @@ midHi0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi1 :: [Word] >>= [Flag]
+entrypoint midHi1 :: [Word] >>= [Bit 1]
 midHi1[t0] =
   t1 <- and((t0, 140737488355328))
   primNeq((t1, 0))
@@ -240,7 +240,7 @@ longHi0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi1 :: [Word] >>= [Flag]
+entrypoint longHi1 :: [Word] >>= [Bit 1]
 longHi1[t0] =
   t1 <- and((t0, -9223372036854775808))
   primNeq((t1, 0))

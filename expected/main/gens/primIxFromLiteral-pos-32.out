@@ -15,7 +15,7 @@ ix1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2 :: [Unit] >>= [Flag]
+entrypoint ix2 :: [Unit] >>= [Bit 1]
 ix2[t0] =
   return flag1
 

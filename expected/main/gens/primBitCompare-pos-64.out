@@ -3,31 +3,31 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint eq32 :: [Word, Word] >>= [Flag]
+entrypoint eq32 :: [Word, Word] >>= [Bit 1]
 eq32[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint eq48 :: [Word, Word] >>= [Flag]
+entrypoint eq48 :: [Word, Word] >>= [Bit 1]
 eq48[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint eq64 :: [Word, Word] >>= [Flag]
+entrypoint eq64 :: [Word, Word] >>= [Bit 1]
 eq64[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-returnFalse :: [] >>= [Flag]
+returnFalse :: [] >>= [Bit 1]
 returnFalse[] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint eq98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint eq98 :: [Word, Word, Word, Word] >>= [Bit 1]
 eq98[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -36,31 +36,31 @@ eq98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ne32 :: [Word, Word] >>= [Flag]
+entrypoint ne32 :: [Word, Word] >>= [Bit 1]
 ne32[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ne48 :: [Word, Word] >>= [Flag]
+entrypoint ne48 :: [Word, Word] >>= [Bit 1]
 ne48[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ne64 :: [Word, Word] >>= [Flag]
+entrypoint ne64 :: [Word, Word] >>= [Bit 1]
 ne64[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-returnTrue :: [] >>= [Flag]
+returnTrue :: [] >>= [Bit 1]
 returnTrue[] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint ne98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint ne98 :: [Word, Word, Word, Word] >>= [Bit 1]
 ne98[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -69,25 +69,25 @@ ne98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint gt32 :: [Word, Word] >>= [Flag]
+entrypoint gt32 :: [Word, Word] >>= [Bit 1]
 gt32[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint gt48 :: [Word, Word] >>= [Flag]
+entrypoint gt48 :: [Word, Word] >>= [Bit 1]
 gt48[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint gt64 :: [Word, Word] >>= [Flag]
+entrypoint gt64 :: [Word, Word] >>= [Bit 1]
 gt64[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b18 :: [Word, Word, Word, Word] >>= [Flag]
+b18 :: [Word, Word, Word, Word] >>= [Bit 1]
 b18[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -96,7 +96,7 @@ b18[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint gt98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint gt98 :: [Word, Word, Word, Word] >>= [Bit 1]
 gt98[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
@@ -105,25 +105,25 @@ gt98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ge32 :: [Word, Word] >>= [Flag]
+entrypoint ge32 :: [Word, Word] >>= [Bit 1]
 ge32[t0, t1] =
   primUge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ge48 :: [Word, Word] >>= [Flag]
+entrypoint ge48 :: [Word, Word] >>= [Bit 1]
 ge48[t0, t1] =
   primUge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ge64 :: [Word, Word] >>= [Flag]
+entrypoint ge64 :: [Word, Word] >>= [Bit 1]
 ge64[t0, t1] =
   primUge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b24 :: [Word, Word, Word, Word] >>= [Flag]
+b24 :: [Word, Word, Word, Word] >>= [Bit 1]
 b24[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -132,7 +132,7 @@ b24[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ge98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint ge98 :: [Word, Word, Word, Word] >>= [Bit 1]
 ge98[t0, t1, t2, t3] =
   t4 <- primUgt((t1, t3))
   if t4
@@ -141,25 +141,25 @@ ge98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint lt32 :: [Word, Word] >>= [Flag]
+entrypoint lt32 :: [Word, Word] >>= [Bit 1]
 lt32[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint lt48 :: [Word, Word] >>= [Flag]
+entrypoint lt48 :: [Word, Word] >>= [Bit 1]
 lt48[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint lt64 :: [Word, Word] >>= [Flag]
+entrypoint lt64 :: [Word, Word] >>= [Bit 1]
 lt64[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b30 :: [Word, Word, Word, Word] >>= [Flag]
+b30 :: [Word, Word, Word, Word] >>= [Bit 1]
 b30[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -168,7 +168,7 @@ b30[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint lt98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint lt98 :: [Word, Word, Word, Word] >>= [Bit 1]
 lt98[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
@@ -177,25 +177,25 @@ lt98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint le32 :: [Word, Word] >>= [Flag]
+entrypoint le32 :: [Word, Word] >>= [Bit 1]
 le32[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint le48 :: [Word, Word] >>= [Flag]
+entrypoint le48 :: [Word, Word] >>= [Bit 1]
 le48[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint le64 :: [Word, Word] >>= [Flag]
+entrypoint le64 :: [Word, Word] >>= [Bit 1]
 le64[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b36 :: [Word, Word, Word, Word] >>= [Flag]
+b36 :: [Word, Word, Word, Word] >>= [Bit 1]
 b36[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
@@ -204,7 +204,7 @@ b36[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint le98 :: [Word, Word, Word, Word] >>= [Flag]
+entrypoint le98 :: [Word, Word, Word, Word] >>= [Bit 1]
 le98[t0, t1, t2, t3] =
   t4 <- primUlt((t1, t3))
   if t4
@@ -213,19 +213,19 @@ le98[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt0 :: [Unit, Unit] >>= [Flag]
+entrypoint sgt0 :: [Unit, Unit] >>= [Bit 1]
 sgt0[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt1 :: [Flag, Flag] >>= [Flag]
+entrypoint sgt1 :: [Bit 1, Bit 1] >>= [Bit 1]
 sgt1[t0, t1] =
   bgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt2 :: [Word, Word] >>= [Flag]
+entrypoint sgt2 :: [Word, Word] >>= [Bit 1]
 sgt2[t0, t1] =
   t2 <- shl((t0, 62))
   t3 <- shl((t1, 62))
@@ -233,7 +233,7 @@ sgt2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt15 :: [Word, Word] >>= [Flag]
+entrypoint sgt15 :: [Word, Word] >>= [Bit 1]
 sgt15[t0, t1] =
   t2 <- shl((t0, 49))
   t3 <- shl((t1, 49))
@@ -241,7 +241,7 @@ sgt15[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt31 :: [Word, Word] >>= [Flag]
+entrypoint sgt31 :: [Word, Word] >>= [Bit 1]
 sgt31[t0, t1] =
   t2 <- shl((t0, 33))
   t3 <- shl((t1, 33))
@@ -249,7 +249,7 @@ sgt31[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt32 :: [Word, Word] >>= [Flag]
+entrypoint sgt32 :: [Word, Word] >>= [Bit 1]
 sgt32[t0, t1] =
   t2 <- shl((t0, 32))
   t3 <- shl((t1, 32))
@@ -257,7 +257,7 @@ sgt32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt33 :: [Word, Word] >>= [Flag]
+entrypoint sgt33 :: [Word, Word] >>= [Bit 1]
 sgt33[t0, t1] =
   t2 <- shl((t0, 31))
   t3 <- shl((t1, 31))
@@ -265,7 +265,7 @@ sgt33[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt48 :: [Word, Word] >>= [Flag]
+entrypoint sgt48 :: [Word, Word] >>= [Bit 1]
 sgt48[t0, t1] =
   t2 <- shl((t0, 16))
   t3 <- shl((t1, 16))
@@ -273,25 +273,25 @@ sgt48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sgt64 :: [Word, Word] >>= [Flag]
+entrypoint sgt64 :: [Word, Word] >>= [Bit 1]
 sgt64[t0, t1] =
   primSgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint sge0 :: [Unit, Unit] >>= [Flag]
+entrypoint sge0 :: [Unit, Unit] >>= [Bit 1]
 sge0[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint sge1 :: [Flag, Flag] >>= [Flag]
+entrypoint sge1 :: [Bit 1, Bit 1] >>= [Bit 1]
 sge1[t0, t1] =
   bge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint sge2 :: [Word, Word] >>= [Flag]
+entrypoint sge2 :: [Word, Word] >>= [Bit 1]
 sge2[t0, t1] =
   t2 <- shl((t0, 62))
   t3 <- shl((t1, 62))
@@ -299,7 +299,7 @@ sge2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge15 :: [Word, Word] >>= [Flag]
+entrypoint sge15 :: [Word, Word] >>= [Bit 1]
 sge15[t0, t1] =
   t2 <- shl((t0, 49))
   t3 <- shl((t1, 49))
@@ -307,7 +307,7 @@ sge15[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge31 :: [Word, Word] >>= [Flag]
+entrypoint sge31 :: [Word, Word] >>= [Bit 1]
 sge31[t0, t1] =
   t2 <- shl((t0, 33))
   t3 <- shl((t1, 33))
@@ -315,7 +315,7 @@ sge31[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge32 :: [Word, Word] >>= [Flag]
+entrypoint sge32 :: [Word, Word] >>= [Bit 1]
 sge32[t0, t1] =
   t2 <- shl((t0, 32))
   t3 <- shl((t1, 32))
@@ -323,7 +323,7 @@ sge32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge33 :: [Word, Word] >>= [Flag]
+entrypoint sge33 :: [Word, Word] >>= [Bit 1]
 sge33[t0, t1] =
   t2 <- shl((t0, 31))
   t3 <- shl((t1, 31))
@@ -331,7 +331,7 @@ sge33[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge48 :: [Word, Word] >>= [Flag]
+entrypoint sge48 :: [Word, Word] >>= [Bit 1]
 sge48[t0, t1] =
   t2 <- shl((t0, 16))
   t3 <- shl((t1, 16))
@@ -339,25 +339,25 @@ sge48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sge64 :: [Word, Word] >>= [Flag]
+entrypoint sge64 :: [Word, Word] >>= [Bit 1]
 sge64[t0, t1] =
   primSge((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint slt0 :: [Unit, Unit] >>= [Flag]
+entrypoint slt0 :: [Unit, Unit] >>= [Bit 1]
 slt0[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint slt1 :: [Flag, Flag] >>= [Flag]
+entrypoint slt1 :: [Bit 1, Bit 1] >>= [Bit 1]
 slt1[t0, t1] =
   blt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint slt2 :: [Word, Word] >>= [Flag]
+entrypoint slt2 :: [Word, Word] >>= [Bit 1]
 slt2[t0, t1] =
   t2 <- shl((t0, 62))
   t3 <- shl((t1, 62))
@@ -365,7 +365,7 @@ slt2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt15 :: [Word, Word] >>= [Flag]
+entrypoint slt15 :: [Word, Word] >>= [Bit 1]
 slt15[t0, t1] =
   t2 <- shl((t0, 49))
   t3 <- shl((t1, 49))
@@ -373,7 +373,7 @@ slt15[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt31 :: [Word, Word] >>= [Flag]
+entrypoint slt31 :: [Word, Word] >>= [Bit 1]
 slt31[t0, t1] =
   t2 <- shl((t0, 33))
   t3 <- shl((t1, 33))
@@ -381,7 +381,7 @@ slt31[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt32 :: [Word, Word] >>= [Flag]
+entrypoint slt32 :: [Word, Word] >>= [Bit 1]
 slt32[t0, t1] =
   t2 <- shl((t0, 32))
   t3 <- shl((t1, 32))
@@ -389,7 +389,7 @@ slt32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt33 :: [Word, Word] >>= [Flag]
+entrypoint slt33 :: [Word, Word] >>= [Bit 1]
 slt33[t0, t1] =
   t2 <- shl((t0, 31))
   t3 <- shl((t1, 31))
@@ -397,7 +397,7 @@ slt33[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt48 :: [Word, Word] >>= [Flag]
+entrypoint slt48 :: [Word, Word] >>= [Bit 1]
 slt48[t0, t1] =
   t2 <- shl((t0, 16))
   t3 <- shl((t1, 16))
@@ -405,25 +405,25 @@ slt48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint slt64 :: [Word, Word] >>= [Flag]
+entrypoint slt64 :: [Word, Word] >>= [Bit 1]
 slt64[t0, t1] =
   primSlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint sle0 :: [Unit, Unit] >>= [Flag]
+entrypoint sle0 :: [Unit, Unit] >>= [Bit 1]
 sle0[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint sle1 :: [Flag, Flag] >>= [Flag]
+entrypoint sle1 :: [Bit 1, Bit 1] >>= [Bit 1]
 sle1[t0, t1] =
   ble((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint sle2 :: [Word, Word] >>= [Flag]
+entrypoint sle2 :: [Word, Word] >>= [Bit 1]
 sle2[t0, t1] =
   t2 <- shl((t0, 62))
   t3 <- shl((t1, 62))
@@ -431,7 +431,7 @@ sle2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle15 :: [Word, Word] >>= [Flag]
+entrypoint sle15 :: [Word, Word] >>= [Bit 1]
 sle15[t0, t1] =
   t2 <- shl((t0, 49))
   t3 <- shl((t1, 49))
@@ -439,7 +439,7 @@ sle15[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle31 :: [Word, Word] >>= [Flag]
+entrypoint sle31 :: [Word, Word] >>= [Bit 1]
 sle31[t0, t1] =
   t2 <- shl((t0, 33))
   t3 <- shl((t1, 33))
@@ -447,7 +447,7 @@ sle31[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle32 :: [Word, Word] >>= [Flag]
+entrypoint sle32 :: [Word, Word] >>= [Bit 1]
 sle32[t0, t1] =
   t2 <- shl((t0, 32))
   t3 <- shl((t1, 32))
@@ -455,7 +455,7 @@ sle32[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle33 :: [Word, Word] >>= [Flag]
+entrypoint sle33 :: [Word, Word] >>= [Bit 1]
 sle33[t0, t1] =
   t2 <- shl((t0, 31))
   t3 <- shl((t1, 31))
@@ -463,7 +463,7 @@ sle33[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle48 :: [Word, Word] >>= [Flag]
+entrypoint sle48 :: [Word, Word] >>= [Bit 1]
 sle48[t0, t1] =
   t2 <- shl((t0, 16))
   t3 <- shl((t1, 16))
@@ -471,7 +471,7 @@ sle48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sle64 :: [Word, Word] >>= [Flag]
+entrypoint sle64 :: [Word, Word] >>= [Bit 1]
 sle64[t0, t1] =
   primSle((t0, t1))
 

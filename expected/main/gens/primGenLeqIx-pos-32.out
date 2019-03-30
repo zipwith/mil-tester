@@ -21,7 +21,7 @@ b25[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF1 :: [Flag, [Unit] ->> [Flag], Word, Unit] >>= [Flag]
+entrypoint genLeqIxF1 :: [Bit 1, [Unit] ->> [Bit 1], Word, Unit] >>= [Bit 1]
 genLeqIxF1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -63,7 +63,7 @@ genLeqIxB1[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM1 :: [Flag, [Unit] ->> [Flag], Word, Unit] >>= [Flag]
+entrypoint genLeqIxM1 :: [Bit 1, [Unit] ->> [Bit 1], Word, Unit] >>= [Bit 1]
 genLeqIxM1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -72,14 +72,14 @@ genLeqIxM1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b40 :: forall (a :: tuple). [[Flag] ->> a, Word] >>= a
+b40 :: forall (a :: tuple). [[Bit 1] ->> a, Word] >>= a
 b40[t0, t1] =
   t2 <- wordToFlag((t1))
   t0 @ t2
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF2 :: [Flag, [Flag] ->> [Flag], Word, Flag] >>= [Flag]
+entrypoint genLeqIxF2 :: [Bit 1, [Bit 1] ->> [Bit 1], Word, Bit 1] >>= [Bit 1]
 genLeqIxF2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -89,7 +89,7 @@ genLeqIxF2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxW2 :: [Word, [Flag] ->> [Word], Word, Flag] >>= [Word]
+entrypoint genLeqIxW2 :: [Word, [Bit 1] ->> [Word], Word, Bit 1] >>= [Word]
 genLeqIxW2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -99,7 +99,7 @@ genLeqIxW2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxI2 :: [Unit, [Flag] ->> [Unit], Word, Flag] >>= [Unit]
+entrypoint genLeqIxI2 :: [Unit, [Bit 1] ->> [Unit], Word, Bit 1] >>= [Unit]
 genLeqIxI2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -109,7 +109,7 @@ genLeqIxI2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxB2 :: [Word, Word, [Flag] ->> [Word, Word], Word, Flag] >>= [Word, Word]
+entrypoint genLeqIxB2 :: [Word, Word, [Bit 1] ->> [Word, Word], Word, Bit 1] >>= [Word, Word]
 genLeqIxB2[t0, t1, t2, t3, t4] =
   t5 <- flagToWord((t4))
   t6 <- primUle((t3, t5))
@@ -119,7 +119,7 @@ genLeqIxB2[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM2 :: [Word, [Flag] ->> [Word], Word, Flag] >>= [Word]
+entrypoint genLeqIxM2 :: [Word, [Bit 1] ->> [Word], Word, Bit 1] >>= [Word]
 genLeqIxM2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -135,7 +135,7 @@ b55[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF7 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
+entrypoint genLeqIxF7 :: [Bit 1, [Word] ->> [Bit 1], Word, Word] >>= [Bit 1]
 genLeqIxF7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -180,7 +180,7 @@ genLeqIxM7[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF64 :: [Flag, [Word] ->> [Flag], Word, Word] >>= [Flag]
+entrypoint genLeqIxF64 :: [Bit 1, [Word] ->> [Bit 1], Word, Word] >>= [Bit 1]
 genLeqIxF64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -225,7 +225,7 @@ genLeqIxM64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx1 :: [Word, Unit] >>= [Flag]
+entrypoint leqIx1 :: [Word, Unit] >>= [Bit 1]
 leqIx1[t0, t1] =
   primUle((t0, 0))
 

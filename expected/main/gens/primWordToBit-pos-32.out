@@ -15,7 +15,7 @@ toBit0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint toBit1 :: [Word] >>= [Flag]
+entrypoint toBit1 :: [Word] >>= [Bit 1]
 toBit1[t0] =
   primNeq((t0, 0))
 

@@ -15,7 +15,7 @@ neg0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint neg1 :: [Flag] >>= [Flag]
+entrypoint neg1 :: [Bit 1] >>= [Bit 1]
 neg1[t0] =
   return t0
 
@@ -61,7 +61,7 @@ plus0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint plus1 :: [Flag, Flag] >>= [Flag]
+entrypoint plus1 :: [Bit 1, Bit 1] >>= [Bit 1]
 plus1[t0, t1] =
   bxor((t0, t1))
 
@@ -107,7 +107,7 @@ minus0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint minus1 :: [Flag, Flag] >>= [Flag]
+entrypoint minus1 :: [Bit 1, Bit 1] >>= [Bit 1]
 minus1[t0, t1] =
   bxor((t0, t1))
 
@@ -153,7 +153,7 @@ times0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint times1 :: [Flag, Flag] >>= [Flag]
+entrypoint times1 :: [Bit 1, Bit 1] >>= [Bit 1]
 times1[t0, t1] =
   band((t0, t1))
 

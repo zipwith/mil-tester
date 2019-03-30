@@ -51,13 +51,13 @@ initStoredBit0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit1 :: [Flag, Word] >>= [Unit]
+entrypoint initStoredBit1 :: [Bit 1, Word] >>= [Unit]
 initStoredBit1[t0, t1] =
   store1((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredFlag :: [Flag, Word] >>= [Unit]
+entrypoint initStoredFlag :: [Bit 1, Word] >>= [Unit]
 initStoredFlag[t0, t1] =
   store1((t1, t0))
 

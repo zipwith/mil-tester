@@ -15,7 +15,7 @@ b86[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: [Flag] >>= [Unit]
+entrypoint foo :: [Bit 1] >>= [Unit]
 foo[t0] =
   if t0
     then b86[]

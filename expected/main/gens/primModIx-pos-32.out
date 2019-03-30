@@ -87,7 +87,7 @@ modIx0_1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_1 :: [Flag] >>= [Unit]
+entrypoint modIx1_1 :: [Bit 1] >>= [Unit]
 modIx1_1[t0] =
   return s1
 
@@ -111,31 +111,31 @@ modIx4_1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx0_2 :: [Unit] >>= [Flag]
+entrypoint modIx0_2 :: [Unit] >>= [Bit 1]
 modIx0_2[t0] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_2 :: [Flag] >>= [Flag]
+entrypoint modIx1_2 :: [Bit 1] >>= [Bit 1]
 modIx1_2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_2 :: [Word] >>= [Flag]
+entrypoint modIx2_2 :: [Word] >>= [Bit 1]
 modIx2_2[t0] =
   wordToFlag((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_2 :: [Word] >>= [Flag]
+entrypoint modIx3_2 :: [Word] >>= [Bit 1]
 modIx3_2[t0] =
   wordToFlag((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_2 :: [Word] >>= [Flag]
+entrypoint modIx4_2 :: [Word] >>= [Bit 1]
 modIx4_2[t0] =
   wordToFlag((t0))
 
@@ -147,7 +147,7 @@ modIx0_3[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_3 :: [Flag] >>= [Word]
+entrypoint modIx1_3 :: [Bit 1] >>= [Word]
 modIx1_3[t0] =
   flagToWord((t0))
 
@@ -171,7 +171,7 @@ modIx4_3[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_4 :: [Flag] >>= [Word]
+entrypoint modIx1_4 :: [Bit 1] >>= [Word]
 modIx1_4[t0] =
   flagToWord((t0))
 
@@ -183,7 +183,7 @@ modIx0_7[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_7 :: [Flag] >>= [Word]
+entrypoint modIx1_7 :: [Bit 1] >>= [Word]
 modIx1_7[t0] =
   flagToWord((t0))
 
@@ -213,7 +213,7 @@ modIx0_8[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_8 :: [Flag] >>= [Word]
+entrypoint modIx1_8 :: [Bit 1] >>= [Word]
 modIx1_8[t0] =
   flagToWord((t0))
 

@@ -15,7 +15,7 @@ and0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint and1 :: [Flag, Flag] >>= [Flag]
+entrypoint and1 :: [Bit 1, Bit 1] >>= [Bit 1]
 and1[t0, t1] =
   band((t0, t1))
 
@@ -95,7 +95,7 @@ or0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint or1 :: [Flag, Flag] >>= [Flag]
+entrypoint or1 :: [Bit 1, Bit 1] >>= [Bit 1]
 or1[t0, t1] =
   bor((t0, t1))
 
@@ -175,7 +175,7 @@ xor0[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint xor1 :: [Flag, Flag] >>= [Flag]
+entrypoint xor1 :: [Bit 1, Bit 1] >>= [Bit 1]
 xor1[t0, t1] =
   bxor((t0, t1))
 

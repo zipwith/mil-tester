@@ -3,7 +3,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncF1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+entrypoint genIncF1 :: [Bit 1, [Unit] ->> [Bit 1], Unit] >>= [Bit 1]
 genIncF1[t0, t1, t2] =
   return t0
 
@@ -27,13 +27,13 @@ genIncB1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncM1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+entrypoint genIncM1 :: [Bit 1, [Unit] ->> [Bit 1], Unit] >>= [Bit 1]
 genIncM1[t0, t1, t2] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b30 :: forall (a :: tuple). [[Flag] ->> a] >>= a
+b30 :: forall (a :: tuple). [[Bit 1] ->> a] >>= a
 b30[t0] =
   t0 @ flag1
 
@@ -45,7 +45,7 @@ b31[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncF2 :: [Flag, [Flag] ->> [Flag], Flag] >>= [Flag]
+entrypoint genIncF2 :: [Bit 1, [Bit 1] ->> [Bit 1], Bit 1] >>= [Bit 1]
 genIncF2[t0, t1, t2] =
   if t2
     then b31[t0]
@@ -53,7 +53,7 @@ genIncF2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncW2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+entrypoint genIncW2 :: [Word, [Bit 1] ->> [Word], Bit 1] >>= [Word]
 genIncW2[t0, t1, t2] =
   if t2
     then b31[t0]
@@ -61,7 +61,7 @@ genIncW2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncI2 :: [Unit, [Flag] ->> [Unit], Flag] >>= [Unit]
+entrypoint genIncI2 :: [Unit, [Bit 1] ->> [Unit], Bit 1] >>= [Unit]
 genIncI2[t0, t1, t2] =
   if t2
     then b31[t0]
@@ -75,7 +75,7 @@ b40[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncB2 :: [Word, Word, [Flag] ->> [Word, Word], Flag] >>= [Word, Word]
+entrypoint genIncB2 :: [Word, Word, [Bit 1] ->> [Word, Word], Bit 1] >>= [Word, Word]
 genIncB2[t0, t1, t2, t3] =
   if t3
     then b40[t0, t1]
@@ -83,7 +83,7 @@ genIncB2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncM2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+entrypoint genIncM2 :: [Word, [Bit 1] ->> [Word], Bit 1] >>= [Word]
 genIncM2[t0, t1, t2] =
   if t2
     then b31[t0]
@@ -98,7 +98,7 @@ b45[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncF7 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+entrypoint genIncF7 :: [Bit 1, [Word] ->> [Bit 1], Word] >>= [Bit 1]
 genIncF7[t0, t1, t2] =
   t3 <- primUlt((t2, 6))
   if t3
@@ -143,7 +143,7 @@ genIncM7[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genIncF64 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+entrypoint genIncF64 :: [Bit 1, [Word] ->> [Bit 1], Word] >>= [Bit 1]
 genIncF64[t0, t1, t2] =
   t3 <- primUlt((t2, 63))
   if t3
@@ -188,7 +188,7 @@ genIncM64[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx1 :: [Unit] >>= [Flag]
+entrypoint incIx1 :: [Unit] >>= [Bit 1]
 incIx1[t0] =
   return flag0
 

@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint cat_1_1 :: [Flag, Flag] >>= [Word]
+entrypoint cat_1_1 :: [Bit 1, Bit 1] >>= [Word]
 cat_1_1[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- flagToWord((t0))
@@ -9,7 +9,7 @@ cat_1_1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_1_2 :: [Flag, Word] >>= [Word]
+entrypoint cat_1_2 :: [Bit 1, Word] >>= [Word]
 cat_1_2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- shl((t2, 2))
@@ -17,7 +17,7 @@ cat_1_2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_2_1 :: [Word, Flag] >>= [Word]
+entrypoint cat_2_1 :: [Word, Bit 1] >>= [Word]
 cat_2_1[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t0, 1))

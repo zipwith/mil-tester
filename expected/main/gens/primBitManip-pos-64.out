@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit1 :: [Unit] >>= [Flag]
+entrypoint bitBit1 :: [Unit] >>= [Bit 1]
 bitBit1[t0] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit2 :: [Flag] >>= [Word]
+entrypoint bitBit2 :: [Bit 1] >>= [Word]
 bitBit2[t0] =
   t1 <- flagToWord((t0))
   shl((1, t1))
@@ -58,13 +58,13 @@ bitBit128[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitSetBit1 :: [Bit 1, Unit] >>= [Bit 1]
 bitSetBit1[t0, t1] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit2 :: [Word, Flag] >>= [Word]
+entrypoint bitSetBit2 :: [Word, Bit 1] >>= [Word]
 bitSetBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -119,13 +119,13 @@ bitSetBit128[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitClearBit1 :: [Bit 1, Unit] >>= [Bit 1]
 bitClearBit1[t0, t1] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit2 :: [Word, Flag] >>= [Word]
+entrypoint bitClearBit2 :: [Word, Bit 1] >>= [Word]
 bitClearBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -186,13 +186,13 @@ bitClearBit128[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitFlipBit1 :: [Bit 1, Unit] >>= [Bit 1]
 bitFlipBit1[t0, t1] =
   bnot((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit2 :: [Word, Flag] >>= [Word]
+entrypoint bitFlipBit2 :: [Word, Bit 1] >>= [Word]
 bitFlipBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -247,13 +247,13 @@ bitFlipBit128[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitTestBit1 :: [Bit 1, Unit] >>= [Bit 1]
 bitTestBit1[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit2 :: [Word, Flag] >>= [Flag]
+entrypoint bitTestBit2 :: [Word, Bit 1] >>= [Bit 1]
 bitTestBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -262,7 +262,7 @@ bitTestBit2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit12 :: [Word, Word] >>= [Flag]
+entrypoint bitTestBit12 :: [Word, Word] >>= [Bit 1]
 bitTestBit12[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -270,7 +270,7 @@ bitTestBit12[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit48 :: [Word, Word] >>= [Flag]
+entrypoint bitTestBit48 :: [Word, Word] >>= [Bit 1]
 bitTestBit48[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -278,7 +278,7 @@ bitTestBit48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit64 :: [Word, Word] >>= [Flag]
+entrypoint bitTestBit64 :: [Word, Word] >>= [Bit 1]
 bitTestBit64[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -286,7 +286,7 @@ bitTestBit64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b39 :: [Word, Word] >>= [Flag]
+b39 :: [Word, Word] >>= [Bit 1]
 b39[t0, t1] =
   t2 <- add((t1, -64))
   t3 <- shl((1, t2))
@@ -295,7 +295,7 @@ b39[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit128 :: [Word, Word, Word] >>= [Flag]
+entrypoint bitTestBit128 :: [Word, Word, Word] >>= [Bit 1]
 bitTestBit128[t0, t1, t2] =
   t3 <- primUlt((t2, 64))
   if t3
@@ -310,13 +310,13 @@ s3 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize1 :: [Flag] >>= [Unit]
+entrypoint bitBitSize1 :: [Bit 1] >>= [Unit]
 bitBitSize1[t0] =
   return s3
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize2 :: [Word] >>= [Flag]
+entrypoint bitBitSize2 :: [Word] >>= [Bit 1]
 bitBitSize2[t0] =
   return flag1
 

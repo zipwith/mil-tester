@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint bitShiftL1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitShiftL1 :: [Bit 1, Unit] >>= [Bit 1]
 bitShiftL1[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint bitShiftL2 :: [Word, Flag] >>= [Word]
+entrypoint bitShiftL2 :: [Word, Bit 1] >>= [Word]
 bitShiftL2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t0, t2))
@@ -381,13 +381,13 @@ bitShiftL128[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitShiftRu1 :: [Flag, Unit] >>= [Flag]
+entrypoint bitShiftRu1 :: [Bit 1, Unit] >>= [Bit 1]
 bitShiftRu1[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint bitShiftRu2 :: [Word, Flag] >>= [Word]
+entrypoint bitShiftRu2 :: [Word, Bit 1] >>= [Word]
 bitShiftRu2[t0, t1] =
   t2 <- flagToWord((t1))
   lshr((t0, t2))

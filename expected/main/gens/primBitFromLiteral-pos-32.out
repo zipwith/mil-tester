@@ -15,13 +15,13 @@ zero[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint zero1 :: [Unit] >>= [Flag]
+entrypoint zero1 :: [Unit] >>= [Bit 1]
 zero1[t0] =
   return flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint one1 :: [Unit] >>= [Flag]
+entrypoint one1 :: [Unit] >>= [Bit 1]
 one1[t0] =
   return flag1
 

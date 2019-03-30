@@ -10,7 +10,7 @@ a <-
 
 -----------------------------------------
 -- not recursive
-entrypoint isNull :: [Word] >>= [Flag]
+entrypoint isNull :: [Word] >>= [Bit 1]
 isNull[t0] =
   primEq((t0, 0))
 

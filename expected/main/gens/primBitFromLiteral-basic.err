@@ -6,7 +6,7 @@ No generated implementation: primBitFromLiteral requires (at least) 2 arguments
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 4
 external invalid2 {primBitFromLiteral Flag 16} :: Unit -> Bit 16 -- first param not nat
          ^
-No generated implementation: Argument 1 (Flag) does not have expected kind (nat)
+No generated implementation: Argument 1 (Bit 1) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 5
 external invalid3 {primBitFromLiteral 16 Word} :: Unit -> Bit 16 -- second param not nat

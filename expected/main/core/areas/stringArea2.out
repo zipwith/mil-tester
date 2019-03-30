@@ -22,7 +22,7 @@ b79[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint greet :: [Flag] >>= [Word]
+entrypoint greet :: [Bit 1] >>= [Word]
 greet[t0] =
   if t0
     then b79[]

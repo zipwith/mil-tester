@@ -3,7 +3,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1ToBit1 :: [Unit] >>= [Flag]
+entrypoint ix1ToBit1 :: [Unit] >>= [Bit 1]
 ix1ToBit1[t0] =
   return flag0
 
@@ -21,19 +21,19 @@ ix1ToBit3[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2ToBit1 :: [Flag] >>= [Flag]
+entrypoint ix2ToBit1 :: [Bit 1] >>= [Bit 1]
 ix2ToBit1[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2ToBit2 :: [Flag] >>= [Word]
+entrypoint ix2ToBit2 :: [Bit 1] >>= [Word]
 ix2ToBit2[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2ToBit3 :: [Flag] >>= [Word]
+entrypoint ix2ToBit3 :: [Bit 1] >>= [Word]
 ix2ToBit3[t0] =
   flagToWord((t0))
 

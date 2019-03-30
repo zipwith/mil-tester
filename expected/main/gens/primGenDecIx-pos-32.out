@@ -3,7 +3,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecF1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+entrypoint genDecF1 :: [Bit 1, [Unit] ->> [Bit 1], Unit] >>= [Bit 1]
 genDecF1[t0, t1, t2] =
   return t0
 
@@ -27,7 +27,7 @@ genDecB1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecM1 :: [Flag, [Unit] ->> [Flag], Unit] >>= [Flag]
+entrypoint genDecM1 :: [Bit 1, [Unit] ->> [Bit 1], Unit] >>= [Bit 1]
 genDecM1[t0, t1, t2] =
   return t0
 
@@ -39,13 +39,13 @@ b31[t0] =
 
 -----------------------------------------
 -- not recursive
-b30 :: forall (a :: tuple). [[Flag] ->> a] >>= a
+b30 :: forall (a :: tuple). [[Bit 1] ->> a] >>= a
 b30[t0] =
   t0 @ flag0
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecF2 :: [Flag, [Flag] ->> [Flag], Flag] >>= [Flag]
+entrypoint genDecF2 :: [Bit 1, [Bit 1] ->> [Bit 1], Bit 1] >>= [Bit 1]
 genDecF2[t0, t1, t2] =
   if t2
     then b30[t1]
@@ -53,7 +53,7 @@ genDecF2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecW2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+entrypoint genDecW2 :: [Word, [Bit 1] ->> [Word], Bit 1] >>= [Word]
 genDecW2[t0, t1, t2] =
   if t2
     then b30[t1]
@@ -61,7 +61,7 @@ genDecW2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecI2 :: [Unit, [Flag] ->> [Unit], Flag] >>= [Unit]
+entrypoint genDecI2 :: [Unit, [Bit 1] ->> [Unit], Bit 1] >>= [Unit]
 genDecI2[t0, t1, t2] =
   if t2
     then b30[t1]
@@ -75,7 +75,7 @@ b40[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecB2 :: [Word, Word, [Flag] ->> [Word, Word], Flag] >>= [Word, Word]
+entrypoint genDecB2 :: [Word, Word, [Bit 1] ->> [Word, Word], Bit 1] >>= [Word, Word]
 genDecB2[t0, t1, t2, t3] =
   if t3
     then b30[t2]
@@ -83,7 +83,7 @@ genDecB2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecM2 :: [Word, [Flag] ->> [Word], Flag] >>= [Word]
+entrypoint genDecM2 :: [Word, [Bit 1] ->> [Word], Bit 1] >>= [Word]
 genDecM2[t0, t1, t2] =
   if t2
     then b30[t1]
@@ -98,7 +98,7 @@ b45[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecF7 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+entrypoint genDecF7 :: [Bit 1, [Word] ->> [Bit 1], Word] >>= [Bit 1]
 genDecF7[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
@@ -143,7 +143,7 @@ genDecM7[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genDecF64 :: [Flag, [Word] ->> [Flag], Word] >>= [Flag]
+entrypoint genDecF64 :: [Bit 1, [Word] ->> [Bit 1], Word] >>= [Bit 1]
 genDecF64[t0, t1, t2] =
   t3 <- primUgt((t2, 0))
   if t3
@@ -188,7 +188,7 @@ genDecM64[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint decIx1 :: [Unit] >>= [Flag]
+entrypoint decIx1 :: [Unit] >>= [Bit 1]
 decIx1[t0] =
   return flag0
 

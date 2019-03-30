@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint idfoo :: [Flag] >>= [Flag]
+entrypoint idfoo :: [Bit 1] >>= [Bit 1]
 idfoo[t0] =
   return t0
 
