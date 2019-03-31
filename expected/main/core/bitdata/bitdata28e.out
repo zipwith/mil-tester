@@ -1,20 +1,20 @@
 -----------------------------------------
 -- not recursive
-entrypoint mkU :: [Word] >>= [Word]
+entrypoint mkU :: [Bit 32] >>= [Bit 32]
 mkU[t0] =
   t1 <- shl((t0, 1))
   or((t1, 1025))
 
 -----------------------------------------
 -- not recursive
-entrypoint getU :: [Word] >>= [Word]
+entrypoint getU :: [Bit 32] >>= [Bit 32]
 getU[t0] =
   t1 <- lshr((t0, 1))
   and((t1, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint updU :: [Word, Word] >>= [Word]
+entrypoint updU :: [Bit 32, Bit 32] >>= [Bit 32]
 updU[t0, t1] =
   t2 <- shl((t1, 1))
   or((t2, 1025))

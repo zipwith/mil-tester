@@ -21,7 +21,7 @@ y <-
 
 -----------------------------------------
 -- not recursive
-entrypoint x :: Word
+entrypoint x :: Bit 32
 x <-
   id @ 1
 

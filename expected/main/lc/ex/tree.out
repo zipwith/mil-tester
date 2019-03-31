@@ -1,5 +1,5 @@
 data Pair2
-  = Pair4 Tree1 Word
+  = Pair4 Tree1 (Bit 32)
 
 data Tree0
   = Leaf0
@@ -7,7 +7,7 @@ data Tree0
 
 data Tree1
   = Leaf2
-  | Node3 Tree1 Word Tree1
+  | Node3 Tree1 (Bit 32) Tree1
 
 -----------------------------------------
 -- not recursive
@@ -17,13 +17,13 @@ Leaf <-
 
 -----------------------------------------
 -- not recursive
-b128 :: [Word] >>= [Pair2]
+b128 :: [Bit 32] >>= [Pair2]
 b128[t0] =
   Pair4(Leaf, t0)
 
 -----------------------------------------
 -- recursive
-b132 :: [Tree0, Word] >>= [Pair2]
+b132 :: [Tree0, Bit 32] >>= [Pair2]
 b132[t0, t1] =
   assert t0 Node1
   t2 <- Node1 0 t0
@@ -37,7 +37,7 @@ b132[t0, t1] =
   t10 <- Node3(t5, t6, t9)
   t11 <- Pair4 1 t8
   Pair4(t10, t11)
-b127 :: [Tree0, Word] >>= [Pair2]
+b127 :: [Tree0, Bit 32] >>= [Pair2]
 b127[t0, t1] =
   case t0 of
     Leaf0 -> b128[t1]

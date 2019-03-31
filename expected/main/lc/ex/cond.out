@@ -9,14 +9,14 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b4 :: [Word] >>= [Unit]
+b4 :: [Bit 32] >>= [Unit]
 b4[t0] =
   [] <- print((t0))
   return Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word, Word] >>= [Unit]
+entrypoint main :: [Bit 32, Bit 32] >>= [Unit]
 main[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2

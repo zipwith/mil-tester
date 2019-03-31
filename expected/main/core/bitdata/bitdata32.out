@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-b8 :: [] >>= [Word]
+b8 :: [] >>= [Bit 32]
 b8[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-b9 :: [] >>= [Word]
+b9 :: [] >>= [Bit 32]
 b9[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b13 :: [Word] >>= [Word]
+b13 :: [Bit 32] >>= [Bit 32]
 b13[t0] =
   t1 <- primEq((t0, 1))
   if t1
@@ -21,13 +21,13 @@ b13[t0] =
 
 -----------------------------------------
 -- not recursive
-b10 :: [] >>= [Word]
+b10 :: [] >>= [Bit 32]
 b10[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint f :: [Word] >>= [Word]
+entrypoint f :: [Bit 32] >>= [Bit 32]
 f[t0] =
   t1 <- primEq((t0, 0))
   if t1

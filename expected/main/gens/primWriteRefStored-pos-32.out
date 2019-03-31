@@ -3,37 +3,37 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit8 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit8 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit8[t0, t1] =
   store8((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredIx8 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredIx8 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredIx8[t0, t1] =
   store8((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit16 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit16 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit16[t0, t1] =
   store16((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredIx384 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredIx384 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredIx384[t0, t1] =
   store16((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit32 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit32 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit32[t0, t1] =
   store32((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b4 :: [Word, Word, Word] >>= [Unit]
+b4 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b4[t0, t1, t2] =
   t3 <- store32((t0, t1))
   t4 <- add((t0, 4))
@@ -41,7 +41,7 @@ b4[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit64 :: [Word, Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit64 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit64[t0, t1, t2] =
   b4[t0, t1, t2]
 
@@ -53,43 +53,43 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit0 :: [Word, Unit] >>= [Unit]
+entrypoint writeRefStoredBit0 :: [Bit 32, Unit] >>= [Unit]
 writeRefStoredBit0[t0, t1] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit1 :: [Word, Bit 1] >>= [Unit]
+entrypoint writeRefStoredBit1 :: [Bit 32, Bit 1] >>= [Unit]
 writeRefStoredBit1[t0, t1] =
   store1((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredFlag :: [Word, Bit 1] >>= [Unit]
+entrypoint writeRefStoredFlag :: [Bit 32, Bit 1] >>= [Unit]
 writeRefStoredFlag[t0, t1] =
   store1((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit2 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit2 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit2[t0, t1] =
   store8((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit5 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit5 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit5[t0, t1] =
   store8((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit9 :: [Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit9 :: [Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit9[t0, t1] =
   store16((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRefStoredBit33 :: [Word, Word, Word] >>= [Unit]
+entrypoint writeRefStoredBit33 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 writeRefStoredBit33[t0, t1, t2] =
   b4[t0, t1, t2]
 

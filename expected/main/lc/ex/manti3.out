@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint main :: Word
+entrypoint main :: Bit 32
 main <-
   return 4
 

@@ -1,15 +1,15 @@
 -----------------------------------------
 -- not recursive
-export external wide1 :: Word
+export external wide1 :: Bit 32
 
 -----------------------------------------
 -- not recursive
-export external wide :: Word
+export external wide :: Bit 32
 
 -----------------------------------------
 -- not recursive
-entrypoint mywide :: Word
-entrypoint mywide1 :: Word
+entrypoint mywide :: Bit 32
+entrypoint mywide1 :: Bit 32
 [mywide,mywide1] <-
   return [wide, wide1]
 

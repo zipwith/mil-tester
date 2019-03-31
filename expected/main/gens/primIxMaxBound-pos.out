@@ -15,31 +15,31 @@ max2 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint max12 :: Word
+entrypoint max12 :: Bit 32
 max12 <-
   return 11
 
 -----------------------------------------
 -- not recursive
-entrypoint max32 :: Word
+entrypoint max32 :: Bit 32
 max32 <-
   return 31
 
 -----------------------------------------
 -- not recursive
-entrypoint max256 :: Word
+entrypoint max256 :: Bit 32
 max256 <-
   return 255
 
 -----------------------------------------
 -- not recursive
-entrypoint max257 :: Word
+entrypoint max257 :: Bit 32
 max257 <-
   return 256
 
 -----------------------------------------
 -- not recursive
-entrypoint max1G :: Word
+entrypoint max1G :: Bit 32
 max1G <-
   return 1073741823
 

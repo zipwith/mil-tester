@@ -25,7 +25,7 @@ bar <-
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: Maybe Word
+entrypoint foo :: Maybe (Bit 32)
 foo <-
   Just(3)
 

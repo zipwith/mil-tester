@@ -1,6 +1,6 @@
 data List0
   = Nil0
-  | Cons1 Word List0
+  | Cons1 (Bit 32) List0
 
 -----------------------------------------
 -- not recursive
@@ -16,14 +16,14 @@ b79[] =
 
 -----------------------------------------
 -- recursive
-b103 :: [List0, Word] >>= [List0]
+b103 :: [List0, Bit 32] >>= [List0]
 b103[t0, t1] =
   t2 <- Cons1 0 t0
   t3 <- Cons1 1 t0
   t4 <- add((t1, t2))
   t5 <- b102[t3, t1]
   Cons1(t4, t5)
-b102 :: [List0, Word] >>= [List0]
+b102 :: [List0, Bit 32] >>= [List0]
 b102[t0, t1] =
   case t0 of
     Nil0 -> b79[]
@@ -37,14 +37,14 @@ mapsucc[t0] =
 
 -----------------------------------------
 -- recursive
-b105 :: [List0, Word] >>= [List0]
+b105 :: [List0, Bit 32] >>= [List0]
 b105[t0, t1] =
   t2 <- Cons1 0 t0
   t3 <- Cons1 1 t0
   t4 <- mul((t1, t2))
   t5 <- b104[t3, t1]
   Cons1(t4, t5)
-b104 :: [List0, Word] >>= [List0]
+b104 :: [List0, Bit 32] >>= [List0]
 b104[t0, t1] =
   case t0 of
     Nil0 -> b79[]
@@ -58,7 +58,7 @@ mapdouble[t0] =
 
 -----------------------------------------
 -- recursive
-b107 :: forall (a :: *). [List0, [Word] ->> [a], [a] ->> [Word]] >>= [List0]
+b107 :: forall (a :: *). [List0, [Bit 32] ->> [a], [a] ->> [Bit 32]] >>= [List0]
 b107[t0, t1, t2] =
   t3 <- Cons1 0 t0
   t4 <- Cons1 1 t0
@@ -66,7 +66,7 @@ b107[t0, t1, t2] =
   t6 <- t2 @ t5
   t7 <- b106[t4, t1, t2]
   Cons1(t6, t7)
-b106 :: forall (a :: *). [List0, [Word] ->> [a], [a] ->> [Word]] >>= [List0]
+b106 :: forall (a :: *). [List0, [Bit 32] ->> [a], [a] ->> [Bit 32]] >>= [List0]
 b106[t0, t1, t2] =
   case t0 of
     Nil0 -> b79[]
@@ -74,13 +74,13 @@ b106[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint mapcomp :: [[Word] ->> [Word], [Word] ->> [Word], List0] >>= [List0]
+entrypoint mapcomp :: [[Bit 32] ->> [Bit 32], [Bit 32] ->> [Bit 32], List0] >>= [List0]
 mapcomp[t0, t1, t2] =
   b106[t2, t1, t0]
 
 -----------------------------------------
 -- recursive
-b109 :: [List0, Word, Word] >>= [List0]
+b109 :: [List0, Bit 32, Bit 32] >>= [List0]
 b109[t0, t1, t2] =
   t3 <- Cons1 0 t0
   t4 <- Cons1 1 t0
@@ -88,7 +88,7 @@ b109[t0, t1, t2] =
   t6 <- add((t2, t5))
   t7 <- b108[t4, t1, t2]
   Cons1(t6, t7)
-b108 :: [List0, Word, Word] >>= [List0]
+b108 :: [List0, Bit 32, Bit 32] >>= [List0]
 b108[t0, t1, t2] =
   case t0 of
     Nil0 -> b79[]

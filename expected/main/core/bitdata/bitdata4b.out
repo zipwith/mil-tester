@@ -1,63 +1,63 @@
 -----------------------------------------
 -- not recursive
-entrypoint all0 :: Word
+entrypoint all0 :: Bit 32
 all0 <-
   return 7
 
 -----------------------------------------
 -- not recursive
-entrypoint all1 :: Word
+entrypoint all1 :: Bit 32
 all1 <-
   return 7
 
 -----------------------------------------
 -- not recursive
-entrypoint all2 :: Word
+entrypoint all2 :: Bit 32
 all2 <-
   return 7
 
 -----------------------------------------
 -- not recursive
-entrypoint r :: Word
+entrypoint r :: Bit 32
 r <-
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint w :: Word
+entrypoint w :: Bit 32
 w <-
   return 2
 
 -----------------------------------------
 -- not recursive
-entrypoint x :: Word
+entrypoint x :: Bit 32
 x <-
   return 1
 
 -----------------------------------------
 -- not recursive
-entrypoint getR :: [Word] >>= [Bit 1]
+entrypoint getR :: [Bit 32] >>= [Bit 1]
 getR[t0] =
   t1 <- and((t0, 4))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getW :: [Word] >>= [Bit 1]
+entrypoint getW :: [Bit 32] >>= [Bit 1]
 getW[t0] =
   t1 <- and((t0, 2))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getX :: [Word] >>= [Bit 1]
+entrypoint getX :: [Bit 32] >>= [Bit 1]
 getX[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint rotate :: [Word] >>= [Word]
+entrypoint rotate :: [Bit 32] >>= [Bit 32]
 rotate[t0] =
   t1 <- and((t0, 2))
   t2 <- primNeq((t1, 0))

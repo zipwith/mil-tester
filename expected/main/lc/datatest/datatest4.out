@@ -9,7 +9,7 @@ bitdata Bool /1
 
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 (Bit 32)
 
 data Maybe1
   = Nothing2

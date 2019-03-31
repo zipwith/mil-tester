@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-b83 :: [Word] >>= [Word]
+b83 :: [Bit 32] >>= [Bit 32]
 b83[t0] =
   lshr((t0, 2))
 
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Word]
+b79 :: [] >>= [Bit 32]
 b79[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSW :: [Word] >>= [Word]
+entrypoint derefSW :: [Bit 32] >>= [Bit 32]
 derefSW[t0] =
   t1 <- primEq((t0, 0))
   if t1
@@ -21,13 +21,13 @@ derefSW[t0] =
 
 -----------------------------------------
 -- not recursive
-b84 :: [Word] >>= [Word]
+b84 :: [Bit 32] >>= [Bit 32]
 b84[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSI :: [Word] >>= [Word]
+entrypoint derefSI :: [Bit 32] >>= [Bit 32]
 derefSI[t0] =
   t1 <- primEq((t0, 0))
   if t1

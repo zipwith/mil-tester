@@ -1,5 +1,5 @@
 data Dup0
-  = Dup0 Word Word
+  = Dup0 (Bit 32) (Bit 32)
 
 -----------------------------------------
 -- not recursive

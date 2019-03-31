@@ -99,19 +99,19 @@ bf <-
 
 -----------------------------------------
 -- not recursive
-b6 :: [] >>= [Word]
+b6 :: [] >>= [Bit 64]
 b6[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word]
+b5 :: [] >>= [Bit 64]
 b5[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-b7 :: [BOOL] >>= [Word]
+b7 :: [BOOL] >>= [Bit 64]
 b7[t0] =
   case t0 of
     Tt -> b6[]
@@ -119,12 +119,12 @@ b7[t0] =
 
 -----------------------------------------
 -- not recursive
-k3 :: {} [BOOL] ->> [Word]
+k3 :: {} [BOOL] ->> [Bit 64]
 k3{} t0 = b7[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint decide :: [BOOL] ->> [Word]
+entrypoint decide :: [BOOL] ->> [Bit 64]
 decide <-
   k3{}
 

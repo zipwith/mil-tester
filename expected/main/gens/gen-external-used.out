@@ -1,25 +1,25 @@
 -----------------------------------------
 -- not recursive
-export external large3 :: Word
+export external large3 :: Bit 32
 
 -----------------------------------------
 -- not recursive
-export external large2 :: Word
+export external large2 :: Bit 32
 
 -----------------------------------------
 -- not recursive
-export external large1 :: Word
+export external large1 :: Bit 32
 
 -----------------------------------------
 -- not recursive
-export external large :: Word
+export external large :: Bit 32
 
 -----------------------------------------
 -- not recursive
-entrypoint mylarge :: Word
-entrypoint mylarge1 :: Word
-entrypoint mylarge2 :: Word
-entrypoint mylarge3 :: Word
+entrypoint mylarge :: Bit 32
+entrypoint mylarge1 :: Bit 32
+entrypoint mylarge2 :: Bit 32
+entrypoint mylarge3 :: Bit 32
 [mylarge,mylarge1,mylarge2,mylarge3] <-
   return [large, large1, large2, large3]
 

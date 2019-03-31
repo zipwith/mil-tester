@@ -1,42 +1,42 @@
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Word]
+b79 :: [] >>= [Bit 32]
 b79[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-b108 :: [Word, Word] >>= [Word]
+b108 :: [Bit 32, Bit 32] >>= [Bit 32]
 b108[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- recursive
-b123 :: [Word, Word] >>= [Word]
+b123 :: [Bit 32, Bit 32] >>= [Bit 32]
 b123[t0, t1] =
   t2 <- shl((t0, 1))
   t3 <- add((t2, 2))
   t4 <- or((t3, 1))
   b118[t1, t4]
-b122 :: [Word, Word] >>= [Word]
+b122 :: [Bit 32, Bit 32] >>= [Bit 32]
 b122[t0, t1] =
   t2 <- primUlt((t0, 15))
   if t2
     then b123[t0, t1]
     else b118[t1, 0]
-b118 :: [Word, Word] >>= [Word]
+b118 :: [Bit 32, Bit 32] >>= [Bit 32]
 b118[t0, t1] =
   t2 <- and((t1, 1))
   t3 <- primEq((t2, 1))
   if t3
     then b107[t1, t0]
     else b79[]
-b107 :: [Word, Word] >>= [Word]
+b107 :: [Bit 32, Bit 32] >>= [Bit 32]
 b107[t0, t1] =
   t2 <- lshr((t0, 1))
   b83[t2, t1]
-b83 :: [Word, Word] >>= [Word]
+b83 :: [Bit 32, Bit 32] >>= [Bit 32]
 b83[t0, t1] =
   t2 <- shl((t0, 2))
   t3 <- add((t1, t2))
@@ -48,7 +48,7 @@ b83[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint findNull :: [Word] >>= [Word]
+entrypoint findNull :: [Bit 32] >>= [Bit 32]
 findNull[t0] =
   b83[0, t0]
 

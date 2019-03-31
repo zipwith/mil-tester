@@ -17,73 +17,73 @@ ixEq2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq3[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq7 :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq7 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq7[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq65 :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq65 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq65[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1K :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq1K :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq1K[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq123 :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq123 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq123[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq2047M :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq2047M :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq2047M[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixEq1G :: [Word, Word] >>= [Bit 1]
+entrypoint ixEq1G :: [Bit 32, Bit 32] >>= [Bit 1]
 ixEq1G[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe15 :: [Word, Word] >>= [Bit 1]
+entrypoint ixNe15 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixNe15[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt15 :: [Word, Word] >>= [Bit 1]
+entrypoint ixLt15 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixLt15[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe15 :: [Word, Word] >>= [Bit 1]
+entrypoint ixLe15 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixLe15[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt15 :: [Word, Word] >>= [Bit 1]
+entrypoint ixGt15 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixGt15[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe15 :: [Word, Word] >>= [Bit 1]
+entrypoint ixGe15 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixGe15[t0, t1] =
   primUge((t0, t1))
 
@@ -159,31 +159,31 @@ ixGe2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ixNe3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixNe3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixNe3[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLt3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixLt3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixLt3[t0, t1] =
   primUlt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixLe3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixLe3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixLe3[t0, t1] =
   primUle((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGt3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixGt3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixGt3[t0, t1] =
   primUgt((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint ixGe3 :: [Word, Word] >>= [Bit 1]
+entrypoint ixGe3 :: [Bit 32, Bit 32] >>= [Bit 1]
 ixGe3[t0, t1] =
   primUge((t0, t1))
 

@@ -3,37 +3,37 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint four12 :: [Unit] >>= [Word]
+entrypoint four12 :: [Unit] >>= [Bit 64]
 four12[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four31 :: [Unit] >>= [Word]
+entrypoint four31 :: [Unit] >>= [Bit 64]
 four31[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four32 :: [Unit] >>= [Word]
+entrypoint four32 :: [Unit] >>= [Bit 64]
 four32[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four33 :: [Unit] >>= [Word]
+entrypoint four33 :: [Unit] >>= [Bit 64]
 four33[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four64 :: [Unit] >>= [Word]
+entrypoint four64 :: [Unit] >>= [Bit 64]
 four64[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four72 :: [Unit] >>= [Word, Word]
+entrypoint four72 :: [Unit] >>= [Bit 64, Bit 64]
 four72[t0] =
   return [4, 0]
 

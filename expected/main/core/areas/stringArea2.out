@@ -1,28 +1,28 @@
 -----------------------------------------
 -- not recursive
-str0 :: Word
+str0 :: Bit 32
 str0 <- "goodbye"
 
 -----------------------------------------
 -- not recursive
-b78 :: [] >>= [Word]
+b78 :: [] >>= [Bit 32]
 b78[] =
   return str0
 
 -----------------------------------------
 -- not recursive
-str1 :: Word
+str1 :: Bit 32
 str1 <- "hello"
 
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Word]
+b79 :: [] >>= [Bit 32]
 b79[] =
   return str1
 
 -----------------------------------------
 -- not recursive
-entrypoint greet :: [Bit 1] >>= [Word]
+entrypoint greet :: [Bit 1] >>= [Bit 32]
 greet[t0] =
   if t0
     then b79[]
@@ -30,12 +30,12 @@ greet[t0] =
 
 -----------------------------------------
 -- not recursive
-str2 :: Word
+str2 :: Bit 32
 str2 <- "Please enter your name: "
 
 -----------------------------------------
 -- not recursive
-entrypoint prompt :: Word
+entrypoint prompt :: Bit 32
 prompt <-
   return str2
 

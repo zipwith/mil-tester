@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint toOdd :: [Word] >>= [Word]
+entrypoint toOdd :: [Bit 32] >>= [Bit 32]
 toOdd[t0] =
   t1 <- mul((t0, 2))
   add((t1, 1))

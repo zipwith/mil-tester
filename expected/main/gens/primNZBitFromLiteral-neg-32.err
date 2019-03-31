@@ -21,7 +21,7 @@ No generated implementation: A positive value is required
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 7
 external nzW_2  {primNZBitFromLiteral  Word  2} :: Unit -> NZBit 2
          ^
-No generated implementation: Argument 1 (Word) does not have expected kind (nat)
+No generated implementation: Argument 1 (Bit 32) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primNZBitFromLiteral-neg-32.lc", line 8
 external nz1_2K {primNZBitFromLiteral     1 2K} :: Unit -> NZBit 2K

@@ -1,6 +1,6 @@
 data List0
   = Nil0
-  | Cons1 Word List0
+  | Cons1 (Bit 32) List0
 
 data Pair1
   = Pair2 List0 List0

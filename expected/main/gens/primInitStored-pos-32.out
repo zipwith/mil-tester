@@ -3,37 +3,37 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit8 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit8 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit8[t0, t1] =
   store8((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredIx8 :: [Word, Word] >>= [Unit]
+entrypoint initStoredIx8 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredIx8[t0, t1] =
   store8((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit16 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit16 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit16[t0, t1] =
   store16((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredIx384 :: [Word, Word] >>= [Unit]
+entrypoint initStoredIx384 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredIx384[t0, t1] =
   store16((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit32 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit32 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit32[t0, t1] =
   store32((t1, t0))
 
 -----------------------------------------
 -- not recursive
-b4 :: [Word, Word, Word] >>= [Unit]
+b4 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b4[t0, t1, t2] =
   t3 <- store32((t0, t1))
   t4 <- add((t0, 4))
@@ -41,7 +41,7 @@ b4[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit64 :: [Word, Word, Word] >>= [Unit]
+entrypoint initStoredBit64 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 initStoredBit64[t0, t1, t2] =
   b4[t2, t0, t1]
 
@@ -53,43 +53,43 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit0 :: [Unit, Word] >>= [Unit]
+entrypoint initStoredBit0 :: [Unit, Bit 32] >>= [Unit]
 initStoredBit0[t0, t1] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit1 :: [Bit 1, Word] >>= [Unit]
+entrypoint initStoredBit1 :: [Bit 1, Bit 32] >>= [Unit]
 initStoredBit1[t0, t1] =
   store1((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredFlag :: [Bit 1, Word] >>= [Unit]
+entrypoint initStoredFlag :: [Bit 1, Bit 32] >>= [Unit]
 initStoredFlag[t0, t1] =
   store1((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit2 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit2 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit2[t0, t1] =
   store8((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit5 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit5 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit5[t0, t1] =
   store8((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit9 :: [Word, Word] >>= [Unit]
+entrypoint initStoredBit9 :: [Bit 32, Bit 32] >>= [Unit]
 initStoredBit9[t0, t1] =
   store16((t1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint initStoredBit33 :: [Word, Word, Word] >>= [Unit]
+entrypoint initStoredBit33 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 initStoredBit33[t0, t1, t2] =
   b4[t2, t0, t1]
 

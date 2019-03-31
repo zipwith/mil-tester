@@ -9,32 +9,32 @@ incIx1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx2 :: [Bit 1] >>= [Word]
+entrypoint incIx2 :: [Bit 1] >>= [Bit 32]
 incIx2[t0] =
   t1 <- flagToWord((t0))
   add((t1, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx7 :: [Word] >>= [Word]
+entrypoint incIx7 :: [Bit 32] >>= [Bit 32]
 incIx7[t0] =
   add((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx32 :: [Word] >>= [Word]
+entrypoint incIx32 :: [Bit 32] >>= [Bit 32]
 incIx32[t0] =
   add((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx100 :: [Word] >>= [Word]
+entrypoint incIx100 :: [Bit 32] >>= [Bit 32]
 incIx100[t0] =
   add((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint incIx1G :: [Word] >>= [Word]
+entrypoint incIx1G :: [Bit 32] >>= [Bit 32]
 incIx1G[t0] =
   add((t0, 1))
 

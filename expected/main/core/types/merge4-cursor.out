@@ -1,12 +1,12 @@
 -----------------------------------------
 -- not recursive
-b87 :: [Word] >>= [Word]
+b87 :: [Bit 32] >>= [Bit 32]
 b87[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b117 :: [Word, Word, Word] >>= [Word]
+b117 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b117[t0, t1, t2] =
   t3 <- add((t1, 16))
   t4 <- add((t0, -1))
@@ -18,7 +18,7 @@ b117[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint count :: [Word, Word] >>= [Word]
+entrypoint count :: [Bit 32, Bit 32] >>= [Bit 32]
 count[t0, t1] =
   t2 <- primNeq((t0, 0))
   if t2

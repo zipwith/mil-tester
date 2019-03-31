@@ -1,6 +1,6 @@
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 (Bit 32)
 
 -----------------------------------------
 -- not recursive
@@ -16,13 +16,13 @@ b92[] =
 
 -----------------------------------------
 -- not recursive
-b91 :: [Word] >>= [Maybe0]
+b91 :: [Bit 32] >>= [Maybe0]
 b91[t0] =
   Just1(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint why :: [Word] >>= [Maybe0]
+entrypoint why :: [Bit 32] >>= [Maybe0]
 why[t0] =
   t1 <- primUle((t0, 23))
   if t1

@@ -1,86 +1,86 @@
 data List0
   = Nil0
-  | Cons1 Word List0
+  | Cons1 (Bit 32) List0
 
 data Main1
-  = Main2 ([Word] ->> [[Word] ->> [List0]]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) Word ([Word] ->> [Word]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]])
+  = Main2 ([Bit 32] ->> [[Bit 32] ->> [List0]]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) (Bit 32) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]])
 
 -----------------------------------------
 -- not recursive
-b104 :: [Word, Word] >>= [Word]
+b104 :: [Bit 32, Bit 32] >>= [Bit 32]
 b104[t0, t1] =
   t2 <- add((t0, t1))
   add((t2, 4))
 
 -----------------------------------------
 -- not recursive
-k70 :: {Word} [Word] ->> [Word]
+k70 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k70{t0} t1 = b104[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k71 :: {} [Word] ->> [[Word] ->> [Word]]
+k71 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k71{} t0 = k70{t0}
 
 -----------------------------------------
 -- not recursive
-ex5 :: [Word] ->> [[Word] ->> [Word]]
+ex5 :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 ex5 <-
   k71{}
 
 -----------------------------------------
 -- not recursive
-b101 :: [Word, Word] >>= [Word]
+b101 :: [Bit 32, Bit 32] >>= [Bit 32]
 b101[t0, t1] =
   t2 <- add((t0, t1))
   add((t2, 7))
 
 -----------------------------------------
 -- not recursive
-k68 :: {Word} [Word] ->> [Word]
+k68 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k68{t0} t1 = b101[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k69 :: {} [Word] ->> [[Word] ->> [Word]]
+k69 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k69{} t0 = k68{t0}
 
 -----------------------------------------
 -- not recursive
-ex4 :: [Word] ->> [[Word] ->> [Word]]
+ex4 :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 ex4 <-
   k69{}
 
 -----------------------------------------
 -- not recursive
-k67 :: {} [Word] ->> [Word]
+k67 :: {} [Bit 32] ->> [Bit 32]
 k67{} t0 = mul((t0, 5))
 
 -----------------------------------------
 -- not recursive
-ex3 :: [Word] ->> [Word]
+ex3 :: [Bit 32] ->> [Bit 32]
 ex3 <-
   k67{}
 
 -----------------------------------------
 -- not recursive
-k65 :: {} [Word] ->> [Word]
+k65 :: {} [Bit 32] ->> [Bit 32]
 k65{} t0 = mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
-ex2 :: [Word] ->> [Word]
+ex2 :: [Bit 32] ->> [Bit 32]
 ex2 <-
   k65{}
 
 -----------------------------------------
 -- not recursive
-k63 :: {} [Word] ->> [Word]
+k63 :: {} [Bit 32] ->> [Bit 32]
 k63{} t0 = mul((t0, 3))
 
 -----------------------------------------
 -- not recursive
-ex1a :: [Word] ->> [Word]
+ex1a :: [Bit 32] ->> [Bit 32]
 ex1a <-
   k63{}
 
@@ -92,7 +92,7 @@ Nil <-
 
 -----------------------------------------
 -- not recursive
-b85 :: [Word, Word] >>= [List0]
+b85 :: [Bit 32, Bit 32] >>= [List0]
 b85[t0, t1] =
   t2 <- shl((t1, 2))
   t3 <- add((t2, t1))
@@ -129,17 +129,17 @@ b85[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k60 :: {Word} [Word] ->> [List0]
+k60 :: {Bit 32} [Bit 32] ->> [List0]
 k60{t0} t1 = b85[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k61 :: {} [Word] ->> [[Word] ->> [List0]]
+k61 :: {} [Bit 32] ->> [[Bit 32] ->> [List0]]
 k61{} t0 = k60{t0}
 
 -----------------------------------------
 -- not recursive
-ex0 :: [Word] ->> [[Word] ->> [List0]]
+ex0 :: [Bit 32] ->> [[Bit 32] ->> [List0]]
 ex0 <-
   k61{}
 

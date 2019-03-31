@@ -21,25 +21,25 @@ not1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint not2 :: [Word] >>= [Word]
+entrypoint not2 :: [Bit 64] >>= [Bit 64]
 not2[t0] =
   xor((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint not7 :: [Word] >>= [Word]
+entrypoint not7 :: [Bit 64] >>= [Bit 64]
 not7[t0] =
   xor((t0, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint not64 :: [Word] >>= [Word]
+entrypoint not64 :: [Bit 64] >>= [Bit 64]
 not64[t0] =
   not((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint not497 :: [Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint not497 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 not497[t0, t1, t2, t3, t4, t5, t6, t7] =
   t8 <- not((t0))
   t9 <- not((t1))

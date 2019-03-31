@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-export external wide :: Word
+export external wide :: Bit 64
 
 -----------------------------------------
 -- Entrypoints: wide

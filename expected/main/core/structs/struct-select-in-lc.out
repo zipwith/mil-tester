@@ -3,7 +3,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint f :: [Word] >>= [Word]
+entrypoint f :: [Bit 32] >>= [Bit 32]
 f[t0] =
   t1 <- load32((t0))
   t2 <- add((t0, 4))

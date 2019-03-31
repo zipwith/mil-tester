@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint cat_1_1 :: [Bit 1, Bit 1] >>= [Word]
+entrypoint cat_1_1 :: [Bit 1, Bit 1] >>= [Bit 32]
 cat_1_1[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- flagToWord((t0))
@@ -9,7 +9,7 @@ cat_1_1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_1_2 :: [Bit 1, Word] >>= [Word]
+entrypoint cat_1_2 :: [Bit 1, Bit 32] >>= [Bit 32]
 cat_1_2[t0, t1] =
   t2 <- flagToWord((t0))
   t3 <- shl((t2, 2))
@@ -17,7 +17,7 @@ cat_1_2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_2_1 :: [Word, Bit 1] >>= [Word]
+entrypoint cat_2_1 :: [Bit 32, Bit 1] >>= [Bit 32]
 cat_2_1[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t0, 1))
@@ -25,28 +25,28 @@ cat_2_1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_2_2 :: [Word, Word] >>= [Word]
+entrypoint cat_2_2 :: [Bit 32, Bit 32] >>= [Bit 32]
 cat_2_2[t0, t1] =
   t2 <- shl((t0, 2))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_12_12 :: [Word, Word] >>= [Word]
+entrypoint cat_12_12 :: [Bit 32, Bit 32] >>= [Bit 32]
 cat_12_12[t0, t1] =
   t2 <- shl((t0, 12))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_16_16 :: [Word, Word] >>= [Word]
+entrypoint cat_16_16 :: [Bit 32, Bit 32] >>= [Bit 32]
 cat_16_16[t0, t1] =
   t2 <- shl((t0, 16))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_32_16 :: [Word, Word] >>= [Word, Word]
+entrypoint cat_32_16 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 cat_32_16[t0, t1] =
   t2 <- lshr((t0, 16))
   t3 <- shl((t0, 16))
@@ -55,27 +55,27 @@ cat_32_16[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_32_32 :: [Word, Word] >>= [Word, Word]
+entrypoint cat_32_32 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 cat_32_32[t0, t1] =
   return [t1, t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint cat3_5 :: [Word, Word] >>= [Word]
+entrypoint cat3_5 :: [Bit 32, Bit 32] >>= [Bit 32]
 cat3_5[t0, t1] =
   t2 <- shl((t0, 5))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat5_3 :: [Word, Word] >>= [Word]
+entrypoint cat5_3 :: [Bit 32, Bit 32] >>= [Bit 32]
 cat5_3[t0, t1] =
   t2 <- shl((t0, 3))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat16_32 :: [Word, Word] >>= [Word, Word]
+entrypoint cat16_32 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 cat16_32[t0, t1] =
   return [t1, t0]
 

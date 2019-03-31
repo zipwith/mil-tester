@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-b13 :: [Word] >>= [Word]
+b13 :: [Bit 32] >>= [Bit 32]
 b13[t0] =
   op((t0))
 
 -----------------------------------------
 -- not recursive
-c1 :: [Word] >>= [Word]
+c1 :: [Bit 32] >>= [Bit 32]
 c1[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint c :: [Word] >>= [Word]
+entrypoint c :: [Bit 32] >>= [Bit 32]
 c[t0] =
   t1 <- pred((t0))
   if t1

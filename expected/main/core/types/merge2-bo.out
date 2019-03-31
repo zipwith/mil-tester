@@ -1,10 +1,10 @@
 data List4
   = Nil8
-  | Cons9 Word List4
+  | Cons9 (Bit 32) List4
 
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 (Bit 32)
 
 data Maybe1
   = Nothing2
@@ -34,7 +34,7 @@ j3 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint j4 :: Word
+entrypoint j4 :: Bit 32
 j4 <-
   return 3
 
@@ -64,13 +64,13 @@ l <-
 
 -----------------------------------------
 -- not recursive
-entrypoint en :: Word
+entrypoint en :: Bit 32
 en <-
   return 2
 
 -----------------------------------------
 -- not recursive
-entrypoint ee :: Word
+entrypoint ee :: Bit 32
 ee <-
   return 1
 

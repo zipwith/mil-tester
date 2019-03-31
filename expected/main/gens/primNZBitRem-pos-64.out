@@ -3,55 +3,55 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint rem2 :: [Word, Word] >>= [Word]
+entrypoint rem2 :: [Bit 64, Bit 64] >>= [Bit 64]
 rem2[t0, t1] =
   rem((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint rem12 :: [Word, Word] >>= [Word]
+entrypoint rem12 :: [Bit 64, Bit 64] >>= [Bit 64]
 rem12[t0, t1] =
   rem((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint rem32 :: [Word, Word] >>= [Word]
+entrypoint rem32 :: [Bit 64, Bit 64] >>= [Bit 64]
 rem32[t0, t1] =
   rem((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint rem33 :: [Word, Word] >>= [Word]
+entrypoint rem33 :: [Bit 64, Bit 64] >>= [Bit 64]
 rem33[t0, t1] =
   rem((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint rem48 :: [Word, Word] >>= [Word]
+entrypoint rem48 :: [Bit 64, Bit 64] >>= [Bit 64]
 rem48[t0, t1] =
   rem((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint bit59 :: [Unit] >>= [Word]
+entrypoint bit59 :: [Unit] >>= [Bit 64]
 bit59[t0] =
   return 59
 
 -----------------------------------------
 -- not recursive
-entrypoint nz3 :: [Unit] >>= [Word]
+entrypoint nz3 :: [Unit] >>= [Bit 64]
 nz3[t0] =
   return 3
 
 -----------------------------------------
 -- not recursive
-entrypoint val :: Word
+entrypoint val :: Bit 64
 val <-
   return 2
 
 -----------------------------------------
 -- not recursive
-entrypoint mod :: [Word] >>= [Word]
+entrypoint mod :: [Bit 64] >>= [Bit 64]
 mod[t0] =
   and((t0, 15))
 

@@ -1,8 +1,8 @@
 struct S / 16
-  [ x :: Stored Word  {- offset=0 -}
-  | y :: Stored Word  {- offset=4 -}
-  | z :: Stored Word  {- offset=8 -}
-  | t :: Stored Word  {- offset=12 -} ]
+  [ x :: Stored (Bit 32)  {- offset=0 -}
+  | y :: Stored (Bit 32)  {- offset=4 -}
+  | z :: Stored (Bit 32)  {- offset=8 -}
+  | t :: Stored (Bit 32)  {- offset=12 -} ]
   aligned 4
 
 data Unit
@@ -10,7 +10,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint s :: Word
+entrypoint s :: Bit 32
 s <- area S aligned 4
 
 -----------------------------------------

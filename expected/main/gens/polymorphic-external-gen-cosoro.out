@@ -6,13 +6,13 @@ x1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint x2 :: Word
+entrypoint x2 :: Bit 32
 x2 <-
   return 1
 
 -----------------------------------------
 -- not recursive
-entrypoint x4 :: Word
+entrypoint x4 :: Bit 32
 x4 <-
   return 5
 

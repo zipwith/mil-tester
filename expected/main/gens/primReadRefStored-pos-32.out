@@ -3,37 +3,37 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit8 :: [Word] >>= [Word]
+entrypoint readRefStoredBit8 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit8[t0] =
   load8((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredIx8 :: [Word] >>= [Word]
+entrypoint readRefStoredIx8 :: [Bit 32] >>= [Bit 32]
 readRefStoredIx8[t0] =
   load8((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit16 :: [Word] >>= [Word]
+entrypoint readRefStoredBit16 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit16[t0] =
   load16((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredIx384 :: [Word] >>= [Word]
+entrypoint readRefStoredIx384 :: [Bit 32] >>= [Bit 32]
 readRefStoredIx384[t0] =
   load16((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit32 :: [Word] >>= [Word]
+entrypoint readRefStoredBit32 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit32[t0] =
   load32((t0))
 
 -----------------------------------------
 -- not recursive
-b4 :: [Word] >>= [Word, Word]
+b4 :: [Bit 32] >>= [Bit 32, Bit 32]
 b4[t0] =
   t1 <- load32((t0))
   t2 <- add((t0, 4))
@@ -42,7 +42,7 @@ b4[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit64 :: [Word] >>= [Word, Word]
+entrypoint readRefStoredBit64 :: [Bit 32] >>= [Bit 32, Bit 32]
 readRefStoredBit64[t0] =
   b4[t0]
 
@@ -54,43 +54,43 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit0 :: [Word] >>= [Unit]
+entrypoint readRefStoredBit0 :: [Bit 32] >>= [Unit]
 readRefStoredBit0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit1 :: [Word] >>= [Bit 1]
+entrypoint readRefStoredBit1 :: [Bit 32] >>= [Bit 1]
 readRefStoredBit1[t0] =
   load1((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredFlag :: [Word] >>= [Bit 1]
+entrypoint readRefStoredFlag :: [Bit 32] >>= [Bit 1]
 readRefStoredFlag[t0] =
   load1((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit2 :: [Word] >>= [Word]
+entrypoint readRefStoredBit2 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit2[t0] =
   load8((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit5 :: [Word] >>= [Word]
+entrypoint readRefStoredBit5 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit5[t0] =
   load8((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit9 :: [Word] >>= [Word]
+entrypoint readRefStoredBit9 :: [Bit 32] >>= [Bit 32]
 readRefStoredBit9[t0] =
   load16((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readRefStoredBit33 :: [Word] >>= [Word, Word]
+entrypoint readRefStoredBit33 :: [Bit 32] >>= [Bit 32, Bit 32]
 readRefStoredBit33[t0] =
   b4[t0]
 

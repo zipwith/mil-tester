@@ -1,57 +1,57 @@
 -----------------------------------------
 -- not recursive
-entrypoint b2 :: forall (a :: *). [a, Word] >>= [Word]
+entrypoint b2 :: forall (a :: *). [a, Bit 32] >>= [Bit 32]
 b2[t0, t1] =
   shl((t1, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint b1 :: forall (a :: *). [a, Word] >>= [Word]
+entrypoint b1 :: forall (a :: *). [a, Bit 32] >>= [Bit 32]
 b1[t0, t1] =
   t2 <- shl((t1, 2))
   and((t2, -1024))
 
 -----------------------------------------
 -- not recursive
-entrypoint b0 :: [Word] >>= [Word]
+entrypoint b0 :: [Bit 32] >>= [Bit 32]
 b0[t0] =
   shl((t0, 12))
 
 -----------------------------------------
 -- not recursive
-entrypoint rnotenough :: [Word] >>= [Word]
+entrypoint rnotenough :: [Bit 32] >>= [Bit 32]
 rnotenough[t0] =
   t1 <- lshr((t0, 20))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint renough :: [Word] >>= [Word]
+entrypoint renough :: [Bit 32] >>= [Bit 32]
 renough[t0] =
   lshr((t0, 20))
 
 -----------------------------------------
 -- not recursive
-entrypoint rmore :: [Word] >>= [Word]
+entrypoint rmore :: [Bit 32] >>= [Bit 32]
 rmore[t0] =
   lshr((t0, 20))
 
 -----------------------------------------
 -- not recursive
-entrypoint lnotenough :: [Word] >>= [Word]
+entrypoint lnotenough :: [Bit 32] >>= [Bit 32]
 lnotenough[t0] =
   t1 <- shl((t0, 12))
   and((t1, -65536))
 
 -----------------------------------------
 -- not recursive
-entrypoint lenough :: [Word] >>= [Word]
+entrypoint lenough :: [Bit 32] >>= [Bit 32]
 lenough[t0] =
   shl((t0, 12))
 
 -----------------------------------------
 -- not recursive
-entrypoint lmore :: [Word] >>= [Word]
+entrypoint lmore :: [Bit 32] >>= [Bit 32]
 lmore[t0] =
   shl((t0, 12))
 

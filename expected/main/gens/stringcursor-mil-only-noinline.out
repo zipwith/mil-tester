@@ -15,12 +15,12 @@ b159[] =
 
 -----------------------------------------
 -- recursive
-b198 :: [Word, Word] >>= [Unit]
+b198 :: [Bit 32, Bit 32] >>= [Unit]
 b198[t0, t1] =
   t2 <- add((t1, 1))
   t3 <- putchar((t0))
   b151[t2]
-b151 :: [Word] >>= [Unit]
+b151 :: [Bit 32] >>= [Unit]
 b151[t0] =
   [] <- noinline(())
   t1 <- load8((t0))
@@ -31,24 +31,24 @@ b151[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint puts :: [Word] >>= [Unit]
+entrypoint puts :: [Bit 32] >>= [Unit]
 puts[t0] =
   b151[t0]
 
 -----------------------------------------
 -- not recursive
-b102 :: [Word] >>= [Word]
+b102 :: [Bit 32] >>= [Bit 32]
 b102[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b203 :: [Word, Word, Word] >>= [Word]
+b203 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b203[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
   b148[t4, t3]
-b148 :: [Word, Word] >>= [Word]
+b148 :: [Bit 32, Bit 32] >>= [Bit 32]
 b148[t0, t1] =
   [] <- noinline(())
   t2 <- load8((t1))
@@ -59,18 +59,18 @@ b148[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint length :: [Word] >>= [Word]
+entrypoint length :: [Bit 32] >>= [Bit 32]
 length[t0] =
   b148[0, t0]
 
 -----------------------------------------
 -- recursive
-b208 :: [Word, Word, Word] >>= [Word]
+b208 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b208[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
   b164[t4, t3]
-b164 :: [Word, Word] >>= [Word]
+b164 :: [Bit 32, Bit 32] >>= [Bit 32]
 b164[t0, t1] =
   [] <- noinline(())
   t2 <- load8((t1))
@@ -81,7 +81,7 @@ b164[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint len2 :: [Word] >>= [Word]
+entrypoint len2 :: [Bit 32] >>= [Bit 32]
 len2[t0] =
   b164[0, t0]
 
@@ -93,11 +93,11 @@ b901[t0] =
 
 -----------------------------------------
 -- recursive
-b213 :: [Word, Word, Unit] >>= [Unit]
+b213 :: [Bit 32, Bit 32, Unit] >>= [Unit]
 b213[t0, t1, t2] =
   t3 <- add((t1, 1))
   b215[t0, t3]
-b215 :: [Word, Word] >>= [Unit]
+b215 :: [Bit 32, Bit 32] >>= [Unit]
 b215[t0, t1] =
   t2 <- putchar((t0))
   [] <- noinline(())
@@ -109,14 +109,14 @@ b215[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b218 :: [Word, Word] >>= [Unit]
+b218 :: [Bit 32, Bit 32] >>= [Unit]
 b218[t0, t1] =
   t2 <- add((t1, 1))
   b215[t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint puts2 :: [Word] >>= [Unit]
+entrypoint puts2 :: [Bit 32] >>= [Unit]
 puts2[t0] =
   [] <- noinline(())
   t1 <- load8((t0))
@@ -127,12 +127,12 @@ puts2[t0] =
 
 -----------------------------------------
 -- recursive
-b221 :: [Word, Word, Word] >>= [Word]
+b221 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b221[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
   b140[t4, t3]
-b140 :: [Word, Word] >>= [Word]
+b140 :: [Bit 32, Bit 32] >>= [Bit 32]
 b140[t0, t1] =
   [] <- noinline(())
   t2 <- load8((t1))
@@ -143,7 +143,7 @@ b140[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint length1 :: [Word] >>= [Word]
+entrypoint length1 :: [Bit 32] >>= [Bit 32]
 length1[t0] =
   b140[0, t0]
 

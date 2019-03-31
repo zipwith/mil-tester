@@ -11,7 +11,7 @@ No generated implementation: Argument 1 (Bit 1) does not have expected kind (nat
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 5
 external invalid3 {primBitFromLiteral 16 Word} :: Unit -> Bit 16 -- second param not nat
          ^
-No generated implementation: Argument 2 (Word) does not have expected kind (nat)
+No generated implementation: Argument 2 (Bit 32) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 6
 external invalid4 {primBitFromLiteral 0  1M}   :: Unit -> Bit 1M -- bit width too large

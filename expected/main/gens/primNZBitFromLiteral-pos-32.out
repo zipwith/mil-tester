@@ -3,49 +3,49 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint nz1_2 :: [Unit] >>= [Word]
+entrypoint nz1_2 :: [Unit] >>= [Bit 32]
 nz1_2[t0] =
   return 1
 
 -----------------------------------------
 -- not recursive
-entrypoint nz1_12 :: [Unit] >>= [Word]
+entrypoint nz1_12 :: [Unit] >>= [Bit 32]
 nz1_12[t0] =
   return 1
 
 -----------------------------------------
 -- not recursive
-entrypoint nz12_12 :: [Unit] >>= [Word]
+entrypoint nz12_12 :: [Unit] >>= [Bit 32]
 nz12_12[t0] =
   return 12
 
 -----------------------------------------
 -- not recursive
-entrypoint nz24_12 :: [Unit] >>= [Word]
+entrypoint nz24_12 :: [Unit] >>= [Bit 32]
 nz24_12[t0] =
   return 24
 
 -----------------------------------------
 -- not recursive
-entrypoint nz1K_12 :: [Unit] >>= [Word]
+entrypoint nz1K_12 :: [Unit] >>= [Bit 32]
 nz1K_12[t0] =
   return 1024
 
 -----------------------------------------
 -- not recursive
-entrypoint nz7_3 :: [Unit] >>= [Word]
+entrypoint nz7_3 :: [Unit] >>= [Bit 32]
 nz7_3[t0] =
   return 7
 
 -----------------------------------------
 -- not recursive
-entrypoint nz16_5 :: [Unit] >>= [Word]
+entrypoint nz16_5 :: [Unit] >>= [Bit 32]
 nz16_5[t0] =
   return 16
 
 -----------------------------------------
 -- not recursive
-entrypoint nz17_5 :: [Unit] >>= [Word]
+entrypoint nz17_5 :: [Unit] >>= [Bit 32]
 nz17_5[t0] =
   return 17
 

@@ -3,73 +3,73 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_4 :: [Word] >>= [Word]
+entrypoint modIx2_4 :: [Bit 32] >>= [Bit 32]
 modIx2_4[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx10_16 :: [Word] >>= [Word]
+entrypoint modIx10_16 :: [Bit 32] >>= [Bit 32]
 modIx10_16[t0] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx10_32 :: [Word] >>= [Word]
+entrypoint modIx10_32 :: [Bit 32] >>= [Bit 32]
 modIx10_32[t0] =
   and((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx32_16 :: [Word] >>= [Word]
+entrypoint modIx32_16 :: [Bit 32] >>= [Bit 32]
 modIx32_16[t0] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx32_32 :: [Word] >>= [Word]
+entrypoint modIx32_32 :: [Bit 32] >>= [Bit 32]
 modIx32_32[t0] =
   and((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx32_1G :: [Word] >>= [Word]
+entrypoint modIx32_1G :: [Bit 32] >>= [Bit 32]
 modIx32_1G[t0] =
   and((t0, 1073741823))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx13_5 :: [Word] >>= [Word]
+entrypoint modIx13_5 :: [Bit 32] >>= [Bit 32]
 modIx13_5[t0] =
   rem((t0, 5))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx24_17 :: [Word] >>= [Word]
+entrypoint modIx24_17 :: [Bit 32] >>= [Bit 32]
 modIx24_17[t0] =
   rem((t0, 17))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx33_8 :: [Word, Word] >>= [Word]
+entrypoint modIx33_8 :: [Bit 32, Bit 32] >>= [Bit 32]
 modIx33_8[t0, t1] =
   and((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx64_256 :: [Word, Word] >>= [Word]
+entrypoint modIx64_256 :: [Bit 32, Bit 32] >>= [Bit 32]
 modIx64_256[t0, t1] =
   and((t0, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx72_4K :: [Word, Word, Word] >>= [Word]
+entrypoint modIx72_4K :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 modIx72_4K[t0, t1, t2] =
   and((t0, 4095))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx96_256 :: [Word, Word, Word] >>= [Word]
+entrypoint modIx96_256 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 modIx96_256[t0, t1, t2] =
   and((t0, 255))
 
@@ -93,19 +93,19 @@ modIx1_1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_1 :: [Word] >>= [Unit]
+entrypoint modIx2_1 :: [Bit 32] >>= [Unit]
 modIx2_1[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_1 :: [Word] >>= [Unit]
+entrypoint modIx3_1 :: [Bit 32] >>= [Unit]
 modIx3_1[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_1 :: [Word] >>= [Unit]
+entrypoint modIx4_1 :: [Bit 32] >>= [Unit]
 modIx4_1[t0] =
   return s1
 
@@ -123,115 +123,115 @@ modIx1_2[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_2 :: [Word] >>= [Bit 1]
+entrypoint modIx2_2 :: [Bit 32] >>= [Bit 1]
 modIx2_2[t0] =
   wordToFlag((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_2 :: [Word] >>= [Bit 1]
+entrypoint modIx3_2 :: [Bit 32] >>= [Bit 1]
 modIx3_2[t0] =
   wordToFlag((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_2 :: [Word] >>= [Bit 1]
+entrypoint modIx4_2 :: [Bit 32] >>= [Bit 1]
 modIx4_2[t0] =
   wordToFlag((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx0_3 :: [Unit] >>= [Word]
+entrypoint modIx0_3 :: [Unit] >>= [Bit 32]
 modIx0_3[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_3 :: [Bit 1] >>= [Word]
+entrypoint modIx1_3 :: [Bit 1] >>= [Bit 32]
 modIx1_3[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_3 :: [Word] >>= [Word]
+entrypoint modIx2_3 :: [Bit 32] >>= [Bit 32]
 modIx2_3[t0] =
   rem((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_3 :: [Word] >>= [Word]
+entrypoint modIx3_3 :: [Bit 32] >>= [Bit 32]
 modIx3_3[t0] =
   rem((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_3 :: [Word] >>= [Word]
+entrypoint modIx4_3 :: [Bit 32] >>= [Bit 32]
 modIx4_3[t0] =
   rem((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_4 :: [Bit 1] >>= [Word]
+entrypoint modIx1_4 :: [Bit 1] >>= [Bit 32]
 modIx1_4[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx0_7 :: [Unit] >>= [Word]
+entrypoint modIx0_7 :: [Unit] >>= [Bit 32]
 modIx0_7[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_7 :: [Bit 1] >>= [Word]
+entrypoint modIx1_7 :: [Bit 1] >>= [Bit 32]
 modIx1_7[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_7 :: [Word] >>= [Word]
+entrypoint modIx2_7 :: [Bit 32] >>= [Bit 32]
 modIx2_7[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_7 :: [Word] >>= [Word]
+entrypoint modIx3_7 :: [Bit 32] >>= [Bit 32]
 modIx3_7[t0] =
   rem((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_7 :: [Word] >>= [Word]
+entrypoint modIx4_7 :: [Bit 32] >>= [Bit 32]
 modIx4_7[t0] =
   rem((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx0_8 :: [Unit] >>= [Word]
+entrypoint modIx0_8 :: [Unit] >>= [Bit 32]
 modIx0_8[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx1_8 :: [Bit 1] >>= [Word]
+entrypoint modIx1_8 :: [Bit 1] >>= [Bit 32]
 modIx1_8[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx2_8 :: [Word] >>= [Word]
+entrypoint modIx2_8 :: [Bit 32] >>= [Bit 32]
 modIx2_8[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx3_8 :: [Word] >>= [Word]
+entrypoint modIx3_8 :: [Bit 32] >>= [Bit 32]
 modIx3_8[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint modIx4_8 :: [Word] >>= [Word]
+entrypoint modIx4_8 :: [Bit 32] >>= [Bit 32]
 modIx4_8[t0] =
   and((t0, 7))
 

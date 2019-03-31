@@ -21,31 +21,31 @@ and1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint and2 :: [Word, Word] >>= [Word]
+entrypoint and2 :: [Bit 64, Bit 64] >>= [Bit 64]
 and2[t0, t1] =
   and((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint and7 :: [Word, Word] >>= [Word]
+entrypoint and7 :: [Bit 64, Bit 64] >>= [Bit 64]
 and7[t0, t1] =
   and((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint and48 :: [Word, Word] >>= [Word]
+entrypoint and48 :: [Bit 64, Bit 64] >>= [Bit 64]
 and48[t0, t1] =
   and((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint and64 :: [Word, Word] >>= [Word]
+entrypoint and64 :: [Bit 64, Bit 64] >>= [Bit 64]
 and64[t0, t1] =
   and((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint and72 :: [Word, Word, Word, Word] >>= [Word, Word]
+entrypoint and72 :: [Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 and72[t0, t1, t2, t3] =
   t4 <- and((t0, t2))
   t5 <- and((t1, t3))
@@ -53,7 +53,7 @@ and72[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint and497 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint and497 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 and497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
   t16 <- and((t0, t8))
   t17 <- and((t1, t9))
@@ -67,7 +67,7 @@ and497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
 
 -----------------------------------------
 -- not recursive
-entrypoint and999 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint and999 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 and999[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31] =
   t32 <- and((t0, t16))
   t33 <- and((t1, t17))
@@ -101,31 +101,31 @@ or1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint or2 :: [Word, Word] >>= [Word]
+entrypoint or2 :: [Bit 64, Bit 64] >>= [Bit 64]
 or2[t0, t1] =
   or((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint or7 :: [Word, Word] >>= [Word]
+entrypoint or7 :: [Bit 64, Bit 64] >>= [Bit 64]
 or7[t0, t1] =
   or((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint or48 :: [Word, Word] >>= [Word]
+entrypoint or48 :: [Bit 64, Bit 64] >>= [Bit 64]
 or48[t0, t1] =
   or((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint or64 :: [Word, Word] >>= [Word]
+entrypoint or64 :: [Bit 64, Bit 64] >>= [Bit 64]
 or64[t0, t1] =
   or((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint or72 :: [Word, Word, Word, Word] >>= [Word, Word]
+entrypoint or72 :: [Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 or72[t0, t1, t2, t3] =
   t4 <- or((t0, t2))
   t5 <- or((t1, t3))
@@ -133,7 +133,7 @@ or72[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint or497 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint or497 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 or497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
   t16 <- or((t0, t8))
   t17 <- or((t1, t9))
@@ -147,7 +147,7 @@ or497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
 
 -----------------------------------------
 -- not recursive
-entrypoint or999 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint or999 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 or999[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31] =
   t32 <- or((t0, t16))
   t33 <- or((t1, t17))
@@ -181,31 +181,31 @@ xor1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint xor2 :: [Word, Word] >>= [Word]
+entrypoint xor2 :: [Bit 64, Bit 64] >>= [Bit 64]
 xor2[t0, t1] =
   xor((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint xor7 :: [Word, Word] >>= [Word]
+entrypoint xor7 :: [Bit 64, Bit 64] >>= [Bit 64]
 xor7[t0, t1] =
   xor((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint xor48 :: [Word, Word] >>= [Word]
+entrypoint xor48 :: [Bit 64, Bit 64] >>= [Bit 64]
 xor48[t0, t1] =
   xor((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint xor64 :: [Word, Word] >>= [Word]
+entrypoint xor64 :: [Bit 64, Bit 64] >>= [Bit 64]
 xor64[t0, t1] =
   xor((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint xor72 :: [Word, Word, Word, Word] >>= [Word, Word]
+entrypoint xor72 :: [Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 xor72[t0, t1, t2, t3] =
   t4 <- xor((t0, t2))
   t5 <- xor((t1, t3))
@@ -213,7 +213,7 @@ xor72[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint xor497 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint xor497 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 xor497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
   t16 <- xor((t0, t8))
   t17 <- xor((t1, t9))
@@ -227,7 +227,7 @@ xor497[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15] =
 
 -----------------------------------------
 -- not recursive
-entrypoint xor999 :: [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word] >>= [Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word, Word]
+entrypoint xor999 :: [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64, Bit 64]
 xor999[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31] =
   t32 <- xor((t0, t16))
   t33 <- xor((t1, t17))

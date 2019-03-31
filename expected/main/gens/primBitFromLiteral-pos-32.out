@@ -27,55 +27,55 @@ one1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint blit42 :: [Unit] >>= [Word]
+entrypoint blit42 :: [Unit] >>= [Bit 32]
 blit42[t0] =
   return 42
 
 -----------------------------------------
 -- not recursive
-entrypoint blit10 :: [Unit] >>= [Word]
+entrypoint blit10 :: [Unit] >>= [Bit 32]
 blit10[t0] =
   return 10
 
 -----------------------------------------
 -- not recursive
-entrypoint blit48 :: [Unit] >>= [Word]
+entrypoint blit48 :: [Unit] >>= [Bit 32]
 blit48[t0] =
   return 48
 
 -----------------------------------------
 -- not recursive
-entrypoint four12 :: [Unit] >>= [Word]
+entrypoint four12 :: [Unit] >>= [Bit 32]
 four12[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four31 :: [Unit] >>= [Word]
+entrypoint four31 :: [Unit] >>= [Bit 32]
 four31[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four32 :: [Unit] >>= [Word]
+entrypoint four32 :: [Unit] >>= [Bit 32]
 four32[t0] =
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint four33 :: [Unit] >>= [Word, Word]
+entrypoint four33 :: [Unit] >>= [Bit 32, Bit 32]
 four33[t0] =
   return [4, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint four64 :: [Unit] >>= [Word, Word]
+entrypoint four64 :: [Unit] >>= [Bit 32, Bit 32]
 four64[t0] =
   return [4, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint four72 :: [Unit] >>= [Word, Word, Word]
+entrypoint four72 :: [Unit] >>= [Bit 32, Bit 32, Bit 32]
 four72[t0] =
   return [4, 0, 0]
 

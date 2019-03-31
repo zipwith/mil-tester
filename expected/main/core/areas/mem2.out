@@ -3,23 +3,23 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-nums :: Word
-nums <- area (Array 64 (Stored Word)) aligned 4
+nums :: Bit 32
+nums <- area (Array 64 (Stored (Bit 32))) aligned 4
 
 -----------------------------------------
 -- not recursive
-entrypoint ns :: Word
+entrypoint ns :: Bit 32
 ns <-
   return nums
 
 -----------------------------------------
 -- not recursive
-nums1 :: Word
-nums1 <- area (Array 64 (Stored Word)) aligned 4
+nums1 :: Bit 32
+nums1 <- area (Array 64 (Stored (Bit 32))) aligned 4
 
 -----------------------------------------
 -- not recursive
-entrypoint ns1 :: Word
+entrypoint ns1 :: Bit 32
 ns1 <-
   return nums1
 
@@ -37,13 +37,13 @@ b97[] =
 
 -----------------------------------------
 -- recursive
-b103 :: [Word, Word] >>= [Unit]
+b103 :: [Bit 32, Bit 32] >>= [Unit]
 b103[t0, t1] =
   t2 <- store32((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   b102[t4, t3]
-b102 :: [Word, Word] >>= [Unit]
+b102 :: [Bit 32, Bit 32] >>= [Unit]
 b102[t0, t1] =
   t2 <- primUlt((t1, 64))
   if t2
@@ -52,13 +52,13 @@ b102[t0, t1] =
 
 -----------------------------------------
 -- recursive
-b107 :: [Word, Word] >>= [Unit]
+b107 :: [Bit 32, Bit 32] >>= [Unit]
 b107[t0, t1] =
   t2 <- store32((t0, t1))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   b106[t4, t3]
-b106 :: [Word, Word] >>= [Unit]
+b106 :: [Bit 32, Bit 32] >>= [Unit]
 b106[t0, t1] =
   t2 <- primUlt((t1, 64))
   if t2

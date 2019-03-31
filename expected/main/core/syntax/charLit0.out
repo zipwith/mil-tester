@@ -1,72 +1,72 @@
 -----------------------------------------
 -- not recursive
-entrypoint a :: Word
+entrypoint a :: Bit 32
 a <-
   return 97
 
 -----------------------------------------
 -- not recursive
-entrypoint b :: Word
+entrypoint b :: Bit 32
 b <-
   return 66
 
 -----------------------------------------
 -- not recursive
-entrypoint c :: Word
+entrypoint c :: Bit 32
 c <-
   return 12
 
 -----------------------------------------
 -- not recursive
-entrypoint d :: Word
+entrypoint d :: Bit 32
 d <-
   return 13
 
 -----------------------------------------
 -- not recursive
-entrypoint e :: Word
+entrypoint e :: Bit 32
 e <-
   return 14
 
 -----------------------------------------
 -- not recursive
-entrypoint f :: Word
+entrypoint f :: Bit 32
 f <-
   return 12
 
 -----------------------------------------
 -- not recursive
-entrypoint newline :: Word
+entrypoint newline :: Bit 32
 newline <-
   return 10
 
 -----------------------------------------
 -- not recursive
-entrypoint esc :: Word
+entrypoint esc :: Bit 32
 esc <-
   return 27
 
 -----------------------------------------
 -- not recursive
-entrypoint ctld :: Word
+entrypoint ctld :: Bit 32
 ctld <-
   return 4
 
 -----------------------------------------
 -- not recursive
-entrypoint sp :: Word
+entrypoint sp :: Bit 32
 sp <-
   return 32
 
 -----------------------------------------
 -- not recursive
-entrypoint del1 :: Word
+entrypoint del1 :: Bit 32
 del1 <-
   return 127
 
 -----------------------------------------
 -- not recursive
-entrypoint del2 :: Word
+entrypoint del2 :: Bit 32
 del2 <-
   return 127
 

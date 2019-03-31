@@ -1,17 +1,17 @@
 -----------------------------------------
 -- recursive
-b78 :: [Word, [Word] ->> [Word]] >>= [Word]
+b78 :: [Bit 32, [Bit 32] ->> [Bit 32]] >>= [Bit 32]
 b78[t0, t1] =
   t2 <- t1 @ t0
   b73[t1, t0]
-b73 :: [[Word] ->> [Word], Word] >>= [Word]
+b73 :: [[Bit 32] ->> [Bit 32], Bit 32] >>= [Bit 32]
 b73[t0, t1] =
   t2 <- b78[t1, t0]
   loop(())
 
 -----------------------------------------
 -- not recursive
-b68 :: [Word, [Word] ->> [Word], Word] >>= [Word]
+b68 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32] >>= [Bit 32]
 b68[t0, t1, t2] =
   t3 <- t1 @ t2
   t4 <- t1 @ t0
@@ -20,7 +20,7 @@ b68[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint k54 :: {Word, [Word] ->> [Word]} [Word] ->> [Word]
+entrypoint k54 :: {Bit 32, [Bit 32] ->> [Bit 32]} [Bit 32] ->> [Bit 32]
 k54{t0, t1} t2 = b68[t0, t1, t2]
 
 -----------------------------------------

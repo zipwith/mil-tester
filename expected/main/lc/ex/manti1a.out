@@ -9,7 +9,7 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b106 :: [Word] >>= [Unit]
+b106 :: [Bit 32] >>= [Unit]
 b106[t0] =
   t1 <- intToStr((t0))
   [] <- print((t1))
@@ -17,7 +17,7 @@ b106[t0] =
 
 -----------------------------------------
 -- recursive
-b107 :: [Word, Word] >>= [Unit]
+b107 :: [Bit 32, Bit 32] >>= [Unit]
 b107[t0, t1] =
   t2 <- add((t1, -1))
   t3 <- mul((t0, t1))
@@ -28,7 +28,7 @@ b107[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word, Word] >>= [Unit]
+entrypoint main :: [Bit 32, Bit 32] >>= [Unit]
 main[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2

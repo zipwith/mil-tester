@@ -5,19 +5,19 @@ str0 <- "hello"
 
 -----------------------------------------
 -- not recursive
-b4 :: [[Ref String] ->> [Word]] >>= [Word]
+b4 :: [[Ref String] ->> [Bit 32]] >>= [Bit 32]
 b4[t0] =
   t0 @ str0
 
 -----------------------------------------
 -- not recursive
-b1 :: [[Ref String] ->> [Word], Ref String] >>= [Word]
+b1 :: [[Ref String] ->> [Bit 32], Ref String] >>= [Bit 32]
 b1[t0, t1] =
   t0 @ t1
 
 -----------------------------------------
 -- not recursive
-entrypoint b :: [Bit 1, [Ref String] ->> [Word], Ref String] >>= [Word]
+entrypoint b :: [Bit 1, [Ref String] ->> [Bit 32], Ref String] >>= [Bit 32]
 b[t0, t1, t2] =
   if t0
     then b1[t1, t2]

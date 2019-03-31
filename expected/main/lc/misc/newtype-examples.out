@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-entrypoint t :: [Word] >>= [Word]
+entrypoint t :: [Bit 32] >>= [Bit 32]
 t[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint s :: [[Word] ->> [Word], Word] >>= [Word]
+entrypoint s :: [[Bit 32] ->> [Bit 32], Bit 32] >>= [Bit 32]
 s[t0, t1] =
   t0 @ t1
 
 -----------------------------------------
 -- not recursive
-entrypoint u :: [[[Word] ->> [Word]] ->> [Word], [Word] ->> [Word]] >>= [Word]
+entrypoint u :: [[[Bit 32] ->> [Bit 32]] ->> [Bit 32], [Bit 32] ->> [Bit 32]] >>= [Bit 32]
 u[t0, t1] =
   t0 @ t1
 

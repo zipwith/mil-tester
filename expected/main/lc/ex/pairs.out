@@ -1,5 +1,5 @@
 data Pair0
-  = Pair0 Word Word
+  = Pair0 (Bit 32) (Bit 32)
 
 -----------------------------------------
 -- not recursive

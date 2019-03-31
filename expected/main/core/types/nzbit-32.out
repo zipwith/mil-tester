@@ -1,16 +1,16 @@
 -----------------------------------------
 -- not recursive
-k3 :: {Word} [NZBit 32] ->> [Word]
+k3 :: {Bit 32} [NZBit 32] ->> [Bit 32]
 k3{t0} t1 = nzdiv((t0, t1))
 
 -----------------------------------------
 -- not recursive
-k4 :: {} [Word] ->> [[NZBit 32] ->> [Word]]
+k4 :: {} [Bit 32] ->> [[NZBit 32] ->> [Bit 32]]
 k4{} t0 = k3{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint nzdiv :: [Word] ->> [[NZBit 32] ->> [Word]]
+entrypoint nzdiv :: [Bit 32] ->> [[NZBit 32] ->> [Bit 32]]
 nzdiv <-
   k4{}
 

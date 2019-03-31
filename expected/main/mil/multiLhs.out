@@ -1,13 +1,13 @@
 -----------------------------------------
 -- not recursive
-entrypoint three :: Word
+entrypoint three :: Bit 32
 three <-
   return 3
 
 -----------------------------------------
 -- not recursive
-entrypoint one :: Word
-entrypoint two :: Word
+entrypoint one :: Bit 32
+entrypoint two :: Bit 32
 [one,two] <-
   return [1, 2]
 

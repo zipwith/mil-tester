@@ -21,7 +21,7 @@ b25[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF1 :: [Bit 1, [Unit] ->> [Bit 1], Word, Unit] >>= [Bit 1]
+entrypoint genLeqIxF1 :: [Bit 1, [Unit] ->> [Bit 1], Bit 32, Unit] >>= [Bit 1]
 genLeqIxF1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -30,7 +30,7 @@ genLeqIxF1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxW1 :: [Word, [Unit] ->> [Word], Word, Unit] >>= [Word]
+entrypoint genLeqIxW1 :: [Bit 32, [Unit] ->> [Bit 32], Bit 32, Unit] >>= [Bit 32]
 genLeqIxW1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -39,7 +39,7 @@ genLeqIxW1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxI1 :: [Unit, [Unit] ->> [Unit], Word, Unit] >>= [Unit]
+entrypoint genLeqIxI1 :: [Unit, [Unit] ->> [Unit], Bit 32, Unit] >>= [Unit]
 genLeqIxI1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -54,7 +54,7 @@ b35[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxB1 :: [Word, Word, [Unit] ->> [Word, Word], Word, Unit] >>= [Word, Word]
+entrypoint genLeqIxB1 :: [Bit 32, Bit 32, [Unit] ->> [Bit 32, Bit 32], Bit 32, Unit] >>= [Bit 32, Bit 32]
 genLeqIxB1[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, 0))
   if t5
@@ -63,7 +63,7 @@ genLeqIxB1[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM1 :: [Bit 1, [Unit] ->> [Bit 1], Word, Unit] >>= [Bit 1]
+entrypoint genLeqIxM1 :: [Bit 1, [Unit] ->> [Bit 1], Bit 32, Unit] >>= [Bit 1]
 genLeqIxM1[t0, t1, t2, t3] =
   t4 <- primUle((t2, 0))
   if t4
@@ -72,14 +72,14 @@ genLeqIxM1[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b40 :: forall (a :: tuple). [[Bit 1] ->> a, Word] >>= a
+b40 :: forall (a :: tuple). [[Bit 1] ->> a, Bit 32] >>= a
 b40[t0, t1] =
   t2 <- wordToFlag((t1))
   t0 @ t2
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF2 :: [Bit 1, [Bit 1] ->> [Bit 1], Word, Bit 1] >>= [Bit 1]
+entrypoint genLeqIxF2 :: [Bit 1, [Bit 1] ->> [Bit 1], Bit 32, Bit 1] >>= [Bit 1]
 genLeqIxF2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -89,7 +89,7 @@ genLeqIxF2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxW2 :: [Word, [Bit 1] ->> [Word], Word, Bit 1] >>= [Word]
+entrypoint genLeqIxW2 :: [Bit 32, [Bit 1] ->> [Bit 32], Bit 32, Bit 1] >>= [Bit 32]
 genLeqIxW2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -99,7 +99,7 @@ genLeqIxW2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxI2 :: [Unit, [Bit 1] ->> [Unit], Word, Bit 1] >>= [Unit]
+entrypoint genLeqIxI2 :: [Unit, [Bit 1] ->> [Unit], Bit 32, Bit 1] >>= [Unit]
 genLeqIxI2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -109,7 +109,7 @@ genLeqIxI2[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxB2 :: [Word, Word, [Bit 1] ->> [Word, Word], Word, Bit 1] >>= [Word, Word]
+entrypoint genLeqIxB2 :: [Bit 32, Bit 32, [Bit 1] ->> [Bit 32, Bit 32], Bit 32, Bit 1] >>= [Bit 32, Bit 32]
 genLeqIxB2[t0, t1, t2, t3, t4] =
   t5 <- flagToWord((t4))
   t6 <- primUle((t3, t5))
@@ -119,7 +119,7 @@ genLeqIxB2[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM2 :: [Word, [Bit 1] ->> [Word], Word, Bit 1] >>= [Word]
+entrypoint genLeqIxM2 :: [Bit 32, [Bit 1] ->> [Bit 32], Bit 32, Bit 1] >>= [Bit 32]
 genLeqIxM2[t0, t1, t2, t3] =
   t4 <- flagToWord((t3))
   t5 <- primUle((t2, t4))
@@ -135,7 +135,7 @@ b55[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF7 :: [Bit 1, [Word] ->> [Bit 1], Word, Word] >>= [Bit 1]
+entrypoint genLeqIxF7 :: [Bit 1, [Bit 32] ->> [Bit 1], Bit 32, Bit 32] >>= [Bit 1]
 genLeqIxF7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -144,7 +144,7 @@ genLeqIxF7[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxW7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxW7 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxW7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -153,7 +153,7 @@ genLeqIxW7[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxI7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxI7 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxI7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -162,7 +162,7 @@ genLeqIxI7[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxB7 :: [Word, Word, [Word] ->> [Word, Word], Word, Word] >>= [Word, Word]
+entrypoint genLeqIxB7 :: [Bit 32, Bit 32, [Bit 32] ->> [Bit 32, Bit 32], Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 genLeqIxB7[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, t4))
   if t5
@@ -171,7 +171,7 @@ genLeqIxB7[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM7 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxM7 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxM7[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -180,7 +180,7 @@ genLeqIxM7[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxF64 :: [Bit 1, [Word] ->> [Bit 1], Word, Word] >>= [Bit 1]
+entrypoint genLeqIxF64 :: [Bit 1, [Bit 32] ->> [Bit 1], Bit 32, Bit 32] >>= [Bit 1]
 genLeqIxF64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -189,7 +189,7 @@ genLeqIxF64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxW64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxW64 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxW64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -198,7 +198,7 @@ genLeqIxW64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxI64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxI64 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxI64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -207,7 +207,7 @@ genLeqIxI64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxB64 :: [Word, Word, [Word] ->> [Word, Word], Word, Word] >>= [Word, Word]
+entrypoint genLeqIxB64 :: [Bit 32, Bit 32, [Bit 32] ->> [Bit 32, Bit 32], Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 genLeqIxB64[t0, t1, t2, t3, t4] =
   t5 <- primUle((t3, t4))
   if t5
@@ -216,7 +216,7 @@ genLeqIxB64[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genLeqIxM64 :: [Word, [Word] ->> [Word], Word, Word] >>= [Word]
+entrypoint genLeqIxM64 :: [Bit 32, [Bit 32] ->> [Bit 32], Bit 32, Bit 32] >>= [Bit 32]
 genLeqIxM64[t0, t1, t2, t3] =
   t4 <- primUle((t2, t3))
   if t4
@@ -225,13 +225,13 @@ genLeqIxM64[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx1 :: [Word, Unit] >>= [Bit 1]
+entrypoint leqIx1 :: [Bit 32, Unit] >>= [Bit 1]
 leqIx1[t0, t1] =
   primUle((t0, 0))
 
 -----------------------------------------
 -- not recursive
-b103 :: [] >>= [Word]
+b103 :: [] >>= [Bit 32]
 b103[] =
   return 7
 
@@ -243,7 +243,7 @@ b102[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx7 :: [Word, Word] >>= [Word]
+entrypoint leqIx7 :: [Bit 32, Bit 32] >>= [Bit 32]
 leqIx7[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2
@@ -252,20 +252,20 @@ leqIx7[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b105 :: [] >>= [Word]
+b105 :: [] >>= [Bit 32]
 b105[] =
   return 0
 
 -----------------------------------------
 -- not recursive
-construct_Just7 :: [Word] >>= [Word]
+construct_Just7 :: [Bit 32] >>= [Bit 32]
 construct_Just7[t0] =
   t1 <- shl((t0, 1))
   or((t1, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint leqIx64 :: [Word, Word] >>= [Word]
+entrypoint leqIx64 :: [Bit 32, Bit 32] >>= [Bit 32]
 leqIx64[t0, t1] =
   t2 <- primUle((t0, t1))
   if t2

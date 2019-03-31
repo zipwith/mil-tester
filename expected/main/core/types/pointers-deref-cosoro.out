@@ -1,10 +1,10 @@
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 (Bit 32)
 
 -----------------------------------------
 -- not recursive
-b83 :: [Word] >>= [Maybe0]
+b83 :: [Bit 32] >>= [Maybe0]
 b83[t0] =
   Just1(t0)
 
@@ -22,7 +22,7 @@ b79[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSW :: [Word] >>= [Maybe0]
+entrypoint derefSW :: [Bit 32] >>= [Maybe0]
 derefSW[t0] =
   t1 <- primEq((t0, 0))
   if t1
@@ -31,7 +31,7 @@ derefSW[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSI :: [Word] >>= [Maybe0]
+entrypoint derefSI :: [Bit 32] >>= [Maybe0]
 derefSI[t0] =
   t1 <- primEq((t0, 0))
   if t1

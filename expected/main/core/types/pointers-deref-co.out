@@ -49,7 +49,7 @@ derefSI <-
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSW :: [Ptr (Stored Word)] ->> [Maybe (Ref (Stored Word))]
+entrypoint derefSW :: [Ptr (Stored (Bit 32))] ->> [Maybe (Ref (Stored (Bit 32)))]
 derefSW <-
   return deref
 

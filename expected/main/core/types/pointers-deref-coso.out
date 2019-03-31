@@ -1,6 +1,6 @@
 data Maybe0
   = Nothing0
-  | Just1 (Ref (Stored Word))
+  | Just1 (Ref (Stored (Bit 32)))
 
 data Maybe1
   = Nothing2
@@ -20,7 +20,7 @@ b79[] =
 
 -----------------------------------------
 -- not recursive
-b83 :: [Ptr (Stored Word)] >>= [Maybe0]
+b83 :: [Ptr (Stored (Bit 32))] >>= [Maybe0]
 b83[t0] =
   assert t0 Ref
   t1 <- Ref 0 t0
@@ -28,7 +28,7 @@ b83[t0] =
 
 -----------------------------------------
 -- not recursive
-b80 :: [Ptr (Stored Word)] >>= [Maybe0]
+b80 :: [Ptr (Stored (Bit 32))] >>= [Maybe0]
 b80[t0] =
   case t0 of
     Null -> b79[]
@@ -36,18 +36,18 @@ b80[t0] =
 
 -----------------------------------------
 -- not recursive
-k52 :: {} [Ptr (Stored Word)] ->> [Maybe0]
+k52 :: {} [Ptr (Stored (Bit 32))] ->> [Maybe0]
 k52{} t0 = b80[t0]
 
 -----------------------------------------
 -- not recursive
-deref :: [Ptr (Stored Word)] ->> [Maybe0]
+deref :: [Ptr (Stored (Bit 32))] ->> [Maybe0]
 deref <-
   k52{}
 
 -----------------------------------------
 -- not recursive
-entrypoint derefSW :: [Ptr (Stored Word)] ->> [Maybe0]
+entrypoint derefSW :: [Ptr (Stored (Bit 32))] ->> [Maybe0]
 derefSW <-
   return deref
 

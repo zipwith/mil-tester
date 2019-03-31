@@ -3,14 +3,14 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint initSelfSW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint initSelfSW :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 initSelfSW[t0, t1] =
   t2 <- t0 @ t1
   t2 @ t1
 
 -----------------------------------------
 -- not recursive
-entrypoint reInitSW :: [Word, [Word] ->> [Unit]] >>= [Unit]
+entrypoint reInitSW :: [Bit 32, [Bit 32] ->> [Unit]] >>= [Unit]
 reInitSW[t0, t1] =
   t1 @ t0
 

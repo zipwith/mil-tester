@@ -33,111 +33,111 @@ bitFromFlag0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte0 :: [Word] >>= [Unit]
+entrypoint nullFromByte0 :: [Bit 32] >>= [Unit]
 nullFromByte0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte1 :: [Word] >>= [Unit]
+entrypoint nullFromByte1 :: [Bit 32] >>= [Unit]
 nullFromByte1[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte2 :: [Word] >>= [Unit]
+entrypoint nullFromByte2 :: [Bit 32] >>= [Unit]
 nullFromByte2[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte4 :: [Word] >>= [Unit]
+entrypoint nullFromByte4 :: [Bit 32] >>= [Unit]
 nullFromByte4[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte5 :: [Word] >>= [Unit]
+entrypoint nullFromByte5 :: [Bit 32] >>= [Unit]
 nullFromByte5[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte7 :: [Word] >>= [Unit]
+entrypoint nullFromByte7 :: [Bit 32] >>= [Unit]
 nullFromByte7[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromByte8 :: [Word] >>= [Unit]
+entrypoint nullFromByte8 :: [Bit 32] >>= [Unit]
 nullFromByte8[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte0 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte0 :: [Bit 32] >>= [Bit 1]
 bitFromByte0[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte1 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte1 :: [Bit 32] >>= [Bit 1]
 bitFromByte1[t0] =
   t1 <- and((t0, 2))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte2 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte2 :: [Bit 32] >>= [Bit 1]
 bitFromByte2[t0] =
   t1 <- and((t0, 4))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte4 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte4 :: [Bit 32] >>= [Bit 1]
 bitFromByte4[t0] =
   t1 <- and((t0, 16))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte5 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte5 :: [Bit 32] >>= [Bit 1]
 bitFromByte5[t0] =
   t1 <- and((t0, 32))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromByte7 :: [Word] >>= [Bit 1]
+entrypoint bitFromByte7 :: [Bit 32] >>= [Bit 1]
 bitFromByte7[t0] =
   t1 <- and((t0, 128))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint nibbleFromByte0 :: [Word] >>= [Word]
+entrypoint nibbleFromByte0 :: [Bit 32] >>= [Bit 32]
 nibbleFromByte0[t0] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint nibbleFromByte1 :: [Word] >>= [Word]
+entrypoint nibbleFromByte1 :: [Bit 32] >>= [Bit 32]
 nibbleFromByte1[t0] =
   t1 <- lshr((t0, 1))
   and((t1, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint nibbleFromByte2 :: [Word] >>= [Word]
+entrypoint nibbleFromByte2 :: [Bit 32] >>= [Bit 32]
 nibbleFromByte2[t0] =
   t1 <- lshr((t0, 2))
   and((t1, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint nibbleFromByte4 :: [Word] >>= [Word]
+entrypoint nibbleFromByte4 :: [Bit 32] >>= [Bit 32]
 nibbleFromByte4[t0] =
   lshr((t0, 4))
 

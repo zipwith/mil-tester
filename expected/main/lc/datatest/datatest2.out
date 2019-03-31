@@ -43,14 +43,14 @@ Just <-
 
 -----------------------------------------
 -- not recursive
-b77 :: [] >>= [Maybe Word]
+b77 :: [] >>= [Maybe (Bit 32)]
 b77[] =
   t0 <- return Just
   t0 @ 3
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: Maybe Word
+entrypoint foo :: Maybe (Bit 32)
 foo <-
   b77[]
 

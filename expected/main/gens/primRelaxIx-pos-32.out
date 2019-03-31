@@ -15,25 +15,25 @@ relax1_2[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint relax3_7 :: [Word] >>= [Word]
+entrypoint relax3_7 :: [Bit 32] >>= [Bit 32]
 relax3_7[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint relax1K_1K :: [Word] >>= [Word]
+entrypoint relax1K_1K :: [Bit 32] >>= [Bit 32]
 relax1K_1K[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint relax1K_1G :: [Word] >>= [Word]
+entrypoint relax1K_1G :: [Bit 32] >>= [Bit 32]
 relax1K_1G[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint relax1_3 :: [Unit] >>= [Word]
+entrypoint relax1_3 :: [Unit] >>= [Bit 32]
 relax1_3[t0] =
   return 0
 
@@ -45,13 +45,13 @@ relax2_2[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint relax2_3 :: [Bit 1] >>= [Word]
+entrypoint relax2_3 :: [Bit 1] >>= [Bit 32]
 relax2_3[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint relax3_3 :: [Word] >>= [Word]
+entrypoint relax3_3 :: [Bit 32] >>= [Bit 32]
 relax3_3[t0] =
   return t0
 

@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-construct_T :: [Word, Word] >>= [Word]
+construct_T :: [Bit 32, Bit 32] >>= [Bit 32]
 construct_T[t0, t1] =
   t2 <- return 0
   t3 <- or((t2, t1))
@@ -10,37 +10,37 @@ construct_T[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-s3 :: Word
+s3 :: Bit 32
 s3 <-
   construct_T[1, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint sample :: Word
+entrypoint sample :: Bit 32
 sample <-
   return s3
 
 -----------------------------------------
 -- not recursive
-s2 :: Word
+s2 :: Bit 32
 s2 <-
   construct_T[1, 1]
 
 -----------------------------------------
 -- not recursive
-entrypoint sample1 :: Word
+entrypoint sample1 :: Bit 32
 sample1 <-
   return s2
 
 -----------------------------------------
 -- not recursive
-s1 :: Word
+s1 :: Bit 32
 s1 <-
   construct_T[15, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint sample2 :: Word
+entrypoint sample2 :: Bit 32
 sample2 <-
   return s1
 

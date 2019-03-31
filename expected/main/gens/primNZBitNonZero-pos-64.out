@@ -1,90 +1,90 @@
 -----------------------------------------
 -- not recursive
-entrypoint nonZero2 :: [Word] >>= [Word]
+entrypoint nonZero2 :: [Bit 64] >>= [Bit 64]
 nonZero2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nonZero4 :: [Word] >>= [Word]
+entrypoint nonZero4 :: [Bit 64] >>= [Bit 64]
 nonZero4[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nonZero15 :: [Word] >>= [Word]
+entrypoint nonZero15 :: [Bit 64] >>= [Bit 64]
 nonZero15[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nonZero32 :: [Word] >>= [Word]
+entrypoint nonZero32 :: [Bit 64] >>= [Bit 64]
 nonZero32[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nonZero33 :: [Word] >>= [Word]
+entrypoint nonZero33 :: [Bit 64] >>= [Bit 64]
 nonZero33[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nonZero48 :: [Word] >>= [Word]
+entrypoint nonZero48 :: [Bit 64] >>= [Bit 64]
 nonZero48[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint nothing4 :: Word
+entrypoint nothing4 :: Bit 64
 nothing4 <-
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint just12 :: [Word] >>= [Word]
+entrypoint just12 :: [Bit 64] >>= [Bit 64]
 just12[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget2 :: [Word] >>= [Word]
+entrypoint forget2 :: [Bit 64] >>= [Bit 64]
 forget2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget4 :: [Word] >>= [Word]
+entrypoint forget4 :: [Bit 64] >>= [Bit 64]
 forget4[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget15 :: [Word] >>= [Word]
+entrypoint forget15 :: [Bit 64] >>= [Bit 64]
 forget15[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget32 :: [Word] >>= [Word]
+entrypoint forget32 :: [Bit 64] >>= [Bit 64]
 forget32[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget33 :: [Word] >>= [Word]
+entrypoint forget33 :: [Bit 64] >>= [Bit 64]
 forget33[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget48 :: [Word] >>= [Word]
+entrypoint forget48 :: [Bit 64] >>= [Bit 64]
 forget48[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint forget64 :: [Word] >>= [Word]
+entrypoint forget64 :: [Bit 64] >>= [Bit 64]
 forget64[t0] =
   return t0
 

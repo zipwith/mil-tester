@@ -21,7 +21,7 @@ No generated implementation: Argument value 1001 is too large; must be less than
 ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 7
 external e {primBitLt Word} :: Bit 31   -> Bit 31   -> Flag  -- not a number
          ^
-No generated implementation: Argument 1 (Word) does not have expected kind (nat)
+No generated implementation: Argument 1 (Bit 32) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primBitCompare-neg-32.lc", line 8
 external f {primBitLe}      :: Bit 32   -> Bit 32   -> Flag  -- missing param

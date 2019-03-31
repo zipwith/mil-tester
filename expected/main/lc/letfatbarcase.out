@@ -1,11 +1,11 @@
 -----------------------------------------
 -- not recursive
-k47 :: {} [Word] ->> [Word]
+k47 :: {} [Bit 32] ->> [Bit 32]
 k47{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint f :: [Word] ->> [Word]
+entrypoint f :: [Bit 32] ->> [Bit 32]
 f <-
   k47{}
 

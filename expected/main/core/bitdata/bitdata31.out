@@ -3,20 +3,20 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint aPDE :: Word
+entrypoint aPDE :: Bit 32
 aPDE <-
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped :: [Word] >>= [Bit 1]
+entrypoint isMapped :: [Bit 32] >>= [Bit 1]
 isMapped[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped1 :: [Word] >>= [Bit 1]
+entrypoint isMapped1 :: [Bit 32] >>= [Bit 1]
 isMapped1[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
@@ -35,7 +35,7 @@ b101[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint usecase :: [Word] >>= [Unit]
+entrypoint usecase :: [Bit 32] >>= [Unit]
 usecase[t0] =
   t1 <- and((t0, 1))
   t2 <- primEq((t1, 0))
@@ -51,7 +51,7 @@ b104[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint usecase1 :: [Word] >>= [Unit]
+entrypoint usecase1 :: [Bit 32] >>= [Unit]
 usecase1[t0] =
   t1 <- and((t0, 1))
   t2 <- primEq((t1, 0))

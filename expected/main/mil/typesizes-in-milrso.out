@@ -6,14 +6,14 @@ b40[] =
 
 -----------------------------------------
 -- not recursive
-b38 :: [Word, Word, Word] >>= [Bit 1]
+b38 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 1]
 b38[t0, t1, t2] =
   t3 <- and((t0, t1))
   primEq((t3, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint isNull :: [Word, Word] >>= [Bit 1]
+entrypoint isNull :: [Bit 32, Bit 32] >>= [Bit 1]
 isNull[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
@@ -22,11 +22,11 @@ isNull[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-external b :: Word
+external b :: Bit 32
 
 -----------------------------------------
 -- not recursive
-entrypoint a :: Word
+entrypoint a :: Bit 32
 a <-
   return b
 

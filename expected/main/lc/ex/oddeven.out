@@ -1,5 +1,5 @@
 data Pair0
-  = Pair0 ([Word] ->> [Bit 1]) ([Word] ->> [Bit 1])
+  = Pair0 ([Bit 32] ->> [Bit 1]) ([Bit 32] ->> [Bit 1])
 
 -----------------------------------------
 -- not recursive
@@ -15,18 +15,18 @@ b84[] =
 
 -----------------------------------------
 -- recursive
-b83 :: [Word] >>= [Bit 1]
+b83 :: [Bit 32] >>= [Bit 1]
 b83[t0] =
   t1 <- add((t0, -1))
   t2 <- primEq((t1, 0))
   if t2
     then b79[]
     else b78[t1]
-b78 :: [Word] >>= [Bit 1]
+b78 :: [Bit 32] >>= [Bit 1]
 b78[t0] =
   t1 <- add((t0, -1))
   b101[t1, 0]
-b101 :: [Word, Word] >>= [Bit 1]
+b101 :: [Bit 32, Bit 32] >>= [Bit 1]
 b101[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
@@ -35,7 +35,7 @@ b101[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word] >>= [Bit 1]
+entrypoint main :: [Bit 32] >>= [Bit 1]
 main[t0] =
   b101[t0, 0]
 
@@ -47,24 +47,24 @@ main0 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint main1 :: [Word] >>= [Bit 1]
+entrypoint main1 :: [Bit 32] >>= [Bit 1]
 main1[t0] =
   b101[t0, 0]
 
 -----------------------------------------
 -- not recursive
-k53 :: {} [Word] ->> [Bit 1]
+k53 :: {} [Bit 32] ->> [Bit 1]
 k53{} t0 = b101[t0, 0]
 
 -----------------------------------------
 -- not recursive
-even :: [Word] ->> [Bit 1]
+even :: [Bit 32] ->> [Bit 1]
 even <-
   k53{}
 
 -----------------------------------------
 -- not recursive
-b105 :: [Word, Word] >>= [Bit 1]
+b105 :: [Bit 32, Bit 32] >>= [Bit 1]
 b105[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
@@ -73,12 +73,12 @@ b105[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k52 :: {} [Word] ->> [Bit 1]
+k52 :: {} [Bit 32] ->> [Bit 1]
 k52{} t0 = b105[t0, 0]
 
 -----------------------------------------
 -- not recursive
-odd :: [Word] ->> [Bit 1]
+odd :: [Bit 32] ->> [Bit 1]
 odd <-
   k52{}
 
@@ -90,7 +90,7 @@ main2 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint main3 :: [Word] >>= [Bit 1]
+entrypoint main3 :: [Bit 32] >>= [Bit 1]
 main3[t0] =
   t1 <- add((t0, 1))
   t2 <- primEq((t1, 0))

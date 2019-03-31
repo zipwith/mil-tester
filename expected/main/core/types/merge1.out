@@ -1,5 +1,5 @@
 data Dup0
-  = Dup0 Word Word
+  = Dup0 (Bit 32) (Bit 32)
 
 data Dup3
   = Dup3 Dup0 Dup0
@@ -11,7 +11,7 @@ data Dup5
   = Dup5 Dup4 Dup4
 
 data Quad6
-  = Quad6 Word Word Word Word
+  = Quad6 (Bit 32) (Bit 32) (Bit 32) (Bit 32)
 
 -----------------------------------------
 -- not recursive

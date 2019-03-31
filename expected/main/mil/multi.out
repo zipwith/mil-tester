@@ -1,16 +1,16 @@
 -----------------------------------------
 -- not recursive
-entrypoint p1 :: {Word} [Word] ->> [Word]
+entrypoint p1 :: {Bit 32} [Bit 32] ->> [Bit 32]
 p1{t0} t1 = add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint p0 :: {} [Word] ->> [[Word] ->> [Word]]
+entrypoint p0 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 p0{} t0 = p1{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint ext :: [Word] ->> [[Word] ->> [Word]]
+entrypoint ext :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 ext <-
   p0{}
 
@@ -32,7 +32,7 @@ fromNat <-
 
 -----------------------------------------
 -- not recursive
-entrypoint b :: [Word, Word, Word, Word] >>= [Word, Word]
+entrypoint b :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 b[t0, t1, t2, t3] =
   [t4, t5] <- subc0((t1, t3))
   [t6, t7] <- subc((t0, t2, t5))
@@ -40,51 +40,51 @@ b[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint kb :: {Word, Word} [Word, Word] ->> [Word, Word]
+entrypoint kb :: {Bit 32, Bit 32} [Bit 32, Bit 32] ->> [Bit 32, Bit 32]
 kb{t0, t1} [t2, t3] = b[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-entrypoint ka :: {} [Word, Word] ->> [[Word, Word] ->> [Word, Word]]
+entrypoint ka :: {} [Bit 32, Bit 32] ->> [[Bit 32, Bit 32] ->> [Bit 32, Bit 32]]
 ka{} [t0, t1] = kb{t0, t1}
 
 -----------------------------------------
 -- not recursive
-entrypoint subx :: [Word, Word] ->> [[Word, Word] ->> [Word, Word]]
+entrypoint subx :: [Bit 32, Bit 32] ->> [[Bit 32, Bit 32] ->> [Bit 32, Bit 32]]
 subx <-
   ka{}
 
 -----------------------------------------
 -- not recursive
-entrypoint k1 :: {Word, Word} [Word, Word] ->> [Word, Word]
+entrypoint k1 :: {Bit 32, Bit 32} [Bit 32, Bit 32] ->> [Bit 32, Bit 32]
 k1{t0, t1} [t2, t3] = b[t0, t1, t2, t3]
 
 -----------------------------------------
 -- not recursive
-entrypoint k :: {} [Word, Word] ->> [[Word, Word] ->> [Word, Word]]
+entrypoint k :: {} [Bit 32, Bit 32] ->> [[Bit 32, Bit 32] ->> [Bit 32, Bit 32]]
 k{} [t0, t1] = k1{t0, t1}
 
 -----------------------------------------
 -- not recursive
-entrypoint sub64 :: [Word, Word] ->> [[Word, Word] ->> [Word, Word]]
+entrypoint sub64 :: [Bit 32, Bit 32] ->> [[Bit 32, Bit 32] ->> [Bit 32, Bit 32]]
 sub64 <-
   k{}
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word]
+b5 :: [] >>= [Bit 32]
 b5[] =
   [t0, t1] <- rdtscPrim(())
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint rdtscClosure :: {} [] ->> [Word]
+entrypoint rdtscClosure :: {} [] ->> [Bit 32]
 rdtscClosure{} [] = b5[]
 
 -----------------------------------------
 -- not recursive
-entrypoint rdtsc :: [] ->> [Word]
+entrypoint rdtsc :: [] ->> [Bit 32]
 rdtsc <-
   rdtscClosure{}
 

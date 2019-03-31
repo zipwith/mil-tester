@@ -1,6 +1,6 @@
 data List0
   = Nil0
-  | Cons1 Word List0
+  | Cons1 (Bit 32) List0
 
 data Unit
   = Unit
@@ -39,7 +39,7 @@ b95[t0] =
 
 -----------------------------------------
 -- recursive
-b79 :: [Word, List0] >>= [Unit]
+b79 :: [Bit 32, List0] >>= [Unit]
 b79[t0, t1] =
   t2 <- Cons1(t0, t1)
   b81[t2]
@@ -53,7 +53,7 @@ b81[t0] =
 
 -----------------------------------------
 -- not recursive
-b111 :: [Word] >>= [Unit]
+b111 :: [Bit 32] >>= [Unit]
 b111[t0] =
   t1 <- Cons1(t0, Nil)
   b81[t1]

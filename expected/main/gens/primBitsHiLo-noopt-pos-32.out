@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-b32 :: [Word] >>= [Word]
+b32 :: [Bit 32] >>= [Bit 32]
 b32[t0] =
   t1 <- lshr((t0, 16))
   t2 <- and((t1, 255))
@@ -8,48 +8,48 @@ b32[t0] =
 
 -----------------------------------------
 -- not recursive
-k19 :: {} [Word] ->> [Word]
+k19 :: {} [Bit 32] ->> [Bit 32]
 k19{} t0 = b32[t0]
 
 -----------------------------------------
 -- not recursive
-select32_8_16 :: [Word] ->> [Word]
+select32_8_16 :: [Bit 32] ->> [Bit 32]
 select32_8_16 <-
   k19{}
 
 -----------------------------------------
 -- not recursive
-direct_impl :: [Word] ->> [Word]
+direct_impl :: [Bit 32] ->> [Bit 32]
 direct_impl <-
   return select32_8_16
 
 -----------------------------------------
 -- not recursive
-entrypoint direct :: [Word] >>= [Word]
+entrypoint direct :: [Bit 32] >>= [Bit 32]
 direct[t0] =
   direct_impl @ t0
 
 -----------------------------------------
 -- not recursive
-b33 :: [Word] >>= [Word]
+b33 :: [Bit 32] >>= [Bit 32]
 b33[t0] =
   t1 <- lshr((t0, 16))
   return t1
 
 -----------------------------------------
 -- not recursive
-k20 :: {} [Word] ->> [Word]
+k20 :: {} [Bit 32] ->> [Bit 32]
 k20{} t0 = b33[t0]
 
 -----------------------------------------
 -- not recursive
-hi32_16 :: [Word] ->> [Word]
+hi32_16 :: [Bit 32] ->> [Bit 32]
 hi32_16 <-
   k20{}
 
 -----------------------------------------
 -- not recursive
-b34 :: [Word] >>= [Word]
+b34 :: [Bit 32] >>= [Bit 32]
 b34[t0] =
   t1 <- return t0
   t2 <- and((t1, 255))
@@ -57,42 +57,42 @@ b34[t0] =
 
 -----------------------------------------
 -- not recursive
-k21 :: {} [Word] ->> [Word]
+k21 :: {} [Bit 32] ->> [Bit 32]
 k21{} t0 = b34[t0]
 
 -----------------------------------------
 -- not recursive
-lo16_8 :: [Word] ->> [Word]
+lo16_8 :: [Bit 32] ->> [Bit 32]
 lo16_8 <-
   k21{}
 
 -----------------------------------------
 -- not recursive
-b30 :: [Word] >>= [Word]
+b30 :: [Bit 32] >>= [Bit 32]
 b30[t0] =
   t1 <- hi32_16 @ t0
   lo16_8 @ t1
 
 -----------------------------------------
 -- not recursive
-k17 :: {} [Word] ->> [Word]
+k17 :: {} [Bit 32] ->> [Bit 32]
 k17{} t0 = b30[t0]
 
 -----------------------------------------
 -- not recursive
-indirect_impl :: [Word] ->> [Word]
+indirect_impl :: [Bit 32] ->> [Bit 32]
 indirect_impl <-
   k17{}
 
 -----------------------------------------
 -- not recursive
-entrypoint indirect :: [Word] >>= [Word]
+entrypoint indirect :: [Bit 32] >>= [Bit 32]
 indirect[t0] =
   indirect_impl @ t0
 
 -----------------------------------------
 -- not recursive
-b35 :: [Word] >>= [Word]
+b35 :: [Bit 32] >>= [Bit 32]
 b35[t0] =
   t1 <- return t0
   t2 <- and((t1, 16777215))
@@ -100,78 +100,78 @@ b35[t0] =
 
 -----------------------------------------
 -- not recursive
-k22 :: {} [Word] ->> [Word]
+k22 :: {} [Bit 32] ->> [Bit 32]
 k22{} t0 = b35[t0]
 
 -----------------------------------------
 -- not recursive
-lo32_24 :: [Word] ->> [Word]
+lo32_24 :: [Bit 32] ->> [Bit 32]
 lo32_24 <-
   k22{}
 
 -----------------------------------------
 -- not recursive
-b36 :: [Word] >>= [Word]
+b36 :: [Bit 32] >>= [Bit 32]
 b36[t0] =
   t1 <- lshr((t0, 16))
   return t1
 
 -----------------------------------------
 -- not recursive
-k23 :: {} [Word] ->> [Word]
+k23 :: {} [Bit 32] ->> [Bit 32]
 k23{} t0 = b36[t0]
 
 -----------------------------------------
 -- not recursive
-hi24_8 :: [Word] ->> [Word]
+hi24_8 :: [Bit 32] ->> [Bit 32]
 hi24_8 <-
   k23{}
 
 -----------------------------------------
 -- not recursive
-b27 :: [Word] >>= [Word]
+b27 :: [Bit 32] >>= [Bit 32]
 b27[t0] =
   t1 <- lo32_24 @ t0
   hi24_8 @ t1
 
 -----------------------------------------
 -- not recursive
-k15 :: {} [Word] ->> [Word]
+k15 :: {} [Bit 32] ->> [Bit 32]
 k15{} t0 = b27[t0]
 
 -----------------------------------------
 -- not recursive
-indirect1_impl :: [Word] ->> [Word]
+indirect1_impl :: [Bit 32] ->> [Bit 32]
 indirect1_impl <-
   k15{}
 
 -----------------------------------------
 -- not recursive
-entrypoint indirect1 :: [Word] >>= [Word]
+entrypoint indirect1 :: [Bit 32] >>= [Bit 32]
 indirect1[t0] =
   indirect1_impl @ t0
 
 -----------------------------------------
 -- not recursive
-b37 :: [Word] >>= [Word]
+b37 :: [Bit 32] >>= [Bit 32]
 b37[t0] =
   t1 <- lshr((t0, 8))
   return t1
 
 -----------------------------------------
 -- not recursive
-k24 :: {} [Word] ->> [Word]
+k24 :: {} [Bit 32] ->> [Bit 32]
 k24{} t0 = b37[t0]
 
 -----------------------------------------
 -- not recursive
-hi32_24 :: [Word] ->> [Word]
+hi32_24 :: [Bit 32] ->> [Bit 32]
 hi32_24 <-
   k24{}
 
 -----------------------------------------
 -- not recursive
-b38 :: [Word] >>= [Word]
+b38 :: [Bit 32] >>= [Bit 32]
 b38[t0] =
   t1 <- return t0
   t2 <- and((t1, 1048575))
@@ -179,36 +179,36 @@ b38[t0] =
 
 -----------------------------------------
 -- not recursive
-k25 :: {} [Word] ->> [Word]
+k25 :: {} [Bit 32] ->> [Bit 32]
 k25{} t0 = b38[t0]
 
 -----------------------------------------
 -- not recursive
-lo24_20 :: [Word] ->> [Word]
+lo24_20 :: [Bit 32] ->> [Bit 32]
 lo24_20 <-
   k25{}
 
 -----------------------------------------
 -- not recursive
-b39 :: [Word] >>= [Word]
+b39 :: [Bit 32] >>= [Bit 32]
 b39[t0] =
   t1 <- lshr((t0, 8))
   return t1
 
 -----------------------------------------
 -- not recursive
-k26 :: {} [Word] ->> [Word]
+k26 :: {} [Bit 32] ->> [Bit 32]
 k26{} t0 = b39[t0]
 
 -----------------------------------------
 -- not recursive
-hi20_12 :: [Word] ->> [Word]
+hi20_12 :: [Bit 32] ->> [Bit 32]
 hi20_12 <-
   k26{}
 
 -----------------------------------------
 -- not recursive
-b40 :: [Word] >>= [Word]
+b40 :: [Bit 32] >>= [Bit 32]
 b40[t0] =
   t1 <- return t0
   t2 <- and((t1, 255))
@@ -216,18 +216,18 @@ b40[t0] =
 
 -----------------------------------------
 -- not recursive
-k27 :: {} [Word] ->> [Word]
+k27 :: {} [Bit 32] ->> [Bit 32]
 k27{} t0 = b40[t0]
 
 -----------------------------------------
 -- not recursive
-lo12_8 :: [Word] ->> [Word]
+lo12_8 :: [Bit 32] ->> [Bit 32]
 lo12_8 <-
   k27{}
 
 -----------------------------------------
 -- not recursive
-b31 :: [Word] >>= [Word]
+b31 :: [Bit 32] >>= [Bit 32]
 b31[t0] =
   t1 <- hi32_24 @ t0
   t2 <- lo24_20 @ t1
@@ -236,24 +236,24 @@ b31[t0] =
 
 -----------------------------------------
 -- not recursive
-k18 :: {} [Word] ->> [Word]
+k18 :: {} [Bit 32] ->> [Bit 32]
 k18{} t0 = b31[t0]
 
 -----------------------------------------
 -- not recursive
-indirect2_impl :: [Word] ->> [Word]
+indirect2_impl :: [Bit 32] ->> [Bit 32]
 indirect2_impl <-
   k18{}
 
 -----------------------------------------
 -- not recursive
-entrypoint indirect2 :: [Word] >>= [Word]
+entrypoint indirect2 :: [Bit 32] >>= [Bit 32]
 indirect2[t0] =
   indirect2_impl @ t0
 
 -----------------------------------------
 -- not recursive
-b41 :: [Word, Word] >>= [Word]
+b41 :: [Bit 32, Bit 32] >>= [Bit 32]
 b41[t0, t1] =
   t2 <- lshr((t0, 30))
   t3 <- shl((t1, 2))
@@ -263,30 +263,30 @@ b41[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k28 :: {} [Word, Word] ->> [Word]
+k28 :: {} [Bit 32, Bit 32] ->> [Bit 32]
 k28{} [t0, t1] = b41[t0, t1]
 
 -----------------------------------------
 -- not recursive
-select64_8_30 :: [Word, Word] ->> [Word]
+select64_8_30 :: [Bit 32, Bit 32] ->> [Bit 32]
 select64_8_30 <-
   k28{}
 
 -----------------------------------------
 -- not recursive
-mdirect_impl :: [Word, Word] ->> [Word]
+mdirect_impl :: [Bit 32, Bit 32] ->> [Bit 32]
 mdirect_impl <-
   return select64_8_30
 
 -----------------------------------------
 -- not recursive
-entrypoint mdirect :: [Word, Word] >>= [Word]
+entrypoint mdirect :: [Bit 32, Bit 32] >>= [Bit 32]
 mdirect[t0, t1] =
   mdirect_impl @ [t0, t1]
 
 -----------------------------------------
 -- not recursive
-b42 :: [Word, Word] >>= [Word, Word]
+b42 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 b42[t0, t1] =
   t2 <- lshr((t0, 30))
   t3 <- shl((t1, 2))
@@ -296,18 +296,18 @@ b42[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k29 :: {} [Word, Word] ->> [Word, Word]
+k29 :: {} [Bit 32, Bit 32] ->> [Bit 32, Bit 32]
 k29{} [t0, t1] = b42[t0, t1]
 
 -----------------------------------------
 -- not recursive
-hi64_34 :: [Word, Word] ->> [Word, Word]
+hi64_34 :: [Bit 32, Bit 32] ->> [Bit 32, Bit 32]
 hi64_34 <-
   k29{}
 
 -----------------------------------------
 -- not recursive
-b43 :: forall (a :: *). [Word, a] >>= [Word]
+b43 :: forall (a :: *). [Bit 32, a] >>= [Bit 32]
 b43[t0, t1] =
   t2 <- return t0
   t3 <- and((t2, 255))
@@ -315,42 +315,42 @@ b43[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k30 :: forall (a :: *). {} [Word, a] ->> [Word]
+k30 :: forall (a :: *). {} [Bit 32, a] ->> [Bit 32]
 k30{} [t0, t1] = b43[t0, t1]
 
 -----------------------------------------
 -- not recursive
-lo34_8 :: [Word, Word] ->> [Word]
+lo34_8 :: [Bit 32, Bit 32] ->> [Bit 32]
 lo34_8 <-
   k30{}
 
 -----------------------------------------
 -- not recursive
-b18 :: [Word, Word] >>= [Word]
+b18 :: [Bit 32, Bit 32] >>= [Bit 32]
 b18[t0, t1] =
   [t2, t3] <- hi64_34 @ [t0, t1]
   lo34_8 @ [t2, t3]
 
 -----------------------------------------
 -- not recursive
-k9 :: {} [Word, Word] ->> [Word]
+k9 :: {} [Bit 32, Bit 32] ->> [Bit 32]
 k9{} [t0, t1] = b18[t0, t1]
 
 -----------------------------------------
 -- not recursive
-mindirect_impl :: [Word, Word] ->> [Word]
+mindirect_impl :: [Bit 32, Bit 32] ->> [Bit 32]
 mindirect_impl <-
   k9{}
 
 -----------------------------------------
 -- not recursive
-entrypoint mindirect :: [Word, Word] >>= [Word]
+entrypoint mindirect :: [Bit 32, Bit 32] >>= [Bit 32]
 mindirect[t0, t1] =
   mindirect_impl @ [t0, t1]
 
 -----------------------------------------
 -- not recursive
-b44 :: forall (a :: *). [a, Word] >>= [a, Word]
+b44 :: forall (a :: *). [a, Bit 32] >>= [a, Bit 32]
 b44[t0, t1] =
   t2 <- return t0
   t3 <- return t1
@@ -359,18 +359,18 @@ b44[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k31 :: forall (a :: *). {} [a, Word] ->> [a, Word]
+k31 :: forall (a :: *). {} [a, Bit 32] ->> [a, Bit 32]
 k31{} [t0, t1] = b44[t0, t1]
 
 -----------------------------------------
 -- not recursive
-lo64_38 :: [Word, Word] ->> [Word, Word]
+lo64_38 :: [Bit 32, Bit 32] ->> [Bit 32, Bit 32]
 lo64_38 <-
   k31{}
 
 -----------------------------------------
 -- not recursive
-b45 :: [Word, Word] >>= [Word]
+b45 :: [Bit 32, Bit 32] >>= [Bit 32]
 b45[t0, t1] =
   t2 <- lshr((t0, 30))
   t3 <- shl((t1, 2))
@@ -379,36 +379,36 @@ b45[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k32 :: {} [Word, Word] ->> [Word]
+k32 :: {} [Bit 32, Bit 32] ->> [Bit 32]
 k32{} [t0, t1] = b45[t0, t1]
 
 -----------------------------------------
 -- not recursive
-hi38_8 :: [Word, Word] ->> [Word]
+hi38_8 :: [Bit 32, Bit 32] ->> [Bit 32]
 hi38_8 <-
   k32{}
 
 -----------------------------------------
 -- not recursive
-b15 :: [Word, Word] >>= [Word]
+b15 :: [Bit 32, Bit 32] >>= [Bit 32]
 b15[t0, t1] =
   [t2, t3] <- lo64_38 @ [t0, t1]
   hi38_8 @ [t2, t3]
 
 -----------------------------------------
 -- not recursive
-k7 :: {} [Word, Word] ->> [Word]
+k7 :: {} [Bit 32, Bit 32] ->> [Bit 32]
 k7{} [t0, t1] = b15[t0, t1]
 
 -----------------------------------------
 -- not recursive
-mindirect1_impl :: [Word, Word] ->> [Word]
+mindirect1_impl :: [Bit 32, Bit 32] ->> [Bit 32]
 mindirect1_impl <-
   k7{}
 
 -----------------------------------------
 -- not recursive
-entrypoint mindirect1 :: [Word, Word] >>= [Word]
+entrypoint mindirect1 :: [Bit 32, Bit 32] >>= [Bit 32]
 mindirect1[t0, t1] =
   mindirect1_impl @ [t0, t1]
 

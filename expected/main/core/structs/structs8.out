@@ -1,6 +1,6 @@
 struct V / 8
   [ b :: Stored (Bit 8)  {- offset=0 -}
   | ... 3 bytes padding ...
-  | w :: Stored Word  {- offset=4 -} ]
+  | w :: Stored (Bit 32)  {- offset=4 -} ]
   aligned 4
 

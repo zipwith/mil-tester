@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint vram :: Word
+entrypoint vram :: Bit 32
 vram <-
   return 753664
 

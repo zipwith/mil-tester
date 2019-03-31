@@ -1,183 +1,183 @@
 -----------------------------------------
 -- not recursive
-entrypoint e6 :: [Word] >>= [Word]
+entrypoint e6 :: [Bit 32] >>= [Bit 32]
 e6[t0] =
   shl((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint e5 :: [Word] >>= [Word]
+entrypoint e5 :: [Bit 32] >>= [Bit 32]
 e5[t0] =
   shl((t0, 4))
 
 -----------------------------------------
 -- not recursive
-entrypoint e4 :: [Word] >>= [Word]
+entrypoint e4 :: [Bit 32] >>= [Bit 32]
 e4[t0] =
   shl((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint e3 :: [Word] >>= [Word]
+entrypoint e3 :: [Bit 32] >>= [Bit 32]
 e3[t0] =
   shl((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint e2 :: [Word] >>= [Word]
+entrypoint e2 :: [Bit 32] >>= [Bit 32]
 e2[t0] =
   mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint e1a :: [Word] >>= [Word]
+entrypoint e1a :: [Bit 32] >>= [Bit 32]
 e1a[t0] =
   shl((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint e1 :: [Word] >>= [Word]
+entrypoint e1 :: [Bit 32] >>= [Bit 32]
 e1[t0] =
   shl((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint e0a :: [Word] >>= [Word]
+entrypoint e0a :: [Bit 32] >>= [Bit 32]
 e0a[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint e0 :: [Word] >>= [Word]
+entrypoint e0 :: [Bit 32] >>= [Bit 32]
 e0[t0] =
   mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint d6 :: [Word] >>= [Word]
+entrypoint d6 :: [Bit 32] >>= [Bit 32]
 d6[t0] =
   return -1
 
 -----------------------------------------
 -- not recursive
-entrypoint d5 :: [Word] >>= [Word]
+entrypoint d5 :: [Bit 32] >>= [Bit 32]
 d5[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint d4 :: [Word] >>= [Word]
+entrypoint d4 :: [Bit 32] >>= [Bit 32]
 d4[t0] =
   t1 <- ashr((t0, 2))
   and((t1, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint d3 :: [Word] >>= [Word]
+entrypoint d3 :: [Bit 32] >>= [Bit 32]
 d3[t0] =
   ashr((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint d2 :: [Word] >>= [Word]
+entrypoint d2 :: [Bit 32] >>= [Bit 32]
 d2[t0] =
   ashr((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint d1 :: [Word] >>= [Word]
+entrypoint d1 :: [Bit 32] >>= [Bit 32]
 d1[t0] =
   ashr((t0, 5))
 
 -----------------------------------------
 -- not recursive
-entrypoint d0 :: [Word] >>= [Word]
+entrypoint d0 :: [Bit 32] >>= [Bit 32]
 d0[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint c6 :: [Word] >>= [Word]
+entrypoint c6 :: [Bit 32] >>= [Bit 32]
 c6[t0] =
   lshr((-1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint c5 :: [Word] >>= [Word]
+entrypoint c5 :: [Bit 32] >>= [Bit 32]
 c5[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint c4 :: [Word] >>= [Word]
+entrypoint c4 :: [Bit 32] >>= [Bit 32]
 c4[t0] =
   t1 <- lshr((t0, 2))
   and((t1, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint c3 :: [Word] >>= [Word]
+entrypoint c3 :: [Bit 32] >>= [Bit 32]
 c3[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint c2 :: [Word] >>= [Word]
+entrypoint c2 :: [Bit 32] >>= [Bit 32]
 c2[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint c1 :: [Word] >>= [Word]
+entrypoint c1 :: [Bit 32] >>= [Bit 32]
 c1[t0] =
   lshr((t0, 5))
 
 -----------------------------------------
 -- not recursive
-entrypoint c0 :: [Word] >>= [Word]
+entrypoint c0 :: [Bit 32] >>= [Bit 32]
 c0[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint b6 :: [Word] >>= [Word]
+entrypoint b6 :: [Bit 32] >>= [Bit 32]
 b6[t0] =
   shl((-1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint b5 :: [Word] >>= [Word]
+entrypoint b5 :: [Bit 32] >>= [Bit 32]
 b5[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint b4 :: [Word] >>= [Word]
+entrypoint b4 :: [Bit 32] >>= [Bit 32]
 b4[t0] =
   t1 <- shl((t0, 2))
   and((t1, 60))
 
 -----------------------------------------
 -- not recursive
-entrypoint b3 :: [Word] >>= [Word]
+entrypoint b3 :: [Bit 32] >>= [Bit 32]
 b3[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint b2 :: [Word] >>= [Word]
+entrypoint b2 :: [Bit 32] >>= [Bit 32]
 b2[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint b1 :: [Word] >>= [Word]
+entrypoint b1 :: [Bit 32] >>= [Bit 32]
 b1[t0] =
   shl((t0, 5))
 
 -----------------------------------------
 -- not recursive
-entrypoint b0 :: [Word] >>= [Word]
+entrypoint b0 :: [Bit 32] >>= [Bit 32]
 b0[t0] =
   return t0
 

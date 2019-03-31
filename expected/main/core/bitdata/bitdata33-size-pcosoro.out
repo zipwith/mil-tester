@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint idfoo :: [Word] >>= [Word]
+entrypoint idfoo :: [Bit 32] >>= [Bit 32]
 idfoo[t0] =
   return t0
 

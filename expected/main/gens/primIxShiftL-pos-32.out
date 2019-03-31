@@ -9,7 +9,7 @@ shlix2_1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint shlix4_2 :: [Word, Bit 1] >>= [Word]
+entrypoint shlix4_2 :: [Bit 32, Bit 1] >>= [Bit 32]
 shlix4_2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t0, t2))
@@ -17,35 +17,35 @@ shlix4_2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint shlix8_3 :: [Word, Word] >>= [Word]
+entrypoint shlix8_3 :: [Bit 32, Bit 32] >>= [Bit 32]
 shlix8_3[t0, t1] =
   t2 <- shl((t0, t1))
   and((t2, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint shlix1K_10 :: [Word, Word] >>= [Word]
+entrypoint shlix1K_10 :: [Bit 32, Bit 32] >>= [Bit 32]
 shlix1K_10[t0, t1] =
   t2 <- shl((t0, t1))
   and((t2, 1023))
 
 -----------------------------------------
 -- not recursive
-entrypoint shlix1G_30 :: [Word, Word] >>= [Word]
+entrypoint shlix1G_30 :: [Bit 32, Bit 32] >>= [Bit 32]
 shlix1G_30[t0, t1] =
   t2 <- shl((t0, t1))
   and((t2, 1073741823))
 
 -----------------------------------------
 -- not recursive
-entrypoint primIxShiftL16 :: [Word, Word] >>= [Word]
+entrypoint primIxShiftL16 :: [Bit 32, Bit 32] >>= [Bit 32]
 primIxShiftL16[t0, t1] =
   t2 <- shl((t0, t1))
   and((t2, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint primIxShiftL4K :: [Word, Word] >>= [Word]
+entrypoint primIxShiftL4K :: [Bit 32, Bit 32] >>= [Bit 32]
 primIxShiftL4K[t0, t1] =
   t2 <- shl((t0, t1))
   and((t2, 4095))

@@ -26,20 +26,20 @@ data Rainbow
 
 -----------------------------------------
 -- not recursive
-b96 :: [Word] >>= [Word]
+b96 :: [Bit 32] >>= [Bit 32]
 b96[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b95 :: [Word] >>= [Word]
+b95 :: [Bit 32] >>= [Bit 32]
 b95[t0] =
   t1 <- add((t0, -1))
   t2 <- b114[t1, 2]
   t3 <- add((t0, -2))
   t4 <- b114[t3, 2]
   add((t2, t4))
-b114 :: [Word, Word] >>= [Word]
+b114 :: [Bit 32, Bit 32] >>= [Bit 32]
 b114[t0, t1] =
   t2 <- primSlt((t0, t1))
   if t2
@@ -48,56 +48,56 @@ b114[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k62 :: {} [Word] ->> [Word]
+k62 :: {} [Bit 32] ->> [Bit 32]
 k62{} t0 = b114[t0, 2]
 
 -----------------------------------------
 -- not recursive
-entrypoint fib :: [Word] ->> [Word]
+entrypoint fib :: [Bit 32] ->> [Bit 32]
 fib <-
   k62{}
 
 -----------------------------------------
 -- not recursive
-k60 :: {Word} [Word] ->> [Word]
+k60 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k60{t0} t1 = return t0
 
 -----------------------------------------
 -- not recursive
-k61 :: {} [Word] ->> [[Word] ->> [Word]]
+k61 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k61{} t0 = k60{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint const :: [Word] ->> [[Word] ->> [Word]]
+entrypoint const :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 const <-
   k61{}
 
 -----------------------------------------
 -- not recursive
-b87 :: [Word, Word, Word] >>= [Word]
+b87 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b87[t0, t1, t2] =
   t3 <- add((t1, t2))
   add((t0, t3))
 
 -----------------------------------------
 -- not recursive
-k57 :: {Word, Word} [Word] ->> [Word]
+k57 :: {Bit 32, Bit 32} [Bit 32] ->> [Bit 32]
 k57{t0, t1} t2 = b87[t1, t0, t2]
 
 -----------------------------------------
 -- not recursive
-k58 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k58 :: {Bit 32} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k58{t0} t1 = k57{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k59 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k59 :: {} [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 k59{} t0 = k58{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint add3 :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+entrypoint add3 :: [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 add3 <-
   k59{}
 

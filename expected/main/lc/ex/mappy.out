@@ -4,7 +4,7 @@ data List (a :: *)
 
 -----------------------------------------
 -- not recursive
-entrypoint size :: Word
+entrypoint size :: Bit 32
 size <-
   return 4
 
@@ -16,42 +16,42 @@ Nil <-
 
 -----------------------------------------
 -- not recursive
-s5 :: List Word
+s5 :: List (Bit 32)
 s5 <-
   Cons(16, Nil)
 
 -----------------------------------------
 -- not recursive
-s6 :: List Word
+s6 :: List (Bit 32)
 s6 <-
   Cons(9, s5)
 
 -----------------------------------------
 -- not recursive
-s7 :: List Word
+s7 :: List (Bit 32)
 s7 <-
   Cons(4, s6)
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: List Word
+entrypoint main :: List (Bit 32)
 main <-
   Cons(1, s7)
 
 -----------------------------------------
 -- not recursive
-b79 :: [Word] >>= [Word]
+b79 :: [Bit 32] >>= [Bit 32]
 b79[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b78 :: forall (a :: *). [List a, Word] >>= [Word]
+b78 :: forall (a :: *). [List a, Bit 32] >>= [Bit 32]
 b78[t0, t1] =
   t2 <- Cons 1 t0
   t3 <- add((t1, 1))
   b80[t2, t3]
-b80 :: forall (a :: *). [List a, Word] >>= [Word]
+b80 :: forall (a :: *). [List a, Bit 32] >>= [Bit 32]
 b80[t0, t1] =
   case t0 of
     Nil -> b79[t1]
@@ -59,12 +59,12 @@ b80[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k52 :: forall (a :: *). {Word} [List a] ->> [Word]
+k52 :: forall (a :: *). {Bit 32} [List a] ->> [Bit 32]
 k52{t0} t1 = b80[t1, t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint length :: forall (a :: *). [List a] ->> [Word]
+entrypoint length :: forall (a :: *). [List a] ->> [Bit 32]
 length <-
   k52{0}
 

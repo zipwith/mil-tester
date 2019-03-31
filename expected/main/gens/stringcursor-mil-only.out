@@ -15,7 +15,7 @@ b152[] =
 
 -----------------------------------------
 -- recursive
-b189 :: [Word, Word] >>= [Unit]
+b189 :: [Bit 32, Bit 32] >>= [Unit]
 b189[t0, t1] =
   t2 <- add((t1, 1))
   t3 <- putchar((t0))
@@ -27,7 +27,7 @@ b189[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint puts :: [Word] >>= [Unit]
+entrypoint puts :: [Bit 32] >>= [Unit]
 puts[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))
@@ -37,13 +37,13 @@ puts[t0] =
 
 -----------------------------------------
 -- not recursive
-b101 :: [Word] >>= [Word]
+b101 :: [Bit 32] >>= [Bit 32]
 b101[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b194 :: [Word, Word, Word] >>= [Word]
+b194 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b194[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
@@ -55,7 +55,7 @@ b194[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint length :: [Word] >>= [Word]
+entrypoint length :: [Bit 32] >>= [Bit 32]
 length[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))
@@ -65,7 +65,7 @@ length[t0] =
 
 -----------------------------------------
 -- recursive
-b199 :: [Word, Word, Word] >>= [Word]
+b199 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b199[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
@@ -77,7 +77,7 @@ b199[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint len2 :: [Word] >>= [Word]
+entrypoint len2 :: [Bit 32] >>= [Bit 32]
 len2[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))
@@ -93,11 +93,11 @@ b891[t0] =
 
 -----------------------------------------
 -- recursive
-b204 :: [Word, Word, Unit] >>= [Unit]
+b204 :: [Bit 32, Bit 32, Unit] >>= [Unit]
 b204[t0, t1, t2] =
   t3 <- add((t1, 1))
   b206[t0, t3]
-b206 :: [Word, Word] >>= [Unit]
+b206 :: [Bit 32, Bit 32] >>= [Unit]
 b206[t0, t1] =
   t2 <- putchar((t0))
   t3 <- load8((t1))
@@ -108,14 +108,14 @@ b206[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b209 :: [Word, Word] >>= [Unit]
+b209 :: [Bit 32, Bit 32] >>= [Unit]
 b209[t0, t1] =
   t2 <- add((t1, 1))
   b206[t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint puts2 :: [Word] >>= [Unit]
+entrypoint puts2 :: [Bit 32] >>= [Unit]
 puts2[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))
@@ -125,7 +125,7 @@ puts2[t0] =
 
 -----------------------------------------
 -- recursive
-b212 :: [Word, Word, Word] >>= [Word]
+b212 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b212[t0, t1, t2] =
   t3 <- add((t1, 1))
   t4 <- add((t2, 1))
@@ -137,7 +137,7 @@ b212[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint length1 :: [Word] >>= [Word]
+entrypoint length1 :: [Bit 32] >>= [Bit 32]
 length1[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))

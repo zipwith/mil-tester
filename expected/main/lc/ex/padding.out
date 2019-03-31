@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint sel1 :: [Word, Word] >>= [Word]
+entrypoint sel1 :: [Bit 32, Bit 32] >>= [Bit 32]
 sel1[t0, t1] =
   t2 <- lshr((t0, 31))
   t3 <- shl((t1, 1))
@@ -9,13 +9,13 @@ sel1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sel2 :: [Word, Word] >>= [Word]
+entrypoint sel2 :: [Bit 32, Bit 32] >>= [Bit 32]
 sel2[t0, t1] =
   and((t1, 2147483647))
 
 -----------------------------------------
 -- not recursive
-entrypoint up1 :: [Word, Word, Word] >>= [Word, Word]
+entrypoint up1 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 up1[t0, t1, t2] =
   t3 <- and((t1, 1073741824))
   t4 <- and((t0, 2147483647))
@@ -27,7 +27,7 @@ up1[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint up2 :: [Word, Word, Word] >>= [Word, Word]
+entrypoint up2 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 up2[t0, t1, t2] =
   t3 <- and((t1, -2147483648))
   t4 <- or((t3, t2))
@@ -35,7 +35,7 @@ up2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint aupdX :: [Word, Word] >>= [Word]
+entrypoint aupdX :: [Bit 32, Bit 32] >>= [Bit 32]
 aupdX[t0, t1] =
   t2 <- and((t0, 511))
   t3 <- shl((t1, 9))
@@ -43,7 +43,7 @@ aupdX[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint aupdY :: [Word, Word] >>= [Word]
+entrypoint aupdY :: [Bit 32, Bit 32] >>= [Bit 32]
 aupdY[t0, t1] =
   t2 <- and((t0, 3615))
   t3 <- shl((t1, 5))
@@ -51,14 +51,14 @@ aupdY[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint aupdZ :: [Word, Word] >>= [Word]
+entrypoint aupdZ :: [Bit 32, Bit 32] >>= [Bit 32]
 aupdZ[t0, t1] =
   t2 <- and((t0, 4064))
   or((t2, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint bupdX :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bupdX :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 bupdX[t0, t1, t2] =
   t3 <- and((t1, 131071))
   t4 <- shl((t2, 17))
@@ -67,7 +67,7 @@ bupdX[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bupdY :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bupdY :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 bupdY[t0, t1, t2] =
   t3 <- and((t1, 925695))
   t4 <- shl((t2, 13))
@@ -76,7 +76,7 @@ bupdY[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bupdZ :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bupdZ :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 bupdZ[t0, t1, t2] =
   t3 <- and((t1, 1040639))
   t4 <- shl((t2, 8))

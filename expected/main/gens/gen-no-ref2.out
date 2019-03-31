@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-export external vram :: Word
+export external vram :: Bit 32
 
 -----------------------------------------
 -- Entrypoints: vram

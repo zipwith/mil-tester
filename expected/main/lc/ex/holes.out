@@ -135,29 +135,29 @@ polyfoo <-
 
 -----------------------------------------
 -- not recursive
-b86 :: [Word, Word, Word] >>= [Word]
+b86 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b86[t0, t1, t2] =
   t3 <- add((t0, t1))
   add((t3, t2))
 
 -----------------------------------------
 -- not recursive
-k53 :: {Word, Word} [Word] ->> [Word]
+k53 :: {Bit 32, Bit 32} [Bit 32] ->> [Bit 32]
 k53{t0, t1} t2 = b86[t1, t0, t2]
 
 -----------------------------------------
 -- not recursive
-k54 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k54 :: {Bit 32} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k54{t0} t1 = k53{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k55 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k55 :: {} [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 k55{} t0 = k54{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+entrypoint foo :: [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 foo <-
   k55{}
 

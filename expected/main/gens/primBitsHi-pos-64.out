@@ -27,317 +27,317 @@ flagHi1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi0 :: [Word] >>= [Unit]
+entrypoint byteHi0 :: [Bit 64] >>= [Unit]
 byteHi0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi1 :: [Word] >>= [Bit 1]
+entrypoint byteHi1 :: [Bit 64] >>= [Bit 1]
 byteHi1[t0] =
   t1 <- and((t0, 128))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi2 :: [Word] >>= [Word]
+entrypoint byteHi2 :: [Bit 64] >>= [Bit 64]
 byteHi2[t0] =
   lshr((t0, 6))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi3 :: [Word] >>= [Word]
+entrypoint byteHi3 :: [Bit 64] >>= [Bit 64]
 byteHi3[t0] =
   lshr((t0, 5))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi4 :: [Word] >>= [Word]
+entrypoint byteHi4 :: [Bit 64] >>= [Bit 64]
 byteHi4[t0] =
   lshr((t0, 4))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi5 :: [Word] >>= [Word]
+entrypoint byteHi5 :: [Bit 64] >>= [Bit 64]
 byteHi5[t0] =
   lshr((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi6 :: [Word] >>= [Word]
+entrypoint byteHi6 :: [Bit 64] >>= [Bit 64]
 byteHi6[t0] =
   lshr((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi7 :: [Word] >>= [Word]
+entrypoint byteHi7 :: [Bit 64] >>= [Bit 64]
 byteHi7[t0] =
   lshr((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteHi8 :: [Word] >>= [Word]
+entrypoint byteHi8 :: [Bit 64] >>= [Bit 64]
 byteHi8[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi0 :: [Word] >>= [Unit]
+entrypoint intHi0 :: [Bit 64] >>= [Unit]
 intHi0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi1 :: [Word] >>= [Bit 1]
+entrypoint intHi1 :: [Bit 64] >>= [Bit 1]
 intHi1[t0] =
   t1 <- and((t0, 2147483648))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi2 :: [Word] >>= [Word]
+entrypoint intHi2 :: [Bit 64] >>= [Bit 64]
 intHi2[t0] =
   lshr((t0, 30))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi3 :: [Word] >>= [Word]
+entrypoint intHi3 :: [Bit 64] >>= [Bit 64]
 intHi3[t0] =
   lshr((t0, 29))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi4 :: [Word] >>= [Word]
+entrypoint intHi4 :: [Bit 64] >>= [Bit 64]
 intHi4[t0] =
   lshr((t0, 28))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi5 :: [Word] >>= [Word]
+entrypoint intHi5 :: [Bit 64] >>= [Bit 64]
 intHi5[t0] =
   lshr((t0, 27))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi6 :: [Word] >>= [Word]
+entrypoint intHi6 :: [Bit 64] >>= [Bit 64]
 intHi6[t0] =
   lshr((t0, 26))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi7 :: [Word] >>= [Word]
+entrypoint intHi7 :: [Bit 64] >>= [Bit 64]
 intHi7[t0] =
   lshr((t0, 25))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi8 :: [Word] >>= [Word]
+entrypoint intHi8 :: [Bit 64] >>= [Bit 64]
 intHi8[t0] =
   lshr((t0, 24))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi30 :: [Word] >>= [Word]
+entrypoint intHi30 :: [Bit 64] >>= [Bit 64]
 intHi30[t0] =
   lshr((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi31 :: [Word] >>= [Word]
+entrypoint intHi31 :: [Bit 64] >>= [Bit 64]
 intHi31[t0] =
   lshr((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint intHi32 :: [Word] >>= [Word]
+entrypoint intHi32 :: [Bit 64] >>= [Bit 64]
 intHi32[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi0 :: [Word] >>= [Unit]
+entrypoint midHi0 :: [Bit 64] >>= [Unit]
 midHi0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi1 :: [Word] >>= [Bit 1]
+entrypoint midHi1 :: [Bit 64] >>= [Bit 1]
 midHi1[t0] =
   t1 <- and((t0, 140737488355328))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi2 :: [Word] >>= [Word]
+entrypoint midHi2 :: [Bit 64] >>= [Bit 64]
 midHi2[t0] =
   lshr((t0, 46))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi4 :: [Word] >>= [Word]
+entrypoint midHi4 :: [Bit 64] >>= [Bit 64]
 midHi4[t0] =
   lshr((t0, 44))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi9 :: [Word] >>= [Word]
+entrypoint midHi9 :: [Bit 64] >>= [Bit 64]
 midHi9[t0] =
   lshr((t0, 39))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi16 :: [Word] >>= [Word]
+entrypoint midHi16 :: [Bit 64] >>= [Bit 64]
 midHi16[t0] =
   lshr((t0, 32))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi17 :: [Word] >>= [Word]
+entrypoint midHi17 :: [Bit 64] >>= [Bit 64]
 midHi17[t0] =
   lshr((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi18 :: [Word] >>= [Word]
+entrypoint midHi18 :: [Bit 64] >>= [Bit 64]
 midHi18[t0] =
   lshr((t0, 30))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi24 :: [Word] >>= [Word]
+entrypoint midHi24 :: [Bit 64] >>= [Bit 64]
 midHi24[t0] =
   lshr((t0, 24))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi32 :: [Word] >>= [Word]
+entrypoint midHi32 :: [Bit 64] >>= [Bit 64]
 midHi32[t0] =
   lshr((t0, 16))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi40 :: [Word] >>= [Word]
+entrypoint midHi40 :: [Bit 64] >>= [Bit 64]
 midHi40[t0] =
   lshr((t0, 8))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi47 :: [Word] >>= [Word]
+entrypoint midHi47 :: [Bit 64] >>= [Bit 64]
 midHi47[t0] =
   lshr((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint midHi48 :: [Word] >>= [Word]
+entrypoint midHi48 :: [Bit 64] >>= [Bit 64]
 midHi48[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi0 :: [Word] >>= [Unit]
+entrypoint longHi0 :: [Bit 64] >>= [Unit]
 longHi0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi1 :: [Word] >>= [Bit 1]
+entrypoint longHi1 :: [Bit 64] >>= [Bit 1]
 longHi1[t0] =
   t1 <- and((t0, -9223372036854775808))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi2 :: [Word] >>= [Word]
+entrypoint longHi2 :: [Bit 64] >>= [Bit 64]
 longHi2[t0] =
   lshr((t0, 62))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi4 :: [Word] >>= [Word]
+entrypoint longHi4 :: [Bit 64] >>= [Bit 64]
 longHi4[t0] =
   lshr((t0, 60))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi9 :: [Word] >>= [Word]
+entrypoint longHi9 :: [Bit 64] >>= [Bit 64]
 longHi9[t0] =
   lshr((t0, 55))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi16 :: [Word] >>= [Word]
+entrypoint longHi16 :: [Bit 64] >>= [Bit 64]
 longHi16[t0] =
   lshr((t0, 48))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi17 :: [Word] >>= [Word]
+entrypoint longHi17 :: [Bit 64] >>= [Bit 64]
 longHi17[t0] =
   lshr((t0, 47))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi18 :: [Word] >>= [Word]
+entrypoint longHi18 :: [Bit 64] >>= [Bit 64]
 longHi18[t0] =
   lshr((t0, 46))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi24 :: [Word] >>= [Word]
+entrypoint longHi24 :: [Bit 64] >>= [Bit 64]
 longHi24[t0] =
   lshr((t0, 40))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi32 :: [Word] >>= [Word]
+entrypoint longHi32 :: [Bit 64] >>= [Bit 64]
 longHi32[t0] =
   lshr((t0, 32))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi40 :: [Word] >>= [Word]
+entrypoint longHi40 :: [Bit 64] >>= [Bit 64]
 longHi40[t0] =
   lshr((t0, 24))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi47 :: [Word] >>= [Word]
+entrypoint longHi47 :: [Bit 64] >>= [Bit 64]
 longHi47[t0] =
   lshr((t0, 17))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi48 :: [Word] >>= [Word]
+entrypoint longHi48 :: [Bit 64] >>= [Bit 64]
 longHi48[t0] =
   lshr((t0, 16))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi54 :: [Word] >>= [Word]
+entrypoint longHi54 :: [Bit 64] >>= [Bit 64]
 longHi54[t0] =
   lshr((t0, 10))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi60 :: [Word] >>= [Word]
+entrypoint longHi60 :: [Bit 64] >>= [Bit 64]
 longHi60[t0] =
   lshr((t0, 4))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi62 :: [Word] >>= [Word]
+entrypoint longHi62 :: [Bit 64] >>= [Bit 64]
 longHi62[t0] =
   lshr((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi63 :: [Word] >>= [Word]
+entrypoint longHi63 :: [Bit 64] >>= [Bit 64]
 longHi63[t0] =
   lshr((t0, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint longHi64 :: [Word] >>= [Word]
+entrypoint longHi64 :: [Bit 64] >>= [Bit 64]
 longHi64[t0] =
   return t0
 

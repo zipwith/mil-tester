@@ -6,84 +6,84 @@ data Pair (a :: *) (b :: *)
 
 -----------------------------------------
 -- not recursive
-k103 :: forall (a :: *). {} [a] ->> [Word]
+k103 :: forall (a :: *). {} [a] ->> [Bit 32]
 k103{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
-s9 :: forall (a :: *). [a] ->> [Word]
+s9 :: forall (a :: *). [a] ->> [Bit 32]
 s9 <-
   k103{}
 
 -----------------------------------------
 -- not recursive
-k117 :: forall (a :: *). {} [Word] ->> [[a] ->> [Word]]
+k117 :: forall (a :: *). {} [Bit 32] ->> [[a] ->> [Bit 32]]
 k117{} t0 = return s9
 
 -----------------------------------------
 -- not recursive
-s10 :: forall (a :: *). [Word] ->> [[a] ->> [Word]]
+s10 :: forall (a :: *). [Bit 32] ->> [[a] ->> [Bit 32]]
 s10 <-
   k117{}
 
 -----------------------------------------
 -- not recursive
-k118 :: forall (a :: *). {} [Word] ->> [[Word] ->> [[a] ->> [Word]]]
+k118 :: forall (a :: *). {} [Bit 32] ->> [[Bit 32] ->> [[a] ->> [Bit 32]]]
 k118{} t0 = return s10
 
 -----------------------------------------
 -- not recursive
-entrypoint m :: forall (a :: *). [Word] ->> [[Word] ->> [[a] ->> [Word]]]
+entrypoint m :: forall (a :: *). [Bit 32] ->> [[Bit 32] ->> [[a] ->> [Bit 32]]]
 m <-
   k118{}
 
 -----------------------------------------
 -- not recursive
-k97 :: forall (a :: *). {} [Word] ->> [a]
+k97 :: forall (a :: *). {} [Bit 32] ->> [a]
 k97{} t0 = loop(())
 
 -----------------------------------------
 -- not recursive
-s6 :: forall (a :: *). [Word] ->> [a]
+s6 :: forall (a :: *). [Bit 32] ->> [a]
 s6 <-
   k97{}
 
 -----------------------------------------
 -- not recursive
-k114 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [b]]
+k114 :: forall (a :: *) (b :: *). {} [a] ->> [[Bit 32] ->> [b]]
 k114{} t0 = return s6
 
 -----------------------------------------
 -- not recursive
-s7 :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [b]]
+s7 :: forall (a :: *) (b :: *). [a] ->> [[Bit 32] ->> [b]]
 s7 <-
   k114{}
 
 -----------------------------------------
 -- not recursive
-k115 :: forall (a :: *) (b :: *). {} [Word] ->> [[a] ->> [[Word] ->> [b]]]
+k115 :: forall (a :: *) (b :: *). {} [Bit 32] ->> [[a] ->> [[Bit 32] ->> [b]]]
 k115{} t0 = return s7
 
 -----------------------------------------
 -- not recursive
-s8 :: forall (a :: *) (b :: *). [Word] ->> [[a] ->> [[Word] ->> [b]]]
+s8 :: forall (a :: *) (b :: *). [Bit 32] ->> [[a] ->> [[Bit 32] ->> [b]]]
 s8 <-
   k115{}
 
 -----------------------------------------
 -- not recursive
-k116 :: forall (a :: *) (b :: *). {} [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
+k116 :: forall (a :: *) (b :: *). {} [a] ->> [[Bit 32] ->> [[b] ->> [[Bit 32] ->> [a]]]]
 k116{} t0 = return s8
 
 -----------------------------------------
 -- not recursive
-entrypoint l :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
+entrypoint l :: forall (a :: *) (b :: *). [a] ->> [[Bit 32] ->> [[b] ->> [[Bit 32] ->> [a]]]]
 l <-
   k116{}
 
 -----------------------------------------
 -- not recursive
-entrypoint k :: forall (a :: *) (b :: *). [a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]
+entrypoint k :: forall (a :: *) (b :: *). [a] ->> [[Bit 32] ->> [[b] ->> [[Bit 32] ->> [a]]]]
 k <-
   k116{}
 
@@ -106,35 +106,35 @@ s18 <-
 
 -----------------------------------------
 -- not recursive
-k110 :: {} [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
+k110 :: {} [Bit 32] ->> [Pair ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])]
 k110{} t0 = return s18
 
 -----------------------------------------
 -- not recursive
-entrypoint j :: [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
+entrypoint j :: [Bit 32] ->> [Pair ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])]
 j <-
   k110{}
 
 -----------------------------------------
 -- not recursive
-entrypoint h :: [Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]
+entrypoint h :: [Bit 32] ->> [Pair ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])]
 h <-
   k110{}
 
 -----------------------------------------
 -- not recursive
-k107 :: {} [Word] ->> [Word]
+k107 :: {} [Bit 32] ->> [Bit 32]
 k107{} t0 = mul((t0, 2))
 
 -----------------------------------------
 -- not recursive
-entrypoint f :: [Word] ->> [Word]
+entrypoint f :: [Bit 32] ->> [Bit 32]
 f <-
   k107{}
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: forall (a :: *) (b :: *) (c :: *) (d :: *) (e :: *). EntryPoints ([Word] ->> [Word]) ([Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]) ([Word] ->> [Pair ([Word] ->> [Word]) ([Word] ->> [Word])]) ([a] ->> [[Word] ->> [[b] ->> [[Word] ->> [a]]]]) ([c] ->> [[Word] ->> [[d] ->> [[Word] ->> [c]]]]) ([Word] ->> [[Word] ->> [[e] ->> [Word]]])
+entrypoint main :: forall (a :: *) (b :: *) (c :: *) (d :: *) (e :: *). EntryPoints ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Pair ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])]) ([Bit 32] ->> [Pair ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])]) ([a] ->> [[Bit 32] ->> [[b] ->> [[Bit 32] ->> [a]]]]) ([c] ->> [[Bit 32] ->> [[d] ->> [[Bit 32] ->> [c]]]]) ([Bit 32] ->> [[Bit 32] ->> [[e] ->> [Bit 32]]])
 main <-
   EntryPoints(f, h, j, k, l, m)
 

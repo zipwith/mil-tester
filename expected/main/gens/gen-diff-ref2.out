@@ -1,10 +1,10 @@
 -----------------------------------------
 -- not recursive
-external videoRam :: Word
+external videoRam :: Bit 32
 
 -----------------------------------------
 -- not recursive
-entrypoint vram :: Word
+entrypoint vram :: Bit 32
 vram <-
   return videoRam
 

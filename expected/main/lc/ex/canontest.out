@@ -1,15 +1,15 @@
 data Foo0
-  = MkFoo0 ([Word] ->> [Word])
+  = MkFoo0 ([Bit 32] ->> [Bit 32])
   | MkBar1
 
 -----------------------------------------
 -- not recursive
-k6 :: {} [Word] ->> [Word]
+k6 :: {} [Bit 32] ->> [Bit 32]
 k6{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
-s1 :: [Word] ->> [Word]
+s1 :: [Bit 32] ->> [Bit 32]
 s1 <-
   k6{}
 
@@ -21,7 +21,7 @@ newtypeComponent <-
 
 -----------------------------------------
 -- not recursive
-entrypoint phantom :: Word
+entrypoint phantom :: Bit 32
 phantom <-
   return 23
 

@@ -1,12 +1,12 @@
 data Dup5
-  = Dup5 Word Word
+  = Dup5 (Bit 32) (Bit 32)
 
 data Quad6
-  = Quad6 Word Word Word Word
+  = Quad6 (Bit 32) (Bit 32) (Bit 32) (Bit 32)
 
 -----------------------------------------
 -- not recursive
-entrypoint swap7 :: [Word] >>= [Word]
+entrypoint swap7 :: [Bit 32] >>= [Bit 32]
 swap7[t0] =
   t1 <- lshr((t0, 7))
   t2 <- shl((t0, 7))
@@ -15,7 +15,7 @@ swap7[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint swap8 :: [Word] >>= [Word]
+entrypoint swap8 :: [Bit 32] >>= [Bit 32]
 swap8[t0] =
   t1 <- lshr((t0, 8))
   t2 <- shl((t0, 8))
@@ -24,19 +24,19 @@ swap8[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint d1 :: Word
+entrypoint d1 :: Bit 32
 d1 <-
   return 14
 
 -----------------------------------------
 -- not recursive
-entrypoint f1 :: Word
+entrypoint f1 :: Bit 32
 f1 <-
   return 910
 
 -----------------------------------------
 -- not recursive
-entrypoint f2 :: Word
+entrypoint f2 :: Bit 32
 f2 <-
   return 3728270
 

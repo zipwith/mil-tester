@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-entrypoint mkU :: [Word] >>= [Word]
+entrypoint mkU :: [Bit 32] >>= [Bit 32]
 mkU[t0] =
   shl((t0, 4))
 
 -----------------------------------------
 -- not recursive
-entrypoint getU :: [Word] >>= [Word]
+entrypoint getU :: [Bit 32] >>= [Bit 32]
 getU[t0] =
   lshr((t0, 4))
 
 -----------------------------------------
 -- not recursive
-entrypoint updU :: [Word, Word] >>= [Word]
+entrypoint updU :: [Bit 32, Bit 32] >>= [Bit 32]
 updU[t0, t1] =
   shl((t1, 4))
 

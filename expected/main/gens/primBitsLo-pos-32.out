@@ -27,326 +27,326 @@ flagLo1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo0 :: [Word] >>= [Unit]
+entrypoint byteLo0 :: [Bit 32] >>= [Unit]
 byteLo0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo1 :: [Word] >>= [Bit 1]
+entrypoint byteLo1 :: [Bit 32] >>= [Bit 1]
 byteLo1[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo2 :: [Word] >>= [Word]
+entrypoint byteLo2 :: [Bit 32] >>= [Bit 32]
 byteLo2[t0] =
   and((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo3 :: [Word] >>= [Word]
+entrypoint byteLo3 :: [Bit 32] >>= [Bit 32]
 byteLo3[t0] =
   and((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo4 :: [Word] >>= [Word]
+entrypoint byteLo4 :: [Bit 32] >>= [Bit 32]
 byteLo4[t0] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo5 :: [Word] >>= [Word]
+entrypoint byteLo5 :: [Bit 32] >>= [Bit 32]
 byteLo5[t0] =
   and((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo6 :: [Word] >>= [Word]
+entrypoint byteLo6 :: [Bit 32] >>= [Bit 32]
 byteLo6[t0] =
   and((t0, 63))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo7 :: [Word] >>= [Word]
+entrypoint byteLo7 :: [Bit 32] >>= [Bit 32]
 byteLo7[t0] =
   and((t0, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteLo8 :: [Word] >>= [Word]
+entrypoint byteLo8 :: [Bit 32] >>= [Bit 32]
 byteLo8[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo0 :: [Word] >>= [Unit]
+entrypoint intLo0 :: [Bit 32] >>= [Unit]
 intLo0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo1 :: [Word] >>= [Bit 1]
+entrypoint intLo1 :: [Bit 32] >>= [Bit 1]
 intLo1[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo2 :: [Word] >>= [Word]
+entrypoint intLo2 :: [Bit 32] >>= [Bit 32]
 intLo2[t0] =
   and((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo3 :: [Word] >>= [Word]
+entrypoint intLo3 :: [Bit 32] >>= [Bit 32]
 intLo3[t0] =
   and((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo4 :: [Word] >>= [Word]
+entrypoint intLo4 :: [Bit 32] >>= [Bit 32]
 intLo4[t0] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo5 :: [Word] >>= [Word]
+entrypoint intLo5 :: [Bit 32] >>= [Bit 32]
 intLo5[t0] =
   and((t0, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo6 :: [Word] >>= [Word]
+entrypoint intLo6 :: [Bit 32] >>= [Bit 32]
 intLo6[t0] =
   and((t0, 63))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo7 :: [Word] >>= [Word]
+entrypoint intLo7 :: [Bit 32] >>= [Bit 32]
 intLo7[t0] =
   and((t0, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo8 :: [Word] >>= [Word]
+entrypoint intLo8 :: [Bit 32] >>= [Bit 32]
 intLo8[t0] =
   and((t0, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo30 :: [Word] >>= [Word]
+entrypoint intLo30 :: [Bit 32] >>= [Bit 32]
 intLo30[t0] =
   and((t0, 1073741823))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo31 :: [Word] >>= [Word]
+entrypoint intLo31 :: [Bit 32] >>= [Bit 32]
 intLo31[t0] =
   and((t0, 2147483647))
 
 -----------------------------------------
 -- not recursive
-entrypoint intLo32 :: [Word] >>= [Word]
+entrypoint intLo32 :: [Bit 32] >>= [Bit 32]
 intLo32[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo0 :: [Word, Word] >>= [Unit]
+entrypoint midLo0 :: [Bit 32, Bit 32] >>= [Unit]
 midLo0[t0, t1] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo1 :: [Word, Word] >>= [Bit 1]
+entrypoint midLo1 :: [Bit 32, Bit 32] >>= [Bit 1]
 midLo1[t0, t1] =
   t2 <- and((t0, 1))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo2 :: [Word, Word] >>= [Word]
+entrypoint midLo2 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo2[t0, t1] =
   and((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo4 :: [Word, Word] >>= [Word]
+entrypoint midLo4 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo4[t0, t1] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo9 :: [Word, Word] >>= [Word]
+entrypoint midLo9 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo9[t0, t1] =
   and((t0, 511))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo16 :: [Word, Word] >>= [Word]
+entrypoint midLo16 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo16[t0, t1] =
   and((t0, 65535))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo17 :: [Word, Word] >>= [Word]
+entrypoint midLo17 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo17[t0, t1] =
   and((t0, 131071))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo18 :: [Word, Word] >>= [Word]
+entrypoint midLo18 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo18[t0, t1] =
   and((t0, 262143))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo24 :: [Word, Word] >>= [Word]
+entrypoint midLo24 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo24[t0, t1] =
   and((t0, 16777215))
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo32 :: [Word, Word] >>= [Word]
+entrypoint midLo32 :: [Bit 32, Bit 32] >>= [Bit 32]
 midLo32[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo40 :: [Word, Word] >>= [Word, Word]
+entrypoint midLo40 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 midLo40[t0, t1] =
   t2 <- and((t1, 255))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo47 :: [Word, Word] >>= [Word, Word]
+entrypoint midLo47 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 midLo47[t0, t1] =
   t2 <- and((t1, 32767))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint midLo48 :: [Word, Word] >>= [Word, Word]
+entrypoint midLo48 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 midLo48[t0, t1] =
   return [t0, t1]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo0 :: [Word, Word] >>= [Unit]
+entrypoint longLo0 :: [Bit 32, Bit 32] >>= [Unit]
 longLo0[t0, t1] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo1 :: [Word, Word] >>= [Bit 1]
+entrypoint longLo1 :: [Bit 32, Bit 32] >>= [Bit 1]
 longLo1[t0, t1] =
   t2 <- and((t0, 1))
   primNeq((t2, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo2 :: [Word, Word] >>= [Word]
+entrypoint longLo2 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo2[t0, t1] =
   and((t0, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo4 :: [Word, Word] >>= [Word]
+entrypoint longLo4 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo4[t0, t1] =
   and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo9 :: [Word, Word] >>= [Word]
+entrypoint longLo9 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo9[t0, t1] =
   and((t0, 511))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo16 :: [Word, Word] >>= [Word]
+entrypoint longLo16 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo16[t0, t1] =
   and((t0, 65535))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo17 :: [Word, Word] >>= [Word]
+entrypoint longLo17 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo17[t0, t1] =
   and((t0, 131071))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo18 :: [Word, Word] >>= [Word]
+entrypoint longLo18 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo18[t0, t1] =
   and((t0, 262143))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo24 :: [Word, Word] >>= [Word]
+entrypoint longLo24 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo24[t0, t1] =
   and((t0, 16777215))
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo32 :: [Word, Word] >>= [Word]
+entrypoint longLo32 :: [Bit 32, Bit 32] >>= [Bit 32]
 longLo32[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo40 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo40 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo40[t0, t1] =
   t2 <- and((t1, 255))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo47 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo47 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo47[t0, t1] =
   t2 <- and((t1, 32767))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo48 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo48 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo48[t0, t1] =
   t2 <- and((t1, 65535))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo54 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo54 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo54[t0, t1] =
   t2 <- and((t1, 4194303))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo60 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo60 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo60[t0, t1] =
   t2 <- and((t1, 268435455))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo62 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo62 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo62[t0, t1] =
   t2 <- and((t1, 1073741823))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo63 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo63 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo63[t0, t1] =
   t2 <- and((t1, 2147483647))
   return [t0, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint longLo64 :: [Word, Word] >>= [Word, Word]
+entrypoint longLo64 :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
 longLo64[t0, t1] =
   return [t0, t1]
 

@@ -1,8 +1,8 @@
 struct S / 16
-  [ x :: Stored Word  {- offset=0 -}
-  | y :: Stored Word  {- offset=4 -}
-  | z :: Stored Word  {- offset=8 -}
-  | t :: Stored Word  {- offset=12 -} ]
+  [ x :: Stored (Bit 32)  {- offset=0 -}
+  | y :: Stored (Bit 32)  {- offset=4 -}
+  | z :: Stored (Bit 32)  {- offset=8 -}
+  | t :: Stored (Bit 32)  {- offset=12 -} ]
   aligned 4
 
 data Unit
@@ -10,7 +10,7 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint init :: [Word] >>= [Unit]
+entrypoint init :: [Bit 32] >>= [Unit]
 init[t0] =
   t1 <- store32((t0, 10))
   t2 <- add((t0, 4))
@@ -22,66 +22,66 @@ init[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint readX :: [Word] >>= [Word]
+entrypoint readX :: [Bit 32] >>= [Bit 32]
 readX[t0] =
   load32((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint readY :: [Word] >>= [Word]
+entrypoint readY :: [Bit 32] >>= [Bit 32]
 readY[t0] =
   t1 <- add((t0, 4))
   load32((t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint readZ :: [Word] >>= [Word]
+entrypoint readZ :: [Bit 32] >>= [Bit 32]
 readZ[t0] =
   t1 <- add((t0, 8))
   load32((t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint readT :: [Word] >>= [Word]
+entrypoint readT :: [Bit 32] >>= [Bit 32]
 readT[t0] =
   t1 <- add((t0, 12))
   load32((t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeX :: [Word, Word] >>= [Unit]
+entrypoint writeX :: [Bit 32, Bit 32] >>= [Unit]
 writeX[t0, t1] =
   store32((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeY :: [Word, Word] >>= [Unit]
+entrypoint writeY :: [Bit 32, Bit 32] >>= [Unit]
 writeY[t0, t1] =
   t2 <- add((t0, 4))
   store32((t2, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeZ :: [Word, Word] >>= [Unit]
+entrypoint writeZ :: [Bit 32, Bit 32] >>= [Unit]
 writeZ[t0, t1] =
   t2 <- add((t0, 8))
   store32((t2, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeT :: [Word, Word] >>= [Unit]
+entrypoint writeT :: [Bit 32, Bit 32] >>= [Unit]
 writeT[t0, t1] =
   t2 <- add((t0, 12))
   store32((t2, t1))
 
 -----------------------------------------
 -- not recursive
-s1 :: Word
+s1 :: Bit 32
 s1 <- area S aligned 16
 
 -----------------------------------------
 -- not recursive
-s2 :: Word
+s2 :: Bit 32
 s2 <- area S aligned 16
 
 -----------------------------------------
@@ -132,7 +132,7 @@ main[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint display :: [Word] >>= [Unit]
+entrypoint display :: [Bit 32] >>= [Unit]
 display[t0] =
   t1 <- load32((t0))
   [] <- printWord((t1))

@@ -3,37 +3,37 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord0 :: [Unit] >>= [Word]
+entrypoint toWord0 :: [Unit] >>= [Bit 32]
 toWord0[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord1 :: [Bit 1] >>= [Word]
+entrypoint toWord1 :: [Bit 1] >>= [Bit 32]
 toWord1[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord2 :: [Word] >>= [Word]
+entrypoint toWord2 :: [Bit 32] >>= [Bit 32]
 toWord2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord12 :: [Word] >>= [Word]
+entrypoint toWord12 :: [Bit 32] >>= [Bit 32]
 toWord12[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord31 :: [Word] >>= [Word]
+entrypoint toWord31 :: [Bit 32] >>= [Bit 32]
 toWord31[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint toWord32 :: [Word] >>= [Word]
+entrypoint toWord32 :: [Bit 32] >>= [Bit 32]
 toWord32[t0] =
   return t0
 

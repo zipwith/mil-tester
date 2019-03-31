@@ -6,15 +6,15 @@ data Dup3
   = Dup5 Either2 Either2
 
 data Dup4
-  = Dup6 Word Word
+  = Dup6 (Bit 32) (Bit 32)
 
 data Either2
-  = Left3 Word
-  | Right4 Word
+  = Left3 (Bit 32)
+  | Right4 (Bit 32)
 
 data Maybe1
   = Nothing1
-  | Just2 Word
+  | Just2 (Bit 32)
 
 data Rainbow
   = Red
@@ -94,40 +94,40 @@ flag <-
 
 -----------------------------------------
 -- not recursive
-entrypoint wide :: Word
-entrypoint wide1 :: Word
+entrypoint wide :: Bit 32
+entrypoint wide1 :: Bit 32
 [wide,wide1] <-
   return [-1985229329, 19088743]
 
 -----------------------------------------
 -- not recursive
-entrypoint add3 :: [Word, Word, Word] >>= [Word]
+entrypoint add3 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 add3[t0, t1, t2] =
   t3 <- add((t1, t2))
   add((t0, t3))
 
 -----------------------------------------
 -- not recursive
-entrypoint const :: [Word, Word] >>= [Word]
+entrypoint const :: [Bit 32, Bit 32] >>= [Bit 32]
 const[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b96 :: [Word] >>= [Word]
+b96 :: [Bit 32] >>= [Bit 32]
 b96[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b95 :: [Word] >>= [Word]
+b95 :: [Bit 32] >>= [Bit 32]
 b95[t0] =
   t1 <- add((t0, -1))
   t2 <- b114[t1, 2]
   t3 <- add((t0, -2))
   t4 <- b114[t3, 2]
   add((t2, t4))
-b114 :: [Word, Word] >>= [Word]
+b114 :: [Bit 32, Bit 32] >>= [Bit 32]
 b114[t0, t1] =
   t2 <- primSlt((t0, t1))
   if t2
@@ -136,7 +136,7 @@ b114[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint fib :: [Word] >>= [Word]
+entrypoint fib :: [Bit 32] >>= [Bit 32]
 fib[t0] =
   b114[t0, 2]
 

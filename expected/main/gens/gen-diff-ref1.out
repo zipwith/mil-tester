@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint putchar :: [Word] >>= [Unit]
+entrypoint putchar :: [Bit 32] >>= [Unit]
 putchar[t0] =
   putChar((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint getchar :: [] >>= [Word]
+entrypoint getchar :: [] >>= [Bit 32]
 getchar[] =
   getChar(())
 

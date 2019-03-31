@@ -11,12 +11,12 @@ No generated implementation: primInitArray requires (at least) 2 arguments
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 14
 external ia3W {primInitArray 3 W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
          ^
-No generated implementation: Argument 2 (Word) does not have expected kind (area)
+No generated implementation: Argument 2 (Bit 32) does not have expected kind (area)
 
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 15
 external iaWW {primInitArray W W} :: (Ix 3 -> Init SW) -> Init (Array 3 SW)
          ^
-No generated implementation: Argument 1 (Word) does not have expected kind (nat)
+No generated implementation: Argument 1 (Bit 32) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primInitArray-neg-32.lc", line 18
 external ia3S {primInitArray 3 S} :: (Ix 3 -> Init S) -> Init (Array 3 S)

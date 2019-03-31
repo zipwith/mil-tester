@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-b117 :: [Word] >>= [Unit]
+b117 :: [Bit 32] >>= [Unit]
 b117[t0] =
   showDecimal((t0))
 
 -----------------------------------------
 -- not recursive
-b74 :: [Word, Word, Word] >>= [Unit]
+b74 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b74[t0, t1, t2] =
   t3 <- ashr((t0, t1))
   t4 <- showDecimal((t3))
@@ -17,7 +17,7 @@ b74[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b116 :: [Word, Word, Word] >>= [Unit]
+b116 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b116[t0, t1, t2] =
   t3 <- ashr((t2, t1))
   t4 <- shl((t3, t1))
@@ -28,7 +28,7 @@ b116[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b115 :: [Word, Word, Word, Word, Word] >>= [Unit]
+b115 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b115[t0, t1, t2, t3, t4] =
   t5 <- ashr((t4, t3))
   t6 <- shl((t5, t3))
@@ -39,7 +39,7 @@ b115[t0, t1, t2, t3, t4] =
 
 -----------------------------------------
 -- not recursive
-entrypoint showSize :: [Word] >>= [Unit]
+entrypoint showSize :: [Bit 32] >>= [Unit]
 showSize[t0] =
   t1 <- ashr((t0, 30))
   t2 <- shl((t1, 30))

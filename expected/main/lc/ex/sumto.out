@@ -1,12 +1,12 @@
 -----------------------------------------
 -- not recursive
-b101 :: [Word] >>= [Word]
+b101 :: [Bit 32] >>= [Bit 32]
 b101[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b100 :: [Word, Word] >>= [Word]
+b100 :: [Bit 32, Bit 32] >>= [Bit 32]
 b100[t0, t1] =
   t2 <- add((t0, t1))
   t3 <- add((t1, -1))
@@ -17,7 +17,7 @@ b100[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word] >>= [Word]
+entrypoint main :: [Bit 32] >>= [Bit 32]
 main[t0] =
   t1 <- primEq((t0, 0))
   if t1

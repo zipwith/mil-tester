@@ -1,34 +1,34 @@
 -----------------------------------------
 -- not recursive
-entrypoint cat_2_2 :: [Word, Word] >>= [Word]
+entrypoint cat_2_2 :: [Bit 64, Bit 64] >>= [Bit 64]
 cat_2_2[t0, t1] =
   t2 <- shl((t0, 2))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_12_12 :: [Word, Word] >>= [Word]
+entrypoint cat_12_12 :: [Bit 64, Bit 64] >>= [Bit 64]
 cat_12_12[t0, t1] =
   t2 <- shl((t0, 12))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_16_16 :: [Word, Word] >>= [Word]
+entrypoint cat_16_16 :: [Bit 64, Bit 64] >>= [Bit 64]
 cat_16_16[t0, t1] =
   t2 <- shl((t0, 16))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_32_16 :: [Word, Word] >>= [Word]
+entrypoint cat_32_16 :: [Bit 64, Bit 64] >>= [Bit 64]
 cat_32_16[t0, t1] =
   t2 <- shl((t0, 16))
   or((t1, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint cat_32_32 :: [Word, Word] >>= [Word]
+entrypoint cat_32_32 :: [Bit 64, Bit 64] >>= [Bit 64]
 cat_32_32[t0, t1] =
   t2 <- shl((t0, 32))
   or((t1, t2))

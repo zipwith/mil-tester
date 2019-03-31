@@ -9,13 +9,13 @@ ix1ToBit1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1ToBit2 :: [Unit] >>= [Word]
+entrypoint ix1ToBit2 :: [Unit] >>= [Bit 32]
 ix1ToBit2[t0] =
   return 0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1ToBit3 :: [Unit] >>= [Word]
+entrypoint ix1ToBit3 :: [Unit] >>= [Bit 32]
 ix1ToBit3[t0] =
   return 0
 
@@ -27,103 +27,103 @@ ix2ToBit1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2ToBit2 :: [Bit 1] >>= [Word]
+entrypoint ix2ToBit2 :: [Bit 1] >>= [Bit 32]
 ix2ToBit2[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint ix2ToBit3 :: [Bit 1] >>= [Word]
+entrypoint ix2ToBit3 :: [Bit 1] >>= [Bit 32]
 ix2ToBit3[t0] =
   flagToWord((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint ix4ToBit2 :: [Word] >>= [Word]
+entrypoint ix4ToBit2 :: [Bit 32] >>= [Bit 32]
 ix4ToBit2[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix4ToBit10 :: [Word] >>= [Word]
+entrypoint ix4ToBit10 :: [Bit 32] >>= [Bit 32]
 ix4ToBit10[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix257ToBit9 :: [Word] >>= [Word]
+entrypoint ix257ToBit9 :: [Bit 32] >>= [Bit 32]
 ix257ToBit9[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix257ToBit11 :: [Word] >>= [Word]
+entrypoint ix257ToBit11 :: [Bit 32] >>= [Bit 32]
 ix257ToBit11[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1000ToBit10 :: [Word] >>= [Word]
+entrypoint ix1000ToBit10 :: [Bit 32] >>= [Bit 32]
 ix1000ToBit10[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1000ToBit12 :: [Word] >>= [Word]
+entrypoint ix1000ToBit12 :: [Bit 32] >>= [Bit 32]
 ix1000ToBit12[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1MToBit20 :: [Word] >>= [Word]
+entrypoint ix1MToBit20 :: [Bit 32] >>= [Bit 32]
 ix1MToBit20[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1MToBit32 :: [Word] >>= [Word]
+entrypoint ix1MToBit32 :: [Bit 32] >>= [Bit 32]
 ix1MToBit32[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix511ToBit9 :: [Word] >>= [Word]
+entrypoint ix511ToBit9 :: [Bit 32] >>= [Bit 32]
 ix511ToBit9[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix512ToBit9 :: [Word] >>= [Word]
+entrypoint ix512ToBit9 :: [Bit 32] >>= [Bit 32]
 ix512ToBit9[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint ix4ToBit33 :: [Word] >>= [Word, Word]
+entrypoint ix4ToBit33 :: [Bit 32] >>= [Bit 32, Bit 32]
 ix4ToBit33[t0] =
   return [t0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint ix4ToBit64 :: [Word] >>= [Word, Word]
+entrypoint ix4ToBit64 :: [Bit 32] >>= [Bit 32, Bit 32]
 ix4ToBit64[t0] =
   return [t0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint ix257ToBit72 :: [Word] >>= [Word, Word, Word]
+entrypoint ix257ToBit72 :: [Bit 32] >>= [Bit 32, Bit 32, Bit 32]
 ix257ToBit72[t0] =
   return [t0, 0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint ix257ToBit96 :: [Word] >>= [Word, Word, Word]
+entrypoint ix257ToBit96 :: [Bit 32] >>= [Bit 32, Bit 32, Bit 32]
 ix257ToBit96[t0] =
   return [t0, 0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1MToBit208 :: [Word] >>= [Word, Word, Word, Word, Word, Word, Word]
+entrypoint ix1MToBit208 :: [Bit 32] >>= [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32]
 ix1MToBit208[t0] =
   return [t0, 0, 0, 0, 0, 0, 0]
 

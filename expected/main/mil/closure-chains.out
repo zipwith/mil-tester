@@ -6,73 +6,73 @@ data Proc (a :: *)
 
 -----------------------------------------
 -- not recursive
-k5 :: {Word, Word} [] ->> [Word]
+k5 :: {Bit 32, Bit 32} [] ->> [Bit 32]
 k5{t0, t1} [] = foo1((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b6 :: [Word, Word] >>= [Proc Word]
+b6 :: [Bit 32, Bit 32] >>= [Proc (Bit 32)]
 b6[t0, t1] =
   t2 <- k5{t0, t1}
   Proc(t2)
 
 -----------------------------------------
 -- not recursive
-k6 :: {Word} [Word] ->> [Proc Word]
+k6 :: {Bit 32} [Bit 32] ->> [Proc (Bit 32)]
 k6{t0} t1 = b6[t0, t1]
 
 -----------------------------------------
 -- not recursive
-b7 :: [Word] >>= [Word -> Proc Word]
+b7 :: [Bit 32] >>= [Bit 32 -> Proc (Bit 32)]
 b7[t0] =
   t1 <- k6{t0}
   Func(t1)
 
 -----------------------------------------
 -- not recursive
-k7 :: {} [Word] ->> [Word -> Proc Word]
+k7 :: {} [Bit 32] ->> [Bit 32 -> Proc (Bit 32)]
 k7{} t0 = b7[t0]
 
 -----------------------------------------
 -- not recursive
-b8 :: [] >>= [Word -> Word -> Proc Word]
+b8 :: [] >>= [Bit 32 -> Bit 32 -> Proc (Bit 32)]
 b8[] =
   t0 <- k7{}
   Func(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint foo1 :: Word -> Word -> Proc Word
+entrypoint foo1 :: Bit 32 -> Bit 32 -> Proc (Bit 32)
 foo1 <-
   b8[]
 
 -----------------------------------------
 -- not recursive
-k3 :: {Word} [Word] ->> [Word]
+k3 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k3{t0} t1 = foo((t0, t1))
 
 -----------------------------------------
 -- not recursive
-b4 :: [Word] >>= [Word -> Word]
+b4 :: [Bit 32] >>= [Bit 32 -> Bit 32]
 b4[t0] =
   t1 <- k3{t0}
   Func(t1)
 
 -----------------------------------------
 -- not recursive
-k4 :: {} [Word] ->> [Word -> Word]
+k4 :: {} [Bit 32] ->> [Bit 32 -> Bit 32]
 k4{} t0 = b4[t0]
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word -> Word -> Word]
+b5 :: [] >>= [Bit 32 -> Bit 32 -> Bit 32]
 b5[] =
   t0 <- k4{}
   Func(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: Word -> Word -> Word
+entrypoint foo :: Bit 32 -> Bit 32 -> Bit 32
 foo <-
   b5[]
 

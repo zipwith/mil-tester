@@ -33,178 +33,178 @@ bitFromFlag0[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong0 :: [Word] >>= [Unit]
+entrypoint nullFromLong0 :: [Bit 64] >>= [Unit]
 nullFromLong0[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong1 :: [Word] >>= [Unit]
+entrypoint nullFromLong1 :: [Bit 64] >>= [Unit]
 nullFromLong1[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong2 :: [Word] >>= [Unit]
+entrypoint nullFromLong2 :: [Bit 64] >>= [Unit]
 nullFromLong2[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong29 :: [Word] >>= [Unit]
+entrypoint nullFromLong29 :: [Bit 64] >>= [Unit]
 nullFromLong29[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong31 :: [Word] >>= [Unit]
+entrypoint nullFromLong31 :: [Bit 64] >>= [Unit]
 nullFromLong31[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong32 :: [Word] >>= [Unit]
+entrypoint nullFromLong32 :: [Bit 64] >>= [Unit]
 nullFromLong32[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong33 :: [Word] >>= [Unit]
+entrypoint nullFromLong33 :: [Bit 64] >>= [Unit]
 nullFromLong33[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong48 :: [Word] >>= [Unit]
+entrypoint nullFromLong48 :: [Bit 64] >>= [Unit]
 nullFromLong48[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong63 :: [Word] >>= [Unit]
+entrypoint nullFromLong63 :: [Bit 64] >>= [Unit]
 nullFromLong63[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong64 :: [Word] >>= [Unit]
+entrypoint nullFromLong64 :: [Bit 64] >>= [Unit]
 nullFromLong64[t0] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong0 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong0 :: [Bit 64] >>= [Bit 1]
 bitFromLong0[t0] =
   t1 <- and((t0, 1))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong1 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong1 :: [Bit 64] >>= [Bit 1]
 bitFromLong1[t0] =
   t1 <- and((t0, 2))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong2 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong2 :: [Bit 64] >>= [Bit 1]
 bitFromLong2[t0] =
   t1 <- and((t0, 4))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong29 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong29 :: [Bit 64] >>= [Bit 1]
 bitFromLong29[t0] =
   t1 <- and((t0, 536870912))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong31 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong31 :: [Bit 64] >>= [Bit 1]
 bitFromLong31[t0] =
   t1 <- and((t0, 2147483648))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong32 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong32 :: [Bit 64] >>= [Bit 1]
 bitFromLong32[t0] =
   t1 <- and((t0, 4294967296))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong33 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong33 :: [Bit 64] >>= [Bit 1]
 bitFromLong33[t0] =
   t1 <- and((t0, 8589934592))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong48 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong48 :: [Bit 64] >>= [Bit 1]
 bitFromLong48[t0] =
   t1 <- and((t0, 281474976710656))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong63 :: [Word] >>= [Bit 1]
+entrypoint bitFromLong63 :: [Bit 64] >>= [Bit 1]
 bitFromLong63[t0] =
   t1 <- and((t0, -9223372036854775808))
   primNeq((t1, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong0 :: [Word] >>= [Word]
+entrypoint byteFromLong0 :: [Bit 64] >>= [Bit 64]
 byteFromLong0[t0] =
   and((t0, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong1 :: [Word] >>= [Word]
+entrypoint byteFromLong1 :: [Bit 64] >>= [Bit 64]
 byteFromLong1[t0] =
   t1 <- lshr((t0, 1))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong2 :: [Word] >>= [Word]
+entrypoint byteFromLong2 :: [Bit 64] >>= [Bit 64]
 byteFromLong2[t0] =
   t1 <- lshr((t0, 2))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong29 :: [Word] >>= [Word]
+entrypoint byteFromLong29 :: [Bit 64] >>= [Bit 64]
 byteFromLong29[t0] =
   t1 <- lshr((t0, 29))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong31 :: [Word] >>= [Word]
+entrypoint byteFromLong31 :: [Bit 64] >>= [Bit 64]
 byteFromLong31[t0] =
   t1 <- lshr((t0, 31))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong32 :: [Word] >>= [Word]
+entrypoint byteFromLong32 :: [Bit 64] >>= [Bit 64]
 byteFromLong32[t0] =
   t1 <- lshr((t0, 32))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong33 :: [Word] >>= [Word]
+entrypoint byteFromLong33 :: [Bit 64] >>= [Bit 64]
 byteFromLong33[t0] =
   t1 <- lshr((t0, 33))
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong48 :: [Word] >>= [Word]
+entrypoint byteFromLong48 :: [Bit 64] >>= [Bit 64]
 byteFromLong48[t0] =
   t1 <- lshr((t0, 48))
   and((t1, 255))

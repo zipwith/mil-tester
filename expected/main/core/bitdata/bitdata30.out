@@ -1,32 +1,32 @@
 -----------------------------------------
 -- not recursive
-entrypoint isUnmapped :: [Word] >>= [Bit 1]
+entrypoint isUnmapped :: [Bit 32] >>= [Bit 1]
 isUnmapped[t0] =
   primEq((t0, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped :: [Word] >>= [Bit 1]
+entrypoint isMapped :: [Bit 32] >>= [Bit 1]
 isMapped[t0] =
   t1 <- and((t0, 1))
   primEq((t1, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint isMapped1 :: [Word] >>= [Bit 1]
+entrypoint isMapped1 :: [Bit 32] >>= [Bit 1]
 isMapped1[t0] =
   primNeq((t0, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint mapped :: [Word] >>= [Word]
+entrypoint mapped :: [Bit 32] >>= [Bit 32]
 mapped[t0] =
   t1 <- shl((t0, 1))
   or((t1, 1))
 
 -----------------------------------------
 -- not recursive
-entrypoint unmapped :: Word
+entrypoint unmapped :: Bit 32
 unmapped <-
   return 0
 

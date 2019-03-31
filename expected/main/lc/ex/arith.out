@@ -1,71 +1,71 @@
 data Eight0
-  = Eight0 ([Word] ->> [[Word] ->> [[Word] ->> [Word]]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [[Word] ->> [Word]]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
+  = Eight0 ([Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]]) ([Bit 32] ->> [[Bit 32] ->> [Bit 32]]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])
 
 data Eight2
-  = Eight2 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
+  = Eight2 ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])
 
 data Four1
-  = Four1 Word Word Word Word
+  = Four1 (Bit 32) (Bit 32) (Bit 32) (Bit 32)
 
 data Six3
-  = Six3 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
+  = Six3 ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])
 
 data Six5
   = Six5 Three4 Six3 Eight2 Eight2 Four1 Eight0
 
 data Three4
-  = Three4 ([Word] ->> [Word]) ([Word] ->> [Word]) ([Word] ->> [Word])
+  = Three4 ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])
 
 -----------------------------------------
 -- not recursive
-k96 :: {} [Word] ->> [Word]
+k96 :: {} [Bit 32] ->> [Bit 32]
 k96{} t0 = return 1056820
 
 -----------------------------------------
 -- not recursive
-example3 :: [Word] ->> [Word]
+example3 :: [Bit 32] ->> [Bit 32]
 example3 <-
   k96{}
 
 -----------------------------------------
 -- not recursive
-b127 :: [Word] >>= [Word]
+b127 :: [Bit 32] >>= [Bit 32]
 b127[t0] =
   t1 <- and((t0, 1044495))
   or((t1, 2097200))
 
 -----------------------------------------
 -- not recursive
-k95 :: {} [Word] ->> [Word]
+k95 :: {} [Bit 32] ->> [Bit 32]
 k95{} t0 = b127[t0]
 
 -----------------------------------------
 -- not recursive
-example2 :: [Word] ->> [Word]
+example2 :: [Bit 32] ->> [Bit 32]
 example2 <-
   k95{}
 
 -----------------------------------------
 -- not recursive
-b125 :: [Word] >>= [Word]
+b125 :: [Bit 32] >>= [Bit 32]
 b125[t0] =
   t1 <- and((t0, -16))
   or((t1, 2))
 
 -----------------------------------------
 -- not recursive
-k94 :: {} [Word] ->> [Word]
+k94 :: {} [Bit 32] ->> [Bit 32]
 k94{} t0 = b125[t0]
 
 -----------------------------------------
 -- not recursive
-example1 :: [Word] ->> [Word]
+example1 :: [Bit 32] ->> [Bit 32]
 example1 <-
   k94{}
 
 -----------------------------------------
 -- not recursive
-b113 :: [Word, Word, Word] >>= [Word]
+b113 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b113[t0, t1, t2] =
   t3 <- not((t1))
   t4 <- and((t0, t3))
@@ -73,87 +73,87 @@ b113[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-k87 :: {Word, Word} [Word] ->> [Word]
+k87 :: {Bit 32, Bit 32} [Bit 32] ->> [Bit 32]
 k87{t0, t1} t2 = b113[t2, t1, t0]
 
 -----------------------------------------
 -- not recursive
-k93 :: {} [Word] ->> [[Word] ->> [Word]]
+k93 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k93{} t0 = k87{t0, 15}
 
 -----------------------------------------
 -- not recursive
-setTfield :: [Word] ->> [[Word] ->> [Word]]
+setTfield :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 setTfield <-
   k93{}
 
 -----------------------------------------
 -- not recursive
-b121 :: [Word] >>= [[Word] ->> [Word]]
+b121 :: [Bit 32] >>= [[Bit 32] ->> [Bit 32]]
 b121[t0] =
   t1 <- shl((t0, 4))
   k87{t1, 4080}
 
 -----------------------------------------
 -- not recursive
-k92 :: {} [Word] ->> [[Word] ->> [Word]]
+k92 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k92{} t0 = b121[t0]
 
 -----------------------------------------
 -- not recursive
-setZfield :: [Word] ->> [[Word] ->> [Word]]
+setZfield :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 setZfield <-
   k92{}
 
 -----------------------------------------
 -- not recursive
-b119 :: [Word] >>= [[Word] ->> [Word]]
+b119 :: [Bit 32] >>= [[Bit 32] ->> [Bit 32]]
 b119[t0] =
   t1 <- shl((t0, 12))
   k87{t1, 1044480}
 
 -----------------------------------------
 -- not recursive
-k91 :: {} [Word] ->> [[Word] ->> [Word]]
+k91 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k91{} t0 = b119[t0]
 
 -----------------------------------------
 -- not recursive
-setYfield :: [Word] ->> [[Word] ->> [Word]]
+setYfield :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 setYfield <-
   k91{}
 
 -----------------------------------------
 -- not recursive
-b117 :: [Word] >>= [[Word] ->> [Word]]
+b117 :: [Bit 32] >>= [[Bit 32] ->> [Bit 32]]
 b117[t0] =
   t1 <- shl((t0, 20))
   k87{t1, -1048576}
 
 -----------------------------------------
 -- not recursive
-k90 :: {} [Word] ->> [[Word] ->> [Word]]
+k90 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k90{} t0 = b117[t0]
 
 -----------------------------------------
 -- not recursive
-setXfield :: [Word] ->> [[Word] ->> [Word]]
+setXfield :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 setXfield <-
   k90{}
 
 -----------------------------------------
 -- not recursive
-k88 :: {Word} [Word] ->> [[Word] ->> [Word]]
+k88 :: {Bit 32} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
 k88{t0} t1 = k87{t1, t0}
 
 -----------------------------------------
 -- not recursive
-k89 :: {} [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+k89 :: {} [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 k89{} t0 = k88{t0}
 
 -----------------------------------------
 -- not recursive
-setField :: [Word] ->> [[Word] ->> [[Word] ->> [Word]]]
+setField :: [Bit 32] ->> [[Bit 32] ->> [[Bit 32] ->> [Bit 32]]]
 setField <-
   k89{}
 
@@ -171,78 +171,78 @@ s30 <-
 
 -----------------------------------------
 -- not recursive
-k121 :: {} [Word] ->> [Word]
+k121 :: {} [Bit 32] ->> [Bit 32]
 k121{} t0 = or((t0, 15))
 
 -----------------------------------------
 -- not recursive
-barg :: [Word] ->> [Word]
+barg :: [Bit 32] ->> [Bit 32]
 barg <-
   k121{}
 
 -----------------------------------------
 -- not recursive
-k120 :: {} [Word] ->> [Word]
+k120 :: {} [Bit 32] ->> [Bit 32]
 k120{} t0 = and((t0, 15))
 
 -----------------------------------------
 -- not recursive
-barf :: [Word] ->> [Word]
+barf :: [Bit 32] ->> [Bit 32]
 barf <-
   k120{}
 
 -----------------------------------------
 -- not recursive
-k119 :: {} [Word] ->> [Word]
+k119 :: {} [Bit 32] ->> [Bit 32]
 k119{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
-bare :: [Word] ->> [Word]
+bare :: [Bit 32] ->> [Bit 32]
 bare <-
   k119{}
 
 -----------------------------------------
 -- not recursive
-k117 :: {} [Word] ->> [Word]
+k117 :: {} [Bit 32] ->> [Bit 32]
 k117{} t0 = neg((t0))
 
 -----------------------------------------
 -- not recursive
-barc :: [Word] ->> [Word]
+barc :: [Bit 32] ->> [Bit 32]
 barc <-
   k117{}
 
 -----------------------------------------
 -- not recursive
-k116 :: {} [Word] ->> [Word]
+k116 :: {} [Bit 32] ->> [Bit 32]
 k116{} t0 = not((t0))
 
 -----------------------------------------
 -- not recursive
-barb :: [Word] ->> [Word]
+barb :: [Bit 32] ->> [Bit 32]
 barb <-
   k116{}
 
 -----------------------------------------
 -- not recursive
-k115 :: {} [Word] ->> [Word]
+k115 :: {} [Bit 32] ->> [Bit 32]
 k115{} t0 = return 0
 
 -----------------------------------------
 -- not recursive
-bara :: [Word] ->> [Word]
+bara :: [Bit 32] ->> [Bit 32]
 bara <-
   k115{}
 
 -----------------------------------------
 -- not recursive
-k118 :: {} [Word] ->> [Word]
+k118 :: {} [Bit 32] ->> [Bit 32]
 k118{} t0 = return -1
 
 -----------------------------------------
 -- not recursive
-bard :: [Word] ->> [Word]
+bard :: [Bit 32] ->> [Bit 32]
 bard <-
   k118{}
 
@@ -260,12 +260,12 @@ foos <-
 
 -----------------------------------------
 -- not recursive
-k105 :: {} [Word] ->> [Word]
+k105 :: {} [Bit 32] ->> [Bit 32]
 k105{} t0 = add((t0, 3))
 
 -----------------------------------------
 -- not recursive
-plus3e :: [Word] ->> [Word]
+plus3e :: [Bit 32] ->> [Bit 32]
 plus3e <-
   k105{}
 
@@ -277,30 +277,30 @@ plusses <-
 
 -----------------------------------------
 -- not recursive
-b141 :: [Word] >>= [Word]
+b141 :: [Bit 32] >>= [Bit 32]
 b141[t0] =
   t1 <- add((t0, 1))
   mul((t1, t1))
 
 -----------------------------------------
 -- not recursive
-k99 :: {} [Word] ->> [Word]
+k99 :: {} [Bit 32] ->> [Bit 32]
 k99{} t0 = b141[t0]
 
 -----------------------------------------
 -- not recursive
-square2 :: [Word] ->> [Word]
+square2 :: [Bit 32] ->> [Bit 32]
 square2 <-
   k99{}
 
 -----------------------------------------
 -- not recursive
-k97 :: {} [Word] ->> [Word]
+k97 :: {} [Bit 32] ->> [Bit 32]
 k97{} t0 = mul((t0, t0))
 
 -----------------------------------------
 -- not recursive
-square :: [Word] ->> [Word]
+square :: [Bit 32] ->> [Bit 32]
 square <-
   k97{}
 

@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint sub :: [Word, Word] >>= [Word]
+entrypoint sub :: [Bit 64, Bit 64] >>= [Bit 64]
 sub[t0, t1] =
   t2 <- sub((t0, t1))
   and((t2, 4294967295))

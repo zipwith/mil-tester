@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint v :: Word
+entrypoint v :: Bit 32
 v <-
   return 42
 

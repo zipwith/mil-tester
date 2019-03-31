@@ -1,6 +1,6 @@
 data List1
   = Nil2
-  | Cons3 Word List1
+  | Cons3 (Bit 32) List1
 
 data Unit
   = Unit
@@ -13,25 +13,25 @@ LNil <-
 
 -----------------------------------------
 -- not recursive
-entrypoint LCons :: [Word, List1] >>= [List1]
+entrypoint LCons :: [Bit 32, List1] >>= [List1]
 LCons[t0, t1] =
   Cons3(t0, t1)
 
 -----------------------------------------
 -- not recursive
-b81 :: [] >>= [Word]
+b81 :: [] >>= [Bit 32]
 b81[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b80 :: [List1] >>= [Word]
+b80 :: [List1] >>= [Bit 32]
 b80[t0] =
   t1 <- Cons3 0 t0
   t2 <- Cons3 1 t0
   t3 <- b82[t2]
   add((t1, t3))
-b82 :: [List1] >>= [Word]
+b82 :: [List1] >>= [Bit 32]
 b82[t0] =
   case t0 of
     Nil2 -> b81[]
@@ -39,18 +39,18 @@ b82[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint sum :: [List1] >>= [Word]
+entrypoint sum :: [List1] >>= [Bit 32]
 sum[t0] =
   b82[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint count :: Word
-count <- area (Stored Word) aligned 8
+entrypoint count :: Bit 32
+count <- area (Stored (Bit 32)) aligned 8
 
 -----------------------------------------
 -- not recursive
-export external val :: Word
+export external val :: Bit 32
 
 -----------------------------------------
 -- not recursive
@@ -66,19 +66,19 @@ nil <-
 
 -----------------------------------------
 -- not recursive
-entrypoint cons :: [Word, List1] >>= [List1]
+entrypoint cons :: [Bit 32, List1] >>= [List1]
 cons[t0, t1] =
   Cons3(t0, t1)
 
 -----------------------------------------
 -- not recursive
-entrypoint readRef :: [Word] >>= [Word]
+entrypoint readRef :: [Bit 32] >>= [Bit 32]
 readRef[t0] =
   load32((t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint writeRef :: [Word, Word] >>= [Unit]
+entrypoint writeRef :: [Bit 32, Bit 32] >>= [Unit]
 writeRef[t0, t1] =
   store32((t0, t1))
 

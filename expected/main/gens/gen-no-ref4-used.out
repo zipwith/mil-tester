@@ -1,10 +1,10 @@
 -----------------------------------------
 -- not recursive
-export external wide :: Word
+export external wide :: Bit 64
 
 -----------------------------------------
 -- not recursive
-entrypoint mywide :: Word
+entrypoint mywide :: Bit 64
 mywide <-
   return wide
 

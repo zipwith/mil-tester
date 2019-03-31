@@ -36,19 +36,19 @@ bf <-
 
 -----------------------------------------
 -- not recursive
-b5 :: [] >>= [Word]
+b5 :: [] >>= [Bit 32]
 b5[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-b6 :: [] >>= [Word]
+b6 :: [] >>= [Bit 32]
 b6[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-entrypoint decide :: [Bit 1] >>= [Word]
+entrypoint decide :: [Bit 1] >>= [Bit 32]
 decide[t0] =
   if t0
     then b6[]

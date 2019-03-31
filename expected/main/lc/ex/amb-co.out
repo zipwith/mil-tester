@@ -8,11 +8,11 @@ external ixToBit {primIxToBit m n} :: forall (m :: nat) (n :: nat). [Ix m] ->> [
 
 -----------------------------------------
 -- not recursive
-external bitToWord {primBitToWord 32} :: [Bit 32] ->> [Word]
+external bitToWord {primBitToWord 32} :: [Bit 32] ->> [Bit 32]
 
 -----------------------------------------
 -- not recursive
-external genMaybeIx {primGenMaybeIx (Maybe (Ix n)) n} :: forall (n :: nat). [Maybe (Ix n)] ->> [[[Ix n] ->> [Maybe (Ix n)]] ->> [[Word] ->> [Maybe (Ix n)]]]
+external genMaybeIx {primGenMaybeIx (Maybe (Ix n)) n} :: forall (n :: nat). [Maybe (Ix n)] ->> [[[Ix n] ->> [Maybe (Ix n)]] ->> [[Bit 32] ->> [Maybe (Ix n)]]]
 
 -----------------------------------------
 -- not recursive

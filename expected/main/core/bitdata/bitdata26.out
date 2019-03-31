@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-entrypoint aByte :: Word
+entrypoint aByte :: Bit 32
 aByte <-
   return 17
 
 -----------------------------------------
 -- not recursive
-entrypoint getVal :: [Word] >>= [Word]
+entrypoint getVal :: [Bit 32] >>= [Bit 32]
 getVal[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint setVal :: [Word] >>= [Word]
+entrypoint setVal :: [Bit 32] >>= [Bit 32]
 setVal[t0] =
   return t0
 

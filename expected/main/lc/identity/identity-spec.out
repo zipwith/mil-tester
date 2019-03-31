@@ -9,18 +9,18 @@ bitdata Bool /1
 
 -----------------------------------------
 -- not recursive
-k52 :: {} [Word] ->> [Word]
+k52 :: {} [Bit 32] ->> [Bit 32]
 k52{} t0 = return t0
 
 -----------------------------------------
 -- not recursive
-id :: [Word] ->> [Word]
+id :: [Bit 32] ->> [Bit 32]
 id <-
   k52{}
 
 -----------------------------------------
 -- not recursive
-entrypoint idWord :: [Word] ->> [Word]
+entrypoint idWord :: [Bit 32] ->> [Bit 32]
 idWord <-
   return id
 

@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-construct_PCI :: [Word, Word, Word] >>= [Word]
+construct_PCI :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 construct_PCI[t0, t1, t2] =
   t3 <- shl((t1, 3))
   t4 <- or((t2, t3))
@@ -9,44 +9,44 @@ construct_PCI[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint mkPCI0 :: [Word, Word, Word] >>= [Word]
+entrypoint mkPCI0 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 mkPCI0[t0, t1, t2] =
   construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint mkPCI1 :: [Word, Word, Word] >>= [Word]
+entrypoint mkPCI1 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 mkPCI1[t0, t1, t2] =
   construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint mkPCI2 :: [Word, Word, Word] >>= [Word]
+entrypoint mkPCI2 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 mkPCI2[t0, t1, t2] =
   construct_PCI[t0, t1, t2]
 
 -----------------------------------------
 -- not recursive
-entrypoint getBus :: [Word] >>= [Word]
+entrypoint getBus :: [Bit 32] >>= [Bit 32]
 getBus[t0] =
   lshr((t0, 8))
 
 -----------------------------------------
 -- not recursive
-entrypoint getDev :: [Word] >>= [Word]
+entrypoint getDev :: [Bit 32] >>= [Bit 32]
 getDev[t0] =
   t1 <- lshr((t0, 3))
   and((t1, 31))
 
 -----------------------------------------
 -- not recursive
-entrypoint getFun :: [Word] >>= [Word]
+entrypoint getFun :: [Bit 32] >>= [Bit 32]
 getFun[t0] =
   and((t0, 7))
 
 -----------------------------------------
 -- not recursive
-entrypoint updBus :: [Word, Word] >>= [Word]
+entrypoint updBus :: [Bit 32, Bit 32] >>= [Bit 32]
 updBus[t0, t1] =
   t2 <- and((t1, 255))
   t3 <- shl((t0, 8))
@@ -54,7 +54,7 @@ updBus[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint updDev :: [Word, Word] >>= [Word]
+entrypoint updDev :: [Bit 32, Bit 32] >>= [Bit 32]
 updDev[t0, t1] =
   t2 <- and((t1, 65287))
   t3 <- shl((t0, 3))
@@ -62,7 +62,7 @@ updDev[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint updFun :: [Word, Word] >>= [Word]
+entrypoint updFun :: [Bit 32, Bit 32] >>= [Bit 32]
 updFun[t0, t1] =
   t2 <- and((t1, 65528))
   or((t2, t0))

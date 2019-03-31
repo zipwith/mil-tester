@@ -3,7 +3,7 @@ data Maybe1
   | Just2 Pair0
 
 data Pair0
-  = Pair0 Word Word
+  = Pair0 (Bit 64) (Bit 64)
 
 -----------------------------------------
 -- not recursive

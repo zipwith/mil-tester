@@ -8,7 +8,7 @@ data Maybe1
 
 data Maybe2
   = Nothing4
-  | Just5 Word
+  | Just5 (Bit 32)
 
 data Unit
   = Unit
@@ -45,7 +45,7 @@ b190[] =
 
 -----------------------------------------
 -- not recursive
-b189 :: [Word] >>= [Maybe1]
+b189 :: [Bit 32] >>= [Maybe1]
 b189[t0] =
   t1 <- wordToFlag((t0))
   Just3(t1)
@@ -77,13 +77,13 @@ b192[] =
 
 -----------------------------------------
 -- not recursive
-b191 :: [Word] >>= [Maybe2]
+b191 :: [Bit 32] >>= [Maybe2]
 b191[t0] =
   Just5(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc3 :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltInc3 :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltInc3[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
@@ -93,7 +93,7 @@ ltInc3[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc80 :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltInc80 :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltInc80[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
@@ -103,7 +103,7 @@ ltInc80[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc1K :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltInc1K :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltInc1K[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
@@ -113,7 +113,7 @@ ltInc1K[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltInc1G :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltInc1G :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltInc1G[t0, t1, t2] =
   t3 <- add((t1, t0))
   t4 <- primUle((t3, t2))
@@ -142,7 +142,7 @@ ltDec2[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec3 :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltDec3 :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltDec3[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
@@ -152,7 +152,7 @@ ltDec3[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec80 :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltDec80 :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltDec80[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
@@ -162,7 +162,7 @@ ltDec80[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec1K :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltDec1K :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltDec1K[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))
@@ -172,7 +172,7 @@ ltDec1K[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ltDec1G :: [Word, Word, Word] >>= [Maybe2]
+entrypoint ltDec1G :: [Bit 32, Bit 32, Bit 32] >>= [Maybe2]
 ltDec1G[t0, t1, t2] =
   t3 <- sub((t2, t0))
   t4 <- primSle((t1, t3))

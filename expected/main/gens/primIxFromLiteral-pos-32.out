@@ -21,25 +21,25 @@ ix2[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ix12 :: [Unit] >>= [Word]
+entrypoint ix12 :: [Unit] >>= [Bit 32]
 ix12[t0] =
   return 8
 
 -----------------------------------------
 -- not recursive
-entrypoint ix32 :: [Unit] >>= [Word]
+entrypoint ix32 :: [Unit] >>= [Bit 32]
 ix32[t0] =
   return 17
 
 -----------------------------------------
 -- not recursive
-entrypoint ix256 :: [Unit] >>= [Word]
+entrypoint ix256 :: [Unit] >>= [Bit 32]
 ix256[t0] =
   return 8
 
 -----------------------------------------
 -- not recursive
-entrypoint ix1G :: [Unit] >>= [Word]
+entrypoint ix1G :: [Unit] >>= [Bit 32]
 ix1G[t0] =
   return 68
 

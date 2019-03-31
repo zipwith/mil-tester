@@ -3,8 +3,8 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-priosetSize :: Word
-priosetSize <- area (Stored Word) aligned 4
+priosetSize :: Bit 32
+priosetSize <- area (Stored (Bit 32)) aligned 4
 
 -----------------------------------------
 -- not recursive
@@ -14,17 +14,17 @@ clearPrioset[] =
 
 -----------------------------------------
 -- not recursive
-prioset :: Word
+prioset :: Bit 32
 prioset <- area (Array 256 (Stored (Ix 256))) aligned 256
 
 -----------------------------------------
 -- not recursive
-prioidx :: Word
+prioidx :: Bit 32
 prioidx <- area (Array 256 (Stored (Ix 256))) aligned 256
 
 -----------------------------------------
 -- not recursive
-b187 :: [Word] >>= [Unit]
+b187 :: [Bit 32] >>= [Unit]
 b187[t0] =
   t1 <- store8((prioset, t0))
   t2 <- add((prioidx, t0))
@@ -32,7 +32,7 @@ b187[t0] =
 
 -----------------------------------------
 -- not recursive
-b78 :: [Word, Word] >>= [Unit]
+b78 :: [Bit 32, Bit 32] >>= [Unit]
 b78[t0, t1] =
   t2 <- add((prioset, t1))
   t3 <- store8((t2, t0))
@@ -41,7 +41,7 @@ b78[t0, t1] =
 
 -----------------------------------------
 -- recursive
-b88 :: [Word, Word, Word, Word] >>= [Unit]
+b88 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b88[t0, t1, t2, t3] =
   t4 <- add((prioset, t0))
   t5 <- store8((t4, t1))
@@ -51,7 +51,7 @@ b88[t0, t1, t2, t3] =
   if t8
     then b265[t2, t3]
     else b187[t3]
-b265 :: [Word, Word] >>= [Unit]
+b265 :: [Bit 32, Bit 32] >>= [Unit]
 b265[t0, t1] =
   t2 <- add((t0, -1))
   t3 <- lshr((t2, 1))
@@ -64,7 +64,7 @@ b265[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint insertPriority :: [Word] >>= [Unit]
+entrypoint insertPriority :: [Bit 32] >>= [Unit]
 insertPriority[t0] =
   t1 <- load32((priosetSize))
   t2 <- add((t1, 1))
@@ -89,7 +89,7 @@ b119[] =
 
 -----------------------------------------
 -- not recursive
-b109 :: [Word, Word, Word, Word] >>= [Unit]
+b109 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b109[t0, t1, t2, t3] =
   t4 <- add((prioset, t0))
   t5 <- store8((t4, t1))
@@ -102,7 +102,7 @@ b109[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b110 :: [Word, Word, Word, Word] >>= [Unit]
+b110 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b110[t0, t1, t2, t3] =
   t4 <- primUgt((t0, t3))
   if t4
@@ -111,13 +111,13 @@ b110[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- recursive
-b105 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b105 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b105[t0, t1, t2, t3, t4, t5, t6] =
   t7 <- primUgt((t1, t3))
   if t7
     then b78[t1, t4]
     else b101[t6, t5, t4, t3, t2, t1, t0]
-b273 :: [Word, Word, Word, Word] >>= [Unit]
+b273 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b273[t0, t1, t2, t3] =
   t4 <- add((prioset, t0))
   t5 <- load8((t4))
@@ -127,7 +127,7 @@ b273[t0, t1, t2, t3] =
   if t8
     then b268[t7, t2, t3, t1, t0, t5]
     else b110[t5, t0, t1, t3]
-b268 :: [Word, Word, Word, Word, Word, Word] >>= [Unit]
+b268 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b268[t0, t1, t2, t3, t4, t5] =
   t6 <- add((prioset, t0))
   t7 <- load8((t6))
@@ -135,13 +135,13 @@ b268[t0, t1, t2, t3, t4, t5] =
   if t8
     then b105[t1, t2, t0, t7, t3, t4, t5]
     else b101[t5, t4, t3, t7, t0, t2, t1]
-b101 :: [Word, Word, Word, Word, Word, Word, Word] >>= [Unit]
+b101 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b101[t0, t1, t2, t3, t4, t5, t6] =
   t7 <- primUgt((t0, t3))
   if t7
     then b100[t2, t0, t1, t5, t6]
     else b100[t2, t3, t4, t5, t6]
-b100 :: [Word, Word, Word, Word, Word] >>= [Unit]
+b100 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b100[t0, t1, t2, t3, t4] =
   t5 <- add((prioset, t0))
   t6 <- store8((t5, t1))
@@ -150,7 +150,7 @@ b100[t0, t1, t2, t3, t4] =
   t9 <- mul((t2, 2))
   t10 <- add((t9, 1))
   b275[t10, t4, t2, t3]
-b275 :: [Word, Word, Word, Word] >>= [Unit]
+b275 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
 b275[t0, t1, t2, t3] =
   t4 <- primUle((t0, t1))
   if t4
@@ -159,7 +159,7 @@ b275[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-b120 :: [Word, Word, Word] >>= [Unit]
+b120 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b120[t0, t1, t2] =
   t3 <- add((prioidx, t0))
   t4 <- load8((t3))
@@ -177,7 +177,7 @@ b120[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint removePriority :: [Word] >>= [Unit]
+entrypoint removePriority :: [Bit 32] >>= [Unit]
 removePriority[t0] =
   t1 <- load32((priosetSize))
   t2 <- add((t1, -1))
@@ -192,19 +192,19 @@ removePriority[t0] =
 
 -----------------------------------------
 -- not recursive
-b185 :: [] >>= [Word]
+b185 :: [] >>= [Bit 32]
 b185[] =
   load8((prioset))
 
 -----------------------------------------
 -- not recursive
-b126 :: [] >>= [Word]
+b126 :: [] >>= [Bit 32]
 b126[] =
   return -1
 
 -----------------------------------------
 -- not recursive
-entrypoint highestPriority1 :: [] >>= [Word]
+entrypoint highestPriority1 :: [] >>= [Bit 32]
 highestPriority1[] =
   t0 <- load32((priosetSize))
   t1 <- primEq((t0, 0))
@@ -226,13 +226,13 @@ b194[] =
 
 -----------------------------------------
 -- recursive
-b231 :: [Word, Word] >>= [Unit]
+b231 :: [Bit 32, Bit 32] >>= [Unit]
 b231[t0, t1] =
   t2 <- store8((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 1))
   b230[t4, t3]
-b230 :: [Word, Word] >>= [Unit]
+b230 :: [Bit 32, Bit 32] >>= [Unit]
 b230[t0, t1] =
   t2 <- primUlt((t1, 256))
   if t2

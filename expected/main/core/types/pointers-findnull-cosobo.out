@@ -26,15 +26,15 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-external at {primAt 16 (Stored (Ptr (Stored Word)))} :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[Ix 16] ->> [Ref (Stored (Ptr (Stored Word)))]]
+external at {primAt 16 (Stored (Ptr (Stored (Bit 32))))} :: [Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] ->> [[Ix 16] ->> [Ref (Stored (Ptr (Stored (Bit 32))))]]
 
 -----------------------------------------
 -- not recursive
-external get {primReadRefStored (Ptr (Stored Word))} :: [Ref (Stored (Ptr (Stored Word)))] ->> [[] ->> [Ptr (Stored Word)]]
+external get {primReadRefStored (Ptr (Stored (Bit 32)))} :: [Ref (Stored (Ptr (Stored (Bit 32))))] ->> [[] ->> [Ptr (Stored (Bit 32))]]
 
 -----------------------------------------
 -- not recursive
-b82 :: [Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b82 :: [Ref (Array 16 (Stored (Ptr (Stored (Bit 32))))), Ix 16] >>= [Ptr (Stored (Ptr (Stored (Bit 32))))]
 b82[t0, t1] =
   t2 <- at @ t0
   t3 <- t2 @ t1
@@ -70,19 +70,19 @@ Just <-
 
 -----------------------------------------
 -- not recursive
-Null :: Ptr (Stored (Ptr (Stored Word)))
+Null :: Ptr (Stored (Ptr (Stored (Bit 32))))
 Null <-
   Null()
 
 -----------------------------------------
 -- not recursive
-b79 :: [] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b79 :: [] >>= [Ptr (Stored (Ptr (Stored (Bit 32))))]
 b79[] =
   return Null
 
 -----------------------------------------
 -- recursive
-b97 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b97 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] >>= [Ptr (Stored (Ptr (Stored (Bit 32))))]
 b97[t0, t1] =
   t2 <- genIncIx @ Nothing
   t3 <- t2 @ Just
@@ -90,13 +90,13 @@ b97[t0, t1] =
   case t4 of
     Just1 -> b107[t4, t1]
     Nothing0 -> b79[]
-b107 :: [Maybe0, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b107 :: [Maybe0, Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] >>= [Ptr (Stored (Ptr (Stored (Bit 32))))]
 b107[t0, t1] =
   assert t0 Just1
   t2 <- Just1 0 t0
   t3 <- Maybe0.Just1 0 t2
   b83[t3, t1]
-b83 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [Ptr (Stored (Ptr (Stored Word)))]
+b83 :: [Ix 16, Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] >>= [Ptr (Stored (Ptr (Stored (Bit 32))))]
 b83[t0, t1] =
   t2 <- at @ t1
   t3 <- t2 @ t0
@@ -108,24 +108,24 @@ b83[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k52 :: {Ref (Array 16 (Stored (Ptr (Stored Word)))), Ix 16} [] ->> [Ptr (Stored (Ptr (Stored Word)))]
+k52 :: {Ref (Array 16 (Stored (Ptr (Stored (Bit 32))))), Ix 16} [] ->> [Ptr (Stored (Ptr (Stored (Bit 32))))]
 k52{t0, t1} [] = b83[t1, t0]
 
 -----------------------------------------
 -- not recursive
-b89 :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+b89 :: [Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored (Bit 32))))]]
 b89[t0] =
   t1 <- zero16 @ Unit
   k52{t0, t1}
 
 -----------------------------------------
 -- not recursive
-k55 :: {} [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+k55 :: {} [Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored (Bit 32))))]]
 k55{} t0 = b89[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored Word))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored Word)))]]
+entrypoint findNull :: [Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] ->> [[] ->> [Ptr (Stored (Ptr (Stored (Bit 32))))]]
 findNull <-
   k55{}
 

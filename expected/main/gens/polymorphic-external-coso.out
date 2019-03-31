@@ -1,10 +1,10 @@
 -----------------------------------------
 -- not recursive
-external id :: [Word] ->> [Word]
+external id :: [Bit 32] ->> [Bit 32]
 
 -----------------------------------------
 -- not recursive
-entrypoint x :: Word
+entrypoint x :: Bit 32
 x <-
   id @ 1
 

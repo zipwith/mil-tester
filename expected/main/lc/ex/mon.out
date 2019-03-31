@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint main :: [] >>= [Word]
+entrypoint main :: [] >>= [Bit 32]
 main[] =
   [] <- print((12))
   [] <- print((16))

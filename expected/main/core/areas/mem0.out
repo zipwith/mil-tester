@@ -3,8 +3,8 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-count :: Word
-count <- area (Stored Word) aligned 8
+count :: Bit 32
+count <- area (Stored (Bit 32)) aligned 8
 
 -----------------------------------------
 -- not recursive

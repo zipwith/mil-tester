@@ -9,32 +9,32 @@ bitBit1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit2 :: [Bit 1] >>= [Word]
+entrypoint bitBit2 :: [Bit 1] >>= [Bit 64]
 bitBit2[t0] =
   t1 <- flagToWord((t0))
   shl((1, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit12 :: [Word] >>= [Word]
+entrypoint bitBit12 :: [Bit 64] >>= [Bit 64]
 bitBit12[t0] =
   shl((1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit48 :: [Word] >>= [Word]
+entrypoint bitBit48 :: [Bit 64] >>= [Bit 64]
 bitBit48[t0] =
   shl((1, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit64 :: [Word] >>= [Word]
+entrypoint bitBit64 :: [Bit 64] >>= [Bit 64]
 bitBit64[t0] =
   shl((1, t0))
 
 -----------------------------------------
 -- not recursive
-b9 :: [Word] >>= [Word, Word]
+b9 :: [Bit 64] >>= [Bit 64, Bit 64]
 b9[t0] =
   t1 <- add((t0, -64))
   t2 <- shl((1, t1))
@@ -42,14 +42,14 @@ b9[t0] =
 
 -----------------------------------------
 -- not recursive
-b8 :: [Word] >>= [Word, Word]
+b8 :: [Bit 64] >>= [Bit 64, Bit 64]
 b8[t0] =
   t1 <- shl((1, t0))
   return [t1, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBit128 :: [Word] >>= [Word, Word]
+entrypoint bitBit128 :: [Bit 64] >>= [Bit 64, Bit 64]
 bitBit128[t0] =
   t1 <- primUlt((t0, 64))
   if t1
@@ -64,7 +64,7 @@ bitSetBit1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit2 :: [Word, Bit 1] >>= [Word]
+entrypoint bitSetBit2 :: [Bit 64, Bit 1] >>= [Bit 64]
 bitSetBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -72,28 +72,28 @@ bitSetBit2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit12 :: [Word, Word] >>= [Word]
+entrypoint bitSetBit12 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitSetBit12[t0, t1] =
   t2 <- shl((1, t1))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit48 :: [Word, Word] >>= [Word]
+entrypoint bitSetBit48 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitSetBit48[t0, t1] =
   t2 <- shl((1, t1))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit64 :: [Word, Word] >>= [Word]
+entrypoint bitSetBit64 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitSetBit64[t0, t1] =
   t2 <- shl((1, t1))
   or((t2, t0))
 
 -----------------------------------------
 -- not recursive
-b16 :: forall (a :: *). [a, Word, Word] >>= [a, Word]
+b16 :: forall (a :: *). [a, Bit 64, Bit 64] >>= [a, Bit 64]
 b16[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- shl((1, t3))
@@ -102,7 +102,7 @@ b16[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b15 :: forall (a :: *). [Word, a, Word] >>= [Word, a]
+b15 :: forall (a :: *). [Bit 64, a, Bit 64] >>= [Bit 64, a]
 b15[t0, t1, t2] =
   t3 <- shl((1, t2))
   t4 <- or((t3, t0))
@@ -110,7 +110,7 @@ b15[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitSetBit128 :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bitSetBit128 :: [Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 bitSetBit128[t0, t1, t2] =
   t3 <- primUlt((t2, 64))
   if t3
@@ -125,7 +125,7 @@ bitClearBit1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit2 :: [Word, Bit 1] >>= [Word]
+entrypoint bitClearBit2 :: [Bit 64, Bit 1] >>= [Bit 64]
 bitClearBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -134,7 +134,7 @@ bitClearBit2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit12 :: [Word, Word] >>= [Word]
+entrypoint bitClearBit12 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitClearBit12[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- not((t2))
@@ -142,7 +142,7 @@ bitClearBit12[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit48 :: [Word, Word] >>= [Word]
+entrypoint bitClearBit48 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitClearBit48[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- not((t2))
@@ -150,7 +150,7 @@ bitClearBit48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit64 :: [Word, Word] >>= [Word]
+entrypoint bitClearBit64 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitClearBit64[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- not((t2))
@@ -158,7 +158,7 @@ bitClearBit64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b23 :: forall (a :: *). [a, Word, Word] >>= [a, Word]
+b23 :: forall (a :: *). [a, Bit 64, Bit 64] >>= [a, Bit 64]
 b23[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- shl((1, t3))
@@ -168,7 +168,7 @@ b23[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b22 :: forall (a :: *). [Word, a, Word] >>= [Word, a]
+b22 :: forall (a :: *). [Bit 64, a, Bit 64] >>= [Bit 64, a]
 b22[t0, t1, t2] =
   t3 <- shl((1, t2))
   t4 <- not((t3))
@@ -177,7 +177,7 @@ b22[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitClearBit128 :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bitClearBit128 :: [Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 bitClearBit128[t0, t1, t2] =
   t3 <- primUlt((t2, 64))
   if t3
@@ -192,7 +192,7 @@ bitFlipBit1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit2 :: [Word, Bit 1] >>= [Word]
+entrypoint bitFlipBit2 :: [Bit 64, Bit 1] >>= [Bit 64]
 bitFlipBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -200,28 +200,28 @@ bitFlipBit2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit12 :: [Word, Word] >>= [Word]
+entrypoint bitFlipBit12 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitFlipBit12[t0, t1] =
   t2 <- shl((1, t1))
   xor((t2, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit48 :: [Word, Word] >>= [Word]
+entrypoint bitFlipBit48 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitFlipBit48[t0, t1] =
   t2 <- shl((1, t1))
   xor((t2, t0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit64 :: [Word, Word] >>= [Word]
+entrypoint bitFlipBit64 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitFlipBit64[t0, t1] =
   t2 <- shl((1, t1))
   xor((t2, t0))
 
 -----------------------------------------
 -- not recursive
-b31 :: forall (a :: *). [a, Word, Word] >>= [a, Word]
+b31 :: forall (a :: *). [a, Bit 64, Bit 64] >>= [a, Bit 64]
 b31[t0, t1, t2] =
   t3 <- add((t2, -64))
   t4 <- shl((1, t3))
@@ -230,7 +230,7 @@ b31[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b30 :: forall (a :: *). [Word, a, Word] >>= [Word, a]
+b30 :: forall (a :: *). [Bit 64, a, Bit 64] >>= [Bit 64, a]
 b30[t0, t1, t2] =
   t3 <- shl((1, t2))
   t4 <- xor((t3, t0))
@@ -238,7 +238,7 @@ b30[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFlipBit128 :: [Word, Word, Word] >>= [Word, Word]
+entrypoint bitFlipBit128 :: [Bit 64, Bit 64, Bit 64] >>= [Bit 64, Bit 64]
 bitFlipBit128[t0, t1, t2] =
   t3 <- primUlt((t2, 64))
   if t3
@@ -253,7 +253,7 @@ bitTestBit1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit2 :: [Word, Bit 1] >>= [Bit 1]
+entrypoint bitTestBit2 :: [Bit 64, Bit 1] >>= [Bit 1]
 bitTestBit2[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((1, t2))
@@ -262,7 +262,7 @@ bitTestBit2[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit12 :: [Word, Word] >>= [Bit 1]
+entrypoint bitTestBit12 :: [Bit 64, Bit 64] >>= [Bit 1]
 bitTestBit12[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -270,7 +270,7 @@ bitTestBit12[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit48 :: [Word, Word] >>= [Bit 1]
+entrypoint bitTestBit48 :: [Bit 64, Bit 64] >>= [Bit 1]
 bitTestBit48[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -278,7 +278,7 @@ bitTestBit48[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit64 :: [Word, Word] >>= [Bit 1]
+entrypoint bitTestBit64 :: [Bit 64, Bit 64] >>= [Bit 1]
 bitTestBit64[t0, t1] =
   t2 <- shl((1, t1))
   t3 <- and((t2, t0))
@@ -286,7 +286,7 @@ bitTestBit64[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b39 :: [Word, Word] >>= [Bit 1]
+b39 :: [Bit 64, Bit 64] >>= [Bit 1]
 b39[t0, t1] =
   t2 <- add((t1, -64))
   t3 <- shl((1, t2))
@@ -295,7 +295,7 @@ b39[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitTestBit128 :: [Word, Word, Word] >>= [Bit 1]
+entrypoint bitTestBit128 :: [Bit 64, Bit 64, Bit 64] >>= [Bit 1]
 bitTestBit128[t0, t1, t2] =
   t3 <- primUlt((t2, 64))
   if t3
@@ -316,31 +316,31 @@ bitBitSize1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize2 :: [Word] >>= [Bit 1]
+entrypoint bitBitSize2 :: [Bit 64] >>= [Bit 1]
 bitBitSize2[t0] =
   return flag1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize12 :: [Word] >>= [Word]
+entrypoint bitBitSize12 :: [Bit 64] >>= [Bit 64]
 bitBitSize12[t0] =
   return 11
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize48 :: [Word] >>= [Word]
+entrypoint bitBitSize48 :: [Bit 64] >>= [Bit 64]
 bitBitSize48[t0] =
   return 47
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize64 :: [Word] >>= [Word]
+entrypoint bitBitSize64 :: [Bit 64] >>= [Bit 64]
 bitBitSize64[t0] =
   return 63
 
 -----------------------------------------
 -- not recursive
-entrypoint bitBitSize128 :: [Word, Word] >>= [Word]
+entrypoint bitBitSize128 :: [Bit 64, Bit 64] >>= [Bit 64]
 bitBitSize128[t0, t1] =
   return 127
 

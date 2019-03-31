@@ -13,7 +13,7 @@ bitdata ExL /64
 --  _____________________________________________________________000
 
 bitdata ExW /64
-  = ExW [ val :: Ptr (Stored Word) | B000 ]
+  = ExW [ val :: Ptr (Stored (Bit 64)) | B000 ]
     -- predExW(x :: Bit 64) = true
 
 -- bit pattern:
@@ -57,19 +57,19 @@ idexB <-
 
 -----------------------------------------
 -- not recursive
-b16 :: [ExW] >>= [Ptr (Stored Word)]
+b16 :: [ExW] >>= [Ptr (Stored (Bit 64))]
 b16[t0] =
   t1 <- ExW 0 t0
   ExW.ExW 0 t1
 
 -----------------------------------------
 -- not recursive
-k6 :: {} [ExW] ->> [Ptr (Stored Word)]
+k6 :: {} [ExW] ->> [Ptr (Stored (Bit 64))]
 k6{} t0 = b16[t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint idexW :: [ExW] ->> [Ptr (Stored Word)]
+entrypoint idexW :: [ExW] ->> [Ptr (Stored (Bit 64))]
 idexW <-
   k6{}
 

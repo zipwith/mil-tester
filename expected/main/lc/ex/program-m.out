@@ -9,14 +9,14 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-b76 :: [Word] >>= [Unit]
+b76 :: [Bit 32] >>= [Unit]
 b76[t0] =
   [] <- printWord((t0))
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint printWord1 :: {Word} [] ->> [Unit]
+entrypoint printWord1 :: {Bit 32} [] ->> [Unit]
 printWord1{t0} [] = b76[t0]
 
 -----------------------------------------

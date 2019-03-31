@@ -1,4 +1,4 @@
-; corresponds to MIL tuple type [Word, Word, Word]
+; corresponds to MIL tuple type [Bit 32, Bit 32, Bit 32]
 %dt0 = type {i32, i32, i32}
 
 define %dt0 @b(i32 %r0, i32 %r1) {

@@ -1,6 +1,6 @@
 struct S / 8
   [ status :: Stored Status  {- offset=0 -}
-  | badge :: Stored Word  {- offset=4 -} ]
+  | badge :: Stored (Bit 32)  {- offset=4 -} ]
   aligned 4
 
 bitdata Status /32

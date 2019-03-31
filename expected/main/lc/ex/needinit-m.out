@@ -1,31 +1,31 @@
 -----------------------------------------
 -- not recursive
-b80 :: [] >>= [Word]
+b80 :: [] >>= [Bit 32]
 b80[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b82 :: [] >>= [Word]
+b82 :: [] >>= [Bit 32]
 b82[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b95 :: [Word, Word] >>= [Word]
+b95 :: [Bit 32, Bit 32] >>= [Bit 32]
 b95[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
     then b80[]
     else b79[t0]
-b79 :: [Word] >>= [Word]
+b79 :: [Bit 32] >>= [Bit 32]
 b79[t0] =
   t1 <- add((t0, -1))
   t2 <- b99[t1, 0]
   t3 <- add((t0, -2))
   t4 <- b99[t3, 0]
   add((t2, t4))
-b99 :: [Word, Word] >>= [Word]
+b99 :: [Bit 32, Bit 32] >>= [Bit 32]
 b99[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
@@ -34,7 +34,7 @@ b99[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b106 :: [] >>= [Word]
+b106 :: [] >>= [Bit 32]
 b106[] =
   t0 <- b99[14, 0]
   t1 <- b99[13, 0]
@@ -42,13 +42,13 @@ b106[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint fib15 :: Word
+entrypoint fib15 :: Bit 32
 fib15 <-
   b106[]
 
 -----------------------------------------
 -- not recursive
-b107 :: [] >>= [Word]
+b107 :: [] >>= [Bit 32]
 b107[] =
   t0 <- b99[11, 0]
   t1 <- b99[10, 0]
@@ -56,18 +56,18 @@ b107[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint fib12 :: Word
+entrypoint fib12 :: Bit 32
 fib12 <-
   b107[]
 
 -----------------------------------------
 -- not recursive
-k52 :: {} [Word] ->> [Word]
+k52 :: {} [Bit 32] ->> [Bit 32]
 k52{} t0 = b99[t0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint fib :: [Word] ->> [Word]
+entrypoint fib :: [Bit 32] ->> [Bit 32]
 fib <-
   k52{}
 

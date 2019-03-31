@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint swap7 :: [Word] >>= [Word]
+entrypoint swap7 :: [Bit 32] >>= [Bit 32]
 swap7[t0] =
   t1 <- lshr((t0, 7))
   t2 <- shl((t0, 7))
@@ -9,7 +9,7 @@ swap7[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint swap8 :: [Word] >>= [Word]
+entrypoint swap8 :: [Bit 32] >>= [Bit 32]
 swap8[t0] =
   t1 <- lshr((t0, 8))
   t2 <- shl((t0, 8))
@@ -18,7 +18,7 @@ swap8[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint d1 :: Word
+entrypoint d1 :: Bit 32
 d1 <-
   return 14
 

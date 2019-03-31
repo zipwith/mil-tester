@@ -4,7 +4,7 @@ data Maybe0
 
 data Maybe1
   = Nothing2
-  | Just3 Word
+  | Just3 (Bit 32)
 
 data Unit
   = Unit
@@ -29,7 +29,7 @@ b8[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genMaybeIxM1 :: [Maybe0, [Unit] ->> [Maybe0], Word] >>= [Maybe0]
+entrypoint genMaybeIxM1 :: [Maybe0, [Unit] ->> [Maybe0], Bit 32] >>= [Maybe0]
 genMaybeIxM1[t0, t1, t2] =
   t3 <- primUle((t2, 1))
   if t3
@@ -44,7 +44,7 @@ b11[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genMaybeIxM7 :: [Maybe1, [Word] ->> [Maybe1], Word] >>= [Maybe1]
+entrypoint genMaybeIxM7 :: [Maybe1, [Bit 32] ->> [Maybe1], Bit 32] >>= [Maybe1]
 genMaybeIxM7[t0, t1, t2] =
   t3 <- primUle((t2, 6))
   if t3
@@ -53,7 +53,7 @@ genMaybeIxM7[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint genMaybeIxM64 :: [Maybe1, [Word] ->> [Maybe1], Word] >>= [Maybe1]
+entrypoint genMaybeIxM64 :: [Maybe1, [Bit 32] ->> [Maybe1], Bit 32] >>= [Maybe1]
 genMaybeIxM64[t0, t1, t2] =
   t3 <- primUle((t2, 63))
   if t3
@@ -86,7 +86,7 @@ b29[] =
 
 -----------------------------------------
 -- not recursive
-entrypoint maybeIx1 :: [Word] >>= [Maybe0]
+entrypoint maybeIx1 :: [Bit 32] >>= [Maybe0]
 maybeIx1[t0] =
   t1 <- primUle((t0, 1))
   if t1
@@ -107,13 +107,13 @@ b32[] =
 
 -----------------------------------------
 -- not recursive
-b31 :: [Word] >>= [Maybe1]
+b31 :: [Bit 32] >>= [Maybe1]
 b31[t0] =
   Just3(t0)
 
 -----------------------------------------
 -- not recursive
-entrypoint maybeIx7 :: [Word] >>= [Maybe1]
+entrypoint maybeIx7 :: [Bit 32] >>= [Maybe1]
 maybeIx7[t0] =
   t1 <- primUle((t0, 6))
   if t1
@@ -122,7 +122,7 @@ maybeIx7[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint maybeIx64 :: [Word] >>= [Maybe1]
+entrypoint maybeIx64 :: [Bit 32] >>= [Maybe1]
 maybeIx64[t0] =
   t1 <- primUle((t0, 63))
   if t1

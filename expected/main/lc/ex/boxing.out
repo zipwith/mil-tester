@@ -1,5 +1,5 @@
 data Number0
-  = MkInt0 Word
+  = MkInt0 (Bit 32)
   | Dummy1
 
 -----------------------------------------

@@ -1,6 +1,6 @@
 data Maybe0
   = Nothing0
-  | Just1 Word
+  | Just1 (Bit 32)
 
 -----------------------------------------
 -- not recursive
@@ -10,20 +10,20 @@ foo <-
 
 -----------------------------------------
 -- not recursive
-construct_Nothing2 :: [] >>= [Word]
+construct_Nothing2 :: [] >>= [Bit 32]
 construct_Nothing2[] =
   t0 <- return 0
   return t0
 
 -----------------------------------------
 -- not recursive
-Nothing :: Word
+Nothing :: Bit 32
 Nothing <-
   construct_Nothing2[]
 
 -----------------------------------------
 -- not recursive
-entrypoint bar :: Word
+entrypoint bar :: Bit 32
 bar <-
   return Nothing
 

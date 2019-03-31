@@ -12,11 +12,11 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-external blah :: [[] ->> [Unit]] ->> [[] ->> [Word]]
+external blah :: [[] ->> [Unit]] ->> [[] ->> [Bit 32]]
 
 -----------------------------------------
 -- not recursive
-external get :: [Bool] ->> [[] ->> [Word]]
+external get :: [Bool] ->> [[] ->> [Bit 32]]
 
 -----------------------------------------
 -- not recursive
@@ -26,7 +26,7 @@ True <-
 
 -----------------------------------------
 -- not recursive
-external put :: [Word] ->> [[] ->> [Unit]]
+external put :: [Bit 32] ->> [[] ->> [Unit]]
 
 -----------------------------------------
 -- not recursive
@@ -50,12 +50,12 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-k53 :: forall (a :: *). {} [a] ->> [[] ->> [Word]]
+k53 :: forall (a :: *). {} [a] ->> [[] ->> [Bit 32]]
 k53{} t0 = blah @ s1
 
 -----------------------------------------
 -- not recursive
-entrypoint stuff :: forall (a :: *). [a] ->> [[] ->> [Word]]
+entrypoint stuff :: forall (a :: *). [a] ->> [[] ->> [Bit 32]]
 stuff <-
   k53{}
 

@@ -9,7 +9,7 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word, Word] >>= [Unit]
+entrypoint main :: [Bit 32, Bit 32] >>= [Unit]
 main[t0, t1] =
   [] <- print((1))
   t2 <- shl((t0, 2))

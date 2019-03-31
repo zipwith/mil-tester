@@ -9,7 +9,7 @@ s6 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint ia1SW :: [[Unit] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia1SW :: [[Unit] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia1SW[t0, t1] =
   t2 <- t0 @ s6
   t3 <- t2 @ t1
@@ -17,7 +17,7 @@ ia1SW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia2SW :: [[Bit 1] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia2SW :: [[Bit 1] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia2SW[t0, t1] =
   t2 <- t0 @ flag0
   t3 <- t2 @ t1
@@ -28,7 +28,7 @@ ia2SW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia4SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia4SW :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia4SW[t0, t1] =
   t2 <- t0 @ 0
   t3 <- t2 @ t1
@@ -51,14 +51,14 @@ b30[] =
 
 -----------------------------------------
 -- recursive
-b32 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b32 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b32[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 4))
   b31[t0, t6, t5]
-b31 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b31 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b31[t0, t1, t2] =
   t3 <- primUlt((t2, 6))
   if t3
@@ -67,20 +67,20 @@ b31[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia6SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia6SW :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia6SW[t0, t1] =
   b31[t0, t1, 0]
 
 -----------------------------------------
 -- recursive
-b35 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b35 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b35[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 4))
   b34[t0, t6, t5]
-b34 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b34 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b34[t0, t1, t2] =
   t3 <- primUlt((t2, 16))
   if t3
@@ -89,20 +89,20 @@ b34[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia16SW :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia16SW :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia16SW[t0, t1] =
   b34[t0, t1, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint cia1SW :: [Word] >>= [Unit]
+entrypoint cia1SW :: [Bit 32] >>= [Unit]
 cia1SW[t0] =
   t1 <- store32((t0, 101))
   return s6
 
 -----------------------------------------
 -- not recursive
-entrypoint cia2SW :: [Word] >>= [Unit]
+entrypoint cia2SW :: [Bit 32] >>= [Unit]
 cia2SW[t0] =
   t1 <- store32((t0, 102))
   t2 <- add((t0, 4))
@@ -111,7 +111,7 @@ cia2SW[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cia4SW :: [Word] >>= [Unit]
+entrypoint cia4SW :: [Bit 32] >>= [Unit]
 cia4SW[t0] =
   t1 <- store32((t0, 104))
   t2 <- add((t0, 4))
@@ -124,13 +124,13 @@ cia4SW[t0] =
 
 -----------------------------------------
 -- recursive
-b44 :: [Word, Word] >>= [Unit]
+b44 :: [Bit 32, Bit 32] >>= [Unit]
 b44[t0, t1] =
   t2 <- store32((t0, 106))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   b43[t4, t3]
-b43 :: [Word, Word] >>= [Unit]
+b43 :: [Bit 32, Bit 32] >>= [Unit]
 b43[t0, t1] =
   t2 <- primUlt((t1, 6))
   if t2
@@ -139,19 +139,19 @@ b43[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cia6SW :: [Word] >>= [Unit]
+entrypoint cia6SW :: [Bit 32] >>= [Unit]
 cia6SW[t0] =
   b43[t0, 0]
 
 -----------------------------------------
 -- recursive
-b46 :: [Word, Word] >>= [Unit]
+b46 :: [Bit 32, Bit 32] >>= [Unit]
 b46[t0, t1] =
   t2 <- store32((t0, 116))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   b45[t4, t3]
-b45 :: [Word, Word] >>= [Unit]
+b45 :: [Bit 32, Bit 32] >>= [Unit]
 b45[t0, t1] =
   t2 <- primUlt((t1, 16))
   if t2
@@ -160,13 +160,13 @@ b45[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint cia16SW :: [Word] >>= [Unit]
+entrypoint cia16SW :: [Bit 32] >>= [Unit]
 cia16SW[t0] =
   b45[t0, 0]
 
 -----------------------------------------
 -- not recursive
-entrypoint ia3T :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia3T :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia3T[t0, t1] =
   t2 <- t0 @ 0
   t3 <- t2 @ t1
@@ -180,14 +180,14 @@ ia3T[t0, t1] =
 
 -----------------------------------------
 -- recursive
-b39 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b39 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b39[t0, t1, t2] =
   t3 <- t0 @ t2
   t4 <- t3 @ t1
   t5 <- add((t2, 1))
   t6 <- add((t1, 12))
   b38[t0, t6, t5]
-b38 :: forall (a :: *). [[Word] ->> [[Word] ->> [a]], Word, Word] >>= [Unit]
+b38 :: forall (a :: *). [[Bit 32] ->> [[Bit 32] ->> [a]], Bit 32, Bit 32] >>= [Unit]
 b38[t0, t1, t2] =
   t3 <- primUlt((t2, 7))
   if t3
@@ -196,7 +196,7 @@ b38[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint ia7T :: [[Word] ->> [[Word] ->> [Unit]], Word] >>= [Unit]
+entrypoint ia7T :: [[Bit 32] ->> [[Bit 32] ->> [Unit]], Bit 32] >>= [Unit]
 ia7T[t0, t1] =
   b38[t0, t1, 0]
 

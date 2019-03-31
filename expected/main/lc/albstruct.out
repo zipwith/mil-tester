@@ -15,69 +15,69 @@ bitdata Unsigned /32
 
 -----------------------------------------
 -- not recursive
-a :: Word
+a :: Bit 32
 a <- area S aligned 4
 
 -----------------------------------------
 -- not recursive
-b349 :: [] >>= [Word]
+b349 :: [] >>= [Bit 32]
 b349[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b496 :: [Word, Word, Word] >>= [Word]
+b496 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b496[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
     then b491[t2, t0]
     else b498[t0, t1, t2]
-b498 :: [Word, Word, Word] >>= [Word]
+b498 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b498[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
     then b500[t1, t0, t2]
     else b491[t2, t0]
-b500 :: [Word, Word, Word] >>= [Word]
+b500 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b500[t0, t1, t2] =
   t3 <- mul((t1, 10))
   b495[t3, t0, t2]
-b494 :: [Word, Word, Word] >>= [Word]
+b494 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b494[t0, t1, t2] =
   t3 <- mul((t2, 10))
   b495[t3, t1, t0]
-b495 :: [Word, Word, Word] >>= [Word]
+b495 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b495[t0, t1, t2] =
   t3 <- mul((t0, 100))
   t4 <- primUge((t2, t3))
   if t4
     then b496[t0, t1, t2]
     else b491[t2, t0]
-b492 :: [Word, Word, Word] >>= [Word]
+b492 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b492[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
     then b494[t2, t1, t0]
     else b491[t2, t0]
-b490 :: [Word, Word, Word] >>= [Word]
+b490 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b490[t0, t1, t2] =
   t3 <- primEq((t1, t0))
   if t3
     then b491[t2, t1]
     else b492[t1, t0, t2]
-b489 :: [Word, Word] >>= [Word]
+b489 :: [Bit 32, Bit 32] >>= [Bit 32]
 b489[t0, t1] =
   t2 <- primUge((t0, 100))
   if t2
     then b490[t1, 1, t0]
     else b491[t0, 1]
-b491 :: [Word, Word] >>= [Word]
+b491 :: [Bit 32, Bit 32] >>= [Bit 32]
 b491[t0, t1] =
   t2 <- mul((t1, 10))
   t3 <- sub((t0, t2))
   t4 <- b488[t3]
   add((t1, t4))
-b488 :: [Word] >>= [Word]
+b488 :: [Bit 32] >>= [Bit 32]
 b488[t0] =
   t1 <- primUlt((t0, 10))
   if t1
@@ -92,7 +92,7 @@ Proxy$fqc <-
 
 -----------------------------------------
 -- not recursive
-b479 :: [Word] >>= [Unit]
+b479 :: [Bit 32] >>= [Unit]
 b479[t0] =
   t1 <- add((t0, 48))
   t2 <- putchar((t1))
@@ -100,23 +100,23 @@ b479[t0] =
 
 -----------------------------------------
 -- recursive
-b442 :: [Word, Word, Word] >>= [Word]
+b442 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b442[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
     then b491[t2, t0]
     else b506[t0, t1, t2]
-b506 :: [Word, Word, Word] >>= [Word]
+b506 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b506[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
     then b447[t1, t0, t2]
     else b491[t2, t0]
-b447 :: [Word, Word, Word] >>= [Word]
+b447 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b447[t0, t1, t2] =
   t3 <- mul((t1, 10))
   b441[t3, t0, t2]
-b441 :: [Word, Word, Word] >>= [Word]
+b441 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b441[t0, t1, t2] =
   t3 <- mul((t0, 100))
   t4 <- primUge((t2, t3))
@@ -126,99 +126,99 @@ b441[t0, t1, t2] =
 
 -----------------------------------------
 -- recursive
-b547 :: [Word, Word] >>= [Unit]
+b547 :: [Bit 32, Bit 32] >>= [Unit]
 b547[t0, t1] =
   t2 <- mul((t1, 10))
   t3 <- sub((t0, t2))
   t4 <- b488[t3]
   t5 <- add((t1, t4))
   b520[t0, t5]
-b520 :: [Word, Word] >>= [Unit]
+b520 :: [Bit 32, Bit 32] >>= [Unit]
 b520[t0, t1] =
   t2 <- b478[t1]
   t3 <- rem((t0, 10))
   b478[t3]
-b562 :: [Word, Word] >>= [Unit]
+b562 :: [Bit 32, Bit 32] >>= [Unit]
 b562[t0, t1] =
   t2 <- mul((t1, 10))
   t3 <- sub((t0, t2))
   t4 <- b488[t3]
   t5 <- add((t1, t4))
   b551[t5, t0]
-b551 :: [Word, Word] >>= [Unit]
+b551 :: [Bit 32, Bit 32] >>= [Unit]
 b551[t0, t1] =
   t2 <- b478[t0]
   t3 <- rem((t1, 10))
   b478[t3]
-b478 :: [Word] >>= [Unit]
+b478 :: [Bit 32] >>= [Unit]
 b478[t0] =
   t1 <- primUlt((t0, 10))
   if t1
     then b479[t0]
     else b527[t0]
-b527 :: [Word] >>= [Unit]
+b527 :: [Bit 32] >>= [Unit]
 b527[t0] =
   t1 <- primUlt((t0, 10))
   if t1
     then b520[t0, 0]
     else b538[t0, 10000000]
-b538 :: [Word, Word] >>= [Unit]
+b538 :: [Bit 32, Bit 32] >>= [Unit]
 b538[t0, t1] =
   t2 <- primUge((t0, 100))
   if t2
     then b546[t1, 1, t0]
     else b547[t0, 1]
-b546 :: [Word, Word, Word] >>= [Unit]
+b546 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b546[t0, t1, t2] =
   t3 <- primEq((t1, t0))
   if t3
     then b547[t2, t1]
     else b558[t1, t0, t2]
-b558 :: [Word, Word, Word] >>= [Unit]
+b558 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b558[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
     then b560[t2, t1, t0]
     else b547[t2, t0]
-b560 :: [Word, Word, Word] >>= [Unit]
+b560 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b560[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b495[t3, t1, t0]
   t5 <- b365[t4]
   t6 <- rem((t0, 10))
   b478[t6]
-b557 :: [Word] >>= [Unit]
+b557 :: [Bit 32] >>= [Unit]
 b557[t0] =
   t1 <- primUlt((t0, 10))
   if t1
     then b551[0, t0]
     else b559[t0, 10000000]
-b559 :: [Word, Word] >>= [Unit]
+b559 :: [Bit 32, Bit 32] >>= [Unit]
 b559[t0, t1] =
   t2 <- primUge((t0, 100))
   if t2
     then b561[t1, 1, t0]
     else b562[t0, 1]
-b561 :: [Word, Word, Word] >>= [Unit]
+b561 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b561[t0, t1, t2] =
   t3 <- primEq((t1, t0))
   if t3
     then b562[t2, t1]
     else b563[t1, t0, t2]
-b563 :: [Word, Word, Word] >>= [Unit]
+b563 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b563[t0, t1, t2] =
   t3 <- primUle((t0, t1))
   if t3
     then b564[t2, t1, t0]
     else b562[t2, t0]
-b564 :: [Word, Word, Word] >>= [Unit]
+b564 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
 b564[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b441[t3, t1, t0]
   t5 <- b365[t4]
   t6 <- rem((t0, 10))
   b478[t6]
-b365 :: [Word] >>= [Unit]
+b365 :: [Bit 32] >>= [Unit]
 b365[t0] =
   t1 <- primUlt((t0, 10))
   if t1

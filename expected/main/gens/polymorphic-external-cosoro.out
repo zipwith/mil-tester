@@ -1,6 +1,6 @@
 -----------------------------------------
 -- not recursive
-entrypoint x :: Word
+entrypoint x :: Bit 32
 x <-
   id((1))
 
@@ -12,12 +12,12 @@ y <-
 
 -----------------------------------------
 -- not recursive
-str0 :: Word
+str0 :: Bit 32
 str0 <- "hello"
 
 -----------------------------------------
 -- not recursive
-entrypoint z :: Word
+entrypoint z :: Bit 32
 z <-
   id2((str0))
 

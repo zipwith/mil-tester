@@ -21,35 +21,35 @@ neg1[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint neg2 :: [Word] >>= [Word]
+entrypoint neg2 :: [Bit 64] >>= [Bit 64]
 neg2[t0] =
   t1 <- neg((t0))
   and((t1, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint neg7 :: [Word] >>= [Word]
+entrypoint neg7 :: [Bit 64] >>= [Bit 64]
 neg7[t0] =
   t1 <- neg((t0))
   and((t1, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint neg32 :: [Word] >>= [Word]
+entrypoint neg32 :: [Bit 64] >>= [Bit 64]
 neg32[t0] =
   t1 <- neg((t0))
   and((t1, 4294967295))
 
 -----------------------------------------
 -- not recursive
-entrypoint neg48 :: [Word] >>= [Word]
+entrypoint neg48 :: [Bit 64] >>= [Bit 64]
 neg48[t0] =
   t1 <- neg((t0))
   and((t1, 281474976710655))
 
 -----------------------------------------
 -- not recursive
-entrypoint neg64 :: [Word] >>= [Word]
+entrypoint neg64 :: [Bit 64] >>= [Bit 64]
 neg64[t0] =
   neg((t0))
 
@@ -67,35 +67,35 @@ plus1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint plus2 :: [Word, Word] >>= [Word]
+entrypoint plus2 :: [Bit 64, Bit 64] >>= [Bit 64]
 plus2[t0, t1] =
   t2 <- add((t0, t1))
   and((t2, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint plus7 :: [Word, Word] >>= [Word]
+entrypoint plus7 :: [Bit 64, Bit 64] >>= [Bit 64]
 plus7[t0, t1] =
   t2 <- add((t0, t1))
   and((t2, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint plus32 :: [Word, Word] >>= [Word]
+entrypoint plus32 :: [Bit 64, Bit 64] >>= [Bit 64]
 plus32[t0, t1] =
   t2 <- add((t0, t1))
   and((t2, 4294967295))
 
 -----------------------------------------
 -- not recursive
-entrypoint plus48 :: [Word, Word] >>= [Word]
+entrypoint plus48 :: [Bit 64, Bit 64] >>= [Bit 64]
 plus48[t0, t1] =
   t2 <- add((t0, t1))
   and((t2, 281474976710655))
 
 -----------------------------------------
 -- not recursive
-entrypoint plus64 :: [Word, Word] >>= [Word]
+entrypoint plus64 :: [Bit 64, Bit 64] >>= [Bit 64]
 plus64[t0, t1] =
   add((t0, t1))
 
@@ -113,35 +113,35 @@ minus1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint minus2 :: [Word, Word] >>= [Word]
+entrypoint minus2 :: [Bit 64, Bit 64] >>= [Bit 64]
 minus2[t0, t1] =
   t2 <- sub((t0, t1))
   and((t2, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint minus7 :: [Word, Word] >>= [Word]
+entrypoint minus7 :: [Bit 64, Bit 64] >>= [Bit 64]
 minus7[t0, t1] =
   t2 <- sub((t0, t1))
   and((t2, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint minus32 :: [Word, Word] >>= [Word]
+entrypoint minus32 :: [Bit 64, Bit 64] >>= [Bit 64]
 minus32[t0, t1] =
   t2 <- sub((t0, t1))
   and((t2, 4294967295))
 
 -----------------------------------------
 -- not recursive
-entrypoint minus48 :: [Word, Word] >>= [Word]
+entrypoint minus48 :: [Bit 64, Bit 64] >>= [Bit 64]
 minus48[t0, t1] =
   t2 <- sub((t0, t1))
   and((t2, 281474976710655))
 
 -----------------------------------------
 -- not recursive
-entrypoint minus64 :: [Word, Word] >>= [Word]
+entrypoint minus64 :: [Bit 64, Bit 64] >>= [Bit 64]
 minus64[t0, t1] =
   sub((t0, t1))
 
@@ -159,35 +159,35 @@ times1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint times2 :: [Word, Word] >>= [Word]
+entrypoint times2 :: [Bit 64, Bit 64] >>= [Bit 64]
 times2[t0, t1] =
   t2 <- mul((t0, t1))
   and((t2, 3))
 
 -----------------------------------------
 -- not recursive
-entrypoint times7 :: [Word, Word] >>= [Word]
+entrypoint times7 :: [Bit 64, Bit 64] >>= [Bit 64]
 times7[t0, t1] =
   t2 <- mul((t0, t1))
   and((t2, 127))
 
 -----------------------------------------
 -- not recursive
-entrypoint times32 :: [Word, Word] >>= [Word]
+entrypoint times32 :: [Bit 64, Bit 64] >>= [Bit 64]
 times32[t0, t1] =
   t2 <- mul((t0, t1))
   and((t2, 4294967295))
 
 -----------------------------------------
 -- not recursive
-entrypoint times48 :: [Word, Word] >>= [Word]
+entrypoint times48 :: [Bit 64, Bit 64] >>= [Bit 64]
 times48[t0, t1] =
   t2 <- mul((t0, t1))
   and((t2, 281474976710655))
 
 -----------------------------------------
 -- not recursive
-entrypoint times64 :: [Word, Word] >>= [Word]
+entrypoint times64 :: [Bit 64, Bit 64] >>= [Bit 64]
 times64[t0, t1] =
   mul((t0, t1))
 

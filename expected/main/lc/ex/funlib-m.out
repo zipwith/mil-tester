@@ -1,31 +1,31 @@
 -----------------------------------------
 -- not recursive
-b101 :: [] >>= [Word]
+b101 :: [] >>= [Bit 32]
 b101[] =
   return 1
 
 -----------------------------------------
 -- not recursive
-b95 :: [] >>= [Word]
+b95 :: [] >>= [Bit 32]
 b95[] =
   return 0
 
 -----------------------------------------
 -- recursive
-b128 :: [Word, Word] >>= [Word]
+b128 :: [Bit 32, Bit 32] >>= [Bit 32]
 b128[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
     then b101[]
     else b92[t0]
-b92 :: [Word] >>= [Word]
+b92 :: [Bit 32] >>= [Bit 32]
 b92[t0] =
   t1 <- add((t0, -1))
   t2 <- b132[t1, 0]
   t3 <- add((t0, -2))
   t4 <- b132[t3, 0]
   add((t2, t4))
-b132 :: [Word, Word] >>= [Word]
+b132 :: [Bit 32, Bit 32] >>= [Bit 32]
 b132[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
@@ -34,19 +34,19 @@ b132[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint fib :: [Word] >>= [Word]
+entrypoint fib :: [Bit 32] >>= [Bit 32]
 fib[t0] =
   b132[t0, 0]
 
 -----------------------------------------
 -- not recursive
-b86 :: [Word] >>= [Word]
+b86 :: [Bit 32] >>= [Bit 32]
 b86[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b78 :: [Word, Word, Word] >>= [Word]
+b78 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b78[t0, t1, t2] =
   t3 <- add((t0, t1))
   t4 <- add((t2, -1))
@@ -57,7 +57,7 @@ b78[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint itfib :: [Word] >>= [Word]
+entrypoint itfib :: [Bit 32] >>= [Bit 32]
 itfib[t0] =
   t1 <- primEq((t0, 0))
   if t1
@@ -66,12 +66,12 @@ itfib[t0] =
 
 -----------------------------------------
 -- recursive
-b100 :: [Word] >>= [Word]
+b100 :: [Bit 32] >>= [Bit 32]
 b100[t0] =
   t1 <- add((t0, -1))
   t2 <- b120[t1, 0]
   mul((t0, t2))
-b120 :: [Word, Word] >>= [Word]
+b120 :: [Bit 32, Bit 32] >>= [Bit 32]
 b120[t0, t1] =
   t2 <- primEq((t0, t1))
   if t2
@@ -80,13 +80,13 @@ b120[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint recfac :: [Word] >>= [Word]
+entrypoint recfac :: [Bit 32] >>= [Bit 32]
 recfac[t0] =
   b120[t0, 0]
 
 -----------------------------------------
 -- recursive
-b85 :: [Word, Word] >>= [Word]
+b85 :: [Bit 32, Bit 32] >>= [Bit 32]
 b85[t0, t1] =
   t2 <- mul((t0, t1))
   t3 <- add((t1, -1))
@@ -97,7 +97,7 @@ b85[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint itfac :: [Word] >>= [Word]
+entrypoint itfac :: [Bit 32] >>= [Bit 32]
 itfac[t0] =
   t1 <- primEq((t0, 0))
   if t1

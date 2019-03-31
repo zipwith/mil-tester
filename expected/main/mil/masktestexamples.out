@@ -1,18 +1,18 @@
 -----------------------------------------
 -- not recursive
-b68 :: [] >>= [Word]
+b68 :: [] >>= [Bit 32]
 b68[] =
   return 2
 
 -----------------------------------------
 -- not recursive
-bret :: [Word] >>= [Word]
+bret :: [Bit 32] >>= [Bit 32]
 bret[t0] =
   return t0
 
 -----------------------------------------
 -- not recursive
-b66 :: [Word, Word, Word] >>= [Word]
+b66 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b66[t0, t1, t2] =
   t3 <- and((t2, t0))
   t4 <- primEq((t3, t1))
@@ -22,7 +22,7 @@ b66[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-fooD :: [Word, Word] >>= [Word]
+fooD :: [Bit 32, Bit 32] >>= [Bit 32]
 fooD[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primEq((t2, 1))
@@ -32,7 +32,7 @@ fooD[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b80 :: [Word, Word, Word, Word] >>= [Word]
+b80 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b80[t0, t1, t2, t3] =
   t4 <- and((t2, t0))
   t5 <- primEq((t4, t1))
@@ -42,7 +42,7 @@ b80[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint foo :: [Word, Word] >>= [Word]
+entrypoint foo :: [Bit 32, Bit 32] >>= [Bit 32]
 foo[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primEq((t2, 2))
@@ -52,7 +52,7 @@ foo[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b59 :: [Word, Word, Word] >>= [Word]
+b59 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b59[t0, t1, t2] =
   t3 <- and((t2, t0))
   t4 <- primNeq((t3, t1))
@@ -62,13 +62,13 @@ b59[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b58 :: [] >>= [Word]
+b58 :: [] >>= [Bit 32]
 b58[] =
   return 11
 
 -----------------------------------------
 -- not recursive
-barF :: [Word, Word] >>= [Word]
+barF :: [Bit 32, Bit 32] >>= [Bit 32]
 barF[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primNeq((t2, 1))
@@ -78,7 +78,7 @@ barF[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b79 :: [Word, Word, Word, Word] >>= [Word]
+b79 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b79[t0, t1, t2, t3] =
   t4 <- and((t2, t0))
   t5 <- primNeq((t4, t1))
@@ -88,7 +88,7 @@ b79[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint bar :: [Word, Word] >>= [Word]
+entrypoint bar :: [Bit 32, Bit 32] >>= [Bit 32]
 bar[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primNeq((t2, 2))
@@ -98,7 +98,7 @@ bar[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b40 :: [Word, Word, Word] >>= [Word]
+b40 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b40[t0, t1, t2] =
   t3 <- and((t2, t0))
   t4 <- primNeq((t3, t1))
@@ -108,13 +108,13 @@ b40[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-b39 :: [] >>= [Word]
+b39 :: [] >>= [Bit 32]
 b39[] =
   return 23
 
 -----------------------------------------
 -- not recursive
-bazF :: [Word, Word] >>= [Word]
+bazF :: [Bit 32, Bit 32] >>= [Bit 32]
 bazF[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primNeq((t2, 1))
@@ -124,7 +124,7 @@ bazF[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b76 :: [Word, Word, Word, Word] >>= [Word]
+b76 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b76[t0, t1, t2, t3] =
   t4 <- and((t2, t0))
   t5 <- primEq((t4, t1))
@@ -134,7 +134,7 @@ b76[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-bazD :: [Word, Word] >>= [Word]
+bazD :: [Bit 32, Bit 32] >>= [Bit 32]
 bazD[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primEq((t2, 1))
@@ -144,7 +144,7 @@ bazD[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b77 :: [Word, Word, Word, Word] >>= [Word]
+b77 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b77[t0, t1, t2, t3] =
   t4 <- and((t2, t0))
   t5 <- primNeq((t4, t1))
@@ -154,7 +154,7 @@ b77[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-bazE :: [Word, Word] >>= [Word]
+bazE :: [Bit 32, Bit 32] >>= [Bit 32]
 bazE[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primNeq((t2, 2))
@@ -164,7 +164,7 @@ bazE[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-b78 :: [Word, Word, Word, Word] >>= [Word]
+b78 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b78[t0, t1, t2, t3] =
   t4 <- and((t2, t0))
   t5 <- primEq((t4, t1))
@@ -174,7 +174,7 @@ b78[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint baz :: [Word, Word] >>= [Word]
+entrypoint baz :: [Bit 32, Bit 32] >>= [Bit 32]
 baz[t0, t1] =
   t2 <- and((t0, 3))
   t3 <- primEq((t2, 2))
@@ -184,7 +184,7 @@ baz[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-quuxH :: [Word] >>= [Word]
+quuxH :: [Bit 32] >>= [Bit 32]
 quuxH[t0] =
   t1 <- and((t0, 7))
   t2 <- primEq((t1, 3))
@@ -194,7 +194,7 @@ quuxH[t0] =
 
 -----------------------------------------
 -- not recursive
-b75 :: [Word, Word, Word] >>= [Word]
+b75 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b75[t0, t1, t2] =
   t3 <- and((t2, t0))
   t4 <- primEq((t3, t1))
@@ -204,7 +204,7 @@ b75[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-entrypoint quux :: [Word, Word] >>= [Word]
+entrypoint quux :: [Bit 32, Bit 32] >>= [Bit 32]
 quux[t0, t1] =
   t2 <- and((t0, 7))
   t3 <- primEq((t2, 3))

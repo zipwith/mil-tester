@@ -1,29 +1,29 @@
 data Pair0
-  = Pair0 ([Word] ->> [Word]) ([Word] ->> [Word])
+  = Pair0 ([Bit 32] ->> [Bit 32]) ([Bit 32] ->> [Bit 32])
 
 -----------------------------------------
 -- not recursive
-b79 :: [Word] >>= [Word]
+b79 :: [Bit 32] >>= [Bit 32]
 b79[t0] =
   return t0
 
 -----------------------------------------
 -- recursive
-b85 :: [Word, Word] >>= [Word]
+b85 :: [Bit 32, Bit 32] >>= [Bit 32]
 b85[t0, t1] =
   t2 <- b102[t1, 0, t0]
   add((t0, t2))
-b102 :: [Word, Word, Word] >>= [Word]
+b102 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b102[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
     then b79[t2]
     else b78[t2, t0]
-b78 :: [Word, Word] >>= [Word]
+b78 :: [Bit 32, Bit 32] >>= [Bit 32]
 b78[t0, t1] =
   t2 <- b106[t1, 0, t0]
   add((t0, t2))
-b106 :: [Word, Word, Word] >>= [Word]
+b106 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b106[t0, t1, t2] =
   t3 <- primEq((t0, t1))
   if t3
@@ -32,17 +32,17 @@ b106[t0, t1, t2] =
 
 -----------------------------------------
 -- not recursive
-k54 :: {Word} [Word] ->> [Word]
+k54 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k54{t0} t1 = b106[t1, 0, t0]
 
 -----------------------------------------
 -- not recursive
-k52 :: {Word} [Word] ->> [Word]
+k52 :: {Bit 32} [Bit 32] ->> [Bit 32]
 k52{t0} t1 = b102[t1, 0, t0]
 
 -----------------------------------------
 -- not recursive
-entrypoint main :: [Word] >>= [Pair0]
+entrypoint main :: [Bit 32] >>= [Pair0]
 main[t0] =
   t1 <- k54{t0}
   t2 <- k52{t0}

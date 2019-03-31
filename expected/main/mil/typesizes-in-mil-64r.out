@@ -1,16 +1,16 @@
 -----------------------------------------
 -- not recursive
-external b :: Word
+external b :: Bit 64
 
 -----------------------------------------
 -- not recursive
-entrypoint a :: Word
+entrypoint a :: Bit 64
 a <-
   return b
 
 -----------------------------------------
 -- not recursive
-entrypoint isNull :: [Word] >>= [Bit 1]
+entrypoint isNull :: [Bit 64] >>= [Bit 1]
 isNull[t0] =
   primEq((t0, 0))
 

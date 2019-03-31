@@ -1,16 +1,16 @@
 data DecodeResult0
-  = Failed0 Word
-  | Success1 Word Word Word
+  = Failed0 (Bit 32)
+  | Success1 (Bit 32) (Bit 32) (Bit 32)
 
 -----------------------------------------
 -- not recursive
-decodeFailed :: [Word] >>= [DecodeResult0]
+decodeFailed :: [Bit 32] >>= [DecodeResult0]
 decodeFailed[t0] =
   Failed0(t0)
 
 -----------------------------------------
 -- not recursive
-decodeSuccess :: [Word, Word, Word, Word] >>= [DecodeResult0]
+decodeSuccess :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [DecodeResult0]
 decodeSuccess[t0, t1, t2, t3] =
   t4 <- shl((t2, t1))
   t5 <- sub((32, t1))
@@ -22,7 +22,7 @@ decodeSuccess[t0, t1, t2, t3] =
 
 -----------------------------------------
 -- not recursive
-entrypoint decodeCNode :: [Word, Word, Word] >>= [DecodeResult0]
+entrypoint decodeCNode :: [Bit 32, Bit 32, Bit 32] >>= [DecodeResult0]
 decodeCNode[t0, t1, t2] =
   t3 <- and((t0, 31))
   t4 <- sub((t2, t3))

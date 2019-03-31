@@ -3,13 +3,13 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-entrypoint at1SW :: [Word, Unit] >>= [Word]
+entrypoint at1SW :: [Bit 32, Unit] >>= [Bit 32]
 at1SW[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SW :: [Word, Bit 1] >>= [Word]
+entrypoint at2SW :: [Bit 32, Bit 1] >>= [Bit 32]
 at2SW[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- shl((t2, 2))
@@ -17,91 +17,91 @@ at2SW[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at10SW :: [Word, Word] >>= [Word]
+entrypoint at10SW :: [Bit 32, Bit 32] >>= [Bit 32]
 at10SW[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at160SW :: [Word, Word] >>= [Word]
+entrypoint at160SW :: [Bit 32, Bit 32] >>= [Bit 32]
 at160SW[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at256SW :: [Word, Word] >>= [Word]
+entrypoint at256SW :: [Bit 32, Bit 32] >>= [Bit 32]
 at256SW[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1KSW :: [Word, Word] >>= [Word]
+entrypoint at1KSW :: [Bit 32, Bit 32] >>= [Bit 32]
 at1KSW[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at4KSW :: [Word, Word] >>= [Word]
+entrypoint at4KSW :: [Bit 32, Bit 32] >>= [Bit 32]
 at4KSW[t0, t1] =
   t2 <- shl((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1SI :: [Word, Unit] >>= [Word]
+entrypoint at1SI :: [Bit 32, Unit] >>= [Bit 32]
 at1SI[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SI :: [Word, Bit 1] >>= [Word]
+entrypoint at2SI :: [Bit 32, Bit 1] >>= [Bit 32]
 at2SI[t0, t1] =
   t2 <- flagToWord((t1))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at10SI :: [Word, Word] >>= [Word]
+entrypoint at10SI :: [Bit 32, Bit 32] >>= [Bit 32]
 at10SI[t0, t1] =
   add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint at160SI :: [Word, Word] >>= [Word]
+entrypoint at160SI :: [Bit 32, Bit 32] >>= [Bit 32]
 at160SI[t0, t1] =
   add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint at256SI :: [Word, Word] >>= [Word]
+entrypoint at256SI :: [Bit 32, Bit 32] >>= [Bit 32]
 at256SI[t0, t1] =
   add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1KSI :: [Word, Word] >>= [Word]
+entrypoint at1KSI :: [Bit 32, Bit 32] >>= [Bit 32]
 at1KSI[t0, t1] =
   add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint at4KSI :: [Word, Word] >>= [Word]
+entrypoint at4KSI :: [Bit 32, Bit 32] >>= [Bit 32]
 at4KSI[t0, t1] =
   add((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1SS :: [Word, Unit] >>= [Word]
+entrypoint at1SS :: [Bit 32, Unit] >>= [Bit 32]
 at1SS[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SS :: [Word, Bit 1] >>= [Word]
+entrypoint at2SS :: [Bit 32, Bit 1] >>= [Bit 32]
 at2SS[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- mul((t2, 2))
@@ -109,48 +109,48 @@ at2SS[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at10SS :: [Word, Word] >>= [Word]
+entrypoint at10SS :: [Bit 32, Bit 32] >>= [Bit 32]
 at10SS[t0, t1] =
   t2 <- mul((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at160SS :: [Word, Word] >>= [Word]
+entrypoint at160SS :: [Bit 32, Bit 32] >>= [Bit 32]
 at160SS[t0, t1] =
   t2 <- mul((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at256SS :: [Word, Word] >>= [Word]
+entrypoint at256SS :: [Bit 32, Bit 32] >>= [Bit 32]
 at256SS[t0, t1] =
   t2 <- mul((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1KSS :: [Word, Word] >>= [Word]
+entrypoint at1KSS :: [Bit 32, Bit 32] >>= [Bit 32]
 at1KSS[t0, t1] =
   t2 <- mul((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at4KSS :: [Word, Word] >>= [Word]
+entrypoint at4KSS :: [Bit 32, Bit 32] >>= [Bit 32]
 at4KSS[t0, t1] =
   t2 <- mul((t1, 2))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1SA :: [Word, Unit] >>= [Word]
+entrypoint at1SA :: [Bit 32, Unit] >>= [Bit 32]
 at1SA[t0, t1] =
   return t0
 
 -----------------------------------------
 -- not recursive
-entrypoint at2SA :: [Word, Bit 1] >>= [Word]
+entrypoint at2SA :: [Bit 32, Bit 1] >>= [Bit 32]
 at2SA[t0, t1] =
   t2 <- flagToWord((t1))
   t3 <- mul((t2, 46))
@@ -158,35 +158,35 @@ at2SA[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint at10SA :: [Word, Word] >>= [Word]
+entrypoint at10SA :: [Bit 32, Bit 32] >>= [Bit 32]
 at10SA[t0, t1] =
   t2 <- mul((t1, 46))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at160SA :: [Word, Word] >>= [Word]
+entrypoint at160SA :: [Bit 32, Bit 32] >>= [Bit 32]
 at160SA[t0, t1] =
   t2 <- mul((t1, 46))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at256SA :: [Word, Word] >>= [Word]
+entrypoint at256SA :: [Bit 32, Bit 32] >>= [Bit 32]
 at256SA[t0, t1] =
   t2 <- mul((t1, 46))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at1KSA :: [Word, Word] >>= [Word]
+entrypoint at1KSA :: [Bit 32, Bit 32] >>= [Bit 32]
 at1KSA[t0, t1] =
   t2 <- mul((t1, 46))
   add((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint at4KSA :: [Word, Word] >>= [Word]
+entrypoint at4KSA :: [Bit 32, Bit 32] >>= [Bit 32]
 at4KSA[t0, t1] =
   t2 <- mul((t1, 46))
   add((t0, t2))

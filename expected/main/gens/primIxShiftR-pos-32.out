@@ -9,38 +9,38 @@ shrix2_1[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix4_2 :: [Word, Bit 1] >>= [Word]
+entrypoint shrix4_2 :: [Bit 32, Bit 1] >>= [Bit 32]
 shrix4_2[t0, t1] =
   t2 <- flagToWord((t1))
   lshr((t0, t2))
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix8_3 :: [Word, Word] >>= [Word]
+entrypoint shrix8_3 :: [Bit 32, Bit 32] >>= [Bit 32]
 shrix8_3[t0, t1] =
   lshr((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix1K_10 :: [Word, Word] >>= [Word]
+entrypoint shrix1K_10 :: [Bit 32, Bit 32] >>= [Bit 32]
 shrix1K_10[t0, t1] =
   lshr((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint shrix1G_30 :: [Word, Word] >>= [Word]
+entrypoint shrix1G_30 :: [Bit 32, Bit 32] >>= [Bit 32]
 shrix1G_30[t0, t1] =
   lshr((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint primIxShiftR16 :: [Word, Word] >>= [Word]
+entrypoint primIxShiftR16 :: [Bit 32, Bit 32] >>= [Bit 32]
 primIxShiftR16[t0, t1] =
   lshr((t0, t1))
 
 -----------------------------------------
 -- not recursive
-entrypoint primIxShiftR4K :: [Word, Word] >>= [Word]
+entrypoint primIxShiftR4K :: [Bit 32, Bit 32] >>= [Bit 32]
 primIxShiftR4K[t0, t1] =
   lshr((t0, t1))
 
