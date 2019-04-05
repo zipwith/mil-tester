@@ -1,0 +1,39 @@
+> require "core.llc"
+> require "ix.llc"
+
+> type Ring = Ix 4  -- protection level: 0=kernel, 3=user level
+
+> bitdata IA32Flags/WordSize
+>   = IA32Flags [ 0                     -- Reserved: FIXME allow type sig
+>               | id   = B0  :: Bit 1   -- identification flag
+>               | vip  = B0  :: Bit 1   -- virtual interrupt pending
+>               | vif  = B0  :: Bit 1   -- virtual interrupt flag
+>               | ac   = B0  :: Bit 1   -- alignment check
+>               | vm   = B0  :: Bit 1   -- virtual 8086 mode
+>               | rf   = B0  :: Bit 1   -- resume flag
+>               | B0
+>               | nt   = B0  :: Bit 1   -- nested task flag
+>               | iopl = ix0 :: Ring    -- I/O privilege level
+>               | ovf  = B0  :: Bit 1   -- overflow flag
+>               | df   = B0  :: Bit 1   -- direction flag
+>               | ifl  = B0  :: Bit 1   -- interrupt flag
+>               | tf   = B0  :: Bit 1   -- trap flag
+>               | sf   = B0  :: Bit 1   -- sign flag
+>               | zf   = B0  :: Bit 1   -- zero flag
+>               | B0
+>               | af   = B0  :: Bit 1   -- adjust flag
+>               | B0
+>               | pf   = B0  :: Bit 1   -- parity flag
+>               | B1                    -- Intel reserved; must be 1
+>               | cf   = B0  :: Bit 1 ] -- carry flag
+
+> entrypoint updateFlags
+> updateFlags          :: IA32Flags -> IA32Flags -> IA32Flags
+> updateFlags flags new = flags[cf=new.cf | pf=new.pf | af=new.af | zf=new.zf | sf=new.sf | ovf=new.ovf]
+>                          -- carry, parity, adjust, zero, sign, overflow
+
+> entrypoint simple
+> simple          :: IA32Flags -> IA32Flags -> IA32Flags
+> simple flags new = flags[cf=new.cf | pf=new.pf] --  | af=new.af | zf=new.zf | sf=new.sf | ovf=new.ovf]
+>                          -- carry, parity, adjust, zero, sign, overflow
+

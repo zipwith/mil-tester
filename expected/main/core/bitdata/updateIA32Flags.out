@@ -1,0 +1,20 @@
+define i32 @simple(i32 %r0, i32 %r1) {
+  br label %simple
+
+simple:
+  %r3 = and i32 %r0, -6
+  %r4 = and i32 %r1, 5
+  %r2 = or i32 %r3, %r4
+  ret i32 %r2
+}
+
+define i32 @updateFlags(i32 %r0, i32 %r1) {
+  br label %updateFlags
+
+updateFlags:
+  %r3 = and i32 %r0, -2262
+  %r4 = and i32 %r1, 2261
+  %r2 = or i32 %r3, %r4
+  ret i32 %r2
+}
+

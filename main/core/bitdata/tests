@@ -637,4 +637,7 @@ entrypoint sample, sample1
 sample  = T [ x = B0000 ] -- no default for y
 sample1 = T [ y = B000 ]  -- wrong type for y
 
+----------
+exec:  updateIA32Flags     ./milc -l --32 flags.llc
+
 -----------------------

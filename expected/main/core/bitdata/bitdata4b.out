@@ -59,19 +59,15 @@ getX[t0] =
 -- not recursive
 entrypoint rotate :: [Bit 32] >>= [Bit 32]
 rotate[t0] =
-  t1 <- and((t0, 2))
-  t2 <- primNeq((t1, 0))
-  t3 <- and((t0, 1))
-  t4 <- primNeq((t3, 0))
-  t5 <- and((t0, 4))
-  t6 <- primNeq((t5, 0))
-  t7 <- flagToWord((t6))
-  t8 <- flagToWord((t4))
-  t9 <- shl((t8, 1))
-  t10 <- or((t7, t9))
-  t11 <- flagToWord((t2))
-  t12 <- shl((t11, 2))
-  or((t10, t12))
+  t1 <- lshr((t0, 2))
+  t2 <- and((t1, 1))
+  t3 <- shl((t0, 1))
+  t4 <- and((t3, 2))
+  t5 <- or((t2, t4))
+  t6 <- lshr((t0, 1))
+  t7 <- shl((t6, 2))
+  t8 <- and((t7, 4))
+  or((t5, t8))
 
 -----------------------------------------
 -- Entrypoints: all0 all1 all2 r w x getR getW getX rotate
