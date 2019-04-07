@@ -1,0 +1,36 @@
+external plus32     {primBitPlus    32} :: Bit 32 -> Bit 32 -> Bit 32
+external mult32     {primBitTimes   32} :: Bit 32 -> Bit 32 -> Bit 32
+external sub32      {primBitMinus   32} :: Bit 32 -> Bit 32 -> Bit 32
+external le32       {primBitLe      32} :: Bit 32 -> Bit 32 -> Bool
+external ge32       {primBitGe      32} :: Bit 32 -> Bit 32 -> Bool
+external lt32       {primBitLt      32} :: Bit 32 -> Bit 32 -> Bool
+external neg32      {primBitNegate  32} :: Bit 32 -> Bit 32
+external modIx10    {primModIx   32 10} :: Bit 32 -> Ix  10
+external ix10toWord {primIxToBit 10 32} :: Ix  10 -> Bit 32
+external putchar    {putchar}           :: Word -> Proc Unit
+external output     {output}            :: Word -> Proc Unit
+
+mod10  :: Word -> Word
+mod10 x = ix10toWord (modIx10 x)
+
+div10  :: Word -> Word
+div10 z = let f a = let c :: Bool
+                        c = (case lt32 z (mult32 100 a) of
+                               False  -> ge32 a 10000000) | True
+                    in (case c of
+                           True  -> plus32 a (div10 (sub32 z (mult32 10 a))))
+                          | (f (mult32 a 10))
+            in ((case lt32 z 10 of
+                  True  -> 0) | (f 1))
+
+putint  :: Word -> Proc Unit
+putint x = (case lt32 x 10 of
+             True  -> putchar (plus32 x 48))
+           | (do x$4odf <- output x;
+                 x$4odg <- output (mod10 x);
+                 x$4odh <- output 0;
+                 x$4odj <- putint (div10 x);
+                 putint (mod10 x))
+
+entrypoint main :: Proc Unit
+main = putint (neg32 2)

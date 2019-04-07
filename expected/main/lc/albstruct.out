@@ -136,7 +136,7 @@ b547[t0, t1] =
 b520 :: [Bit 32, Bit 32] >>= [Unit]
 b520[t0, t1] =
   t2 <- b478[t1]
-  t3 <- rem((t0, 10))
+  t3 <- nzrem((t0, 10))
   b478[t3]
 b562 :: [Bit 32, Bit 32] >>= [Unit]
 b562[t0, t1] =
@@ -148,7 +148,7 @@ b562[t0, t1] =
 b551 :: [Bit 32, Bit 32] >>= [Unit]
 b551[t0, t1] =
   t2 <- b478[t0]
-  t3 <- rem((t1, 10))
+  t3 <- nzrem((t1, 10))
   b478[t3]
 b478 :: [Bit 32] >>= [Unit]
 b478[t0] =
@@ -185,7 +185,7 @@ b560[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b495[t3, t1, t0]
   t5 <- b365[t4]
-  t6 <- rem((t0, 10))
+  t6 <- nzrem((t0, 10))
   b478[t6]
 b557 :: [Bit 32] >>= [Unit]
 b557[t0] =
@@ -216,7 +216,7 @@ b564[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b441[t3, t1, t0]
   t5 <- b365[t4]
-  t6 <- rem((t0, 10))
+  t6 <- nzrem((t0, 10))
   b478[t6]
 b365 :: [Bit 32] >>= [Unit]
 b365[t0] =
@@ -386,7 +386,7 @@ b520:
   %r8 = phi i32 [%r2, %b527], [%r11, %b547]
   %r9 = phi i32 [0, %b527], [%r10, %b547]
   call void @func_b478(i32 %r9)
-  %r4 = srem i32 %r8, 10
+  %r4 = urem i32 %r8, 10
   br label %b478
 
 b538:
@@ -414,7 +414,7 @@ b560:
   %r20 = mul i32 1, 10
   %r19 = call i32 @func_b495(i32 %r20, i32 10000000, i32 %r2)
   call void @func_b365(i32 %r19)
-  %r3 = srem i32 %r2, 10
+  %r3 = urem i32 %r2, 10
   br label %b478
 }
 
@@ -439,7 +439,7 @@ b551:
   %r9 = phi i32 [0, %b557], [%r11, %b562]
   %r8 = phi i32 [%r0, %b557], [%r10, %b562]
   call void @func_b478(i32 %r9)
-  %r7 = srem i32 %r8, 10
+  %r7 = urem i32 %r8, 10
   br label %b478
 
 b559:
@@ -476,7 +476,7 @@ b520:
   %r24 = phi i32 [%r5, %b527], [%r27, %b547]
   %r25 = phi i32 [0, %b527], [%r26, %b547]
   call void @func_b478(i32 %r25)
-  %r16 = srem i32 %r24, 10
+  %r16 = urem i32 %r24, 10
   br label %b478
 
 b538:
@@ -487,7 +487,7 @@ b564:
   %r30 = mul i32 1, 10
   %r29 = call i32 @func_b441(i32 %r30, i32 10000000, i32 %r0)
   call void @func_b365(i32 %r29)
-  %r15 = srem i32 %r0, 10
+  %r15 = urem i32 %r0, 10
   br label %b478
 
 b546:
@@ -511,7 +511,7 @@ b560:
   %r38 = mul i32 1, 10
   %r37 = call i32 @func_b495(i32 %r38, i32 10000000, i32 %r5)
   call void @func_b365(i32 %r37)
-  %r14 = srem i32 %r5, 10
+  %r14 = urem i32 %r5, 10
   br label %b478
 }
 

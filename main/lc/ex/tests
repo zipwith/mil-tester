@@ -719,3 +719,9 @@ main = do x <- rdtsc
           print (sub y x)
 
 ------------
+exec: bs1   ./milc basic.mil -m -l bs1.lc
+
+------------
+exec: bs2   ./milc basic.mil -m -l bs2.lc
+
+------------

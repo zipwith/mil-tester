@@ -151,7 +151,7 @@ b671[t0, t1] =
 b613 :: [Bit 32] >>= [Unit]
 b613[t0] =
   t1 <- b465[0]
-  t2 <- rem((t0, 10))
+  t2 <- nzrem((t0, 10))
   b465[t2]
 b697 :: [Bit 32, Bit 32] >>= [Unit]
 b697[t0, t1] =
@@ -163,7 +163,7 @@ b697[t0, t1] =
 b685 :: [Bit 32, Bit 32] >>= [Unit]
 b685[t0, t1] =
   t2 <- b465[t0]
-  t3 <- rem((t1, 10))
+  t3 <- nzrem((t1, 10))
   b465[t3]
 b465 :: [Bit 32] >>= [Unit]
 b465[t0] =
@@ -190,7 +190,7 @@ b670[t0, t1, t2] =
 b498 :: [Bit 32, Bit 32] >>= [Unit]
 b498[t0, t1] =
   t2 <- b392[t0]
-  t3 <- rem((t1, 10))
+  t3 <- nzrem((t1, 10))
   b465[t3]
 b694 :: [Bit 32] >>= [Unit]
 b694[t0] =
@@ -241,7 +241,7 @@ b702[t0, t1, t2] =
   t3 <- mul((t1, 10))
   t4 <- b649[t3, t0, t2]
   t5 <- b392[t4]
-  t6 <- rem((t2, 10))
+  t6 <- nzrem((t2, 10))
   b465[t6]
 b392 :: [Bit 32] >>= [Unit]
 b392[t0] =
@@ -259,7 +259,7 @@ b665[t0, t1] =
   t4 <- b474[t3]
   t5 <- add((t0, t4))
   t6 <- b392[t5]
-  t7 <- rem((t1, 10))
+  t7 <- nzrem((t1, 10))
   t8 <- b465[t7]
   t9 <- b438[14]
   t10 <- b438[13]
@@ -271,7 +271,7 @@ b663 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
 b663[t0, t1, t2] =
   t3 <- b611[t1, t0, t2]
   t4 <- b392[t3]
-  t5 <- rem((t2, 10))
+  t5 <- nzrem((t2, 10))
   t6 <- b465[t5]
   t7 <- b438[14]
   t8 <- b438[13]
@@ -291,7 +291,7 @@ b661[t0, t1] =
 b660 :: [Bit 32] >>= [Bit 32]
 b660[t0] =
   t1 <- b465[0]
-  t2 <- rem((t0, 10))
+  t2 <- nzrem((t0, 10))
   t3 <- b465[t2]
   t4 <- b438[14]
   t5 <- b438[13]
@@ -514,7 +514,7 @@ b471:
 
 b613:
   call void @func_b465(i32 0)
-  %r4 = srem i32 %r2, 10
+  %r4 = urem i32 %r2, 10
   br label %b465
 
 b657:
@@ -536,7 +536,7 @@ b498:
   %r15 = phi i32 [%r9, %b670], [%r10, %b671]
   %r14 = phi i32 [%r2, %b670], [%r2, %b671]
   call void @func_b392(i32 %r15)
-  %r3 = srem i32 %r14, 10
+  %r3 = urem i32 %r14, 10
   br label %b465
 }
 
@@ -561,7 +561,7 @@ b685:
   %r9 = phi i32 [0, %b694], [%r11, %b697]
   %r8 = phi i32 [%r0, %b694], [%r10, %b697]
   call void @func_b465(i32 %r9)
-  %r7 = srem i32 %r8, 10
+  %r7 = urem i32 %r8, 10
   br label %b465
 
 b695:
@@ -596,7 +596,7 @@ b698:
 
 b613:
   call void @func_b465(i32 0)
-  %r16 = srem i32 %r5, 10
+  %r16 = urem i32 %r5, 10
   br label %b465
 
 b657:
@@ -628,7 +628,7 @@ b498:
   %r35 = phi i32 [%r28, %b670], [%r29, %b671]
   %r34 = phi i32 [%r5, %b670], [%r5, %b671]
   call void @func_b392(i32 %r35)
-  %r15 = srem i32 %r34, 10
+  %r15 = urem i32 %r34, 10
   br label %b465
 
 b701:
@@ -639,7 +639,7 @@ b702:
   %r38 = mul i32 %r22, 10
   %r37 = call i32 @func_b649(i32 %r38, i32 10000000, i32 %r0)
   call void @func_b392(i32 %r37)
-  %r14 = srem i32 %r0, 10
+  %r14 = urem i32 %r0, 10
   br label %b465
 }
 
@@ -673,7 +673,7 @@ b659:
 
 b660:
   call void @func_b465(i32 0)
-  %r13 = srem i32 %r1, 10
+  %r13 = urem i32 %r1, 10
   call void @func_b465(i32 %r13)
   %r11 = call i32 @func_b438(i32 14)
   %r12 = call i32 @func_b438(i32 13)
@@ -687,7 +687,7 @@ b661:
 b663:
   %r19 = call i32 @func_b611(i32 10000000, i32 1, i32 %r1)
   call void @func_b392(i32 %r19)
-  %r18 = srem i32 %r1, 10
+  %r18 = urem i32 %r1, 10
   call void @func_b465(i32 %r18)
   %r16 = call i32 @func_b438(i32 14)
   %r17 = call i32 @func_b438(i32 13)
@@ -700,7 +700,7 @@ b665:
   %r25 = call i32 @func_b474(i32 %r26)
   %r24 = add i32 1, %r25
   call void @func_b392(i32 %r24)
-  %r23 = srem i32 %r1, 10
+  %r23 = urem i32 %r1, 10
   call void @func_b465(i32 %r23)
   %r21 = call i32 @func_b438(i32 14)
   %r22 = call i32 @func_b438(i32 13)

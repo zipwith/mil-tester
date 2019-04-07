@@ -41,13 +41,13 @@ modIx32_1G[t0] =
 -- not recursive
 entrypoint modIx13_5 :: [Bit 32] >>= [Bit 32]
 modIx13_5[t0] =
-  rem((t0, 5))
+  nzrem((t0, 5))
 
 -----------------------------------------
 -- not recursive
 entrypoint modIx24_17 :: [Bit 32] >>= [Bit 32]
 modIx24_17[t0] =
-  rem((t0, 17))
+  nzrem((t0, 17))
 
 -----------------------------------------
 -- not recursive
@@ -155,19 +155,19 @@ modIx1_3[t0] =
 -- not recursive
 entrypoint modIx2_3 :: [Bit 32] >>= [Bit 32]
 modIx2_3[t0] =
-  rem((t0, 3))
+  nzrem((t0, 3))
 
 -----------------------------------------
 -- not recursive
 entrypoint modIx3_3 :: [Bit 32] >>= [Bit 32]
 modIx3_3[t0] =
-  rem((t0, 3))
+  nzrem((t0, 3))
 
 -----------------------------------------
 -- not recursive
 entrypoint modIx4_3 :: [Bit 32] >>= [Bit 32]
 modIx4_3[t0] =
-  rem((t0, 3))
+  nzrem((t0, 3))
 
 -----------------------------------------
 -- not recursive
@@ -197,13 +197,13 @@ modIx2_7[t0] =
 -- not recursive
 entrypoint modIx3_7 :: [Bit 32] >>= [Bit 32]
 modIx3_7[t0] =
-  rem((t0, 7))
+  nzrem((t0, 7))
 
 -----------------------------------------
 -- not recursive
 entrypoint modIx4_7 :: [Bit 32] >>= [Bit 32]
 modIx4_7[t0] =
-  rem((t0, 7))
+  nzrem((t0, 7))
 
 -----------------------------------------
 -- not recursive

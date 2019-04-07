@@ -147,7 +147,7 @@ b546[t0, t1] =
 b537 :: [Bit 32, Bit 32] >>= [Unit]
 b537[t0, t1] =
   t2 <- b475[t0]
-  t3 <- rem((t1, 10))
+  t3 <- nzrem((t1, 10))
   b475[t3]
 b475 :: [Bit 32] >>= [Unit]
 b475[t0] =
@@ -184,7 +184,7 @@ b566[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b504[t3, t1, t0]
   t5 <- b349[t4]
-  t6 <- rem((t0, 10))
+  t6 <- nzrem((t0, 10))
   b475[t6]
 b563 :: [Bit 32] >>= [Unit]
 b563[t0] =
@@ -215,7 +215,7 @@ b570[t0, t1, t2] =
   t3 <- mul((t2, 10))
   t4 <- b439[t3, t1, t0]
   t5 <- b349[t4]
-  t6 <- rem((t0, 10))
+  t6 <- nzrem((t0, 10))
   b475[t6]
 b349 :: [Bit 32] >>= [Unit]
 b349[t0] =
@@ -416,7 +416,7 @@ b537:
   %r9 = phi i32 [0, %b535], [%r11, %b546]
   %r8 = phi i32 [%r2, %b535], [%r10, %b546]
   call void @func_b475(i32 %r9)
-  %r4 = srem i32 %r8, 10
+  %r4 = urem i32 %r8, 10
   br label %b475
 
 b544:
@@ -444,7 +444,7 @@ b566:
   %r20 = mul i32 1, 10
   %r19 = call i32 @func_b504(i32 %r20, i32 10000000, i32 %r2)
   call void @func_b349(i32 %r19)
-  %r3 = srem i32 %r2, 10
+  %r3 = urem i32 %r2, 10
   br label %b475
 }
 
@@ -469,7 +469,7 @@ b537:
   %r9 = phi i32 [0, %b563], [%r11, %b546], [0, %b535]
   %r8 = phi i32 [%r0, %b563], [%r10, %b546], [%r5, %b535]
   call void @func_b475(i32 %r9)
-  %r7 = srem i32 %r8, 10
+  %r7 = urem i32 %r8, 10
   br label %b475
 
 b565:
@@ -510,7 +510,7 @@ b570:
   %r25 = mul i32 1, 10
   %r24 = call i32 @func_b439(i32 %r25, i32 10000000, i32 %r0)
   call void @func_b349(i32 %r24)
-  %r15 = srem i32 %r0, 10
+  %r15 = urem i32 %r0, 10
   br label %b475
 
 b545:
@@ -525,7 +525,7 @@ b566:
   %r29 = mul i32 1, 10
   %r28 = call i32 @func_b504(i32 %r29, i32 10000000, i32 %r5)
   call void @func_b349(i32 %r28)
-  %r14 = srem i32 %r5, 10
+  %r14 = urem i32 %r5, 10
   br label %b475
 }
 

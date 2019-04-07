@@ -5,19 +5,19 @@ data Unit
 -- not recursive
 entrypoint rem2 :: [Bit 32, Bit 32] >>= [Bit 32]
 rem2[t0, t1] =
-  rem((t0, t1))
+  nzrem((t0, t1))
 
 -----------------------------------------
 -- not recursive
 entrypoint rem12 :: [Bit 32, Bit 32] >>= [Bit 32]
 rem12[t0, t1] =
-  rem((t0, t1))
+  nzrem((t0, t1))
 
 -----------------------------------------
 -- not recursive
 entrypoint rem32 :: [Bit 32, Bit 32] >>= [Bit 32]
 rem32[t0, t1] =
-  rem((t0, t1))
+  nzrem((t0, t1))
 
 -----------------------------------------
 -- not recursive

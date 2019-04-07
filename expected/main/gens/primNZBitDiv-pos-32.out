@@ -5,19 +5,19 @@ data Unit
 -- not recursive
 entrypoint div2 :: [Bit 32, Bit 32] >>= [Bit 32]
 div2[t0, t1] =
-  div((t0, t1))
+  nzdiv((t0, t1))
 
 -----------------------------------------
 -- not recursive
 entrypoint div12 :: [Bit 32, Bit 32] >>= [Bit 32]
 div12[t0, t1] =
-  div((t0, t1))
+  nzdiv((t0, t1))
 
 -----------------------------------------
 -- not recursive
 entrypoint div32 :: [Bit 32, Bit 32] >>= [Bit 32]
 div32[t0, t1] =
-  div((t0, t1))
+  nzdiv((t0, t1))
 
 -----------------------------------------
 -- not recursive

@@ -1,0 +1,164 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+b89 :: [] >>= [Bit 32]
+b89[] =
+  return 0
+
+-----------------------------------------
+-- recursive
+b79 :: [Bit 32, Bit 32] >>= [Bit 32]
+b79[t0, t1] =
+  t2 <- primUge((t0, 10000000))
+  if t2
+    then b75[t1, t0]
+    else b73[t1, t0]
+b73 :: [Bit 32, Bit 32] >>= [Bit 32]
+b73[t0, t1] =
+  t2 <- mul((t1, 10))
+  b80[t2, t0]
+b80 :: [Bit 32, Bit 32] >>= [Bit 32]
+b80[t0, t1] =
+  t2 <- mul((t0, 100))
+  t3 <- primUge((t1, t2))
+  if t3
+    then b79[t0, t1]
+    else b75[t1, t0]
+b75 :: [Bit 32, Bit 32] >>= [Bit 32]
+b75[t0, t1] =
+  t2 <- mul((t1, 10))
+  t3 <- sub((t0, t2))
+  t4 <- b90[t3]
+  add((t1, t4))
+b90 :: [Bit 32] >>= [Bit 32]
+b90[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b89[]
+    else b80[1, t0]
+
+-----------------------------------------
+-- not recursive
+b102 :: [Bit 32] >>= [Unit]
+b102[t0] =
+  t1 <- add((t0, 48))
+  putchar((t1))
+
+-----------------------------------------
+-- recursive
+b101 :: [Bit 32] >>= [Unit]
+b101[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b102[t0]
+    else b93[t0]
+b93 :: [Bit 32] >>= [Unit]
+b93[t0] =
+  t1 <- output((t0))
+  t2 <- nzrem((t0, 10))
+  t3 <- output((t2))
+  t4 <- output((0))
+  t5 <- b90[t0]
+  t6 <- b101[t5]
+  t7 <- primUlt((t2, 10))
+  if t7
+    then b102[t2]
+    else b93[t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  b93[-2]
+
+-----------------------------------------
+-- Entrypoints: main
+define internal i32 @func_b90(i32 %r0) {
+  br label %b90
+
+b90:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b89, label %b80
+
+b89:
+  ret i32 0
+
+b80:
+  %r5 = phi i32 [1, %b90], [%r6, %b73]
+  %r3 = phi i32 [%r0, %b90], [%r3, %b73]
+  %r4 = mul i32 %r5, 100
+  %r2 = icmp uge i32 %r3, %r4
+  br i1 %r2, label %b79, label %b75
+
+b79:
+  %r7 = icmp uge i32 %r5, 10000000
+  br i1 %r7, label %b75, label %b73
+
+b75:
+  %r12 = phi i32 [%r3, %b80], [%r3, %b79]
+  %r9 = phi i32 [%r5, %b80], [%r5, %b79]
+  %r13 = mul i32 %r9, 10
+  %r11 = sub i32 %r12, %r13
+  %r10 = call i32 @func_b90(i32 %r11)
+  %r8 = add i32 %r9, %r10
+  ret i32 %r8
+
+b73:
+  %r6 = mul i32 %r5, 10
+  br label %b80
+}
+
+declare void @putchar(i32)
+
+declare void @output(i32)
+
+define internal void @func_b101(i32 %r0) {
+  br label %b101
+
+b101:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b102, label %b93
+
+b102:
+  %r3 = phi i32 [%r0, %b101], [%r4, %b93]
+  %r2 = add i32 %r3, 48
+  tail call void @putchar(i32 %r2)
+  ret void
+
+b93:
+  %r7 = phi i32 [%r0, %b101], [%r4, %b93]
+  call void @output(i32 %r7)
+  %r4 = urem i32 %r7, 10
+  call void @output(i32 %r4)
+  call void @output(i32 0)
+  %r6 = call i32 @func_b90(i32 %r7)
+  call void @func_b101(i32 %r6)
+  %r5 = icmp ult i32 %r4, 10
+  br i1 %r5, label %b102, label %b93
+}
+
+define void @main() {
+  br label %main
+
+main:
+  br label %b93
+
+b93:
+  %r3 = phi i32 [-2, %main], [%r1, %b93]
+  call void @output(i32 %r3)
+  %r1 = urem i32 %r3, 10
+  call void @output(i32 %r1)
+  call void @output(i32 0)
+  %r2 = call i32 @func_b90(i32 %r3)
+  call void @func_b101(i32 %r2)
+  %r0 = icmp ult i32 %r1, 10
+  br i1 %r0, label %b102, label %b93
+
+b102:
+  %r4 = add i32 %r1, 48
+  tail call void @putchar(i32 %r4)
+  ret void
+}
+

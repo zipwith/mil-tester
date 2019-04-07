@@ -1,0 +1,91 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+b85 :: [Bit 32] >>= [Unit]
+b85[t0] =
+  t1 <- add((t0, 48))
+  putchar((t1))
+
+-----------------------------------------
+-- recursive
+b84 :: [Bit 32] >>= [Unit]
+b84[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b85[t0]
+    else b77[t0]
+b77 :: [Bit 32] >>= [Unit]
+b77[t0] =
+  t1 <- output((t0))
+  t2 <- nzrem((t0, 10))
+  t3 <- output((t2))
+  t4 <- output((0))
+  t5 <- nzdiv((t0, 10))
+  t6 <- b84[t5]
+  t7 <- primUlt((t2, 10))
+  if t7
+    then b85[t2]
+    else b77[t2]
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  b77[-2]
+
+-----------------------------------------
+-- Entrypoints: main
+declare void @putchar(i32)
+
+declare void @output(i32)
+
+define internal void @func_b84(i32 %r0) {
+  br label %b84
+
+b84:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b85, label %b77
+
+b85:
+  %r3 = phi i32 [%r0, %b84], [%r4, %b77]
+  %r2 = add i32 %r3, 48
+  tail call void @putchar(i32 %r2)
+  ret void
+
+b77:
+  %r7 = phi i32 [%r0, %b84], [%r4, %b77]
+  call void @output(i32 %r7)
+  %r4 = urem i32 %r7, 10
+  call void @output(i32 %r4)
+  call void @output(i32 0)
+  %r6 = udiv i32 %r7, 10
+  call void @func_b84(i32 %r6)
+  %r5 = icmp ult i32 %r4, 10
+  br i1 %r5, label %b85, label %b77
+}
+
+define void @main() {
+  br label %main
+
+main:
+  br label %b77
+
+b77:
+  %r3 = phi i32 [-2, %main], [%r1, %b77]
+  call void @output(i32 %r3)
+  %r1 = urem i32 %r3, 10
+  call void @output(i32 %r1)
+  call void @output(i32 0)
+  %r2 = udiv i32 %r3, 10
+  call void @func_b84(i32 %r2)
+  %r0 = icmp ult i32 %r1, 10
+  br i1 %r0, label %b85, label %b77
+
+b85:
+  %r4 = add i32 %r1, 48
+  tail call void @putchar(i32 %r4)
+  ret void
+}
+
