@@ -1,0 +1,53 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s1 :: Unit
+s1 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint ip1SW :: [Bit 32] >>= [Unit]
+ip1SW[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip2SW :: [Bit 32] >>= [Unit]
+ip2SW[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip4SW :: [Bit 32] >>= [Unit]
+ip4SW[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip6SW :: [Bit 32] >>= [Unit]
+ip6SW[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip16SW :: [Bit 32] >>= [Unit]
+ip16SW[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip3T :: [Bit 32] >>= [Unit]
+ip3T[t0] =
+  return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint ip7T :: [Bit 32] >>= [Unit]
+ip7T[t0] =
+  return s1
+
+-----------------------------------------
+-- Entrypoints: ip1SW ip2SW ip4SW ip6SW ip16SW ip3T ip7T

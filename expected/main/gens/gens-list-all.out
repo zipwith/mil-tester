@@ -41,6 +41,7 @@ primGenLtInc         forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Ix b -> Ix 
 primGenMaybeIx       forall (a :: *) (b :: nat). a -> (Ix b -> a) -> Word -> a
 primIncIx            forall (a :: nat). Ix a -> TODO
 primInitArray        forall (a :: nat) (b :: area). (Ix a -> Init b) -> Init (Array a b)
+primInitPad          forall (a :: nat) (b :: area). Init (Pad a b)
 primInitSelf         forall (a :: area). (Ref a -> Init a) -> Init a
 primInitStored       forall (a :: *). a -> Init (Stored a)
 primIxEq             forall (a :: nat). Ix a -> Ix a -> TODO
@@ -66,5 +67,5 @@ primRelaxIx          forall (a :: nat) (b :: nat). Ix a -> Ix b
 primStructSelect     forall (a :: area) (b :: lab) (c :: area). Ref a -> Unit -> Ref c
 primWordToBit        forall (a :: nat). Word -> Bit a
 primWriteRefStored   forall (a :: *). Ref (Stored a) -> a -> Proc Unit
-67 external generators listed
+68 external generators listed
 -----------------------------------------

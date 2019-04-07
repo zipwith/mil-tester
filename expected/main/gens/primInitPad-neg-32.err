@@ -1,0 +1,42 @@
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 10
+external ip0SW  {primInitPad  0  SW} :: Init (Pad  0 SW)
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 13
+external ip3  {primInitPad 3}   :: Init (Pad 3 SW)
+         ^
+No generated implementation: primInitPad requires (at least) 2 arguments
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 14
+external ip3W {primInitPad 3 W} :: Init (Pad 3 SW)
+         ^
+No generated implementation: Argument 2 (Bit 32) does not have expected kind (area)
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 15
+external ipWW {primInitPad W W} :: Init (Pad 3 SW)
+         ^
+No generated implementation: Argument 1 (Bit 32) does not have expected kind (nat)
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 18
+external ip3S {primInitPad 3 S} :: Init (Pad 3 S)
+         ^
+No generated implementation: Element size 6 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 19
+external ip7S {primInitPad 7 S} :: Init (Pad 7 S)
+         ^
+No generated implementation: Element size 6 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 20
+external ip3U {primInitPad 3 U} :: Init (Pad 3 U)
+         ^
+No generated implementation: Element size 18 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitPad-neg-32.lc", line 21
+external ip7U {primInitPad 7 U} :: Init (Pad 7 U)
+         ^
+No generated implementation: Element size 18 is not divisible by alignment 4
+
+ERROR: Aborting after 8 previously reported errors
+

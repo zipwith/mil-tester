@@ -2947,6 +2947,49 @@ external ia7S {primInitArray 7 S} :: (Ix 7 -> Init S) -> Init (Array 7 S)
 external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
 external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
 
+------------
+.lc: primInitPad-pos-32 ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+struct T [ u, v, w :: SW ]
+
+-- examples with abstract (closure) initializer
+entrypoint ip1SW, ip2SW, ip4SW, ip6SW, ip16SW
+external ip1SW  {primInitPad  1  SW} :: Init (Pad  1 SW)
+external ip2SW  {primInitPad  2  SW} :: Init (Pad  2 SW)
+external ip4SW  {primInitPad  4  SW} :: Init (Pad  4 SW)
+external ip6SW  {primInitPad  6  SW} :: Init (Pad  6 SW)
+external ip16SW {primInitPad 16  SW} :: Init (Pad 16 SW)
+
+-- Variety ...
+entrypoint ip3T, ip7T
+external ip3T {primInitPad  3 T} :: Init (Pad 3 T)
+external ip7T {primInitPad  7 T} :: Init (Pad 7 T)
+
+------------
+.lc: primInitPad-neg-32 ./milc -pcosoboro -m --32
+
+type W  = Word
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint ip0SW
+external ip0SW  {primInitPad  0  SW} :: Init (Pad  0 SW)
+
+entrypoint ip3, ip3W, ipWW
+external ip3  {primInitPad 3}   :: Init (Pad 3 SW)
+external ip3W {primInitPad 3 W} :: Init (Pad 3 SW)
+external ipWW {primInitPad W W} :: Init (Pad 3 SW)
+
+entrypoint ip3S, ip7S, ip3U, ip7U
+external ip3S {primInitPad 3 S} :: Init (Pad 3 S)
+external ip7S {primInitPad 7 S} :: Init (Pad 7 S)
+external ip3U {primInitPad 3 U} :: Init (Pad 3 U)
+external ip7U {primInitPad 7 U} :: Init (Pad 7 U)
+
 -----------------------
 .lc: primInitSelf   ./milc -m -pcsosrsos
 external initSelf {primInitSelf a} :: (Ref a -> Init a) -> Init a
