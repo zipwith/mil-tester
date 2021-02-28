@@ -631,4 +631,10 @@ tests: fib
 tests: ex
 tests: btests
 
+-------
+.exec: byteorder32m    ./milc -m -pcosobro --32 byteorder.lc
+.exec: byteorder64m    ./milc -m -pcosobro --64 byteorder.lc
+.exec: byteorder32l    ./milc -l -pcosobro --32 byteorder.lc
+.exec: byteorder64l    ./milc -l -pcosobro --64 byteorder.lc
 
+-------

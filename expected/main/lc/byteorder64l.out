@@ -1,0 +1,77 @@
+define i64 @reorder16(i64 %r0) {
+  br label %reorder16
+
+reorder16:
+  %r2 = lshr i64 %r0, 8
+  %r4 = shl i64 %r0, 8
+  %r3 = and i64 %r4, 65280
+  %r1 = or i64 %r2, %r3
+  ret i64 %r1
+}
+
+define internal i64 @func_b108(i64 %r0, i64 %r1) {
+  br label %b108
+
+b108:
+  %r9 = lshr i64 %r0, 8
+  %r11 = shl i64 %r0, 8
+  %r10 = and i64 %r11, 65280
+  %r5 = or i64 %r9, %r10
+  %r6 = lshr i64 %r1, 8
+  %r8 = shl i64 %r1, 8
+  %r7 = and i64 %r8, 65280
+  %r3 = or i64 %r6, %r7
+  %r4 = shl i64 %r5, 16
+  %r2 = or i64 %r3, %r4
+  ret i64 %r2
+}
+
+define i64 @reorder32(i64 %r0) {
+  br label %reorder32
+
+reorder32:
+  %r2 = lshr i64 %r0, 16
+  %r1 = and i64 %r0, 65535
+  br label %c6
+
+c6:
+  %r3 = tail call i64 @func_b108(i64 %r1, i64 %r2)
+  ret i64 %r3
+}
+
+define i64 @reorder32a(i64 %r0) {
+  br label %reorder32a
+
+reorder32a:
+  %r12 = lshr i64 %r0, 16
+  %r9 = lshr i64 %r0, 24
+  %r11 = shl i64 %r12, 8
+  %r10 = and i64 %r11, 65280
+  %r2 = or i64 %r9, %r10
+  %r8 = lshr i64 %r0, 8
+  %r5 = and i64 %r8, 255
+  %r7 = shl i64 %r0, 8
+  %r6 = and i64 %r7, 65280
+  %r4 = or i64 %r5, %r6
+  %r3 = shl i64 %r4, 16
+  %r1 = or i64 %r2, %r3
+  ret i64 %r1
+}
+
+define i64 @reorder64(i64 %r0) {
+  br label %reorder64
+
+reorder64:
+  %r7 = lshr i64 %r0, 32
+  %r10 = lshr i64 %r0, 16
+  %r9 = and i64 %r10, 65535
+  %r8 = and i64 %r0, 65535
+  %r4 = call i64 @func_b108(i64 %r8, i64 %r9)
+  %r6 = lshr i64 %r0, 48
+  %r5 = and i64 %r7, 65535
+  %r2 = call i64 @func_b108(i64 %r5, i64 %r6)
+  %r3 = shl i64 %r4, 32
+  %r1 = or i64 %r2, %r3
+  ret i64 %r1
+}
+

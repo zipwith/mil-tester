@@ -6,7 +6,7 @@ cobbled together from assorted old tests for MIL and LC together
 with a small number of new tests.  Some details in the ways that
 this test suite has been configured were motivated more by the
 goal of testing the implementation of tester than by the goal of
-testing mi-tools.  I hope this will be a good starting point for a
+testing mil-tools.  I hope this will be a good starting point for a
 more substantial test suite, but there is much room here for
 rationalizing, reorganizing, and expanding the current version.
 

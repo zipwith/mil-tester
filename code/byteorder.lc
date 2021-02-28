@@ -1,0 +1,28 @@
+require "prelude.lc"
+
+data Two a = Two a a
+
+mapTwo f two = case two of
+                 Two x y -> Two (f x) (f y)
+
+swap two = case two of
+             Two x y -> Two y x
+
+type Word16 = Two (Bit 8)
+type Word32 = Two Word16
+type Word64 = Two Word32
+
+compose f g x = f (g x)
+
+entrypoint reorder16 :: Word16 -> Word16
+reorder16 = swap
+
+entrypoint reorder32 :: Word32 -> Word32
+reorder32 = mapTwo reorder16 `compose` swap
+
+entrypoint reorder32a :: Word32 -> Word32
+reorder32a = swap `compose` mapTwo reorder16
+
+entrypoint reorder64 :: Word64 -> Word64
+reorder64 = mapTwo reorder32 `compose` swap
+

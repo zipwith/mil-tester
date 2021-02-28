@@ -1,0 +1,68 @@
+data Two2
+  = Two2 (Bit 32) (Bit 32)
+
+-----------------------------------------
+-- not recursive
+entrypoint reorder16 :: [Bit 32] >>= [Bit 32]
+reorder16[t0] =
+  t1 <- lshr((t0, 8))
+  t2 <- shl((t0, 8))
+  t3 <- and((t2, 65280))
+  or((t1, t3))
+
+-----------------------------------------
+-- not recursive
+b108 :: [Bit 32, Bit 32] >>= [Bit 32]
+b108[t0, t1] =
+  t2 <- lshr((t0, 8))
+  t3 <- shl((t0, 8))
+  t4 <- and((t3, 65280))
+  t5 <- or((t2, t4))
+  t6 <- lshr((t1, 8))
+  t7 <- shl((t1, 8))
+  t8 <- and((t7, 65280))
+  t9 <- or((t6, t8))
+  t10 <- shl((t5, 16))
+  or((t9, t10))
+
+-----------------------------------------
+-- not recursive
+entrypoint reorder32 :: [Bit 32] >>= [Bit 32]
+reorder32[t0] =
+  t1 <- lshr((t0, 16))
+  t2 <- and((t0, 65535))
+  b108[t2, t1]
+
+-----------------------------------------
+-- not recursive
+entrypoint reorder32a :: [Bit 32] >>= [Bit 32]
+reorder32a[t0] =
+  t1 <- lshr((t0, 16))
+  t2 <- lshr((t0, 24))
+  t3 <- shl((t1, 8))
+  t4 <- and((t3, 65280))
+  t5 <- or((t2, t4))
+  t6 <- lshr((t0, 8))
+  t7 <- and((t6, 255))
+  t8 <- shl((t0, 8))
+  t9 <- and((t8, 65280))
+  t10 <- or((t7, t9))
+  t11 <- shl((t10, 16))
+  or((t5, t11))
+
+-----------------------------------------
+-- not recursive
+entrypoint reorder64 :: [Two2] >>= [Two2]
+reorder64[t0] =
+  t1 <- Two2 0 t0
+  t2 <- Two2 1 t0
+  t3 <- lshr((t2, 16))
+  t4 <- and((t2, 65535))
+  t5 <- b108[t4, t3]
+  t6 <- lshr((t1, 16))
+  t7 <- and((t1, 65535))
+  t8 <- b108[t7, t6]
+  Two2(t5, t8)
+
+-----------------------------------------
+-- Entrypoints: reorder16 reorder32 reorder32a reorder64
