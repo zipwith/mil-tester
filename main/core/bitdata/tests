@@ -641,3 +641,18 @@ sample1 = T [ y = B000 ]  -- wrong type for y
 exec:  updateIA32Flags     ./milc -l --32 flags.llc
 
 -----------------------
+.lc:   bitdata-inx1     ./milc -t
+bitdata T1 = T1 [ left :: Ix  4 | right :: Inx 4 ]
+bitdata T2 = T2 [ left :: Ix  7 | right :: Inx 8 ]
+bitdata T3 = T3 [ left :: Inx 7 | right :: Ix  8 ]
+
+type GuardBits = 18
+bitdata Guard  = Guard [ bits :: Bit GuardBits | size :: Inx GuardBits ]
+
+entrypoint t1, t2, t3, g
+t1 = T1
+t2 = T2
+t3 = T3
+g  = Guard
+
+-----------------------

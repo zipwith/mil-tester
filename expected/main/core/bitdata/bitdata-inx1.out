@@ -1,0 +1,36 @@
+bitdata Guard /23
+  = Guard [ bits :: Bit 18 | size :: Inx 18 ]
+    -- predGuard(x :: Bit 23) = true
+
+-- bit pattern:
+--  __________________0____
+--  __________________1000_
+--  __________________10010
+
+bitdata T1 /5
+  = T1 [ left :: Ix 4 | right :: Inx 4 ]
+    -- predT1(x :: Bit 5) = true
+
+-- bit pattern:
+--  __0__
+--  __100
+
+bitdata T2 /7
+  = T2 [ left :: Ix 7 | right :: Inx 8 ]
+    -- predT2(x :: Bit 7) = true
+
+-- bit pattern:
+--  0__0___
+--  0__1000
+--  10_0___
+--  10_1000
+--  1100___
+--  1101000
+
+bitdata T3 /6
+  = T3 [ left :: Inx 7 | right :: Ix 8 ]
+    -- predT3(x :: Bit 6) = true
+
+-- bit pattern:
+--  ______
+
