@@ -7,13 +7,13 @@ bitdata H /6
 
 bitdata Q /2
   = Zero [ B00 ]
-    -- predZero(x :: Bit 2) = x == 0b0
+    -- predZero(x :: Bit 2) = x == 0x0
   | One [ B01 ]
-    -- predOne(x :: Bit 2) = x == 0b1
+    -- predOne(x :: Bit 2) = x == 0x1
   | Two [ B10 ]
-    -- predTwo(x :: Bit 2) = x == 0b10
+    -- predTwo(x :: Bit 2) = x == 0x2
   | Three [ B11 ]
-    -- predThree(x :: Bit 2) = x == 0b11
+    -- predThree(x :: Bit 2) = x == 0x3
 
 -- bit pattern:
 --  __

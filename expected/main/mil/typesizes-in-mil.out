@@ -7,11 +7,11 @@ bitdata CNode /32
 
 bitdata Cap /64
   = NullCap [ X0000_0000_0000_0000 ]
-    -- predNullCap(x :: Bit 64) = (x & 0b11111111111111111111111111111111) == 0b0
+    -- predNullCap(x :: Bit 64) = (x & 0xffff_ffff) == 0x0
   | CNodeCap [ cnode :: CNode | guard :: Guard | B0_0000_0001 ]
-    -- predCNodeCap(x :: Bit 64) = (x & 0b1) == 0b1
+    -- predCNodeCap(x :: Bit 64) = (x & 0x1) == 0x1
   | OtherCap [ various :: Bit 62 | B10 ]
-    -- predOtherCap(x :: Bit 64) = (x & 0b11) == 0b10
+    -- predOtherCap(x :: Bit 64) = (x & 0x3) == 0x2
 
 -- bit pattern:
 --  000000000000000000000000000000000000000000000000000000000000000_

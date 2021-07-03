@@ -1,17 +1,17 @@
 bitdata Maybe0 /30
   = Nothing0 [ B00_0000_0000_0000_0000_0000_0000_0000 ]
-    -- predNothing0(x :: Bit 30) = x == 0b0
+    -- predNothing0(x :: Bit 30) = x == 0x0
   | Just1 [ Just10 :: Ref (Stored (Bit 32)) ]
-    -- predJust1(x :: Bit 30) = x != 0b0
+    -- predJust1(x :: Bit 30) = x != 0x0
 
 -- bit pattern:
 --  ______________________________
 
 bitdata Maybe1 /32
   = Nothing2 [ X0000_0000 ]
-    -- predNothing2(x :: Bit 32) = x == 0b0
+    -- predNothing2(x :: Bit 32) = x == 0x0
   | Just3 [ Just30 :: Ref (Stored (Ix 256)) ]
-    -- predJust3(x :: Bit 32) = x != 0b0
+    -- predJust3(x :: Bit 32) = x != 0x0
 
 -- bit pattern:
 --  ________________________________

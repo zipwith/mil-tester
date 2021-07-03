@@ -1,8 +1,8 @@
 bitdata Maybe0 /5
   = Nothing0 [ B0_0000 ]
-    -- predNothing0(x :: Bit 5) = x == 0b0
+    -- predNothing0(x :: Bit 5) = x == 0x0
   | Just1 [ Just10 :: Ix 16 | B1 ]
-    -- predJust1(x :: Bit 5) = (x & 0b1) == 0b1
+    -- predJust1(x :: Bit 5) = (x & 0x1) == 0x1
 
 -- bit pattern:
 --  0000_

@@ -1,8 +1,8 @@
 bitdata B /1
   = F [ B0 ]
-    -- predF(x :: Bit 1) = x == 0b0
+    -- predF(x :: Bit 1) = x == 0x0
   | T [ B1 ]
-    -- predT(x :: Bit 1) = x == 0b1
+    -- predT(x :: Bit 1) = x == 0x1
 
 -- bit pattern:
 --  _
@@ -23,18 +23,18 @@ bitdata Dup4 /14
 
 bitdata Either2 /7
   = Left3 [ B000 | Left30 :: Bit 3 | B0 ]
-    -- predLeft3(x :: Bit 7) = (x & 0b1) == 0b0
+    -- predLeft3(x :: Bit 7) = (x & 0x1) == 0x0
   | Right4 [ Right40 :: Bit 6 | B1 ]
-    -- predRight4(x :: Bit 7) = (x & 0b1) == 0b1
+    -- predRight4(x :: Bit 7) = (x & 0x1) == 0x1
 
 -- bit pattern:
 --  _______
 
 bitdata Maybe1 /2
   = Nothing1 [ B11 ]
-    -- predNothing1(x :: Bit 2) = x == 0b11
+    -- predNothing1(x :: Bit 2) = x == 0x3
   | Just2 [ Just20 :: Ix 3 ]
-    -- predJust2(x :: Bit 2) = x != 0b11
+    -- predJust2(x :: Bit 2) = x != 0x3
 
 -- bit pattern:
 --  __
@@ -48,17 +48,17 @@ bitdata Pair0 /7
 
 bitdata Rainbow /3
   = Red [ B000 ]
-    -- predRed(x :: Bit 3) = x == 0b0
+    -- predRed(x :: Bit 3) = x == 0x0
   | Orange [ B001 ]
-    -- predOrange(x :: Bit 3) = x == 0b1
+    -- predOrange(x :: Bit 3) = x == 0x1
   | Green [ B010 ]
-    -- predGreen(x :: Bit 3) = x == 0b10
+    -- predGreen(x :: Bit 3) = x == 0x2
   | Blue [ B011 ]
-    -- predBlue(x :: Bit 3) = x == 0b11
+    -- predBlue(x :: Bit 3) = x == 0x3
   | Indigo [ B100 ]
-    -- predIndigo(x :: Bit 3) = x == 0b100
+    -- predIndigo(x :: Bit 3) = x == 0x4
   | Violet [ B101 ]
-    -- predViolet(x :: Bit 3) = x == 0b101
+    -- predViolet(x :: Bit 3) = x == 0x5
 
 -- bit pattern:
 --  0__
