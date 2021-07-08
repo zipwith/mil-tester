@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/case/mvaralt7.lc", line 8
+            other   -> Dup 2 3
+                       ^
+Type mismatch: cannot unify "Proc" with "Dup"
+
+ERROR: Aborting after previously reported error
+

@@ -1,0 +1,739 @@
+Tests for LC case expressions, particularly those with variable alternatives.
+------------
+.lc:  varalt1       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            Nothing -> 1
+            other   -> 2
+
+------------
+.lc:  varalt2       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            Just y -> y
+            other  -> 2
+
+------------
+.lc:  varalt3       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            other   -> 2
+            Nothing -> 1
+
+------------
+.lc:  varalt4       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            other  -> 2
+            Just y -> y
+
+------------
+.lc:  varalt5       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            a -> 1
+            b -> 2
+
+------------
+.lc:  varalt6       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Dup a b -> 1
+            other   -> 2
+            Nothing -> 3
+
+entrypoint test1
+
+------------
+.lc:  varalt7       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Nothing -> 1
+            other   -> Dup 2 3
+
+entrypoint test1
+
+------------
+.lc:  varalt8       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of Red    -> 1
+                    Violet -> 1
+                    other  -> 2
+
+------------
+.lc:  varalt9       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of
+            Red    -> 1
+            Green  -> 1
+            Orange -> 1
+            color  -> 2
+
+------------
+.lc:  varalt10       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of     -- no Blue
+            Red    -> 1
+            Orange -> 2
+            Yellow -> 3
+            Green  -> 4
+            Indigo -> 5
+            Violet -> 6
+            other  -> 100
+
+------------
+.lc:  varalt11       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of
+            Red   -> 1
+            white -> 2   -- variable!
+            Blue  -> 355 -- should not match
+            other -> 455 -- neither should this
+            Red   -> 555 -- nor this
+
+------------
+.lc:  varalt12       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of
+            Red   -> 1
+            Red   -> 555 -- should not match
+            white -> 2   -- variable!
+            Blue  -> 355 -- should not match
+            other -> 455 -- neither should this
+
+------------
+.lc:  varalt13       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of
+            Red   -> 1
+            Blue  -> 3   -- should not match
+            Blue  -> 355 -- should not match
+            Red   -> 555 -- nor this
+            white -> 2   -- variable!
+            other -> 455 -- neither should this
+            Red   -> 555 -- nor this
+
+------------
+.lc:  varalt14       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+
+entrypoint test1
+test1 x = case x of
+            Red   -> 1
+            white -> 2   -- variable!
+            Blue  -> Red -- type error, even thought it won't be executed
+
+------------
+.lc:  mvaralt1       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Nothing -> print 1
+            other   -> print 2
+
+------------
+.lc:  mvaralt2       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Just y -> print y
+            other  -> print 2
+
+------------
+.lc:  mvaralt3       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            other   -> print 2
+            Nothing -> print 1
+
+------------
+.lc:  mvaralt4       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            other  -> print 2
+            Just y -> print y
+
+------------
+.lc:  mvaralt5       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            a -> print 1
+            b -> print 2
+
+------------
+.lc:  mvaralt6       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+external print :: Word -> Proc Unit
+
+test1 x = case x of
+            Dup a b -> print 1
+            other   -> print 2
+            Nothing -> print 3
+
+entrypoint test1
+
+------------
+.lc:  mvaralt7       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+external print :: Word -> Proc Unit
+
+test1 x = case x of
+            Nothing -> print 1
+            other   -> Dup 2 3
+
+entrypoint test1
+
+------------
+.lc:  mvaralt8       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of Red    -> print 1
+                    Violet -> print 1
+                    other  -> print 2
+
+------------
+.lc:  mvaralt9       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Red    -> print 1
+            Green  -> print 1
+            Orange -> print 1
+            color  -> print 2
+
+------------
+.lc:  mvaralt10       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of     -- no Blue
+            Red    -> print 1
+            Orange -> print 2
+            Yellow -> print 3
+            Green  -> print 4
+            Indigo -> print 5
+            Violet -> print 6
+            other  -> print 100
+
+------------
+.lc:  mvaralt11       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Red   -> print 1
+            white -> print 2   -- variable!
+            Blue  -> print 355 -- should not match
+            other -> print 455 -- neither should this
+            Red   -> print 555 -- nor this
+
+------------
+.lc:  mvaralt12       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Red   -> print 1
+            Red   -> print 555 -- should not match
+            white -> print 2   -- variable!
+            Blue  -> print 355 -- should not match
+            other -> print 455 -- neither should this
+
+------------
+.lc:  mvaralt13       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Red   -> print 1
+            Blue  -> print 3   -- should not match
+            Blue  -> print 355 -- should not match
+            Red   -> print 555 -- nor this
+            white -> print 2   -- variable!
+            other -> print 455 -- neither should this
+            Red   -> print 555 -- nor this
+
+------------
+.lc:  mvaralt14       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case x of
+            Red   -> print 1
+            white -> print 2   -- variable!
+            Blue  -> Red -- type error, even thought it won't be executed
+
+------------
+.lc:  mdovaralt1       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Nothing -> print 1
+               other   -> print 2
+
+------------
+.lc:  mdovaralt2       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Just y -> print y
+               other  -> print 2
+
+------------
+.lc:  mdovaralt3       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               other   -> print 2
+               Nothing -> print 1
+
+------------
+.lc:  mdovaralt4       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               other  -> print 2
+               Just y -> print y
+
+------------
+.lc:  mdovaralt5       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               a -> print 1
+               b -> print 2
+
+------------
+.lc:  mdovaralt6       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+external print :: Word -> Proc Unit
+
+test1 x = do case x of
+               Dup a b -> print 1
+               other   -> print 2
+               Nothing -> print 3
+
+entrypoint test1
+
+------------
+.lc:  mdovaralt7       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+external print :: Word -> Proc Unit
+
+test1 x = do case x of
+               Nothing -> print 1
+               other   -> Dup 2 3
+
+entrypoint test1
+
+------------
+.lc:  mdovaralt8       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of Red    -> print 1
+                       Violet -> print 1
+                       other  -> print 2
+
+------------
+.lc:  mdovaralt9       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Red    -> print 1
+               Green  -> print 1
+               Orange -> print 1
+               color  -> print 2
+
+------------
+.lc:  mdovaralt10       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of     -- no Blue
+               Red    -> print 1
+               Orange -> print 2
+               Yellow -> print 3
+               Green  -> print 4
+               Indigo -> print 5
+               Violet -> print 6
+               other  -> print 100
+
+------------
+.lc:  mdovaralt11       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Red   -> print 1
+               white -> print 2   -- variable!
+               Blue  -> print 355 -- should not match
+               other -> print 455 -- neither should this
+               Red   -> print 555 -- nor this
+
+------------
+.lc:  mdovaralt12       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Red   -> print 1
+               Red   -> print 555 -- should not match
+               white -> print 2   -- variable!
+               Blue  -> print 355 -- should not match
+               other -> print 455 -- neither should this
+
+------------
+.lc:  mdovaralt13       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Red   -> print 1
+               Blue  -> print 3   -- should not match
+               Blue  -> print 355 -- should not match
+               Red   -> print 555 -- nor this
+               white -> print 2   -- variable!
+               other -> print 455 -- neither should this
+               Red   -> print 555 -- nor this
+
+------------
+.lc:  mdovaralt14       ./milc -pco -m --32
+ 
+data Rainbow = Red | Orange | Yellow | Green | Blue | Indigo | Violet
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = do case x of
+               Red   -> print 1
+               white -> print 2   -- variable!
+               Blue  -> Red -- type error, even thought it won't be executed
+
+------------
+.lc:  mcasefromvaralt1       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case<- x of
+            Nothing -> print 1
+            other   -> print 2
+
+------------
+.lc:  mcasefromvaralt2       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case<- x of
+            Just y -> print y
+            other  -> print 2
+
+------------
+.lc:  mcasefromvaralt3       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case<- x of
+            other   -> print 2
+            Nothing -> print 1
+
+------------
+.lc:  mcasefromvaralt4       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case<- x of
+            other  -> print 2
+            Just y -> print y
+
+------------
+.lc:  mcasefromvaralt5       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+external print :: Word -> Proc Unit
+
+entrypoint test1
+test1 x = case<- x of
+            a -> print 1
+            b -> print 2
+
+------------
+.lc:  mcasefromvaralt6       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+external print :: Word -> Proc Unit
+
+test1 x = case<- x of
+            Dup a b -> print 1
+            other   -> print 2
+            Nothing -> print 3
+
+entrypoint test1
+
+------------
+.lc:  varaltVsFatbar       ./milc -pco -m --32
+
+data SC = Ack | Set | Clear | Map | Unmap
+external print :: Word -> Proc Unit
+
+handlerV  :: SC -> Proc Unit
+handlerV p = case p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3
+               other -> print 0
+
+handlerF  :: SC -> Proc Unit
+handlerF p = (case p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3) | print 0
+
+entrypoint handlerV, handlerF
+
+------------
+.lc:  mvaraltVsFatbar       ./milc -pco -m --32
+
+data SC = Ack | Set | Clear | Map | Unmap
+external print :: Word -> Proc Unit
+
+handlerV  :: Proc SC -> Proc Unit
+handlerV p = case<- p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3
+               other -> print 0
+
+handlerF  :: Proc SC -> Proc Unit
+handlerF p = (case<- p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3) | print 0
+
+entrypoint handlerV, handlerF
+
+------------
+.lc:  uvaralt1       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            Nothing -> 1
+            _       -> 2
+
+------------
+.lc:  uvaralt2       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            Just y -> y
+            _      -> 2
+
+------------
+.lc:  uvaralt3       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            _       -> 2
+            Nothing -> 1
+
+------------
+.lc:  uvaralt4       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            _      -> 2
+            Just y -> y
+
+------------
+.lc:  uvaralt5       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+entrypoint test1
+test1 x = case x of
+            _ -> 1
+            _ -> 2
+
+------------
+.lc:  uvaralt6       ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Dup a b -> 1
+            _       -> 2
+            Nothing -> 3
+
+entrypoint test1
+
+------------
+.lc:  patunder1      ./milc -pco -m --32
+ 
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Dup _ _ -> 1
+            _       -> 2
+
+entrypoint test1
+
+------------
+.lc:  patunder2      ./milc -pco -m --32
+ 
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Dup _ y -> y
+            _       -> 2
+
+entrypoint test1
+
+------------
+.lc:  patunder3      ./milc -pco -m --32
+ 
+data Dup a   = Dup a a
+
+test1 x = case x of
+            Dup z _ -> z
+
+entrypoint test1
+
+------------
+.lc:  patunder4      ./milc -pco -m --32
+ 
+data Maybe a = Nothing | Just a
+
+test1 x = case x of
+            Just _ -> 1
+            _      -> 2
+
+entrypoint test1
+
+------------

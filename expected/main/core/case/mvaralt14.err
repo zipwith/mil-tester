@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/case/mvaralt14.lc", line 9
+            Blue  -> Red -- type error, even thought it won't be executed
+                     ^
+Type mismatch: cannot unify "Proc Unit" with "Rainbow"
+
+ERROR: Aborting after previously reported error
+

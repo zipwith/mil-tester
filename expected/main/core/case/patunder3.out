@@ -1,0 +1,16 @@
+data Dup (a :: *)
+  = Dup a a
+
+-----------------------------------------
+-- not recursive
+k5 :: forall (a :: *). {} [Dup a] ->> [a]
+k5{} t0 = Dup 0 t0
+
+-----------------------------------------
+-- not recursive
+entrypoint test1 :: forall (a :: *). [Dup a] ->> [a]
+test1 <-
+  k5{}
+
+-----------------------------------------
+-- Entrypoints: test1

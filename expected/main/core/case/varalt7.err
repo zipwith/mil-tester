@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/case/varalt7.lc", line 7
+            other   -> Dup 2 3
+                       ^
+Type mismatch: cannot unify "Bit" with "Dup"
+
+ERROR: Aborting after previously reported error
+

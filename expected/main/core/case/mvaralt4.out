@@ -1,0 +1,24 @@
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external print :: [Bit 32] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Maybe (Bit 32)] ->> [[] ->> [Unit]]
+k4{} t0 = print @ 2
+
+-----------------------------------------
+-- not recursive
+entrypoint test1 :: [Maybe (Bit 32)] ->> [[] ->> [Unit]]
+test1 <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: test1

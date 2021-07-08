@@ -1,0 +1,84 @@
+data Rainbow
+  = Red
+  | Orange
+  | Yellow
+  | Green
+  | Blue
+  | Indigo
+  | Violet
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external print :: [Bit 32] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+b11 :: [] >>= [[] ->> [Unit]]
+b11[] =
+  print @ 1
+
+-----------------------------------------
+-- not recursive
+b10 :: [] >>= [[] ->> [Unit]]
+b10[] =
+  print @ 2
+
+-----------------------------------------
+-- not recursive
+b9 :: [] >>= [[] ->> [Unit]]
+b9[] =
+  print @ 3
+
+-----------------------------------------
+-- not recursive
+b8 :: [] >>= [[] ->> [Unit]]
+b8[] =
+  print @ 4
+
+-----------------------------------------
+-- not recursive
+b7 :: [] >>= [[] ->> [Unit]]
+b7[] =
+  print @ 5
+
+-----------------------------------------
+-- not recursive
+b6 :: [] >>= [[] ->> [Unit]]
+b6[] =
+  print @ 6
+
+-----------------------------------------
+-- not recursive
+b14 :: [] >>= [[] ->> [Unit]]
+b14[] =
+  print @ 100
+
+-----------------------------------------
+-- not recursive
+b12 :: [Rainbow] >>= [[] ->> [Unit]]
+b12[t0] =
+  case t0 of
+    Red -> b11[]
+    Orange -> b10[]
+    Yellow -> b9[]
+    Green -> b8[]
+    Indigo -> b7[]
+    Violet -> b6[]
+    Blue -> b14[]
+
+-----------------------------------------
+-- not recursive
+k3 :: {} [Rainbow] ->> [[] ->> [Unit]]
+k3{} t0 = b12[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint test1 :: [Rainbow] ->> [[] ->> [Unit]]
+test1 <-
+  k3{}
+
+-----------------------------------------
+-- Entrypoints: test1

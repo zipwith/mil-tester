@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/case/varalt14.lc", line 8
+            Blue  -> Red -- type error, even thought it won't be executed
+                     ^
+Type mismatch: cannot unify "Bit WordBits" with "Rainbow"
+
+ERROR: Aborting after previously reported error
+

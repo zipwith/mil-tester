@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/case/mvaralt6.lc", line 9
+            Nothing -> print 3
+            ^
+Type mismatch: cannot unify "Maybe" with "Dup"
+
+ERROR: Aborting after previously reported error
+

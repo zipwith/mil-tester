@@ -1,0 +1,20 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external print :: [Bit 32] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+k4 :: forall (a :: *). {} [a] ->> [[] ->> [Unit]]
+k4{} t0 = print @ 1
+
+-----------------------------------------
+-- not recursive
+entrypoint test1 :: forall (a :: *). [a] ->> [[] ->> [Unit]]
+test1 <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: test1

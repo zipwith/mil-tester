@@ -1,0 +1,17 @@
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Maybe (Bit 32)] ->> [Bit 32]
+k4{} t0 = return 2
+
+-----------------------------------------
+-- not recursive
+entrypoint test1 :: [Maybe (Bit 32)] ->> [Bit 32]
+test1 <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: test1
