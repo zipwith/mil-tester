@@ -76,14 +76,14 @@ b85[] =
 
 -----------------------------------------
 -- recursive
-b84 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b84 :: forall (a :: *) (b :: *). [List a, [a] ->> [b]] >>= [List b]
 b84[t0, t1] =
   t2 <- Cons 0 t0
   t3 <- Cons 1 t0
   t4 <- t1 @ t2
   t5 <- b86[t3, t1]
   Cons(t4, t5)
-b86 :: forall (a :: *) (a0 :: *). [List a, [a] ->> [a0]] >>= [List a0]
+b86 :: forall (a :: *) (b :: *). [List a, [a] ->> [b]] >>= [List b]
 b86[t0, t1] =
   case t0 of
     Nil -> b85[]
@@ -91,17 +91,17 @@ b86[t0, t1] =
 
 -----------------------------------------
 -- not recursive
-k54 :: forall (a :: *) (a0 :: *). {[a] ->> [a0]} [List a] ->> [List a0]
+k54 :: forall (a :: *) (b :: *). {[a] ->> [b]} [List a] ->> [List b]
 k54{t0} t1 = b86[t1, t0]
 
 -----------------------------------------
 -- not recursive
-k55 :: forall (a :: *) (a0 :: *). {} [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+k55 :: forall (a :: *) (b :: *). {} [[a] ->> [b]] ->> [[List a] ->> [List b]]
 k55{} t0 = k54{t0}
 
 -----------------------------------------
 -- not recursive
-entrypoint map :: forall (a :: *) (a0 :: *). [[a] ->> [a0]] ->> [[List a] ->> [List a0]]
+entrypoint map :: forall (a :: *) (b :: *). [[a] ->> [b]] ->> [[List a] ->> [List b]]
 map <-
   k55{}
 

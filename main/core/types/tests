@@ -234,3 +234,16 @@ entrypoint nzdiv
 nzdiv <- {x,y} nzdiv((x,y))
 
 --------------
+.lc: checkVsInfer         ./milc -m -pco
+require "core.llc"
+
+bitdata T = MkT [ x :: Bit 8 ]
+
+external f :: (T -> Bit 8) -> Bool
+
+entrypoint main
+main = f (\t -> t.x)
+-- We have enough type information here to determine the type of t,
+-- and then to figure out the type of t.x
+
+--------------
