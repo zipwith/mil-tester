@@ -9,7 +9,7 @@ bitdata Status /32
   | Present [ link :: Ref S | B01 ]
     -- predPresent(x :: Bit 32) = (x & 0x1) == 0x1
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  00000000000000000000000000000000
 --  00000000000000000000000000000101
 --  00000000000000000000000000001_01

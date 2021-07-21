@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/toBits-neg2.lc", line 4
+external xToBit {primBitdataToBit X 3} :: X -> Bit 3 -> Bit 4
+         ^
+No generated implementation: Bitdata X has width 4 which does not match 3
+
+ERROR: Aborting after previously reported error
+

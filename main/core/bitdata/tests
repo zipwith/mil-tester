@@ -656,3 +656,51 @@ t3 = T3
 g  = Guard
 
 -----------------------
+.lc:   toBits-pos1      ./milc -m -pcsoro
+require "core.llc"
+
+external boolToBit {primBitdataToBit Bool 1} :: Bool -> Bit 1
+entrypoint boolToBit
+
+bitdata X = A [ x :: Bit 4 ]
+external xToBit {primBitdataToBit X 4} :: X -> Bit 4
+entrypoint xToBit
+
+bitdata S = Left  [ ix :: Ix 6  | B0 ]
+          | Right [ b3 :: Bit 3 | B1 ]
+external sToBit {primBitdataToBit S 4} :: S -> Bit 4
+entrypoint sToBit
+
+bitdata Y = MkY [ l, r :: X | flag :: Bool | B1010 ]
+external yToBit {primBitdataToBit Y 13} :: Y -> Bit 32
+entrypoint yToBit
+
+bitdata Secret /64
+external secretToBit {primBitdataToBit Secret 64} :: Secret -> Bit 64
+entrypoint secretToBit
+
+-----------------------
+.lc:   toBits-neg1      ./milc -m -pcsoro
+require "core.llc"
+
+-- T is not a bitdata type:
+data T = U | V | W
+external tToBit {primBitdataToBit T 4} :: T -> Bit 4
+entrypoint tToBit
+
+-----------------------
+.lc:   toBits-neg2      ./milc -m -pcsoro
+require "core.llc"
+
+bitdata X = A [ x :: Bit 4 ]
+external xToBit {primBitdataToBit X 3} :: X -> Bit 3 -> Bit 4
+entrypoint xToBit
+
+-----------------------
+.lc:   toBits-neg3      ./milc -m -pcsoro
+require "core.llc"
+
+bitdata X = A [ x :: Bit 4 ]
+external xToBit {primBitdataToBit X 1400} :: X -> Bit 4
+entrypoint xToBit
+

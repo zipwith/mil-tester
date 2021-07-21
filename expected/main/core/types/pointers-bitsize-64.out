@@ -2,21 +2,21 @@ bitdata ExB /64
   = ExB [ val :: Ptr (Stored (Bit 8)) ]
     -- predExB(x :: Bit 64) = true
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  ________________________________________________________________
 
 bitdata ExL /64
   = ExL [ val :: Ptr (Stored (Bit 64)) | B000 ]
     -- predExL(x :: Bit 64) = true
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  _____________________________________________________________000
 
 bitdata ExW /64
   = ExW [ val :: Ptr (Stored (Bit 64)) | B000 ]
     -- predExW(x :: Bit 64) = true
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  _____________________________________________________________000
 
 -----------------------------------------

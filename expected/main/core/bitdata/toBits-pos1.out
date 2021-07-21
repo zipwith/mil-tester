@@ -1,0 +1,32 @@
+-----------------------------------------
+-- not recursive
+entrypoint boolToBit :: [Bit 1] >>= [Bit 1]
+boolToBit[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint xToBit :: [Bit 32] >>= [Bit 32]
+xToBit[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint sToBit :: [Bit 32] >>= [Bit 32]
+sToBit[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint yToBit :: [Bit 32] >>= [Bit 32]
+yToBit[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint secretToBit :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
+secretToBit[t0, t1] =
+  return [t0, t1]
+
+-----------------------------------------
+-- Entrypoints: boolToBit xToBit sToBit yToBit secretToBit

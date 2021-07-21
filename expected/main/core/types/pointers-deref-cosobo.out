@@ -4,7 +4,7 @@ bitdata Maybe0 /30
   | Just1 [ Just10 :: Ref (Stored (Bit 32)) ]
     -- predJust1(x :: Bit 30) = x != 0x0
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  ______________________________
 
 bitdata Maybe1 /32
@@ -13,7 +13,7 @@ bitdata Maybe1 /32
   | Just3 [ Just30 :: Ref (Stored (Ix 256)) ]
     -- predJust3(x :: Bit 32) = x != 0x0
 
--- bit pattern:
+-- bit pattern: (restricted)
 --  ________________________________
 
 -----------------------------------------

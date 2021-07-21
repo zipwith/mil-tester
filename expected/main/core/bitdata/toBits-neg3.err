@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/toBits-neg3.lc", line 4
+external xToBit {primBitdataToBit X 1400} :: X -> Bit 4
+         ^
+No generated implementation: Argument value 1400 is too large; must be less than 1000
+
+ERROR: Aborting after previously reported error
+

@@ -27,8 +27,10 @@ primBitShiftL        forall (a :: nat). Bit a -> Ix a -> Bit a
 primBitShiftRu       forall (a :: nat). Bit a -> Ix a -> Bit a
 primBitTestBit       forall (a :: nat). Bit a -> Ix a -> TODO
 primBitTimes         forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitToBitdata     forall (a :: nat) (b :: *). Bit a -> b
 primBitToWord        forall (a :: nat). Bit a -> Word
 primBitXor           forall (a :: nat). Bit a -> Bit a -> Bit a
+primBitdataToBit     forall (a :: *) (b :: nat). a -> Bit b
 primBitsConcat       forall (a :: nat) (b :: nat) (c :: nat). Bit a -> Bit b -> Bit c
 primBitsHi           forall (a :: nat) (b :: nat). Bit a -> Bit b
 primBitsLo           forall (a :: nat) (b :: nat). Bit a -> Bit b
@@ -44,6 +46,7 @@ primInitArray        forall (a :: nat) (b :: area). (Ix a -> Init b) -> Init (Ar
 primInitPad          forall (a :: nat) (b :: area). Init (Pad a b)
 primInitSelf         forall (a :: area). (Ref a -> Init a) -> Init a
 primInitStored       forall (a :: *). a -> Init (Stored a)
+primInxMaxBound      forall (a :: nat). Inx a
 primIxEq             forall (a :: nat). Ix a -> Ix a -> TODO
 primIxFromLiteral    forall (a :: nat) (b :: nat). Unit -> Ix b
 primIxGe             forall (a :: nat). Ix a -> Ix a -> TODO
@@ -67,5 +70,5 @@ primRelaxIx          forall (a :: nat) (b :: nat). Ix a -> Ix b
 primStructSelect     forall (a :: area) (b :: lab) (c :: area). Ref a -> Unit -> Ref c
 primWordToBit        forall (a :: nat). Word -> Bit a
 primWriteRefStored   forall (a :: *). Ref (Stored a) -> a -> Proc Unit
-68 external generators listed
+71 external generators listed
 -----------------------------------------

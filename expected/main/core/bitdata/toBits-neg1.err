@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/toBits-neg1.lc", line 5
+external tToBit {primBitdataToBit T 4} :: T -> Bit 4
+         ^
+No generated implementation: T is not a bitdata type
+
+ERROR: Aborting after previously reported error
+
