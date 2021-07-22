@@ -1,24 +1,24 @@
 -----------------------------------------
 -- not recursive
-str0 :: Bit 32
-str0 <- "goodbye"
+str1 :: Bit 32
+str1 <- "goodbye"
 
 -----------------------------------------
 -- not recursive
 b78 :: [] >>= [Bit 32]
 b78[] =
-  return str0
+  return str1
 
 -----------------------------------------
 -- not recursive
-str1 :: Bit 32
-str1 <- "hello"
+str0 :: Bit 32
+str0 <- "hello"
 
 -----------------------------------------
 -- not recursive
 b79 :: [] >>= [Bit 32]
 b79[] =
-  return str1
+  return str0
 
 -----------------------------------------
 -- not recursive

@@ -6,11 +6,11 @@
 
 @str.1 = private unnamed_addr constant [8 x i8] c"goodbye\00"
 
-@str0 = internal alias i8, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @str.1, i32 0, i32 0)
+@str1 = internal alias i8, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @str.1, i32 0, i32 0)
 
 @str.2 = private unnamed_addr constant [6 x i8] c"hello\00"
 
-@str1 = internal alias i8, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str.2, i32 0, i32 0)
+@str0 = internal alias i8, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str.2, i32 0, i32 0)
 
 define i32 @greet(i1 %r0) {
   br label %greet
@@ -19,10 +19,10 @@ greet:
   br i1 %r0, label %b79, label %b78
 
 b79:
-  ret i32 ptrtoint(i8* @str1 to i32)
+  ret i32 ptrtoint(i8* @str0 to i32)
 
 b78:
-  ret i32 ptrtoint(i8* @str0 to i32)
+  ret i32 ptrtoint(i8* @str1 to i32)
 }
 
 define void @main() {
