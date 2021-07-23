@@ -9,184 +9,184 @@ s1 <-
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong0 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong0[t0, t1] =
+entrypoint nullFromLong0 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong0[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong1 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong1[t0, t1] =
+entrypoint nullFromLong1 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong1[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong2 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong2[t0, t1] =
+entrypoint nullFromLong2 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong2[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong29 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong29[t0, t1] =
+entrypoint nullFromLong29 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong29[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong31 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong31[t0, t1] =
+entrypoint nullFromLong31 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong31[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong32 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong32[t0, t1] =
+entrypoint nullFromLong32 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong32[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong33 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong33[t0, t1] =
+entrypoint nullFromLong33 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong33[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong48 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong48[t0, t1] =
+entrypoint nullFromLong48 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong48[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong63 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong63[t0, t1] =
+entrypoint nullFromLong63 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong63[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint nullFromLong64 :: [Bit 32, Bit 32] >>= [Unit]
-nullFromLong64[t0, t1] =
+entrypoint nullFromLong64 :: [Bit 32, Bit 32, Unit] >>= [Unit]
+nullFromLong64[t0, t1, t2] =
   return s1
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong0 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong0[t0, t1] =
-  t2 <- and((t0, 1))
-  primNeq((t2, 0))
+entrypoint bitFromLong0 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong0[t0, t1, t2] =
+  t3 <- and((t0, 1))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong1 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong1[t0, t1] =
-  t2 <- and((t0, 2))
-  primNeq((t2, 0))
+entrypoint bitFromLong1 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong1[t0, t1, t2] =
+  t3 <- and((t0, 2))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong2 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong2[t0, t1] =
-  t2 <- and((t0, 4))
-  primNeq((t2, 0))
+entrypoint bitFromLong2 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong2[t0, t1, t2] =
+  t3 <- and((t0, 4))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong29 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong29[t0, t1] =
-  t2 <- and((t0, 536870912))
-  primNeq((t2, 0))
+entrypoint bitFromLong29 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong29[t0, t1, t2] =
+  t3 <- and((t0, 536870912))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong31 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong31[t0, t1] =
-  t2 <- and((t0, -2147483648))
-  primNeq((t2, 0))
+entrypoint bitFromLong31 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong31[t0, t1, t2] =
+  t3 <- and((t0, -2147483648))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong32 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong32[t0, t1] =
-  t2 <- and((t1, 1))
-  primNeq((t2, 0))
+entrypoint bitFromLong32 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong32[t0, t1, t2] =
+  t3 <- and((t1, 1))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong33 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong33[t0, t1] =
-  t2 <- and((t1, 2))
-  primNeq((t2, 0))
+entrypoint bitFromLong33 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong33[t0, t1, t2] =
+  t3 <- and((t1, 2))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong48 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong48[t0, t1] =
-  t2 <- and((t1, 65536))
-  primNeq((t2, 0))
+entrypoint bitFromLong48 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong48[t0, t1, t2] =
+  t3 <- and((t1, 65536))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint bitFromLong63 :: [Bit 32, Bit 32] >>= [Bit 1]
-bitFromLong63[t0, t1] =
-  t2 <- and((t1, -2147483648))
-  primNeq((t2, 0))
+entrypoint bitFromLong63 :: [Bit 32, Bit 32, Unit] >>= [Bit 1]
+bitFromLong63[t0, t1, t2] =
+  t3 <- and((t1, -2147483648))
+  primNeq((t3, 0))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong0 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong0[t0, t1] =
+entrypoint byteFromLong0 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong0[t0, t1, t2] =
   and((t0, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong1 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong1[t0, t1] =
-  t2 <- lshr((t0, 1))
-  and((t2, 255))
+entrypoint byteFromLong1 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong1[t0, t1, t2] =
+  t3 <- lshr((t0, 1))
+  and((t3, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong2 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong2[t0, t1] =
-  t2 <- lshr((t0, 2))
-  and((t2, 255))
+entrypoint byteFromLong2 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong2[t0, t1, t2] =
+  t3 <- lshr((t0, 2))
+  and((t3, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong29 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong29[t0, t1] =
-  t2 <- lshr((t0, 29))
-  t3 <- shl((t1, 3))
-  t4 <- or((t2, t3))
-  and((t4, 255))
+entrypoint byteFromLong29 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong29[t0, t1, t2] =
+  t3 <- lshr((t0, 29))
+  t4 <- shl((t1, 3))
+  t5 <- or((t3, t4))
+  and((t5, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong31 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong31[t0, t1] =
-  t2 <- lshr((t0, 31))
-  t3 <- shl((t1, 1))
-  t4 <- or((t2, t3))
-  and((t4, 255))
+entrypoint byteFromLong31 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong31[t0, t1, t2] =
+  t3 <- lshr((t0, 31))
+  t4 <- shl((t1, 1))
+  t5 <- or((t3, t4))
+  and((t5, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong32 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong32[t0, t1] =
+entrypoint byteFromLong32 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong32[t0, t1, t2] =
   and((t1, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong33 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong33[t0, t1] =
-  t2 <- lshr((t1, 1))
-  and((t2, 255))
+entrypoint byteFromLong33 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong33[t0, t1, t2] =
+  t3 <- lshr((t1, 1))
+  and((t3, 255))
 
 -----------------------------------------
 -- not recursive
-entrypoint byteFromLong48 :: [Bit 32, Bit 32] >>= [Bit 32]
-byteFromLong48[t0, t1] =
-  t2 <- lshr((t1, 16))
-  and((t2, 255))
+entrypoint byteFromLong48 :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+byteFromLong48[t0, t1, t2] =
+  t3 <- lshr((t1, 16))
+  and((t3, 255))
 
 -----------------------------------------
 -- Entrypoints: nullFromLong0 nullFromLong1 nullFromLong2 nullFromLong29 nullFromLong31 nullFromLong32 nullFromLong33 nullFromLong48 nullFromLong63 nullFromLong64 bitFromLong0 bitFromLong1 bitFromLong2 bitFromLong29 bitFromLong31 bitFromLong32 bitFromLong33 bitFromLong48 bitFromLong63 byteFromLong0 byteFromLong1 byteFromLong2 byteFromLong29 byteFromLong31 byteFromLong32 byteFromLong33 byteFromLong48

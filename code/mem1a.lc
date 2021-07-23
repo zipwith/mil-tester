@@ -2,8 +2,6 @@
 
 require "prelude.lc"
 require "io.mil"
-  
-data Lab (f :: lab) = Lab
 
 external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
 external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
@@ -14,28 +12,22 @@ struct S/16 [ x, y, z, t :: Stored Word ]
 entrypoint init :: Init S
 init  = S[ x<-initStored 10 | y<-initStored 9 | z<-initStored 19 | t<-initStored 94 ]
 
-external fieldX {primStructSelect S "x" (Stored Word)} :: Ref S -> Lab "x" -> Ref (Stored Word)
-external fieldY {primStructSelect S "y" (Stored Word)} :: Ref S -> Lab "y" -> Ref (Stored Word)
-external fieldZ {primStructSelect S "z" (Stored Word)} :: Ref S -> Lab "z" -> Ref (Stored Word)
-external fieldT {primStructSelect S "t" (Stored Word)} :: Ref S -> Lab "t" -> Ref (Stored Word)
-
-read        :: (Ref s -> Lab f -> Ref (Stored Word)) -> Ref s -> Proc Word
-read field r = readRef (field r Lab)
+external fieldX {primStructSelect S "x" (Stored Word)} :: Ref S -> ProxyLab "x" -> Ref (Stored Word)
+external fieldY {primStructSelect S "y" (Stored Word)} :: Ref S -> ProxyLab "y" -> Ref (Stored Word)
+external fieldZ {primStructSelect S "z" (Stored Word)} :: Ref S -> ProxyLab "z" -> Ref (Stored Word)
+external fieldT {primStructSelect S "t" (Stored Word)} :: Ref S -> ProxyLab "t" -> Ref (Stored Word)
 
 entrypoint readX, readY, readZ, readT :: Ref S -> Proc Word
-readX = read fieldX
-readY = read fieldY
-readZ = read fieldZ
-readT = read fieldT
-
-write        :: (Ref s -> Lab f -> Ref (Stored Word)) -> Ref s -> Word -> Proc Unit
-write field r = writeRef (field r Lab)
+readX r = readRef (fieldX r !x)
+readY r = readRef (fieldY r !y)
+readZ r = readRef (fieldZ r !z)
+readT r = readRef (fieldT r !t)
 
 entrypoint writeX, writeY, writeZ, writeT :: Ref S -> Word -> Proc Unit
-writeX = write fieldX
-writeY = write fieldY
-writeZ = write fieldZ
-writeT = write fieldT
+writeX r = writeRef (fieldX r!x)
+writeY r = writeRef (fieldY r!y)
+writeZ r = writeRef (fieldZ r!z)
+writeT r = writeRef (fieldT r!t)
 
 area s1 <- init, s2 <- init :: Ref S aligned 16
 

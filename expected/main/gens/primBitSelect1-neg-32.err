@@ -1,50 +1,50 @@
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 3
-external nullFromLong65 {primBitSelect 64 0 65} :: Bit 64 -> Bit 0
+external nullFromLong65 {primBitSelect 64 65 0} :: Bit 64 -> ProxyNat 65 -> Bit 0
          ^
 No generated implementation: A field of width 0 at offset 65 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 4
-external nullFromLong80 {primBitSelect 64 0 80} :: Bit 64 -> Bit 0
+external nullFromLong80 {primBitSelect 64 80 0} :: Bit 64 -> ProxyNat 80 -> Bit 0
          ^
 No generated implementation: A field of width 0 at offset 80 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 7
-external bitFromLong64 {primBitSelect 64 1 64} :: Bit 64 -> Bit 1
+external bitFromLong64 {primBitSelect 64 64 1} :: Bit 64 -> ProxyNat 64 -> Bit 1
          ^
 No generated implementation: A field of width 1 at offset 64 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 8
-external bitFromLong65 {primBitSelect 64 1 65} :: Bit 64 -> Bit 1
+external bitFromLong65 {primBitSelect 64 65 1} :: Bit 64 -> ProxyNat 65 -> Bit 1
          ^
 No generated implementation: A field of width 1 at offset 65 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 9
-external bitFromLong80 {primBitSelect 64 1 80} :: Bit 64 -> Bit 1
+external bitFromLong80 {primBitSelect 64 80 1} :: Bit 64 -> ProxyNat 80 -> Bit 1
          ^
 No generated implementation: A field of width 1 at offset 80 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 12
-external byteFromLong57 {primBitSelect 64 8 57} :: Bit 64 -> Bit 8
+external byteFromLong57 {primBitSelect 64 57 8} :: Bit 64 -> ProxyNat 57 -> Bit 8
          ^
 No generated implementation: A field of width 8 at offset 57 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 13
-external byteFromLong60 {primBitSelect 64 8 60} :: Bit 64 -> Bit 8
+external byteFromLong60 {primBitSelect 64 60 8} :: Bit 64 -> ProxyNat 60 -> Bit 8
          ^
 No generated implementation: A field of width 8 at offset 60 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 14
-external byteFromLong63 {primBitSelect 64 8 63} :: Bit 64 -> Bit 8
+external byteFromLong63 {primBitSelect 64 63 8} :: Bit 64 -> ProxyNat 63 -> Bit 8
          ^
 No generated implementation: A field of width 8 at offset 63 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 15
-external byteFromLong64 {primBitSelect 64 8 64} :: Bit 64 -> Bit 8
+external byteFromLong64 {primBitSelect 64 64 8} :: Bit 64 -> ProxyNat 64 -> Bit 8
          ^
 No generated implementation: A field of width 8 at offset 64 will not fit in a bit vector of width 64
 
 ERROR: "actual/main/gens/primBitSelect1-neg-32.lc", line 18
-external byteFromLong80 {primBitSelect 64 8 80} :: Bit 64 -> Bit 8
+external byteFromLong80 {primBitSelect 64 80 8} :: Bit 64 -> ProxyNat 80 -> Bit 8
          ^
 No generated implementation: A field of width 8 at offset 80 will not fit in a bit vector of width 64
 

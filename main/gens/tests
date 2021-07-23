@@ -373,209 +373,209 @@ external cat_32_32 {primBitsConcat 32 32 72} :: Bit 32 -> Bit 32 -> Bit 72
 .lc: primBitSelect-pos-32  ./milc -pcosoboro -m --32
 
 entrypoint nullFromNull0
-external nullFromNull0 {primBitSelect 0 0 0} :: Bit 0 -> Bit 0
+external nullFromNull0 {primBitSelect 0 0 0} :: Bit 0 -> ProxyNat 0 -> Bit 0
 
 entrypoint nullFromFlag0, nullFromFlag1
-external nullFromFlag0 {primBitSelect 1 0 0} :: Bit 1 -> Bit 0
-external nullFromFlag1 {primBitSelect 1 0 1} :: Bit 1 -> Bit 0
+external nullFromFlag0 {primBitSelect 1 0 0} :: Bit 1 -> ProxyNat 0 -> Bit 0
+external nullFromFlag1 {primBitSelect 1 1 0} :: Bit 1 -> ProxyNat 1 -> Bit 0
 
 entrypoint bitFromFlag0
-external bitFromFlag0  {primBitSelect 1 1 0} :: Bit 1 -> Bit 1
+external bitFromFlag0  {primBitSelect 1 0 1} :: Bit 1 -> ProxyNat 0 -> Bit 1
 
 entrypoint nullFromByte0, nullFromByte1, nullFromByte2, nullFromByte4
 entrypoint nullFromByte5, nullFromByte7, nullFromByte8
-external nullFromByte0 {primBitSelect 8 0 0} :: Bit 8 -> Bit 0
-external nullFromByte1 {primBitSelect 8 0 1} :: Bit 8 -> Bit 0
-external nullFromByte2 {primBitSelect 8 0 2} :: Bit 8 -> Bit 0
-external nullFromByte4 {primBitSelect 8 0 4} :: Bit 8 -> Bit 0
-external nullFromByte5 {primBitSelect 8 0 5} :: Bit 8 -> Bit 0
-external nullFromByte7 {primBitSelect 8 0 7} :: Bit 8 -> Bit 0
-external nullFromByte8 {primBitSelect 8 0 8} :: Bit 8 -> Bit 0
+external nullFromByte0 {primBitSelect 8 0 0} :: Bit 8 -> ProxyNat 0 -> Bit 0
+external nullFromByte1 {primBitSelect 8 1 0} :: Bit 8 -> ProxyNat 1 -> Bit 0
+external nullFromByte2 {primBitSelect 8 2 0} :: Bit 8 -> ProxyNat 2 -> Bit 0
+external nullFromByte4 {primBitSelect 8 4 0} :: Bit 8 -> ProxyNat 4 -> Bit 0
+external nullFromByte5 {primBitSelect 8 5 0} :: Bit 8 -> ProxyNat 5 -> Bit 0
+external nullFromByte7 {primBitSelect 8 7 0} :: Bit 8 -> ProxyNat 7 -> Bit 0
+external nullFromByte8 {primBitSelect 8 8 0} :: Bit 8 -> ProxyNat 8 -> Bit 0
 
 entrypoint bitFromByte0, bitFromByte1, bitFromByte2, bitFromByte4
 entrypoint bitFromByte5, bitFromByte7
-external bitFromByte0 {primBitSelect 8 1 0} :: Bit 8 -> Bit 1
-external bitFromByte1 {primBitSelect 8 1 1} :: Bit 8 -> Bit 1
-external bitFromByte2 {primBitSelect 8 1 2} :: Bit 8 -> Bit 1
-external bitFromByte4 {primBitSelect 8 1 4} :: Bit 8 -> Bit 1
-external bitFromByte5 {primBitSelect 8 1 5} :: Bit 8 -> Bit 1
-external bitFromByte7 {primBitSelect 8 1 7} :: Bit 8 -> Bit 1
+external bitFromByte0 {primBitSelect 8 0 1} :: Bit 8 -> ProxyNat 0 -> Bit 1
+external bitFromByte1 {primBitSelect 8 1 1} :: Bit 8 -> ProxyNat 1 -> Bit 1
+external bitFromByte2 {primBitSelect 8 2 1} :: Bit 8 -> ProxyNat 2 -> Bit 1
+external bitFromByte4 {primBitSelect 8 4 1} :: Bit 8 -> ProxyNat 4 -> Bit 1
+external bitFromByte5 {primBitSelect 8 5 1} :: Bit 8 -> ProxyNat 5 -> Bit 1
+external bitFromByte7 {primBitSelect 8 7 1} :: Bit 8 -> ProxyNat 7 -> Bit 1
 
 entrypoint nibbleFromByte0, nibbleFromByte1, nibbleFromByte2, nibbleFromByte4
-external nibbleFromByte0 {primBitSelect 8 4 0} :: Bit 8 -> Bit 4
-external nibbleFromByte1 {primBitSelect 8 4 1} :: Bit 8 -> Bit 4
-external nibbleFromByte2 {primBitSelect 8 4 2} :: Bit 8 -> Bit 4
-external nibbleFromByte4 {primBitSelect 8 4 4} :: Bit 8 -> Bit 4
+external nibbleFromByte0 {primBitSelect 8 0 4} :: Bit 8 -> ProxyNat 0 -> Bit 4
+external nibbleFromByte1 {primBitSelect 8 1 4} :: Bit 8 -> ProxyNat 1 -> Bit 4
+external nibbleFromByte2 {primBitSelect 8 2 4} :: Bit 8 -> ProxyNat 2 -> Bit 4
+external nibbleFromByte4 {primBitSelect 8 4 4} :: Bit 8 -> ProxyNat 4 -> Bit 4
 
 -----------------------
 .lc: primBitSelect-neg-32  ./milc -pcosoboro -m --32
 
 entrypoint bitFromNull0, bitFromNull1, nibbleFromNull
-external bitFromNull0   {primBitSelect 0 1 0} :: Bit 0 -> Bit 1
-external bitFromNull1   {primBitSelect 0 1 1} :: Bit 0 -> Bit 1
-external nibbleFromNull {primBitSelect 0 4 0} :: Bit 0 -> Bit 4
+external bitFromNull0   {primBitSelect 0 0 1} :: Bit 0 -> ProxyNat 0 -> Bit 1
+external bitFromNull1   {primBitSelect 0 1 1} :: Bit 0 -> ProxyNat 1 -> Bit 1
+external nibbleFromNull {primBitSelect 0 0 4} :: Bit 0 -> ProxyNat 0 -> Bit 4
 
 entrypoint nibbleFromFlag0
-external nibbleFromFlag0 {primBitSelect 1 4 0} :: Bit 1 -> Bit 4
+external nibbleFromFlag0 {primBitSelect 1 0 4} :: Bit 1 -> ProxyNat 0 -> Bit 4
 
 entrypoint nullFromByte9, nullFromByte15
-external nullFromByte9  {primBitSelect 8 0  9} :: Bit 8 -> Bit 0
-external nullFromByte15 {primBitSelect 8 0 15} :: Bit 8 -> Bit 0
+external nullFromByte9  {primBitSelect 8  9 0} :: Bit 8 -> ProxyNat  9 -> Bit 0
+external nullFromByte15 {primBitSelect 8 15 0} :: Bit 8 -> ProxyNat 15 -> Bit 0
 
 entrypoint bitFromByte8, bitFromByte9, bitFromByte15
-external bitFromByte8  {primBitSelect 8 1  8} :: Bit 8 -> Bit 1
-external bitFromByte9  {primBitSelect 8 1  9} :: Bit 8 -> Bit 1
-external bitFromByte15 {primBitSelect 8 1 15} :: Bit 8 -> Bit 1
+external bitFromByte8  {primBitSelect 8  8 1} :: Bit 8 -> ProxyNat  8 -> Bit 1
+external bitFromByte9  {primBitSelect 8  9 1} :: Bit 8 -> ProxyNat  9 -> Bit 1
+external bitFromByte15 {primBitSelect 8 15 1} :: Bit 8 -> ProxyNat 15 -> Bit 1
 
 entrypoint nibbleFromByte5, nibbleFromByte8, nibbleFromByte9, nibbleFromByte15
-external nibbleFromByte5  {primBitSelect 8 4  5} :: Bit 8 -> Bit 4
-external nibbleFromByte8  {primBitSelect 8 4  8} :: Bit 8 -> Bit 4
-external nibbleFromByte9  {primBitSelect 8 4  9} :: Bit 8 -> Bit 4
-external nibbleFromByte15 {primBitSelect 8 4 15} :: Bit 8 -> Bit 4
+external nibbleFromByte5  {primBitSelect 8  5 4} :: Bit 8 -> ProxyNat  5 -> Bit 4
+external nibbleFromByte8  {primBitSelect 8  8 4} :: Bit 8 -> ProxyNat  8 -> Bit 4
+external nibbleFromByte9  {primBitSelect 8  9 4} :: Bit 8 -> ProxyNat  9 -> Bit 4
+external nibbleFromByte15 {primBitSelect 8 15 4} :: Bit 8 -> ProxyNat 15 -> Bit 4
 
 -----------------------
 .lc: primBitSelect1-pos-32  ./milc -pcosoboro -m --32
 
 entrypoint nullFromLong0,  nullFromLong1,  nullFromLong2,  nullFromLong29
-external nullFromLong0  {primBitSelect 64 0  0} :: Bit 64 -> Bit 0
-external nullFromLong1  {primBitSelect 64 0  1} :: Bit 64 -> Bit 0
-external nullFromLong2  {primBitSelect 64 0  2} :: Bit 64 -> Bit 0
-external nullFromLong29 {primBitSelect 64 0 29} :: Bit 64 -> Bit 0
+external nullFromLong0  {primBitSelect 64  0 0} :: Bit 64 -> ProxyNat  0 -> Bit 0
+external nullFromLong1  {primBitSelect 64  1 0} :: Bit 64 -> ProxyNat  1 -> Bit 0
+external nullFromLong2  {primBitSelect 64  2 0} :: Bit 64 -> ProxyNat  2 -> Bit 0
+external nullFromLong29 {primBitSelect 64 29 0} :: Bit 64 -> ProxyNat 29 -> Bit 0
 
 entrypoint nullFromLong31, nullFromLong32, nullFromLong33, nullFromLong48
-external nullFromLong31 {primBitSelect 64 0 31} :: Bit 64 -> Bit 0
-external nullFromLong32 {primBitSelect 64 0 32} :: Bit 64 -> Bit 0
-external nullFromLong33 {primBitSelect 64 0 33} :: Bit 64 -> Bit 0
-external nullFromLong48 {primBitSelect 64 0 48} :: Bit 64 -> Bit 0
+external nullFromLong31 {primBitSelect 64 31 0} :: Bit 64 -> ProxyNat 31 -> Bit 0
+external nullFromLong32 {primBitSelect 64 32 0} :: Bit 64 -> ProxyNat 32 -> Bit 0
+external nullFromLong33 {primBitSelect 64 33 0} :: Bit 64 -> ProxyNat 33 -> Bit 0
+external nullFromLong48 {primBitSelect 64 48 0} :: Bit 64 -> ProxyNat 48 -> Bit 0
 
 entrypoint nullFromLong63, nullFromLong64
-external nullFromLong63 {primBitSelect 64 0 63} :: Bit 64 -> Bit 0
-external nullFromLong64 {primBitSelect 64 0 64} :: Bit 64 -> Bit 0
+external nullFromLong63 {primBitSelect 64 63 0} :: Bit 64 -> ProxyNat 63 -> Bit 0
+external nullFromLong64 {primBitSelect 64 64 0} :: Bit 64 -> ProxyNat 64 -> Bit 0
 
 entrypoint bitFromLong0,  bitFromLong1,  bitFromLong2,  bitFromLong29
-external bitFromLong0  {primBitSelect 64 1  0} :: Bit 64 -> Bit 1
-external bitFromLong1  {primBitSelect 64 1  1} :: Bit 64 -> Bit 1
-external bitFromLong2  {primBitSelect 64 1  2} :: Bit 64 -> Bit 1
-external bitFromLong29 {primBitSelect 64 1 29} :: Bit 64 -> Bit 1
+external bitFromLong0  {primBitSelect 64  0 1} :: Bit 64 -> ProxyNat  0 -> Bit 1
+external bitFromLong1  {primBitSelect 64  1 1} :: Bit 64 -> ProxyNat  1 -> Bit 1
+external bitFromLong2  {primBitSelect 64  2 1} :: Bit 64 -> ProxyNat  2 -> Bit 1
+external bitFromLong29 {primBitSelect 64 29 1} :: Bit 64 -> ProxyNat 29 -> Bit 1
 
 entrypoint bitFromLong31, bitFromLong32, bitFromLong33, bitFromLong48
-external bitFromLong31 {primBitSelect 64 1 31} :: Bit 64 -> Bit 1
-external bitFromLong32 {primBitSelect 64 1 32} :: Bit 64 -> Bit 1
-external bitFromLong33 {primBitSelect 64 1 33} :: Bit 64 -> Bit 1
-external bitFromLong48 {primBitSelect 64 1 48} :: Bit 64 -> Bit 1
+external bitFromLong31 {primBitSelect 64 31 1} :: Bit 64 -> ProxyNat 31 -> Bit 1
+external bitFromLong32 {primBitSelect 64 32 1} :: Bit 64 -> ProxyNat 32 -> Bit 1
+external bitFromLong33 {primBitSelect 64 33 1} :: Bit 64 -> ProxyNat 33 -> Bit 1
+external bitFromLong48 {primBitSelect 64 48 1} :: Bit 64 -> ProxyNat 48 -> Bit 1
 
 entrypoint bitFromLong63
-external bitFromLong63 {primBitSelect 64 1 63} :: Bit 64 -> Bit 1
+external bitFromLong63 {primBitSelect 64 63 1} :: Bit 64 -> ProxyNat 63 -> Bit 1
 
 entrypoint byteFromLong0,  byteFromLong1,  byteFromLong2,  byteFromLong29
-external byteFromLong0  {primBitSelect 64 8  0} :: Bit 64 -> Bit 8
-external byteFromLong1  {primBitSelect 64 8  1} :: Bit 64 -> Bit 8
-external byteFromLong2  {primBitSelect 64 8  2} :: Bit 64 -> Bit 8
-external byteFromLong29 {primBitSelect 64 8 29} :: Bit 64 -> Bit 8
+external byteFromLong0  {primBitSelect 64  0 8} :: Bit 64 -> ProxyNat  0 -> Bit 8
+external byteFromLong1  {primBitSelect 64  1 8} :: Bit 64 -> ProxyNat  1 -> Bit 8
+external byteFromLong2  {primBitSelect 64  2 8} :: Bit 64 -> ProxyNat  2 -> Bit 8
+external byteFromLong29 {primBitSelect 64 29 8} :: Bit 64 -> ProxyNat 29 -> Bit 8
 
 entrypoint byteFromLong31, byteFromLong32, byteFromLong33, byteFromLong48
-external byteFromLong31 {primBitSelect 64 8 31} :: Bit 64 -> Bit 8
-external byteFromLong32 {primBitSelect 64 8 32} :: Bit 64 -> Bit 8
-external byteFromLong33 {primBitSelect 64 8 33} :: Bit 64 -> Bit 8
-external byteFromLong48 {primBitSelect 64 8 48} :: Bit 64 -> Bit 8
+external byteFromLong31 {primBitSelect 64 31 8} :: Bit 64 -> ProxyNat 31 -> Bit 8
+external byteFromLong32 {primBitSelect 64 32 8} :: Bit 64 -> ProxyNat 32 -> Bit 8
+external byteFromLong33 {primBitSelect 64 33 8} :: Bit 64 -> ProxyNat 33 -> Bit 8
+external byteFromLong48 {primBitSelect 64 48 8} :: Bit 64 -> ProxyNat 48 -> Bit 8
 
 -----------------------
 .lc: primBitSelect1-pos-64  ./milc -pcosoboro -m --64
 
 entrypoint nullFromNull0
-external nullFromNull0 {primBitSelect 0 0 0} :: Bit 0 -> Bit 0
+external nullFromNull0 {primBitSelect 0  0 0} :: Bit 0 -> ProxyNat  0 -> Bit 0
 
 entrypoint nullFromFlag0, nullFromFlag1
-external nullFromFlag0 {primBitSelect 1 0 0} :: Bit 1 -> Bit 0
-external nullFromFlag1 {primBitSelect 1 0 1} :: Bit 1 -> Bit 0
+external nullFromFlag0 {primBitSelect 1  0 0} :: Bit 1 -> ProxyNat  0 -> Bit 0
+external nullFromFlag1 {primBitSelect 1  1 0} :: Bit 1 -> ProxyNat  1 -> Bit 0
 
 entrypoint bitFromFlag0
-external bitFromFlag0  {primBitSelect 1 1 0} :: Bit 1 -> Bit 1
+external bitFromFlag0  {primBitSelect 1  0 1} :: Bit 1 -> ProxyNat  0 -> Bit 1
 
 entrypoint nullFromLong0,  nullFromLong1,  nullFromLong2,  nullFromLong29
-external nullFromLong0  {primBitSelect 64 0  0} :: Bit 64 -> Bit 0
-external nullFromLong1  {primBitSelect 64 0  1} :: Bit 64 -> Bit 0
-external nullFromLong2  {primBitSelect 64 0  2} :: Bit 64 -> Bit 0
-external nullFromLong29 {primBitSelect 64 0 29} :: Bit 64 -> Bit 0
+external nullFromLong0  {primBitSelect 64  0 0} :: Bit 64 -> ProxyNat  0 -> Bit 0
+external nullFromLong1  {primBitSelect 64  1 0} :: Bit 64 -> ProxyNat  1 -> Bit 0
+external nullFromLong2  {primBitSelect 64  2 0} :: Bit 64 -> ProxyNat  2 -> Bit 0
+external nullFromLong29 {primBitSelect 64 29 0} :: Bit 64 -> ProxyNat 29 -> Bit 0
 
 entrypoint nullFromLong31, nullFromLong32, nullFromLong33, nullFromLong48
-external nullFromLong31 {primBitSelect 64 0 31} :: Bit 64 -> Bit 0
-external nullFromLong32 {primBitSelect 64 0 32} :: Bit 64 -> Bit 0
-external nullFromLong33 {primBitSelect 64 0 33} :: Bit 64 -> Bit 0
-external nullFromLong48 {primBitSelect 64 0 48} :: Bit 64 -> Bit 0
+external nullFromLong31 {primBitSelect 64 31 0} :: Bit 64 -> ProxyNat 31 -> Bit 0
+external nullFromLong32 {primBitSelect 64 32 0} :: Bit 64 -> ProxyNat 32 -> Bit 0
+external nullFromLong33 {primBitSelect 64 33 0} :: Bit 64 -> ProxyNat 33 -> Bit 0
+external nullFromLong48 {primBitSelect 64 48 0} :: Bit 64 -> ProxyNat 48 -> Bit 0
 
 entrypoint nullFromLong63, nullFromLong64
-external nullFromLong63 {primBitSelect 64 0 63} :: Bit 64 -> Bit 0
-external nullFromLong64 {primBitSelect 64 0 64} :: Bit 64 -> Bit 0
+external nullFromLong63 {primBitSelect 64 63 0} :: Bit 64 -> ProxyNat 63 -> Bit 0
+external nullFromLong64 {primBitSelect 64 64 0} :: Bit 64 -> ProxyNat 64 -> Bit 0
 
 entrypoint bitFromLong0,  bitFromLong1,  bitFromLong2,  bitFromLong29
-external bitFromLong0  {primBitSelect 64 1  0} :: Bit 64 -> Bit 1
-external bitFromLong1  {primBitSelect 64 1  1} :: Bit 64 -> Bit 1
-external bitFromLong2  {primBitSelect 64 1  2} :: Bit 64 -> Bit 1
-external bitFromLong29 {primBitSelect 64 1 29} :: Bit 64 -> Bit 1
+external bitFromLong0  {primBitSelect 64  0 1} :: Bit 64 -> ProxyNat  0 -> Bit 1
+external bitFromLong1  {primBitSelect 64  1 1} :: Bit 64 -> ProxyNat  1 -> Bit 1
+external bitFromLong2  {primBitSelect 64  2 1} :: Bit 64 -> ProxyNat  2 -> Bit 1
+external bitFromLong29 {primBitSelect 64 29 1} :: Bit 64 -> ProxyNat 29 -> Bit 1
 
 entrypoint bitFromLong31, bitFromLong32, bitFromLong33, bitFromLong48
-external bitFromLong31 {primBitSelect 64 1 31} :: Bit 64 -> Bit 1
-external bitFromLong32 {primBitSelect 64 1 32} :: Bit 64 -> Bit 1
-external bitFromLong33 {primBitSelect 64 1 33} :: Bit 64 -> Bit 1
-external bitFromLong48 {primBitSelect 64 1 48} :: Bit 64 -> Bit 1
+external bitFromLong31 {primBitSelect 64 31 1} :: Bit 64 -> ProxyNat 31 -> Bit 1
+external bitFromLong32 {primBitSelect 64 32 1} :: Bit 64 -> ProxyNat 32 -> Bit 1
+external bitFromLong33 {primBitSelect 64 33 1} :: Bit 64 -> ProxyNat 33 -> Bit 1
+external bitFromLong48 {primBitSelect 64 48 1} :: Bit 64 -> ProxyNat 48 -> Bit 1
 
 entrypoint bitFromLong63
-external bitFromLong63 {primBitSelect 64 1 63} :: Bit 64 -> Bit 1
+external bitFromLong63 {primBitSelect 64 63 1} :: Bit 64 -> ProxyNat 63 -> Bit 1
 
 entrypoint byteFromLong0,  byteFromLong1,  byteFromLong2,  byteFromLong29
-external byteFromLong0  {primBitSelect 64 8  0} :: Bit 64 -> Bit 8
-external byteFromLong1  {primBitSelect 64 8  1} :: Bit 64 -> Bit 8
-external byteFromLong2  {primBitSelect 64 8  2} :: Bit 64 -> Bit 8
-external byteFromLong29 {primBitSelect 64 8 29} :: Bit 64 -> Bit 8
+external byteFromLong0  {primBitSelect 64  0 8} :: Bit 64 -> ProxyNat  0 -> Bit 8
+external byteFromLong1  {primBitSelect 64  1 8} :: Bit 64 -> ProxyNat  1 -> Bit 8
+external byteFromLong2  {primBitSelect 64  2 8} :: Bit 64 -> ProxyNat  2 -> Bit 8
+external byteFromLong29 {primBitSelect 64 29 8} :: Bit 64 -> ProxyNat 29 -> Bit 8
 
 entrypoint byteFromLong31, byteFromLong32, byteFromLong33, byteFromLong48
-external byteFromLong31 {primBitSelect 64 8 31} :: Bit 64 -> Bit 8
-external byteFromLong32 {primBitSelect 64 8 32} :: Bit 64 -> Bit 8
-external byteFromLong33 {primBitSelect 64 8 33} :: Bit 64 -> Bit 8
-external byteFromLong48 {primBitSelect 64 8 48} :: Bit 64 -> Bit 8
+external byteFromLong31 {primBitSelect 64 31 8} :: Bit 64 -> ProxyNat 31 -> Bit 8
+external byteFromLong32 {primBitSelect 64 32 8} :: Bit 64 -> ProxyNat 32 -> Bit 8
+external byteFromLong33 {primBitSelect 64 33 8} :: Bit 64 -> ProxyNat 33 -> Bit 8
+external byteFromLong48 {primBitSelect 64 48 8} :: Bit 64 -> ProxyNat 48 -> Bit 8
 
 -----------------------
 .lc: primBitSelect1-neg-32  ./milc -pcosoboro -m --32
 
 entrypoint nullFromLong65, nullFromLong80
-external nullFromLong65 {primBitSelect 64 0 65} :: Bit 64 -> Bit 0
-external nullFromLong80 {primBitSelect 64 0 80} :: Bit 64 -> Bit 0
+external nullFromLong65 {primBitSelect 64 65 0} :: Bit 64 -> ProxyNat 65 -> Bit 0
+external nullFromLong80 {primBitSelect 64 80 0} :: Bit 64 -> ProxyNat 80 -> Bit 0
 
 entrypoint bitFromLong64, bitFromLong65, bitFromLong80
-external bitFromLong64 {primBitSelect 64 1 64} :: Bit 64 -> Bit 1
-external bitFromLong65 {primBitSelect 64 1 65} :: Bit 64 -> Bit 1
-external bitFromLong80 {primBitSelect 64 1 80} :: Bit 64 -> Bit 1
+external bitFromLong64 {primBitSelect 64 64 1} :: Bit 64 -> ProxyNat 64 -> Bit 1
+external bitFromLong65 {primBitSelect 64 65 1} :: Bit 64 -> ProxyNat 65 -> Bit 1
+external bitFromLong80 {primBitSelect 64 80 1} :: Bit 64 -> ProxyNat 80 -> Bit 1
 
 entrypoint byteFromLong57, byteFromLong60, byteFromLong63, byteFromLong64
-external byteFromLong57 {primBitSelect 64 8 57} :: Bit 64 -> Bit 8
-external byteFromLong60 {primBitSelect 64 8 60} :: Bit 64 -> Bit 8
-external byteFromLong63 {primBitSelect 64 8 63} :: Bit 64 -> Bit 8
-external byteFromLong64 {primBitSelect 64 8 64} :: Bit 64 -> Bit 8
+external byteFromLong57 {primBitSelect 64 57 8} :: Bit 64 -> ProxyNat 57 -> Bit 8
+external byteFromLong60 {primBitSelect 64 60 8} :: Bit 64 -> ProxyNat 60 -> Bit 8
+external byteFromLong63 {primBitSelect 64 63 8} :: Bit 64 -> ProxyNat 63 -> Bit 8
+external byteFromLong64 {primBitSelect 64 64 8} :: Bit 64 -> ProxyNat 64 -> Bit 8
 
 entrypoint byteFromLong80
-external byteFromLong80 {primBitSelect 64 8 80} :: Bit 64 -> Bit 8
+external byteFromLong80 {primBitSelect 64 80 8} :: Bit 64 -> ProxyNat 80 -> Bit 8
 
 -----------------------
 .lc: primBitSelect1-neg-64  ./milc -pcosoboro -m --64
 
 entrypoint nullFromLong65, nullFromLong80
-external nullFromLong65 {primBitSelect 64 0 65} :: Bit 64 -> Bit 0
-external nullFromLong80 {primBitSelect 64 0 80} :: Bit 64 -> Bit 0
+external nullFromLong65 {primBitSelect 64 65 0} :: Bit 64 -> ProxyNat 65 -> Bit 0
+external nullFromLong80 {primBitSelect 64 80 0} :: Bit 64 -> ProxyNat 80 -> Bit 0
 
 entrypoint bitFromLong64, bitFromLong65, bitFromLong80
-external bitFromLong64 {primBitSelect 64 1 64} :: Bit 64 -> Bit 1
-external bitFromLong65 {primBitSelect 64 1 65} :: Bit 64 -> Bit 1
-external bitFromLong80 {primBitSelect 64 1 80} :: Bit 64 -> Bit 1
+external bitFromLong64 {primBitSelect 64 64 1} :: Bit 64 -> ProxyNat 64 -> Bit 1
+external bitFromLong65 {primBitSelect 64 65 1} :: Bit 64 -> ProxyNat 65 -> Bit 1
+external bitFromLong80 {primBitSelect 64 80 1} :: Bit 64 -> ProxyNat 80 -> Bit 1
 
 entrypoint byteFromLong57, byteFromLong60, byteFromLong63, byteFromLong64
-external byteFromLong57 {primBitSelect 64 8 57} :: Bit 64 -> Bit 8
-external byteFromLong60 {primBitSelect 64 8 60} :: Bit 64 -> Bit 8
-external byteFromLong63 {primBitSelect 64 8 63} :: Bit 64 -> Bit 8
-external byteFromLong64 {primBitSelect 64 8 64} :: Bit 64 -> Bit 8
+external byteFromLong57 {primBitSelect 64 57 8} :: Bit 64 -> ProxyNat 57 -> Bit 8
+external byteFromLong60 {primBitSelect 64 60 8} :: Bit 64 -> ProxyNat 60 -> Bit 8
+external byteFromLong63 {primBitSelect 64 63 8} :: Bit 64 -> ProxyNat 63 -> Bit 8
+external byteFromLong64 {primBitSelect 64 64 8} :: Bit 64 -> ProxyNat 64 -> Bit 8
 
 entrypoint byteFromLong80
-external byteFromLong80 {primBitSelect 64 8 80} :: Bit 64 -> Bit 8
+external byteFromLong80 {primBitSelect 64 80 8} :: Bit 64 -> ProxyNat 80 -> Bit 8
 
 -----------------------
 .lc: primBitsHi-pos-32  ./milc -pcosoboro -m --32
@@ -2803,14 +2803,14 @@ struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
 entrypoint selectX, selectY, selectZ, selectU, selectV, selectW, selectA, selectB
-external selectX {primStructSelect S "x" SW} :: Ref S -> Unit -> Ref SW
-external selectY {primStructSelect S "y" SB} :: Ref S -> Unit -> Ref SB
-external selectZ {primStructSelect S "z" SB} :: Ref S -> Unit -> Ref SB
-external selectU {primStructSelect T "u" SW} :: Ref T -> Unit -> Ref SW
-external selectV {primStructSelect T "v" SW} :: Ref T -> Unit -> Ref SW
-external selectW {primStructSelect T "w" SW} :: Ref T -> Unit -> Ref SW
-external selectA {primStructSelect U "a" T}  :: Ref U -> Unit -> Ref T
-external selectB {primStructSelect U "b" S}  :: Ref U -> Unit -> Ref S
+external selectX {primStructSelect S "x" SW} :: Ref S -> ProxyLab "x" -> Ref SW
+external selectY {primStructSelect S "y" SB} :: Ref S -> ProxyLab "y" -> Ref SB
+external selectZ {primStructSelect S "z" SB} :: Ref S -> ProxyLab "z" -> Ref SB
+external selectU {primStructSelect T "u" SW} :: Ref T -> ProxyLab "u" -> Ref SW
+external selectV {primStructSelect T "v" SW} :: Ref T -> ProxyLab "v" -> Ref SW
+external selectW {primStructSelect T "w" SW} :: Ref T -> ProxyLab "w" -> Ref SW
+external selectA {primStructSelect U "a" T}  :: Ref U -> ProxyLab "a" -> Ref T
+external selectB {primStructSelect U "b" S}  :: Ref U -> ProxyLab "b" -> Ref S
 
 ------------
 .lc: primStructSelect-pos-64  ./milc -pcosoboro -m --64
@@ -2822,14 +2822,14 @@ struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
 entrypoint selectX, selectY, selectZ, selectU, selectV, selectW, selectA, selectB
-external selectX {primStructSelect S "x" SW} :: Ref S -> Unit -> Ref SW
-external selectY {primStructSelect S "y" SB} :: Ref S -> Unit -> Ref SB
-external selectZ {primStructSelect S "z" SB} :: Ref S -> Unit -> Ref SB
-external selectU {primStructSelect T "u" SW} :: Ref T -> Unit -> Ref SW
-external selectV {primStructSelect T "v" SW} :: Ref T -> Unit -> Ref SW
-external selectW {primStructSelect T "w" SW} :: Ref T -> Unit -> Ref SW
-external selectA {primStructSelect U "a" T}  :: Ref U -> Unit -> Ref T
-external selectB {primStructSelect U "b" S}  :: Ref U -> Unit -> Ref S
+external selectX {primStructSelect S "x" SW} :: Ref S -> ProxyLab "x" -> Ref SW
+external selectY {primStructSelect S "y" SB} :: Ref S -> ProxyLab "y" -> Ref SB
+external selectZ {primStructSelect S "z" SB} :: Ref S -> ProxyLab "z" -> Ref SB
+external selectU {primStructSelect T "u" SW} :: Ref T -> ProxyLab "u" -> Ref SW
+external selectV {primStructSelect T "v" SW} :: Ref T -> ProxyLab "v" -> Ref SW
+external selectW {primStructSelect T "w" SW} :: Ref T -> ProxyLab "w" -> Ref SW
+external selectA {primStructSelect U "a" T}  :: Ref U -> ProxyLab "a" -> Ref T
+external selectB {primStructSelect U "b" S}  :: Ref U -> ProxyLab "b" -> Ref S
 
 ------------
 .lc: primStructSelect-neg-32  ./milc -pcosoboro -m --32
@@ -2840,10 +2840,44 @@ struct S [ x :: SW | y :: SB | z :: SB ]
 struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
-entrypoint selectP1, selectP2, selectP3
-external selectP1 {primStructSelect S    "p" SW} :: Ref S -> Unit -> Ref SW
-external selectP2 {primStructSelect Word "p" SW} :: Ref S -> Unit -> Ref SW
-external selectP3 {primStructSelect S      4 SW} :: Ref S -> Unit -> Ref SW
+entrypoint selectP1
+external selectP1 {primStructSelect S    "p" SW} :: Ref S -> ProxyLab "p" -> Ref SW
+
+------------
+.lc: primStructSelectA-neg-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP2
+external selectP2 {primStructSelect Word "p" SW} :: Ref S -> ProxyLab "p" -> Ref SW
+
+------------
+.lc: primStructSelectB-neg-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP3
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab "4" -> Ref SW
+
+------------
+.lc: primStructSelectC-neg-32  ./milc -pcosoboro -m --32
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP3
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab   4 -> Ref SW
 
 ------------
 .lc: primStructSelect-neg-64  ./milc -pcosoboro -m --64
@@ -2854,10 +2888,44 @@ struct S [ x :: SW | y :: SB | z :: SB ]
 struct T [ u, v, w :: SW ]
 struct U [ a :: T | b :: S ]
 
-entrypoint selectP1, selectP2, selectP3
-external selectP1 {primStructSelect S    "p" SW} :: Ref S -> Unit -> Ref SW
-external selectP2 {primStructSelect Word "p" SW} :: Ref S -> Unit -> Ref SW
-external selectP3 {primStructSelect S      4 SW} :: Ref S -> Unit -> Ref SW
+entrypoint selectP1
+external selectP1 {primStructSelect S    "p" SW} :: Ref S -> ProxyLab "p" -> Ref SW
+
+------------
+.lc: primStructSelectA-neg-64  ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP2
+external selectP2 {primStructSelect Word "p" SW} :: Ref S -> ProxyLab "p" -> Ref SW
+
+------------
+.lc: primStructSelectB-neg-64  ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP3
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab "4" -> Ref SW
+
+------------
+.lc: primStructSelectC-neg-64  ./milc -pcosoboro -m --64
+
+type SW = Stored Word
+type SB = Stored (Bit 8)
+struct S [ x :: SW | y :: SB | z :: SB ]
+struct T [ u, v, w :: SW ]
+struct U [ a :: T | b :: S ]
+
+entrypoint selectP3
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab   4 -> Ref SW
 
 ------------
 .lc: primInitArray-pos-32 ./milc -pcosoboro -m --32

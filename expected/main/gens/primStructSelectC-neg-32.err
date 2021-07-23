@@ -1,0 +1,12 @@
+ERROR: "actual/main/gens/primStructSelectC-neg-32.lc", line 9
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab   4 -> Ref SW
+                                                             ^
+Cannot unify kinds "nat -> _" and "lab -> *"
+
+ERROR: "actual/main/gens/primStructSelectC-neg-32.lc", line 8
+entrypoint selectP3
+^
+"selectP3" is not in scope
+
+ERROR: Aborting after 2 previously reported errors
+

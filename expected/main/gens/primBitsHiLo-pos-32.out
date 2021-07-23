@@ -1,9 +1,12 @@
+data Unit
+  = Unit
+
 -----------------------------------------
 -- not recursive
-entrypoint direct :: [Bit 32] >>= [Bit 32]
-direct[t0] =
-  t1 <- lshr((t0, 16))
-  and((t1, 255))
+entrypoint direct :: [Bit 32, Unit] >>= [Bit 32]
+direct[t0, t1] =
+  t2 <- lshr((t0, 16))
+  and((t2, 255))
 
 -----------------------------------------
 -- not recursive
@@ -28,12 +31,12 @@ indirect2[t0] =
 
 -----------------------------------------
 -- not recursive
-entrypoint mdirect :: [Bit 32, Bit 32] >>= [Bit 32]
-mdirect[t0, t1] =
-  t2 <- lshr((t0, 30))
-  t3 <- shl((t1, 2))
-  t4 <- or((t2, t3))
-  and((t4, 255))
+entrypoint mdirect :: [Bit 32, Bit 32, Unit] >>= [Bit 32]
+mdirect[t0, t1, t2] =
+  t3 <- lshr((t0, 30))
+  t4 <- shl((t1, 2))
+  t5 <- or((t3, t4))
+  and((t5, 255))
 
 -----------------------------------------
 -- not recursive

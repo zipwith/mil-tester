@@ -1,0 +1,7 @@
+ERROR: "actual/main/gens/primStructSelectB-neg-32.lc", line 9
+external selectP3 {primStructSelect S      4 SW} :: Ref S -> ProxyLab "4" -> Ref SW
+         ^
+No generated implementation: Argument 2 (4) does not have expected kind (lab)
+
+ERROR: Aborting after previously reported error
+

@@ -1,21 +1,12 @@
-data Unit
-  = Unit
-
 -----------------------------------------
 -- not recursive
-external bit0u {primBitFromLiteral 0 64} :: [Unit] ->> [Bit 64]
-
------------------------------------------
--- not recursive
-Unit :: Unit
-Unit <-
-  Unit()
+external bitl {primBitFromLiteral 0 64} :: [ProxyNat 0] ->> [Bit 64]
 
 -----------------------------------------
 -- not recursive
 bit0 :: Bit 64
 bit0 <-
-  bit0u @ Unit
+  bitl @ !0
 
 -----------------------------------------
 -- not recursive
