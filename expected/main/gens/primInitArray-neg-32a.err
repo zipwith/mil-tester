@@ -1,0 +1,27 @@
+ERROR: "actual/main/gens/primInitArray-neg-32a.lc", line 10
+external ia0SW  {primInitArray  0  SW} :: (Ix  0 -> Init SW) -> Init (Array  0 SW)
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primInitArray-neg-32a.lc", line 13
+external ia3S {primInitArray 3 S} :: (Ix 3 -> Init S) -> Init (Array 3 S)
+         ^
+No generated implementation: Element size 6 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitArray-neg-32a.lc", line 14
+external ia7S {primInitArray 7 S} :: (Ix 7 -> Init S) -> Init (Array 7 S)
+         ^
+No generated implementation: Element size 6 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitArray-neg-32a.lc", line 15
+external ia3U {primInitArray 3 U} :: (Ix 3 -> Init U) -> Init (Array 3 U)
+         ^
+No generated implementation: Element size 18 is not divisible by alignment 4
+
+ERROR: "actual/main/gens/primInitArray-neg-32a.lc", line 16
+external ia7U {primInitArray 7 U} :: (Ix 7 -> Init U) -> Init (Array 7 U)
+         ^
+No generated implementation: Element size 18 is not divisible by alignment 4
+
+ERROR: Aborting after 5 previously reported errors
+

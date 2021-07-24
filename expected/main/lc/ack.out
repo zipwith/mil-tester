@@ -1,0 +1,67 @@
+data SC
+  = Ack
+  | Set
+  | Clear
+  | Map
+  | Unmap
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external print :: [Bit 32] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+b16 :: [] >>= [[] ->> [Unit]]
+b16[] =
+  print @ 1
+
+-----------------------------------------
+-- not recursive
+b15 :: [] >>= [[] ->> [Unit]]
+b15[] =
+  print @ 2
+
+-----------------------------------------
+-- not recursive
+b14 :: [] >>= [[] ->> [Unit]]
+b14[] =
+  print @ 3
+
+-----------------------------------------
+-- not recursive
+b12 :: [] >>= [[] ->> [Unit]]
+b12[] =
+  print @ 0
+
+-----------------------------------------
+-- not recursive
+b17 :: [SC] >>= [[] ->> [Unit]]
+b17[t0] =
+  case t0 of
+    Ack -> b16[]
+    Set -> b15[]
+    Clear -> b14[]
+    _ -> b12[]
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [SC] ->> [[] ->> [Unit]]
+k4{} t0 = b17[t0]
+
+-----------------------------------------
+-- not recursive
+entrypoint handlerF :: [SC] ->> [[] ->> [Unit]]
+handlerF <-
+  k4{}
+
+-----------------------------------------
+-- not recursive
+entrypoint handlerV :: [SC] ->> [[] ->> [Unit]]
+handlerV <-
+  k4{}
+
+-----------------------------------------
+-- Entrypoints: handlerF handlerV

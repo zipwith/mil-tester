@@ -1,0 +1,8 @@
+
+bitdata Foo = R [B00]
+            | S [B11]
+            | T [other::Bit 2]
+
+tee = T
+entrypoint tee
+

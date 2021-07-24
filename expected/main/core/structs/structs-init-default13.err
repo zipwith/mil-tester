@@ -1,5 +1,5 @@
 ERROR: "actual/main/core/structs/structs-init-default13.lc", line 9
 area s <- initStored 0 :: Ref S
           ^
-Type mismatch: cannot unify "Stored ?2" with "S"
+Type mismatch: cannot unify "Stored ?3" with "S"
 

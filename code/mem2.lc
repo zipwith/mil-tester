@@ -3,9 +3,9 @@
 require "prelude.lc"
 require "io.mil"
 
-external initStored {primInitStored Word}       :: Word -> Init (Stored Word)
-external readRef    {primReadRefStored 4 Word}  :: Ref (Stored Word) -> Proc Word
-external writeRef   {primWriteRefStored 4 Word} :: Ref (Stored Word) -> Word -> Proc Unit
+external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
+external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
+external writeRef   {primWriteRefStored Word} :: Ref (Stored Word) -> Word -> Proc Unit
 
 type N = 64 -- size of array
 type W = 32 -- bit width big enough for N distinct values

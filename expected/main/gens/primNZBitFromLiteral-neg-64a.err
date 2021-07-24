@@ -1,0 +1,52 @@
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 3
+external nz0_0  {primNZBitFromLiteral     0  0} :: ProxyNat 0 -> NZBit 0
+         ^
+No generated implementation: A positive value is required
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 4
+external nz0_1  {primNZBitFromLiteral     0  1} :: ProxyNat 0 -> NZBit 1
+         ^
+No generated implementation: A positive value is required
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 5
+external nz0_2  {primNZBitFromLiteral     0  2} :: ProxyNat 0 -> NZBit 2
+         ^
+No generated implementation: A positive value is required
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 6
+external nz0_4  {primNZBitFromLiteral     0  4} :: ProxyNat 0 -> NZBit 4
+         ^
+No generated implementation: A positive value is required
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 7
+external nz1_2K {primNZBitFromLiteral     1 2K} :: ProxyNat 1 -> NZBit 2K
+         ^
+No generated implementation: Argument value 2048 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 10
+external nz7_2  {primNZBitFromLiteral     7  2} :: ProxyNat 7 -> NZBit 2
+         ^
+No generated implementation: Argument value 7 is too large; must be less than 4
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 11
+external nz17_3 {primNZBitFromLiteral    17  3} :: ProxyNat 17 -> NZBit 3
+         ^
+No generated implementation: Argument value 17 is too large; must be less than 8
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 12
+external nz16_4 {primNZBitFromLiteral    16  4} :: ProxyNat 16 -> NZBit 4
+         ^
+No generated implementation: Argument value 16 is too large; must be less than 16
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 13
+external nz17_4 {primNZBitFromLiteral    17  4} :: ProxyNat 17 -> NZBit 4
+         ^
+No generated implementation: Argument value 17 is too large; must be less than 16
+
+ERROR: "actual/main/gens/primNZBitFromLiteral-neg-64a.lc", line 16
+external nz1_96 {primNZBitFromLiteral     1 96} :: ProxyNat 1 -> NZBit 96
+         ^
+No generated implementation: Bit vector of width 96 does not fit in a single word
+
+ERROR: Aborting after 10 previously reported errors
+

@@ -1,0 +1,7 @@
+ERROR: "overlap.lc", line 2
+bitdata Foo = R [B00]
+              ^
+Constructors R and T both match 00
+
+ERROR: Aborting after previously reported error
+

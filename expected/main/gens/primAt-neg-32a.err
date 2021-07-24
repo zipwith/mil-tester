@@ -1,0 +1,22 @@
+ERROR: "actual/main/gens/primAt-neg-32a.lc", line 11
+external at0SW   {primAt   0 SW} :: Ref (Array   0 SW) -> Ix   0 -> Ref SW
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32a.lc", line 13
+external at0SI   {primAt   0 SI} :: Ref (Array   0 SI) -> Ix   0 -> Ref SI
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32a.lc", line 15
+external at0SS   {primAt   0 SS} :: Ref (Array   0 SS) -> Ix   0 -> Ref SS
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: "actual/main/gens/primAt-neg-32a.lc", line 17
+external at0SA   {primAt   0 SA} :: Ref (Array   0 SA) -> Ix   0 -> Ref SA
+         ^
+No generated implementation: Argument value 0 is too small; must be at least 1
+
+ERROR: Aborting after 4 previously reported errors
+

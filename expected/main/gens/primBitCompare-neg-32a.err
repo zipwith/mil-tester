@@ -1,0 +1,82 @@
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 3
+external a {primBitEq 1000} :: Bit 1000 -> Bit 1000 -> Flag  -- large width values
+         ^
+No generated implementation: Argument value 1000 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 4
+external b {primBitNe 1G}   :: Bit 1G   -> Bit 1G   -> Flag
+         ^
+No generated implementation: Argument value 1073741824 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 5
+external c {primBitGt 2K}   :: Bit 2K   -> Bit 2K   -> Flag
+         ^
+No generated implementation: Argument value 2048 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 6
+external d {primBitGe 1001} :: Bit 1001 -> Bit 1001 -> Flag
+         ^
+No generated implementation: Argument value 1001 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 9
+external sgt33 {primBitSGt 33} :: Bit 33 -> Bit 33 -> Flag
+         ^
+No generated implementation: Bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 10
+external sgt48 {primBitSGt 48} :: Bit 48 -> Bit 48 -> Flag
+         ^
+No generated implementation: Bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 11
+external sgt64 {primBitSGt 64} :: Bit 64 -> Bit 64 -> Flag
+         ^
+No generated implementation: Bit vector of width 64 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 14
+external sge33 {primBitSGe 33} :: Bit 33 -> Bit 33 -> Flag
+         ^
+No generated implementation: Bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 15
+external sge48 {primBitSGe 48} :: Bit 48 -> Bit 48 -> Flag
+         ^
+No generated implementation: Bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 16
+external sge64 {primBitSGe 64} :: Bit 64 -> Bit 64 -> Flag
+         ^
+No generated implementation: Bit vector of width 64 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 19
+external slt33 {primBitSLt 33} :: Bit 33 -> Bit 33 -> Flag
+         ^
+No generated implementation: Bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 20
+external slt48 {primBitSLt 48} :: Bit 48 -> Bit 48 -> Flag
+         ^
+No generated implementation: Bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 21
+external slt64 {primBitSLt 64} :: Bit 64 -> Bit 64 -> Flag
+         ^
+No generated implementation: Bit vector of width 64 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 24
+external sle33 {primBitSLe 33} :: Bit 33 -> Bit 33 -> Flag
+         ^
+No generated implementation: Bit vector of width 33 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 25
+external sle48 {primBitSLe 48} :: Bit 48 -> Bit 48 -> Flag
+         ^
+No generated implementation: Bit vector of width 48 does not fit in a single word
+
+ERROR: "actual/main/gens/primBitCompare-neg-32a.lc", line 26
+external sle64 {primBitSLe 64} :: Bit 64 -> Bit 64 -> Flag
+         ^
+No generated implementation: Bit vector of width 64 does not fit in a single word
+
+ERROR: Aborting after 16 previously reported errors
+

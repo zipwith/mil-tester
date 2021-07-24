@@ -1,0 +1,11 @@
+require "core.llc"
+
+data T = A Word | B Word | C Word
+
+eq x y = case x of
+           A u -> case y of A v -> u==v
+           B u -> case y of B v -> u==v
+           C u -> case y of C v -> u==v
+       | False
+
+entrypoint eq

@@ -268,10 +268,10 @@ entrypoint idExT :: ExT -> ExT; idExT x = x
 -- A single field, no tagbits
 bitdata Byte/8 = Byte [ val :: Bit 8 ]
 
-external seventeen {primBitFromLiteral 17 8} :: Unit -> Bit 8
+external seventeen {primBitFromLiteral 17 8} :: ProxyNat 17 -> Bit 8
 
 entrypoint aByte
-aByte = Byte [val=seventeen Unit]
+aByte = Byte [val=seventeen !17]
 
 entrypoint getVal, setVal
 getVal b = case b of Byte v -> v.val
@@ -282,10 +282,10 @@ setVal v = Byte [ val=v ]
 -- A single field, no tagbits
 bitdata Byte/8 = Byte [ val :: Bit 8 ]
 
-external seventeen {primBitFromLiteral 17 8} :: Unit -> Bit 8
+external seventeen {primBitFromLiteral 17 8} :: ProxyNat 17 -> Bit 8
 
 entrypoint aByte
-aByte = Byte [val=seventeen Unit]
+aByte = Byte [val=seventeen !17]
 
 entrypoint getVal, setVal
 getVal b = case b of Byte v -> v.val
@@ -489,9 +489,9 @@ bitdata Caching /2                            -- pwt => page-level write thru
  = Caching [ pcd, pwt :: Bool ]               -- pcd => page-level cache disable
 
 entrypoint aPDE
-aPDE = UnmappedPDE [ unused=mkZero Unit ]
+aPDE = UnmappedPDE [ unused=mkZero !0 ]
 
-external mkZero {primBitFromLiteral 0 31} :: Unit -> Bit 31
+external mkZero {primBitFromLiteral 0 31} :: ProxyNat 0 -> Bit 31
 
 entrypoint isMapped, isMapped1
 isMapped pde = case pde of
@@ -672,7 +672,7 @@ external sToBit {primBitdataToBit S 4} :: S -> Bit 4
 entrypoint sToBit
 
 bitdata Y = MkY [ l, r :: X | flag :: Bool | B1010 ]
-external yToBit {primBitdataToBit Y 13} :: Y -> Bit 32
+external yToBit {primBitdataToBit Y 13} :: Y -> Bit 13
 entrypoint yToBit
 
 bitdata Secret /64
@@ -688,6 +688,11 @@ data T = U | V | W
 external tToBit {primBitdataToBit T 4} :: T -> Bit 4
 entrypoint tToBit
 
+bitdata X = A [ x :: Bit 4 ]
+bitdata Y = MkY [ l, r :: X | flag :: Bool | B1010 ]
+external yToBit {primBitdataToBit Y 32} :: Y -> Bit 32
+entrypoint yToBit
+
 -----------------------
 .lc:   toBits-neg2      ./milc -m -pcsoro
 require "core.llc"
@@ -695,6 +700,10 @@ require "core.llc"
 bitdata X = A [ x :: Bit 4 ]
 external xToBit {primBitdataToBit X 3} :: X -> Bit 3 -> Bit 4
 entrypoint xToBit
+
+bitdata Y = MkY [ l, r :: X | flag :: Bool | B1010 ]
+external yToBit {primBitdataToBit Y 13} :: Y -> Bit 32
+entrypoint yToBit
 
 -----------------------
 .lc:   toBits-neg3      ./milc -m -pcsoro

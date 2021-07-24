@@ -5,24 +5,15 @@ bitdata Byte /8
 -- bit pattern:
 --  ________
 
-data Unit
-  = Unit
-
 -----------------------------------------
 -- not recursive
-external seventeen {primBitFromLiteral 17 8} :: [Unit] ->> [Bit 8]
-
------------------------------------------
--- not recursive
-Unit :: Unit
-Unit <-
-  Unit()
+external seventeen {primBitFromLiteral 17 8} :: [ProxyNat 17] ->> [Bit 8]
 
 -----------------------------------------
 -- not recursive
 b8 :: [] >>= [Byte]
 b8[] =
-  t0 <- seventeen @ Unit
+  t0 <- seventeen @ !17
   t1 <- Byte.Byte(t0)
   Byte(t1)
 

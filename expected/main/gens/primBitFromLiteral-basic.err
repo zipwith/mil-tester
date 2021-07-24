@@ -1,27 +1,32 @@
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 3
 external invalid1 {primBitFromLiteral 12}      :: Unit -> Bit 12 -- too few parameters
          ^
-No generated implementation: primBitFromLiteral requires (at least) 2 arguments
+Generator primBitFromLiteral requires 2 arguments
 
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 4
 external invalid2 {primBitFromLiteral Flag 16} :: Unit -> Bit 16 -- first param not nat
          ^
-No generated implementation: Argument 1 (Bit 1) does not have expected kind (nat)
+Generator argument 1 (Flag) does not have expected kind (nat)
 
 ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 5
 external invalid3 {primBitFromLiteral 16 Word} :: Unit -> Bit 16 -- second param not nat
          ^
-No generated implementation: Argument 2 (Bit 32) does not have expected kind (nat)
+Generator argument 2 (Word) does not have expected kind (nat)
 
-ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 6
-external invalid4 {primBitFromLiteral 0  1M}   :: Unit -> Bit 1M -- bit width too large
-         ^
-No generated implementation: Argument value 1048576 is too large; must be less than 1000
+ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 1
+entrypoint invalid1, invalid2, invalid3
+^
+"invalid1" is not in scope
 
-ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 7
-external invalid5 {primBitFromLiteral 0  8K}   :: Unit -> Bit 8K
-         ^
-No generated implementation: Argument value 8192 is too large; must be less than 1000
+ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 1
+entrypoint invalid1, invalid2, invalid3
+^
+"invalid2" is not in scope
 
-ERROR: Aborting after 5 previously reported errors
+ERROR: "actual/main/gens/primBitFromLiteral-basic.lc", line 1
+entrypoint invalid1, invalid2, invalid3
+^
+"invalid3" is not in scope
+
+ERROR: Aborting after 6 previously reported errors
 

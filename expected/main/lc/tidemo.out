@@ -1,0 +1,46 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+bitdata T /8
+  = MkT [ x :: Bit 8 ]
+    -- predMkT(x :: Bit 8) = true
+
+-- bit pattern:
+--  ________
+
+-----------------------------------------
+-- not recursive
+external f :: [[T] ->> [Bit 8]] ->> [Bool]
+
+-----------------------------------------
+-- not recursive
+b129 :: [T] >>= [Bit 8]
+b129[t0] =
+  t1 <- MkT 0 t0
+  T.MkT 0 t1
+
+-----------------------------------------
+-- not recursive
+k82 :: {} [T] ->> [Bit 8]
+k82{} t0 = b129[t0]
+
+-----------------------------------------
+-- not recursive
+s1 :: [T] ->> [Bit 8]
+s1 <-
+  k82{}
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: Bool
+main <-
+  f @ s1
+
+-----------------------------------------
+-- Entrypoints: main

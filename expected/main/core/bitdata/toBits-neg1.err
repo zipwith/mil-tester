@@ -3,5 +3,10 @@ external tToBit {primBitdataToBit T 4} :: T -> Bit 4
          ^
 No generated implementation: T is not a bitdata type
 
-ERROR: Aborting after previously reported error
+ERROR: "actual/main/core/bitdata/toBits-neg1.lc", line 10
+external yToBit {primBitdataToBit Y 32} :: Y -> Bit 32
+         ^
+No generated implementation: Bitdata Y has width 13 which does not match 32
+
+ERROR: Aborting after 2 previously reported errors
 

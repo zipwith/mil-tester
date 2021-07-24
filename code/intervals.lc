@@ -75,8 +75,8 @@ insertInterval intset int
 external at       {primAt n a}            :: Ref (Array n a) -> Ix n -> Ref a
 external get      {primReadRefStored t}   :: Ref (Stored t) -> Proc t
 external set      {primWriteRefStored t}  :: Ref (Stored t) -> t -> Proc Unit
-external ix0u     {primIxFromLiteral 0 n} :: Unit -> Ix n
-external ix1u     {primIxFromLiteral 1 n} :: Unit -> Ix n
+external ix0u     {primIxFromLiteral 0 n} :: ProxyNat 0 -> Ix n
+external ix1u     {primIxFromLiteral 1 n} :: ProxyNat 1 -> Ix n
 external maxBound {primIxMaxBound m}      :: Ix m
 external genLtInc {primGenLtInc (Maybe (Ix m)) m},
          genLtDec {primGenLtDec (Maybe (Ix m)) m}
@@ -84,8 +84,8 @@ external genLtInc {primGenLtInc (Maybe (Ix m)) m},
 
 src >-> dst  = get src >>= set dst
 c >>= f      = do r <- c; f r
-ix0          = ix0u Unit
-ix1          = ix1u Unit
+ix0          = ix0u !0
+ix1          = ix1u !1
 
 ltInc, ltDec :: Ix n -> Ix n -> Maybe (Ix n)
 ltInc = genLtInc Nothing Just ix1

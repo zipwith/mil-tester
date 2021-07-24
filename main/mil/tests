@@ -8,6 +8,8 @@ exec: shifts             ./milc -m -pco shifts.mil
 
 exec: multi              ./milc -m -pco multi.mil
 
+exec: simp               ./milc -m simp.mil
+
 -------
 .mil: no-entrypoint       ./milc -m
 -- This program should give an error because there

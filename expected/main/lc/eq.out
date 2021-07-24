@@ -1,0 +1,140 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+data T
+  = A (Bit 32)
+  | B (Bit 32)
+  | C (Bit 32)
+
+-----------------------------------------
+-- not recursive
+entrypoint false :: Bool
+false <-
+  False()
+
+-----------------------------------------
+-- not recursive
+entrypoint bfalse :: [] >>= [Bool]
+bfalse[] =
+  return false
+
+-----------------------------------------
+-- not recursive
+entrypoint true :: Bool
+true <-
+  True()
+
+-----------------------------------------
+-- not recursive
+entrypoint btrue :: [] >>= [Bool]
+btrue[] =
+  return true
+
+-----------------------------------------
+-- not recursive
+b143 :: [T, Bit 32] >>= [Bool]
+b143[t0, t1] =
+  assert t0 A
+  t2 <- A 0 t0
+  t3 <- primEq((t1, t2))
+  if t3
+    then btrue[]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+False :: Bool
+False <-
+  False()
+
+-----------------------------------------
+-- not recursive
+b129 :: [] >>= [Bool]
+b129[] =
+  return False
+
+-----------------------------------------
+-- not recursive
+b146 :: [T, T] >>= [Bool]
+b146[t0, t1] =
+  assert t0 A
+  t2 <- A 0 t0
+  case t1 of
+    A -> b143[t1, t2]
+    _ -> b129[]
+
+-----------------------------------------
+-- not recursive
+b144 :: [T, Bit 32] >>= [Bool]
+b144[t0, t1] =
+  assert t0 B
+  t2 <- B 0 t0
+  t3 <- primEq((t1, t2))
+  if t3
+    then btrue[]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+b147 :: [T, T] >>= [Bool]
+b147[t0, t1] =
+  assert t0 B
+  t2 <- B 0 t0
+  case t1 of
+    B -> b144[t1, t2]
+    _ -> b129[]
+
+-----------------------------------------
+-- not recursive
+b145 :: [T, Bit 32] >>= [Bool]
+b145[t0, t1] =
+  assert t0 C
+  t2 <- C 0 t0
+  t3 <- primEq((t1, t2))
+  if t3
+    then btrue[]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+b148 :: [T, T] >>= [Bool]
+b148[t0, t1] =
+  assert t0 C
+  t2 <- C 0 t0
+  case t1 of
+    C -> b145[t1, t2]
+    _ -> b129[]
+
+-----------------------------------------
+-- not recursive
+b140 :: [T, T] >>= [Bool]
+b140[t0, t1] =
+  case t0 of
+    A -> b146[t0, t1]
+    B -> b147[t0, t1]
+    C -> b148[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k84 :: {T} [T] ->> [Bool]
+k84{t0} t1 = b140[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k85 :: {} [T] ->> [[T] ->> [Bool]]
+k85{} t0 = k84{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint eq :: [T] ->> [[T] ->> [Bool]]
+eq <-
+  k85{}
+
+-----------------------------------------
+-- Entrypoints: eq

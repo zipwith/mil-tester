@@ -1,0 +1,5 @@
+
+-- $ :: Word
+f $ x = 12
+
+entrypoint f

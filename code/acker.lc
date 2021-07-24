@@ -1,0 +1,35 @@
+
+{-
+
+acker :: Int -> Int -> Int
+acker 0 n = n + 1
+acker m 0 = acker (m - 1) 1
+acker m n = acker (m - 1) (acker m (n - 1))
+
+-}
+
+require "core.llc"
+
+entrypoint acker :: Word -> Word -> Word
+acker m n = if m==0 then n + 1
+            else if n==0 then acker (m - 1) 1
+            else acker (m - 1) (acker m (n - 1))
+
+
+data Int = MkInt Word
+unInt  :: Int -> Word
+unInt i = case i of MkInt w -> w
+
+zero, one :: Int
+zero       = MkInt 0
+one        = MkInt 1
+eqI       :: Int -> Int -> Bool
+eqI x y    = case x of MkInt n -> case y of MkInt m -> n == m
+pl, mi    :: Int -> Int -> Int
+pl x y     = case x of MkInt n -> case y of MkInt m -> MkInt (n + m)
+mi x y     = case x of MkInt n -> case y of MkInt m -> MkInt (n + m)
+
+entrypoint ackerI :: Int -> Int -> Int
+ackerI m n = if eqI m zero then pl n one
+             else if eqI n zero then ackerI (mi m one) one
+             else ackerI (mi m one) (ackerI m (mi n one))

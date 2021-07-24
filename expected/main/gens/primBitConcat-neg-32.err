@@ -24,12 +24,12 @@ external cat_2_0   {primBitsConcat  2  0  2} :: Bit 2  -> Bit 0  -> Bit 2
 No generated implementation: Argument value 0 is too low; must be at least 1
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 10
-external cat_2_2   {primBitsConcat  2  2  3} :: Bit 2  -> Bit 2  -> Bit 2
+external cat_2_2   {primBitsConcat  2  2  3} :: Bit 2  -> Bit 2  -> Bit 3
          ^
 No generated implementation: 3 is not the sum of 2 and 2
 
 ERROR: "actual/main/gens/primBitConcat-neg-32.lc", line 11
-external cat_12_12 {primBitsConcat 12 12 32} :: Bit 12 -> Bit 12 -> Bit 12
+external cat_12_12 {primBitsConcat 12 12 32} :: Bit 12 -> Bit 12 -> Bit 32
          ^
 No generated implementation: 32 is not the sum of 12 and 12
 

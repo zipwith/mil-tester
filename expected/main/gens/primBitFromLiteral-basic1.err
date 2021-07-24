@@ -1,0 +1,12 @@
+ERROR: "actual/main/gens/primBitFromLiteral-basic1.lc", line 3
+external invalid4 {primBitFromLiteral 0  1M}   :: ProxyNat 0 -> Bit 1M -- bit width too large
+         ^
+No generated implementation: Argument value 1048576 is too large; must be less than 1000
+
+ERROR: "actual/main/gens/primBitFromLiteral-basic1.lc", line 4
+external invalid5 {primBitFromLiteral 0  8K}   :: ProxyNat 0 -> Bit 8K
+         ^
+No generated implementation: Argument value 8192 is too large; must be less than 1000
+
+ERROR: Aborting after 2 previously reported errors
+

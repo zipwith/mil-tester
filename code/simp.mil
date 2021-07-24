@@ -1,0 +1,56 @@
+m2 <- neg((2))
+m5 <- neg((5))
+
+entrypoint novel
+novel[t0, t1] =
+  t2 <- and((t0, 7))
+  t3 <- and((t1, 8))
+  t4 <- or((t2, t3))
+  t5 <- and((t4, 13))
+  t6 <- and((t1, 2))
+  or((t5, t6))
+
+entrypoint simple :: [Bit 32, Bit 32] >>= [Bit 32]
+simple[t0, t1] =
+  t2 <- and((t1, 1))
+  t3 <- primNeq((t2, 0))
+  t5 <- flagToWord((t3))
+
+  t4 <- and((t0, m2))
+  t6 <- or((t4, t5))
+
+  t7 <- and((t1, 4))
+  t8 <- primNeq((t7, 0))
+  t10 <- flagToWord((t8))
+  t11 <- shl((t10, 2))
+
+  t9 <- and((t6, m5))
+  or((t9, t11))
+
+entrypoint simple1 :: [Bit 32, Bit 32] >>= [Bit 32]
+simple1[t0, t1] =
+  t2 <- and((t1, 1))
+  t5 <- return t2
+
+  t4 <- and((t0, m2))
+  t6 <- or((t4, t5))
+
+  t7 <- and((t1, 4))
+  t11 <- return t7
+
+  t9 <- and((t6, m5))
+  or((t9, t11))
+
+entrypoint andex
+andex[x,y] =
+  xn <- and((x,4))
+  yp <- and((y,m5))
+  o  <- and((xn, yp))
+  and((o, 11))
+
+entrypoint orex
+orex[x,y] =
+  xn <- and((x,4))
+  yp <- and((y,m5))
+  o  <- or((xn, yp))
+  and((o, 11))

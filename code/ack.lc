@@ -1,0 +1,18 @@
+data SC = Ack | Set | Clear | Map | Unmap
+external print :: Word -> Proc Unit
+
+handlerV  :: SC -> Proc Unit
+handlerV p = case p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3
+               other -> print 0
+
+handlerF  :: SC -> Proc Unit
+handlerF p = (case p of
+               Ack   -> print 1
+               Set   -> print 2
+               Clear -> print 3) | print 0
+
+entrypoint handlerV, handlerF
+

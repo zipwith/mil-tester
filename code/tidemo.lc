@@ -1,0 +1,8 @@
+require "core.llc"
+
+bitdata T = MkT [ x :: Bit 8 ]
+
+external f :: (T -> Bit 8) -> Bool
+
+entrypoint main
+main = f (\t -> t.x)

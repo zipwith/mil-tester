@@ -87,14 +87,14 @@ highestPriority = do s <- readRef priosetSize
 -------------------
 
 zero, one :: Ix NumPrio
-zero       = ix0 Unit
-one        = ix1 Unit
+zero       = ix0 !0
+one        = ix1 !1
 
 oneBit    :: Ix 8
-oneBit     = ix1_8 Unit
+oneBit     = ix1_8 !1
 
 zeroArray :: Init (Array NumPrio (Stored Priority))
-zeroArray  = initArray (\ix -> initStoredPriority (ix0 Unit))
+zeroArray  = initArray (\ix -> initStoredPriority (ix0 !0))
 
 external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
 external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word
@@ -109,9 +109,9 @@ external initArray {primInitArray NumPrio (Stored Priority)}
 external at {primAt NumPrio (Stored Priority)}
   :: Ref (Array NumPrio (Stored Priority)) -> Ix NumPrio -> Ref (Stored Priority)
 
-external ix0       {primIxFromLiteral 0 NumPrio}  :: Unit -> Ix NumPrio
-external ix1       {primIxFromLiteral 1 NumPrio}  :: Unit -> Ix NumPrio
-external ix1_8     {primIxFromLiteral 1 8}        :: Unit -> Ix 8
+external ix0       {primIxFromLiteral 0 NumPrio}  :: ProxyNat 0 -> Ix NumPrio
+external ix1       {primIxFromLiteral 1 NumPrio}  :: ProxyNat 1 -> Ix NumPrio
+external ix1_8     {primIxFromLiteral 1 8}        :: ProxyNat 1 -> Ix 8
 external lshrIx    {primIxShiftR NumPrio 8}       :: Ix NumPrio -> Ix 8  -> Ix NumPrio
 external neIx      {primIxNe NumPrio}             :: Ix NumPrio -> Ix NumPrio -> Bool
 external ltIx      {primIxLt NumPrio}             :: Ix NumPrio -> Ix NumPrio -> Bool

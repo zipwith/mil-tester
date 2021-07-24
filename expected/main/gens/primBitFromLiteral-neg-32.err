@@ -1,25 +1,25 @@
 ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 3
-external fourBit0 {primBitFromLiteral 4 0} :: Unit -> Bit 0
+external fourBit0 {primBitFromLiteral 4 0} :: ProxyNat 4 -> Bit 0
          ^
 No generated implementation: Argument value 4 is too large; must be less than 1
 
 ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 4
-external fourBit1 {primBitFromLiteral 4 1} :: Unit -> Bit 1
+external fourBit1 {primBitFromLiteral 4 1} :: ProxyNat 4 -> Bit 1
          ^
 No generated implementation: Argument value 4 is too large; must be less than 2
 
 ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 5
-external fourBit2 {primBitFromLiteral 4 2} :: Unit -> Bit 2
+external fourBit2 {primBitFromLiteral 4 2} :: ProxyNat 4 -> Bit 2
          ^
 No generated implementation: Argument value 4 is too large; must be less than 4
 
 ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 10
-external badByteMax   {primBitFromLiteral 256 8} :: Unit -> Bit 8
+external badByteMax   {primBitFromLiteral 256 8} :: ProxyNat 256 -> Bit 8
          ^
 No generated implementation: Argument value 256 is too large; must be less than 256
 
 ERROR: "actual/main/gens/primBitFromLiteral-neg-32.lc", line 11
-external worseByteMax {primBitFromLiteral 257 8} :: Unit -> Bit 8
+external worseByteMax {primBitFromLiteral 257 8} :: ProxyNat 257 -> Bit 8
          ^
 No generated implementation: Argument value 257 is too large; must be less than 256
 

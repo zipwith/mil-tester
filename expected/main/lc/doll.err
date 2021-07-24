@@ -1,0 +1,7 @@
+ERROR: "doll.lc", line 5
+entrypoint f
+^
+"f" is not in scope
+
+ERROR: Aborting after previously reported error
+
