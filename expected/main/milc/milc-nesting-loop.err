@@ -1,0 +1,2 @@
+ERROR: Cannot read options from nested configuration file "code/options/loop.milc" (a maximum of 5 levels is allowed)
+

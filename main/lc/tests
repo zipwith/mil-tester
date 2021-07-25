@@ -616,6 +616,9 @@ entrypoint main
 main = U
 
 -------
+exec: polylift  ./milc polylift.lc -m -pco
+
+-------
 exec: albfib    ./milc albfib.lc --standalone -m -l
 
 -------

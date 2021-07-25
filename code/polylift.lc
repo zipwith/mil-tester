@@ -1,0 +1,6 @@
+require "prelude.lc"
+
+entrypoint f
+f x z = let p y = Pair x y
+        in if x then p z else Pair True z
+

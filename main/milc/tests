@@ -4,4 +4,7 @@ exec:  milc-usage   ./milc
 exec:  milc--help   ./milc --help
 exec:  milc-help    ./milc -help
 exec:  milc-nofile  ./milc thisfiledoesnotexist
+exec:  milc-nesting-deep ./milc code/options/a.milc 
+exec:  milc-nesting-ok   ./milc code/options/b.milc 
+exec:  milc-nesting-loop ./milc code/options/loop.milc 
 
