@@ -1,0 +1,20 @@
+bitdata S /2
+  = X [ B01 ]
+    -- predX(x :: Bit 2) = x == 0x1
+  | Y [ B10 ]
+    -- predY(x :: Bit 2) = x == 0x2
+
+-- bit pattern:
+--  01
+--  10
+
+bitdata T /2
+  = U [ B00 ]
+    -- predU(x :: Bit 2) = x == 0x0
+  | V [ s :: S ]
+    -- predV(x :: Bit 2) = x /= 0x0
+
+-- bit pattern:
+--  0_
+--  10
+

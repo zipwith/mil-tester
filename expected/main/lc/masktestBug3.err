@@ -1,0 +1,7 @@
+ERROR: "actual/main/lc/masktestBug3.lc", line 4
+bitdata T = U [B00] | V [s::S] | W [B11]
+                      ^
+Unable to find a mask test for V (the tests using == and /= conflict with U)
+
+ERROR: Aborting after previously reported error
+

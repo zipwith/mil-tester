@@ -11,4 +11,4 @@
 >   | VMFault        [                   4 ]
 
 > entrypoint main
-> main = VMFault
+> main = Faulted

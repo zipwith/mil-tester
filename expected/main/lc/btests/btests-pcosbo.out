@@ -34,7 +34,7 @@ bitdata Maybe1 /2
   = Nothing1 [ B11 ]
     -- predNothing1(x :: Bit 2) = x == 0x3
   | Just2 [ Just20 :: Ix 3 ]
-    -- predJust2(x :: Bit 2) = x != 0x3
+    -- predJust2(x :: Bit 2) = x /= 0x3
 
 -- bit pattern:
 --  __

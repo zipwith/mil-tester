@@ -597,6 +597,25 @@ exec: debug      ./milc -m debug.llc
 exec: masktestBug   ./milc -m masktestBug.llc
 
 -------
+.lc:  masktestBug2  ./milc -t
+bitdata S = X [B01] | Y [B10]
+-- We can find a mask test predicate for V here by over approximating (x/=0)
+bitdata T = U [B00] | V [s::S]
+
+entrypoint main
+main = U
+
+-------
+.lc:  masktestBug3  ./milc -t
+bitdata S = X [B01] | Y [B10]
+-- We cannot find a mask test predicate for V here because there is no space
+-- to approximate: (x/=0) would include too much ...
+bitdata T = U [B00] | V [s::S] | W [B11]
+
+entrypoint main
+main = U
+
+-------
 exec: albfib    ./milc albfib.lc --standalone -m -l
 
 -------

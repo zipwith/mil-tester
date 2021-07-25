@@ -1,0 +1,55 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+bitdata FaultCode /8
+  = CapFault [ inRecv :: Bool | B000_0001 ]
+    -- predCapFault(x :: Bit 8) = (x & 0x3) == 0x1
+  | UnknownSyscall [ X02 ]
+    -- predUnknownSyscall(x :: Bit 8) = x == 0x2
+  | UserException [ X03 ]
+    -- predUserException(x :: Bit 8) = x == 0x3
+  | VMFault [ X04 ]
+    -- predVMFault(x :: Bit 8) = x == 0x4
+
+-- bit pattern:
+--  00000001
+--  0000001_
+--  00000100
+--  10000001
+
+bitdata Faulted /8
+  = NoFault [ X00 ]
+    -- predNoFault(x :: Bit 8) = x == 0x0
+  | Faulted [ code :: FaultCode ]
+    -- predFaulted(x :: Bit 8) = x /= 0x0
+
+-- bit pattern:
+--  000000__
+--  00000100
+--  10000001
+
+-----------------------------------------
+-- not recursive
+k81 :: {} [Faulted.Faulted] ->> [Faulted]
+k81{} t0 = Faulted(t0)
+
+-----------------------------------------
+-- not recursive
+Faulted :: [Faulted.Faulted] ->> [Faulted]
+Faulted <-
+  k81{}
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Faulted.Faulted] ->> [Faulted]
+main <-
+  return Faulted
+
+-----------------------------------------
+-- Entrypoints: main
