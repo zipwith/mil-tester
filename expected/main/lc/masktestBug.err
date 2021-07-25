@@ -1,0 +1,7 @@
+ERROR: "masktestBug.llc", line 5
+    | Faulted        [ code :: FaultCode   ]
+      ^
+Unable to find a mask test for Faulted (the test using == conflicts with NoFault, and the test using /= conflicts with NoFault)
+
+ERROR: Aborting after previously reported error
+

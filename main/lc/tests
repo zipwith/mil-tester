@@ -588,6 +588,15 @@ exec: doll    ./milc -m --32 -pco doll.lc
 exec: overlap ./milc -m --32 -pco overlap.lc
 
 -------
+exec: contflow   ./milc -m contflow.lc
+
+-------
+exec: debug      ./milc -m debug.llc
+
+-------
+exec: masktestBug   ./milc -m masktestBug.llc
+
+-------
 exec: albfib    ./milc albfib.lc --standalone -m -l
 
 -------

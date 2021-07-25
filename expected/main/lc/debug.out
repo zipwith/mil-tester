@@ -1,0 +1,52 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+-----------------------------------------
+-- not recursive
+external prop :: [Bool] ->> [[] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+external resume :: [Bool] ->> [[] ->> [Bit 32]]
+
+-----------------------------------------
+-- not recursive
+b80 :: [Bool] >>= [Bit 32]
+b80[t0] =
+  t1 <- resume @ t0
+  t1 @ []
+
+-----------------------------------------
+-- not recursive
+b79 :: [Bool, Bool] >>= [Bit 32]
+b79[t0, t1] =
+  t2 <- prop @ t0
+  t3 <- t2 @ []
+  case t3 of
+    True -> b80[t1]
+    False -> b80[t0]
+
+-----------------------------------------
+-- not recursive
+k51 :: {Bool, Bool} [] ->> [Bit 32]
+k51{t0, t1} [] = b79[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k47 :: {} [Bool] ->> [[] ->> [Bit 32]]
+k47{} t0 = k51{t0, t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint input :: [Bool] ->> [[] ->> [Bit 32]]
+input <-
+  k47{}
+
+-----------------------------------------
+-- Entrypoints: input

@@ -1,0 +1,17 @@
+Test case for a program that creates closures with multiple copies of the
+same value.
+
+> require "core.mil"
+
+> entrypoint input
+
+> input     :: Bool -> Proc Word
+> input b    = getw b (\p -> resume b)
+
+> getw      :: Bool -> (Word -> Proc Word) -> Proc Word
+> getw b k   = do info <- prop b
+>                 if info then k 12
+>                         else resume b
+
+> external prop   :: Bool -> Proc Bool
+> external resume :: Bool -> Proc Word

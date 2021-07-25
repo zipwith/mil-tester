@@ -1,0 +1,14 @@
+> require "core.llc"
+
+> bitdata Faulted/8
+>   = NoFault        [                   0 ]
+>   | Faulted        [ code :: FaultCode   ]
+
+> bitdata FaultCode/8
+>   = CapFault       [ inRecv :: Bool |  1 ]
+>   | UnknownSyscall [                   2 ]
+>   | UserException  [                   3 ]
+>   | VMFault        [                   4 ]
+
+> entrypoint main
+> main = VMFault

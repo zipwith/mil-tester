@@ -1,0 +1,31 @@
+require "core.llc"
+require "ix.llc"
+
+type Buffer = Stored Word
+
+external getBuffer :: Proc (Ptr Buffer)
+external tcbXfer   :: Word -> Proc Unit
+external bufXfer   :: Ref Buffer -> Word -> Proc Unit
+external next      :: Word -> Proc Word
+
+entrypoint main
+main n = transfer n next
+
+transfer :: Word -> (Word -> Proc a) -> Proc a
+transfer n done
+  = guard 0 tcbXfer       (
+    guard 1 tcbXfer       (
+    checkBuf 2            (\buf ->
+    guard 2 (bufXfer buf) (
+    guard 3 (bufXfer buf) (
+    guard 4 (bufXfer buf) (
+    guard 5 (bufXfer buf) (
+    done  6)))))))
+  where all  = 6
+        guard i step c = do if i==n
+                              then done i
+                              else do step i; c
+        checkBuf i k = case<- getBuffer of
+                         Null    -> done i
+                         Ref buf -> k buf
+                          

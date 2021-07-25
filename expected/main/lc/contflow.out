@@ -1,0 +1,132 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+external tcbXfer :: [Bit 32] ->> [[] ->> [Unit]]
+
+-----------------------------------------
+-- not recursive
+external getBuffer :: [] ->> [Ptr (Stored (Bit 32))]
+
+-----------------------------------------
+-- not recursive
+external next :: [Bit 32] ->> [[] ->> [Bit 32]]
+
+-----------------------------------------
+-- not recursive
+b260 :: [Bit 32] >>= [Bit 32]
+b260[t0] =
+  t1 <- next @ t0
+  t1 @ []
+
+-----------------------------------------
+-- not recursive
+external bufXfer :: [Ref (Stored (Bit 32))] ->> [[Bit 32] ->> [[] ->> [Unit]]]
+
+-----------------------------------------
+-- not recursive
+b164 :: forall (a :: *) (b :: *). [[Bit 32] ->> [[] ->> [a]], Bit 32, [] ->> [b]] >>= [b]
+b164[t0, t1, t2] =
+  t3 <- t0 @ t1
+  t4 <- t3 @ []
+  t2 @ []
+
+-----------------------------------------
+-- not recursive
+b270 :: forall (a :: *) (b :: *) (c :: *). [[a] ->> [[] ->> [b]], a, [] ->> [Bit 32], Bit 32, [Bit 32] ->> [[] ->> [c]], Bit 32] >>= [Bit 32]
+b270[t0, t1, t2, t3, t4, t5] =
+  t6 <- t0 @ t1
+  t7 <- t6 @ []
+  t8 <- primEq((t3, t5))
+  if t8
+    then b260[t3]
+    else b164[t4, t3, t2]
+
+-----------------------------------------
+-- not recursive
+b272 :: forall (a :: *) (b :: *) (c :: *) (d :: *). [[a] ->> [[] ->> [b]], a, [] ->> [Bit 32], Bit 32, [Bit 32] ->> [[] ->> [c]], Bit 32, Bit 32, [Bit 32] ->> [[] ->> [d]]] >>= [Bit 32]
+b272[t0, t1, t2, t3, t4, t5, t6, t7] =
+  t8 <- t0 @ t1
+  t9 <- t8 @ []
+  t10 <- primEq((t6, t5))
+  if t10
+    then b260[t6]
+    else b270[t7, t6, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+b271 :: forall (a :: *) (b :: *) (c :: *) (d :: *) (e :: *). [[a] ->> [[] ->> [b]], a, [] ->> [Bit 32], Bit 32, [Bit 32] ->> [[] ->> [c]], Bit 32, Bit 32, [Bit 32] ->> [[] ->> [d]], Bit 32, [Bit 32] ->> [[] ->> [e]]] >>= [Bit 32]
+b271[t0, t1, t2, t3, t4, t5, t6, t7, t8, t9] =
+  t10 <- t0 @ t1
+  t11 <- t10 @ []
+  t12 <- primEq((t8, t5))
+  if t12
+    then b260[t8]
+    else b272[t9, t8, t2, t3, t4, t5, t6, t7]
+
+-----------------------------------------
+-- not recursive
+b267 :: [Ptr (Stored (Bit 32)), Bit 32] >>= [Bit 32]
+b267[t0, t1] =
+  assert t0 Ref
+  t2 <- Ref 0 t0
+  t3 <- bufXfer @ t2
+  t4 <- bufXfer @ t2
+  t5 <- bufXfer @ t2
+  t6 <- bufXfer @ t2
+  t7 <- next @ 6
+  t8 <- primEq((2, t1))
+  if t8
+    then b260[2]
+    else b271[t3, 2, t7, 5, t6, t1, 4, t5, 3, t4]
+
+-----------------------------------------
+-- not recursive
+b249 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b249[t0, t1, t2] =
+  t3 <- tcbXfer @ t0
+  t4 <- t3 @ []
+  t5 <- getBuffer @ []
+  case t5 of
+    Null -> b260[t2]
+    Ref -> b267[t5, t1]
+
+-----------------------------------------
+-- not recursive
+b263 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b263[t0, t1, t2, t3, t4] =
+  t5 <- tcbXfer @ t0
+  t6 <- t5 @ []
+  t7 <- primEq((t3, t4))
+  if t7
+    then b260[t3]
+    else b249[t3, t1, t2]
+
+-----------------------------------------
+-- not recursive
+b259 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b259[t0, t1, t2, t3, t4, t5] =
+  t6 <- primEq((t4, t5))
+  if t6
+    then b260[t4]
+    else b263[t4, t0, t1, t2, t3]
+
+-----------------------------------------
+-- not recursive
+k123 :: {Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32} [] ->> [Bit 32]
+k123{t0, t1, t2, t3, t4, t5} [] = b259[t0, t1, t2, t3, t4, t5]
+
+-----------------------------------------
+-- not recursive
+k95 :: {} [Bit 32] ->> [[] ->> [Bit 32]]
+k95{} t0 = k123{t0, 2, 1, t0, 0, t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Bit 32] ->> [[] ->> [Bit 32]]
+main <-
+  k95{}
+
+-----------------------------------------
+-- Entrypoints: main
