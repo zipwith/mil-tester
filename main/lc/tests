@@ -646,14 +646,6 @@ exec: simplifiedecholoop-g ./milc loop.lc -g -pcsoro
 exec: intervals   ./milc -m -pcosoro intervals.lc
 
 -------
-.lc:  polylift    ./milc -m
-require "prelude.lc"
-
-entrypoint f
-f x z = let p y = Pair x y
-        in if x then p z else Pair True z
-
--------
 .lc: map-inlines     ./milc -m -pcsoro
 require "prelude.lc"
 
