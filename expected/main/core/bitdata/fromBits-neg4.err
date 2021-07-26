@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/fromBits-neg4.lc", line 5
+external secret {primBitToBitdata 64 Secret} :: Bit 64 -> Secret
+         ^
+No generated implementation: Bitdata type Secret has restricted (reference) fields
+
+ERROR: Aborting after previously reported error
+
