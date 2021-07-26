@@ -1,0 +1,26 @@
+-----------------------------------------
+-- not recursive
+entrypoint b :: [Bit 1] >>= [Bit 1]
+b[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint b2 :: [Bit 32] >>= [Bit 32]
+b2[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint t1 :: [Bit 32] >>= [Bit 32]
+t1[t0] =
+  return t0
+
+-----------------------------------------
+-- not recursive
+entrypoint t2 :: [Bit 32] >>= [Bit 32]
+t2[t0] =
+  return t0
+
+-----------------------------------------
+-- Entrypoints: b b2 t1 t2

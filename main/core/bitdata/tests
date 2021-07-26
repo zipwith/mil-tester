@@ -713,3 +713,71 @@ bitdata X = A [ x :: Bit 4 ]
 external xToBit {primBitdataToBit X 1400} :: X -> Bit 4
 entrypoint xToBit
 
+-----------------------
+.lc:   fromBits-pos1      ./milc -m -pcsoro
+require "core.llc"
+
+entrypoint b
+external b {primBitToBitdata 1 Bool} :: Bit 1 -> Bool
+
+bitdata B2 = B [ a,b :: Bool ]
+entrypoint b2
+external b2 {primBitToBitdata 2 B2} :: Bit 2 -> B2
+
+bitdata T1 = U [ v :: Ix 3 ]
+           | V [ B11 ]
+entrypoint t1
+external t1 {primBitToBitdata 2 T1}  :: Bit 2 -> T1
+
+bitdata T2 = X [ v :: Ix 4 | w :: Inx 15 ]
+entrypoint t2
+external t2 {primBitToBitdata 6 T2}  :: Bit 6 -> T2
+
+-----------------------
+.lc:   fromBits-neg1      ./milc -m -pcsoro
+-- bitdata type contains junk
+
+entrypoint t1
+bitdata T1 = S [ v :: Ix 3 | B0 ]
+           | T [ B11       | B1 ]
+external t1 {primBitToBitdata 3 T1}  :: Bit 3 -> T1
+
+bitdata T2 = W [ v :: Ix 3 ]
+entrypoint t2
+external t2 {primBitToBitdata 2 T2} :: Bit 2 -> T2
+
+-----------------------
+.lc:   fromBits-neg2      ./milc -m -pcsoro
+-- bitdata type contains junk
+
+bitdata G1 = G [ v :: Bit 7 | B11 ]
+
+bitdata G2 = H [ v :: Ix 99 | y :: Ix 3 ]
+           | I [ val :: G1 ]
+
+entrypoint g1
+external g1 {primBitToBitdata 9 G1}  :: Bit 9 -> G1
+
+entrypoint g2
+external g2 {primBitToBitdata 9 G2}  :: Bit 9 -> G2
+
+-----------------------
+.lc:   fromBits-neg3      ./milc -m -pcsoro
+-- Bitdata type has restricted (reference) fields
+
+bitdata R1 = P [ v :: Ref (Stored Word) ]
+           | Q [ 0 ]
+entrypoint r1
+external r1 {primBitToBitdata 30 R1} :: Bit 30 -> R1
+
+bitdata R2 = R [ v :: Ref (Stored Word) ]
+entrypoint r2
+external r2 {primBitToBitdata 30 R2} :: Bit 30 -> R2
+
+-----------------------
+.lc:   fromBits-neg4      ./milc -m -pcsoro
+-- Bitdata type has restricted (reference) fields
+
+bitdata Secret /64
+entrypoint secret
+external secret {primBitToBitdata 64 Secret} :: Bit 64 -> Secret

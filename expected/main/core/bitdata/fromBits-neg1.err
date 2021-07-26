@@ -1,0 +1,12 @@
+ERROR: "actual/main/core/bitdata/fromBits-neg1.lc", line 6
+external t1 {primBitToBitdata 3 T1}  :: Bit 3 -> T1
+         ^
+No generated implementation: Bitdata type T1 contains junk
+
+ERROR: "actual/main/core/bitdata/fromBits-neg1.lc", line 10
+external t2 {primBitToBitdata 2 T2} :: Bit 2 -> T2
+         ^
+No generated implementation: Bitdata type T2 contains junk
+
+ERROR: Aborting after 2 previously reported errors
+
