@@ -1,0 +1,56 @@
+require "core.llc"
+
+bitdata MyBool = MyFalse [B0] | MyTrue [B1]             -- bitwise makes sense
+external myBoolNot {primBitdataNot MyBool} :: MyBool -> MyBool
+external myBoolAnd {primBitdataAnd MyBool} :: MyBool -> MyBool -> MyBool
+external myBoolOr  {primBitdataOr  MyBool} :: MyBool -> MyBool -> MyBool
+external myBoolXor {primBitdataXor MyBool} :: MyBool -> MyBool -> MyBool
+external myBoolEq  {primBitdataEq  MyBool} :: MyBool -> MyBool -> Bool
+external myBoolNeq {primBitdataNe  MyBool} :: MyBool -> MyBool -> Bool
+entrypoint myBoolNot, myBoolAnd, myBoolOr, myBoolXor, myBoolEq, myBoolNeq
+
+bitdata Perms  = Perms [ r, w, x :: MyBool ]            -- bitwise makes sense
+external permsNot {primBitdataNot Perms} :: Perms -> Perms
+external permsAnd {primBitdataAnd Perms} :: Perms -> Perms -> Perms
+external permsOr  {primBitdataOr  Perms} :: Perms -> Perms -> Perms
+external permsXor {primBitdataXor Perms} :: Perms -> Perms -> Perms
+external permsEq  {primBitdataEq  Perms} :: Perms -> Perms -> Bool
+external permsNeq {primBitdataNe  Perms} :: Perms -> Perms -> Bool
+entrypoint permsNot, permsAnd, permsOr, permsXor, permsEq, permsNeq
+
+bitdata V      = V [ x :: Bit 7 ]                       -- and here
+external vNot {primBitdataNot V} :: V -> V
+external vAnd {primBitdataAnd V} :: V -> V -> V
+external vOr  {primBitdataOr  V} :: V -> V -> V
+external vXor {primBitdataXor V} :: V -> V -> V
+external vEq  {primBitdataEq  V} :: V -> V -> Bool
+external vNeq {primBitdataNe  V} :: V -> V -> Bool
+entrypoint vNot, vAnd, vOr, vXor, vEq, vNeq
+
+bitdata S      = S1 [ x :: Ix 8 ]                       -- safe, but is it useful?
+external sNot {primBitdataNot S} :: S -> S
+external sAnd {primBitdataAnd S} :: S -> S -> S
+external sOr  {primBitdataOr  S} :: S -> S -> S
+external sXor {primBitdataXor S} :: S -> S -> S
+external sEq  {primBitdataEq  S} :: S -> S -> Bool
+external sNeq {primBitdataNe  S} :: S -> S -> Bool
+entrypoint sNot, sAnd, sOr, sXor, sEq, sNeq
+
+bitdata T      = A [B00] | D [B01] | S [B10] | R [B11]  -- safe, but unusual semantics
+external tNot {primBitdataNot T} :: T -> T
+external tAnd {primBitdataAnd T} :: T -> T -> T
+external tOr  {primBitdataOr  T} :: T -> T -> T
+external tXor {primBitdataXor T} :: T -> T -> T
+external tEq  {primBitdataEq  T} :: T -> T -> Bool
+external tNeq {primBitdataNe  T} :: T -> T -> Bool
+entrypoint tNot, tAnd, tOr, tXor, tEq, tNeq
+
+bitdata P = P [ x :: Bit 18 | y :: Bit 18 | z :: Bit 12 ] -- safe, extends beyond one 32 bit word
+external pNot {primBitdataNot P} :: P -> P
+external pAnd {primBitdataAnd P} :: P -> P -> P
+external pOr  {primBitdataOr  P} :: P -> P -> P
+external pXor {primBitdataXor P} :: P -> P -> P
+external pEq  {primBitdataEq  P} :: P -> P -> Bool
+external pNeq {primBitdataNe  P} :: P -> P -> Bool
+entrypoint pNot, pAnd, pOr, pXor, pEq, pNeq
+

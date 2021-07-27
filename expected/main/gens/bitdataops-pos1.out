@@ -1,0 +1,205 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+bitdata MyBool /1
+  = MyFalse [ B0 ]
+    -- predMyFalse(x :: Bit 1) = x == 0x0
+  | MyTrue [ B1 ]
+    -- predMyTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+bitdata P /48
+  = P [ x :: Bit 18 | y :: Bit 18 | z :: Bit 12 ]
+    -- predP(x :: Bit 48) = true
+
+-- bit pattern:
+--  ________________________________________________
+
+bitdata Perms /3
+  = Perms [ r :: MyBool | w :: MyBool | x :: MyBool ]
+    -- predPerms(x :: Bit 3) = true
+
+-- bit pattern:
+--  ___
+
+bitdata S /3
+  = S1 [ x :: Ix 8 ]
+    -- predS1(x :: Bit 3) = true
+
+-- bit pattern:
+--  ___
+
+bitdata T /2
+  = A [ B00 ]
+    -- predA(x :: Bit 2) = x == 0x0
+  | D [ B01 ]
+    -- predD(x :: Bit 2) = x == 0x1
+  | S [ B10 ]
+    -- predS(x :: Bit 2) = x == 0x2
+  | R [ B11 ]
+    -- predR(x :: Bit 2) = x == 0x3
+
+-- bit pattern:
+--  __
+
+bitdata V /7
+  = V [ x :: Bit 7 ]
+    -- predV(x :: Bit 7) = true
+
+-- bit pattern:
+--  _______
+
+-----------------------------------------
+-- not recursive
+export external myBoolNot {primBitdataNot MyBool} :: [MyBool] ->> [MyBool]
+
+-----------------------------------------
+-- not recursive
+export external myBoolAnd {primBitdataAnd MyBool} :: [MyBool] ->> [[MyBool] ->> [MyBool]]
+
+-----------------------------------------
+-- not recursive
+export external myBoolOr {primBitdataOr MyBool} :: [MyBool] ->> [[MyBool] ->> [MyBool]]
+
+-----------------------------------------
+-- not recursive
+export external myBoolXor {primBitdataXor MyBool} :: [MyBool] ->> [[MyBool] ->> [MyBool]]
+
+-----------------------------------------
+-- not recursive
+export external myBoolEq {primBitdataEq MyBool} :: [MyBool] ->> [[MyBool] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external myBoolNeq {primBitdataNe MyBool} :: [MyBool] ->> [[MyBool] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external permsNot {primBitdataNot Perms} :: [Perms] ->> [Perms]
+
+-----------------------------------------
+-- not recursive
+export external permsAnd {primBitdataAnd Perms} :: [Perms] ->> [[Perms] ->> [Perms]]
+
+-----------------------------------------
+-- not recursive
+export external permsOr {primBitdataOr Perms} :: [Perms] ->> [[Perms] ->> [Perms]]
+
+-----------------------------------------
+-- not recursive
+export external permsXor {primBitdataXor Perms} :: [Perms] ->> [[Perms] ->> [Perms]]
+
+-----------------------------------------
+-- not recursive
+export external permsEq {primBitdataEq Perms} :: [Perms] ->> [[Perms] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external permsNeq {primBitdataNe Perms} :: [Perms] ->> [[Perms] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external vNot {primBitdataNot V} :: [V] ->> [V]
+
+-----------------------------------------
+-- not recursive
+export external vAnd {primBitdataAnd V} :: [V] ->> [[V] ->> [V]]
+
+-----------------------------------------
+-- not recursive
+export external vOr {primBitdataOr V} :: [V] ->> [[V] ->> [V]]
+
+-----------------------------------------
+-- not recursive
+export external vXor {primBitdataXor V} :: [V] ->> [[V] ->> [V]]
+
+-----------------------------------------
+-- not recursive
+export external vEq {primBitdataEq V} :: [V] ->> [[V] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external vNeq {primBitdataNe V} :: [V] ->> [[V] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external sNot {primBitdataNot S} :: [S] ->> [S]
+
+-----------------------------------------
+-- not recursive
+export external sAnd {primBitdataAnd S} :: [S] ->> [[S] ->> [S]]
+
+-----------------------------------------
+-- not recursive
+export external sOr {primBitdataOr S} :: [S] ->> [[S] ->> [S]]
+
+-----------------------------------------
+-- not recursive
+export external sXor {primBitdataXor S} :: [S] ->> [[S] ->> [S]]
+
+-----------------------------------------
+-- not recursive
+export external sEq {primBitdataEq S} :: [S] ->> [[S] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external sNeq {primBitdataNe S} :: [S] ->> [[S] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external tNot {primBitdataNot T} :: [T] ->> [T]
+
+-----------------------------------------
+-- not recursive
+export external tAnd {primBitdataAnd T} :: [T] ->> [[T] ->> [T]]
+
+-----------------------------------------
+-- not recursive
+export external tOr {primBitdataOr T} :: [T] ->> [[T] ->> [T]]
+
+-----------------------------------------
+-- not recursive
+export external tXor {primBitdataXor T} :: [T] ->> [[T] ->> [T]]
+
+-----------------------------------------
+-- not recursive
+export external tEq {primBitdataEq T} :: [T] ->> [[T] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external tNeq {primBitdataNe T} :: [T] ->> [[T] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external pNot {primBitdataNot P} :: [P] ->> [P]
+
+-----------------------------------------
+-- not recursive
+export external pAnd {primBitdataAnd P} :: [P] ->> [[P] ->> [P]]
+
+-----------------------------------------
+-- not recursive
+export external pOr {primBitdataOr P} :: [P] ->> [[P] ->> [P]]
+
+-----------------------------------------
+-- not recursive
+export external pXor {primBitdataXor P} :: [P] ->> [[P] ->> [P]]
+
+-----------------------------------------
+-- not recursive
+export external pEq {primBitdataEq P} :: [P] ->> [[P] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+export external pNeq {primBitdataNe P} :: [P] ->> [[P] ->> [Bool]]
+
+-----------------------------------------
+-- Entrypoints: myBoolNot myBoolAnd myBoolOr myBoolXor myBoolEq myBoolNeq permsNot permsAnd permsOr permsXor permsEq permsNeq vNot vAnd vOr vXor vEq vNeq sNot sAnd sOr sXor sEq sNeq tNot tAnd tOr tXor tEq tNeq pNot pAnd pOr pXor pEq pNeq

@@ -3157,3 +3157,144 @@ exec: stringcursor-lc-mil-noinline   ./milc -m -pcosoro --32 string1.lc string-n
 -----------------------
 exec: stringcursor-mil-only-noinline ./milc -m -pcosoro --32 string2.mil string-noinline.lc
 -----------------------
+exec: bitdataops-pos1       ./milc btops.lc -m -pcso   --32
+
+-----------------------
+exec: bitdataops-pos2       ./milc btops.lc -m -pcsoro --32
+
+-----------------------
+exec: bitdataops-pos3       ./milc btops.lc -m -pcsoro --64
+
+-----------------------
+.lc: bitdataops-neg1        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ x :: Ix 7 ]          -- type has junk
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq1        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ x :: Ix 7 ]          -- type has junk
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------
+.lc: bitdataops-neg2        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ x :: Bit 7 | B0 ]    -- type has junk
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq2        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ x :: Bit 7 | B0 ]    -- type has junk
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------
+.lc: bitdataops-neg3        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ addr :: Ref (Stored Word) ]  -- type has references
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq3        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U = U [ addr :: Ref (Stored Word) ]  -- type has references
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------
+.lc: bitdataops-neg4        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U /32                        -- type is abstract
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq4        ./milc -m -pcsoro
+require "core.llc"
+
+bitdata U /32                        -- type is abstract
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------
+.lc: bitdataops-neg5        ./milc -m -pcsoro --32
+require "core.llc"
+
+bitdata U /64                        -- type is abstract
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq5        ./milc -m -pcsoro --32
+require "core.llc"
+
+bitdata U /64                        -- type is abstract
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------
+.lc: bitdataops-neg6        ./milc -m -pcsoro --64
+require "core.llc"
+
+bitdata U /64                        -- type is abstract
+
+external uNot {primBitdataNot U} :: U -> U
+external uAnd {primBitdataAnd U} :: U -> U -> U
+external uOr  {primBitdataOr  U} :: U -> U -> U
+external uXor {primBitdataXor U} :: U -> U -> U
+entrypoint uNot, uAnd, uOr, uXor
+
+-----------------------
+.lc: bitdataops-eq6        ./milc -m -pcsoro --64
+require "core.llc"
+
+bitdata U /64                        -- type is abstract
+
+external uEq  {primBitdataEq  U} :: U -> U -> Bool
+external uNeq {primBitdataNe  U} :: U -> U -> Bool
+entrypoint uEq, uNeq
+
+-----------------------

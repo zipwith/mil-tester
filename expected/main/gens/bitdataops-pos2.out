@@ -1,0 +1,244 @@
+-----------------------------------------
+-- not recursive
+entrypoint myBoolNot :: [Bit 1] >>= [Bit 1]
+myBoolNot[t0] =
+  bnot((t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint myBoolAnd :: [Bit 1, Bit 1] >>= [Bit 1]
+myBoolAnd[t0, t1] =
+  band((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint myBoolOr :: [Bit 1, Bit 1] >>= [Bit 1]
+myBoolOr[t0, t1] =
+  bor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint myBoolXor :: [Bit 1, Bit 1] >>= [Bit 1]
+myBoolXor[t0, t1] =
+  bxor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint myBoolEq :: [Bit 1, Bit 1] >>= [Bit 1]
+myBoolEq[t0, t1] =
+  beq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint myBoolNeq :: [Bit 1, Bit 1] >>= [Bit 1]
+myBoolNeq[t0, t1] =
+  bxor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsNot :: [Bit 32] >>= [Bit 32]
+permsNot[t0] =
+  xor((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsAnd :: [Bit 32, Bit 32] >>= [Bit 32]
+permsAnd[t0, t1] =
+  and((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsOr :: [Bit 32, Bit 32] >>= [Bit 32]
+permsOr[t0, t1] =
+  or((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsXor :: [Bit 32, Bit 32] >>= [Bit 32]
+permsXor[t0, t1] =
+  xor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsEq :: [Bit 32, Bit 32] >>= [Bit 1]
+permsEq[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint permsNeq :: [Bit 32, Bit 32] >>= [Bit 1]
+permsNeq[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint vNot :: [Bit 32] >>= [Bit 32]
+vNot[t0] =
+  xor((t0, 127))
+
+-----------------------------------------
+-- not recursive
+entrypoint vAnd :: [Bit 32, Bit 32] >>= [Bit 32]
+vAnd[t0, t1] =
+  and((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint vOr :: [Bit 32, Bit 32] >>= [Bit 32]
+vOr[t0, t1] =
+  or((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint vXor :: [Bit 32, Bit 32] >>= [Bit 32]
+vXor[t0, t1] =
+  xor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint vEq :: [Bit 32, Bit 32] >>= [Bit 1]
+vEq[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint vNeq :: [Bit 32, Bit 32] >>= [Bit 1]
+vNeq[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sNot :: [Bit 32] >>= [Bit 32]
+sNot[t0] =
+  xor((t0, 7))
+
+-----------------------------------------
+-- not recursive
+entrypoint sAnd :: [Bit 32, Bit 32] >>= [Bit 32]
+sAnd[t0, t1] =
+  and((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sOr :: [Bit 32, Bit 32] >>= [Bit 32]
+sOr[t0, t1] =
+  or((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sXor :: [Bit 32, Bit 32] >>= [Bit 32]
+sXor[t0, t1] =
+  xor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sEq :: [Bit 32, Bit 32] >>= [Bit 1]
+sEq[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint sNeq :: [Bit 32, Bit 32] >>= [Bit 1]
+sNeq[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint tNot :: [Bit 32] >>= [Bit 32]
+tNot[t0] =
+  xor((t0, 3))
+
+-----------------------------------------
+-- not recursive
+entrypoint tAnd :: [Bit 32, Bit 32] >>= [Bit 32]
+tAnd[t0, t1] =
+  and((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint tOr :: [Bit 32, Bit 32] >>= [Bit 32]
+tOr[t0, t1] =
+  or((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint tXor :: [Bit 32, Bit 32] >>= [Bit 32]
+tXor[t0, t1] =
+  xor((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint tEq :: [Bit 32, Bit 32] >>= [Bit 1]
+tEq[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint tNeq :: [Bit 32, Bit 32] >>= [Bit 1]
+tNeq[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint pNot :: [Bit 32, Bit 32] >>= [Bit 32, Bit 32]
+pNot[t0, t1] =
+  t2 <- not((t0))
+  t3 <- xor((t1, 65535))
+  return [t2, t3]
+
+-----------------------------------------
+-- not recursive
+entrypoint pAnd :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
+pAnd[t0, t1, t2, t3] =
+  t4 <- and((t0, t2))
+  t5 <- and((t1, t3))
+  return [t4, t5]
+
+-----------------------------------------
+-- not recursive
+entrypoint pOr :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
+pOr[t0, t1, t2, t3] =
+  t4 <- or((t0, t2))
+  t5 <- or((t1, t3))
+  return [t4, t5]
+
+-----------------------------------------
+-- not recursive
+entrypoint pXor :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32, Bit 32]
+pXor[t0, t1, t2, t3] =
+  t4 <- xor((t0, t2))
+  t5 <- xor((t1, t3))
+  return [t4, t5]
+
+-----------------------------------------
+-- not recursive
+returnFalse :: [] >>= [Bit 1]
+returnFalse[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint pEq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
+pEq[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then permsEq[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+returnTrue :: [] >>= [Bit 1]
+returnTrue[] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint pNeq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
+pNeq[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then permsNeq[t0, t2]
+    else returnTrue[]
+
+-----------------------------------------
+-- Entrypoints: myBoolNot myBoolAnd myBoolOr myBoolXor myBoolEq myBoolNeq permsNot permsAnd permsOr permsXor permsEq permsNeq vNot vAnd vOr vXor vEq vNeq sNot sAnd sOr sXor sEq sNeq tNot tAnd tOr tXor tEq tNeq pNot pAnd pOr pXor pEq pNeq

@@ -1,0 +1,44 @@
+-----------------------------------------
+-- not recursive
+returnFalse :: [] >>= [Bit 1]
+returnFalse[] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+b125 :: [Bit 32, Bit 32] >>= [Bit 1]
+b125[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint uEq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
+uEq[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then b125[t0, t2]
+    else returnFalse[]
+
+-----------------------------------------
+-- not recursive
+returnTrue :: [] >>= [Bit 1]
+returnTrue[] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+b127 :: [Bit 32, Bit 32] >>= [Bit 1]
+b127[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint uNeq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
+uNeq[t0, t1, t2, t3] =
+  t4 <- primEq((t1, t3))
+  if t4
+    then b127[t0, t2]
+    else returnTrue[]
+
+-----------------------------------------
+-- Entrypoints: uEq uNeq

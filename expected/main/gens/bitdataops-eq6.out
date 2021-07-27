@@ -1,0 +1,14 @@
+-----------------------------------------
+-- not recursive
+entrypoint uEq :: [Bit 64, Bit 64] >>= [Bit 1]
+uEq[t0, t1] =
+  primEq((t0, t1))
+
+-----------------------------------------
+-- not recursive
+entrypoint uNeq :: [Bit 64, Bit 64] >>= [Bit 1]
+uNeq[t0, t1] =
+  primNeq((t0, t1))
+
+-----------------------------------------
+-- Entrypoints: uEq uNeq

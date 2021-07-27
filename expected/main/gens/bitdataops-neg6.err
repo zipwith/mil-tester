@@ -1,0 +1,22 @@
+ERROR: "actual/main/gens/bitdataops-neg6.lc", line 5
+external uNot {primBitdataNot U} :: U -> U
+         ^
+No generated implementation: Bitdata type U has restricted (reference or abstract) fields
+
+ERROR: "actual/main/gens/bitdataops-neg6.lc", line 6
+external uAnd {primBitdataAnd U} :: U -> U -> U
+         ^
+No generated implementation: Bitdata type U has restricted (reference or abstract) fields
+
+ERROR: "actual/main/gens/bitdataops-neg6.lc", line 7
+external uOr  {primBitdataOr  U} :: U -> U -> U
+         ^
+No generated implementation: Bitdata type U has restricted (reference or abstract) fields
+
+ERROR: "actual/main/gens/bitdataops-neg6.lc", line 8
+external uXor {primBitdataXor U} :: U -> U -> U
+         ^
+No generated implementation: Bitdata type U has restricted (reference or abstract) fields
+
+ERROR: Aborting after 4 previously reported errors
+
