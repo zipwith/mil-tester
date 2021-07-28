@@ -570,10 +570,10 @@ f x = let c = (case x `lt` x of False -> True) | True
       in (case c of True -> x) | f x
 
 -------
-exec: acker   ./milc -m --32 -pco acker.lc
+exec: acker   ./milc -m --32 -pcsoro acker.lc
 
 -------
-exec: eq      ./milc -m --32 -pco eq.lc
+exec: eq      ./milc -m --32 -pcsoro eq.lc
 
 -------
 exec: ack     ./milc -m --32 -pco ack.lc
@@ -588,7 +588,7 @@ exec: doll    ./milc -m --32 -pco doll.lc
 exec: overlap ./milc -m --32 -pco overlap.lc
 
 -------
-exec: contflow   ./milc -m contflow.lc
+exec: contflow   ./milc -m -pcsoro contflow.lc
 
 -------
 exec: debug      ./milc -m debug.llc

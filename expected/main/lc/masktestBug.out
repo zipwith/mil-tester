@@ -36,14 +36,14 @@ bitdata Faulted /8
 
 -----------------------------------------
 -- not recursive
-k81 :: {} [Faulted.Faulted] ->> [Faulted]
-k81{} t0 = Faulted(t0)
+k54 :: {} [Faulted.Faulted] ->> [Faulted]
+k54{} t0 = Faulted(t0)
 
 -----------------------------------------
 -- not recursive
 Faulted :: [Faulted.Faulted] ->> [Faulted]
 Faulted <-
-  k81{}
+  k54{}
 
 -----------------------------------------
 -- not recursive

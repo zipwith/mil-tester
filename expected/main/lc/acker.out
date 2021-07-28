@@ -1,116 +1,84 @@
 -----------------------------------------
 -- not recursive
-b171 :: [Bit 32] >>= [Bit 32]
-b171[t0] =
+b90 :: [Bit 32] >>= [Bit 32]
+b90[t0] =
   add((t0, 1))
 
 -----------------------------------------
+-- recursive
+b87 :: [Bit 32, Bit 32] >>= [Bit 32]
+b87[t0, t1] =
+  t2 <- add((t0, -1))
+  t3 <- add((t1, -1))
+  t4 <- b91[t0, t3]
+  b91[t2, t4]
+b89 :: [Bit 32, Bit 32] >>= [Bit 32]
+b89[t0, t1] =
+  t2 <- primEq((t1, 0))
+  if t2
+    then b88[t0]
+    else b87[t0, t1]
+b88 :: [Bit 32] >>= [Bit 32]
+b88[t0] =
+  t1 <- add((t0, -1))
+  b91[t1, 1]
+b91 :: [Bit 32, Bit 32] >>= [Bit 32]
+b91[t0, t1] =
+  t2 <- primEq((t0, 0))
+  if t2
+    then b90[t1]
+    else b89[t0, t1]
+
+-----------------------------------------
 -- not recursive
-b178 :: [] >>= [Bit 32]
-b178[] =
+entrypoint acker :: [Bit 32, Bit 32] >>= [Bit 32]
+acker[t0, t1] =
+  b91[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b136 :: [] >>= [Bit 32]
+b136[] =
   return 2
 
 -----------------------------------------
 -- recursive
-b164 :: [Bit 32, Bit 32] >>= [Bit 32]
-b164[t0, t1] =
-  t2 <- add((t0, 1))
-  t3 <- add((t1, 1))
-  t4 <- b215[t0, t3]
-  t5 <- primEq((t2, 0))
-  if t5
-    then b171[t4]
-    else b211[t4, t2]
-b211 :: [Bit 32, Bit 32] >>= [Bit 32]
-b211[t0, t1] =
-  t2 <- primEq((t0, 0))
-  if t2
-    then b165[t1]
-    else b164[t1, t0]
-b165 :: [Bit 32] >>= [Bit 32]
-b165[t0] =
-  t1 <- add((t0, 1))
+b123 :: [Bit 32, Bit 32] >>= [Bit 32]
+b123[t0, t1] =
+  t2 <- add((t0, -1))
+  t3 <- add((t1, -1))
+  t4 <- b127[t0, t3]
+  b127[t2, t4]
+b125 :: [Bit 32, Bit 32] >>= [Bit 32]
+b125[t0, t1] =
   t2 <- primEq((t1, 0))
   if t2
-    then b178[]
-    else b186[t1]
-b186 :: [Bit 32] >>= [Bit 32]
-b186[t0] =
-  t1 <- add((t0, 1))
-  t2 <- b215[t0, 2]
-  t3 <- primEq((t1, 0))
-  if t3
-    then b171[t2]
-    else b211[t2, t1]
-b215 :: [Bit 32, Bit 32] >>= [Bit 32]
-b215[t0, t1] =
-  t2 <- primEq((t0, 0))
-  if t2
-    then b171[t1]
-    else b211[t1, t0]
-
------------------------------------------
--- not recursive
-k91 :: {Bit 32} [Bit 32] ->> [Bit 32]
-k91{t0} t1 = b215[t0, t1]
-
------------------------------------------
--- not recursive
-k92 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
-k92{} t0 = k91{t0}
-
------------------------------------------
--- not recursive
-entrypoint ackerI :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
-ackerI <-
-  k92{}
-
------------------------------------------
--- recursive
-b129 :: [Bit 32] >>= [Bit 32]
-b129[t0] =
+    then b124[t0]
+    else b123[t0, t1]
+b124 :: [Bit 32] >>= [Bit 32]
+b124[t0] =
   t1 <- add((t0, -1))
   t2 <- primEq((t1, 0))
   if t2
-    then b171[1]
-    else b219[1, 0, t1]
-b219 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b219[t0, t1, t2] =
-  t3 <- primEq((t0, t1))
-  if t3
-    then b129[t2]
-    else b128[t2, t0]
-b128 :: [Bit 32, Bit 32] >>= [Bit 32]
-b128[t0, t1] =
-  t2 <- add((t0, -1))
-  t3 <- add((t1, -1))
-  t4 <- b223[t0, 0, t3]
-  t5 <- primEq((t2, 0))
-  if t5
-    then b171[t4]
-    else b219[t4, 0, t2]
-b223 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b223[t0, t1, t2] =
-  t3 <- primEq((t0, t1))
-  if t3
-    then b171[t2]
-    else b219[t2, 0, t0]
+    then b136[]
+    else b141[t1]
+b141 :: [Bit 32] >>= [Bit 32]
+b141[t0] =
+  t1 <- add((t0, -1))
+  t2 <- b127[t0, 0]
+  b127[t1, t2]
+b127 :: [Bit 32, Bit 32] >>= [Bit 32]
+b127[t0, t1] =
+  t2 <- primEq((t0, 0))
+  if t2
+    then b90[t1]
+    else b125[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k82 :: {Bit 32} [Bit 32] ->> [Bit 32]
-k82{t0} t1 = b223[t0, 0, t1]
+entrypoint ackerI :: [Bit 32, Bit 32] >>= [Bit 32]
+ackerI[t0, t1] =
+  b127[t0, t1]
 
 -----------------------------------------
--- not recursive
-k83 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
-k83{} t0 = k82{t0}
-
------------------------------------------
--- not recursive
-entrypoint acker :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
-acker <-
-  k83{}
-
------------------------------------------
--- Entrypoints: ackerI acker
+-- Entrypoints: acker ackerI

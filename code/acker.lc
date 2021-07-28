@@ -27,7 +27,7 @@ eqI       :: Int -> Int -> Bool
 eqI x y    = case x of MkInt n -> case y of MkInt m -> n == m
 pl, mi    :: Int -> Int -> Int
 pl x y     = case x of MkInt n -> case y of MkInt m -> MkInt (n + m)
-mi x y     = case x of MkInt n -> case y of MkInt m -> MkInt (n + m)
+mi x y     = case x of MkInt n -> case y of MkInt m -> MkInt (n - m)
 
 entrypoint ackerI :: Int -> Int -> Int
 ackerI m n = if eqI m zero then pl n one
