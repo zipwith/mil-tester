@@ -1,24 +1,24 @@
 digraph MIL {
-  "initialize"[style=filled, fillcolor=lightblue];
-  "main"[style=filled, fillcolor=lightblue];
+  "initialize"[style=filled fillcolor=lightblue];
+  "main"[style=filled fillcolor=lightblue];
   "initialize" -> "main";
-  "b142"[style=filled, fillcolor=lightblue];
+  "b142"[style=filled fillcolor=lightblue];
   "main" -> "b142";
-  "b143"[style=filled, fillcolor=lightblue];
+  "b143"[style=filled fillcolor=lightblue];
   "b142" -> "b143";
-  "b129"[style=filled, fillcolor=lightblue];
+  "b129"[shape=rectangle style=filled fillcolor=lightblue];
   "b143" -> "b129";
   "b126" -> "b129";
-  "b137"[style=filled, fillcolor=lightblue];
+  "b137"[shape=rectangle style=filled fillcolor=lightblue];
   "b129" -> "b137";
   "b139" -> "b137";
-  "b139"[style=filled, fillcolor=lightblue];
+  "b139"[style=filled fillcolor=lightblue];
   "b137" -> "b139";
-  "b138"[style=filled, fillcolor=lightblue];
+  "b138"[style=filled fillcolor=lightblue];
   "b142" -> "b138";
   "b137" -> "b138";
-  "b126"[style=filled, fillcolor=lightblue];
+  "b126"[style=filled fillcolor=lightblue];
   "b129" -> "b126";
-  "Nil$f24"[style=filled, fillcolor=white];
+  "Nil$f24"[style=filled fillcolor=white];
   "b143" -> "Nil$f24";
 }
