@@ -1,0 +1,6 @@
+-i../lc-baremetal/libs-lc
+--32
+-pcsosrsos
+--target=i386-pc-linux-gnu
+--llvm-main=kernel
+--mil-main=kernel
