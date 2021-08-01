@@ -11,6 +11,7 @@ options: -v             verbose on
                         s = specialization (eliminate polymorphism)
                         b = bitdata generation
                         r = representation transformation (requires earlier s)
+         -Oname         enable optimization, name in {unroll, ...}
          -m[filename]   mil code
          -t[filename]   type definitions
          -g[filename]   GraphViz file for mil structure

@@ -1,0 +1,2078 @@
+data ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+  = Inl$jfk2356393 (Bit 32)
+  | Inr$jfl3366494 ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565
+
+data ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062
+  = Inl$jf814457289 (Bit 32)
+  | Inr$jf915467390 ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163
+
+data ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768
+  = Inl$jfd7406899 Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666
+  | Inr$jfe94269100 Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869
+
+data ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565
+  = Inl$jfg4376595 Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666
+  | Inr$jfh6396798 ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768
+
+data ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163
+  = Inl$jf516477491 Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgh13345260
+  | Inr$jf619497692 Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgh13345260
+
+data Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869
+  = Double$jfb04370101 Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367
+
+data Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961
+  = In$jfa18447188 ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062
+
+data Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367
+  = In$jfi1346297 ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+
+data Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666
+  = Product$jfc8416696 Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367 Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367
+
+data Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgh13345260
+  = Product$jf320507587 Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961 Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+s92 :: ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+s92 <-
+  Inl$jfk2356393(1)
+
+-----------------------------------------
+-- recursive
+k109 :: {[ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]} [Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+k109{t0} t1 = b167[t1, t0]
+b167 :: [Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367, [ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]] >>= [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+b167[t0, t1] =
+  t2 <- k109{t1}
+  t3 <- In$jfi1346297 0 t0
+  t4 <- t1 @ t3
+  t4 @ t2
+
+-----------------------------------------
+-- not recursive
+k501 :: {ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062} [[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+k501{t0} t1 = In$jfa18447188(t0)
+
+-----------------------------------------
+-- not recursive
+b903 :: [Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869, [Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] >>= [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+b903[t0, t1] =
+  t2 <- Double$jfb04370101 0 t0
+  t3 <- t1 @ t2
+  t4 <- t1 @ t2
+  t5 <- Product$jf320507587(t3, t4)
+  t6 <- Inl$jf516477491(t5)
+  t7 <- Inr$jf915467390(t6)
+  In$jfa18447188(t7)
+
+-----------------------------------------
+-- not recursive
+k384 :: {Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869} [[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+k384{t0} t1 = b903[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b2292 :: [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b2292[t0] =
+  assert t0 Inr$jfe94269100
+  t1 <- Inr$jfe94269100 0 t0
+  k384{t1}
+
+-----------------------------------------
+-- not recursive
+b2293 :: [ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565, [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b2293[t0, t1] =
+  assert t0 Inr$jfh6396798
+  t2 <- Inr$jfh6396798 0 t0
+  t1 @ t2
+
+-----------------------------------------
+-- not recursive
+b1385 :: [Bit 32] >>= [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+b1385[t0] =
+  t1 <- Inl$jf814457289(t0)
+  In$jfa18447188(t1)
+
+-----------------------------------------
+-- not recursive
+k526 :: {Bit 32} [[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+k526{t0} t1 = b1385[t0]
+
+-----------------------------------------
+-- not recursive
+b2290 :: [ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b2290[t0] =
+  assert t0 Inl$jfk2356393
+  t1 <- Inl$jfk2356393 0 t0
+  k526{t1}
+
+-----------------------------------------
+-- not recursive
+b2291 :: [ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464, [ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b2291[t0, t1] =
+  assert t0 Inr$jfl3366494
+  t2 <- Inr$jfl3366494 0 t0
+  t1 @ t2
+
+-----------------------------------------
+-- not recursive
+b1383 :: [[ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]], ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b1383[t0, t1] =
+  case t1 of
+    Inl$jfk2356393 -> b2290[t1]
+    Inr$jfl3366494 -> b2291[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k505 :: {[ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]} [ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+k505{t0} t1 = b1383[t0, t1]
+
+-----------------------------------------
+-- recursive
+b1287 :: [] >>= [[ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]]
+b1287[] =
+  return s46
+s46 :: [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+s46 <-
+  k503{}
+k503 :: {} [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+k503{} t0 = b1288[t0]
+b1288 :: [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b1288[t0] =
+  case t0 of
+    Inl$jfd7406899 -> b1403[t0]
+    Inr$jfe94269100 -> b2292[t0]
+b1403 :: [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b1403[t0] =
+  assert t0 Inl$jfd7406899
+  t1 <- Inl$jfd7406899 0 t0
+  t2 <- b1410[t1]
+  k501{t2}
+b1410 :: [Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666] >>= [ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062]
+b1410[t0] =
+  t1 <- b1411[t0]
+  Inr$jf915467390(t1)
+b1411 :: [Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666] >>= [ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163]
+b1411[t0] =
+  t1 <- Product$jfc8416696 0 t0
+  t2 <- Product$jfc8416696 1 t0
+  t3 <- b908[t1]
+  t4 <- b908[t2]
+  t5 <- Product$jf320507587(t3, t4)
+  Inr$jf619497692(t5)
+b1286 :: [] >>= [[ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]]
+b1286[] =
+  t0 <- b1287[]
+  k504{t0}
+k504 :: {[ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]} [ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+k504{t0} t1 = b1386[t0, t1]
+b1386 :: [[ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]], ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b1386[t0, t1] =
+  case t1 of
+    Inl$jfg4376595 -> b1387[t1]
+    Inr$jfh6396798 -> b2293[t1, t0]
+b1387 :: [ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] >>= [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+b1387[t0] =
+  assert t0 Inl$jfg4376595
+  t1 <- Inl$jfg4376595 0 t0
+  t2 <- b1398[t1]
+  k501{t2}
+b1398 :: [Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666] >>= [ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062]
+b1398[t0] =
+  t1 <- b1399[t0]
+  Inr$jf915467390(t1)
+b1399 :: [Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666] >>= [ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163]
+b1399[t0] =
+  t1 <- Product$jfc8416696 0 t0
+  t2 <- Product$jfc8416696 1 t0
+  t3 <- b908[t1]
+  t4 <- b908[t2]
+  t5 <- Product$jf320507587(t3, t4)
+  Inl$jf516477491(t5)
+b908 :: [Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] >>= [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+b908[t0] =
+  t1 <- b1285[]
+  b167[t0, t1]
+b1285 :: [] >>= [[ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]]
+b1285[] =
+  t0 <- b1286[]
+  k505{t0}
+
+-----------------------------------------
+-- not recursive
+s93 :: ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+s93 <-
+  Inl$jfk2356393(2)
+
+-----------------------------------------
+-- not recursive
+s103 :: Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367
+s103 <-
+  In$jfi1346297(s93)
+
+-----------------------------------------
+-- not recursive
+s109 :: Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869
+s109 <-
+  Double$jfb04370101(s103)
+
+-----------------------------------------
+-- not recursive
+s113 :: ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768
+s113 <-
+  Inr$jfe94269100(s109)
+
+-----------------------------------------
+-- not recursive
+s116 :: ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565
+s116 <-
+  Inr$jfh6396798(s113)
+
+-----------------------------------------
+-- not recursive
+s119 :: ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+s119 <-
+  Inr$jfl3366494(s116)
+
+-----------------------------------------
+-- not recursive
+b2289 :: [ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062] >>= [Bit 32]
+b2289[t0] =
+  assert t0 Inl$jf814457289
+  Inl$jf814457289 0 t0
+
+-----------------------------------------
+-- recursive
+b1852 :: [ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163] >>= [Bit 32]
+b1852[t0] =
+  assert t0 Inl$jf516477491
+  t1 <- Inl$jf516477491 0 t0
+  t2 <- Product$jf320507587 0 t1
+  t3 <- Product$jf320507587 1 t1
+  t4 <- b1434[t2]
+  t5 <- b1434[t3]
+  add((t4, t5))
+b1578 :: [ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062] >>= [Bit 32]
+b1578[t0] =
+  assert t0 Inr$jf915467390
+  t1 <- Inr$jf915467390 0 t0
+  case t1 of
+    Inl$jf516477491 -> b1852[t1]
+    Inr$jf619497692 -> b1854[t1]
+b1854 :: [ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163] >>= [Bit 32]
+b1854[t0] =
+  assert t0 Inr$jf619497692
+  t1 <- Inr$jf619497692 0 t0
+  t2 <- Product$jf320507587 0 t1
+  t3 <- Product$jf320507587 1 t1
+  t4 <- b1434[t2]
+  t5 <- b1434[t3]
+  mul((t4, t5))
+b1434 :: [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961] >>= [Bit 32]
+b1434[t0] =
+  t1 <- In$jfa18447188 0 t0
+  case t1 of
+    Inl$jf814457289 -> b2289[t1]
+    Inr$jf915467390 -> b1578[t1]
+
+-----------------------------------------
+-- not recursive
+b910 :: [] >>= [Bit 32]
+b910[] =
+  t0 <- b1285[]
+  t1 <- k109{t0}
+  t2 <- t0 @ s92
+  t3 <- t2 @ t1
+  t4 <- b1285[]
+  t5 <- k109{t4}
+  t6 <- t4 @ s119
+  t7 <- t6 @ t5
+  t8 <- Product$jf320507587(t3, t7)
+  t9 <- Inl$jf516477491(t8)
+  t10 <- Inr$jf915467390(t9)
+  t11 <- In$jfa18447188(t10)
+  b1434[t11]
+
+-----------------------------------------
+-- not recursive
+w :: Bit 32
+w <-
+  b910[]
+
+-----------------------------------------
+-- not recursive
+b998 :: [] >>= [Bit 32]
+b998[] =
+  return 0
+
+-----------------------------------------
+-- recursive
+b2105 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2105[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b1880[t2, t0]
+    else b2109[t0, t1, t2]
+b2109 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2109[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2108[t2, t1, t0]
+    else b1880[t2, t0]
+b2108 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2108[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  b1895[t3, t1, t0]
+b1888 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1888[t0, t1, t2] =
+  t3 <- mul((t1, 10))
+  b1895[t3, t0, t2]
+b1895 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1895[t0, t1, t2] =
+  t3 <- mul((t0, 100))
+  t4 <- primUge((t2, t3))
+  if t4
+    then b2105[t0, t1, t2]
+    else b1880[t2, t0]
+b1886 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1886[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b1888[t1, t0, t2]
+    else b1880[t2, t0]
+b1884 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1884[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b1880[t2, t0]
+    else b1886[t0, t1, t2]
+b1883 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1883[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  t4 <- mul((t2, 1000))
+  t5 <- primUge((t0, t4))
+  if t5
+    then b1884[t3, t1, t0]
+    else b1880[t0, t3]
+b1881 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1881[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b1883[t2, t1, t0]
+    else b1880[t2, t0]
+b1879 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1879[t0, t1, t2] =
+  t3 <- primEq((t1, t0))
+  if t3
+    then b1880[t2, t1]
+    else b1881[t1, t0, t2]
+b1878 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1878[t0, t1] =
+  t2 <- primUge((t0, 100))
+  if t2
+    then b1879[t1, 1, t0]
+    else b1880[t0, 1]
+b1880 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1880[t0, t1] =
+  t2 <- mul((t1, 10))
+  t3 <- sub((t0, t2))
+  t4 <- b1877[t3]
+  add((t1, t4))
+b1877 :: [Bit 32] >>= [Bit 32]
+b1877[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b998[]
+    else b1878[t0, 10000000]
+
+-----------------------------------------
+-- recursive
+b2110 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2110[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b1880[t2, t0]
+    else b2113[t0, t1, t2]
+b2113 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2113[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2112[t2, t1, t0]
+    else b1880[t2, t0]
+b2112 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b2112[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  b1911[t3, t1, t0]
+b1911 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1911[t0, t1, t2] =
+  t3 <- mul((t0, 100))
+  t4 <- primUge((t2, t3))
+  if t4
+    then b2110[t0, t1, t2]
+    else b1880[t2, t0]
+
+-----------------------------------------
+-- not recursive
+Proxy$je8 :: Unit
+Proxy$je8 <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b387 :: [Bit 32] >>= [Unit]
+b387[t0] =
+  t1 <- add((t0, 48))
+  t2 <- putchar((t1))
+  return Proxy$je8
+
+-----------------------------------------
+-- recursive
+b1958 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1958[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b1880[t2, t0]
+    else b1963[t0, t1, t2]
+b1963 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1963[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b1962[t2, t1, t0]
+    else b1880[t2, t0]
+b1962 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1962[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  b1957[t3, t1, t0]
+b1957 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b1957[t0, t1, t2] =
+  t3 <- mul((t0, 100))
+  t4 <- primUge((t2, t3))
+  if t4
+    then b1958[t0, t1, t2]
+    else b1880[t2, t0]
+
+-----------------------------------------
+-- recursive
+b2121 :: [Bit 32, Bit 32] >>= [Unit]
+b2121[t0, t1] =
+  t2 <- mul((t1, 10))
+  t3 <- sub((t0, t2))
+  t4 <- b1877[t3]
+  t5 <- add((t1, t4))
+  b1946[t5, t0]
+b1946 :: [Bit 32, Bit 32] >>= [Unit]
+b1946[t0, t1] =
+  t2 <- b1531[t0]
+  t3 <- nzrem((t1, 10))
+  b1531[t3]
+b1126 :: [Bit 32] >>= [Unit]
+b1126[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b387[t0]
+    else b2175[t0]
+b2175 :: [Bit 32] >>= [Unit]
+b2175[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b1946[0, t0]
+    else b2177[t0, 10000000]
+b2177 :: [Bit 32, Bit 32] >>= [Unit]
+b2177[t0, t1] =
+  t2 <- primUge((t0, 100))
+  if t2
+    then b2179[t1, 1, t0]
+    else b2121[t0, 1]
+b2179 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2179[t0, t1, t2] =
+  t3 <- primEq((t1, t0))
+  if t3
+    then b2121[t2, t1]
+    else b2183[t1, t0, t2]
+b2183 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2183[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2185[t2, t1, t0]
+    else b2121[t2, t0]
+b2185 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2185[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  t4 <- mul((t2, 1000))
+  t5 <- primUge((t0, t4))
+  if t5
+    then b2186[t3, t1, t0]
+    else b2121[t0, t3]
+b2186 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2186[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b2121[t2, t0]
+    else b2187[t0, t1, t2]
+b2187 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2187[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2188[t1, t0, t2]
+    else b2121[t2, t0]
+b2188 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2188[t0, t1, t2] =
+  t3 <- mul((t1, 10))
+  t4 <- b1911[t3, t0, t2]
+  t5 <- b1126[t4]
+  t6 <- nzrem((t2, 10))
+  b1531[t6]
+b2181 :: [Bit 32, Bit 32] >>= [Unit]
+b2181[t0, t1] =
+  t2 <- mul((t0, 10))
+  t3 <- sub((t1, t2))
+  t4 <- b1877[t3]
+  t5 <- add((t0, t4))
+  b1954[t5, t1]
+b1944 :: [Bit 32] >>= [Unit]
+b1944[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b1946[0, t0]
+    else b1964[t0, 10000000]
+b1964 :: [Bit 32, Bit 32] >>= [Unit]
+b1964[t0, t1] =
+  t2 <- primUge((t0, 100))
+  if t2
+    then b2120[t1, 1, t0]
+    else b2121[t0, 1]
+b2120 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2120[t0, t1, t2] =
+  t3 <- primEq((t1, t0))
+  if t3
+    then b2121[t2, t1]
+    else b2152[t1, t0, t2]
+b2152 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2152[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2176[t2, t1, t0]
+    else b2121[t2, t0]
+b2176 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2176[t0, t1, t2] =
+  t3 <- mul((t2, 10))
+  t4 <- mul((t2, 1000))
+  t5 <- primUge((t0, t4))
+  if t5
+    then b2178[t3, t1, t0]
+    else b2121[t0, t3]
+b2178 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2178[t0, t1, t2] =
+  t3 <- primEq((t0, t1))
+  if t3
+    then b2181[t0, t2]
+    else b2182[t0, t1, t2]
+b2182 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2182[t0, t1, t2] =
+  t3 <- primUle((t0, t1))
+  if t3
+    then b2184[t1, t0, t2]
+    else b2181[t0, t2]
+b2184 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b2184[t0, t1, t2] =
+  t3 <- mul((t1, 10))
+  t4 <- b1957[t3, t0, t2]
+  b1954[t4, t2]
+b1954 :: [Bit 32, Bit 32] >>= [Unit]
+b1954[t0, t1] =
+  t2 <- b1126[t0]
+  t3 <- nzrem((t1, 10))
+  b1531[t3]
+b1531 :: [Bit 32] >>= [Unit]
+b1531[t0] =
+  t1 <- primUlt((t0, 10))
+  if t1
+    then b387[t0]
+    else b1944[t0]
+
+-----------------------------------------
+-- not recursive
+b1972 :: [Bit 32] >>= [Unit]
+b1972[t0] =
+  t1 <- mul((t0, 10))
+  t2 <- sub((w, t1))
+  t3 <- b1877[t2]
+  t4 <- add((t0, t3))
+  t5 <- b1531[t4]
+  t6 <- nzrem((w, 10))
+  b1531[t6]
+
+-----------------------------------------
+-- not recursive
+b1555 :: [Bit 32] >>= [Bit 32]
+b1555[t0] =
+  t1 <- mul((t0, 10))
+  t2 <- sub((w, t1))
+  t3 <- b1877[t2]
+  add((t0, t3))
+
+-----------------------------------------
+-- recursive
+b1552 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1552[t0, t1] =
+  t2 <- primEq((t0, t1))
+  if t2
+    then b1555[t0]
+    else b1968[t0, t1]
+b1968 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1968[t0, t1] =
+  t2 <- primUle((t0, t1))
+  if t2
+    then b1558[t1, t0]
+    else b1555[t0]
+b1558 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1558[t0, t1] =
+  t2 <- mul((t1, 10))
+  b1551[t2, t0]
+b1551 :: [Bit 32, Bit 32] >>= [Bit 32]
+b1551[t0, t1] =
+  t2 <- mul((t0, 100))
+  t3 <- primUlt((w, t2))
+  if t3
+    then b1555[t0]
+    else b1552[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b1980 :: [Bit 32, Bit 32] >>= [Unit]
+b1980[t0, t1] =
+  t2 <- mul((t1, 10))
+  t3 <- b1551[t2, t0]
+  t4 <- b1126[t3]
+  t5 <- nzrem((w, 10))
+  b1531[t5]
+
+-----------------------------------------
+-- not recursive
+b1979 :: [Bit 32, Bit 32] >>= [Unit]
+b1979[t0, t1] =
+  t2 <- primUle((t0, t1))
+  if t2
+    then b1980[t1, t0]
+    else b1972[t0]
+
+-----------------------------------------
+-- not recursive
+b1977 :: [Bit 32, Bit 32] >>= [Unit]
+b1977[t0, t1] =
+  t2 <- primEq((t0, t1))
+  if t2
+    then b1972[t0]
+    else b1979[t0, t1]
+
+-----------------------------------------
+-- not recursive
+b1976 :: [Bit 32, Bit 32] >>= [Unit]
+b1976[t0, t1] =
+  t2 <- mul((t1, 10))
+  t3 <- mul((t1, 1000))
+  t4 <- primUlt((w, t3))
+  if t4
+    then b1972[t2]
+    else b1977[t2, t0]
+
+-----------------------------------------
+-- not recursive
+b1975 :: [Bit 32, Bit 32] >>= [Unit]
+b1975[t0, t1] =
+  t2 <- primUle((t0, t1))
+  if t2
+    then b1976[t1, t0]
+    else b1972[t0]
+
+-----------------------------------------
+-- not recursive
+b1971 :: [Bit 32, Bit 32] >>= [Unit]
+b1971[t0, t1] =
+  t2 <- primEq((t1, t0))
+  if t2
+    then b1972[t1]
+    else b1975[t1, t0]
+
+-----------------------------------------
+-- not recursive
+b1571 :: [Bit 32] >>= [Unit]
+b1571[t0] =
+  t1 <- primUlt((w, 100))
+  if t1
+    then b1972[1]
+    else b1971[t0, 1]
+
+-----------------------------------------
+-- not recursive
+b1568 :: [] >>= [Unit]
+b1568[] =
+  t0 <- b1531[0]
+  t1 <- nzrem((w, 10))
+  b1531[t1]
+
+-----------------------------------------
+-- not recursive
+b1567 :: [] >>= [Unit]
+b1567[] =
+  t0 <- primUlt((w, 10))
+  if t0
+    then b1568[]
+    else b1571[10000000]
+
+-----------------------------------------
+-- not recursive
+b1306 :: [] >>= [Unit]
+b1306[] =
+  t0 <- add((w, 48))
+  t1 <- putchar((t0))
+  return Proxy$je8
+
+-----------------------------------------
+-- not recursive
+b1732 :: [] >>= [Unit]
+b1732[] =
+  t0 <- putchar((51))
+  t1 <- putchar((55))
+  t2 <- putchar((55))
+  t3 <- primUlt((w, 10))
+  if t3
+    then b1306[]
+    else b1567[]
+
+-----------------------------------------
+-- not recursive
+b1731 :: [] >>= [Unit]
+b1731[] =
+  b1732[]
+
+-----------------------------------------
+-- not recursive
+main :: [] >>= [Unit]
+main[] =
+  b1731[]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  main[]
+
+-----------------------------------------
+-- Entrypoints:
+; layout for Inl$jfk2356393
+%dt0 = type {i32, i32}
+
+; data layout for values of type ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464
+%dt1 = type {i32}
+
+@layout.0 = private constant %dt0 {i32 0, i32 1}
+
+@val.1 = internal alias %dt1, %dt1* bitcast(%dt0* @layout.0 to %dt1*)
+
+; data layout for values of type ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768
+%dt4 = type {i32}
+
+; data layout for values of type Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367
+%dt9 = type {i32}
+
+; data layout for values of type Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961
+%dt10 = type {i32}
+
+; closure types for [Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+%dt7 = type %dt10* (%dt8*, %dt9*)*
+
+%dt8 = type {%dt7}
+
+; closure types for [[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]
+%dt5 = type %dt10* (%dt6*, %dt8*)*
+
+%dt6 = type {%dt5}
+
+; closure types for [ColonPlusColon_Product_Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgp5274768] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+%dt2 = type %dt6* (%dt3*, %dt4*)*
+
+%dt3 = type {%dt2}
+
+; layout for k503
+%dt11 = type {%dt2}
+
+@layout.2 = private constant %dt11 {%dt2 @clos_k503}
+
+@val.3 = internal alias %dt3, %dt3* bitcast(%dt11* @layout.2 to %dt3*)
+
+@layout.4 = private constant %dt0 {i32 0, i32 2}
+
+@val.5 = internal alias %dt1, %dt1* bitcast(%dt0* @layout.4 to %dt1*)
+
+; layout for In$jfi1346297
+%dt12 = type {i32, %dt1*}
+
+@layout.6 = private constant %dt12 {i32 0, %dt1* @val.5}
+
+@val.7 = internal alias %dt9, %dt9* bitcast(%dt12* @layout.6 to %dt9*)
+
+; layout for Double$jfb04370101
+%dt13 = type {i32, %dt9*}
+
+; data layout for values of type Double_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgn0294869
+%dt14 = type {i32}
+
+@layout.8 = private constant %dt13 {i32 0, %dt9* @val.7}
+
+@val.9 = internal alias %dt14, %dt14* bitcast(%dt13* @layout.8 to %dt14*)
+
+; layout for Inr$jfe94269100
+%dt15 = type {i32, %dt14*}
+
+@layout.10 = private constant %dt15 {i32 1, %dt14* @val.9}
+
+@val.11 = internal alias %dt4, %dt4* bitcast(%dt15* @layout.10 to %dt4*)
+
+; layout for Inr$jfh6396798
+%dt16 = type {i32, %dt4*}
+
+; data layout for values of type ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565
+%dt17 = type {i32}
+
+@layout.12 = private constant %dt16 {i32 1, %dt4* @val.11}
+
+@val.13 = internal alias %dt17, %dt17* bitcast(%dt16* @layout.12 to %dt17*)
+
+; layout for Inr$jfl3366494
+%dt18 = type {i32, %dt17*}
+
+@layout.14 = private constant %dt18 {i32 1, %dt17* @val.13}
+
+@val.15 = internal alias %dt1, %dt1* bitcast(%dt18* @layout.14 to %dt1*)
+
+@w = internal global i32 0
+
+; closure types for [ColonPlusColon_Const_SumColonPlusColonProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgu2244464] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+%dt19 = type %dt6* (%dt20*, %dt1*)*
+
+%dt20 = type {%dt19}
+
+; layout for k109
+%dt21 = type {%dt7, %dt20*}
+
+declare i8* @alloc(i32)
+
+define internal %dt10* @clos_k109(%dt8* %r0, %dt9* %r1) {
+  ; load stored values from closure
+  %r19 = bitcast %dt8* %r0 to %dt21*
+  %r20 = getelementptr inbounds %dt21, %dt21* %r19, i32 0, i32 1
+  %r7 = load %dt20*, %dt20** %r20
+  ; body of closure starts here
+  br label %b167
+
+b167:
+  ; calculate the number of bytes that we need to allocate
+  %r16 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r17 = ptrtoint %dt21* %r16 to i32
+  ; allocate memory for the object
+  %r18 = call i8* @alloc(i32 %r17)
+  %r13 = bitcast i8* %r18 to %dt21*
+  ; set the tag
+  %r15 = getelementptr inbounds %dt21, %dt21* %r13, i32 0, i32 0
+  store %dt7 @clos_k109, %dt7* %r15
+  ; initialize other fields
+  %r14 = getelementptr inbounds %dt21, %dt21* %r13, i32 0, i32 1
+  store %dt20* %r7, %dt20** %r14
+  %r4 = bitcast %dt21* %r13 to %dt8*
+  %r11 = bitcast %dt9* %r1 to %dt12*
+  %r12 = getelementptr inbounds %dt12, %dt12* %r11, i32 0, i32 1
+  %r8 = load %dt1*, %dt1** %r12
+  %r10 = getelementptr inbounds %dt20, %dt20* %r7, i32 0, i32 0
+  %r9 = load %dt19, %dt19* %r10
+  %r3 = call %dt6* %r9(%dt20* %r7, %dt1* %r8)
+  %r6 = getelementptr inbounds %dt6, %dt6* %r3, i32 0, i32 0
+  %r5 = load %dt5, %dt5* %r6
+  %r2 = tail call %dt10* %r5(%dt6* %r3, %dt8* %r4)
+  ret %dt10* %r2
+}
+
+; data layout for values of type ColonPlusColon_Const_SumColonPlusColonProduct_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgl9315062
+%dt22 = type {i32}
+
+; layout for In$jfa18447188
+%dt23 = type {i32, %dt22*}
+
+; layout for k501
+%dt24 = type {%dt5, %dt22*}
+
+define internal %dt10* @clos_k501(%dt6* %r0, %dt8* %r1) {
+  ; load stored values from closure
+  %r10 = bitcast %dt6* %r0 to %dt24*
+  %r11 = getelementptr inbounds %dt24, %dt24* %r10, i32 0, i32 1
+  %r4 = load %dt22*, %dt22** %r11
+  ; body of closure starts here
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r8 = ptrtoint %dt23* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt23*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  store i32 0, i32* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  store %dt22* %r4, %dt22** %r5
+  %r2 = bitcast %dt23* %r3 to %dt10*
+  ret %dt10* %r2
+}
+
+; data layout for values of type ColonPlusColon_Sum_Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgj10325163
+%dt25 = type {i32}
+
+; layout for Inr$jf915467390
+%dt26 = type {i32, %dt25*}
+
+; data layout for values of type Product_ExprLParenConstColonPlusColonSumColonPlusColonProductRParen$jgh13345260
+%dt27 = type {i32}
+
+; layout for Inl$jf516477491
+%dt28 = type {i32, %dt27*}
+
+; layout for Product$jf320507587
+%dt29 = type {i32, %dt10*, %dt10*}
+
+; layout for k384
+%dt30 = type {%dt5, %dt14*}
+
+define internal %dt10* @clos_k384(%dt6* %r0, %dt8* %r1) {
+  ; load stored values from closure
+  %r41 = bitcast %dt6* %r0 to %dt30*
+  %r42 = getelementptr inbounds %dt30, %dt30* %r41, i32 0, i32 1
+  %r40 = load %dt14*, %dt14** %r42
+  ; body of closure starts here
+  br label %b903
+
+b903:
+  %r38 = bitcast %dt14* %r40 to %dt13*
+  %r39 = getelementptr inbounds %dt13, %dt13* %r38, i32 0, i32 1
+  %r33 = load %dt9*, %dt9** %r39
+  %r37 = getelementptr inbounds %dt8, %dt8* %r1, i32 0, i32 0
+  %r36 = load %dt7, %dt7* %r37
+  %r27 = call %dt10* %r36(%dt8* %r1, %dt9* %r33)
+  %r35 = getelementptr inbounds %dt8, %dt8* %r1, i32 0, i32 0
+  %r34 = load %dt7, %dt7* %r35
+  %r25 = call %dt10* %r34(%dt8* %r1, %dt9* %r33)
+  ; calculate the number of bytes that we need to allocate
+  %r30 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r31 = ptrtoint %dt29* %r30 to i32
+  ; allocate memory for the object
+  %r32 = call i8* @alloc(i32 %r31)
+  %r24 = bitcast i8* %r32 to %dt29*
+  ; set the tag
+  %r29 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 0
+  store i32 0, i32* %r29
+  ; initialize other fields
+  %r28 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 1
+  store %dt10* %r27, %dt10** %r28
+  %r26 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 2
+  store %dt10* %r25, %dt10** %r26
+  %r18 = bitcast %dt29* %r24 to %dt27*
+  ; calculate the number of bytes that we need to allocate
+  %r21 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r22 = ptrtoint %dt28* %r21 to i32
+  ; allocate memory for the object
+  %r23 = call i8* @alloc(i32 %r22)
+  %r17 = bitcast i8* %r23 to %dt28*
+  ; set the tag
+  %r20 = getelementptr inbounds %dt28, %dt28* %r17, i32 0, i32 0
+  store i32 0, i32* %r20
+  ; initialize other fields
+  %r19 = getelementptr inbounds %dt28, %dt28* %r17, i32 0, i32 1
+  store %dt27* %r18, %dt27** %r19
+  %r11 = bitcast %dt28* %r17 to %dt25*
+  ; calculate the number of bytes that we need to allocate
+  %r14 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r15 = ptrtoint %dt26* %r14 to i32
+  ; allocate memory for the object
+  %r16 = call i8* @alloc(i32 %r15)
+  %r10 = bitcast i8* %r16 to %dt26*
+  ; set the tag
+  %r13 = getelementptr inbounds %dt26, %dt26* %r10, i32 0, i32 0
+  store i32 1, i32* %r13
+  ; initialize other fields
+  %r12 = getelementptr inbounds %dt26, %dt26* %r10, i32 0, i32 1
+  store %dt25* %r11, %dt25** %r12
+  %r4 = bitcast %dt26* %r10 to %dt22*
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r8 = ptrtoint %dt23* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt23*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  store i32 0, i32* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  store %dt22* %r4, %dt22** %r5
+  %r2 = bitcast %dt23* %r3 to %dt10*
+  ret %dt10* %r2
+}
+
+; layout for Inl$jf814457289
+%dt31 = type {i32, i32}
+
+; layout for k526
+%dt32 = type {%dt5, i32}
+
+define internal %dt10* @clos_k526(%dt6* %r0, %dt8* %r1) {
+  ; load stored values from closure
+  %r17 = bitcast %dt6* %r0 to %dt32*
+  %r18 = getelementptr inbounds %dt32, %dt32* %r17, i32 0, i32 1
+  %r11 = load i32, i32* %r18
+  ; body of closure starts here
+  br label %b1385
+
+b1385:
+  ; calculate the number of bytes that we need to allocate
+  %r14 = getelementptr inbounds %dt31, %dt31* null, i32 1
+  %r15 = ptrtoint %dt31* %r14 to i32
+  ; allocate memory for the object
+  %r16 = call i8* @alloc(i32 %r15)
+  %r10 = bitcast i8* %r16 to %dt31*
+  ; set the tag
+  %r13 = getelementptr inbounds %dt31, %dt31* %r10, i32 0, i32 0
+  store i32 0, i32* %r13
+  ; initialize other fields
+  %r12 = getelementptr inbounds %dt31, %dt31* %r10, i32 0, i32 1
+  store i32 %r11, i32* %r12
+  %r4 = bitcast %dt31* %r10 to %dt22*
+  ; calculate the number of bytes that we need to allocate
+  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r8 = ptrtoint %dt23* %r7 to i32
+  ; allocate memory for the object
+  %r9 = call i8* @alloc(i32 %r8)
+  %r3 = bitcast i8* %r9 to %dt23*
+  ; set the tag
+  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  store i32 0, i32* %r6
+  ; initialize other fields
+  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  store %dt22* %r4, %dt22** %r5
+  %r2 = bitcast %dt23* %r3 to %dt10*
+  ret %dt10* %r2
+}
+
+; closure types for [ColonPlusColon_Sum_ProductColonPlusColonDouble_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgr3254565] ->> [[[Expr_ConstColonPlusColonSumColonPlusColonProductColonPlusColonDouble$jgs1234367] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]] ->> [Expr_ConstColonPlusColonSumColonPlusColonProduct$jgm12304961]]
+%dt33 = type %dt6* (%dt34*, %dt17*)*
+
+%dt34 = type {%dt33}
+
+; layout for k505
+%dt35 = type {%dt19, %dt34*}
+
+define internal %dt6* @clos_k505(%dt20* %r0, %dt1* %r1) {
+  ; load stored values from closure
+  %r21 = bitcast %dt20* %r0 to %dt35*
+  %r22 = getelementptr inbounds %dt35, %dt35* %r21, i32 0, i32 1
+  %r5 = load %dt34*, %dt34** %r22
+  ; body of closure starts here
+  br label %b1383
+
+b1383:
+  ; read the tag for a data object
+  %r3 = getelementptr inbounds %dt1, %dt1* %r1, i32 0, i32 0
+  %r2 = load i32, i32* %r3
+  ; branch based on the tag value
+  switch i32 %r2, label %b2291 [
+      i32 0, label %b2290 ]
+
+b2291:
+  %r9 = bitcast %dt1* %r1 to %dt18*
+  %r10 = getelementptr inbounds %dt18, %dt18* %r9, i32 0, i32 1
+  %r6 = load %dt17*, %dt17** %r10
+  %r8 = getelementptr inbounds %dt34, %dt34* %r5, i32 0, i32 0
+  %r7 = load %dt33, %dt33* %r8
+  %r4 = tail call %dt6* %r7(%dt34* %r5, %dt17* %r6)
+  ret %dt6* %r4
+
+b2290:
+  %r19 = bitcast %dt1* %r1 to %dt0*
+  %r20 = getelementptr inbounds %dt0, %dt0* %r19, i32 0, i32 1
+  %r13 = load i32, i32* %r20
+  ; calculate the number of bytes that we need to allocate
+  %r16 = getelementptr inbounds %dt32, %dt32* null, i32 1
+  %r17 = ptrtoint %dt32* %r16 to i32
+  ; allocate memory for the object
+  %r18 = call i8* @alloc(i32 %r17)
+  %r12 = bitcast i8* %r18 to %dt32*
+  ; set the tag
+  %r15 = getelementptr inbounds %dt32, %dt32* %r12, i32 0, i32 0
+  store %dt5 @clos_k526, %dt5* %r15
+  ; initialize other fields
+  %r14 = getelementptr inbounds %dt32, %dt32* %r12, i32 0, i32 1
+  store i32 %r13, i32* %r14
+  %r11 = bitcast %dt32* %r12 to %dt6*
+  ret %dt6* %r11
+}
+
+define internal %dt3* @func_b1287() {
+  br label %b1287
+
+b1287:
+  ret %dt3* @val.3
+}
+
+; data layout for values of type Product_ExprLParenConstColonPlusColonSumColonPlusColonProductColonPlusColonDoubleRParen$jgo6284666
+%dt36 = type {i32}
+
+; layout for Inl$jfd7406899
+%dt37 = type {i32, %dt36*}
+
+define internal %dt6* @clos_k503(%dt3* %r0, %dt4* %r1) {
+  ; body of closure starts here
+  br label %b1288
+
+b1288:
+  ; read the tag for a data object
+  %r3 = getelementptr inbounds %dt4, %dt4* %r1, i32 0, i32 0
+  %r2 = load i32, i32* %r3
+  ; branch based on the tag value
+  switch i32 %r2, label %b2292 [
+      i32 0, label %b1403 ]
+
+b2292:
+  %r12 = bitcast %dt4* %r1 to %dt15*
+  %r13 = getelementptr inbounds %dt15, %dt15* %r12, i32 0, i32 1
+  %r6 = load %dt14*, %dt14** %r13
+  ; calculate the number of bytes that we need to allocate
+  %r9 = getelementptr inbounds %dt30, %dt30* null, i32 1
+  %r10 = ptrtoint %dt30* %r9 to i32
+  ; allocate memory for the object
+  %r11 = call i8* @alloc(i32 %r10)
+  %r5 = bitcast i8* %r11 to %dt30*
+  ; set the tag
+  %r8 = getelementptr inbounds %dt30, %dt30* %r5, i32 0, i32 0
+  store %dt5 @clos_k384, %dt5* %r8
+  ; initialize other fields
+  %r7 = getelementptr inbounds %dt30, %dt30* %r5, i32 0, i32 1
+  store %dt14* %r6, %dt14** %r7
+  %r4 = bitcast %dt30* %r5 to %dt6*
+  ret %dt6* %r4
+
+b1403:
+  %r23 = bitcast %dt4* %r1 to %dt37*
+  %r24 = getelementptr inbounds %dt37, %dt37* %r23, i32 0, i32 1
+  %r22 = load %dt36*, %dt36** %r24
+  %r16 = call %dt22* @func_b1410(%dt36* %r22)
+  ; calculate the number of bytes that we need to allocate
+  %r19 = getelementptr inbounds %dt24, %dt24* null, i32 1
+  %r20 = ptrtoint %dt24* %r19 to i32
+  ; allocate memory for the object
+  %r21 = call i8* @alloc(i32 %r20)
+  %r15 = bitcast i8* %r21 to %dt24*
+  ; set the tag
+  %r18 = getelementptr inbounds %dt24, %dt24* %r15, i32 0, i32 0
+  store %dt5 @clos_k501, %dt5* %r18
+  ; initialize other fields
+  %r17 = getelementptr inbounds %dt24, %dt24* %r15, i32 0, i32 1
+  store %dt22* %r16, %dt22** %r17
+  %r14 = bitcast %dt24* %r15 to %dt6*
+  ret %dt6* %r14
+}
+
+define internal %dt22* @func_b1410(%dt36* %r0) {
+  br label %b1410
+
+b1410:
+  %r3 = call %dt25* @func_b1411(%dt36* %r0)
+  ; calculate the number of bytes that we need to allocate
+  %r6 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r7 = ptrtoint %dt26* %r6 to i32
+  ; allocate memory for the object
+  %r8 = call i8* @alloc(i32 %r7)
+  %r2 = bitcast i8* %r8 to %dt26*
+  ; set the tag
+  %r5 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 0
+  store i32 1, i32* %r5
+  ; initialize other fields
+  %r4 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 1
+  store %dt25* %r3, %dt25** %r4
+  %r1 = bitcast %dt26* %r2 to %dt22*
+  ret %dt22* %r1
+}
+
+; layout for Inr$jf619497692
+%dt38 = type {i32, %dt27*}
+
+; layout for Product$jfc8416696
+%dt39 = type {i32, %dt9*, %dt9*}
+
+define internal %dt25* @func_b1411(%dt36* %r0) {
+  br label %b1411
+
+b1411:
+  %r22 = bitcast %dt36* %r0 to %dt39*
+  %r23 = getelementptr inbounds %dt39, %dt39* %r22, i32 0, i32 1
+  %r19 = load %dt9*, %dt9** %r23
+  %r20 = bitcast %dt36* %r0 to %dt39*
+  %r21 = getelementptr inbounds %dt39, %dt39* %r20, i32 0, i32 2
+  %r18 = load %dt9*, %dt9** %r21
+  %r12 = call %dt10* @func_b908(%dt9* %r19)
+  %r10 = call %dt10* @func_b908(%dt9* %r18)
+  ; calculate the number of bytes that we need to allocate
+  %r15 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r16 = ptrtoint %dt29* %r15 to i32
+  ; allocate memory for the object
+  %r17 = call i8* @alloc(i32 %r16)
+  %r9 = bitcast i8* %r17 to %dt29*
+  ; set the tag
+  %r14 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 0
+  store i32 0, i32* %r14
+  ; initialize other fields
+  %r13 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 1
+  store %dt10* %r12, %dt10** %r13
+  %r11 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 2
+  store %dt10* %r10, %dt10** %r11
+  %r3 = bitcast %dt29* %r9 to %dt27*
+  ; calculate the number of bytes that we need to allocate
+  %r6 = getelementptr inbounds %dt38, %dt38* null, i32 1
+  %r7 = ptrtoint %dt38* %r6 to i32
+  ; allocate memory for the object
+  %r8 = call i8* @alloc(i32 %r7)
+  %r2 = bitcast i8* %r8 to %dt38*
+  ; set the tag
+  %r5 = getelementptr inbounds %dt38, %dt38* %r2, i32 0, i32 0
+  store i32 1, i32* %r5
+  ; initialize other fields
+  %r4 = getelementptr inbounds %dt38, %dt38* %r2, i32 0, i32 1
+  store %dt27* %r3, %dt27** %r4
+  %r1 = bitcast %dt38* %r2 to %dt25*
+  ret %dt25* %r1
+}
+
+; layout for k504
+%dt40 = type {%dt33, %dt3*}
+
+define internal %dt34* @func_b1286() {
+  br label %b1286
+
+b1286:
+  %r2 = call %dt3* @func_b1287()
+  ; calculate the number of bytes that we need to allocate
+  %r5 = getelementptr inbounds %dt40, %dt40* null, i32 1
+  %r6 = ptrtoint %dt40* %r5 to i32
+  ; allocate memory for the object
+  %r7 = call i8* @alloc(i32 %r6)
+  %r1 = bitcast i8* %r7 to %dt40*
+  ; set the tag
+  %r4 = getelementptr inbounds %dt40, %dt40* %r1, i32 0, i32 0
+  store %dt33 @clos_k504, %dt33* %r4
+  ; initialize other fields
+  %r3 = getelementptr inbounds %dt40, %dt40* %r1, i32 0, i32 1
+  store %dt3* %r2, %dt3** %r3
+  %r0 = bitcast %dt40* %r1 to %dt34*
+  ret %dt34* %r0
+}
+
+; layout for Inl$jfg4376595
+%dt41 = type {i32, %dt36*}
+
+define internal %dt6* @clos_k504(%dt34* %r0, %dt17* %r1) {
+  ; load stored values from closure
+  %r22 = bitcast %dt34* %r0 to %dt40*
+  %r23 = getelementptr inbounds %dt40, %dt40* %r22, i32 0, i32 1
+  %r5 = load %dt3*, %dt3** %r23
+  ; body of closure starts here
+  br label %b1386
+
+b1386:
+  ; read the tag for a data object
+  %r3 = getelementptr inbounds %dt17, %dt17* %r1, i32 0, i32 0
+  %r2 = load i32, i32* %r3
+  ; branch based on the tag value
+  switch i32 %r2, label %b2293 [
+      i32 0, label %b1387 ]
+
+b2293:
+  %r9 = bitcast %dt17* %r1 to %dt16*
+  %r10 = getelementptr inbounds %dt16, %dt16* %r9, i32 0, i32 1
+  %r6 = load %dt4*, %dt4** %r10
+  %r8 = getelementptr inbounds %dt3, %dt3* %r5, i32 0, i32 0
+  %r7 = load %dt2, %dt2* %r8
+  %r4 = tail call %dt6* %r7(%dt3* %r5, %dt4* %r6)
+  ret %dt6* %r4
+
+b1387:
+  %r20 = bitcast %dt17* %r1 to %dt41*
+  %r21 = getelementptr inbounds %dt41, %dt41* %r20, i32 0, i32 1
+  %r19 = load %dt36*, %dt36** %r21
+  %r13 = call %dt22* @func_b1398(%dt36* %r19)
+  ; calculate the number of bytes that we need to allocate
+  %r16 = getelementptr inbounds %dt24, %dt24* null, i32 1
+  %r17 = ptrtoint %dt24* %r16 to i32
+  ; allocate memory for the object
+  %r18 = call i8* @alloc(i32 %r17)
+  %r12 = bitcast i8* %r18 to %dt24*
+  ; set the tag
+  %r15 = getelementptr inbounds %dt24, %dt24* %r12, i32 0, i32 0
+  store %dt5 @clos_k501, %dt5* %r15
+  ; initialize other fields
+  %r14 = getelementptr inbounds %dt24, %dt24* %r12, i32 0, i32 1
+  store %dt22* %r13, %dt22** %r14
+  %r11 = bitcast %dt24* %r12 to %dt6*
+  ret %dt6* %r11
+}
+
+define internal %dt22* @func_b1398(%dt36* %r0) {
+  br label %b1398
+
+b1398:
+  %r3 = call %dt25* @func_b1399(%dt36* %r0)
+  ; calculate the number of bytes that we need to allocate
+  %r6 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r7 = ptrtoint %dt26* %r6 to i32
+  ; allocate memory for the object
+  %r8 = call i8* @alloc(i32 %r7)
+  %r2 = bitcast i8* %r8 to %dt26*
+  ; set the tag
+  %r5 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 0
+  store i32 1, i32* %r5
+  ; initialize other fields
+  %r4 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 1
+  store %dt25* %r3, %dt25** %r4
+  %r1 = bitcast %dt26* %r2 to %dt22*
+  ret %dt22* %r1
+}
+
+define internal %dt25* @func_b1399(%dt36* %r0) {
+  br label %b1399
+
+b1399:
+  %r22 = bitcast %dt36* %r0 to %dt39*
+  %r23 = getelementptr inbounds %dt39, %dt39* %r22, i32 0, i32 1
+  %r19 = load %dt9*, %dt9** %r23
+  %r20 = bitcast %dt36* %r0 to %dt39*
+  %r21 = getelementptr inbounds %dt39, %dt39* %r20, i32 0, i32 2
+  %r18 = load %dt9*, %dt9** %r21
+  %r12 = call %dt10* @func_b908(%dt9* %r19)
+  %r10 = call %dt10* @func_b908(%dt9* %r18)
+  ; calculate the number of bytes that we need to allocate
+  %r15 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r16 = ptrtoint %dt29* %r15 to i32
+  ; allocate memory for the object
+  %r17 = call i8* @alloc(i32 %r16)
+  %r9 = bitcast i8* %r17 to %dt29*
+  ; set the tag
+  %r14 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 0
+  store i32 0, i32* %r14
+  ; initialize other fields
+  %r13 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 1
+  store %dt10* %r12, %dt10** %r13
+  %r11 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 2
+  store %dt10* %r10, %dt10** %r11
+  %r3 = bitcast %dt29* %r9 to %dt27*
+  ; calculate the number of bytes that we need to allocate
+  %r6 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r7 = ptrtoint %dt28* %r6 to i32
+  ; allocate memory for the object
+  %r8 = call i8* @alloc(i32 %r7)
+  %r2 = bitcast i8* %r8 to %dt28*
+  ; set the tag
+  %r5 = getelementptr inbounds %dt28, %dt28* %r2, i32 0, i32 0
+  store i32 0, i32* %r5
+  ; initialize other fields
+  %r4 = getelementptr inbounds %dt28, %dt28* %r2, i32 0, i32 1
+  store %dt27* %r3, %dt27** %r4
+  %r1 = bitcast %dt28* %r2 to %dt25*
+  ret %dt25* %r1
+}
+
+define internal %dt10* @func_b908(%dt9* %r0) {
+  br label %b908
+
+b908:
+  %r1 = call %dt20* @func_b1285()
+  br label %b167
+
+b167:
+  ; calculate the number of bytes that we need to allocate
+  %r15 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r16 = ptrtoint %dt21* %r15 to i32
+  ; allocate memory for the object
+  %r17 = call i8* @alloc(i32 %r16)
+  %r12 = bitcast i8* %r17 to %dt21*
+  ; set the tag
+  %r14 = getelementptr inbounds %dt21, %dt21* %r12, i32 0, i32 0
+  store %dt7 @clos_k109, %dt7* %r14
+  ; initialize other fields
+  %r13 = getelementptr inbounds %dt21, %dt21* %r12, i32 0, i32 1
+  store %dt20* %r1, %dt20** %r13
+  %r4 = bitcast %dt21* %r12 to %dt8*
+  %r10 = bitcast %dt9* %r0 to %dt12*
+  %r11 = getelementptr inbounds %dt12, %dt12* %r10, i32 0, i32 1
+  %r7 = load %dt1*, %dt1** %r11
+  %r9 = getelementptr inbounds %dt20, %dt20* %r1, i32 0, i32 0
+  %r8 = load %dt19, %dt19* %r9
+  %r3 = call %dt6* %r8(%dt20* %r1, %dt1* %r7)
+  %r6 = getelementptr inbounds %dt6, %dt6* %r3, i32 0, i32 0
+  %r5 = load %dt5, %dt5* %r6
+  %r2 = tail call %dt10* %r5(%dt6* %r3, %dt8* %r4)
+  ret %dt10* %r2
+}
+
+define internal %dt20* @func_b1285() {
+  br label %b1285
+
+b1285:
+  %r2 = call %dt34* @func_b1286()
+  ; calculate the number of bytes that we need to allocate
+  %r5 = getelementptr inbounds %dt35, %dt35* null, i32 1
+  %r6 = ptrtoint %dt35* %r5 to i32
+  ; allocate memory for the object
+  %r7 = call i8* @alloc(i32 %r6)
+  %r1 = bitcast i8* %r7 to %dt35*
+  ; set the tag
+  %r4 = getelementptr inbounds %dt35, %dt35* %r1, i32 0, i32 0
+  store %dt19 @clos_k505, %dt19* %r4
+  ; initialize other fields
+  %r3 = getelementptr inbounds %dt35, %dt35* %r1, i32 0, i32 1
+  store %dt34* %r2, %dt34** %r3
+  %r0 = bitcast %dt35* %r1 to %dt20*
+  ret %dt20* %r0
+}
+
+define internal i32 @func_b1434(%dt10* %r0) {
+  br label %b1434
+
+b1434:
+  %r4 = bitcast %dt10* %r0 to %dt23*
+  %r5 = getelementptr inbounds %dt23, %dt23* %r4, i32 0, i32 1
+  %r3 = load %dt22*, %dt22** %r5
+  ; read the tag for a data object
+  %r2 = getelementptr inbounds %dt22, %dt22* %r3, i32 0, i32 0
+  %r1 = load i32, i32* %r2
+  ; branch based on the tag value
+  switch i32 %r1, label %b1578 [
+      i32 0, label %b2289 ]
+
+b1578:
+  %r9 = bitcast %dt22* %r3 to %dt26*
+  %r10 = getelementptr inbounds %dt26, %dt26* %r9, i32 0, i32 1
+  %r8 = load %dt25*, %dt25** %r10
+  ; read the tag for a data object
+  %r7 = getelementptr inbounds %dt25, %dt25* %r8, i32 0, i32 0
+  %r6 = load i32, i32* %r7
+  ; branch based on the tag value
+  switch i32 %r6, label %b1854 [
+      i32 0, label %b1852 ]
+
+b2289:
+  %r12 = bitcast %dt22* %r3 to %dt31*
+  %r13 = getelementptr inbounds %dt31, %dt31* %r12, i32 0, i32 1
+  %r11 = load i32, i32* %r13
+  ret i32 %r11
+
+b1854:
+  %r24 = bitcast %dt25* %r8 to %dt38*
+  %r25 = getelementptr inbounds %dt38, %dt38* %r24, i32 0, i32 1
+  %r21 = load %dt27*, %dt27** %r25
+  %r22 = bitcast %dt27* %r21 to %dt29*
+  %r23 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 1
+  %r18 = load %dt10*, %dt10** %r23
+  %r19 = bitcast %dt27* %r21 to %dt29*
+  %r20 = getelementptr inbounds %dt29, %dt29* %r19, i32 0, i32 2
+  %r17 = load %dt10*, %dt10** %r20
+  %r15 = call i32 @func_b1434(%dt10* %r18)
+  %r16 = call i32 @func_b1434(%dt10* %r17)
+  %r14 = mul i32 %r15, %r16
+  ret i32 %r14
+
+b1852:
+  %r36 = bitcast %dt25* %r8 to %dt28*
+  %r37 = getelementptr inbounds %dt28, %dt28* %r36, i32 0, i32 1
+  %r33 = load %dt27*, %dt27** %r37
+  %r34 = bitcast %dt27* %r33 to %dt29*
+  %r35 = getelementptr inbounds %dt29, %dt29* %r34, i32 0, i32 1
+  %r30 = load %dt10*, %dt10** %r35
+  %r31 = bitcast %dt27* %r33 to %dt29*
+  %r32 = getelementptr inbounds %dt29, %dt29* %r31, i32 0, i32 2
+  %r29 = load %dt10*, %dt10** %r32
+  %r27 = call i32 @func_b1434(%dt10* %r30)
+  %r28 = call i32 @func_b1434(%dt10* %r29)
+  %r26 = add i32 %r27, %r28
+  ret i32 %r26
+}
+
+define internal i32 @func_b910() {
+  br label %b910
+
+b910:
+  %r48 = call %dt20* @func_b1285()
+  ; calculate the number of bytes that we need to allocate
+  %r54 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r55 = ptrtoint %dt21* %r54 to i32
+  ; allocate memory for the object
+  %r56 = call i8* @alloc(i32 %r55)
+  %r51 = bitcast i8* %r56 to %dt21*
+  ; set the tag
+  %r53 = getelementptr inbounds %dt21, %dt21* %r51, i32 0, i32 0
+  store %dt7 @clos_k109, %dt7* %r53
+  ; initialize other fields
+  %r52 = getelementptr inbounds %dt21, %dt21* %r51, i32 0, i32 1
+  store %dt20* %r48, %dt20** %r52
+  %r45 = bitcast %dt21* %r51 to %dt8*
+  %r50 = getelementptr inbounds %dt20, %dt20* %r48, i32 0, i32 0
+  %r49 = load %dt19, %dt19* %r50
+  %r44 = call %dt6* %r49(%dt20* %r48, %dt1* @val.1)
+  %r47 = getelementptr inbounds %dt6, %dt6* %r44, i32 0, i32 0
+  %r46 = load %dt5, %dt5* %r47
+  %r25 = call %dt10* %r46(%dt6* %r44, %dt8* %r45)
+  %r35 = call %dt20* @func_b1285()
+  ; calculate the number of bytes that we need to allocate
+  %r41 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r42 = ptrtoint %dt21* %r41 to i32
+  ; allocate memory for the object
+  %r43 = call i8* @alloc(i32 %r42)
+  %r38 = bitcast i8* %r43 to %dt21*
+  ; set the tag
+  %r40 = getelementptr inbounds %dt21, %dt21* %r38, i32 0, i32 0
+  store %dt7 @clos_k109, %dt7* %r40
+  ; initialize other fields
+  %r39 = getelementptr inbounds %dt21, %dt21* %r38, i32 0, i32 1
+  store %dt20* %r35, %dt20** %r39
+  %r32 = bitcast %dt21* %r38 to %dt8*
+  %r37 = getelementptr inbounds %dt20, %dt20* %r35, i32 0, i32 0
+  %r36 = load %dt19, %dt19* %r37
+  %r31 = call %dt6* %r36(%dt20* %r35, %dt1* @val.15)
+  %r34 = getelementptr inbounds %dt6, %dt6* %r31, i32 0, i32 0
+  %r33 = load %dt5, %dt5* %r34
+  %r23 = call %dt10* %r33(%dt6* %r31, %dt8* %r32)
+  ; calculate the number of bytes that we need to allocate
+  %r28 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r29 = ptrtoint %dt29* %r28 to i32
+  ; allocate memory for the object
+  %r30 = call i8* @alloc(i32 %r29)
+  %r22 = bitcast i8* %r30 to %dt29*
+  ; set the tag
+  %r27 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 0
+  store i32 0, i32* %r27
+  ; initialize other fields
+  %r26 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 1
+  store %dt10* %r25, %dt10** %r26
+  %r24 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 2
+  store %dt10* %r23, %dt10** %r24
+  %r16 = bitcast %dt29* %r22 to %dt27*
+  ; calculate the number of bytes that we need to allocate
+  %r19 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r20 = ptrtoint %dt28* %r19 to i32
+  ; allocate memory for the object
+  %r21 = call i8* @alloc(i32 %r20)
+  %r15 = bitcast i8* %r21 to %dt28*
+  ; set the tag
+  %r18 = getelementptr inbounds %dt28, %dt28* %r15, i32 0, i32 0
+  store i32 0, i32* %r18
+  ; initialize other fields
+  %r17 = getelementptr inbounds %dt28, %dt28* %r15, i32 0, i32 1
+  store %dt27* %r16, %dt27** %r17
+  %r9 = bitcast %dt28* %r15 to %dt25*
+  ; calculate the number of bytes that we need to allocate
+  %r12 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r13 = ptrtoint %dt26* %r12 to i32
+  ; allocate memory for the object
+  %r14 = call i8* @alloc(i32 %r13)
+  %r8 = bitcast i8* %r14 to %dt26*
+  ; set the tag
+  %r11 = getelementptr inbounds %dt26, %dt26* %r8, i32 0, i32 0
+  store i32 1, i32* %r11
+  ; initialize other fields
+  %r10 = getelementptr inbounds %dt26, %dt26* %r8, i32 0, i32 1
+  store %dt25* %r9, %dt25** %r10
+  %r2 = bitcast %dt26* %r8 to %dt22*
+  ; calculate the number of bytes that we need to allocate
+  %r5 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r6 = ptrtoint %dt23* %r5 to i32
+  ; allocate memory for the object
+  %r7 = call i8* @alloc(i32 %r6)
+  %r1 = bitcast i8* %r7 to %dt23*
+  ; set the tag
+  %r4 = getelementptr inbounds %dt23, %dt23* %r1, i32 0, i32 0
+  store i32 0, i32* %r4
+  ; initialize other fields
+  %r3 = getelementptr inbounds %dt23, %dt23* %r1, i32 0, i32 1
+  store %dt22* %r2, %dt22** %r3
+  %r0 = bitcast %dt23* %r1 to %dt10*
+  br label %c44
+
+c44:
+  %r57 = tail call i32 @func_b1434(%dt10* %r0)
+  ret i32 %r57
+}
+
+define internal i32 @func_b1877(i32 %r0) {
+  br label %b1877
+
+b1877:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b998, label %b1878
+
+b998:
+  ret i32 0
+
+b1878:
+  %r2 = icmp uge i32 %r0, 100
+  br i1 %r2, label %b1879, label %b1880
+
+b1879:
+  %r3 = icmp eq i32 1, 10000000
+  br i1 %r3, label %b1880, label %b1881
+
+b1880:
+  %r8 = phi i32 [%r0, %b1878], [%r0, %b1879], [%r0, %b1881], [%r0, %b1883], [%r0, %b1884], [%r0, %b1886], [%r12, %b1895], [%r12, %b2105], [%r12, %b2109]
+  %r5 = phi i32 [1, %b1878], [1, %b1879], [1, %b1881], [%r11, %b1883], [%r11, %b1884], [%r11, %b1886], [%r10, %b1895], [%r10, %b2105], [%r10, %b2109]
+  %r9 = mul i32 %r5, 10
+  %r7 = sub i32 %r8, %r9
+  %r6 = call i32 @func_b1877(i32 %r7)
+  %r4 = add i32 %r5, %r6
+  ret i32 %r4
+
+b1881:
+  %r13 = icmp ule i32 1, 10000000
+  br i1 %r13, label %b1883, label %b1880
+
+b1883:
+  %r11 = mul i32 1, 10
+  %r15 = mul i32 1, 1000
+  %r14 = icmp uge i32 %r0, %r15
+  br i1 %r14, label %b1884, label %b1880
+
+b1884:
+  %r16 = icmp eq i32 %r11, 10000000
+  br i1 %r16, label %b1880, label %b1886
+
+b1886:
+  %r17 = icmp ule i32 %r11, 10000000
+  br i1 %r17, label %b1888, label %b1880
+
+b1888:
+  %r18 = mul i32 %r11, 10
+  br label %b1895
+
+b1895:
+  %r10 = phi i32 [%r18, %b1888], [%r22, %b2108]
+  %r21 = phi i32 [10000000, %b1888], [%r21, %b2108]
+  %r12 = phi i32 [%r0, %b1888], [%r12, %b2108]
+  %r20 = mul i32 %r10, 100
+  %r19 = icmp uge i32 %r12, %r20
+  br i1 %r19, label %b2105, label %b1880
+
+b2105:
+  %r23 = icmp eq i32 %r10, %r21
+  br i1 %r23, label %b1880, label %b2109
+
+b2109:
+  %r24 = icmp ule i32 %r10, %r21
+  br i1 %r24, label %b2108, label %b1880
+
+b2108:
+  %r22 = mul i32 %r10, 10
+  br label %b1895
+}
+
+define internal i32 @func_b1911(i32 %r0, i32 %r1, i32 %r2) {
+  br label %b1911
+
+b1911:
+  %r6 = phi i32 [%r0, %0], [%r8, %b2112]
+  %r7 = phi i32 [%r1, %0], [%r7, %b2112]
+  %r4 = phi i32 [%r2, %0], [%r4, %b2112]
+  %r5 = mul i32 %r6, 100
+  %r3 = icmp uge i32 %r4, %r5
+  br i1 %r3, label %b2110, label %b1880
+
+b2110:
+  %r9 = icmp eq i32 %r6, %r7
+  br i1 %r9, label %b1880, label %b2113
+
+b1880:
+  %r14 = phi i32 [%r4, %b1911], [%r4, %b2110], [%r4, %b2113]
+  %r11 = phi i32 [%r6, %b1911], [%r6, %b2110], [%r6, %b2113]
+  %r15 = mul i32 %r11, 10
+  %r13 = sub i32 %r14, %r15
+  %r12 = call i32 @func_b1877(i32 %r13)
+  %r10 = add i32 %r11, %r12
+  ret i32 %r10
+
+b2113:
+  %r16 = icmp ule i32 %r6, %r7
+  br i1 %r16, label %b2112, label %b1880
+
+b2112:
+  %r8 = mul i32 %r6, 10
+  br label %b1911
+}
+
+define internal i32 @func_b1957(i32 %r0, i32 %r1, i32 %r2) {
+  br label %b1957
+
+b1957:
+  %r6 = phi i32 [%r0, %0], [%r8, %b1962]
+  %r7 = phi i32 [%r1, %0], [%r7, %b1962]
+  %r4 = phi i32 [%r2, %0], [%r4, %b1962]
+  %r5 = mul i32 %r6, 100
+  %r3 = icmp uge i32 %r4, %r5
+  br i1 %r3, label %b1958, label %b1880
+
+b1958:
+  %r9 = icmp eq i32 %r6, %r7
+  br i1 %r9, label %b1880, label %b1963
+
+b1880:
+  %r14 = phi i32 [%r4, %b1957], [%r4, %b1958], [%r4, %b1963]
+  %r11 = phi i32 [%r6, %b1957], [%r6, %b1958], [%r6, %b1963]
+  %r15 = mul i32 %r11, 10
+  %r13 = sub i32 %r14, %r15
+  %r12 = call i32 @func_b1877(i32 %r13)
+  %r10 = add i32 %r11, %r12
+  ret i32 %r10
+
+b1963:
+  %r16 = icmp ule i32 %r6, %r7
+  br i1 %r16, label %b1962, label %b1880
+
+b1962:
+  %r8 = mul i32 %r6, 10
+  br label %b1957
+}
+
+declare i32 @putchar(i32)
+
+define internal void @func_b1126(i32 %r0) {
+  br label %b1126
+
+b1126:
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b387, label %b2175
+
+b387:
+  %r4 = phi i32 [%r0, %b1126], [%r5, %b1531]
+  %r3 = add i32 %r4, 48
+  %r2 = call i32 @putchar(i32 %r3)
+  ret void
+
+b2175:
+  %r6 = icmp ult i32 %r0, 10
+  br i1 %r6, label %b1946, label %b2177
+
+b1946:
+  %r9 = phi i32 [0, %b2175], [%r11, %b2121], [0, %b1944]
+  %r8 = phi i32 [%r0, %b2175], [%r10, %b2121], [%r5, %b1944]
+  call void @func_b1531(i32 %r9)
+  %r7 = urem i32 %r8, 10
+  br label %b1531
+
+b2177:
+  %r12 = icmp uge i32 %r0, 100
+  br i1 %r12, label %b2179, label %b2121
+
+b1531:
+  %r5 = phi i32 [%r7, %b1946], [%r15, %b2188], [%r14, %b1954]
+  %r13 = icmp ult i32 %r5, 10
+  br i1 %r13, label %b387, label %b1944
+
+b2179:
+  %r16 = icmp eq i32 1, 10000000
+  br i1 %r16, label %b2121, label %b2183
+
+b2121:
+  %r10 = phi i32 [%r0, %b2177], [%r0, %b2179], [%r0, %b2183], [%r5, %b1964], [%r0, %b2185], [%r5, %b2120], [%r0, %b2186], [%r5, %b2152], [%r0, %b2187], [%r5, %b2176]
+  %r17 = phi i32 [1, %b2177], [1, %b2179], [1, %b2183], [1, %b1964], [%r22, %b2185], [1, %b2120], [%r22, %b2186], [1, %b2152], [%r22, %b2187], [%r21, %b2176]
+  %r20 = mul i32 %r17, 10
+  %r19 = sub i32 %r10, %r20
+  %r18 = call i32 @func_b1877(i32 %r19)
+  %r11 = add i32 %r17, %r18
+  br label %b1946
+
+b1944:
+  %r23 = icmp ult i32 %r5, 10
+  br i1 %r23, label %b1946, label %b1964
+
+b2183:
+  %r24 = icmp ule i32 1, 10000000
+  br i1 %r24, label %b2185, label %b2121
+
+b1964:
+  %r25 = icmp uge i32 %r5, 100
+  br i1 %r25, label %b2120, label %b2121
+
+b2185:
+  %r22 = mul i32 1, 10
+  %r27 = mul i32 1, 1000
+  %r26 = icmp uge i32 %r0, %r27
+  br i1 %r26, label %b2186, label %b2121
+
+b2120:
+  %r28 = icmp eq i32 1, 10000000
+  br i1 %r28, label %b2121, label %b2152
+
+b2186:
+  %r29 = icmp eq i32 %r22, 10000000
+  br i1 %r29, label %b2121, label %b2187
+
+b2152:
+  %r30 = icmp ule i32 1, 10000000
+  br i1 %r30, label %b2176, label %b2121
+
+b2187:
+  %r31 = icmp ule i32 %r22, 10000000
+  br i1 %r31, label %b2188, label %b2121
+
+b2176:
+  %r21 = mul i32 1, 10
+  %r33 = mul i32 1, 1000
+  %r32 = icmp uge i32 %r5, %r33
+  br i1 %r32, label %b2178, label %b2121
+
+b2188:
+  %r35 = mul i32 %r22, 10
+  %r34 = call i32 @func_b1911(i32 %r35, i32 10000000, i32 %r0)
+  call void @func_b1126(i32 %r34)
+  %r15 = urem i32 %r0, 10
+  br label %b1531
+
+b2178:
+  %r36 = icmp eq i32 %r21, 10000000
+  br i1 %r36, label %b2181, label %b2182
+
+b2181:
+  %r38 = phi i32 [%r21, %b2178], [%r21, %b2182]
+  %r41 = phi i32 [%r5, %b2178], [%r5, %b2182]
+  %r42 = mul i32 %r38, 10
+  %r40 = sub i32 %r41, %r42
+  %r39 = call i32 @func_b1877(i32 %r40)
+  %r37 = add i32 %r38, %r39
+  br label %b1954
+
+b2182:
+  %r43 = icmp ule i32 %r21, 10000000
+  br i1 %r43, label %b2184, label %b2181
+
+b1954:
+  %r45 = phi i32 [%r37, %b2181], [%r46, %b2184]
+  %r44 = phi i32 [%r41, %b2181], [%r5, %b2184]
+  call void @func_b1126(i32 %r45)
+  %r14 = urem i32 %r44, 10
+  br label %b1531
+
+b2184:
+  %r47 = mul i32 %r21, 10
+  %r46 = call i32 @func_b1957(i32 %r47, i32 10000000, i32 %r5)
+  br label %b1954
+}
+
+define internal void @func_b1531(i32 %r0) {
+  br label %b1531
+
+b1531:
+  %r2 = phi i32 [%r0, %0], [%r4, %b1946], [%r3, %b1954]
+  %r1 = icmp ult i32 %r2, 10
+  br i1 %r1, label %b387, label %b1944
+
+b387:
+  %r6 = add i32 %r2, 48
+  %r5 = call i32 @putchar(i32 %r6)
+  ret void
+
+b1944:
+  %r7 = icmp ult i32 %r2, 10
+  br i1 %r7, label %b1946, label %b1964
+
+b1946:
+  %r9 = phi i32 [0, %b1944], [%r11, %b2121]
+  %r8 = phi i32 [%r2, %b1944], [%r10, %b2121]
+  call void @func_b1531(i32 %r9)
+  %r4 = urem i32 %r8, 10
+  br label %b1531
+
+b1964:
+  %r12 = icmp uge i32 %r2, 100
+  br i1 %r12, label %b2120, label %b2121
+
+b2120:
+  %r13 = icmp eq i32 1, 10000000
+  br i1 %r13, label %b2121, label %b2152
+
+b2121:
+  %r10 = phi i32 [%r2, %b1964], [%r2, %b2120], [%r2, %b2152], [%r2, %b2176]
+  %r14 = phi i32 [1, %b1964], [1, %b2120], [1, %b2152], [%r18, %b2176]
+  %r17 = mul i32 %r14, 10
+  %r16 = sub i32 %r10, %r17
+  %r15 = call i32 @func_b1877(i32 %r16)
+  %r11 = add i32 %r14, %r15
+  br label %b1946
+
+b2152:
+  %r19 = icmp ule i32 1, 10000000
+  br i1 %r19, label %b2176, label %b2121
+
+b2176:
+  %r18 = mul i32 1, 10
+  %r21 = mul i32 1, 1000
+  %r20 = icmp uge i32 %r2, %r21
+  br i1 %r20, label %b2178, label %b2121
+
+b2178:
+  %r22 = icmp eq i32 %r18, 10000000
+  br i1 %r22, label %b2181, label %b2182
+
+b2181:
+  %r24 = phi i32 [%r18, %b2178], [%r18, %b2182]
+  %r27 = phi i32 [%r2, %b2178], [%r2, %b2182]
+  %r28 = mul i32 %r24, 10
+  %r26 = sub i32 %r27, %r28
+  %r25 = call i32 @func_b1877(i32 %r26)
+  %r23 = add i32 %r24, %r25
+  br label %b1954
+
+b2182:
+  %r29 = icmp ule i32 %r18, 10000000
+  br i1 %r29, label %b2184, label %b2181
+
+b1954:
+  %r31 = phi i32 [%r23, %b2181], [%r32, %b2184]
+  %r30 = phi i32 [%r27, %b2181], [%r2, %b2184]
+  call void @func_b1126(i32 %r31)
+  %r3 = urem i32 %r30, 10
+  br label %b1531
+
+b2184:
+  %r33 = mul i32 %r18, 10
+  %r32 = call i32 @func_b1957(i32 %r33, i32 10000000, i32 %r2)
+  br label %b1954
+}
+
+define internal i32 @func_b1551(i32 %r0, i32 %r1) {
+  %r3 = load i32, i32* @w
+  br label %b1551
+
+b1551:
+  %r5 = phi i32 [%r0, %0], [%r7, %b1558]
+  %r6 = phi i32 [%r1, %0], [%r6, %b1558]
+  %r4 = mul i32 %r5, 100
+  %r2 = icmp ult i32 %r3, %r4
+  br i1 %r2, label %b1555, label %b1552
+
+b1555:
+  %r9 = phi i32 [%r5, %b1551], [%r5, %b1552], [%r5, %b1968]
+  %r12 = mul i32 %r9, 10
+  %r11 = sub i32 %r3, %r12
+  %r10 = call i32 @func_b1877(i32 %r11)
+  %r8 = add i32 %r9, %r10
+  ret i32 %r8
+
+b1552:
+  %r13 = icmp eq i32 %r5, %r6
+  br i1 %r13, label %b1555, label %b1968
+
+b1968:
+  %r14 = icmp ule i32 %r5, %r6
+  br i1 %r14, label %b1558, label %b1555
+
+b1558:
+  %r7 = mul i32 %r5, 10
+  br label %b1551
+}
+
+define void @main() {
+  %r0 = call i32 @func_b910()
+  store i32 %r0, i32* @w
+  br label %initialize
+
+initialize:
+  br label %main
+
+main:
+  br label %b1731
+
+b1731:
+  br label %b1732
+
+b1732:
+  %r4 = call i32 @putchar(i32 51)
+  %r3 = call i32 @putchar(i32 55)
+  %r2 = call i32 @putchar(i32 55)
+  %r1 = icmp ult i32 %r0, 10
+  br i1 %r1, label %b1306, label %b1567
+
+b1306:
+  %r6 = add i32 %r0, 48
+  %r5 = call i32 @putchar(i32 %r6)
+  ret void
+
+b1567:
+  %r7 = icmp ult i32 %r0, 10
+  br i1 %r7, label %b1568, label %b1571
+
+b1568:
+  call void @func_b1531(i32 0)
+  %r8 = urem i32 %r0, 10
+  br label %c126
+
+b1571:
+  %r9 = icmp ult i32 %r0, 100
+  br i1 %r9, label %b1972, label %b1971
+
+c126:
+  tail call void @func_b1531(i32 %r8)
+  ret void
+
+b1972:
+  %r12 = phi i32 [1, %b1571], [1, %b1971], [1, %b1975], [%r16, %b1976], [%r16, %b1977], [%r16, %b1979]
+  %r15 = mul i32 %r12, 10
+  %r14 = sub i32 %r0, %r15
+  %r13 = call i32 @func_b1877(i32 %r14)
+  %r11 = add i32 %r12, %r13
+  call void @func_b1531(i32 %r11)
+  %r10 = urem i32 %r0, 10
+  br label %c129
+
+b1971:
+  %r17 = icmp eq i32 1, 10000000
+  br i1 %r17, label %b1972, label %b1975
+
+c129:
+  tail call void @func_b1531(i32 %r10)
+  ret void
+
+b1975:
+  %r18 = icmp ule i32 1, 10000000
+  br i1 %r18, label %b1976, label %b1972
+
+b1976:
+  %r16 = mul i32 1, 10
+  %r20 = mul i32 1, 1000
+  %r19 = icmp ult i32 %r0, %r20
+  br i1 %r19, label %b1972, label %b1977
+
+b1977:
+  %r21 = icmp eq i32 %r16, 10000000
+  br i1 %r21, label %b1972, label %b1979
+
+b1979:
+  %r22 = icmp ule i32 %r16, 10000000
+  br i1 %r22, label %b1980, label %b1972
+
+b1980:
+  %r25 = mul i32 %r16, 10
+  %r24 = call i32 @func_b1551(i32 %r25, i32 10000000)
+  call void @func_b1126(i32 %r24)
+  %r23 = urem i32 %r0, 10
+  br label %c135
+
+c135:
+  tail call void @func_b1531(i32 %r23)
+  ret void
+}
+

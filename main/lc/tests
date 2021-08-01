@@ -625,7 +625,10 @@ exec: albfib    ./milc albfib.lc --standalone -m -l
 exec: albstruct ./milc basic.mil struct.lc -m -l --standalone
 
 -------
-exec: albgdtac  ./milc basic.mil gdtac.lc -m -l --standalone
+exec: albgdtac  ./milc basic.mil gdtac.lc -m -l --standalone -Ounroll
+
+-------
+exec: albgdtac1  ./milc basic.mil gdtac.lc -m -l --standalone
 
 -------
 exec: albfibsigned ./milc basic.mil fibsigned.lc -m -l --standalone

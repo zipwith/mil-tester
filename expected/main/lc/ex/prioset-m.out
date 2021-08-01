@@ -147,15 +147,15 @@ b100[t0, t1, t2, t3, t4] =
   t6 <- store8((t5, t1))
   t7 <- add((prioidx, t1))
   t8 <- store8((t7, t0))
-  t9 <- mul((t2, 2))
-  t10 <- add((t9, 1))
-  b275[t10, t4, t2, t3]
-b275 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
-b275[t0, t1, t2, t3] =
-  t4 <- primUle((t0, t1))
-  if t4
-    then b273[t0, t2, t1, t3]
-    else b78[t3, t2]
+  b167[t4, t3, t2]
+b167 :: [Bit 32, Bit 32, Bit 32] >>= [Unit]
+b167[t0, t1, t2] =
+  t3 <- mul((t2, 2))
+  t4 <- add((t3, 1))
+  t5 <- primUle((t4, t0))
+  if t5
+    then b273[t4, t2, t0, t1]
+    else b78[t1, t2]
 
 -----------------------------------------
 -- not recursive
@@ -165,15 +165,13 @@ b120[t0, t1, t2] =
   t4 <- load8((t3))
   t5 <- add((t2, -2))
   t6 <- and((t5, 255))
-  t7 <- mul((t4, 2))
-  t8 <- add((t7, 1))
-  t9 <- b275[t8, t6, t4, t1]
-  t10 <- add((prioset, t4))
-  t11 <- load8((t10))
-  t12 <- primUgt((t4, 0))
-  if t12
-    then b265[t4, t11]
-    else b187[t11]
+  t7 <- b167[t6, t1, t4]
+  t8 <- add((prioset, t4))
+  t9 <- load8((t8))
+  t10 <- primUgt((t4, 0))
+  if t10
+    then b265[t4, t9]
+    else b187[t9]
 
 -----------------------------------------
 -- not recursive
