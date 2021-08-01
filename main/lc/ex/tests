@@ -22,12 +22,14 @@ exec: prioset-mb  ./milc prioset.lc -m -pcosoboro
 exec: prioset-m   ./milc prioset.lc -m -pcosoro
 exec: prioset-l   ./milc prioset.lc -l -pcosoro --llvm-main=main
 
-exec: manti1      ./milc -m -pcosoboro manti1.lc
-exec: manti1a     ./milc -m -pcosoboro manti1a.lc
-exec: manti1b     ./milc -m -pcosoboro manti1b.lc
-exec: manti2      ./milc -m -pcosoboro manti2.lc
-exec: manti3      ./milc -m -pcosoboro manti3.lc
-exec: manti4      ./milc -m -pcosoboro manti4.lc
+exec: manti1            ./milc -m -pcosoboro manti1.lc
+exec: manti1-wordspec   ./milc -m -pcosoboro manti1.lc -Owordspec
+exec: manti1a           ./milc -m -pcosoboro manti1a.lc
+exec: manti1b           ./milc -m -pcosoboro manti1b.lc
+exec: manti2            ./milc -m -pcosoboro manti2.lc
+exec: manti2-wordspec   ./milc -m -pcosoboro manti2.lc -Owordspec
+exec: manti3            ./milc -m -pcosoboro manti3.lc
+exec: manti4            ./milc -m -pcosoboro manti4.lc
 
 exec: cfgtests    ./milc -l cfgtest.lc -pcosboros
 

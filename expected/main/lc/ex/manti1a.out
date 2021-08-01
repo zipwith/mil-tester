@@ -9,22 +9,22 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b106 :: [Bit 32] >>= [Unit]
-b106[t0] =
+b107 :: [Bit 32] >>= [Unit]
+b107[t0] =
   t1 <- intToStr((t0))
   [] <- print((t1))
   return Unit
 
 -----------------------------------------
 -- recursive
-b107 :: [Bit 32, Bit 32] >>= [Unit]
-b107[t0, t1] =
+b108 :: [Bit 32, Bit 32] >>= [Unit]
+b108[t0, t1] =
   t2 <- add((t1, -1))
   t3 <- mul((t0, t1))
   t4 <- primEq((t2, 0))
   if t4
-    then b106[t3]
-    else b107[t3, t2]
+    then b107[t3]
+    else b108[t3, t2]
 
 -----------------------------------------
 -- not recursive
@@ -32,8 +32,8 @@ entrypoint main :: [Bit 32, Bit 32] >>= [Unit]
 main[t0, t1] =
   t2 <- primEq((t0, 0))
   if t2
-    then b106[t1]
-    else b107[t1, t0]
+    then b107[t1]
+    else b108[t1, t0]
 
 -----------------------------------------
 -- Entrypoints: main

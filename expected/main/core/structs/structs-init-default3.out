@@ -14,19 +14,13 @@ s <- area S aligned 4
 
 -----------------------------------------
 -- not recursive
-b16 :: [] >>= [Unit]
-b16[] =
+initialize :: [] >>= [Unit]
+initialize[] =
   t0 <- store32((s, 12))
   t1 <- add((s, 4))
   t2 <- store32((t1, 17))
   t3 <- add((s, 8))
   store32((t3, 93))
-
------------------------------------------
--- not recursive
-initialize :: [] >>= [Unit]
-initialize[] =
-  b16[]
 
 -----------------------------------------
 -- Entrypoints: s

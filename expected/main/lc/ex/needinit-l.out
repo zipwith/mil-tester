@@ -28,45 +28,25 @@ b79:
   ret i32 %r4
 }
 
-define internal i32 @func_b106() {
-  br label %b106
-
-b106:
-  %r1 = call i32 @func_b99(i32 14, i32 0)
-  %r2 = call i32 @func_b99(i32 13, i32 0)
-  %r0 = add i32 %r1, %r2
-  ret i32 %r0
-}
-
-define internal i32 @func_b107() {
-  br label %b107
-
-b107:
-  %r1 = call i32 @func_b99(i32 11, i32 0)
-  %r2 = call i32 @func_b99(i32 10, i32 0)
-  %r0 = add i32 %r1, %r2
-  ret i32 %r0
-}
-
 define i32 @fib(i32 %r0) {
   br label %fib
 
 fib:
-  br label %c12
+  br label %c8
 
-c12:
+c8:
   %r1 = tail call i32 @func_b99(i32 %r0, i32 0)
   ret i32 %r1
 }
 
 define void @initialize() {
-  %r0 = call i32 @func_b106()
+  %r0 = call i32 @func_b99(i32 15, i32 0)
   store i32 %r0, i32* @fib15
-  %r1 = call i32 @func_b107()
+  %r1 = call i32 @func_b99(i32 12, i32 0)
   store i32 %r1, i32* @fib12
-  br label %b108
+  br label %b100
 
-b108:
+b100:
   ret void
 }
 

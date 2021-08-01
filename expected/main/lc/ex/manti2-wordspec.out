@@ -1,0 +1,19 @@
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [] >>= [Unit]
+main[] =
+  t0 <- intToStr((44))
+  [] <- print((t0))
+  return Unit
+
+-----------------------------------------
+-- Entrypoints: main

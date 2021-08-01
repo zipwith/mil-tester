@@ -49,10 +49,10 @@ b88[t0, t1, t2, t3] =
   t7 <- store8((t6, t0))
   t8 <- primUgt((t2, 0))
   if t8
-    then b265[t2, t3]
+    then b247[t2, t3]
     else b187[t3]
-b265 :: [Bit 32, Bit 32] >>= [Unit]
-b265[t0, t1] =
+b247 :: [Bit 32, Bit 32] >>= [Unit]
+b247[t0, t1] =
   t2 <- add((t0, -1))
   t3 <- lshr((t2, 1))
   t4 <- add((prioset, t3))
@@ -72,7 +72,7 @@ insertPriority[t0] =
   t4 <- and((t1, 255))
   t5 <- primUgt((t4, 0))
   if t5
-    then b265[t4, t0]
+    then b247[t4, t0]
     else b187[t0]
 
 -----------------------------------------
@@ -117,18 +117,18 @@ b105[t0, t1, t2, t3, t4, t5, t6] =
   if t7
     then b78[t1, t4]
     else b101[t6, t5, t4, t3, t2, t1, t0]
-b273 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
-b273[t0, t1, t2, t3] =
+b255 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
+b255[t0, t1, t2, t3] =
   t4 <- add((prioset, t0))
   t5 <- load8((t4))
   t6 <- mul((t1, 2))
   t7 <- add((t6, 2))
   t8 <- primUle((t7, t2))
   if t8
-    then b268[t7, t2, t3, t1, t0, t5]
+    then b250[t7, t2, t3, t1, t0, t5]
     else b110[t5, t0, t1, t3]
-b268 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
-b268[t0, t1, t2, t3, t4, t5] =
+b250 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
+b250[t0, t1, t2, t3, t4, t5] =
   t6 <- add((prioset, t0))
   t7 <- load8((t6))
   t8 <- primUgt((t2, t5))
@@ -154,7 +154,7 @@ b167[t0, t1, t2] =
   t4 <- add((t3, 1))
   t5 <- primUle((t4, t0))
   if t5
-    then b273[t4, t2, t0, t1]
+    then b255[t4, t2, t0, t1]
     else b78[t1, t2]
 
 -----------------------------------------
@@ -170,7 +170,7 @@ b120[t0, t1, t2] =
   t9 <- load8((t8))
   t10 <- primUgt((t4, 0))
   if t10
-    then b265[t4, t9]
+    then b247[t4, t9]
     else b187[t9]
 
 -----------------------------------------
@@ -224,17 +224,17 @@ b194[] =
 
 -----------------------------------------
 -- recursive
-b231 :: [Bit 32, Bit 32] >>= [Unit]
-b231[t0, t1] =
+b230 :: [Bit 32, Bit 32] >>= [Unit]
+b230[t0, t1] =
   t2 <- store8((t0, 0))
   t3 <- add((t1, 1))
   t4 <- add((t0, 1))
-  b230[t4, t3]
-b230 :: [Bit 32, Bit 32] >>= [Unit]
-b230[t0, t1] =
+  b229[t4, t3]
+b229 :: [Bit 32, Bit 32] >>= [Unit]
+b229[t0, t1] =
   t2 <- primUlt((t1, 256))
   if t2
-    then b231[t0, t1]
+    then b230[t0, t1]
     else b194[]
 
 -----------------------------------------
@@ -242,12 +242,8 @@ b230[t0, t1] =
 initialize :: [] >>= [Unit]
 initialize[] =
   t0 <- store32((priosetSize, 0))
-  t1 <- store8((prioset, 0))
-  t2 <- add((prioset, 1))
-  t3 <- b230[t2, 1]
-  t4 <- store8((prioidx, 0))
-  t5 <- add((prioidx, 1))
-  b230[t5, 1]
+  t1 <- b229[prioset, 0]
+  b229[prioidx, 0]
 
 -----------------------------------------
 -- Entrypoints: clearPrioset insertPriority removePriority highestPriority1

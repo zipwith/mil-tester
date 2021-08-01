@@ -9,11 +9,28 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
+b105 :: [Bit 32] >>= [Unit]
+b105[t0] =
+  t1 <- intToStr((t0))
+  [] <- print((t1))
+  return Unit
+
+-----------------------------------------
+-- recursive
+b104 :: [Bit 32, Bit 32] >>= [Unit]
+b104[t0, t1] =
+  t2 <- add((t1, -1))
+  t3 <- mul((t0, t1))
+  t4 <- primEq((t2, 0))
+  if t4
+    then b105[t3]
+    else b104[t3, t2]
+
+-----------------------------------------
+-- not recursive
 entrypoint main :: [] >>= [Unit]
 main[] =
-  t0 <- intToStr((3628800))
-  [] <- print((t0))
-  return Unit
+  b104[1, 10]
 
 -----------------------------------------
 -- Entrypoints: main

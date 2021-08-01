@@ -10,15 +10,22 @@ data Unit
 
 -----------------------------------------
 -- not recursive
+b162 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Unit]
+b162[t0, t1, t2, t3, t4, t5, t6, t7, t8] =
+  t9 <- add((t8, t1))
+  t10 <- store32((t9, t0))
+  t11 <- add((t8, t3))
+  t12 <- store32((t11, t2))
+  t13 <- add((t8, t5))
+  t14 <- store32((t13, t4))
+  t15 <- add((t8, t7))
+  store32((t15, t6))
+
+-----------------------------------------
+-- not recursive
 entrypoint init :: [Bit 32] >>= [Unit]
 init[t0] =
-  t1 <- store32((t0, 10))
-  t2 <- add((t0, 4))
-  t3 <- store32((t2, 9))
-  t4 <- add((t0, 8))
-  t5 <- store32((t4, 19))
-  t6 <- add((t0, 12))
-  store32((t6, 94))
+  b162[10, 0, 9, 4, 19, 8, 94, 12, t0]
 
 -----------------------------------------
 -- not recursive
@@ -151,20 +158,8 @@ display[t0] =
 -- not recursive
 initialize :: [] >>= [Unit]
 initialize[] =
-  t0 <- store32((s1, 10))
-  t1 <- add((s1, 4))
-  t2 <- store32((t1, 9))
-  t3 <- add((s1, 8))
-  t4 <- store32((t3, 19))
-  t5 <- add((s1, 12))
-  t6 <- store32((t5, 94))
-  t7 <- store32((s2, 10))
-  t8 <- add((s2, 4))
-  t9 <- store32((t8, 9))
-  t10 <- add((s2, 8))
-  t11 <- store32((t10, 19))
-  t12 <- add((s2, 12))
-  store32((t12, 94))
+  t0 <- b162[10, 0, 9, 4, 19, 8, 94, 12, s1]
+  b162[10, 0, 9, 4, 19, 8, 94, 12, s2]
 
 -----------------------------------------
 -- Entrypoints: init readX readY readZ readT writeX writeY writeZ writeT main display

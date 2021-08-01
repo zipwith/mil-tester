@@ -37,9 +37,24 @@ b97[] =
 
 -----------------------------------------
 -- recursive
+b101 :: [Bit 32, Bit 32] >>= [Unit]
+b101[t0, t1] =
+  t2 <- store32((t0, 0))
+  t3 <- add((t1, 1))
+  t4 <- add((t0, 4))
+  b100[t4, t3]
+b100 :: [Bit 32, Bit 32] >>= [Unit]
+b100[t0, t1] =
+  t2 <- primUlt((t1, 64))
+  if t2
+    then b101[t0, t1]
+    else b97[]
+
+-----------------------------------------
+-- recursive
 b103 :: [Bit 32, Bit 32] >>= [Unit]
 b103[t0, t1] =
-  t2 <- store32((t0, 0))
+  t2 <- store32((t0, t1))
   t3 <- add((t1, 1))
   t4 <- add((t0, 4))
   b102[t4, t3]
@@ -51,30 +66,11 @@ b102[t0, t1] =
     else b97[]
 
 -----------------------------------------
--- recursive
-b107 :: [Bit 32, Bit 32] >>= [Unit]
-b107[t0, t1] =
-  t2 <- store32((t0, t1))
-  t3 <- add((t1, 1))
-  t4 <- add((t0, 4))
-  b106[t4, t3]
-b106 :: [Bit 32, Bit 32] >>= [Unit]
-b106[t0, t1] =
-  t2 <- primUlt((t1, 64))
-  if t2
-    then b107[t0, t1]
-    else b97[]
-
------------------------------------------
 -- not recursive
 initialize :: [] >>= [Unit]
 initialize[] =
-  t0 <- store32((nums, 0))
-  t1 <- add((nums, 4))
-  t2 <- b102[t1, 1]
-  t3 <- store32((nums1, 0))
-  t4 <- add((nums1, 4))
-  b106[t4, 1]
+  t0 <- b100[nums, 0]
+  b102[nums1, 0]
 
 -----------------------------------------
 -- Entrypoints: ns ns1

@@ -7,7 +7,19 @@ initialize:
   br label %main
 
 main:
-  call void @printWord(i32 144)
+  br label %b107
+
+b107:
+  %r4 = phi i32 [0, %main], [%r5, %b107]
+  %r5 = phi i32 [1, %main], [%r3, %b107]
+  %r2 = phi i32 [12, %main], [%r1, %b107]
+  %r3 = add i32 %r4, %r5
+  %r1 = add i32 %r2, -1
+  %r0 = icmp eq i32 %r1, 0
+  br i1 %r0, label %b76, label %b107
+
+b76:
+  call void @printWord(i32 %r5)
   ret void
 }
 
