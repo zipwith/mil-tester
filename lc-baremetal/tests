@@ -20,24 +20,24 @@ exec: switching-l ./milc lc-baremetal/kernel.milc -i../lc-baremetal/switching-lc
 exec: untyped-l   ./milc lc-baremetal/kernel.milc -i../lc-baremetal/calc-untyped/kernel    kernel.llc -l
 
 ----
-exec: serial-m    ./milc lc-baremetal/hello.milc -i../lc-baremetal/serial-lc hello.llc  -m
+exec: serial-m    ./milc lc-baremetal/hello.milc -i../lc-baremetal/serial-lc hello.llc  -m -gactual/lc-baremetal/serial.dot
 
 ----
-exec: hello-m     ./milc lc-baremetal/hello.milc -i../lc-baremetal/hello-lc  hello.llc  -m
+exec: hello-m     ./milc lc-baremetal/hello.milc -i../lc-baremetal/hello-lc  hello.llc  -m -gactual/lc-baremetal/hello.dot
 
 ----
-exec: winhello-m  ./milc lc-baremetal/hello.milc -i../lc-baremetal/winhello  winhello.llc -m
+exec: winhello-m  ./milc lc-baremetal/hello.milc -i../lc-baremetal/winhello  winhello.llc -m -gactual/lc-baremetal/winhello.dot
 
 ----
-exec: ming-m      ./milc lc-baremetal/kernel.milc -i../lc-baremetal/example-mimg-lc/kernel kernel.llc -m
+exec: ming-m      ./milc lc-baremetal/kernel.milc -i../lc-baremetal/example-mimg-lc/kernel kernel.llc -m -gactual/lc-baremetal/mimg.dot
 
 ----
-exec: idt-m       ./milc lc-baremetal/kernel.milc -i../lc-baremetal/example-idt-lc/kernel  kernel.llc -m
+exec: idt-m       ./milc lc-baremetal/kernel.milc -i../lc-baremetal/example-idt-lc/kernel  kernel.llc -m -gactual/lc-baremetal/idt.dot
 
 ----
-exec: switching-m ./milc lc-baremetal/kernel.milc -i../lc-baremetal/switching-lc/kernel    kernel.llc -m
+exec: switching-m ./milc lc-baremetal/kernel.milc -i../lc-baremetal/switching-lc/kernel    kernel.llc -m -gactual/lc-baremetal/switching.dot
 
 ----
-exec: untyped-m   ./milc lc-baremetal/kernel.milc -i../lc-baremetal/calc-untyped/kernel    kernel.llc -m
+exec: untyped-m   ./milc lc-baremetal/kernel.milc -i../lc-baremetal/calc-untyped/kernel    kernel.llc -m -gactual/lc-baremetal/untyped.dot
 
 ----

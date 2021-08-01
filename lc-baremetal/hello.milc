@@ -1,6 +1,5 @@
 -v
 -i../lc-baremetal/libs-lc
--i../lc-baremetal/serial-lc
 --llvm-main=hello
 --mil-main=hello
--pcsoro
+-pcsoros

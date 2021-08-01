@@ -1,0 +1,160 @@
+Loading source files ...
+Running type checker ...
+Using passes "csoros":
+Running constructor function rewrite ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running representation transformation ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+*** llvm output:
+@str.0 = private unnamed_addr constant [14 x i8] c"\0ahhhh   hhhh\0a\00"
+
+@str0 = internal alias i8, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @str.0, i32 0, i32 0)
+
+@str.1 = private unnamed_addr constant [27 x i8] c" hh    hhh        lll lll\0a\00"
+
+@str1 = internal alias i8, i8* getelementptr inbounds ([27 x i8], [27 x i8]* @str.1, i32 0, i32 0)
+
+@str.2 = private unnamed_addr constant [33 x i8] c" hh    hh   eeee  ll  ll   oooo\0a\00"
+
+@str2 = internal alias i8, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @str.2, i32 0, i32 0)
+
+@str.3 = private unnamed_addr constant [34 x i8] c" hhhhhhhh  ee  ee ll  ll  oo  oo\0a\00"
+
+@str3 = internal alias i8, i8* getelementptr inbounds ([34 x i8], [34 x i8]* @str.3, i32 0, i32 0)
+
+@str.4 = private unnamed_addr constant [34 x i8] c" hh    hh eeeeeee ll  ll oo   oo\0a\00"
+
+@str4 = internal alias i8, i8* getelementptr inbounds ([34 x i8], [34 x i8]* @str.4, i32 0, i32 0)
+
+@str.5 = private unnamed_addr constant [33 x i8] c" hh    hh  ee     ll  ll oo  oo\0a\00"
+
+@str5 = internal alias i8, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @str.5, i32 0, i32 0)
+
+@str.6 = private unnamed_addr constant [32 x i8] c"hhh   hhhh  eeee  ll  ll  oooo\0a\00"
+
+@str6 = internal alias i8, i8* getelementptr inbounds ([32 x i8], [32 x i8]* @str.6, i32 0, i32 0)
+
+@str.7 = private unnamed_addr constant [2 x i8] c"\0a\00"
+
+@str7 = internal alias i8, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @str.7, i32 0, i32 0)
+
+@str.8 = private unnamed_addr constant [39 x i8] c"    S e r i a l   P o r t   W o r l d\0a\00"
+
+@str8 = internal alias i8, i8* getelementptr inbounds ([39 x i8], [39 x i8]* @str.8, i32 0, i32 0)
+
+@str.9 = private unnamed_addr constant [28 x i8] c"\0a          from LC and MIL\0a\00"
+
+@str9 = internal alias i8, i8* getelementptr inbounds ([28 x i8], [28 x i8]* @str.9, i32 0, i32 0)
+
+declare i32 @inb(i32)
+
+declare void @outb(i32, i32)
+
+define internal void @func_b251(i32 %r0) {
+  br label %b251
+
+b251:
+  %r4 = phi i32 [%r0, %0], [%r4, %b251]
+  %r3 = call i32 @inb(i32 1021)
+  %r2 = and i32 %r3, 96
+  %r1 = icmp eq i32 %r2, 0
+  br i1 %r1, label %b251, label %b322
+
+b322:
+  tail call void @outb(i32 1016, i32 %r4)
+  ret void
+}
+
+define internal void @func_b327(i32 %r0) {
+  br label %b327
+
+b327:
+  %r5 = phi i32 [%r0, %0], [%r6, %b329], [%r6, %b332]
+  %r3 = inttoptr i32 %r5 to i8*
+  %r4 = load i8, i8* %r3
+  %r2 = zext i8 %r4 to i32
+  %r1 = icmp eq i32 %r2, 0
+  br i1 %r1, label %b188, label %b329
+
+b188:
+  ret void
+
+b329:
+  %r6 = add i32 %r5, 1
+  call void @func_b251(i32 %r2)
+  %r7 = icmp eq i32 %r2, 10
+  br i1 %r7, label %b332, label %b327
+
+b332:
+  call void @func_b251(i32 13)
+  br label %b327
+}
+
+define void @hello() {
+  br label %initialize
+
+initialize:
+  br label %hello
+
+hello:
+  br label %b274
+
+b274:
+  call void @func_b327(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str8 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str9 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b327(i32 ptrtoint(i8* @str8 to i32))
+  %r2 = inttoptr i32 ptrtoint(i8* @str9 to i32) to i8*
+  %r3 = load i8, i8* %r2
+  %r1 = zext i8 %r3 to i32
+  %r0 = icmp eq i32 %r1, 0
+  br i1 %r0, label %b188, label %b329
+
+b188:
+  ret void
+
+b329:
+  %r5 = phi i32 [%r1, %b274], [%r9, %b327]
+  %r7 = phi i32 [ptrtoint(i8* @str9 to i32), %b274], [%r8, %b327]
+  %r6 = add i32 %r7, 1
+  call void @func_b251(i32 %r5)
+  %r4 = icmp eq i32 %r5, 10
+  br i1 %r4, label %b332, label %b327
+
+b332:
+  call void @func_b251(i32 13)
+  br label %b327
+
+b327:
+  %r8 = phi i32 [%r6, %b329], [%r6, %b332]
+  %r11 = inttoptr i32 %r8 to i8*
+  %r12 = load i8, i8* %r11
+  %r9 = zext i8 %r12 to i32
+  %r10 = icmp eq i32 %r9, 0
+  br i1 %r10, label %b188, label %b329
+}
+
+Success!

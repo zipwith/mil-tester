@@ -1,0 +1,165 @@
+Loading source files ...
+Running type checker ...
+Using passes "csoros":
+Running constructor function rewrite ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running representation transformation ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+*** MIL output file:
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+str0 :: Bit 32
+str0 <- "\nhhhh   hhhh\n"
+
+-----------------------------------------
+-- not recursive
+str1 :: Bit 32
+str1 <- " hh    hhh        lll lll\n"
+
+-----------------------------------------
+-- not recursive
+str2 :: Bit 32
+str2 <- " hh    hh   eeee  ll  ll   oooo\n"
+
+-----------------------------------------
+-- not recursive
+str3 :: Bit 32
+str3 <- " hhhhhhhh  ee  ee ll  ll  oo  oo\n"
+
+-----------------------------------------
+-- not recursive
+str4 :: Bit 32
+str4 <- " hh    hh eeeeeee ll  ll oo   oo\n"
+
+-----------------------------------------
+-- not recursive
+str5 :: Bit 32
+str5 <- " hh    hh  ee     ll  ll oo  oo\n"
+
+-----------------------------------------
+-- not recursive
+str6 :: Bit 32
+str6 <- "hhh   hhhh  eeee  ll  ll  oooo\n"
+
+-----------------------------------------
+-- not recursive
+str7 :: Bit 32
+str7 <- "\n"
+
+-----------------------------------------
+-- not recursive
+b322 :: [Bit 32] >>= [Unit]
+b322[t0] =
+  outb((1016, t0))
+
+-----------------------------------------
+-- recursive
+b251 :: [Bit 32] >>= [Unit]
+b251[t0] =
+  t1 <- inb((1021))
+  t2 <- and((t1, 96))
+  t3 <- primEq((t2, 0))
+  if t3
+    then b251[t0]
+    else b322[t0]
+
+-----------------------------------------
+-- not recursive
+Unit :: Unit
+Unit <-
+  Unit()
+
+-----------------------------------------
+-- not recursive
+b188 :: [] >>= [Unit]
+b188[] =
+  return Unit
+
+-----------------------------------------
+-- recursive
+b332 :: [Bit 32, Bit 32] >>= [Unit]
+b332[t0, t1] =
+  t2 <- b251[13]
+  b327[t1]
+b329 :: [Bit 32, Bit 32] >>= [Unit]
+b329[t0, t1] =
+  t2 <- add((t1, 1))
+  t3 <- b251[t0]
+  t4 <- primEq((t0, 10))
+  if t4
+    then b332[t0, t2]
+    else b327[t2]
+b327 :: [Bit 32] >>= [Unit]
+b327[t0] =
+  t1 <- load8((t0))
+  t2 <- primEq((t1, 0))
+  if t2
+    then b188[]
+    else b329[t1, t0]
+
+-----------------------------------------
+-- not recursive
+str8 :: Bit 32
+str8 <- "    S e r i a l   P o r t   W o r l d\n"
+
+-----------------------------------------
+-- not recursive
+str9 :: Bit 32
+str9 <- "\n          from LC and MIL\n"
+
+-----------------------------------------
+-- not recursive
+b274 :: [] >>= [Unit]
+b274[] =
+  t0 <- b327[str0]
+  t1 <- b327[str1]
+  t2 <- b327[str2]
+  t3 <- b327[str3]
+  t4 <- b327[str4]
+  t5 <- b327[str5]
+  t6 <- b327[str6]
+  t7 <- b327[str7]
+  t8 <- b327[str8]
+  t9 <- b327[str9]
+  t10 <- b327[str0]
+  t11 <- b327[str1]
+  t12 <- b327[str2]
+  t13 <- b327[str3]
+  t14 <- b327[str4]
+  t15 <- b327[str5]
+  t16 <- b327[str6]
+  t17 <- b327[str7]
+  t18 <- b327[str8]
+  t19 <- load8((str9))
+  t20 <- primEq((t19, 0))
+  if t20
+    then b188[]
+    else b329[t19, str9]
+
+-----------------------------------------
+-- not recursive
+hello :: [] >>= [Unit]
+hello[] =
+  b274[]
+
+-----------------------------------------
+-- not recursive
+initialize :: [] >>= [Unit]
+initialize[] =
+  hello[]
+
+-----------------------------------------
+-- Entrypoints:
+Writing MIL code GraphViz output to "actual/lc-baremetal/serial.dot" ...
+Success!

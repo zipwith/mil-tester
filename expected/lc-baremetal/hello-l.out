@@ -1,0 +1,494 @@
+Loading source files ...
+Running type checker ...
+Using passes "csoros":
+Running constructor function rewrite ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running representation transformation ...
+Running type checker ...
+Running optimizer ...
+Running type checker ...
+Running specializer ...
+Running type checker ...
+*** llvm output:
+@raw.0 = internal global [1 x i8] zeroinitializer, align 1
+
+@xpos = internal alias i8, i8* bitcast([1 x i8]* @raw.0 to i8*)
+
+@raw.1 = internal global [1 x i8] zeroinitializer, align 1
+
+@ypos = internal alias i8, i8* bitcast([1 x i8]* @raw.1 to i8*)
+
+@str.2 = private unnamed_addr constant [14 x i8] c"\0ahhhh   hhhh\0a\00"
+
+@str0 = internal alias i8, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @str.2, i32 0, i32 0)
+
+@str.3 = private unnamed_addr constant [27 x i8] c" hh    hhh        lll lll\0a\00"
+
+@str1 = internal alias i8, i8* getelementptr inbounds ([27 x i8], [27 x i8]* @str.3, i32 0, i32 0)
+
+@str.4 = private unnamed_addr constant [33 x i8] c" hh    hh   eeee  ll  ll   oooo\0a\00"
+
+@str2 = internal alias i8, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @str.4, i32 0, i32 0)
+
+@str.5 = private unnamed_addr constant [34 x i8] c" hhhhhhhh  ee  ee ll  ll  oo  oo\0a\00"
+
+@str3 = internal alias i8, i8* getelementptr inbounds ([34 x i8], [34 x i8]* @str.5, i32 0, i32 0)
+
+@str.6 = private unnamed_addr constant [34 x i8] c" hh    hh eeeeeee ll  ll oo   oo\0a\00"
+
+@str4 = internal alias i8, i8* getelementptr inbounds ([34 x i8], [34 x i8]* @str.6, i32 0, i32 0)
+
+@str.7 = private unnamed_addr constant [33 x i8] c" hh    hh  ee     ll  ll oo  oo\0a\00"
+
+@str5 = internal alias i8, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @str.7, i32 0, i32 0)
+
+@str.8 = private unnamed_addr constant [32 x i8] c"hhh   hhhh  eeee  ll  ll  oooo\0a\00"
+
+@str6 = internal alias i8, i8* getelementptr inbounds ([32 x i8], [32 x i8]* @str.8, i32 0, i32 0)
+
+@str.9 = private unnamed_addr constant [2 x i8] c"\0a\00"
+
+@str7 = internal alias i8, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @str.9, i32 0, i32 0)
+
+@str.10 = private unnamed_addr constant [29 x i8] c"    K e r n e l   W o r l d\0a\00"
+
+@str8 = internal alias i8, i8* getelementptr inbounds ([29 x i8], [29 x i8]* @str.10, i32 0, i32 0)
+
+@str.11 = private unnamed_addr constant [24 x i8] c"\0a      from LC and MIL\0a\00"
+
+@str9 = internal alias i8, i8* getelementptr inbounds ([24 x i8], [24 x i8]* @str.11, i32 0, i32 0)
+
+define internal void @func_b357(i32 %r0) {
+  br label %b357
+
+b357:
+  %r8 = phi i32 [%r0, %0], [%r10, %b536]
+  %r9 = mul i32 %r8, 160
+  %r4 = add i32 %r9, 753664
+  %r7 = shl i32 %r8, 8
+  %r6 = add i32 %r7, 2560
+  %r5 = and i32 %r6, 65280
+  %r2 = or i32 %r5, 32
+  %r1 = inttoptr i32 %r4 to i16*
+  %r3 = trunc i32 %r2 to i16
+  store i16 %r3, i16* %r1
+  br label %b534
+
+b534:
+  %r13 = phi i32 [1, %b357], [%r12, %b534]
+  %r22 = phi i32 [%r8, %b357], [%r22, %b534]
+  %r24 = mul i32 %r22, 160
+  %r25 = mul i32 %r13, 2
+  %r23 = add i32 %r24, %r25
+  %r17 = add i32 %r23, 753664
+  %r21 = add i32 %r22, %r13
+  %r20 = shl i32 %r21, 8
+  %r19 = add i32 %r20, 2560
+  %r18 = and i32 %r19, 65280
+  %r15 = or i32 %r18, 32
+  %r14 = inttoptr i32 %r17 to i16*
+  %r16 = trunc i32 %r15 to i16
+  store i16 %r16, i16* %r14
+  %r12 = add i32 %r13, 1
+  %r11 = icmp ule i32 %r12, 79
+  br i1 %r11, label %b534, label %b536
+
+b536:
+  %r10 = add i32 %r22, 1
+  %r26 = icmp ule i32 %r10, 24
+  br i1 %r26, label %b357, label %b115
+
+b115:
+  ret void
+}
+
+define internal void @func_b561(i32 %r0, i32 %r1, i32 %r2) {
+  br label %b561
+
+b561:
+  %r7 = phi i32 [%r0, %0], [1, %b552]
+  %r6 = phi i32 [%r1, %0], [%r8, %b552]
+  %r5 = phi i32 [%r2, %0], [24, %b552]
+  %r4 = add i32 %r6, %r7
+  %r3 = icmp ule i32 %r4, %r5
+  br i1 %r3, label %b559, label %b296
+
+b559:
+  %r17 = mul i32 %r4, 160
+  %r15 = add i32 %r17, 753664
+  %r16 = mul i32 %r6, 160
+  %r12 = add i32 %r16, 753664
+  %r13 = inttoptr i32 %r15 to i16*
+  %r14 = load i16, i16* %r13
+  %r10 = zext i16 %r14 to i32
+  %r9 = inttoptr i32 %r12 to i16*
+  %r11 = trunc i32 %r10 to i16
+  store i16 %r11, i16* %r9
+  br label %b552
+
+b296:
+  %r21 = mul i32 %r6, 160
+  %r20 = add i32 %r21, 753664
+  %r18 = inttoptr i32 %r20 to i16*
+  %r19 = trunc i32 2592 to i16
+  store i16 %r19, i16* %r18
+  br label %b545
+
+b552:
+  %r24 = phi i32 [1, %b559], [%r23, %b552]
+  %r35 = phi i32 [%r6, %b559], [%r35, %b552]
+  %r8 = phi i32 [%r4, %b559], [%r8, %b552]
+  %r37 = mul i32 %r8, 160
+  %r34 = mul i32 %r24, 2
+  %r36 = add i32 %r37, %r34
+  %r31 = add i32 %r36, 753664
+  %r33 = mul i32 %r35, 160
+  %r32 = add i32 %r33, %r34
+  %r28 = add i32 %r32, 753664
+  %r29 = inttoptr i32 %r31 to i16*
+  %r30 = load i16, i16* %r29
+  %r26 = zext i16 %r30 to i32
+  %r25 = inttoptr i32 %r28 to i16*
+  %r27 = trunc i32 %r26 to i16
+  store i16 %r27, i16* %r25
+  %r23 = add i32 %r24, 1
+  %r22 = icmp ule i32 %r23, 79
+  br i1 %r22, label %b552, label %b561
+
+b545:
+  %r40 = phi i32 [1, %b296], [%r39, %b545]
+  %r47 = phi i32 [%r6, %b296], [%r47, %b545]
+  %r45 = mul i32 %r47, 160
+  %r46 = mul i32 %r40, 2
+  %r44 = add i32 %r45, %r46
+  %r43 = add i32 %r44, 753664
+  %r41 = inttoptr i32 %r43 to i16*
+  %r42 = trunc i32 2592 to i16
+  store i16 %r42, i16* %r41
+  %r39 = add i32 %r40, 1
+  %r38 = icmp ule i32 %r39, 79
+  br i1 %r38, label %b545, label %b115
+
+b115:
+  ret void
+}
+
+define internal void @func_b480(i32 %r0) {
+  br label %b480
+
+b480:
+  %r5 = phi i32 [%r0, %0], [%r9, %b579], [%r8, %b575], [%r7, %b564], [%r6, %b493]
+  %r3 = inttoptr i32 %r5 to i8*
+  %r4 = load i8, i8* %r3
+  %r2 = zext i8 %r4 to i32
+  %r1 = icmp eq i32 %r2, 0
+  br i1 %r1, label %b115, label %b482
+
+b115:
+  ret void
+
+b482:
+  %r8 = add i32 %r5, 1
+  %r12 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r13 = load i8, i8* %r12
+  %r11 = zext i8 %r13 to i32
+  %r10 = icmp eq i32 %r2, 13
+  br i1 %r10, label %b485, label %b497
+
+b485:
+  %r16 = phi i32 [%r11, %b482], [%r11, %b497], [%r11, %b505]
+  %r19 = phi i32 [%r2, %b482], [%r2, %b497], [%r2, %b505]
+  %r9 = phi i32 [%r8, %b482], [%r8, %b497], [%r8, %b505]
+  %r17 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r18 = trunc i32 0 to i8
+  store i8 %r18, i8* %r17
+  %r15 = add i32 %r16, 1
+  %r14 = icmp ule i32 %r15, 24
+  br i1 %r14, label %b579, label %b581
+
+b497:
+  %r20 = icmp eq i32 %r2, 10
+  br i1 %r20, label %b485, label %b505
+
+b579:
+  %r21 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r22 = trunc i32 %r15 to i8
+  store i8 %r22, i8* %r21
+  br label %b480
+
+b581:
+  %r24 = add i32 0, 1
+  %r23 = icmp ule i32 %r24, 24
+  br i1 %r23, label %b583, label %b489
+
+b505:
+  %r36 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r37 = load i8, i8* %r36
+  %r27 = zext i8 %r37 to i32
+  %r34 = mul i32 %r11, 160
+  %r35 = mul i32 %r27, 2
+  %r33 = add i32 %r34, %r35
+  %r31 = add i32 %r33, 753664
+  %r32 = and i32 %r2, 255
+  %r29 = or i32 %r32, 2560
+  %r28 = inttoptr i32 %r31 to i16*
+  %r30 = trunc i32 %r29 to i16
+  store i16 %r30, i16* %r28
+  %r26 = add i32 %r27, 1
+  %r25 = icmp ule i32 %r26, 79
+  br i1 %r25, label %b575, label %b485
+
+b583:
+  %r44 = mul i32 %r24, 160
+  %r43 = add i32 %r44, 753664
+  %r41 = inttoptr i32 %r43 to i16*
+  %r42 = load i16, i16* %r41
+  %r39 = zext i16 %r42 to i32
+  %r38 = inttoptr i32 753664 to i16*
+  %r40 = trunc i32 %r39 to i16
+  store i16 %r40, i16* %r38
+  br label %b571
+
+b489:
+  %r45 = inttoptr i32 753664 to i16*
+  %r46 = trunc i32 2592 to i16
+  store i16 %r46, i16* %r45
+  br label %b564
+
+b575:
+  %r47 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r48 = trunc i32 %r26 to i8
+  store i8 %r48, i8* %r47
+  br label %b480
+
+b571:
+  %r51 = phi i32 [1, %b583], [%r50, %b571]
+  %r62 = phi i32 [%r24, %b583], [%r62, %b571]
+  %r63 = phi i32 [%r19, %b583], [%r63, %b571]
+  %r6 = phi i32 [%r9, %b583], [%r6, %b571]
+  %r61 = mul i32 %r62, 160
+  %r59 = mul i32 %r51, 2
+  %r60 = add i32 %r61, %r59
+  %r58 = add i32 %r60, 753664
+  %r55 = add i32 %r59, 753664
+  %r56 = inttoptr i32 %r58 to i16*
+  %r57 = load i16, i16* %r56
+  %r53 = zext i16 %r57 to i32
+  %r52 = inttoptr i32 %r55 to i16*
+  %r54 = trunc i32 %r53 to i16
+  store i16 %r54, i16* %r52
+  %r50 = add i32 %r51, 1
+  %r49 = icmp ule i32 %r50, 79
+  br i1 %r49, label %b571, label %b493
+
+b564:
+  %r66 = phi i32 [1, %b489], [%r65, %b564]
+  %r71 = phi i32 [%r19, %b489], [%r71, %b564]
+  %r7 = phi i32 [%r9, %b489], [%r7, %b564]
+  %r70 = mul i32 %r66, 2
+  %r69 = add i32 %r70, 753664
+  %r67 = inttoptr i32 %r69 to i16*
+  %r68 = trunc i32 2592 to i16
+  store i16 %r68, i16* %r67
+  %r65 = add i32 %r66, 1
+  %r64 = icmp ule i32 %r65, 79
+  br i1 %r64, label %b564, label %b480
+
+b493:
+  call void @func_b561(i32 1, i32 %r62, i32 24)
+  br label %b480
+}
+
+define void @hello() {
+  br label %initialize
+
+initialize:
+  %r8 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r9 = trunc i32 0 to i8
+  store i8 %r9, i8* %r8
+  %r6 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r7 = trunc i32 0 to i8
+  store i8 %r7, i8* %r6
+  %r4 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r5 = trunc i32 0 to i8
+  store i8 %r5, i8* %r4
+  %r2 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r3 = trunc i32 0 to i8
+  store i8 %r3, i8* %r2
+  %r0 = inttoptr i32 753664 to i16*
+  %r1 = trunc i32 2592 to i16
+  store i16 %r1, i16* %r0
+  br label %b594
+
+b594:
+  %r12 = phi i32 [1, %initialize], [%r11, %b594]
+  %r20 = mul i32 %r12, 2
+  %r16 = add i32 %r20, 753664
+  %r19 = shl i32 %r12, 8
+  %r18 = add i32 %r19, 2560
+  %r17 = and i32 %r18, 65280
+  %r14 = or i32 %r17, 32
+  %r13 = inttoptr i32 %r16 to i16*
+  %r15 = trunc i32 %r14 to i16
+  store i16 %r15, i16* %r13
+  %r11 = add i32 %r12, 1
+  %r10 = icmp ule i32 %r11, 79
+  br i1 %r10, label %b594, label %b369
+
+b369:
+  call void @func_b357(i32 1)
+  call void @func_b480(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str8 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str9 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b480(i32 ptrtoint(i8* @str8 to i32))
+  %r23 = inttoptr i32 ptrtoint(i8* @str9 to i32) to i8*
+  %r24 = load i8, i8* %r23
+  %r22 = zext i8 %r24 to i32
+  %r21 = icmp eq i32 %r22, 0
+  br i1 %r21, label %b115, label %b482
+
+b115:
+  ret void
+
+b482:
+  %r26 = phi i32 [%r22, %b369], [%r33, %b480]
+  %r31 = phi i32 [ptrtoint(i8* @str9 to i32), %b369], [%r32, %b480]
+  %r30 = add i32 %r31, 1
+  %r28 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r29 = load i8, i8* %r28
+  %r27 = zext i8 %r29 to i32
+  %r25 = icmp eq i32 %r26, 13
+  br i1 %r25, label %b485, label %b497
+
+b485:
+  %r36 = phi i32 [%r27, %b482], [%r27, %b497], [%r27, %b505]
+  %r40 = phi i32 [%r26, %b482], [%r26, %b497], [%r26, %b505]
+  %r39 = phi i32 [%r30, %b482], [%r30, %b497], [%r30, %b505]
+  %r37 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r38 = trunc i32 0 to i8
+  store i8 %r38, i8* %r37
+  %r35 = add i32 %r36, 1
+  %r34 = icmp ule i32 %r35, 24
+  br i1 %r34, label %b579, label %b581
+
+b497:
+  %r41 = icmp eq i32 %r26, 10
+  br i1 %r41, label %b485, label %b505
+
+b579:
+  %r42 = inttoptr i32 ptrtoint(i8* @ypos to i32) to i8*
+  %r43 = trunc i32 %r35 to i8
+  store i8 %r43, i8* %r42
+  br label %b480
+
+b581:
+  %r45 = add i32 0, 1
+  %r44 = icmp ule i32 %r45, 24
+  br i1 %r44, label %b583, label %b489
+
+b505:
+  %r57 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r58 = load i8, i8* %r57
+  %r48 = zext i8 %r58 to i32
+  %r55 = mul i32 %r27, 160
+  %r56 = mul i32 %r48, 2
+  %r54 = add i32 %r55, %r56
+  %r52 = add i32 %r54, 753664
+  %r53 = and i32 %r26, 255
+  %r50 = or i32 %r53, 2560
+  %r49 = inttoptr i32 %r52 to i16*
+  %r51 = trunc i32 %r50 to i16
+  store i16 %r51, i16* %r49
+  %r47 = add i32 %r48, 1
+  %r46 = icmp ule i32 %r47, 79
+  br i1 %r46, label %b575, label %b485
+
+b480:
+  %r32 = phi i32 [%r39, %b579], [%r30, %b575], [%r63, %b564], [%r62, %b493]
+  %r60 = inttoptr i32 %r32 to i8*
+  %r61 = load i8, i8* %r60
+  %r33 = zext i8 %r61 to i32
+  %r59 = icmp eq i32 %r33, 0
+  br i1 %r59, label %b115, label %b482
+
+b583:
+  %r70 = mul i32 %r45, 160
+  %r69 = add i32 %r70, 753664
+  %r67 = inttoptr i32 %r69 to i16*
+  %r68 = load i16, i16* %r67
+  %r65 = zext i16 %r68 to i32
+  %r64 = inttoptr i32 753664 to i16*
+  %r66 = trunc i32 %r65 to i16
+  store i16 %r66, i16* %r64
+  br label %b571
+
+b489:
+  %r71 = inttoptr i32 753664 to i16*
+  %r72 = trunc i32 2592 to i16
+  store i16 %r72, i16* %r71
+  br label %b564
+
+b575:
+  %r73 = inttoptr i32 ptrtoint(i8* @xpos to i32) to i8*
+  %r74 = trunc i32 %r47 to i8
+  store i8 %r74, i8* %r73
+  br label %b480
+
+b571:
+  %r77 = phi i32 [1, %b583], [%r76, %b571]
+  %r88 = phi i32 [%r45, %b583], [%r88, %b571]
+  %r89 = phi i32 [%r40, %b583], [%r89, %b571]
+  %r62 = phi i32 [%r39, %b583], [%r62, %b571]
+  %r87 = mul i32 %r88, 160
+  %r85 = mul i32 %r77, 2
+  %r86 = add i32 %r87, %r85
+  %r84 = add i32 %r86, 753664
+  %r81 = add i32 %r85, 753664
+  %r82 = inttoptr i32 %r84 to i16*
+  %r83 = load i16, i16* %r82
+  %r79 = zext i16 %r83 to i32
+  %r78 = inttoptr i32 %r81 to i16*
+  %r80 = trunc i32 %r79 to i16
+  store i16 %r80, i16* %r78
+  %r76 = add i32 %r77, 1
+  %r75 = icmp ule i32 %r76, 79
+  br i1 %r75, label %b571, label %b493
+
+b564:
+  %r92 = phi i32 [1, %b489], [%r91, %b564]
+  %r97 = phi i32 [%r40, %b489], [%r97, %b564]
+  %r63 = phi i32 [%r39, %b489], [%r63, %b564]
+  %r96 = mul i32 %r92, 2
+  %r95 = add i32 %r96, 753664
+  %r93 = inttoptr i32 %r95 to i16*
+  %r94 = trunc i32 2592 to i16
+  store i16 %r94, i16* %r93
+  %r91 = add i32 %r92, 1
+  %r90 = icmp ule i32 %r91, 79
+  br i1 %r90, label %b564, label %b480
+
+b493:
+  call void @func_b561(i32 1, i32 %r88, i32 24)
+  br label %b480
+}
+
+Success!
