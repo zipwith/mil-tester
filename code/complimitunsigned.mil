@@ -1,0 +1,33 @@
+-- ends in T: should return true  (for unsigned, or for signed if --32)
+-- ends in F: should return false (for unsigned, or for signed if --32)
+-- ends in C: should perform comparison
+
+entrypoint bule1T, bule2C, bule3C, bule4T
+entrypoint bult1C, bult2F, bult3F, bult4C
+entrypoint buge1C, buge2T, buge3T, buge4C
+entrypoint bugt1F, bugt2C, bugt3C, bugt4F
+
+entrypoint umin, umax
+umin <- return 0
+umax <- not((umin))
+
+bule1T[x] = primUle((umin, x))
+bule2C[x] = primUle((x, umin))
+bule3C[x] = primUle((umax, x))
+bule4T[x] = primUle((x, umax))
+
+bult1C[x] = primUlt((umin, x))
+bult2F[x] = primUlt((x, umin))
+bult3F[x] = primUlt((umax, x))
+bult4C[x] = primUlt((x, umax))
+
+buge1C[x] = primUge((umin, x))
+buge2T[x] = primUge((x, umin))
+buge3T[x] = primUge((umax, x))
+buge4C[x] = primUge((x, umax))
+
+bugt1F[x] = primUgt((umin, x))
+bugt2C[x] = primUgt((x, umin))
+bugt3C[x] = primUgt((umax, x))
+bugt4F[x] = primUgt((x, umax))
+

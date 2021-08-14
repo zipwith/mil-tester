@@ -236,3 +236,21 @@ entrypoint foo1
 primitive foo1 impure {} [] :: [Word, Word] >>= [Word]
 
 -------
+exec: comps-limit-unsigned-32     ./milc complimitunsigned.mil --32 -m
+
+-------
+exec: comps-limit-unsigned-64     ./milc complimitunsigned.mil --64 -m
+
+-------
+exec: comps-limit-signed-32-32    ./milc complimitsigned32.mil --32 -m
+
+-------
+exec: comps-limit-signed-32-64    ./milc complimitsigned32.mil --64 -m
+
+-------
+exec: comps-limit-signed-64-32    ./milc complimitsigned64.mil --32 -m
+
+-------
+exec: comps-limit-signed-64-64    ./milc complimitsigned64.mil --64 -m
+
+-------

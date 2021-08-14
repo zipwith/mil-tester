@@ -1,0 +1,110 @@
+-----------------------------------------
+-- not recursive
+entrypoint smax :: Bit 32
+smax <-
+  return 2147483647
+
+-----------------------------------------
+-- not recursive
+entrypoint smin :: Bit 32
+smin <-
+  return -2147483648
+
+-----------------------------------------
+-- not recursive
+entrypoint bsgt4F :: [Bit 32] >>= [Bit 1]
+bsgt4F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bsgt3C :: [Bit 32] >>= [Bit 1]
+bsgt3C[t0] =
+  primSgt((2147483647, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsgt2C :: [Bit 32] >>= [Bit 1]
+bsgt2C[t0] =
+  primSgt((t0, -2147483648))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsgt1F :: [Bit 32] >>= [Bit 1]
+bsgt1F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bsge4C :: [Bit 32] >>= [Bit 1]
+bsge4C[t0] =
+  primSge((t0, 2147483647))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsge3T :: [Bit 32] >>= [Bit 1]
+bsge3T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint bsge2T :: [Bit 32] >>= [Bit 1]
+bsge2T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint bsge1C :: [Bit 32] >>= [Bit 1]
+bsge1C[t0] =
+  primSge((-2147483648, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bslt4C :: [Bit 32] >>= [Bit 1]
+bslt4C[t0] =
+  primSlt((t0, 2147483647))
+
+-----------------------------------------
+-- not recursive
+entrypoint bslt3F :: [Bit 32] >>= [Bit 1]
+bslt3F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bslt2F :: [Bit 32] >>= [Bit 1]
+bslt2F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bslt1C :: [Bit 32] >>= [Bit 1]
+bslt1C[t0] =
+  primSlt((-2147483648, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsle4T :: [Bit 32] >>= [Bit 1]
+bsle4T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint bsle3C :: [Bit 32] >>= [Bit 1]
+bsle3C[t0] =
+  primSle((2147483647, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsle2C :: [Bit 32] >>= [Bit 1]
+bsle2C[t0] =
+  primSle((t0, -2147483648))
+
+-----------------------------------------
+-- not recursive
+entrypoint bsle1T :: [Bit 32] >>= [Bit 1]
+bsle1T[t0] =
+  return flag1
+
+-----------------------------------------
+-- Entrypoints: smax smin bsgt4F bsgt3C bsgt2C bsgt1F bsge4C bsge3T bsge2T bsge1C bslt4C bslt3F bslt2F bslt1C bsle4T bsle3C bsle2C bsle1T

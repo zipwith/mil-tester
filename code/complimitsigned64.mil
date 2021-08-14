@@ -1,0 +1,33 @@
+-- ends in T: should return true  (for unsigned, or for signed if --32)
+-- ends in F: should return false (for unsigned, or for signed if --32)
+-- ends in C: should perform comparison
+
+entrypoint bsle1T, bsle2C, bsle3C, bsle4T
+entrypoint bslt1C, bslt2F, bslt3F, bslt4C
+entrypoint bsge1C, bsge2T, bsge3T, bsge4C
+entrypoint bsgt1F, bsgt2C, bsgt3C, bsgt4F
+
+entrypoint smin, smax
+smin <- shl((1,63))
+smax <- not((smin))
+
+bsle1T[x] = primSle((smin, x))
+bsle2C[x] = primSle((x, smin))
+bsle3C[x] = primSle((smax, x))
+bsle4T[x] = primSle((x, smax))
+
+bslt1C[x] = primSlt((smin, x))
+bslt2F[x] = primSlt((x, smin))
+bslt3F[x] = primSlt((smax, x))
+bslt4C[x] = primSlt((x, smax))
+
+bsge1C[x] = primSge((smin, x))
+bsge2T[x] = primSge((x, smin))
+bsge3T[x] = primSge((smax, x))
+bsge4C[x] = primSge((x, smax))
+
+bsgt1F[x] = primSgt((smin, x))
+bsgt2C[x] = primSgt((x, smin))
+bsgt3C[x] = primSgt((smax, x))
+bsgt4F[x] = primSgt((x, smax))
+

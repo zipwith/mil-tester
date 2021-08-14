@@ -1,0 +1,110 @@
+-----------------------------------------
+-- not recursive
+entrypoint umax :: Bit 64
+umax <-
+  return -1
+
+-----------------------------------------
+-- not recursive
+entrypoint umin :: Bit 64
+umin <-
+  return 0
+
+-----------------------------------------
+-- not recursive
+entrypoint bugt4F :: [Bit 64] >>= [Bit 1]
+bugt4F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bugt3C :: [Bit 64] >>= [Bit 1]
+bugt3C[t0] =
+  primUgt((-1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bugt2C :: [Bit 64] >>= [Bit 1]
+bugt2C[t0] =
+  primUgt((t0, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bugt1F :: [Bit 64] >>= [Bit 1]
+bugt1F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint buge4C :: [Bit 64] >>= [Bit 1]
+buge4C[t0] =
+  primUge((t0, -1))
+
+-----------------------------------------
+-- not recursive
+entrypoint buge3T :: [Bit 64] >>= [Bit 1]
+buge3T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint buge2T :: [Bit 64] >>= [Bit 1]
+buge2T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint buge1C :: [Bit 64] >>= [Bit 1]
+buge1C[t0] =
+  primUge((0, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bult4C :: [Bit 64] >>= [Bit 1]
+bult4C[t0] =
+  primUlt((t0, -1))
+
+-----------------------------------------
+-- not recursive
+entrypoint bult3F :: [Bit 64] >>= [Bit 1]
+bult3F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bult2F :: [Bit 64] >>= [Bit 1]
+bult2F[t0] =
+  return flag0
+
+-----------------------------------------
+-- not recursive
+entrypoint bult1C :: [Bit 64] >>= [Bit 1]
+bult1C[t0] =
+  primUlt((0, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bule4T :: [Bit 64] >>= [Bit 1]
+bule4T[t0] =
+  return flag1
+
+-----------------------------------------
+-- not recursive
+entrypoint bule3C :: [Bit 64] >>= [Bit 1]
+bule3C[t0] =
+  primUle((-1, t0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bule2C :: [Bit 64] >>= [Bit 1]
+bule2C[t0] =
+  primUle((t0, 0))
+
+-----------------------------------------
+-- not recursive
+entrypoint bule1T :: [Bit 64] >>= [Bit 1]
+bule1T[t0] =
+  return flag1
+
+-----------------------------------------
+-- Entrypoints: umax umin bugt4F bugt3C bugt2C bugt1F buge4C buge3T buge2T buge1C bult4C bult3F bult2F bult1C bule4T bule3C bule2C bule1T
