@@ -58,44 +58,44 @@ declare i32 @inb(i32)
 
 declare void @outb(i32, i32)
 
-define internal void @func_b251(i32 %r0) {
-  br label %b251
+define internal void @func_b263(i32 %r0) {
+  br label %b263
 
-b251:
-  %r4 = phi i32 [%r0, %0], [%r4, %b251]
+b263:
+  %r4 = phi i32 [%r0, %0], [%r4, %b263]
   %r3 = call i32 @inb(i32 1021)
   %r2 = and i32 %r3, 96
   %r1 = icmp eq i32 %r2, 0
-  br i1 %r1, label %b251, label %b322
+  br i1 %r1, label %b263, label %b334
 
-b322:
+b334:
   tail call void @outb(i32 1016, i32 %r4)
   ret void
 }
 
-define internal void @func_b327(i32 %r0) {
-  br label %b327
+define internal void @func_b339(i32 %r0) {
+  br label %b339
 
-b327:
-  %r5 = phi i32 [%r0, %0], [%r6, %b329], [%r6, %b332]
+b339:
+  %r5 = phi i32 [%r0, %0], [%r6, %b341], [%r6, %b344]
   %r3 = inttoptr i32 %r5 to i8*
   %r4 = load i8, i8* %r3
   %r2 = zext i8 %r4 to i32
   %r1 = icmp eq i32 %r2, 0
-  br i1 %r1, label %b188, label %b329
+  br i1 %r1, label %b200, label %b341
 
-b188:
+b200:
   ret void
 
-b329:
+b341:
   %r6 = add i32 %r5, 1
-  call void @func_b251(i32 %r2)
+  call void @func_b263(i32 %r2)
   %r7 = icmp eq i32 %r2, 10
-  br i1 %r7, label %b332, label %b327
+  br i1 %r7, label %b344, label %b339
 
-b332:
-  call void @func_b251(i32 13)
-  br label %b327
+b344:
+  call void @func_b263(i32 13)
+  br label %b339
 }
 
 define void @hello() {
@@ -105,56 +105,56 @@ initialize:
   br label %hello
 
 hello:
-  br label %b274
+  br label %b286
 
-b274:
-  call void @func_b327(i32 ptrtoint(i8* @str0 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str1 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str2 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str3 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str4 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str5 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str6 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str7 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str8 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str9 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str0 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str1 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str2 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str3 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str4 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str5 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str6 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str7 to i32))
-  call void @func_b327(i32 ptrtoint(i8* @str8 to i32))
+b286:
+  call void @func_b339(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str8 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str9 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str0 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str1 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str2 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str3 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str4 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str5 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str6 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str7 to i32))
+  call void @func_b339(i32 ptrtoint(i8* @str8 to i32))
   %r2 = inttoptr i32 ptrtoint(i8* @str9 to i32) to i8*
   %r3 = load i8, i8* %r2
   %r1 = zext i8 %r3 to i32
   %r0 = icmp eq i32 %r1, 0
-  br i1 %r0, label %b188, label %b329
+  br i1 %r0, label %b200, label %b341
 
-b188:
+b200:
   ret void
 
-b329:
-  %r5 = phi i32 [%r1, %b274], [%r9, %b327]
-  %r7 = phi i32 [ptrtoint(i8* @str9 to i32), %b274], [%r8, %b327]
+b341:
+  %r5 = phi i32 [%r1, %b286], [%r9, %b339]
+  %r7 = phi i32 [ptrtoint(i8* @str9 to i32), %b286], [%r8, %b339]
   %r6 = add i32 %r7, 1
-  call void @func_b251(i32 %r5)
+  call void @func_b263(i32 %r5)
   %r4 = icmp eq i32 %r5, 10
-  br i1 %r4, label %b332, label %b327
+  br i1 %r4, label %b344, label %b339
 
-b332:
-  call void @func_b251(i32 13)
-  br label %b327
+b344:
+  call void @func_b263(i32 13)
+  br label %b339
 
-b327:
-  %r8 = phi i32 [%r6, %b329], [%r6, %b332]
+b339:
+  %r8 = phi i32 [%r6, %b341], [%r6, %b344]
   %r11 = inttoptr i32 %r8 to i8*
   %r12 = load i8, i8* %r11
   %r9 = zext i8 %r12 to i32
   %r10 = icmp eq i32 %r9, 0
-  br i1 %r10, label %b188, label %b329
+  br i1 %r10, label %b200, label %b341
 }
 
 Success!
