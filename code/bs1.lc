@@ -14,7 +14,7 @@ mod10  :: Word -> Word
 mod10 x = ix10toWord (modIx10 x)
 
 div10  :: Word -> Word
-div10 x = div32 x (nz10 !10)
+div10 x = div32 x (nz10 #10)
 
 external div32 {primNZBitDiv 32}            :: Bit 32 -> NZBit 32 -> Bit 32
 external nz10  {primNZBitFromLiteral 10 32} :: ProxyNat 10 -> NZBit 32

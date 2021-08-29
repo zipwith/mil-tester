@@ -13,7 +13,7 @@ external seventeen {primBitFromLiteral 17 8} :: [ProxyNat 17] ->> [Bit 8]
 -- not recursive
 b8 :: [] >>= [Byte]
 b8[] =
-  t0 <- seventeen @ !17
+  t0 <- seventeen @ #17
   t1 <- Byte.Byte(t0)
   Byte(t1)
 

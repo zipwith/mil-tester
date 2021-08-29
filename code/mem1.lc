@@ -18,16 +18,16 @@ external fieldZ {primStructSelect S "z" (Stored Word)} :: Ref S -> ProxyLab "z" 
 external fieldT {primStructSelect S "t" (Stored Word)} :: Ref S -> ProxyLab "t" -> Ref (Stored Word)
 
 entrypoint readX, readY, readZ, readT :: Ref S -> Proc Word
-readX r = readRef (fieldX r !x)
-readY r = readRef (fieldY r !y)
-readZ r = readRef (fieldZ r !z)
-readT r = readRef (fieldT r !t)
+readX r = readRef (fieldX r #x)
+readY r = readRef (fieldY r #y)
+readZ r = readRef (fieldZ r #z)
+readT r = readRef (fieldT r #t)
 
 entrypoint writeX, writeY, writeZ, writeT :: Ref S -> Word -> Proc Unit
-writeX r = writeRef (fieldX r!x)
-writeY r = writeRef (fieldY r!y)
-writeZ r = writeRef (fieldZ r!z)
-writeT r = writeRef (fieldT r!t)
+writeX r = writeRef (fieldX r#x)
+writeY r = writeRef (fieldY r#y)
+writeZ r = writeRef (fieldZ r#z)
+writeT r = writeRef (fieldT r#t)
 
 area s1 <- init, s2 <- init :: Ref S aligned 16
 

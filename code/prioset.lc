@@ -87,14 +87,14 @@ highestPriority = do s <- readRef priosetSize
 -------------------
 
 zero, one :: Ix NumPrio
-zero       = ix0 !0
-one        = ix1 !1
+zero       = ix0 #0
+one        = ix1 #1
 
 oneBit    :: Ix 8
-oneBit     = ix1_8 !1
+oneBit     = ix1_8 #1
 
 zeroArray :: Init (Array NumPrio (Stored Priority))
-zeroArray  = initArray (\ix -> initStoredPriority (ix0 !0))
+zeroArray  = initArray (\ix -> initStoredPriority (ix0 #0))
 
 external initStored {primInitStored Word}     :: Word -> Init (Stored Word)
 external readRef    {primReadRefStored Word}  :: Ref (Stored Word) -> Proc Word

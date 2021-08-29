@@ -6,7 +6,7 @@ external bitl {primBitFromLiteral 0 32} :: [ProxyNat 0] ->> [Bit 32]
 -- not recursive
 bit0 :: Bit 32
 bit0 <-
-  bitl @ !0
+  bitl @ #0
 
 -----------------------------------------
 -- not recursive

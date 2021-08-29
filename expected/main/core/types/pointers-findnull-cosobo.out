@@ -106,7 +106,7 @@ k52{t0, t1} [] = b83[t1, t0]
 -- not recursive
 b89 :: [Ref (Array 16 (Stored (Ptr (Stored (Bit 32)))))] >>= [[] ->> [Ptr (Stored (Ptr (Stored (Bit 32))))]]
 b89[t0] =
-  t1 <- zero16 @ !0
+  t1 <- zero16 @ #0
   k52{t0, t1}
 
 -----------------------------------------

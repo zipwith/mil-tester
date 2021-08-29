@@ -13,5 +13,5 @@ findNull array
                    Ref obj -> case incIx i of
                                 Just j  -> loop j
                                 Nothing -> return Null
-    in loop (zero16 !0)
+    in loop (zero16 #0)
 

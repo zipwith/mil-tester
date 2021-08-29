@@ -2615,7 +2615,7 @@ external bit59 {primBitFromLiteral  59 12} :: ProxyNat 59 -> Bit 12
 external nz3   {primNZBitFromLiteral 3 12} :: ProxyNat 3 -> NZBit 12
 
 entrypoint val
-val = div12 (bit59 !59) (nz3 !3)
+val = div12 (bit59 #59) (nz3 #3)
 
 ------------
 .lc: primNZBitDiv-neg-32     ./milc -pcosoboro -m --32
@@ -2643,7 +2643,7 @@ external bit59 {primBitFromLiteral  59 12} :: ProxyNat 59 -> Bit 12
 external nz3   {primNZBitFromLiteral 3 12} :: ProxyNat 3 -> NZBit 12
 
 entrypoint val
-val = div12 (bit59 !59) (nz3 !3)
+val = div12 (bit59 #59) (nz3 #3)
 
 ------------
 .lc: primNZBitDiv-neg-64     ./milc -pcosoboro -m --64
@@ -2668,10 +2668,10 @@ external nz3   {primNZBitFromLiteral  3 12} :: ProxyNat  3 -> NZBit 12
 external nz16  {primNZBitFromLiteral 16 12} :: ProxyNat 16 -> NZBit 12
 
 entrypoint val
-val = rem12 (bit59 !59) (nz3 !3)
+val = rem12 (bit59 #59) (nz3 #3)
 
 entrypoint mod
-mod x = x `rem12` nz16 !16
+mod x = x `rem12` nz16 #16
 
 ------------
 .lc: primNZBitRem-neg-32     ./milc -pcosoboro -m --32
@@ -2700,10 +2700,10 @@ external nz3   {primNZBitFromLiteral 3 12} :: ProxyNat 3 -> NZBit 12
 external nz16  {primNZBitFromLiteral 16 12} :: ProxyNat 16 -> NZBit 12
 
 entrypoint val
-val = rem12 (bit59!59) (nz3!3)
+val = rem12 (bit59#59) (nz3#3)
 
 entrypoint mod
-mod x = x `rem12` nz16!16
+mod x = x `rem12` nz16#16
 
 ------------
 .lc: primNZBitRem-neg-64     ./milc -pcosoboro -m --64
