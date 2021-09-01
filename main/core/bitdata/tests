@@ -271,7 +271,7 @@ bitdata Byte/8 = Byte [ val :: Bit 8 ]
 external seventeen {primBitFromLiteral 17 8} :: ProxyNat 17 -> Bit 8
 
 entrypoint aByte
-aByte = Byte [val=seventeen !17]
+aByte = Byte [val=seventeen #17]
 
 entrypoint getVal, setVal
 getVal b = case b of Byte v -> v.val
@@ -285,7 +285,7 @@ bitdata Byte/8 = Byte [ val :: Bit 8 ]
 external seventeen {primBitFromLiteral 17 8} :: ProxyNat 17 -> Bit 8
 
 entrypoint aByte
-aByte = Byte [val=seventeen !17]
+aByte = Byte [val=seventeen #17]
 
 entrypoint getVal, setVal
 getVal b = case b of Byte v -> v.val
@@ -489,7 +489,7 @@ bitdata Caching /2                            -- pwt => page-level write thru
  = Caching [ pcd, pwt :: Bool ]               -- pcd => page-level cache disable
 
 entrypoint aPDE
-aPDE = UnmappedPDE [ unused=mkZero !0 ]
+aPDE = UnmappedPDE [ unused=mkZero #0 ]
 
 external mkZero {primBitFromLiteral 0 31} :: ProxyNat 0 -> Bit 31
 
