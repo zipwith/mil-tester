@@ -157,6 +157,47 @@ bitdata U    = X   [ x :: U ]      -- invalid, self reference
 bitdata U1/8 = XX1 [ x :: U1 ]     -- invalid, self ref (but known size)
 
 ----------
+.lc:  bitdata6a     ./milc -pcoso -m --32
+bitdata U1/8 = XX1 [ x :: U2 ]     -- invalid, self ref (but known size)
+bitdata U2/8 = XX2 [ y :: U1 ]     -- invalid, self ref (but known size)
+
+----------
+.llc:  bitdata6b     ./milc -pcoso -m --32
+An example with two bitdata types in the same group of mutually recursive
+type definitions, requiring iteration to determine the bit patterns for
+each one.
+
+Endpoint -> EndpointStatus -> TCB -> TCBStatus -> BlockedReason -> Endpoint
+
+> require "core.llc"
+
+> struct Endpoint /16
+>    [ status :: Stored EndpointStatus
+>    | Pad 3 (Stored Word)
+>    ] aligned 16
+
+> bitdata EndpointStatus /WordSize
+>  = Empty         [                   0 ]
+>  | WaitingToSend [ head :: Ref TCB | 1 ]
+>  | WaitingToRecv [ head :: Ref TCB | 2 ]
+
+> struct TCB /1K [ status :: Stored TCBStatus | Pad 255 (Stored Word) ] aligned 1K
+
+> bitdata TCBStatus /WordSize
+>   = Halted   [                            0 ]
+>   | Runnable [                            2 ]
+>   | Blocked  [ reason :: BlockedReason | B1 ]
+
+> bitdata BlockedReason /31
+>   = OnSend   [ endpoint     :: Ref Endpoint | isCall :: Bool | 0 ]
+>   | OnRecv   [ endpoint     :: Ref Endpoint                  | 1 ]
+>   | OnNotify [ notification :: Ref Endpoint                  | 2 ]
+>   | OnReply  [                                                 3 ]
+
+> entrypoint main :: TCBStatus
+> main = Blocked[reason=OnReply]
+
+----------
 .lc:  bitdata7     ./milc -pcoso -m --32
 bitdata V = Y [ y :: W | B1 ]  -- invalid, indirect self reference
 bitdata W = W [ z :: V ]

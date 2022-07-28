@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/bitdata/bitdata6a.lc", line 1
+bitdata U1/8 = XX1 [ x :: U2 ]     -- invalid, self ref (but known size)
+^
+Bit level representation for values of type U1 is undetermined
+
+ERROR: Aborting after previously reported error
+

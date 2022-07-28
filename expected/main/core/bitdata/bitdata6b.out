@@ -1,0 +1,101 @@
+bitdata BlockedReason /31
+  = OnSend [ endpoint :: Ref Endpoint | isCall :: Bool | B00 ]
+    -- predOnSend(x :: Bit 31) = (x & 0x3) == 0x0
+  | OnRecv [ endpoint :: Ref Endpoint | B001 ]
+    -- predOnRecv(x :: Bit 31) = (x & 0x3) == 0x1
+  | OnNotify [ notification :: Ref Endpoint | B010 ]
+    -- predOnNotify(x :: Bit 31) = (x & 0x3) == 0x2
+  | OnReply [ B000_0000_0000_0000_0000_0000_0000_0011 ]
+    -- predOnReply(x :: Bit 31) = x == 0x3
+
+-- bit pattern: (restricted)
+--  0000000000000000000000000000011
+--  000000000000000000000000000100_
+--  0000000000000000000000000001010
+--  0000000000000000000000000001100
+--  000000000000000000000000001_00_
+--  000000000000000000000000001_010
+--  000000000000000000000000001_100
+--  00000000000000000000000001__00_
+--  00000000000000000000000001__010
+--  etc... (76 more lines)
+
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+struct Endpoint / 16
+  [ status :: Stored EndpointStatus  {- offset=0 -}
+  | ... 12 bytes padding ... ]
+  aligned 16
+
+bitdata EndpointStatus /32
+  = Empty [ X0000_0000 ]
+    -- predEmpty(x :: Bit 32) = x == 0x0
+  | WaitingToSend [ head :: Ref TCB | B00_0000_0001 ]
+    -- predWaitingToSend(x :: Bit 32) = (x & 0x1) == 0x1
+  | WaitingToRecv [ head :: Ref TCB | B00_0000_0010 ]
+    -- predWaitingToRecv(x :: Bit 32) = (x & 0x3) == 0x2
+
+-- bit pattern: (restricted)
+--  00000000000000000000000000000000
+--  00000000000000000000010000000001
+--  00000000000000000000010000000010
+--  000000000000000000001_0000000001
+--  000000000000000000001_0000000010
+--  00000000000000000001__0000000001
+--  00000000000000000001__0000000010
+--  0000000000000000001___0000000001
+--  0000000000000000001___0000000010
+--  etc... (36 more lines)
+
+struct TCB / 1024
+  [ status :: Stored TCBStatus  {- offset=0 -}
+  | ... 1020 bytes padding ... ]
+  aligned 1024
+
+bitdata TCBStatus /32
+  = Halted [ X0000_0000 ]
+    -- predHalted(x :: Bit 32) = x == 0x0
+  | Runnable [ X0000_0002 ]
+    -- predRunnable(x :: Bit 32) = x == 0x2
+  | Blocked [ reason :: BlockedReason | B1 ]
+    -- predBlocked(x :: Bit 32) = (x & 0x1) == 0x1
+
+-- bit pattern: (restricted)
+--  000000000000000000000000000000_0
+--  00000000000000000000000000000111
+--  000000000000000000000000000100_1
+--  00000000000000000000000000010101
+--  00000000000000000000000000011001
+--  000000000000000000000000001_00_1
+--  000000000000000000000000001_0101
+--  000000000000000000000000001_1001
+--  00000000000000000000000001__00_1
+--  etc... (77 more lines)
+
+-----------------------------------------
+-- not recursive
+OnReply :: BlockedReason
+OnReply <-
+  OnReply()
+
+-----------------------------------------
+-- not recursive
+s1 :: TCBStatus.Blocked
+s1 <-
+  TCBStatus.Blocked(OnReply)
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: TCBStatus
+main <-
+  Blocked(s1)
+
+-----------------------------------------
+-- Entrypoints: main
