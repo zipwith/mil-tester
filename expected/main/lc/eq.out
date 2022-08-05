@@ -5,72 +5,72 @@ data T0
 
 -----------------------------------------
 -- not recursive
-b109 :: [T0, Bit 32] >>= [Bit 1]
-b109[t0, t1] =
-  assert t0 A0
-  t2 <- A0 0 t0
-  primEq((t1, t2))
-
------------------------------------------
--- not recursive
-b88 :: [] >>= [Bit 1]
-b88[] =
-  return flag0
-
------------------------------------------
--- not recursive
-b112 :: [T0, T0] >>= [Bit 1]
-b112[t0, t1] =
-  assert t0 A0
-  t2 <- A0 0 t0
-  case t1 of
-    A0 -> b109[t1, t2]
-    _ -> b88[]
-
------------------------------------------
--- not recursive
 b110 :: [T0, Bit 32] >>= [Bit 1]
 b110[t0, t1] =
-  assert t0 B1
-  t2 <- B1 0 t0
+  assert t0 A0
+  t2 <- A0 0 t0
   primEq((t1, t2))
+
+-----------------------------------------
+-- not recursive
+b89 :: [] >>= [Bit 1]
+b89[] =
+  return flag0
 
 -----------------------------------------
 -- not recursive
 b113 :: [T0, T0] >>= [Bit 1]
 b113[t0, t1] =
-  assert t0 B1
-  t2 <- B1 0 t0
+  assert t0 A0
+  t2 <- A0 0 t0
   case t1 of
-    B1 -> b110[t1, t2]
-    _ -> b88[]
+    A0 -> b110[t1, t2]
+    _ -> b89[]
 
 -----------------------------------------
 -- not recursive
 b111 :: [T0, Bit 32] >>= [Bit 1]
 b111[t0, t1] =
-  assert t0 C2
-  t2 <- C2 0 t0
+  assert t0 B1
+  t2 <- B1 0 t0
   primEq((t1, t2))
 
 -----------------------------------------
 -- not recursive
 b114 :: [T0, T0] >>= [Bit 1]
 b114[t0, t1] =
+  assert t0 B1
+  t2 <- B1 0 t0
+  case t1 of
+    B1 -> b111[t1, t2]
+    _ -> b89[]
+
+-----------------------------------------
+-- not recursive
+b112 :: [T0, Bit 32] >>= [Bit 1]
+b112[t0, t1] =
+  assert t0 C2
+  t2 <- C2 0 t0
+  primEq((t1, t2))
+
+-----------------------------------------
+-- not recursive
+b115 :: [T0, T0] >>= [Bit 1]
+b115[t0, t1] =
   assert t0 C2
   t2 <- C2 0 t0
   case t1 of
-    C2 -> b111[t1, t2]
-    _ -> b88[]
+    C2 -> b112[t1, t2]
+    _ -> b89[]
 
 -----------------------------------------
 -- not recursive
 entrypoint eq :: [T0, T0] >>= [Bit 1]
 eq[t0, t1] =
   case t0 of
-    A0 -> b112[t0, t1]
-    B1 -> b113[t0, t1]
-    C2 -> b114[t0, t1]
+    A0 -> b113[t0, t1]
+    B1 -> b114[t0, t1]
+    C2 -> b115[t0, t1]
 
 -----------------------------------------
 -- Entrypoints: eq

@@ -59,20 +59,20 @@ str7 <- "\n"
 
 -----------------------------------------
 -- not recursive
-b334 :: [Bit 32] >>= [Unit]
-b334[t0] =
+b335 :: [Bit 32] >>= [Unit]
+b335[t0] =
   outb((1016, t0))
 
 -----------------------------------------
 -- recursive
-b263 :: [Bit 32] >>= [Unit]
-b263[t0] =
+b264 :: [Bit 32] >>= [Unit]
+b264[t0] =
   t1 <- inb((1021))
   t2 <- and((t1, 96))
   t3 <- primEq((t2, 0))
   if t3
-    then b263[t0]
-    else b334[t0]
+    then b264[t0]
+    else b335[t0]
 
 -----------------------------------------
 -- not recursive
@@ -82,31 +82,31 @@ Unit <-
 
 -----------------------------------------
 -- not recursive
-b200 :: [] >>= [Unit]
-b200[] =
+b201 :: [] >>= [Unit]
+b201[] =
   return Unit
 
 -----------------------------------------
 -- recursive
-b344 :: [Bit 32, Bit 32] >>= [Unit]
-b344[t0, t1] =
-  t2 <- b263[13]
-  b339[t1]
-b341 :: [Bit 32, Bit 32] >>= [Unit]
-b341[t0, t1] =
+b345 :: [Bit 32, Bit 32] >>= [Unit]
+b345[t0, t1] =
+  t2 <- b264[13]
+  b340[t1]
+b342 :: [Bit 32, Bit 32] >>= [Unit]
+b342[t0, t1] =
   t2 <- add((t1, 1))
-  t3 <- b263[t0]
+  t3 <- b264[t0]
   t4 <- primEq((t0, 10))
   if t4
-    then b344[t0, t2]
-    else b339[t2]
-b339 :: [Bit 32] >>= [Unit]
-b339[t0] =
+    then b345[t0, t2]
+    else b340[t2]
+b340 :: [Bit 32] >>= [Unit]
+b340[t0] =
   t1 <- load8((t0))
   t2 <- primEq((t1, 0))
   if t2
-    then b200[]
-    else b341[t1, t0]
+    then b201[]
+    else b342[t1, t0]
 
 -----------------------------------------
 -- not recursive
@@ -120,38 +120,38 @@ str9 <- "\n          from LC and MIL\n"
 
 -----------------------------------------
 -- not recursive
-b286 :: [] >>= [Unit]
-b286[] =
-  t0 <- b339[str0]
-  t1 <- b339[str1]
-  t2 <- b339[str2]
-  t3 <- b339[str3]
-  t4 <- b339[str4]
-  t5 <- b339[str5]
-  t6 <- b339[str6]
-  t7 <- b339[str7]
-  t8 <- b339[str8]
-  t9 <- b339[str9]
-  t10 <- b339[str0]
-  t11 <- b339[str1]
-  t12 <- b339[str2]
-  t13 <- b339[str3]
-  t14 <- b339[str4]
-  t15 <- b339[str5]
-  t16 <- b339[str6]
-  t17 <- b339[str7]
-  t18 <- b339[str8]
+b287 :: [] >>= [Unit]
+b287[] =
+  t0 <- b340[str0]
+  t1 <- b340[str1]
+  t2 <- b340[str2]
+  t3 <- b340[str3]
+  t4 <- b340[str4]
+  t5 <- b340[str5]
+  t6 <- b340[str6]
+  t7 <- b340[str7]
+  t8 <- b340[str8]
+  t9 <- b340[str9]
+  t10 <- b340[str0]
+  t11 <- b340[str1]
+  t12 <- b340[str2]
+  t13 <- b340[str3]
+  t14 <- b340[str4]
+  t15 <- b340[str5]
+  t16 <- b340[str6]
+  t17 <- b340[str7]
+  t18 <- b340[str8]
   t19 <- load8((str9))
   t20 <- primEq((t19, 0))
   if t20
-    then b200[]
-    else b341[t19, str9]
+    then b201[]
+    else b342[t19, str9]
 
 -----------------------------------------
 -- not recursive
 hello :: [] >>= [Unit]
 hello[] =
-  b286[]
+  b287[]
 
 -----------------------------------------
 -- not recursive

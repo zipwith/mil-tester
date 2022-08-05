@@ -6,8 +6,8 @@ returnFalse[] =
 
 -----------------------------------------
 -- not recursive
-b84 :: [Bit 32, Bit 32] >>= [Bit 1]
-b84[t0, t1] =
+b85 :: [Bit 32, Bit 32] >>= [Bit 1]
+b85[t0, t1] =
   primEq((t0, t1))
 
 -----------------------------------------
@@ -16,7 +16,7 @@ entrypoint uEq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
 uEq[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
-    then b84[t0, t2]
+    then b85[t0, t2]
     else returnFalse[]
 
 -----------------------------------------
@@ -27,8 +27,8 @@ returnTrue[] =
 
 -----------------------------------------
 -- not recursive
-b86 :: [Bit 32, Bit 32] >>= [Bit 1]
-b86[t0, t1] =
+b87 :: [Bit 32, Bit 32] >>= [Bit 1]
+b87[t0, t1] =
   primNeq((t0, t1))
 
 -----------------------------------------
@@ -37,7 +37,7 @@ entrypoint uNeq :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 1]
 uNeq[t0, t1, t2, t3] =
   t4 <- primEq((t1, t3))
   if t4
-    then b86[t0, t2]
+    then b87[t0, t2]
     else returnTrue[]
 
 -----------------------------------------
