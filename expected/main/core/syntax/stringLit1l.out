@@ -1,6 +1,6 @@
 @str.0 = private unnamed_addr constant [6 x i8] c"hello\00"
 
-@msg = alias i8, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str.0, i32 0, i32 0)
+@msg = alias i8, i8* getelementptr inbounds (i8*, [6 x i8]* @str.0, i32 0, i32 0)
 
 define void @begin() {
   br label %b4

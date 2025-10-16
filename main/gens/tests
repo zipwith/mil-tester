@@ -1266,27 +1266,27 @@ external modIx32_4G  {primModIx 32 4G} :: Bit 32 -> Ix 4G
 
 entrypoint relax1_1, relax1_2, relax3_7, relax1K_1K, relax1K_1G
 entrypoint relax1_3, relax2_2, relax2_3, relax3_3
-external relax1_1   {primRelaxIx  1  1} :: Ix 1  -> Ix 1
-external relax1_2   {primRelaxIx  1  2} :: Ix 1  -> Ix 2
-external relax1_3   {primRelaxIx  1  3} :: Ix 1  -> Ix 3
-external relax2_2   {primRelaxIx  2  2} :: Ix 2  -> Ix 2
-external relax2_3   {primRelaxIx  2  3} :: Ix 2  -> Ix 3
-external relax3_3   {primRelaxIx  3  3} :: Ix 3  -> Ix 3
-external relax3_7   {primRelaxIx  3  7} :: Ix 3  -> Ix 7
-external relax1K_1K {primRelaxIx 1K 1K} :: Ix 1K -> Ix 1K
-external relax1K_1G {primRelaxIx 1K 1G} :: Ix 1K -> Ix 1G
+external relax1_1   {primIntoIx  1  1} :: Ix 1  -> Ix 1
+external relax1_2   {primIntoIx  1  2} :: Ix 1  -> Ix 2
+external relax1_3   {primIntoIx  1  3} :: Ix 1  -> Ix 3
+external relax2_2   {primIntoIx  2  2} :: Ix 2  -> Ix 2
+external relax2_3   {primIntoIx  2  3} :: Ix 2  -> Ix 3
+external relax3_3   {primIntoIx  3  3} :: Ix 3  -> Ix 3
+external relax3_7   {primIntoIx  3  7} :: Ix 3  -> Ix 7
+external relax1K_1K {primIntoIx 1K 1K} :: Ix 1K -> Ix 1K
+external relax1K_1G {primIntoIx 1K 1G} :: Ix 1K -> Ix 1G
 
 -----------------------
 .lc: primRelaxIx-neg-32   ./milc -pcosoboro -m --32
 
 entrypoint relax0_4, relax0_0, relax2G_2G, relax2_1, relax7_3, relax1K_72, relax1G_1K
-external relax0_4   {primRelaxIx  0  4} :: Ix 0  -> Ix 4
-external relax0_0   {primRelaxIx  0  0} :: Ix 0  -> Ix 0
-external relax2G_2G {primRelaxIx 2G 2G} :: Ix 2G -> Ix 2G
-external relax2_1   {primRelaxIx  2  1} :: Ix 2  -> Ix 1
-external relax7_3   {primRelaxIx  7  3} :: Ix 7  -> Ix 3
-external relax1K_72 {primRelaxIx 1K 72} :: Ix 1K -> Ix 72
-external relax1G_1K {primRelaxIx 1G 1K} :: Ix 1G -> Ix 1K
+external relax0_4   {primIntoIx  0  4} :: Ix 0  -> Ix 4
+external relax0_0   {primIntoIx  0  0} :: Ix 0  -> Ix 0
+external relax2G_2G {primIntoIx 2G 2G} :: Ix 2G -> Ix 2G
+external relax2_1   {primIntoIx  2  1} :: Ix 2  -> Ix 1
+external relax7_3   {primIntoIx  7  3} :: Ix 7  -> Ix 3
+external relax1K_72 {primIntoIx 1K 72} :: Ix 1K -> Ix 72
+external relax1G_1K {primIntoIx 1G 1K} :: Ix 1G -> Ix 1K
 
 -----------------------
 .lc: primGenIncIx-pos-32   ./milc -pcosoboro -m --32

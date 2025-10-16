@@ -1,37 +1,37 @@
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 3
-external relax0_4   {primRelaxIx  0  4} :: Ix 0  -> Ix 4
+external relax0_4   {primIntoIx  0  4} :: Ix 0  -> Ix 4
          ^
 No generated implementation: Argument value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 4
-external relax0_0   {primRelaxIx  0  0} :: Ix 0  -> Ix 0
+external relax0_0   {primIntoIx  0  0} :: Ix 0  -> Ix 0
          ^
 No generated implementation: Argument value 0 is too small; must be at least 1
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 5
-external relax2G_2G {primRelaxIx 2G 2G} :: Ix 2G -> Ix 2G
+external relax2G_2G {primIntoIx 2G 2G} :: Ix 2G -> Ix 2G
          ^
 No generated implementation: Argument value 2147483648 is too large; must be at most 2147483647
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 6
-external relax2_1   {primRelaxIx  2  1} :: Ix 2  -> Ix 1
+external relax2_1   {primIntoIx  2  1} :: Ix 2  -> Ix 1
          ^
-No generated implementation: First argument must not be larger than the second
+No generated implementation: First index must not be larger than the second
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 7
-external relax7_3   {primRelaxIx  7  3} :: Ix 7  -> Ix 3
+external relax7_3   {primIntoIx  7  3} :: Ix 7  -> Ix 3
          ^
-No generated implementation: First argument must not be larger than the second
+No generated implementation: First index must not be larger than the second
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 8
-external relax1K_72 {primRelaxIx 1K 72} :: Ix 1K -> Ix 72
+external relax1K_72 {primIntoIx 1K 72} :: Ix 1K -> Ix 72
          ^
-No generated implementation: First argument must not be larger than the second
+No generated implementation: First index must not be larger than the second
 
 ERROR: "actual/main/gens/primRelaxIx-neg-32.lc", line 9
-external relax1G_1K {primRelaxIx 1G 1K} :: Ix 1G -> Ix 1K
+external relax1G_1K {primIntoIx 1G 1K} :: Ix 1G -> Ix 1K
          ^
-No generated implementation: First argument must not be larger than the second
+No generated implementation: First index must not be larger than the second
 
 ERROR: Aborting after 7 previously reported errors
 

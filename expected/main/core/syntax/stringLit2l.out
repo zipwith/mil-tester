@@ -1,6 +1,6 @@
 @str.0 = private unnamed_addr constant [6 x i8] c"hello\00"
 
-@str0 = internal alias i8, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str.0, i32 0, i32 0)
+@str0 = internal alias i8, i8* getelementptr inbounds (i8*, [6 x i8]* @str.0, i32 0, i32 0)
 
 @msg = global i32 0
 

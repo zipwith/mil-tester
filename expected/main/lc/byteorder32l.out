@@ -71,10 +71,10 @@ define %dt0* @reorder64(%dt0* %r0) {
 
 reorder64:
   %r19 = bitcast %dt0* %r0 to %dt1*
-  %r20 = getelementptr inbounds %dt1, %dt1* %r19, i32 0, i32 1
+  %r20 = getelementptr inbounds i32*, %dt1* %r19, i32 0, i32 1
   %r13 = load i32, i32* %r20
   %r17 = bitcast %dt0* %r0 to %dt1*
-  %r18 = getelementptr inbounds %dt1, %dt1* %r17, i32 0, i32 2
+  %r18 = getelementptr inbounds i32*, %dt1* %r17, i32 0, i32 2
   %r16 = load i32, i32* %r18
   %r15 = lshr i32 %r16, 16
   %r14 = and i32 %r16, 65535
@@ -83,18 +83,18 @@ reorder64:
   %r11 = and i32 %r13, 65535
   %r3 = call i32 @func_b108(i32 %r11, i32 %r12)
   ; calculate the number of bytes that we need to allocate
-  %r8 = getelementptr inbounds %dt1, %dt1* null, i32 1
+  %r8 = getelementptr inbounds %dt1*, %dt1* null, i32 1
   %r9 = ptrtoint %dt1* %r8 to i32
   ; allocate memory for the object
   %r10 = call i8* @alloc(i32 %r9)
   %r2 = bitcast i8* %r10 to %dt1*
   ; set the tag
-  %r7 = getelementptr inbounds %dt1, %dt1* %r2, i32 0, i32 0
+  %r7 = getelementptr inbounds i32*, %dt1* %r2, i32 0, i32 0
   store i32 0, i32* %r7
   ; initialize other fields
-  %r6 = getelementptr inbounds %dt1, %dt1* %r2, i32 0, i32 1
+  %r6 = getelementptr inbounds i32*, %dt1* %r2, i32 0, i32 1
   store i32 %r5, i32* %r6
-  %r4 = getelementptr inbounds %dt1, %dt1* %r2, i32 0, i32 2
+  %r4 = getelementptr inbounds i32*, %dt1* %r2, i32 0, i32 2
   store i32 %r3, i32* %r4
   %r1 = bitcast %dt1* %r2 to %dt0*
   ret %dt0* %r1

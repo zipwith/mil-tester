@@ -6,7 +6,7 @@ No generated implementation: No memory access to stored values of width 65
 ERROR: "writeRef-neg.lc", line 6
 external writeRefStoredBit1K {primWriteRefStored (Bit 1K)} :: Ref (Stored (Bit 1K)) -> Bit 1K -> Proc Unit
          ^
-No generated implementation: No memory access to stored values of width 1024
+No generated implementation: No known BitSize for Stored value of type Bit 1024
 
 ERROR: Aborting after 2 previously reported errors
 

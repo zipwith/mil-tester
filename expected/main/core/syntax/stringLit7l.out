@@ -1,6 +1,6 @@
 @str.0 = private unnamed_addr constant [110 x i8] c"\07\08\0c\0a\0d\09\0b012\0c\0cA@ANUL\01\02\03\04\05\06\07BS\09\0a\0b\0c\0d\0e\0fDLE\11\12\13\14\15\16\17CAN\19\1a\1b\1c\1d\1e\1fSP\7f&"'\5c^@\01\02\03\04\05\06\07^H\09\0a\0b\0c\0d\0e\0f^P\11\12\13\14\15\16\17^X\19\1a\1b\1c\1d\1e\1f\0c\00\08\10\18 \00\08\10\18\0c3\00"
 
-@str0 = internal alias i8, i8* getelementptr inbounds ([110 x i8], [110 x i8]* @str.0, i32 0, i32 0)
+@str0 = internal alias i8, i8* getelementptr inbounds (i8*, [110 x i8]* @str.0, i32 0, i32 0)
 
 @msg = global i32 0
 

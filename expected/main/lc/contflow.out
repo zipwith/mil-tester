@@ -3,76 +3,76 @@ data Unit
 
 -----------------------------------------
 -- not recursive
-b199 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b199[t0, t1, t2] =
+b210 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b210[t0, t1, t2] =
   t3 <- bufXfer((t0, t1))
   next((t2))
 
 -----------------------------------------
 -- not recursive
-b173 :: [Bit 32] >>= [Bit 32]
-b173[t0] =
+b184 :: [Bit 32] >>= [Bit 32]
+b184[t0] =
   next((t0))
 
 -----------------------------------------
 -- not recursive
-b204 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b204[t0, t1, t2, t3, t4] =
+b215 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b215[t0, t1, t2, t3, t4] =
   t5 <- bufXfer((t0, t1))
   t6 <- primEq((t3, t4))
   if t6
-    then b173[t3]
-    else b199[t0, t3, t2]
+    then b184[t3]
+    else b210[t0, t3, t2]
 
 -----------------------------------------
 -- not recursive
-b202 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b202[t0, t1, t2, t3, t4, t5] =
+b213 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b213[t0, t1, t2, t3, t4, t5] =
   t6 <- bufXfer((t0, t1))
   t7 <- primEq((t5, t4))
   if t7
-    then b173[t5]
-    else b204[t0, t5, t2, t3, t4]
+    then b184[t5]
+    else b215[t0, t5, t2, t3, t4]
 
 -----------------------------------------
 -- not recursive
-b200 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b200[t0, t1, t2, t3, t4, t5, t6] =
+b211 :: [Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b211[t0, t1, t2, t3, t4, t5, t6] =
   t7 <- bufXfer((t0, t1))
   t8 <- primEq((t6, t4))
   if t8
-    then b173[t6]
-    else b202[t0, t6, t2, t3, t4, t5]
+    then b184[t6]
+    else b213[t0, t6, t2, t3, t4, t5]
 
 -----------------------------------------
 -- not recursive
-b183 :: [Bit 32, Bit 32] >>= [Bit 32]
-b183[t0, t1] =
+b194 :: [Bit 32, Bit 32] >>= [Bit 32]
+b194[t0, t1] =
   t2 <- primEq((2, t1))
   if t2
-    then b173[2]
-    else b200[t0, 2, 6, 5, t1, 4, 3]
+    then b184[2]
+    else b211[t0, 2, 6, 5, t1, 4, 3]
 
 -----------------------------------------
 -- not recursive
-b174 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b174[t0, t1, t2] =
+b185 :: [Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b185[t0, t1, t2] =
   t3 <- tcbXfer((t0))
   t4 <- getBuffer(())
   t5 <- primEq((t4, 0))
   if t5
-    then b173[t2]
-    else b183[t4, t1]
+    then b184[t2]
+    else b194[t4, t1]
 
 -----------------------------------------
 -- not recursive
-b203 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
-b203[t0, t1, t2, t3] =
+b214 :: [Bit 32, Bit 32, Bit 32, Bit 32] >>= [Bit 32]
+b214[t0, t1, t2, t3] =
   t4 <- tcbXfer((t0))
   t5 <- primEq((t3, t1))
   if t5
-    then b173[t3]
-    else b174[t3, t1, t2]
+    then b184[t3]
+    else b185[t3, t1, t2]
 
 -----------------------------------------
 -- not recursive
@@ -80,8 +80,8 @@ entrypoint main :: [Bit 32] >>= [Bit 32]
 main[t0] =
   t1 <- primEq((0, t0))
   if t1
-    then b173[0]
-    else b203[0, t0, 2, 1]
+    then b184[0]
+    else b214[0, t0, 2, 1]
 
 -----------------------------------------
 -- Entrypoints: main

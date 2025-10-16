@@ -17,36 +17,36 @@ external resume :: [Bool] ->> [[] ->> [Bit 32]]
 
 -----------------------------------------
 -- not recursive
-b39 :: [Bool] >>= [Bit 32]
-b39[t0] =
+b46 :: [Bool] >>= [Bit 32]
+b46[t0] =
   t1 <- resume @ t0
   t1 @ []
 
 -----------------------------------------
 -- not recursive
-b38 :: [Bool, Bool] >>= [Bit 32]
-b38[t0, t1] =
+b45 :: [Bool, Bool] >>= [Bit 32]
+b45[t0, t1] =
   t2 <- prop @ t0
   t3 <- t2 @ []
   case t3 of
-    True -> b39[t1]
-    False -> b39[t0]
+    True -> b46[t1]
+    False -> b46[t0]
 
 -----------------------------------------
 -- not recursive
-k24 :: {Bool, Bool} [] ->> [Bit 32]
-k24{t0, t1} [] = b38[t0, t1]
+k31 :: {Bool, Bool} [] ->> [Bit 32]
+k31{t0, t1} [] = b45[t0, t1]
 
 -----------------------------------------
 -- not recursive
-k20 :: {} [Bool] ->> [[] ->> [Bit 32]]
-k20{} t0 = k24{t0, t0}
+k27 :: {} [Bool] ->> [[] ->> [Bit 32]]
+k27{} t0 = k31{t0, t0}
 
 -----------------------------------------
 -- not recursive
 entrypoint input :: [Bool] ->> [[] ->> [Bit 32]]
 input <-
-  k20{}
+  k27{}
 
 -----------------------------------------
 -- Entrypoints: input

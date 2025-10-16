@@ -14,6 +14,7 @@ options: -v             verbose on
          -Oname         enable optimization, name in {unroll,wordspec,...}
          -m[filename]   mil code
          -t[filename]   type definitions
+         -z[filename]   tikz type diagrams
          -g[filename]   GraphViz file for mil structure
          -c[filename]   type set
          -s[filename]   specialization type set (requires s)

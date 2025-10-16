@@ -866,32 +866,32 @@ declare i8* @alloc(i32)
 define internal %dt10* @clos_k109(%dt8* %r0, %dt9* %r1) {
   ; load stored values from closure
   %r19 = bitcast %dt8* %r0 to %dt21*
-  %r20 = getelementptr inbounds %dt21, %dt21* %r19, i32 0, i32 1
+  %r20 = getelementptr inbounds %dt20**, %dt21* %r19, i32 0, i32 1
   %r7 = load %dt20*, %dt20** %r20
   ; body of closure starts here
   br label %b167
 
 b167:
   ; calculate the number of bytes that we need to allocate
-  %r16 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r16 = getelementptr inbounds %dt21*, %dt21* null, i32 1
   %r17 = ptrtoint %dt21* %r16 to i32
   ; allocate memory for the object
   %r18 = call i8* @alloc(i32 %r17)
   %r13 = bitcast i8* %r18 to %dt21*
   ; set the tag
-  %r15 = getelementptr inbounds %dt21, %dt21* %r13, i32 0, i32 0
+  %r15 = getelementptr inbounds %dt7*, %dt21* %r13, i32 0, i32 0
   store %dt7 @clos_k109, %dt7* %r15
   ; initialize other fields
-  %r14 = getelementptr inbounds %dt21, %dt21* %r13, i32 0, i32 1
+  %r14 = getelementptr inbounds %dt20**, %dt21* %r13, i32 0, i32 1
   store %dt20* %r7, %dt20** %r14
   %r4 = bitcast %dt21* %r13 to %dt8*
   %r11 = bitcast %dt9* %r1 to %dt12*
-  %r12 = getelementptr inbounds %dt12, %dt12* %r11, i32 0, i32 1
+  %r12 = getelementptr inbounds %dt1**, %dt12* %r11, i32 0, i32 1
   %r8 = load %dt1*, %dt1** %r12
-  %r10 = getelementptr inbounds %dt20, %dt20* %r7, i32 0, i32 0
+  %r10 = getelementptr inbounds %dt19*, %dt20* %r7, i32 0, i32 0
   %r9 = load %dt19, %dt19* %r10
   %r3 = call %dt6* %r9(%dt20* %r7, %dt1* %r8)
-  %r6 = getelementptr inbounds %dt6, %dt6* %r3, i32 0, i32 0
+  %r6 = getelementptr inbounds %dt5*, %dt6* %r3, i32 0, i32 0
   %r5 = load %dt5, %dt5* %r6
   %r2 = tail call %dt10* %r5(%dt6* %r3, %dt8* %r4)
   ret %dt10* %r2
@@ -909,20 +909,20 @@ b167:
 define internal %dt10* @clos_k501(%dt6* %r0, %dt8* %r1) {
   ; load stored values from closure
   %r10 = bitcast %dt6* %r0 to %dt24*
-  %r11 = getelementptr inbounds %dt24, %dt24* %r10, i32 0, i32 1
+  %r11 = getelementptr inbounds %dt22**, %dt24* %r10, i32 0, i32 1
   %r4 = load %dt22*, %dt22** %r11
   ; body of closure starts here
   ; calculate the number of bytes that we need to allocate
-  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r7 = getelementptr inbounds %dt23*, %dt23* null, i32 1
   %r8 = ptrtoint %dt23* %r7 to i32
   ; allocate memory for the object
   %r9 = call i8* @alloc(i32 %r8)
   %r3 = bitcast i8* %r9 to %dt23*
   ; set the tag
-  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  %r6 = getelementptr inbounds i32*, %dt23* %r3, i32 0, i32 0
   store i32 0, i32* %r6
   ; initialize other fields
-  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  %r5 = getelementptr inbounds %dt22**, %dt23* %r3, i32 0, i32 1
   store %dt22* %r4, %dt22** %r5
   %r2 = bitcast %dt23* %r3 to %dt10*
   ret %dt10* %r2
@@ -949,73 +949,73 @@ define internal %dt10* @clos_k501(%dt6* %r0, %dt8* %r1) {
 define internal %dt10* @clos_k384(%dt6* %r0, %dt8* %r1) {
   ; load stored values from closure
   %r41 = bitcast %dt6* %r0 to %dt30*
-  %r42 = getelementptr inbounds %dt30, %dt30* %r41, i32 0, i32 1
+  %r42 = getelementptr inbounds %dt14**, %dt30* %r41, i32 0, i32 1
   %r40 = load %dt14*, %dt14** %r42
   ; body of closure starts here
   br label %b903
 
 b903:
   %r38 = bitcast %dt14* %r40 to %dt13*
-  %r39 = getelementptr inbounds %dt13, %dt13* %r38, i32 0, i32 1
+  %r39 = getelementptr inbounds %dt9**, %dt13* %r38, i32 0, i32 1
   %r33 = load %dt9*, %dt9** %r39
-  %r37 = getelementptr inbounds %dt8, %dt8* %r1, i32 0, i32 0
+  %r37 = getelementptr inbounds %dt7*, %dt8* %r1, i32 0, i32 0
   %r36 = load %dt7, %dt7* %r37
   %r27 = call %dt10* %r36(%dt8* %r1, %dt9* %r33)
-  %r35 = getelementptr inbounds %dt8, %dt8* %r1, i32 0, i32 0
+  %r35 = getelementptr inbounds %dt7*, %dt8* %r1, i32 0, i32 0
   %r34 = load %dt7, %dt7* %r35
   %r25 = call %dt10* %r34(%dt8* %r1, %dt9* %r33)
   ; calculate the number of bytes that we need to allocate
-  %r30 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r30 = getelementptr inbounds %dt29*, %dt29* null, i32 1
   %r31 = ptrtoint %dt29* %r30 to i32
   ; allocate memory for the object
   %r32 = call i8* @alloc(i32 %r31)
   %r24 = bitcast i8* %r32 to %dt29*
   ; set the tag
-  %r29 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 0
+  %r29 = getelementptr inbounds i32*, %dt29* %r24, i32 0, i32 0
   store i32 0, i32* %r29
   ; initialize other fields
-  %r28 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 1
+  %r28 = getelementptr inbounds %dt10**, %dt29* %r24, i32 0, i32 1
   store %dt10* %r27, %dt10** %r28
-  %r26 = getelementptr inbounds %dt29, %dt29* %r24, i32 0, i32 2
+  %r26 = getelementptr inbounds %dt10**, %dt29* %r24, i32 0, i32 2
   store %dt10* %r25, %dt10** %r26
   %r18 = bitcast %dt29* %r24 to %dt27*
   ; calculate the number of bytes that we need to allocate
-  %r21 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r21 = getelementptr inbounds %dt28*, %dt28* null, i32 1
   %r22 = ptrtoint %dt28* %r21 to i32
   ; allocate memory for the object
   %r23 = call i8* @alloc(i32 %r22)
   %r17 = bitcast i8* %r23 to %dt28*
   ; set the tag
-  %r20 = getelementptr inbounds %dt28, %dt28* %r17, i32 0, i32 0
+  %r20 = getelementptr inbounds i32*, %dt28* %r17, i32 0, i32 0
   store i32 0, i32* %r20
   ; initialize other fields
-  %r19 = getelementptr inbounds %dt28, %dt28* %r17, i32 0, i32 1
+  %r19 = getelementptr inbounds %dt27**, %dt28* %r17, i32 0, i32 1
   store %dt27* %r18, %dt27** %r19
   %r11 = bitcast %dt28* %r17 to %dt25*
   ; calculate the number of bytes that we need to allocate
-  %r14 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r14 = getelementptr inbounds %dt26*, %dt26* null, i32 1
   %r15 = ptrtoint %dt26* %r14 to i32
   ; allocate memory for the object
   %r16 = call i8* @alloc(i32 %r15)
   %r10 = bitcast i8* %r16 to %dt26*
   ; set the tag
-  %r13 = getelementptr inbounds %dt26, %dt26* %r10, i32 0, i32 0
+  %r13 = getelementptr inbounds i32*, %dt26* %r10, i32 0, i32 0
   store i32 1, i32* %r13
   ; initialize other fields
-  %r12 = getelementptr inbounds %dt26, %dt26* %r10, i32 0, i32 1
+  %r12 = getelementptr inbounds %dt25**, %dt26* %r10, i32 0, i32 1
   store %dt25* %r11, %dt25** %r12
   %r4 = bitcast %dt26* %r10 to %dt22*
   ; calculate the number of bytes that we need to allocate
-  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r7 = getelementptr inbounds %dt23*, %dt23* null, i32 1
   %r8 = ptrtoint %dt23* %r7 to i32
   ; allocate memory for the object
   %r9 = call i8* @alloc(i32 %r8)
   %r3 = bitcast i8* %r9 to %dt23*
   ; set the tag
-  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  %r6 = getelementptr inbounds i32*, %dt23* %r3, i32 0, i32 0
   store i32 0, i32* %r6
   ; initialize other fields
-  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  %r5 = getelementptr inbounds %dt22**, %dt23* %r3, i32 0, i32 1
   store %dt22* %r4, %dt22** %r5
   %r2 = bitcast %dt23* %r3 to %dt10*
   ret %dt10* %r2
@@ -1030,36 +1030,36 @@ b903:
 define internal %dt10* @clos_k526(%dt6* %r0, %dt8* %r1) {
   ; load stored values from closure
   %r17 = bitcast %dt6* %r0 to %dt32*
-  %r18 = getelementptr inbounds %dt32, %dt32* %r17, i32 0, i32 1
+  %r18 = getelementptr inbounds i32*, %dt32* %r17, i32 0, i32 1
   %r11 = load i32, i32* %r18
   ; body of closure starts here
   br label %b1385
 
 b1385:
   ; calculate the number of bytes that we need to allocate
-  %r14 = getelementptr inbounds %dt31, %dt31* null, i32 1
+  %r14 = getelementptr inbounds %dt31*, %dt31* null, i32 1
   %r15 = ptrtoint %dt31* %r14 to i32
   ; allocate memory for the object
   %r16 = call i8* @alloc(i32 %r15)
   %r10 = bitcast i8* %r16 to %dt31*
   ; set the tag
-  %r13 = getelementptr inbounds %dt31, %dt31* %r10, i32 0, i32 0
+  %r13 = getelementptr inbounds i32*, %dt31* %r10, i32 0, i32 0
   store i32 0, i32* %r13
   ; initialize other fields
-  %r12 = getelementptr inbounds %dt31, %dt31* %r10, i32 0, i32 1
+  %r12 = getelementptr inbounds i32*, %dt31* %r10, i32 0, i32 1
   store i32 %r11, i32* %r12
   %r4 = bitcast %dt31* %r10 to %dt22*
   ; calculate the number of bytes that we need to allocate
-  %r7 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r7 = getelementptr inbounds %dt23*, %dt23* null, i32 1
   %r8 = ptrtoint %dt23* %r7 to i32
   ; allocate memory for the object
   %r9 = call i8* @alloc(i32 %r8)
   %r3 = bitcast i8* %r9 to %dt23*
   ; set the tag
-  %r6 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 0
+  %r6 = getelementptr inbounds i32*, %dt23* %r3, i32 0, i32 0
   store i32 0, i32* %r6
   ; initialize other fields
-  %r5 = getelementptr inbounds %dt23, %dt23* %r3, i32 0, i32 1
+  %r5 = getelementptr inbounds %dt22**, %dt23* %r3, i32 0, i32 1
   store %dt22* %r4, %dt22** %r5
   %r2 = bitcast %dt23* %r3 to %dt10*
   ret %dt10* %r2
@@ -1076,14 +1076,14 @@ b1385:
 define internal %dt6* @clos_k505(%dt20* %r0, %dt1* %r1) {
   ; load stored values from closure
   %r21 = bitcast %dt20* %r0 to %dt35*
-  %r22 = getelementptr inbounds %dt35, %dt35* %r21, i32 0, i32 1
+  %r22 = getelementptr inbounds %dt34**, %dt35* %r21, i32 0, i32 1
   %r5 = load %dt34*, %dt34** %r22
   ; body of closure starts here
   br label %b1383
 
 b1383:
   ; read the tag for a data object
-  %r3 = getelementptr inbounds %dt1, %dt1* %r1, i32 0, i32 0
+  %r3 = getelementptr inbounds i32*, %dt1* %r1, i32 0, i32 0
   %r2 = load i32, i32* %r3
   ; branch based on the tag value
   switch i32 %r2, label %b2291 [
@@ -1091,28 +1091,28 @@ b1383:
 
 b2291:
   %r9 = bitcast %dt1* %r1 to %dt18*
-  %r10 = getelementptr inbounds %dt18, %dt18* %r9, i32 0, i32 1
+  %r10 = getelementptr inbounds %dt17**, %dt18* %r9, i32 0, i32 1
   %r6 = load %dt17*, %dt17** %r10
-  %r8 = getelementptr inbounds %dt34, %dt34* %r5, i32 0, i32 0
+  %r8 = getelementptr inbounds %dt33*, %dt34* %r5, i32 0, i32 0
   %r7 = load %dt33, %dt33* %r8
   %r4 = tail call %dt6* %r7(%dt34* %r5, %dt17* %r6)
   ret %dt6* %r4
 
 b2290:
   %r19 = bitcast %dt1* %r1 to %dt0*
-  %r20 = getelementptr inbounds %dt0, %dt0* %r19, i32 0, i32 1
+  %r20 = getelementptr inbounds i32*, %dt0* %r19, i32 0, i32 1
   %r13 = load i32, i32* %r20
   ; calculate the number of bytes that we need to allocate
-  %r16 = getelementptr inbounds %dt32, %dt32* null, i32 1
+  %r16 = getelementptr inbounds %dt32*, %dt32* null, i32 1
   %r17 = ptrtoint %dt32* %r16 to i32
   ; allocate memory for the object
   %r18 = call i8* @alloc(i32 %r17)
   %r12 = bitcast i8* %r18 to %dt32*
   ; set the tag
-  %r15 = getelementptr inbounds %dt32, %dt32* %r12, i32 0, i32 0
+  %r15 = getelementptr inbounds %dt5*, %dt32* %r12, i32 0, i32 0
   store %dt5 @clos_k526, %dt5* %r15
   ; initialize other fields
-  %r14 = getelementptr inbounds %dt32, %dt32* %r12, i32 0, i32 1
+  %r14 = getelementptr inbounds i32*, %dt32* %r12, i32 0, i32 1
   store i32 %r13, i32* %r14
   %r11 = bitcast %dt32* %r12 to %dt6*
   ret %dt6* %r11
@@ -1137,7 +1137,7 @@ define internal %dt6* @clos_k503(%dt3* %r0, %dt4* %r1) {
 
 b1288:
   ; read the tag for a data object
-  %r3 = getelementptr inbounds %dt4, %dt4* %r1, i32 0, i32 0
+  %r3 = getelementptr inbounds i32*, %dt4* %r1, i32 0, i32 0
   %r2 = load i32, i32* %r3
   ; branch based on the tag value
   switch i32 %r2, label %b2292 [
@@ -1145,39 +1145,39 @@ b1288:
 
 b2292:
   %r12 = bitcast %dt4* %r1 to %dt15*
-  %r13 = getelementptr inbounds %dt15, %dt15* %r12, i32 0, i32 1
+  %r13 = getelementptr inbounds %dt14**, %dt15* %r12, i32 0, i32 1
   %r6 = load %dt14*, %dt14** %r13
   ; calculate the number of bytes that we need to allocate
-  %r9 = getelementptr inbounds %dt30, %dt30* null, i32 1
+  %r9 = getelementptr inbounds %dt30*, %dt30* null, i32 1
   %r10 = ptrtoint %dt30* %r9 to i32
   ; allocate memory for the object
   %r11 = call i8* @alloc(i32 %r10)
   %r5 = bitcast i8* %r11 to %dt30*
   ; set the tag
-  %r8 = getelementptr inbounds %dt30, %dt30* %r5, i32 0, i32 0
+  %r8 = getelementptr inbounds %dt5*, %dt30* %r5, i32 0, i32 0
   store %dt5 @clos_k384, %dt5* %r8
   ; initialize other fields
-  %r7 = getelementptr inbounds %dt30, %dt30* %r5, i32 0, i32 1
+  %r7 = getelementptr inbounds %dt14**, %dt30* %r5, i32 0, i32 1
   store %dt14* %r6, %dt14** %r7
   %r4 = bitcast %dt30* %r5 to %dt6*
   ret %dt6* %r4
 
 b1403:
   %r23 = bitcast %dt4* %r1 to %dt37*
-  %r24 = getelementptr inbounds %dt37, %dt37* %r23, i32 0, i32 1
+  %r24 = getelementptr inbounds %dt36**, %dt37* %r23, i32 0, i32 1
   %r22 = load %dt36*, %dt36** %r24
   %r16 = call %dt22* @func_b1410(%dt36* %r22)
   ; calculate the number of bytes that we need to allocate
-  %r19 = getelementptr inbounds %dt24, %dt24* null, i32 1
+  %r19 = getelementptr inbounds %dt24*, %dt24* null, i32 1
   %r20 = ptrtoint %dt24* %r19 to i32
   ; allocate memory for the object
   %r21 = call i8* @alloc(i32 %r20)
   %r15 = bitcast i8* %r21 to %dt24*
   ; set the tag
-  %r18 = getelementptr inbounds %dt24, %dt24* %r15, i32 0, i32 0
+  %r18 = getelementptr inbounds %dt5*, %dt24* %r15, i32 0, i32 0
   store %dt5 @clos_k501, %dt5* %r18
   ; initialize other fields
-  %r17 = getelementptr inbounds %dt24, %dt24* %r15, i32 0, i32 1
+  %r17 = getelementptr inbounds %dt22**, %dt24* %r15, i32 0, i32 1
   store %dt22* %r16, %dt22** %r17
   %r14 = bitcast %dt24* %r15 to %dt6*
   ret %dt6* %r14
@@ -1189,16 +1189,16 @@ define internal %dt22* @func_b1410(%dt36* %r0) {
 b1410:
   %r3 = call %dt25* @func_b1411(%dt36* %r0)
   ; calculate the number of bytes that we need to allocate
-  %r6 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r6 = getelementptr inbounds %dt26*, %dt26* null, i32 1
   %r7 = ptrtoint %dt26* %r6 to i32
   ; allocate memory for the object
   %r8 = call i8* @alloc(i32 %r7)
   %r2 = bitcast i8* %r8 to %dt26*
   ; set the tag
-  %r5 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 0
+  %r5 = getelementptr inbounds i32*, %dt26* %r2, i32 0, i32 0
   store i32 1, i32* %r5
   ; initialize other fields
-  %r4 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 1
+  %r4 = getelementptr inbounds %dt25**, %dt26* %r2, i32 0, i32 1
   store %dt25* %r3, %dt25** %r4
   %r1 = bitcast %dt26* %r2 to %dt22*
   ret %dt22* %r1
@@ -1215,39 +1215,39 @@ define internal %dt25* @func_b1411(%dt36* %r0) {
 
 b1411:
   %r22 = bitcast %dt36* %r0 to %dt39*
-  %r23 = getelementptr inbounds %dt39, %dt39* %r22, i32 0, i32 1
+  %r23 = getelementptr inbounds %dt9**, %dt39* %r22, i32 0, i32 1
   %r19 = load %dt9*, %dt9** %r23
   %r20 = bitcast %dt36* %r0 to %dt39*
-  %r21 = getelementptr inbounds %dt39, %dt39* %r20, i32 0, i32 2
+  %r21 = getelementptr inbounds %dt9**, %dt39* %r20, i32 0, i32 2
   %r18 = load %dt9*, %dt9** %r21
   %r12 = call %dt10* @func_b908(%dt9* %r19)
   %r10 = call %dt10* @func_b908(%dt9* %r18)
   ; calculate the number of bytes that we need to allocate
-  %r15 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r15 = getelementptr inbounds %dt29*, %dt29* null, i32 1
   %r16 = ptrtoint %dt29* %r15 to i32
   ; allocate memory for the object
   %r17 = call i8* @alloc(i32 %r16)
   %r9 = bitcast i8* %r17 to %dt29*
   ; set the tag
-  %r14 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 0
+  %r14 = getelementptr inbounds i32*, %dt29* %r9, i32 0, i32 0
   store i32 0, i32* %r14
   ; initialize other fields
-  %r13 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 1
+  %r13 = getelementptr inbounds %dt10**, %dt29* %r9, i32 0, i32 1
   store %dt10* %r12, %dt10** %r13
-  %r11 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 2
+  %r11 = getelementptr inbounds %dt10**, %dt29* %r9, i32 0, i32 2
   store %dt10* %r10, %dt10** %r11
   %r3 = bitcast %dt29* %r9 to %dt27*
   ; calculate the number of bytes that we need to allocate
-  %r6 = getelementptr inbounds %dt38, %dt38* null, i32 1
+  %r6 = getelementptr inbounds %dt38*, %dt38* null, i32 1
   %r7 = ptrtoint %dt38* %r6 to i32
   ; allocate memory for the object
   %r8 = call i8* @alloc(i32 %r7)
   %r2 = bitcast i8* %r8 to %dt38*
   ; set the tag
-  %r5 = getelementptr inbounds %dt38, %dt38* %r2, i32 0, i32 0
+  %r5 = getelementptr inbounds i32*, %dt38* %r2, i32 0, i32 0
   store i32 1, i32* %r5
   ; initialize other fields
-  %r4 = getelementptr inbounds %dt38, %dt38* %r2, i32 0, i32 1
+  %r4 = getelementptr inbounds %dt27**, %dt38* %r2, i32 0, i32 1
   store %dt27* %r3, %dt27** %r4
   %r1 = bitcast %dt38* %r2 to %dt25*
   ret %dt25* %r1
@@ -1262,16 +1262,16 @@ define internal %dt34* @func_b1286() {
 b1286:
   %r2 = call %dt3* @func_b1287()
   ; calculate the number of bytes that we need to allocate
-  %r5 = getelementptr inbounds %dt40, %dt40* null, i32 1
+  %r5 = getelementptr inbounds %dt40*, %dt40* null, i32 1
   %r6 = ptrtoint %dt40* %r5 to i32
   ; allocate memory for the object
   %r7 = call i8* @alloc(i32 %r6)
   %r1 = bitcast i8* %r7 to %dt40*
   ; set the tag
-  %r4 = getelementptr inbounds %dt40, %dt40* %r1, i32 0, i32 0
+  %r4 = getelementptr inbounds %dt33*, %dt40* %r1, i32 0, i32 0
   store %dt33 @clos_k504, %dt33* %r4
   ; initialize other fields
-  %r3 = getelementptr inbounds %dt40, %dt40* %r1, i32 0, i32 1
+  %r3 = getelementptr inbounds %dt3**, %dt40* %r1, i32 0, i32 1
   store %dt3* %r2, %dt3** %r3
   %r0 = bitcast %dt40* %r1 to %dt34*
   ret %dt34* %r0
@@ -1283,14 +1283,14 @@ b1286:
 define internal %dt6* @clos_k504(%dt34* %r0, %dt17* %r1) {
   ; load stored values from closure
   %r22 = bitcast %dt34* %r0 to %dt40*
-  %r23 = getelementptr inbounds %dt40, %dt40* %r22, i32 0, i32 1
+  %r23 = getelementptr inbounds %dt3**, %dt40* %r22, i32 0, i32 1
   %r5 = load %dt3*, %dt3** %r23
   ; body of closure starts here
   br label %b1386
 
 b1386:
   ; read the tag for a data object
-  %r3 = getelementptr inbounds %dt17, %dt17* %r1, i32 0, i32 0
+  %r3 = getelementptr inbounds i32*, %dt17* %r1, i32 0, i32 0
   %r2 = load i32, i32* %r3
   ; branch based on the tag value
   switch i32 %r2, label %b2293 [
@@ -1298,29 +1298,29 @@ b1386:
 
 b2293:
   %r9 = bitcast %dt17* %r1 to %dt16*
-  %r10 = getelementptr inbounds %dt16, %dt16* %r9, i32 0, i32 1
+  %r10 = getelementptr inbounds %dt4**, %dt16* %r9, i32 0, i32 1
   %r6 = load %dt4*, %dt4** %r10
-  %r8 = getelementptr inbounds %dt3, %dt3* %r5, i32 0, i32 0
+  %r8 = getelementptr inbounds %dt2*, %dt3* %r5, i32 0, i32 0
   %r7 = load %dt2, %dt2* %r8
   %r4 = tail call %dt6* %r7(%dt3* %r5, %dt4* %r6)
   ret %dt6* %r4
 
 b1387:
   %r20 = bitcast %dt17* %r1 to %dt41*
-  %r21 = getelementptr inbounds %dt41, %dt41* %r20, i32 0, i32 1
+  %r21 = getelementptr inbounds %dt36**, %dt41* %r20, i32 0, i32 1
   %r19 = load %dt36*, %dt36** %r21
   %r13 = call %dt22* @func_b1398(%dt36* %r19)
   ; calculate the number of bytes that we need to allocate
-  %r16 = getelementptr inbounds %dt24, %dt24* null, i32 1
+  %r16 = getelementptr inbounds %dt24*, %dt24* null, i32 1
   %r17 = ptrtoint %dt24* %r16 to i32
   ; allocate memory for the object
   %r18 = call i8* @alloc(i32 %r17)
   %r12 = bitcast i8* %r18 to %dt24*
   ; set the tag
-  %r15 = getelementptr inbounds %dt24, %dt24* %r12, i32 0, i32 0
+  %r15 = getelementptr inbounds %dt5*, %dt24* %r12, i32 0, i32 0
   store %dt5 @clos_k501, %dt5* %r15
   ; initialize other fields
-  %r14 = getelementptr inbounds %dt24, %dt24* %r12, i32 0, i32 1
+  %r14 = getelementptr inbounds %dt22**, %dt24* %r12, i32 0, i32 1
   store %dt22* %r13, %dt22** %r14
   %r11 = bitcast %dt24* %r12 to %dt6*
   ret %dt6* %r11
@@ -1332,16 +1332,16 @@ define internal %dt22* @func_b1398(%dt36* %r0) {
 b1398:
   %r3 = call %dt25* @func_b1399(%dt36* %r0)
   ; calculate the number of bytes that we need to allocate
-  %r6 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r6 = getelementptr inbounds %dt26*, %dt26* null, i32 1
   %r7 = ptrtoint %dt26* %r6 to i32
   ; allocate memory for the object
   %r8 = call i8* @alloc(i32 %r7)
   %r2 = bitcast i8* %r8 to %dt26*
   ; set the tag
-  %r5 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 0
+  %r5 = getelementptr inbounds i32*, %dt26* %r2, i32 0, i32 0
   store i32 1, i32* %r5
   ; initialize other fields
-  %r4 = getelementptr inbounds %dt26, %dt26* %r2, i32 0, i32 1
+  %r4 = getelementptr inbounds %dt25**, %dt26* %r2, i32 0, i32 1
   store %dt25* %r3, %dt25** %r4
   %r1 = bitcast %dt26* %r2 to %dt22*
   ret %dt22* %r1
@@ -1352,39 +1352,39 @@ define internal %dt25* @func_b1399(%dt36* %r0) {
 
 b1399:
   %r22 = bitcast %dt36* %r0 to %dt39*
-  %r23 = getelementptr inbounds %dt39, %dt39* %r22, i32 0, i32 1
+  %r23 = getelementptr inbounds %dt9**, %dt39* %r22, i32 0, i32 1
   %r19 = load %dt9*, %dt9** %r23
   %r20 = bitcast %dt36* %r0 to %dt39*
-  %r21 = getelementptr inbounds %dt39, %dt39* %r20, i32 0, i32 2
+  %r21 = getelementptr inbounds %dt9**, %dt39* %r20, i32 0, i32 2
   %r18 = load %dt9*, %dt9** %r21
   %r12 = call %dt10* @func_b908(%dt9* %r19)
   %r10 = call %dt10* @func_b908(%dt9* %r18)
   ; calculate the number of bytes that we need to allocate
-  %r15 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r15 = getelementptr inbounds %dt29*, %dt29* null, i32 1
   %r16 = ptrtoint %dt29* %r15 to i32
   ; allocate memory for the object
   %r17 = call i8* @alloc(i32 %r16)
   %r9 = bitcast i8* %r17 to %dt29*
   ; set the tag
-  %r14 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 0
+  %r14 = getelementptr inbounds i32*, %dt29* %r9, i32 0, i32 0
   store i32 0, i32* %r14
   ; initialize other fields
-  %r13 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 1
+  %r13 = getelementptr inbounds %dt10**, %dt29* %r9, i32 0, i32 1
   store %dt10* %r12, %dt10** %r13
-  %r11 = getelementptr inbounds %dt29, %dt29* %r9, i32 0, i32 2
+  %r11 = getelementptr inbounds %dt10**, %dt29* %r9, i32 0, i32 2
   store %dt10* %r10, %dt10** %r11
   %r3 = bitcast %dt29* %r9 to %dt27*
   ; calculate the number of bytes that we need to allocate
-  %r6 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r6 = getelementptr inbounds %dt28*, %dt28* null, i32 1
   %r7 = ptrtoint %dt28* %r6 to i32
   ; allocate memory for the object
   %r8 = call i8* @alloc(i32 %r7)
   %r2 = bitcast i8* %r8 to %dt28*
   ; set the tag
-  %r5 = getelementptr inbounds %dt28, %dt28* %r2, i32 0, i32 0
+  %r5 = getelementptr inbounds i32*, %dt28* %r2, i32 0, i32 0
   store i32 0, i32* %r5
   ; initialize other fields
-  %r4 = getelementptr inbounds %dt28, %dt28* %r2, i32 0, i32 1
+  %r4 = getelementptr inbounds %dt27**, %dt28* %r2, i32 0, i32 1
   store %dt27* %r3, %dt27** %r4
   %r1 = bitcast %dt28* %r2 to %dt25*
   ret %dt25* %r1
@@ -1399,25 +1399,25 @@ b908:
 
 b167:
   ; calculate the number of bytes that we need to allocate
-  %r15 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r15 = getelementptr inbounds %dt21*, %dt21* null, i32 1
   %r16 = ptrtoint %dt21* %r15 to i32
   ; allocate memory for the object
   %r17 = call i8* @alloc(i32 %r16)
   %r12 = bitcast i8* %r17 to %dt21*
   ; set the tag
-  %r14 = getelementptr inbounds %dt21, %dt21* %r12, i32 0, i32 0
+  %r14 = getelementptr inbounds %dt7*, %dt21* %r12, i32 0, i32 0
   store %dt7 @clos_k109, %dt7* %r14
   ; initialize other fields
-  %r13 = getelementptr inbounds %dt21, %dt21* %r12, i32 0, i32 1
+  %r13 = getelementptr inbounds %dt20**, %dt21* %r12, i32 0, i32 1
   store %dt20* %r1, %dt20** %r13
   %r4 = bitcast %dt21* %r12 to %dt8*
   %r10 = bitcast %dt9* %r0 to %dt12*
-  %r11 = getelementptr inbounds %dt12, %dt12* %r10, i32 0, i32 1
+  %r11 = getelementptr inbounds %dt1**, %dt12* %r10, i32 0, i32 1
   %r7 = load %dt1*, %dt1** %r11
-  %r9 = getelementptr inbounds %dt20, %dt20* %r1, i32 0, i32 0
+  %r9 = getelementptr inbounds %dt19*, %dt20* %r1, i32 0, i32 0
   %r8 = load %dt19, %dt19* %r9
   %r3 = call %dt6* %r8(%dt20* %r1, %dt1* %r7)
-  %r6 = getelementptr inbounds %dt6, %dt6* %r3, i32 0, i32 0
+  %r6 = getelementptr inbounds %dt5*, %dt6* %r3, i32 0, i32 0
   %r5 = load %dt5, %dt5* %r6
   %r2 = tail call %dt10* %r5(%dt6* %r3, %dt8* %r4)
   ret %dt10* %r2
@@ -1429,16 +1429,16 @@ define internal %dt20* @func_b1285() {
 b1285:
   %r2 = call %dt34* @func_b1286()
   ; calculate the number of bytes that we need to allocate
-  %r5 = getelementptr inbounds %dt35, %dt35* null, i32 1
+  %r5 = getelementptr inbounds %dt35*, %dt35* null, i32 1
   %r6 = ptrtoint %dt35* %r5 to i32
   ; allocate memory for the object
   %r7 = call i8* @alloc(i32 %r6)
   %r1 = bitcast i8* %r7 to %dt35*
   ; set the tag
-  %r4 = getelementptr inbounds %dt35, %dt35* %r1, i32 0, i32 0
+  %r4 = getelementptr inbounds %dt19*, %dt35* %r1, i32 0, i32 0
   store %dt19 @clos_k505, %dt19* %r4
   ; initialize other fields
-  %r3 = getelementptr inbounds %dt35, %dt35* %r1, i32 0, i32 1
+  %r3 = getelementptr inbounds %dt34**, %dt35* %r1, i32 0, i32 1
   store %dt34* %r2, %dt34** %r3
   %r0 = bitcast %dt35* %r1 to %dt20*
   ret %dt20* %r0
@@ -1449,10 +1449,10 @@ define internal i32 @func_b1434(%dt10* %r0) {
 
 b1434:
   %r4 = bitcast %dt10* %r0 to %dt23*
-  %r5 = getelementptr inbounds %dt23, %dt23* %r4, i32 0, i32 1
+  %r5 = getelementptr inbounds %dt22**, %dt23* %r4, i32 0, i32 1
   %r3 = load %dt22*, %dt22** %r5
   ; read the tag for a data object
-  %r2 = getelementptr inbounds %dt22, %dt22* %r3, i32 0, i32 0
+  %r2 = getelementptr inbounds i32*, %dt22* %r3, i32 0, i32 0
   %r1 = load i32, i32* %r2
   ; branch based on the tag value
   switch i32 %r1, label %b1578 [
@@ -1460,10 +1460,10 @@ b1434:
 
 b1578:
   %r9 = bitcast %dt22* %r3 to %dt26*
-  %r10 = getelementptr inbounds %dt26, %dt26* %r9, i32 0, i32 1
+  %r10 = getelementptr inbounds %dt25**, %dt26* %r9, i32 0, i32 1
   %r8 = load %dt25*, %dt25** %r10
   ; read the tag for a data object
-  %r7 = getelementptr inbounds %dt25, %dt25* %r8, i32 0, i32 0
+  %r7 = getelementptr inbounds i32*, %dt25* %r8, i32 0, i32 0
   %r6 = load i32, i32* %r7
   ; branch based on the tag value
   switch i32 %r6, label %b1854 [
@@ -1471,19 +1471,19 @@ b1578:
 
 b2289:
   %r12 = bitcast %dt22* %r3 to %dt31*
-  %r13 = getelementptr inbounds %dt31, %dt31* %r12, i32 0, i32 1
+  %r13 = getelementptr inbounds i32*, %dt31* %r12, i32 0, i32 1
   %r11 = load i32, i32* %r13
   ret i32 %r11
 
 b1854:
   %r24 = bitcast %dt25* %r8 to %dt38*
-  %r25 = getelementptr inbounds %dt38, %dt38* %r24, i32 0, i32 1
+  %r25 = getelementptr inbounds %dt27**, %dt38* %r24, i32 0, i32 1
   %r21 = load %dt27*, %dt27** %r25
   %r22 = bitcast %dt27* %r21 to %dt29*
-  %r23 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 1
+  %r23 = getelementptr inbounds %dt10**, %dt29* %r22, i32 0, i32 1
   %r18 = load %dt10*, %dt10** %r23
   %r19 = bitcast %dt27* %r21 to %dt29*
-  %r20 = getelementptr inbounds %dt29, %dt29* %r19, i32 0, i32 2
+  %r20 = getelementptr inbounds %dt10**, %dt29* %r19, i32 0, i32 2
   %r17 = load %dt10*, %dt10** %r20
   %r15 = call i32 @func_b1434(%dt10* %r18)
   %r16 = call i32 @func_b1434(%dt10* %r17)
@@ -1492,13 +1492,13 @@ b1854:
 
 b1852:
   %r36 = bitcast %dt25* %r8 to %dt28*
-  %r37 = getelementptr inbounds %dt28, %dt28* %r36, i32 0, i32 1
+  %r37 = getelementptr inbounds %dt27**, %dt28* %r36, i32 0, i32 1
   %r33 = load %dt27*, %dt27** %r37
   %r34 = bitcast %dt27* %r33 to %dt29*
-  %r35 = getelementptr inbounds %dt29, %dt29* %r34, i32 0, i32 1
+  %r35 = getelementptr inbounds %dt10**, %dt29* %r34, i32 0, i32 1
   %r30 = load %dt10*, %dt10** %r35
   %r31 = bitcast %dt27* %r33 to %dt29*
-  %r32 = getelementptr inbounds %dt29, %dt29* %r31, i32 0, i32 2
+  %r32 = getelementptr inbounds %dt10**, %dt29* %r31, i32 0, i32 2
   %r29 = load %dt10*, %dt10** %r32
   %r27 = call i32 @func_b1434(%dt10* %r30)
   %r28 = call i32 @func_b1434(%dt10* %r29)
@@ -1512,96 +1512,96 @@ define internal i32 @func_b910() {
 b910:
   %r48 = call %dt20* @func_b1285()
   ; calculate the number of bytes that we need to allocate
-  %r54 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r54 = getelementptr inbounds %dt21*, %dt21* null, i32 1
   %r55 = ptrtoint %dt21* %r54 to i32
   ; allocate memory for the object
   %r56 = call i8* @alloc(i32 %r55)
   %r51 = bitcast i8* %r56 to %dt21*
   ; set the tag
-  %r53 = getelementptr inbounds %dt21, %dt21* %r51, i32 0, i32 0
+  %r53 = getelementptr inbounds %dt7*, %dt21* %r51, i32 0, i32 0
   store %dt7 @clos_k109, %dt7* %r53
   ; initialize other fields
-  %r52 = getelementptr inbounds %dt21, %dt21* %r51, i32 0, i32 1
+  %r52 = getelementptr inbounds %dt20**, %dt21* %r51, i32 0, i32 1
   store %dt20* %r48, %dt20** %r52
   %r45 = bitcast %dt21* %r51 to %dt8*
-  %r50 = getelementptr inbounds %dt20, %dt20* %r48, i32 0, i32 0
+  %r50 = getelementptr inbounds %dt19*, %dt20* %r48, i32 0, i32 0
   %r49 = load %dt19, %dt19* %r50
   %r44 = call %dt6* %r49(%dt20* %r48, %dt1* @val.1)
-  %r47 = getelementptr inbounds %dt6, %dt6* %r44, i32 0, i32 0
+  %r47 = getelementptr inbounds %dt5*, %dt6* %r44, i32 0, i32 0
   %r46 = load %dt5, %dt5* %r47
   %r25 = call %dt10* %r46(%dt6* %r44, %dt8* %r45)
   %r35 = call %dt20* @func_b1285()
   ; calculate the number of bytes that we need to allocate
-  %r41 = getelementptr inbounds %dt21, %dt21* null, i32 1
+  %r41 = getelementptr inbounds %dt21*, %dt21* null, i32 1
   %r42 = ptrtoint %dt21* %r41 to i32
   ; allocate memory for the object
   %r43 = call i8* @alloc(i32 %r42)
   %r38 = bitcast i8* %r43 to %dt21*
   ; set the tag
-  %r40 = getelementptr inbounds %dt21, %dt21* %r38, i32 0, i32 0
+  %r40 = getelementptr inbounds %dt7*, %dt21* %r38, i32 0, i32 0
   store %dt7 @clos_k109, %dt7* %r40
   ; initialize other fields
-  %r39 = getelementptr inbounds %dt21, %dt21* %r38, i32 0, i32 1
+  %r39 = getelementptr inbounds %dt20**, %dt21* %r38, i32 0, i32 1
   store %dt20* %r35, %dt20** %r39
   %r32 = bitcast %dt21* %r38 to %dt8*
-  %r37 = getelementptr inbounds %dt20, %dt20* %r35, i32 0, i32 0
+  %r37 = getelementptr inbounds %dt19*, %dt20* %r35, i32 0, i32 0
   %r36 = load %dt19, %dt19* %r37
   %r31 = call %dt6* %r36(%dt20* %r35, %dt1* @val.15)
-  %r34 = getelementptr inbounds %dt6, %dt6* %r31, i32 0, i32 0
+  %r34 = getelementptr inbounds %dt5*, %dt6* %r31, i32 0, i32 0
   %r33 = load %dt5, %dt5* %r34
   %r23 = call %dt10* %r33(%dt6* %r31, %dt8* %r32)
   ; calculate the number of bytes that we need to allocate
-  %r28 = getelementptr inbounds %dt29, %dt29* null, i32 1
+  %r28 = getelementptr inbounds %dt29*, %dt29* null, i32 1
   %r29 = ptrtoint %dt29* %r28 to i32
   ; allocate memory for the object
   %r30 = call i8* @alloc(i32 %r29)
   %r22 = bitcast i8* %r30 to %dt29*
   ; set the tag
-  %r27 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 0
+  %r27 = getelementptr inbounds i32*, %dt29* %r22, i32 0, i32 0
   store i32 0, i32* %r27
   ; initialize other fields
-  %r26 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 1
+  %r26 = getelementptr inbounds %dt10**, %dt29* %r22, i32 0, i32 1
   store %dt10* %r25, %dt10** %r26
-  %r24 = getelementptr inbounds %dt29, %dt29* %r22, i32 0, i32 2
+  %r24 = getelementptr inbounds %dt10**, %dt29* %r22, i32 0, i32 2
   store %dt10* %r23, %dt10** %r24
   %r16 = bitcast %dt29* %r22 to %dt27*
   ; calculate the number of bytes that we need to allocate
-  %r19 = getelementptr inbounds %dt28, %dt28* null, i32 1
+  %r19 = getelementptr inbounds %dt28*, %dt28* null, i32 1
   %r20 = ptrtoint %dt28* %r19 to i32
   ; allocate memory for the object
   %r21 = call i8* @alloc(i32 %r20)
   %r15 = bitcast i8* %r21 to %dt28*
   ; set the tag
-  %r18 = getelementptr inbounds %dt28, %dt28* %r15, i32 0, i32 0
+  %r18 = getelementptr inbounds i32*, %dt28* %r15, i32 0, i32 0
   store i32 0, i32* %r18
   ; initialize other fields
-  %r17 = getelementptr inbounds %dt28, %dt28* %r15, i32 0, i32 1
+  %r17 = getelementptr inbounds %dt27**, %dt28* %r15, i32 0, i32 1
   store %dt27* %r16, %dt27** %r17
   %r9 = bitcast %dt28* %r15 to %dt25*
   ; calculate the number of bytes that we need to allocate
-  %r12 = getelementptr inbounds %dt26, %dt26* null, i32 1
+  %r12 = getelementptr inbounds %dt26*, %dt26* null, i32 1
   %r13 = ptrtoint %dt26* %r12 to i32
   ; allocate memory for the object
   %r14 = call i8* @alloc(i32 %r13)
   %r8 = bitcast i8* %r14 to %dt26*
   ; set the tag
-  %r11 = getelementptr inbounds %dt26, %dt26* %r8, i32 0, i32 0
+  %r11 = getelementptr inbounds i32*, %dt26* %r8, i32 0, i32 0
   store i32 1, i32* %r11
   ; initialize other fields
-  %r10 = getelementptr inbounds %dt26, %dt26* %r8, i32 0, i32 1
+  %r10 = getelementptr inbounds %dt25**, %dt26* %r8, i32 0, i32 1
   store %dt25* %r9, %dt25** %r10
   %r2 = bitcast %dt26* %r8 to %dt22*
   ; calculate the number of bytes that we need to allocate
-  %r5 = getelementptr inbounds %dt23, %dt23* null, i32 1
+  %r5 = getelementptr inbounds %dt23*, %dt23* null, i32 1
   %r6 = ptrtoint %dt23* %r5 to i32
   ; allocate memory for the object
   %r7 = call i8* @alloc(i32 %r6)
   %r1 = bitcast i8* %r7 to %dt23*
   ; set the tag
-  %r4 = getelementptr inbounds %dt23, %dt23* %r1, i32 0, i32 0
+  %r4 = getelementptr inbounds i32*, %dt23* %r1, i32 0, i32 0
   store i32 0, i32* %r4
   ; initialize other fields
-  %r3 = getelementptr inbounds %dt23, %dt23* %r1, i32 0, i32 1
+  %r3 = getelementptr inbounds %dt22**, %dt23* %r1, i32 0, i32 1
   store %dt22* %r2, %dt22** %r3
   %r0 = bitcast %dt23* %r1 to %dt10*
   br label %c44
