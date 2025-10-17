@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/bitdata/bitdata10.lc", line 1
 bitdata Z    = Z  [ 0 | B1 | 0 ]     -- invalid, undetermined sizes
                ^
-Constraint Size(0) + Size(0) + 1 = Size(Z) does not have a unique solution
+Constraint Width of 0 + Width of 0 + 1 = Width of Z does not have a unique solution
 
 ERROR: Aborting after previously reported error
 

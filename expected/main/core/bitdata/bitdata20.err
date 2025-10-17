@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/bitdata/bitdata20.lc", line 1
 bitdata Baz/8 = Baz [ u :: Bit 7 ]      -- invalid, size mismatch
                 ^
-Sum of component widths is 1 less than expected total
+Width of Baz is 1 less than expected
 
 ERROR: Aborting after previously reported error
 

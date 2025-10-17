@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/bitdata/bitdata15.lc", line 1
 bitdata T   = D [ 0 ] | E [ 1 ]      -- invalid, BitSize T = ?
               ^
-Constraint Size(0) = Size(T) does not have a unique solution
+Constraint Width of 0 = Width of D does not have a unique solution
 
 ERROR: Aborting after previously reported error
 

@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/structs/structs15.lc", line 2
 struct Bad2 [ x :: Bad3 ]    -- invalid: mutual recursion
 ^
-Constraint Size(Bad3) = Size(Bad2) does not have a unique solution
+Constraint Size of x = Size of Bad2 does not have a unique solution
 
 ERROR: Aborting after previously reported error
 

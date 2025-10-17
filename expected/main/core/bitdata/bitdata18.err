@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/bitdata/bitdata18.lc", line 1
 bitdata Bar/8 = Bar [ B101 ]            -- invalid, size mismatch
                 ^
-Sum of component widths is 5 less than expected total
+Width of Bar is 5 less than expected
 
 ERROR: Aborting after previously reported error
 

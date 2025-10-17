@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/bitdata/bitdata9.lc", line 2
 bitdata W2 = W2 [ z :: V2 | B1 ]
              ^
-Sum of component widths is 2 more than expected total
+Width of W2 is 2 more than expected
 
 ERROR: Aborting after previously reported error
 
