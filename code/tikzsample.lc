@@ -1,0 +1,6 @@
+
+entrypoint t
+
+t = T1
+
+bitdata T1 = T1 [ B11 | t :: Bit 3 | B110 | y :: Bit 5 | z :: Bit 3 | B001 ]

@@ -1,4 +1,6 @@
 --------------
+exec: typearith      ./milc -m arith.lc
+--------------
 .lc: pointers-bitsize-32   ./milc -m -pco --32
 -- Do we compute the correct BitSize for pointers?
 bitdata ExW/32 = ExW [ val :: Ptr (Stored Word) | 0 ]

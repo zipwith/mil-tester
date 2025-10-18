@@ -1,0 +1,38 @@
+struct Bar / 128
+  [ fourth :: Array 32 (Stored (Bit 32))  {- offset=0 -} ]
+  aligned 4
+
+struct Foo / 188
+  [ first :: Array 7 (Stored (Ix 2147483648))  {- offset=0 -}
+  | second :: Array 8 (Stored (Bit 32))  {- offset=28 -}
+  | third :: Array 32 (Stored (Bit 32))  {- offset=60 -} ]
+  aligned 12
+
+-----------------------------------------
+-- not recursive
+k3 :: {} [Ref Bar] ->> [Bit 32]
+k3{} t0 = return 4194304
+
+-----------------------------------------
+-- not recursive
+s1 :: [Ref Bar] ->> [Bit 32]
+s1 <-
+  k3{}
+
+-----------------------------------------
+-- not recursive
+k4 :: {} [Ref Foo] ->> [[Ref Bar] ->> [Bit 32]]
+k4{} t0 = return s1
+
+-----------------------------------------
+-- not recursive
+entrypoint main :: [Ref Foo] ->> [[Ref Bar] ->> [Bit 32]]
+main <-
+  k4{}
+
+-----------------------------------------
+-- not recursive
+export external nop :: [Ix 45] ->> [[Ix 12] ->> [Ix 540]]
+
+-----------------------------------------
+-- Entrypoints: main nop

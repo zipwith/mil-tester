@@ -1,0 +1,47 @@
+require "prelude.lc"
+
+---- External implemented by a natural number literal:
+
+entrypoint vram
+external vram = 0xb8000 :: Ref (Stored Word)
+
+---- External implemented by a value exported from an earlier file:
+
+external eqRef = eq :: Ref a -> Ref a -> Bool
+
+entrypoint er8  :: Ref (Stored (Bit 8))  -> Ref (Stored (Bit 8))  -> Bool
+er8 = eqRef
+
+entrypoint er16 :: Ref (Stored (Bit 16)) -> Ref (Stored (Bit 16)) -> Bool
+er16 = eqRef
+
+----
+
+struct CTE /16 [ a :: Stored (Bit 64) | b :: Stored (Bit 64) ] aligned 16
+
+bitdata CP/32
+
+entrypoint lookupCP, radixCP
+external lookupCP = imp_lookupCP :: CP -> Word -> Ref CTE
+external radixCP  = imp_radixCP  :: CP -> Ix 32
+
+export imp_lookupCP  :: Word -> Word -> Word
+imp_lookupCP cp index = let radix  = cp     `and`  31
+                            offset = (index `lshr` (32 `sub` radix)) `mul` 16
+                        in (cp `and` not 31) `add` offset
+
+bitdata ImpCP /32 = ImpCP [ ptr :: Bit 27 | radix :: Ix 32 ]
+
+export imp_radixCP :: ImpCP -> Ix 32
+imp_radixCP x       = x.radix
+
+bitdata Cursor /64
+entrypoint next
+external next = nextImp :: Cursor -> Maybe (Pair (Ref CTE) Cursor)
+
+-- export nextImp :: Bit 64 -> Maybe (Pair Word (Bit 64))
+-- nextImp = nextImpGen Nothing Just
+
+export nextImp :: Bit 64 -> Maybe (Pair Word (Bit 64))
+nextImp v = Nothing
+

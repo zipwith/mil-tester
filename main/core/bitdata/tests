@@ -1,4 +1,7 @@
 ----------
+exec: tikzsample   ./milc -z tikzsample.lc
+
+----------
 .lc:  bitdata1    ./milc -pcoso -m --32
 
 bitdata Bool    = False [B0] | True [B1] -- the "real" Bool definition

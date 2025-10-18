@@ -166,3 +166,5 @@ del1 <- return '\DEL'
 del2 <- return '\127'
 
 ------------
+exec: cursorex   ./milc -m cursorex.lc
+------------

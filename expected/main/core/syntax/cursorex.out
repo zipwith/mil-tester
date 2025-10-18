@@ -1,0 +1,183 @@
+bitdata Bool /1
+  = False [ B0 ]
+    -- predFalse(x :: Bit 1) = x == 0x0
+  | True [ B1 ]
+    -- predTrue(x :: Bit 1) = x == 0x1
+
+-- bit pattern:
+--  _
+
+bitdata CP /32
+
+-- bit pattern: (restricted)
+--  ________________________________
+
+struct CTE / 16
+  [ a :: Stored (Bit 64)  {- offset=0 -}
+  | b :: Stored (Bit 64)  {- offset=8 -} ]
+  aligned 16
+
+bitdata Cursor /64
+
+-- bit pattern: (restricted)
+--  ________________________________________________________________
+
+bitdata ImpCP /32
+  = ImpCP [ ptr :: Bit 27 | radix :: Ix 32 ]
+    -- predImpCP(x :: Bit 32) = true
+
+-- bit pattern:
+--  ________________________________
+
+data Maybe (a :: *)
+  = Nothing
+  | Just a
+
+data Pair (a :: *) (b :: *)
+  = Pair a b
+
+-----------------------------------------
+-- not recursive
+Nothing :: forall (a :: *). Maybe a
+Nothing <-
+  Nothing()
+
+-----------------------------------------
+-- not recursive
+k56 :: {} [Bit 64] ->> [Maybe (Pair (Bit 32) (Bit 64))]
+k56{} t0 = return Nothing
+
+-----------------------------------------
+-- not recursive
+nextImp :: [Bit 64] ->> [Maybe (Pair (Bit 32) (Bit 64))]
+nextImp <-
+  k56{}
+
+-----------------------------------------
+-- not recursive
+export external next = nextImp :: [Cursor] ->> [Maybe (Pair (Ref CTE) Cursor)]
+
+-----------------------------------------
+-- not recursive
+b88 :: [ImpCP] >>= [Ix 32]
+b88[t0] =
+  t1 <- ImpCP 0 t0
+  ImpCP.ImpCP 1 t1
+
+-----------------------------------------
+-- not recursive
+k55 :: {} [ImpCP] ->> [Ix 32]
+k55{} t0 = b88[t0]
+
+-----------------------------------------
+-- not recursive
+imp_radixCP :: [ImpCP] ->> [Ix 32]
+imp_radixCP <-
+  k55{}
+
+-----------------------------------------
+-- not recursive
+export external radixCP = imp_radixCP :: [CP] ->> [Ix 32]
+
+-----------------------------------------
+-- not recursive
+b85 :: [Bit 32, Bit 32] >>= [Bit 32]
+b85[t0, t1] =
+  t2 <- and((t1, 31))
+  t3 <- sub((32, t2))
+  t4 <- lshr((t0, t3))
+  t5 <- shl((t4, 4))
+  t6 <- and((t1, -32))
+  add((t6, t5))
+
+-----------------------------------------
+-- not recursive
+k53 :: {Bit 32} [Bit 32] ->> [Bit 32]
+k53{t0} t1 = b85[t1, t0]
+
+-----------------------------------------
+-- not recursive
+k54 :: {} [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
+k54{} t0 = k53{t0}
+
+-----------------------------------------
+-- not recursive
+imp_lookupCP :: [Bit 32] ->> [[Bit 32] ->> [Bit 32]]
+imp_lookupCP <-
+  k54{}
+
+-----------------------------------------
+-- not recursive
+export external lookupCP = imp_lookupCP :: [CP] ->> [[Bit 32] ->> [Ref CTE]]
+
+-----------------------------------------
+-- not recursive
+entrypoint false :: Bool
+false <-
+  False()
+
+-----------------------------------------
+-- not recursive
+entrypoint bfalse :: [] >>= [Bool]
+bfalse[] =
+  return false
+
+-----------------------------------------
+-- not recursive
+entrypoint true :: Bool
+true <-
+  True()
+
+-----------------------------------------
+-- not recursive
+entrypoint btrue :: [] >>= [Bool]
+btrue[] =
+  return true
+
+-----------------------------------------
+-- not recursive
+b42 :: [Bit 32, Bit 32] >>= [Bool]
+b42[t0, t1] =
+  t2 <- primEq((t0, t1))
+  if t2
+    then btrue[]
+    else bfalse[]
+
+-----------------------------------------
+-- not recursive
+k27 :: {Bit 32} [Bit 32] ->> [Bool]
+k27{t0} t1 = b42[t0, t1]
+
+-----------------------------------------
+-- not recursive
+k28 :: {} [Bit 32] ->> [[Bit 32] ->> [Bool]]
+k28{} t0 = k27{t0}
+
+-----------------------------------------
+-- not recursive
+entrypoint eq :: [Bit 32] ->> [[Bit 32] ->> [Bool]]
+eq <-
+  k28{}
+
+-----------------------------------------
+-- not recursive
+external eqRef = eq :: forall (a :: area). [Ref a] ->> [[Ref a] ->> [Bool]]
+
+-----------------------------------------
+-- not recursive
+entrypoint er16 :: [Ref (Stored (Bit 16))] ->> [[Ref (Stored (Bit 16))] ->> [Bool]]
+er16 <-
+  return eqRef
+
+-----------------------------------------
+-- not recursive
+entrypoint er8 :: [Ref (Stored (Bit 8))] ->> [[Ref (Stored (Bit 8))] ->> [Bool]]
+er8 <-
+  return eqRef
+
+-----------------------------------------
+-- not recursive
+export external vram = 753664 :: Ref (Stored (Bit 32))
+
+-----------------------------------------
+-- Entrypoints: next radixCP lookupCP er16 er8 vram

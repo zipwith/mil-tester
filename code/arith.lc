@@ -1,0 +1,20 @@
+
+type Seven = 4 + 3
+type Eight = Seven + 1
+
+type MyIx = Ix (2 ^ (WordBits-1))
+
+struct Foo / (4 * ((1 + WordBits) + (2*Seven)))
+   [ first  :: Array Seven         (Stored MyIx)
+   | second :: Array (Seven + 1)   (Stored Word)
+   | third  :: Array WordBits      (Stored Word) ]
+   aligned 2*(2*3)
+
+struct Bar [ fourth :: Array (256/(32>>2)) (Stored Word) ]
+
+external nop :: Ix 45 -> Ix 12 -> Ix (45 * 12)
+
+entrypoint nop
+
+entrypoint main :: Ref Foo -> Ref Bar -> Word
+main a b = 4M

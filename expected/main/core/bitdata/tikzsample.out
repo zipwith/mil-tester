@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usepackage{fancyvrb,newverbs}
+
+% General formatting for bitdata diagrams:
+\definecolor{bitdatacolor}{HTML}{E0F0E0}
+\newenvironment{bitdatapicture}%
+  {\begin{center}\begin{tikzpicture}[scale=0.1,>=stealth,rectangle,minimum size=0.5cm]}%
+  {\end{tikzpicture}\end{center}}
+
+% Select where type labels appear:
+\def\typelabelAbove#1#2{#1}
+\def\typelabelBeside#1#2{#2}
+\def\typelabelNone#1#2{}
+\let\typelabel\typelabelAbove % default position of type labels
+\let\shorttypelabel\typelabelBeside % default position of label for short types
+
+% Select where field labels appear:
+\def\fieldlabelUnder#1#2#3{#1}
+\def\fieldlabelInside#1#2#3{#2}
+\def\fieldlabelOver#1#2#3{#3}
+\def\fieldlabelNone#1#2#3{}
+\let\fieldlabel\fieldlabelUnder % default position of field labels
+\let\shortfieldlabel\fieldlabelOver % default position of label for short fields
+
+% Formatting of width annotations:
+\def\widthSlash#1{\Verb"/#1"}
+\def\widthParen#1{\Verb"\,(#1)"}
+\def\typewidth#1{\ifnum#1>6\relax{\widthSlash{#1}}\fi}% #1=typewidth, modify to show fieldwidths
+\def\fieldwidth#1{\ifnum#1>4\relax{\widthSlash{#1}}\fi}% #1=fieldwidth, modify to show fieldwidths
+
+\begin{document}
+\section{Bitdata Type T1}
+\begin{bitdatapicture}
+  \typelabel
+    {\node[anchor=west] at (0,8)  {\Verb"T1"\typewidth{19}\strut};}
+    {\node[anchor=east] at (-2,3) {\Verb"T1"\typewidth{19}\strut};}
+  \draw[fill=bitdatacolor](0,0) rectangle (57,6);
+  % ticks for each bit
+  \foreach\x in {3, 6,...,54}
+     \draw(\x,0) -- +(0,1.5);
+  \draw(6,0) -- +(0,6);
+  \node at (4.5,3) {\Verb"1"\strut};
+  \node at (1.5,3) {\Verb"1"\strut};
+  \shortfieldlabel
+    {\draw (6,-3) -- +(0,2);
+     \draw (15,-3) -- +(0,2);
+     \draw[<->](6,-2)--(15,-2);
+     \node at (10.5,-5) {\Verb"t"\fieldwidth{3}\strut};}
+    {\node at (10.5,3) {\Verb"t"\fieldwidth{3}\strut};}
+    {\draw(10.5,6) -- ++(0,2) -- ++ (0,-2) node[anchor=south west, rotate=45] {\Verb"t"\fieldwidth{3}\strut};}
+  \draw(15,0) -- +(0,6);
+  \draw(24,0) -- +(0,6);
+  \node at (22.5,3) {\Verb"0"\strut};
+  \node at (19.5,3) {\Verb"1"\strut};
+  \node at (16.5,3) {\Verb"1"\strut};
+  \fieldlabel
+    {\draw (24,-3) -- +(0,2);
+     \draw (39,-3) -- +(0,2);
+     \draw[<->](24,-2)--(39,-2);
+     \node at (31.5,-5) {\Verb"y"\fieldwidth{5}\strut};}
+    {\node at (31.5,3) {\Verb"y"\fieldwidth{5}\strut};}
+    {\draw(31.5,6) -- ++(0,2) -- ++ (0,-2) node[anchor=south west, rotate=45] {\Verb"y"\fieldwidth{5}\strut};}
+  \draw(39,0) -- +(0,6);
+  \shortfieldlabel
+    {\draw (39,-3) -- +(0,2);
+     \draw (48,-3) -- +(0,2);
+     \draw[<->](39,-2)--(48,-2);
+     \node at (43.5,-5) {\Verb"z"\fieldwidth{3}\strut};}
+    {\node at (43.5,3) {\Verb"z"\fieldwidth{3}\strut};}
+    {\draw(43.5,6) -- ++(0,2) -- ++ (0,-2) node[anchor=south west, rotate=45] {\Verb"z"\fieldwidth{3}\strut};}
+  \draw(48,0) -- +(0,6);
+  \node at (55.5,3) {\Verb"1"\strut};
+  \node at (52.5,3) {\Verb"0"\strut};
+  \node at (49.5,3) {\Verb"0"\strut};
+\end{bitdatapicture}
+
+\end{document}
