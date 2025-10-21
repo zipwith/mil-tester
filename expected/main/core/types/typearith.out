@@ -3,7 +3,7 @@ struct Bar / 128
   aligned 4
 
 struct Foo / 188
-  [ first :: Array 7 (Stored (Ix 2147483648))  {- offset=0 -}
+  [ first :: Array 7 (Stored (Ix 2G))  {- offset=0 -}
   | second :: Array 8 (Stored (Bit 32))  {- offset=28 -}
   | third :: Array 32 (Stored (Bit 32))  {- offset=60 -} ]
   aligned 12

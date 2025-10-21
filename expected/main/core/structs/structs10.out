@@ -1,16 +1,16 @@
 struct PageTable / 4096
-  [ ptes :: Array 1024 (Stored (Bit 32))  {- offset=0 -} ]
+  [ ptes :: Array 1K (Stored (Bit 32))  {- offset=0 -} ]
   aligned 4
 
 struct PageTable12 / 4096
-  [ ptes :: Array 1024 (Stored (Bit 32))  {- offset=0 -} ]
+  [ ptes :: Array 1K (Stored (Bit 32))  {- offset=0 -} ]
   aligned 12
 
 struct PageTable1K / 4096
-  [ ptes :: Array 1024 (Stored (Bit 32))  {- offset=0 -} ]
+  [ ptes :: Array 1K (Stored (Bit 32))  {- offset=0 -} ]
   aligned 1024
 
 struct PageTable4K / 4096
-  [ ptes :: Array 1024 (Stored (Bit 32))  {- offset=0 -} ]
+  [ ptes :: Array 1K (Stored (Bit 32))  {- offset=0 -} ]
   aligned 4096
 
