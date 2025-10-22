@@ -1,0 +1,10 @@
+ERROR: "actual/main/core/fixity/infix0-missing-id.lc", line 2
+infix 3
+^
+Missing identifier list (unexpected semicolon, ";")
+
+ERROR: "actual/main/core/fixity/infix0-missing-id.lc", line 5
+Missing identifier list (unexpected semicolon, ";")
+
+ERROR: Aborting after 2 previously reported errors
+

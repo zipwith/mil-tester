@@ -1,0 +1,46 @@
+------------
+.lc: infix0-missing-id   ./milc -m -pco
+infix 4
+infix 3
+
+------------
+.lc: infix0-missing-comma  ./milc -m -pco
+infix 4 f g h
+
+------------
+.lc: infix0-out-of-range   ./milc -m -pco
+infix 40 f
+
+------------
+.lc: infix0-out-of-range-extreme   ./milc -m -pco
+infix 400000000000000000000000 f
+
+------------
+.lc: infix0-not-bound  ./milc -m -pco
+infix 4 f
+
+------------
+.lc: infix1  ./milc -m -pco
+require "core.llc"
+entrypoint test
+infix 4 sub
+sub x y = x - y
+test = 1 `sub` 1 `sub` 1
+
+------------
+.lc: infix1l  ./milc -m -pco
+require "core.llc"
+entrypoint test
+infix 4 sub
+sub x y = x - y
+test = 1 `sub` 1 `sub` 1
+
+------------
+.lc: infix1r  ./milc -m -pco
+require "core.llc"
+entrypoint test
+infixr 4 sub
+sub x y = x - y
+test = 1 `sub` 1 `sub` 1
+
+------------

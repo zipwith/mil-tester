@@ -5,3 +5,4 @@ tests: structs
 tests: areas
 tests: prims
 tests: case
+tests: fixity

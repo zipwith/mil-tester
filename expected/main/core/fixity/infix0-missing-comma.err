@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/fixity/infix0-missing-comma.lc", line 1
+infix 4 f g h
+          ^
+Trailing token(s) (identifier "g") at end of input
+
+ERROR: Aborting after previously reported error
+

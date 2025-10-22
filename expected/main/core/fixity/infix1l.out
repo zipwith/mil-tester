@@ -1,0 +1,21 @@
+-----------------------------------------
+-- not recursive
+external - {primBitMinus n} :: forall (n :: nat). [Bit n] ->> [[Bit n] ->> [Bit n]]
+
+-----------------------------------------
+-- not recursive
+b97 :: [] >>= [Bit 32]
+b97[] =
+  t0 <- - @ 1
+  t1 <- t0 @ 1
+  t2 <- - @ 1
+  t2 @ t1
+
+-----------------------------------------
+-- not recursive
+entrypoint test :: Bit 32
+test <-
+  b97[]
+
+-----------------------------------------
+-- Entrypoints: test

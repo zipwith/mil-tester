@@ -1,0 +1,7 @@
+ERROR: "actual/main/core/fixity/infix0-out-of-range.lc", line 1
+infix 40 f
+      ^
+precedence value is out of range
+
+ERROR: Aborting after previously reported error
+
