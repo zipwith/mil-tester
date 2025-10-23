@@ -1,0 +1,13 @@
+require "core.llc"
+
+entrypoint swap, rotate, done, excess
+
+data Tuple2 a b = Tuple2 a b
+data Tuple9 a b c d e f g h i = Tuple9 a b c d e f g h i
+
+external swap   :: (a,b) -> (b,a)
+external rotate :: (a,b,c) -> (b,c,a)
+external done   :: Proc ()
+external excess :: (a,b,c,d,e,f,g,h,i) -> (i,h,g,f,e,d,c,b,a)
+
+

@@ -1,0 +1,30 @@
+data Tuple2 (a :: *) (b :: *)
+  = Tuple2 a b
+
+data Tuple3 (a :: *) (b :: *) (c :: *)
+  = Tuple3 a b c
+
+data Tuple9 (a :: *) (b :: *) (c :: *) (d :: *) (e :: *) (f :: *) (g :: *) (h :: *) (i :: *)
+  = Tuple9 a b c d e f g h i
+
+data Unit
+  = Unit
+
+-----------------------------------------
+-- not recursive
+export external excess :: forall (a :: *) (b :: *) (c :: *) (d :: *) (e :: *) (f :: *) (g :: *) (h :: *) (i :: *). [Tuple9 a b c d e f g h i] ->> [Tuple9 i h g f e d c b a]
+
+-----------------------------------------
+-- not recursive
+export external done :: [] ->> [Unit]
+
+-----------------------------------------
+-- not recursive
+export external rotate :: forall (a :: *) (b :: *) (c :: *). [Tuple3 a b c] ->> [Tuple3 b c a]
+
+-----------------------------------------
+-- not recursive
+export external swap :: forall (a :: *) (b :: *). [Tuple2 a b] ->> [Tuple2 b a]
+
+-----------------------------------------
+-- Entrypoints: excess done rotate swap
