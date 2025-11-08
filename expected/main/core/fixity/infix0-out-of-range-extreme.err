@@ -1,7 +1,7 @@
 ERROR: "actual/main/core/fixity/infix0-out-of-range-extreme.lc", line 1
 infix 400000000000000000000000 f
       ^
-precedence value is out of range
+Literal is too large (limit is 2147483647)
 
 ERROR: Aborting after previously reported error
 
